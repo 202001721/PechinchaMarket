@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PechinchaMarket")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bb659053db75474635dee25bfe83913ca35634e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PechinchaMarket")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PechinchaMarket")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
