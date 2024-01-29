@@ -1,0 +1,61 @@
+﻿@*
+    Pagina de Suporte de Autenticação
+*@
+@{
+    ViewData["Title"] = "Suporte de Autenticação";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/AuthenticationSupport.css"></link>
+<script type="text/javascript" src="~/js/AuthenticationSupport.js"></script>
+
+
+<div class="header-support">
+    <div class="icon">
+        <span class="icon-logo"></span>
+        <div class="icon-text">Pechincha Market</div>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="header-text">Ajuda Rápida</div>
+</div>
+<div class="navbar-support">
+    <ul id="menu">
+        <li onclick="toggleSection(0, this)">Login</li>
+        <li onclick="toggleSection(1, this)">Registo do cliente</li>
+        <li onclick="toggleSection(2, this)">Registo do comerciante</li>
+    </ul>
+</div>
+<div class="support-container">
+    <!--Login-->
+    <div class="section-content" id="section0">
+        <div class="content-container">
+            <h4>1. Email</h4>
+            <div>Para realizar o login, será necessário seguir alguns passos. Em primeiro lugar, insira cuidadosamente o seu endereço de e-mail no campo específico, assegurando-se de fornecer as informações corretas para garantir um acesso seguro e eficiente à sua conta.</div>
+            <ul>
+                <li>O email deve estar associado a um conta já criada na nossa plantaforma</li>
+                <li>O email deve conter um domínio válido (exemplo: gmail.com)</li>
+                <li>O email deve incluir ‘’ (exemplo: )</li>
+            </ul>
+            <img></img>
+        </div>
+
+        <div class="content-container">
+            <h4>2. Password</h4>
+            <div>Após inserir corretamente o seu endereço de e-mail, prossiga fornecendo a senha associada à sua conta. Certifique-se de digitar a senha com precisão, pois essa informação é essencial para garantir a segurança e a validação adequada do acesso à sua conta.</div>
+            <ul>
+                <li>A senha fornecida deve coincidir com aquela que foi estabelecida durante a criação da conta associada ao e-mail digitado anteriormente.</li>
+            </ul>
+            <img></img>
+            <div>Por fim clique no botão para avançar para a proxima fase.</div>
+        </div>
+    </div>
+
+    <!--Registo do cliente-->
+    <div class="content-container" id="section1">
+        Registro
+    </div>
+
+    <!--Registo do comerciante-->
+    <div class="content-container" id="section2">
+        Comerciante
+    </div>
+</div>
