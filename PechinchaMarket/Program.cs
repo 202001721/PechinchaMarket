@@ -1,4 +1,12 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PechinchaMarket.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DBPechinchaMarketContextConnection") ?? throw new InvalidOperationException("Connection string 'DBPechinchaMarketContextConnection' not found.");
+
+builder.Services.AddDbContext<DBPechinchaMarketContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<PechinchaMarketUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBPechinchaMarketContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -24,4 +32,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapRazorPages();
 app.Run();
