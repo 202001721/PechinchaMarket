@@ -1,5 +1,6 @@
 ﻿@page
 @using PechinchaMarket.Areas.Identity.Pages.Account
+@using PechinchaMarket.Models
 @model RegisterModel
 @{
     ViewData["Title"] = "Registar";
@@ -26,6 +27,11 @@
                 <label asp-for="Input.UserName">Nome</label>
                 <span asp-validation-for="Input.UserName" class="text-danger"></span>
             </div>
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Localizacao" class="form-control" autocomplete="localizacao" aria-required="true" placeholder="XXXXXXXXXXX" />
+                        <label asp-for="Input.Localizacao">Localização</label>
+                        <span asp-validation-for="Input.Localizacao" class="text-danger"></span>
+                    </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                 <label asp-for="Input.Password">Password</label>
@@ -36,6 +42,13 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+                    @foreach (Categoria categoria in Enum.GetValues(typeof(Categoria)))
+                    {
+                        <div>
+                            <input type="checkbox" name="categorias" value="@categoria" />
+                            <label>@categoria.ToString()</label>
+                        </div>
+                    }
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>

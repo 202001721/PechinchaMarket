@@ -1,8 +1,12 @@
-﻿namespace PechinchaMarket.Models
+﻿using PechinchaMarket.Areas.Identity.Data;
+
+namespace PechinchaMarket.Models
 {
-    public class Cliente : UtilizadorPMK
+    public class Cliente : PechinchaMarketUser
     {
-        public List<Categoria> categoria { get; set; }
+        public List<Categoria> preferecias { get; set; }
         public string localizacao { get; set; }
+
+
 }
 }

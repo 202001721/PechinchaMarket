@@ -82,11 +82,20 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            // Nível 3 - adicionado
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Nome")]
             public string UserName { get; set; }
+
+         
+            [DataType(DataType.Text)]
+            [Display(Name = "localizacao")]
+            public string Localizacao { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "preferencias")]
+            public List<Categoria> Preferencias{ get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -122,7 +131,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-               // user.CC = Input.UserName; 
+                user.preferecias = Input.Preferencias; 
+                user.localizacao = Input.Localizacao;
 
                 await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -166,16 +176,16 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private PechinchaMarketUser CreateUser()
+        private Cliente CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<PechinchaMarketUser>();
+                return Activator.CreateInstance<Cliente>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(PechinchaMarketUser)}'. " +
-                    $"Ensure that '{nameof(PechinchaMarketUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(Cliente)}'. " +
+                    $"Ensure that '{nameof(Cliente)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }
