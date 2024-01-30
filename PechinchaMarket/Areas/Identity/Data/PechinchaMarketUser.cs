@@ -11,15 +11,3 @@ namespace PechinchaMarket.Areas.Identity.Data;
 public class PechinchaMarketUser : IdentityUser
 {
 }
-
-public class Cliente : PechinchaMarketUser
-{
-    public List<Categoria> categoria { get; set; }
-    public string localizacao { get; set; }
-}
-
-public class Comerciante : PechinchaMarketUser
-{
-    public int contato { get; set; }
-    public byte[] logo { get; set; }
-}

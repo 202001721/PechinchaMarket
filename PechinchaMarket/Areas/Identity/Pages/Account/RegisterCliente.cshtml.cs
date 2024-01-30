@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -19,31 +20,36 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using PechinchaMarket.Areas.Identity.Data;
+using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
     public class RegisterClienteModel : PageModel
     {
-        private readonly SignInManager<Cliente> _signInManager;
-        private readonly UserManager<Cliente> _userManager;
-        private readonly IUserStore<Cliente> _userStore;
-        private readonly IUserEmailStore<Cliente> _emailStore;
+        private readonly SignInManager<PechinchaMarketUser> _signInManager;
+        private readonly UserManager<PechinchaMarketUser> _userManager;
+        private readonly IUserStore<PechinchaMarketUser> _userStore;
+        private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterClienteModel> _logger;
-        private readonly IEmailSender _emailSender;
+        private readonly IEmailSender _emailSender; 
+        private readonly DBPechinchaMarketContext _context;
+
 
         public RegisterClienteModel(
-            UserManager<Cliente> userManager,
-            IUserStore<Cliente> userStore,
-            SignInManager<Cliente> signInManager,
+            UserManager<PechinchaMarketUser> userManager,
+            IUserStore<PechinchaMarketUser> userStore,
+            SignInManager<PechinchaMarketUser> signInManager,
             ILogger<RegisterClienteModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            DBPechinchaMarketContext context)
         {
             _userManager = userManager;
             _userStore = userStore;
-            _emailStore = GetEmailStore();
+            _emailStore = (IUserEmailStore<PechinchaMarketUser>)GetEmailStore(); 
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -80,6 +86,21 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Nome")]
+            public string UserName { get; set; }
+
+
+            [DataType(DataType.Text)]
+            [Display(Name = "localizacao")]
+            public string Localizacao { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "preferencias")]
+            public List<Categoria> Preferencias { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -115,7 +136,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
@@ -124,6 +145,15 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
+                    Cliente cliente = new Cliente()
+                    {
+                        UserId = userId,
+                        Preferecias = Input.Preferencias,
+                        Localizacao = Input.Localizacao,
+
+                    };
+                    _context.Add(cliente);
+                    await _context.SaveChangesAsync();
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -155,27 +185,27 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private Cliente CreateUser()
+        private PechinchaMarketUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<Cliente>();
+                return Activator.CreateInstance<PechinchaMarketUser>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(Cliente)}'. " +
-                    $"Ensure that '{nameof(Cliente)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(PechinchaMarketUser)}'. " +
+                    $"Ensure that '{nameof(PechinchaMarketUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }
 
-        private IUserEmailStore<Cliente> GetEmailStore()
+        private IUserEmailStore<PechinchaMarketUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<Cliente>)_userStore;
+            return (IUserEmailStore<PechinchaMarketUser>)_userStore;
         }
     }
 }

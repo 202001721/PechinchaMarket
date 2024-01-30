@@ -5,6 +5,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -17,8 +19,11 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using PechinchaMarket.Areas.Identity.Data;
+using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
@@ -30,13 +35,18 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly DBPechinchaMarketContext _context;
+        private readonly IWebHostEnvironment _environment;
+
 
         public RegisterComercianteModel(
             UserManager<PechinchaMarketUser> userManager,
             IUserStore<PechinchaMarketUser> userStore,
             SignInManager<PechinchaMarketUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            DBPechinchaMarketContext context,
+            IWebHostEnvironment environment)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +54,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
+            _environment = environment;
         }
 
         /// <summary>
@@ -65,6 +77,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         /// </summary>
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
+        
+
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -80,6 +94,22 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Nome")]
+            public string UserName { get; set; }
+
+
+            [Required]
+            [DataType(DataType.Upload)]
+            [Display(Name = "Imagem")]
+            public IFormFile Image { get; set; }
+
+            [Required]
+            [DataType(DataType.Upload)]
+            [Display(Name = "Documento")]
+            public IFormFile Document { get; set; }
+            
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -100,6 +130,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
+       
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -115,15 +146,42 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
+
+                    long lengthImage = Input.Image.Length;
+                    long lengthDoc = Input.Document.Length;
+
+                    using var fileStreamImage = Input.Image.OpenReadStream();
+                    using var fileStreamDoc = Input.Document.OpenReadStream();
+
+                    byte[] bytesImage = new byte[lengthImage];
+                    byte[] bytesDoc = new byte[lengthDoc];
+
+                    fileStreamImage.Read(bytesImage, 0, (int)Input.Image.Length);
+                    fileStreamDoc.Read(bytesDoc, 0, (int)Input.Document.Length);
+
+                    Comerciante comerciante = new Comerciante()
+                    {
+                        UserId = userId,
+                        logo = bytesImage,
+                        document = bytesDoc,
+
+                    };
+
+                    
+                    
+                    _logger.LogInformation("User created a new account with password.");
+
+                    
+                    _context.Add(comerciante);
+                    await _context.SaveChangesAsync();
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(

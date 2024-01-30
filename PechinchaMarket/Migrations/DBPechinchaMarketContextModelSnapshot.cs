@@ -226,11 +226,9 @@ namespace PechinchaMarket.Migrations
 
             modelBuilder.Entity("PechinchaMarket.Models.Cliente", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Localizacao")
                         .IsRequired()
@@ -247,6 +245,32 @@ namespace PechinchaMarket.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cliente");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.Comerciante", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("contato")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("document")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("logo")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Comerciante");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

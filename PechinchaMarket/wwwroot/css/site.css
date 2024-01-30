@@ -32,6 +32,9 @@ body {
     border: 3px solid white;
     background-color: #ffffff;
     padding: 70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
 }
 
@@ -77,5 +80,10 @@ body {
 .gradianteLaranja {
     background: rgb(255,181,70);
     background: linear-gradient(-110deg, rgba(255,181,70,1) 35%, rgba(255,255,255,1) 100%);
+}
+
+.gradianteAzul {
+    background: rgb(102,209,255);
+    background: linear-gradient(-110deg, rgba(102,209,255) 35%, rgba(255,255,255,1) 100%);
 }
 

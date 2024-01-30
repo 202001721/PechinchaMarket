@@ -54,8 +54,7 @@ namespace PechinchaMarket.Migrations
                 name: "Cliente",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Preferecias = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -63,6 +62,21 @@ namespace PechinchaMarket.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cliente", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Comerciante",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    contato = table.Column<int>(type: "int", nullable: false),
+                    logo = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    document = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comerciante", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -231,6 +245,9 @@ namespace PechinchaMarket.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cliente");
+
+            migrationBuilder.DropTable(
+                name: "Comerciante");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
