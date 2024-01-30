@@ -1,6 +1,7 @@
 ﻿namespace PechinchaMarket.Models
 {
-    public class Utilizador
+    public enum Localizacao
     {
+        
     }
 }

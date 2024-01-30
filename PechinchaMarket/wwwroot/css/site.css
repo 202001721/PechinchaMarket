@@ -18,7 +18,8 @@ html {
 }
 
 body {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+
 }
 
 .image {
@@ -31,6 +32,7 @@ body {
     border: 3px solid white;
     background-color: #ffffff;
     padding: 70px;
+
 }
 
 .center {
@@ -76,3 +78,4 @@ body {
     background: rgb(255,181,70);
     background: linear-gradient(-110deg, rgba(255,181,70,1) 35%, rgba(255,255,255,1) 100%);
 }
+
