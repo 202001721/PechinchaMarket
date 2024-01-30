@@ -32,13 +32,15 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly DBPechinchaMarketContext _context;
 
         public RegisterModel(
             UserManager<PechinchaMarketUser> userManager,
             IUserStore<PechinchaMarketUser> userStore,
             SignInManager<PechinchaMarketUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            DBPechinchaMarketContext context)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -46,6 +48,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -131,8 +134,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-                user.preferecias = Input.Preferencias; 
-                user.localizacao = Input.Localizacao;
+             
 
                 await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -145,6 +147,14 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
+                    Cliente cliente = new Cliente() { 
+                        UserId = userId,
+                        Preferecias = Input.Preferencias,
+                        Localizacao = Input.Localizacao,
+                      
+                };
+                    _context.Add(cliente);
+                    await _context.SaveChangesAsync();
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -152,6 +162,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+
+
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
@@ -176,16 +188,16 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private Cliente CreateUser()
+        private PechinchaMarketUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<Cliente>();
+                return Activator.CreateInstance<PechinchaMarketUser>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(Cliente)}'. " +
-                    $"Ensure that '{nameof(Cliente)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(PechinchaMarketUser)}'. " +
+                    $"Ensure that '{nameof(PechinchaMarketUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }

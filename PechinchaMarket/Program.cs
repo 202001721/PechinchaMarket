@@ -8,11 +8,9 @@ var connectionString = builder.Configuration.GetConnectionString("DBPechinchaMar
 builder.Services.AddDbContext<DBPechinchaMarketContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDefaultIdentity<PechinchaMarketUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBPechinchaMarketContext>();
-// builder.Services.AddIdentityCore<Cliente>().AddEntityFrameworkStores<DBPechinchaMarketContext>();
-builder.Services.AddIdentityCore<Comerciante>().AddEntityFrameworkStores<DBPechinchaMarketContext>();
-builder.Services.AddIdentityCore<Cliente>()
-    .AddEntityFrameworkStores<DBPechinchaMarketContext>()
-    .AddDefaultTokenProviders();
+
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -32,6 +30,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
