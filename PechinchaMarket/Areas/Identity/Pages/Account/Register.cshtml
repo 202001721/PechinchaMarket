@@ -1,0 +1,17 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+
+    <a asp-page="./RegisterCliente" asp-route-returnUrl="@Model.ReturnUrl"> <button id="login-submit" type="" class="botaoLaranja">Cliente</button> </a>
+    <a asp-page="./RegisterComerciante" asp-route-returnUrl="@Model.ReturnUrl"> <button id="login-submit" type="" class="botaoLaranja">Comerciante</button> </a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
