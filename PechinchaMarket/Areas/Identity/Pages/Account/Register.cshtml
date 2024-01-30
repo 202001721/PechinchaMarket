@@ -42,14 +42,8 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-                    @foreach (Categoria categoria in Enum.GetValues(typeof(Categoria)))
-                    {
-                        <div>
-                            <input type="checkbox" name="categorias" value="@categoria" />
-                            <label>@categoria.ToString()</label>
-                        </div>
-                    }
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                   
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
     </div>

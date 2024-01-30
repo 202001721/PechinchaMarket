@@ -54,10 +54,9 @@ namespace PechinchaMarket.Migrations
                 name: "Cliente",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Preferecias = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Preferencias = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

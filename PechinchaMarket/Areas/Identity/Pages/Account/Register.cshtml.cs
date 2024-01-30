@@ -95,10 +95,10 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             [Display(Name = "localizacao")]
             public string Localizacao { get; set; }
 
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "preferencias")]
-            public List<Categoria> Preferencias{ get; set; }
+            
+            /*[DataType(DataType.Text)]
+            [Display(Name = "Preferencias")]
+            public List<Categoria> Preferencias{ get; set; }*/
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -149,12 +149,11 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     var userId = await _userManager.GetUserIdAsync(user);
                     Cliente cliente = new Cliente() { 
                         UserId = userId,
-                        Preferecias = Input.Preferencias,
+                        Preferencias = new List<Categoria>(), //Input.Preferencias,
                         Localizacao = Input.Localizacao,
                       
                 };
-                    _context.Add(cliente);
-                    await _context.SaveChangesAsync();
+                   
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -170,7 +169,10 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
+                        _context.Add(cliente);
+                        await _context.SaveChangesAsync();
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+
                     }
                     else
                     {

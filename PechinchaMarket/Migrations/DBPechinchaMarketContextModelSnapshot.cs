@@ -226,17 +226,15 @@ namespace PechinchaMarket.Migrations
 
             modelBuilder.Entity("PechinchaMarket.Models.Cliente", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Localizacao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Preferecias")
+                    b.Property<string>("Preferencias")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
