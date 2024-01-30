@@ -33,6 +33,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly DBPechinchaMarketContext _context;
+       
 
         public RegisterModel(
             UserManager<PechinchaMarketUser> userManager,
@@ -70,6 +71,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         /// </summary>
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
+        public List<Categoria> SelectedCategories { get; set; }
+
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -95,10 +98,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             [Display(Name = "localizacao")]
             public string Localizacao { get; set; }
 
-            
-            /*[DataType(DataType.Text)]
+
             [Display(Name = "Preferencias")]
-            public List<Categoria> Preferencias{ get; set; }*/
+            public List<Categoria> SelectedCategories { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -134,7 +136,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-             
+                Input.SelectedCategories = Request.Form["categorias"].Select(c => Enum.Parse<Categoria>(c)).ToList();
 
                 await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -149,7 +151,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     var userId = await _userManager.GetUserIdAsync(user);
                     Cliente cliente = new Cliente() { 
                         UserId = userId,
-                        Preferencias = new List<Categoria>(), //Input.Preferencias,
+                        Preferencias = Input.SelectedCategories,
                         Localizacao = Input.Localizacao,
                       
                 };
