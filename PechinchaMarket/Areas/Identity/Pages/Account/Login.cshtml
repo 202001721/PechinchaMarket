@@ -7,7 +7,7 @@
 
 <body class="gradianteLaranja">
 <div class="row">
-    <div class="box">
+    <div class="box center">
        <section>
             <div class="right">
                 <a class="orange" asp-page="./" asp-route-returnUrl="@Model.ReturnUrl">Precisa de ajuda?</a>
@@ -27,12 +27,14 @@
                 <div class="form-floating mb-3">
                         <input asp-for="Input.Password" id="passwordInput" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
                         <label asp-for="Input.Password" class="form-label">Password</label>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" onclick="togglePassword()">Mostrar Senha</button>
-                        </span>
+                            <div class="left">
+                            <span class="input-group-btn left">
+                                <button type="button" class="btn btn-default" onclick="togglePassword()">Mostrar Senha</button>
+                            </span>
+                            </div>
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
-                <div>
+                <div class="left">
                     <br
                     <p>Ainda não tem conta?
                         <a class="orange" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Crie conta aqui</a>
