@@ -234,7 +234,7 @@ namespace PechinchaMarket.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Preferecias")
+                    b.Property<string>("Preferencias")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
