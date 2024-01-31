@@ -43,7 +43,7 @@
                 <div class="right">
                     <br />
                     <br />
-                    <button id="back" type="" class="botaocinza">Back</button>
+                        <button id="back" type="" onclick="goBack()" class="botaocinza">Back</button>
                     <button id="login-submit" type="submit" class="botaoLaranja">Login</button>
                 </div>
             </form>
@@ -64,6 +64,10 @@
             } else {
                 passwordInput.attr("type", "password");
             }
+        }
+
+        function goBack() {
+            window.history.back();
         }
     </script>
 }
