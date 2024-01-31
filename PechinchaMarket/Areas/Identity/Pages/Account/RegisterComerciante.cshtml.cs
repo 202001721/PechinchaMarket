@@ -2,16 +2,10 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.IO.Pipes;
-using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,8 +13,6 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
@@ -101,12 +93,10 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
 
             [Required]
-            [DataType(DataType.Upload)]
             [Display(Name = "Imagem")]
             public IFormFile Image { get; set; }
 
             [Required]
-            [DataType(DataType.Upload)]
             [Display(Name = "Documento")]
             public IFormFile Document { get; set; }
             
@@ -155,33 +145,27 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                     var userId = await _userManager.GetUserIdAsync(user);
 
-                    long lengthImage = Input.Image.Length;
-                    long lengthDoc = Input.Document.Length;
-
-                    using var fileStreamImage = Input.Image.OpenReadStream();
-                    using var fileStreamDoc = Input.Document.OpenReadStream();
-
-                    byte[] bytesImage = new byte[lengthImage];
-                    byte[] bytesDoc = new byte[lengthDoc];
-
-                    fileStreamImage.Read(bytesImage, 0, (int)Input.Image.Length);
-                    fileStreamDoc.Read(bytesDoc, 0, (int)Input.Document.Length);
+                    var memoryStreamImg = new MemoryStream();
+                    var memoryStreamDoc = new MemoryStream();
+                    
+                    await Input.Image.CopyToAsync(memoryStreamImg);
+                    await Input.Document.CopyToAsync(memoryStreamDoc);
 
                     Comerciante comerciante = new Comerciante()
                     {
                         UserId = userId,
-                        logo = bytesImage,
-                        document = bytesDoc,
+                        contato = 123,
+                        logo = memoryStreamImg.ToArray(),
+                        document = memoryStreamDoc.ToArray(),
 
                     };
 
-                    
-                    
-                    _logger.LogInformation("User created a new account with password.");
-
-                    
                     _context.Add(comerciante);
                     await _context.SaveChangesAsync();
+                    
+
+                    _logger.LogInformation("User created a new account with password.");
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(

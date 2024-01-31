@@ -34,15 +34,13 @@
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
                     <div class="form-floating mb-3">
-                    <input type="file" name="image" asp-for="Input.Image" class="form-control" aria-required="true"  />
+                    <input type="file" asp-for="Input.Image" />
                     <label asp-for="Input.Image">Logotipo</label>
-                    <span asp-validation-for="Input.Image" class="text-danger"></span>
 
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="file" name="document" asp-for="Input.Document" class="form-control" aria-required="true"  />
+                    <input type="file" asp-for="Input.Document"/>
                     <label asp-for="Input.Document">Documento de autenticação</label>
-                    <span asp-validation-for="Input.Document" class="text-danger"></span>
 
                 </div>
                 <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
