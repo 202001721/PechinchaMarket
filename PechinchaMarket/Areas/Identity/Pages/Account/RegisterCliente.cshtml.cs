@@ -31,7 +31,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly IUserStore<PechinchaMarketUser> _userStore;
         private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterClienteModel> _logger;
-        private readonly IEmailSender _emailSender; 
+        private readonly IEmailSender _emailSender;
         private readonly DBPechinchaMarketContext _context;
 
 
@@ -45,7 +45,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         {
             _userManager = userManager;
             _userStore = userStore;
-            _emailStore = (IUserEmailStore<PechinchaMarketUser>)GetEmailStore(); 
+            _emailStore = (IUserEmailStore<PechinchaMarketUser>)GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
@@ -70,6 +70,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+
+        public List<Categoria> SelectedCategories { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -96,10 +98,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             [Display(Name = "localizacao")]
             public string Localizacao { get; set; }
 
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "preferencias")]
-            public List<Categoria> Preferencias { get; set; }
+
+            [Display(Name = "Preferencias")]
+            public List<Categoria> SelectedCategories { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -135,6 +136,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                Input.SelectedCategories = Request.Form["categorias"].Select(c => Enum.Parse<Categoria>(c)).ToList();
 
                 await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -142,18 +144,19 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     Cliente cliente = new Cliente()
                     {
                         UserId = userId,
-                        Preferecias = Input.Preferencias,
+                        Preferencias = Input.SelectedCategories,
                         Localizacao = Input.Localizacao,
 
                     };
-                    _context.Add(cliente);
-                    await _context.SaveChangesAsync();
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
@@ -162,12 +165,17 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
+
+
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
+                        _context.Add(cliente);
+                        await _context.SaveChangesAsync();
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+
                     }
                     else
                     {
