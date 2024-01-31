@@ -50,11 +50,6 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             _environment = environment;
         }
 
-        public IActionResult Back()
-        {
-            return new RedirectToPageResult("~/Identity/Account/Register");
-        }
-
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -95,6 +90,10 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "Nome")]
             public string UserName { get; set; }
+
+            [Required]
+            [Display(Name = "Contacto")]
+            public int Contact { get; set; }
 
 
             [Required]
@@ -159,7 +158,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     Comerciante comerciante = new Comerciante()
                     {
                         UserId = userId,
-                        contato = 123,
+                        contato = Input.Contact,
                         logo = memoryStreamImg.ToArray(),
                         document = memoryStreamDoc.ToArray(),
 

@@ -33,14 +33,20 @@
                     <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
-                    <div class="form-floating mb-3">
-                    <input type="file" asp-for="Input.Image" />
-                    <label asp-for="Input.Image">Logotipo</label>
-
-                </div>
                 <div class="form-floating mb-3">
-                    <input type="file" asp-for="Input.Document"/>
+                    <input asp-for="Input.Contact" class="form-control" autocomplete="contacto" aria-required="true" placeholder="xxxxxxxxx" />
+                    <label asp-for="Input.Contact">Contacto</label>
+                    <span asp-validation-for="Input.Contact" class="text-danger"></span>
+                </div>
+                <div class="insert-file">
+
+                    <label asp-for="Input.Image">Logotipo</label>
+                    <input type="file" asp-for="Input.Image" />
+                </div>
+                <div class="insert-file">
+
                     <label asp-for="Input.Document">Documento de autenticação</label>
+                    <input type="file" asp-for="Input.Document"/>
 
                 </div>
                 <div class="buttons" >
