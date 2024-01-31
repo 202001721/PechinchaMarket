@@ -4,6 +4,9 @@
     ViewData["Title"] = "Login";
 }
 
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="497321449047-b76lruov3kqga29lq8u00pes9l7733v9.apps.googleusercontent.com">
+
 
 <body class="gradianteLaranja">
 <div class="row">
@@ -35,9 +38,6 @@
                         <a class="orange" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Crie conta aqui</a>
                     </p>
                 </div>
-                <div>
-
-                </div>
                 <div class="right">
                     <br />
                     <br />
@@ -47,8 +47,47 @@
             </form>
         </section>
     </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h3>Use another service to log in.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                            </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
 </div>
 </body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        // You can use the profile information as needed.
+        // Example: var userId = profile.getId();
+        // Example: var userName = profile.getName();
+    }
+</script>
