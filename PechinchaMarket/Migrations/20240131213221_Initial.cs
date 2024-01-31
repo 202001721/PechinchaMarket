@@ -72,7 +72,8 @@ namespace PechinchaMarket.Migrations
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     contato = table.Column<int>(type: "int", nullable: false),
                     logo = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    document = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    document = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    isApproved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

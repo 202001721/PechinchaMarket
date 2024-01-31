@@ -254,5 +254,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             }
             return (IUserEmailStore<PechinchaMarketUser>)_userStore;
         }
+
+        
     }
 }

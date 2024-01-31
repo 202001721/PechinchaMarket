@@ -264,6 +264,9 @@ namespace PechinchaMarket.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<bool>("isApproved")
+                        .HasColumnType("bit");
+
                     b.Property<byte[]>("logo")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");

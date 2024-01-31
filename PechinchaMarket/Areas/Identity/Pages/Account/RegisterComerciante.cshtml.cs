@@ -163,6 +163,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         contato = Input.Contact,
                         logo = memoryStreamImg.ToArray(),
                         document = memoryStreamDoc.ToArray(),
+                        isApproved = false,
 
                     };
 

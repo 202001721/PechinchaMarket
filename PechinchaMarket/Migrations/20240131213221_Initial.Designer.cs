@@ -12,7 +12,7 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240131192118_Initial")]
+    [Migration("20240131213221_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -266,6 +266,9 @@ namespace PechinchaMarket.Migrations
                     b.Property<byte[]>("document")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("isApproved")
+                        .HasColumnType("bit");
 
                     b.Property<byte[]>("logo")
                         .IsRequired()
