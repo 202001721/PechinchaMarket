@@ -4,6 +4,8 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
@@ -178,7 +180,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    await SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
@@ -199,6 +201,42 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
             // If we got this far, something failed, redisplay form
             return Page();
+        }
+
+        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        {
+
+            //TODO
+            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
+            // message.From = ?
+            // message.Port = ?
+            // message.Host = ?
+            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                message.From = new MailAddress("pechinchamarket@outlook.com");
+                message.To.Add(email);
+                message.Subject = subject;
+                message.IsBodyHtml = true;
+                message.Body = confirmLink;
+
+                smtpClient.Port = 587;
+                smtpClient.Host = "smtp-mail.outlook.com";
+
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); // verificar a extensao que esta usando 
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Send(message);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private PechinchaMarketUser CreateUser()
