@@ -87,3 +87,25 @@ body {
     background: linear-gradient(-110deg, rgba(102,209,255) 35%, rgba(255,255,255,1) 100%);
 }
 
+
+.buttons{
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.cancel {
+    background-color: #f44336;
+    padding: 10px 15px;
+    margin: 0px 0px 0px 10px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: white;
+    text-decoration: none;
+}
+
+.cancel:hover {
+    background-color: red;
+    color: white;
+}

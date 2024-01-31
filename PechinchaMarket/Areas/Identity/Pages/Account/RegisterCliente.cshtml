@@ -48,7 +48,10 @@
                                     <label>@categoria.ToString()</label>
                                 </div>
                             }
+                <div class="buttons">
                     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                    <a class="cancel" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cancelar</a>
+                </div>
                 </form>
         </div>
     </div>
