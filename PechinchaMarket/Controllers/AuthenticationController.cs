@@ -11,8 +11,9 @@ namespace PechinchaMarket.Controllers
             _logger = logger;
         }
 
-        public IActionResult AuthenticationSupport()
+        public IActionResult AuthenticationSupport(int? section)
         {
+            ViewData["Section"] = section ?? 0;
             return View();
         }
     }
