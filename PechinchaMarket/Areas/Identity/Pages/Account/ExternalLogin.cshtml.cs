@@ -20,6 +20,8 @@ using Microsoft.Extensions.Logging;
 using PechinchaMarket.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity.Data;
 using System.Drawing;
+using PechinchaMarket.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
@@ -32,13 +34,15 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
+        private readonly DBPechinchaMarketContext _context;
 
         public ExternalLoginModel(
             SignInManager<PechinchaMarketUser> signInManager,
             UserManager<PechinchaMarketUser> userManager,
             IUserStore<PechinchaMarketUser> userStore,
             ILogger<ExternalLoginModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            DBPechinchaMarketContext context)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -46,6 +50,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             _emailStore = GetEmailStore();
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -132,10 +137,18 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                 returnUrl = returnUrl ?? Url.Content("~/");
                 var _name = info.Principal.Identity.Name;
                 var user = CreateUser();
+                
+                Cliente cliente = new Cliente()
+                {
+                    UserId = user.Id,
+                    Preferencias = new List<Categoria>(),
+                    Localizacao = "",
+
+                };
 
                 _logger.LogInformation("O Nome do Utilizador é {Name}.", _name);
                 var _email = info.Principal.FindFirstValue(ClaimTypes.Email);
-
+    
                 await _userStore.SetUserNameAsync(user, _name.Replace(" ", "_"), CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, _email, CancellationToken.None);
 
@@ -145,6 +158,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     resultado = await _userManager.AddLoginAsync(user, info);
                     if (resultado.Succeeded)
                     {
+                        _context.Add(cliente);
+                        await _context.SaveChangesAsync();
+
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
                         var userId = await _userManager.GetUserIdAsync(user);
