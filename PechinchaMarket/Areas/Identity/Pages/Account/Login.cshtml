@@ -10,7 +10,7 @@
 
 <body class="gradianteLaranja">
 <div class="row">
-    <div class="box">
+    <div class="box center">
        <section>
             <div class="right">
                     <a class="orange" asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="0">Precisa de ajuda?</a>
@@ -28,15 +28,21 @@
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        <input asp-for="Input.Password" id="passwordInput" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                        <label asp-for="Input.Password" class="form-label">Password</label>
+                            <div class="left">
+                            <span class="input-group-btn left">
+                                <button type="button" class="btn btn-default" onclick="togglePassword()">Mostrar Senha</button>
+                            </span>
+                            </div>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div>
                     Ainda não tem conta?<a class="orange" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Crie conta aqui</a>
                 </div>
                 <div class="right margin-button-login-submit">
-                    <button id="back" type="" class="botaocinza">Back</button>
+                    <button id="back" type="" onclick="goBack()" class="botaocinza">Back</button>
+
                     <button id="login-submit" type="submit" class="botaoLaranja">Login</button>
                 </div>
             </form>
@@ -77,4 +83,21 @@
 </body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        function togglePassword() {
+            var passwordInput = $("#passwordInput");
+            var passwordToggleIcon = $("#passwordToggleIcon");
+            var passwordFieldType = passwordInput.attr("type");
+
+            if (passwordFieldType === "password") {
+                passwordInput.attr("type", "text");
+            } else {
+                passwordInput.attr("type", "password");
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 }
