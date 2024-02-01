@@ -10,7 +10,10 @@
 <body class="gradianteLaranja">
 <div class="box2">
     <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div class="right">
+                <a class="orange" asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="1">Precisa de ajuda?</a>
+            </div>
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>@ViewData["Title"]</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>

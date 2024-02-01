@@ -9,6 +9,9 @@
 <body class="gradianteAzul">
     <div class="box2">
         <div class="col-md-4">
+            <div class="right">
+                <a class="orange" asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="2">Precisa de ajuda?</a>
+            </div>
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
                 <h2>@ViewData["Title"]</h2>
                 <hr />
