@@ -22,6 +22,8 @@ using Microsoft.AspNetCore.Identity.Data;
 using System.Drawing;
 using PechinchaMarket.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
@@ -172,7 +174,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                                 values: new { area = "Identity", userId = userId, code = code },
                                 protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(_email, "Confirm your email",
+                        await SendEmailAsync(_email, "Confirm your email",
                                 $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                             // If account confirmation is required, we need to show the link if we don't have a real email sender
@@ -233,7 +235,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(_email, "Confirm your email",
+                        await SendEmailAsync(_email, "Confirm your email",
                             $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
@@ -255,6 +257,42 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             ProviderDisplayName = info.ProviderDisplayName;
             ReturnUrl = returnUrl;
             return Page();
+        }
+
+        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        {
+
+            //TODO
+            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
+            // message.From = ?
+            // message.Port = ?
+            // message.Host = ?
+            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                message.From = new MailAddress("pechinchamarket@outlook.com");
+                message.To.Add(email);
+                message.Subject = subject;
+                message.IsBodyHtml = true;
+                message.Body = confirmLink;
+
+                smtpClient.Port = 587;
+                smtpClient.Host = "smtp-mail.outlook.com";
+
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); // verificar a extensao que esta usando 
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Send(message);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private PechinchaMarketUser CreateUser()
