@@ -1,0 +1,112 @@
+﻿:root {
+    --root-nav-text-color: #0C8AFF;
+    --root-header-height: 4em;
+    --root-icon-size: 3em;
+}
+
+body {
+}
+
+html {
+    font-size: 14px;
+}
+
+.header-support{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-support > * {
+    height: fit-content;    
+}
+
+.header-text {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.vertical-line {
+    border-left: 2px solid #000;
+    height: var(--root-header-height);
+    margin: 0 1em;
+}
+
+.icon {
+    display: flex;
+    width: min-content;
+    gap: 1em;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon-logo {
+    display: inline-block;
+    width: var(--root-icon-size);
+    height: var(--root-icon-size);
+    background-image: url('../PechinchaMarket.png');
+    background-size: cover;
+}
+
+.icon-text {
+    display: inline-block;
+    white-space: pre-line;
+    width: min-content;
+    color: #000;
+    font-size: calc(0.3 * var(--root-header-height));
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+}
+
+.navbar-support {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.navbar-support ul {
+    display: flex;
+    gap: 1em;
+    list-style: none;
+    padding: 0.40em;
+    margin: 0;
+}
+
+.navbar-support li {
+    margin: 0 0.5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.navbar-support li:hover {
+    color: var(--root-nav-text-color); /* Text color on hover */
+}
+
+.display-none {
+    display: none !important;
+}
+
+.selected-support {
+    display: inline-block;
+    position: relative;
+    color: var(--root-nav-text-color);
+}
+
+.selected-support::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust the value to control the distance of the line from the text */
+    width: 100%;
+    height: 2px; /* Adjust the height of the line */
+    background-color: var(--root-nav-text-color); /* Adjust the color of the line */
+}
+
+.support-container {
+    margin-top: 3em;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
