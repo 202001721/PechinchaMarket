@@ -196,6 +196,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             return Page();
         }
 
+        /// <summary>
+        /// Enviar email ao utilizador que se registou
+        /// </summary>
+        /// <param name="email"></param> email do utilizador
+        /// <param name="subject"></param> assunto do email
+        /// <param name="confirmLink"></param> mensagem com o link de confirmação
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
 
