@@ -23,7 +23,7 @@ var connectionString = builder.Configuration.GetConnectionString("DBPechinchaMar
 
 builder.Services.AddDbContext<DBPechinchaMarketContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<PechinchaMarketUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBPechinchaMarketContext>();
+builder.Services.AddDefaultIdentity<PechinchaMarketUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<DBPechinchaMarketContext>();
 
 
 
