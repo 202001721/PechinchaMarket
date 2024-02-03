@@ -65,6 +65,22 @@ namespace PechinchaMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Comerciante",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    contato = table.Column<int>(type: "int", nullable: false),
+                    logo = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    document = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    isApproved = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comerciante", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -230,6 +246,9 @@ namespace PechinchaMarket.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cliente");
+
+            migrationBuilder.DropTable(
+                name: "Comerciante");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -1,5 +1,9 @@
 ﻿namespace PechinchaMarket.Models
 {
+    /**
+     * Classe Enumerada Categoria
+     * Categorias dos produtos
+     */
     public enum Categoria
     {
         Enlatados,
