@@ -24,6 +24,10 @@ namespace PechinchaMarket.Controllers
         {
             return View(await _context.Comerciante.ToListAsync());
         }
+        public async Task<ActionResult> NonConfirmedList()
+        {
+            return View(await _context.Comerciante.ToListAsync());
+        }
 
         // GET: Comerciantes/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -54,7 +58,7 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,contato,logo,document")] Comerciante comerciante)
+        public async Task<IActionResult> Create([Bind("Id,UserId,contact,logo,document")] Comerciante comerciante)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +91,7 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,UserId,contato,logo,document")] Comerciante comerciante)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,UserId,contact,logo,document")] Comerciante comerciante)
         {
             if (id != comerciante.Id)
             {
@@ -149,6 +153,8 @@ namespace PechinchaMarket.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+
 
         private bool ComercianteExists(Guid id)
         {

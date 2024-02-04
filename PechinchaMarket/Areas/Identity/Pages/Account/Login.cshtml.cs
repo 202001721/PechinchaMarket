@@ -17,6 +17,7 @@ using Microsoft.Extensions.Logging;
 using PechinchaMarket.Areas.Identity.Data;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 using Microsoft.AspNet.Identity;
+using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
@@ -25,12 +26,14 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly SignInManager<PechinchaMarketUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         private readonly DBPechinchaMarketContext _context;
+        private Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
 
-        public LoginModel(SignInManager<PechinchaMarketUser> signInManager, ILogger<LoginModel> logger, DBPechinchaMarketContext context)
+        public LoginModel(SignInManager<PechinchaMarketUser> signInManager, ILogger<LoginModel> logger, DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -110,13 +113,16 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+     
+            
 
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                
+              
+
                 var ComercialEmails = from c in _context.Comerciante join u in _context.Users on c.UserId equals u.Id select u.Email;
                 if (ComercialEmails.Contains(Input.Email)) //if who is logging in is a Comercial Account
                 {
@@ -159,6 +165,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                 {
                     if (result.Succeeded)
                     {
+
                         _logger.LogInformation("User logged in.");
                         return LocalRedirect(returnUrl);
                     }
