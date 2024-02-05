@@ -15,6 +15,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using PechinchaMarket.Areas.Identity.Data;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+using Microsoft.AspNet.Identity;
+using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
@@ -22,11 +25,15 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<PechinchaMarketUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly DBPechinchaMarketContext _context;
+        private Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
 
-        public LoginModel(SignInManager<PechinchaMarketUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<PechinchaMarketUser> signInManager, ILogger<LoginModel> logger, DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _context = context;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -106,35 +113,83 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+     
+            
 
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
+              
+
+                var ComercialEmails = from c in _context.Comerciante join u in _context.Users on c.UserId equals u.Id select u.Email;
+                if (ComercialEmails.Contains(Input.Email)) //if who is logging in is a Comercial Account
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
-                }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
+                    var isApproved = from c in _context.Comerciante 
+                                     join u in _context.Users 
+                                     on c.UserId equals u.Id 
+                                     where u.Email == Input.Email 
+                                     select c.isApproved;
+
+                    if (isApproved.First() == true)
+                    {
+                        if (result.Succeeded)
+                        {
+                            _logger.LogInformation("User logged in.");
+                            return LocalRedirect(returnUrl);
+                        }
+                        if (result.RequiresTwoFactor)
+                        {
+                            return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                        }
+                        if (result.IsLockedOut)
+                        {
+                            _logger.LogWarning("User account locked out.");
+                            return RedirectToPage("./Lockout");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                            return Page();
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "User isn't approved");
+                        return Page();
+                    }
+
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return Page();
+                    if (result.Succeeded)
+                    {
+
+                        _logger.LogInformation("User logged in.");
+                        return LocalRedirect(returnUrl);
+                    }
+                    if (result.RequiresTwoFactor)
+                    {
+                        return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    }
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning("User account locked out.");
+                        return RedirectToPage("./Lockout");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        return Page();
+                    }
                 }
             }
 
             // If we got this far, something failed, redisplay form
             return Page();
         }
+
+
     }
 }

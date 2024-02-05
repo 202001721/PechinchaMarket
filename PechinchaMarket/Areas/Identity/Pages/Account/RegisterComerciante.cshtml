@@ -1,0 +1,66 @@
+﻿@page
+@using PechinchaMarket.Areas.Identity.Pages.Account
+@using PechinchaMarket.Models
+@model RegisterComercianteModel
+@{
+    ViewData["Title"] = "Registar Comerciante";
+}
+
+<body class="gradianteAzul">
+    <div class="box2">
+        <div class="col-md-4">
+            <div class="right">
+                <a class="orange" asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="2">Precisa de ajuda?</a>
+            </div>
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
+                <h2>@ViewData["Title"]</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="XXXXXXXXXXX" />
+                    <label asp-for="Input.UserName">Nome</label>
+                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Contact" class="form-control" autocomplete="contacto" aria-required="true" placeholder="xxxxxxxxx" />
+                    <label asp-for="Input.Contact">Contacto</label>
+                    <span asp-validation-for="Input.Contact" class="text-danger"></span>
+                </div>
+                <div class="insert-file">
+
+                    <label asp-for="Input.Image">Logotipo</label>
+                    <input type="file" asp-for="Input.Image" />
+                </div>
+                <div class="insert-file">
+
+                    <label asp-for="Input.Document">Documento de autenticação</label>
+                    <input type="file" asp-for="Input.Document"/>
+
+                </div>
+                <div class="buttons" >
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                    <a class="cancel" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
