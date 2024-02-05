@@ -75,7 +75,6 @@ namespace PechinchaMarket.Controllers
             if (comerciante != null)
             {
                 comerciante.isApproved = true;
-                // 
             }
             await _context.SaveChangesAsync();
 
