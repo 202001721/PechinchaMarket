@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Tuple<PechinchaMarket.Models.Comerciante, PechinchaMarket.Areas.Identity.Data.PechinchaMarketUser>>
+
+
+@{
+    ViewData["Title"] = "NonConfirmedList";
+} 
+<link href="~/css/manager.css" rel="stylesheet" />
+ 
+
+<h1>NonConfirmedList</h1>
+
+
+   
+    <body>
+        <section class="container">
+           
+                  
+         @foreach (var item in Model)
+        {
+            @if (item.Item1.isApproved == false)
+            {
+                <div class="card">
+                    <div class="card-image"><a href="#"> Imagem</a> </div>
+                    <h2>@Html.DisplayFor(modelItem => item.Item2.UserName)</h2>
+                    <p>Email: @Html.DisplayFor(modelItem => item.Item2.Email)</p>
+                    <p>Contacto: @Html.DisplayFor(modelItem => item.Item1.contact)</p>
+                    <a asp-area="" asp-controller="Manager" asp-action="DetailsComerciante" asp-route-id="@item.Item1.Id"> Details</a>
+                </div>
+
+            }
+         
+            
+        }
+        
+        </section>
+
+    </body>
+

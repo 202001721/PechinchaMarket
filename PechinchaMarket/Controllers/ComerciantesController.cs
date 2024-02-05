@@ -24,10 +24,7 @@ namespace PechinchaMarket.Controllers
         {
             return View(await _context.Comerciante.ToListAsync());
         }
-        public async Task<ActionResult> NonConfirmedList()
-        {
-            return View(await _context.Comerciante.ToListAsync());
-        }
+    
 
         // GET: Comerciantes/Details/5
         public async Task<IActionResult> Details(Guid? id)
