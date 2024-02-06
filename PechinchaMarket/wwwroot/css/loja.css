@@ -1,0 +1,28 @@
+﻿body {
+    background: rgb(102,209,255);
+    background: linear-gradient(180deg, rgba(102,209,255,1) 10%, rgba(255,255,255,1) 15%);
+}
+
+h2 {
+    padding-top: 2.5em;
+}
+
+.button {
+    background-color: white;
+    width: 10em;
+    align-items: center;
+    margin-block: 2em;
+    border: 2.5px solid #66D1FF;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+label {
+    padding-block-start: 1.2em;
+    padding-block-end: 0.4em;
+}

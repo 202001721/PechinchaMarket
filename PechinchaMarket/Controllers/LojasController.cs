@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,27 +15,12 @@ namespace PechinchaMarket.Controllers
     public class LojasController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
-        private readonly UserManager<PechinchaMarketUser> _userManager;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
 
-        public LojasController(DBPechinchaMarketContext context, UserManager<PechinchaMarketUser> userManager)
+        public LojasController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _context = context;
             _userManager = userManager;
-        }
-
-        public async Task<ActionResult> LojasUserList()
-        {
-
-                var model = _context.Loja
-          .Join(_context.Users,
-              loja => loja.UserId,
-              user => user.Id,
-              (loja, user) => new Tuple<Loja, PechinchaMarketUser>(loja, user))
-          .ToList()
-          .Select(t => new { Loja = t.Item1, User = t.Item2 })
-          .ToList();
-
-            return View(model.Select(t => new { Loja = t.Loja, User = t.User }));
         }
 
         // GET: Lojas
@@ -72,16 +58,16 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,adress,OpeningTime,ClosingTime,UserId")] Loja loja)
+        public async Task<IActionResult> Create([Bind("Id,adress,OpeningTime,ClosingTime")] Loja loja)
         {
             if (ModelState.IsValid)
             {
+                var currentUser = HttpContext.User.Identity.GetUserId();
+
                 loja.Id = Guid.NewGuid();
-                string userId = _userManager.GetUserId(User);
-                if(userId != loja.UserId.ToString())
-                {
-                    return RedirectToAction("Error");
-                }
+                loja.UserId = currentUser;
+                    //_userManager.GetUserId(User);
+                    //User.Identity.GetUserId();
                 _context.Add(loja);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
