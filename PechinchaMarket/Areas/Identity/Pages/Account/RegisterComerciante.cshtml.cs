@@ -148,7 +148,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-
+                    await _userManager.AddToRoleAsync(user, "Comerciante");
                     var userId = await _userManager.GetUserIdAsync(user);
 
                     var memoryStreamImg = new MemoryStream();
