@@ -88,7 +88,7 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction(nameof(NonConfirmedList));
 
         }
-        public async Task<IActionResult> Reprove(Guid? id, string userId)
+        public async Task<IActionResult> Reprove(Guid? id)
         {
 
             if (id == null)

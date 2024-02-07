@@ -9,6 +9,12 @@
 <div>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item1.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstOrDefault().Item1.Id)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Item2.Email)
         </dt>
@@ -44,11 +50,11 @@
 </div>
 <div class="buttons-form">
     <form asp-action="Aprove">
-        <input type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id" />
+        <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id " />
         <input type="submit" value="Aprove" class="approve-button" />
     </form>
     <form asp-action="Reprove">
-        <input type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id" />
+        <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id" />
         <input type="submit" value="Reprove" class="reprove-button" />
         <a class="voltar-button" asp-action="NonConfirmedList">Voltar atrás</a>
     </form>
