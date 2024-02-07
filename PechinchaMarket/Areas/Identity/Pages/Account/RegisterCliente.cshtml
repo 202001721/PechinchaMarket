@@ -46,7 +46,7 @@
             @foreach (Categoria categoria in Enum.GetValues(typeof(Categoria)))
             {
                 <div>
-                    <input type="checkbox" name="categorias" value="@categoria" id="@($"chk_{categoria}")" />
+                        <input type="checkbox" name="categorias" value="@categoria" id="@($"chk_{categoria}_{Guid.NewGuid()}")" />
                     <label for="@($"chk_{categoria}")">@categoria.ToString()</label>
                     <input type="hidden" asp-for="SelectedCategories" value="@categoria" />
                 </div>
