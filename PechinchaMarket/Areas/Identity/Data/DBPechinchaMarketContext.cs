@@ -25,4 +25,6 @@ public class DBPechinchaMarketContext : IdentityDbContext<PechinchaMarketUser>
 public DbSet<PechinchaMarket.Models.Cliente> Cliente { get; set; } = default!;
 
 public DbSet<PechinchaMarket.Models.Comerciante> Comerciante { get; set; } = default!;
+
+public DbSet<PechinchaMarket.Models.Produto> Produto { get; set; } = default!;
 }

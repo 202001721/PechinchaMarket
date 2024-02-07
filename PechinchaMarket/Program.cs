@@ -11,7 +11,6 @@ builder.Services.AddDefaultIdentity<PechinchaMarketUser>(options => options.Sign
 
 
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
