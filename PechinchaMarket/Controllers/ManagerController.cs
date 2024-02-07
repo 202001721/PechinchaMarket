@@ -128,7 +128,32 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction(nameof(NonConfirmedList));
 
         }
-        
+
+        public async Task<IActionResult> ShowLogo(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var produto = await _context.Comerciante
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return File(produto.logo, "image/jpg");
+        }
+        public async Task<IActionResult> ShowDocument(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var produto = await _context.Comerciante
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return File(produto.document, "pdf");
+        }
+
         private async Task<bool> SendEmailAsync(string email, string subject, string body)
         {
 

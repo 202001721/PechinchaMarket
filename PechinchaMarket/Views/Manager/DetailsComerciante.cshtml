@@ -37,13 +37,14 @@
             @Html.DisplayNameFor(model => model.Item1.document)
         </dt>
         <dd class = "col-sm-10">
-            <!--  @Html.DisplayFor(model => model.FirstOrDefault().Item1.document) -->
+            <img src='@Url.Action( "ShowDocument", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})'
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Item1.logo)
         </dt>
         <dd class="col-sm-10">
             <!--  @Html.DisplayFor(model => model.FirstOrDefault().Item1.logo) -->
+            <img src='@Url.Action( "ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})'   />
         </dd>
     </dl>
 
