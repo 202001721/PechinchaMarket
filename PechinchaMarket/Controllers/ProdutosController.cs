@@ -68,7 +68,7 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file, int price)
         {
             if (ModelState.IsValid)
             {
@@ -78,6 +78,12 @@ namespace PechinchaMarket.Controllers
 
                 produto.ProdEstado = Estado.InAnalysis;
                 produto.Image = memoryStreamImg.ToArray();
+                produto.ProdutoLojas = new List<ProdutoLoja> {
+                    new ProdutoLoja
+                    {
+                        Price = price,
+                    }
+                };
 
                 _context.Add(produto); 
                 await _context.SaveChangesAsync();

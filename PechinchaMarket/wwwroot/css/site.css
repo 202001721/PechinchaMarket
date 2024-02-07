@@ -128,10 +128,19 @@ body {
 .addProductLeft {
     display:flex;
     flex-direction:column;
-    width:300px
+    width:400px
 }
 
 .addProductRight {
     display: flex;
     flex-direction: column;
+}
+
+.precoUnidade {
+    display:flex;
+    justify-content:space-between;
+}
+
+#peso {
+    display: none;
 }

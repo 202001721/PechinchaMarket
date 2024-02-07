@@ -12,7 +12,7 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240207005941_Initial")]
+    [Migration("20240207160241_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -351,10 +351,10 @@ namespace PechinchaMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DiscountDuration")
+                    b.Property<DateTime?>("DiscountDuration")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("LojaId")
+                    b.Property<int?>("LojaId")
                         .HasColumnType("int");
 
                     b.Property<float>("Price")
@@ -438,9 +438,7 @@ namespace PechinchaMarket.Migrations
                 {
                     b.HasOne("PechinchaMarket.Models.Loja", "Loja")
                         .WithMany("ProdutoLojas")
-                        .HasForeignKey("LojaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LojaId");
 
                     b.HasOne("PechinchaMarket.Models.Produto", "Produto")
                         .WithMany("ProdutoLojas")

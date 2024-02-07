@@ -234,9 +234,9 @@ namespace PechinchaMarket.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<float>(type: "real", nullable: false),
-                    DiscountDuration = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DiscountDuration = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
-                    LojaId = table.Column<int>(type: "int", nullable: false)
+                    LojaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -245,8 +245,7 @@ namespace PechinchaMarket.Migrations
                         name: "FK_ProdutoLoja_Loja_LojaId",
                         column: x => x.LojaId,
                         principalTable: "Loja",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ProdutoLoja_Produto_ProdutoId",
                         column: x => x.ProdutoId,
