@@ -4,10 +4,9 @@
     ViewData["Title"] = "DetailsComerciante";
 }
 <link href="~/css/manager.css" rel="stylesheet" />
-<h1>Details</h1>
+<h1>Detalhes do Comerciante</h1>
 
 <div>
-    <h4>Comerciante</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -37,17 +36,17 @@
     </dl>
 
 </div>
-<div class="buttons">
+<div class="buttons-form">
     <form asp-action="Aprove">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Aprove" class="approve-button" /> 
+        <input type="submit" value="Aprove" class="approve-button" />
     </form>
     <form asp-action="Reprove">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Reprove" class="reprove-button" />
-        <a asp-action="NonConfirmedList">Voltar atrás</a>
+        <a class="voltar-button" asp-action="NonConfirmedList">Voltar atrás</a>
     </form>
-   
+  
         
     
 </div>
