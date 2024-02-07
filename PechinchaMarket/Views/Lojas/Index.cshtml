@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PechinchaMarket.Areas.Identity.Data
+@model IEnumerable<PechinchaMarket.Models.Loja>
+@inject UserManager<PechinchaMarketUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/css/loja.css" rel="stylesheet" />
+
+<h1>Lojas do/a @UserManager.GetUserName(User)</h1>
+
+<p>
+    <a asp-action="Create">Adicionar Loja</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpeningTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClosingTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+            @if (item.UserId == UserManager.GetUserId(User))
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OpeningTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClosingTime)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+    }           }
+    </tbody>
+</table>

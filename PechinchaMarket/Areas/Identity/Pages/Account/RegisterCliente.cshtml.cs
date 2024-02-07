@@ -23,23 +23,24 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
     public class RegisterClienteModel : PageModel
     {
         private readonly SignInManager<PechinchaMarketUser> _signInManager;
-        private readonly UserManager<PechinchaMarketUser> _userManager;
-        private readonly IUserStore<PechinchaMarketUser> _userStore;
-        private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
+        private readonly Microsoft.AspNetCore.Identity.IUserStore<PechinchaMarketUser> _userStore;
+        private readonly Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterClienteModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly DBPechinchaMarketContext _context;
 
 
         public RegisterClienteModel(
-            UserManager<PechinchaMarketUser> userManager,
-            IUserStore<PechinchaMarketUser> userStore,
+            Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
+            Microsoft.AspNetCore.Identity.IUserStore<PechinchaMarketUser> userStore,
             SignInManager<PechinchaMarketUser> signInManager,
             ILogger<RegisterClienteModel> logger,
             IEmailSender emailSender,
@@ -47,7 +48,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         {
             _userManager = userManager;
             _userStore = userStore;
-            _emailStore = (IUserEmailStore<PechinchaMarketUser>)GetEmailStore();
+            _emailStore = (Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser>)GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
@@ -148,7 +149,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
 
-
+                   
+                    await _userManager.AddToRoleAsync(user, "Cliente");
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -196,6 +198,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             return Page();
         }
 
+        /// <summary>
+        /// Enviar email ao utilizador que se registou
+        /// </summary>
+        /// <param name="email"></param> email do utilizador
+        /// <param name="subject"></param> assunto do email
+        /// <param name="confirmLink"></param> mensagem com o link de confirmação
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
 
@@ -246,13 +254,13 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             }
         }
 
-        private IUserEmailStore<PechinchaMarketUser> GetEmailStore()
+        private Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<PechinchaMarketUser>)_userStore;
+            return (Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser>)_userStore;
         }
 
         

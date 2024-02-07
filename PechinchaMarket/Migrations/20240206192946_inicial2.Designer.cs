@@ -12,13 +12,8 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-<<<<<<<< HEAD:PechinchaMarket/Migrations/20240207160241_Initial.Designer.cs
-    [Migration("20240207160241_Initial")]
-    partial class Initial
-========
-    [Migration("20240207155023_lojas")]
-    partial class lojas
->>>>>>>> main:PechinchaMarket/Migrations/20240207155023_lojas.Designer.cs
+    [Migration("20240206192946_inicial2")]
+    partial class inicial2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -282,99 +277,6 @@ namespace PechinchaMarket.Migrations
 
             modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
                 {
-<<<<<<<< HEAD:PechinchaMarket/Migrations/20240207160241_Initial.Designer.cs
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Closed")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ComercianteId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Open")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ComercianteId");
-
-                    b.ToTable("Loja");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Brand")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProdCategoria")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProdEstado")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Unidade")
-                        .HasColumnType("int");
-
-                    b.Property<float?>("Weight")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Produto");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.ProdutoLoja", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("DiscountDuration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("LojaId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.Property<int>("ProdutoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LojaId");
-
-                    b.HasIndex("ProdutoId");
-
-                    b.ToTable("ProdutoLoja");
-                });
-
-========
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
@@ -386,6 +288,7 @@ namespace PechinchaMarket.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("adress")
@@ -397,7 +300,6 @@ namespace PechinchaMarket.Migrations
                     b.ToTable("Loja");
                 });
 
->>>>>>>> main:PechinchaMarket/Migrations/20240207155023_lojas.Designer.cs
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -447,49 +349,6 @@ namespace PechinchaMarket.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
-                {
-                    b.HasOne("PechinchaMarket.Models.Comerciante", "Comerciante")
-                        .WithMany("Lojas")
-                        .HasForeignKey("ComercianteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Comerciante");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.ProdutoLoja", b =>
-                {
-                    b.HasOne("PechinchaMarket.Models.Loja", "Loja")
-                        .WithMany("ProdutoLojas")
-                        .HasForeignKey("LojaId");
-
-                    b.HasOne("PechinchaMarket.Models.Produto", "Produto")
-                        .WithMany("ProdutoLojas")
-                        .HasForeignKey("ProdutoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Loja");
-
-                    b.Navigation("Produto");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.Comerciante", b =>
-                {
-                    b.Navigation("Lojas");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
-                {
-                    b.Navigation("ProdutoLojas");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>
-                {
-                    b.Navigation("ProdutoLojas");
                 });
 #pragma warning restore 612, 618
         }

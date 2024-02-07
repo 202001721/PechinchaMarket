@@ -1,13 +1,20 @@
-﻿namespace PechinchaMarket.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PechinchaMarket.Models
 {
     public class Loja
     {
-        public int Id { get; set; }
-        public string Address { get; set; }
-        public DateTime Open {  get; set; }
-        public DateTime Closed { get; set; }
+        public Guid Id { get; set; }
+        [Display(Name = "Morada")]
+        public string adress { get; set; }
+        [Display(Name = "Horário de Abertura")]
+        [DataType(DataType.Time)]
+        public DateTime OpeningTime { get; set; }
+        [Display(Name = "Horário de Fecho")]
+        [DataType(DataType.Time)]
+        public DateTime ClosingTime { get; set; }
+        public string UserId { get; set; }
 
-        public Comerciante Comerciante { get; set; }
-        public List<ProdutoLoja> ProdutoLojas { get; set; }
+        //public virtual required Comerciante Comerciante { get; set; }
     }
 }

@@ -142,13 +142,13 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
-
+                    await _userManager.AddToRoleAsync(user, "Comerciante");
                     var userId = await _userManager.GetUserIdAsync(user);
 
                     var memoryStreamImg = new MemoryStream();
@@ -160,7 +160,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     Comerciante comerciante = new Comerciante()
                     {
                         UserId = userId,
-                        contato = Input.Contact,
+                        contact = Input.Contact,
                         logo = memoryStreamImg.ToArray(),
                         document = memoryStreamDoc.ToArray(),
                         isApproved = false,
@@ -203,7 +203,14 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
+        
 
+        /// <summary>
+        /// Enviar email ao utilizador que se registou
+        /// </summary>
+        /// <param name="email"></param> email do utilizador
+        /// <param name="subject"></param> assunto do email
+        /// <param name="confirmLink"></param> mensagem com o link de confirmação
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
 
