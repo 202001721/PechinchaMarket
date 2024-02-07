@@ -60,14 +60,11 @@ namespace PechinchaMarket.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,adress,OpeningTime,ClosingTime")] Loja loja)
         {
+            ModelState.Remove("UserId");
             if (ModelState.IsValid)
             {
-                var currentUser = HttpContext.User.Identity.GetUserId();
-
                 loja.Id = Guid.NewGuid();
-                loja.UserId = currentUser;
-                    //_userManager.GetUserId(User);
-                    //User.Identity.GetUserId();
+                loja.UserId = _userManager.GetUserId(User);
                 _context.Add(loja);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
