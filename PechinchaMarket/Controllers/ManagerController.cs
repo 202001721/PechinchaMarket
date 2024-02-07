@@ -43,14 +43,18 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var comerciante = await _context.Comerciante
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (comerciante == null)
+            var model = _context.Comerciante.Where(comerciante => comerciante.Id == id)
+   .Join(_context.Users,
+       comerciante => comerciante.UserId,
+       user => user.Id,
+       (comerciante, user) => new Tuple<Comerciante, PechinchaMarketUser>(comerciante, user));
+
+            if (model == null)
             {
                 return NotFound();
             }
 
-            return View(comerciante);
+            return View(model);
         }
         
         public async Task<IActionResult> Aprove(Guid? id)
@@ -112,7 +116,7 @@ namespace PechinchaMarket.Controllers
             if (comerciante != null)
             {
                 await SendEmailAsync(utilizador.Email, "Seu cadastro foi negado",
-              "lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito");
+              "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito");
                 _context.Comerciante.Remove(comerciante);
                
                _context.Users.Remove(utilizadorId);
