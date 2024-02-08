@@ -105,3 +105,10 @@ body {
     justify-content: flex-start;
     margin-left: 0;
 }
+
+.comerciante-logo {
+    display: inline-block;
+    width: var(--root-comerciante-logo);
+    height: var(--root-comerciante-logo);
+    background-size: cover;
+}
