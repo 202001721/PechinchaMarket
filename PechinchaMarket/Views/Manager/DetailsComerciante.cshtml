@@ -38,16 +38,13 @@
 
 </div>
 <div class="buttons">
-    <form asp-action="Aprove">
+    <form asp-action="Approve">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Aprove" class="approve-button" /> 
     </form>
     <form asp-action="Reprove">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Reprove" class="reprove-button" />
-        <a asp-action="NonConfirmedList">Voltar atrás</a>
-    </form>
-   
-        
-    
+        <a asp-action="NonAprovedProducts">Voltar atrás</a>
+    </form>    
 </div>

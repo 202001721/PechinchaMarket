@@ -34,17 +34,9 @@ namespace PechinchaMarket.Controllers
         }
 
         
-        public async Task<ActionResult> NonAprovedProducts()
+        public async Task<ActionResult> NonAprovedProducts(int id)
         {
-
-            var model = _context.Comerciante
-       .Join(_context.Users,
-           comerciante => comerciante.UserId,
-           user => user.Id,
-           (comerciante, user) => new Tuple<Comerciante, PechinchaMarketUser>(comerciante, user))
-       .ToList();
-
-            return View(model);
+            return View(await _context.Produto.ToListAsync());
         }
 
         // GET: Comerciantes/Details/5
@@ -65,21 +57,21 @@ namespace PechinchaMarket.Controllers
             return View(comerciante);
         }
 
-        public async Task<IActionResult> DetailsProduct(Guid? id)
+        public async Task<IActionResult> DetailsProduct(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var comerciante = await _context.Comerciante
+            var produto = await _context.Produto
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (comerciante == null)
+            if (produto == null)
             {
                 return NotFound();
             }
 
-            return View(comerciante);
+            return View(produto);
         }
 
         public async Task<IActionResult> Aprove(Guid? id)
@@ -98,7 +90,23 @@ namespace PechinchaMarket.Controllers
 
         }
 
-        [HttpPost, ActionName("Aprove")]
+        public async Task<IActionResult> AproveProduct(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (produto == null) { return NotFound(); }
+
+
+            return View(produto);
+
+        }
+
+        [HttpPost, ActionName("Approve")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AproveConfirmed(Guid? id)
         {
@@ -111,6 +119,22 @@ namespace PechinchaMarket.Controllers
 
 
             return RedirectToAction(nameof(NonConfirmedList));
+
+        }
+
+        [HttpPost, ActionName("ApproveProduct")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AproveConfirmedProduct(Guid? id)
+        {
+            var produto = await _context.Produto.FindAsync(id);
+            if (produto != null)
+            {
+                produto.ProdEstado = Estado.Approved;
+            }
+            await _context.SaveChangesAsync();
+
+
+            return RedirectToAction(nameof(NonAprovedProducts));
 
         }
         [HttpPost, ActionName("Reprove")]
@@ -129,7 +153,21 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction(nameof(NonConfirmedList));
         }
 
+        [HttpPost, ActionName("ReproveProduto")]
+        public async Task<IActionResult> ReproveProduct(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
 
-      
+            produto.ProdEstado = Estado.Repproved; 
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(NonAprovedProducts));
+        }
+
     }
 }
