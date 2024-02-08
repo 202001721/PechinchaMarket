@@ -1,5 +1,4 @@
-
-document.addEventListener("DOMContentLoaded", function (){
+document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const sectionParam = urlParams.get('section');
     if (sectionParam !== null) {
@@ -26,10 +25,3 @@ function toggleSection(index, element) {
 
     updateUrlParameter('section', index);
 }
-function updateUrlParameter(key, value) {
-    const urlParams = new URLSearchParams(window.location.search);
-    urlParams.set(key, value);
-    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString();
-    window.history.replaceState(null, null, newUrl);
-}
-

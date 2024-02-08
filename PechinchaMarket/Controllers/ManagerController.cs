@@ -49,14 +49,18 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var comerciante = await _context.Comerciante
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (comerciante == null)
+            var model = _context.Comerciante.Where(comerciante => comerciante.Id == id)
+   .Join(_context.Users,
+       comerciante => comerciante.UserId,
+       user => user.Id,
+       (comerciante, user) => new Tuple<Comerciante, PechinchaMarketUser>(comerciante, user));
+
+            if (model == null)
             {
                 return NotFound();
             }
 
-            return View(comerciante);
+            return View(model);
         }
 
         public async Task<IActionResult> DetailsProduct(int? id)
@@ -139,18 +143,16 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction(nameof(NonAprovedProducts));
 
         }
+
         public async Task<IActionResult> Reprove(Guid? id)
         {
-
             if (id == null)
             {
                 return NotFound();
             }
             var comerciante = await _context.Comerciante
                 .FirstOrDefaultAsync(m => m.Id == id);
-
             if (comerciante == null) { return NotFound(); }
-
 
             return View(comerciante);
 
@@ -169,7 +171,6 @@ namespace PechinchaMarket.Controllers
                 await SendEmailAsync(utilizador.Email, "Seu cadastro foi negado",
               "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito");
                 _context.Comerciante.Remove(comerciante);
-
                 _context.Users.Remove(utilizadorId);
 
             }
@@ -213,10 +214,34 @@ namespace PechinchaMarket.Controllers
 
         }
 
+      public async Task<IActionResult> ShowLogo(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var comerciante = await _context.Comerciante
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return File(comerciante.logo, "image/jpg");
+        }
+        public async Task<IActionResult> ShowDocument(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var comerciante = await _context.Comerciante
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return File(comerciante.document, "application/pdf");
+        }
+       
         private async Task<bool> SendEmailAsync(string email, string subject, string body)
         {
 
-
+ 
             try
             {
                 MailMessage message = new MailMessage();
@@ -233,7 +258,7 @@ namespace PechinchaMarket.Controllers
 
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos");
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); 
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.Send(message);
                 return true;
@@ -243,6 +268,5 @@ namespace PechinchaMarket.Controllers
                 return false;
             }
         }
-
     }
 }

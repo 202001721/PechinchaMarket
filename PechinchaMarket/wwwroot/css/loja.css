@@ -17,6 +17,7 @@ h1 {
     width: 10em;
     align-items: center;
     margin-block: 2em;
+    margin-inline-end: 1.5em;
     border: 2.5px solid #66D1FF;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
@@ -25,9 +26,29 @@ h1 {
     cursor: pointer;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
 }
+.button-a {
+    display: inline-block;
+    width: 10em;
+    margin-block: 2em;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border: 2.5px solid #66D1FF;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
 
 
 label {
     padding-block-start: 1.2em;
     padding-block-end: 0.4em;
+}
+
+.margin-button-criar-submit {
+    margin-top: 0.3em;
 }

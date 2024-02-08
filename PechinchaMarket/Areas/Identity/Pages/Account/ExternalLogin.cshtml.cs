@@ -268,12 +268,6 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
 
-            //TODO
-            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
-            // message.From = ?
-            // message.Port = ?
-            // message.Host = ?
-            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
             try
             {
                 MailMessage message = new MailMessage();

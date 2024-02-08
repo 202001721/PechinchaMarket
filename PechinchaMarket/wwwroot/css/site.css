@@ -1,111 +1,537 @@
+
+
+:root {
+    /*-------------------------------*-
+    |*             Cores             *|
+    -*-------------------------------*/
+    /*Cor "Web Standard" para todos links, campos selecionados etc...*/
+    --blue-color: rgba(12, 138, 255, 1);
+    /*cor principal do website (tema)*/
+    --root-main-color: rgb(255,181,70, 1);
+    /*cor do texto que esta sobre um background main color no website todo*/
+    --root-text-color-on-main-color: white;
+    /*cor de background tudo que contem texto ou qualquer tipo de conteudo*/
+    --root-background-content-color: white;
+    /*cor do texto no website todo*/
+    --root-text-color: black;
+    /*cor do border de um containers/botões/etc.. com fundo default (root-background-content-color)*/
+    --root-border-color-to-default-background-container: black;
+    /*cor de fundo do butão do tipo de conta*/
+    --root-account-type-button-color: white;
+    /*cor do border do butão do tipo de conta*/
+    --root-account-type-button-border-color: grey;
+    /*-------------------------------*-
+    |*           Tamanhos            *|
+    -*-------------------------------*/
+    /*Width da caixa de autenticação*/
+    --root-authentication-box-width: 40em;
+    --root-authentication-box-content-width: 30em;
+    --root-authentication-box-height: 40em;
+    --root-authentication-box-width-media: 100vw;
+    /*Margin's/Gap's do conteudo das variaveis*/
+    --root-authentication-content-margin-top: 5em;
+    --root-authentication-content-margin-bottom: 2em;
+    --root-authentication-account-type-content-margin-bottom: 12em;
+    --root-account-type-button-min-space: 1em;
+    --root-all-authentication-content-min-space: 5em;
+    --root-authentication-button-min-space: 1em;
+    /*Paddings's do conteudo das variaveis*/
+    --root-input-text-padding-sides: 1em;
+    --root-form-button-padding-sides: 2em;
+    --root-form-button-padding-up-and-down: 0.25em;
+    /*Size do conteudo*/
+    --root-text-size: 1em;
+    --root-small-icon-size: 3em;
+    --root-huge-icon-size: 5em;
+    --root-comerciante-logo: 10rem;
+    --root-account-type-logo-size: 3em;
+    --root-account-type-button-width: 8em;
+    --root-account-type-button-heigth: 8em;
+    --root-account-type-button-border-width: 0.1em;
+    --root-account-type-button-border-radius: 1em;
+    --root-account-type-logo-in-button-margin-top: calc(0.5 * calc(var(--root-account-type-button-width) - var(--root-text-size) - var(--root-account-type-logo-size)));
+    --root-input-text-width: 20em;
+    --root-input-text-height: 2.5em;
+    --root-checkbox-border-radius: 0.5em;
+    --root-input-text-radius: 0.25em;
+    --root-checkbox-border-thickness-when-selected: 0.2em;
+
+    --root-insert-file-input-width: 6.5em;
+}
+
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.form-gsignin {
-    width: fit-content;
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    font-size: var(--root-text-size);
+    color: var(--root-text-color);
 }
 
 body {
-    margin-bottom: 10px;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    
 }
 
-.image {
-  width: 70px
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+        color: var(--root-text-color);
+    }
 }
 
-.box {
+@media (min-width: 576px) {
+    .container,
+    .container-sm {
+        max-width: none;
+    }
+}
+
+.pb-3 {
+    padding: 0px !important;
+}
+
+.container {
+    padding: 0px;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.center-text{
+    text-align: center;
+}
+
+/*Gradiante-main-color*/
+.gradiante-main-color{
+    background: linear-gradient(-110deg, var(--root-main-color) 35%, rgba(255,255,255,1) 100%);
+}
+
+.background-height{
+    min-height: 100vh;
+   
+}
+
+.content-background {
+    background-color: white;
+}
+
+.authentication-box {
+    min-height: var(--root-authentication-box-height);
+    width: var(--root-authentication-box-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+    .authentication-box div.centered-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: var(--root-all-authentication-content-min-space);
+    }
+
+        .authentication-box div .authentication-header {
+            display: flex;
+            flex-direction: column;
+            margin-top: var(--root-authentication-content-margin-top);
+            text-align: center;
+            gap: 0em;
+        }
+
+        .authentication-box div .inline-div {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-bottom: var(--root-authentication-account-type-content-margin-bottom);
+            gap: 0em var(--root-account-type-button-min-space);
+        }
+
+.account-type-button {
+    background-color: var(--root-account-type-button-color);
+    border: var(--root-account-type-button-border-width) solid var(--root-account-type-button-border-color);
+    border-radius: var(--root-account-type-button-border-radius);
+    text-decoration: none;
+}
+
+    .account-type-button:hover {
+        border-color: var(--root-main-color);
+    }
+
+.a-div-button {
+    width: fit-content;
+}
+
+    .a-div-button button {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: var(--root-account-type-button-width);
+        height: var(--root-account-type-button-heigth);
+    }
+
+.account-type-cliente-logo {
+    display: inline-block;
+    width: var(--root-account-type-logo-size);
+    height: var(--root-account-type-logo-size);
+    background-image: url('../images/Cliente_logo.png');
+    background-size: cover;
+}
+
+    .a-div-button button .account-type-cliente-logo {
+        margin-top: var(--root-account-type-logo-in-button-margin-top);
+    }
+
+.account-type-comerciante-logo {
+    display: inline-block;
+    width: var(--root-account-type-logo-size);
+    height: var(--root-account-type-logo-size);
+    background-image: url('../images/Comerciante_logo.png');
+    background-size: cover;
+}
+
+    .a-div-button button .account-type-comerciante-logo {
+        margin-top: var(--root-account-type-logo-in-button-margin-top);
+    }
+
+
+.center-div-x-axis {
+    margin: 0 auto;
+}
+
+@media (max-width: 40rem) {
+    .authentication-box {
+        width: var(--root-authentication-box-width-media);
+        margin: 0;
+    }
+
+    .support-link {
+        margin-left: calc(var(--root-authentication-box-width-media) - 10em) !important;
+    }
+}
+
+.inline-div {
+    display: inline;
+}
+
+.huge-icon-logo {
+    display: inline-block;
+    width: var(--root-huge-icon-size);
+    height: var(--root-huge-icon-size);
+    background-image: url('../images/logo_projeto.png');
+    background-size: cover;
+}
+
+.small-icon-logo {
+    display: inline-block;
+    width: var(--root-small-icon-size);
+    height: var(--root-small-icon-size);
+    background-image: url('../images/logo_projeto.png');
+    background-size: cover;
+}
+
+.support-link {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    border: 3px solid white;
-    background-color: #ffffff;
-    padding: 50px;
+    width: 10em;
+    margin-left: calc(var(--root-authentication-box-width) - 10em);
+    padding: 1em;
 }
 
-.box2 {
-    margin: auto;
-    width: 80%;
-    border: 3px solid white;
-    background-color: #ffffff;
-    padding: 70px;
+.rigth-text {
+    text-align: right;
+}
+
+.authentication-phase {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.center {
-    text-align: center
+.authentication-basedon-column {
+    flex-direction: column;
+    gap: 2em 0em;
 }
 
-.right {
-    text-align: right
+.authentication-basedon-row {
+    width: min-content;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1em 0em;
 }
 
-.left {
-    text-align: left
+.authentication-input-text-div {
+    width: var(--root-input-text-width);
+    height: fit-content;
 }
 
-.botaoLaranja {
-    background-color: #FFB546;
-    width: 100px;
-    align-items: center;
-    margin: 5px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    box-sizing: border-box;
-    color: #fff;
+    .authentication-input-text-div input {
+        width: 100%;
+        height: var(--root-input-text-height);
+        border: none;
+        border: 1px solid #ccc;
+        border-radius: var(--root-input-text-radius);
+        padding-left: var(--root-input-text-padding-sides);
+        padding-right: var(--root-input-text-padding-sides);
+        outline: none;
+    }
+        .authentication-input-text-div input:focus {
+            outline: none;
+            border: none;
+            border: 1px solid var(--blue-color);
+        }
+
+            .authentication-input-text-div input:focus:placeholder-shown ~ label,
+            .authentication-input-text-div input:focus::placeholder {
+                opacity: 1;
+                color: transparent;
+                bottom: calc(calc(var(--root-input-text-height) / 2) + calc(var(--root-input-text-height) - 0.5em));
+            }
+
+            .authentication-input-text-div input:focus:not(:placeholder-shown) ~ label,
+            .authentication-input-text-div input:not(:placeholder-shown) ~ label {
+                color: grey !important;
+                opacity: 1 !important;
+                bottom: calc(calc(var(--root-input-text-height) / 2) + calc(var(--root-input-text-height) - 0.5em)) !important;
+            }
+
+            .authentication-input-text-div input:focus:not(:placeholder-shown) ~ label {
+                color: var(--blue-color) !important;
+            }
+
+    .authentication-input-text-div label {
+        z-index: 90;
+        position: relative;
+        bottom: calc(var(--root-input-text-height) - 0.5em);
+        left: calc(0.15em + var(--root-input-text-padding-sides) - 0.5em);
+        color: var(--blue-color) !important;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+    }
+        .authentication-input-text-div label::after {
+            z-index: -1;
+            content: ''; /* Required for pseudo-elements */
+            display: block; /* Ensure the pseudo-element takes up space */
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: calc(var(--root-text-size) - 5px);
+            height: 1px; /* Height of the line */
+            background-color: var(--root-background-content-color);
+        }
+
+    .authentication-input-text-div span.text-danger {
+        display: block;
+        position: relative;
+        bottom: calc(var(--root-input-text-height) * 0.5);
+        text-align: center;
+        margin: 0 !important;
+    }
+
+@media (max-width: 20rem) {
+    .authentication-input-text-div {
+        width: var(--root-authentication-box-width-media) !important;
+    }
+
+        .authentication-input-text-div button.password-hidden,
+        .authentication-input-text-div button.password-visible {
+            left: calc(var(--root-authentication-box-width-media) - 25px - 1px) !important;
+        }
+}
+.authentication-buttons {
+    margin-top: var(--root-all-authentication-content-min-space);
+    margin-bottom: var(--root-authentication-content-margin-bottom);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0em var(--root-authentication-button-min-space);
+    width: var(--root-authentication-box-content-width);
+}
+
+@media (max-width: 30rem) {
+    .authentication-buttons {
+        width: var(--root-authentication-box-width-media) !important;
+        justify-content: center;
+        gap: var(--root-authentication-button-min-space) var(--root-authentication-button-min-space) !important;
+    }
+}
+
+.confirm-button {
+    flex: 0 1 auto;
+    width: fit-content;
+
+    padding-left: var(--root-form-button-padding-sides);
+    padding-right: var(--root-form-button-padding-sides);
+    padding-bottom: var(--root-form-button-padding-up-and-down);
+    padding-top: var(--root-form-button-padding-up-and-down);
+    background-color: var(--root-main-color);
+    border: none;
+    text-decoration: none;
+    color: var(--root-text-color-on-main-color);
     cursor: pointer;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
-.botaocinza {
-    background-color: #CDCDCD;
-    width: 100px;
-    align-items: center;
-    margin: 5px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    box-sizing: border-box;
+    .confirm-button:hover {
+        filter: brightness(0.92);
+    }
+
+.cancel-button {
+    flex: 0 1 auto;
+    width: fit-content;
+    padding-left: var(--root-form-button-padding-sides);
+    padding-right: var(--root-form-button-padding-sides);
+    padding-bottom: var(--root-form-button-padding-up-and-down);
+    padding-top: var(--root-form-button-padding-up-and-down);
+    background-color: var(--root-background-content-color);
+    border: 1px solid var(--root-border-color-to-default-background-container);
+    text-decoration: none;
+    color: var(--root-text-color);
     cursor: pointer;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+}
+    .cancel-button:hover {
+        filter: brightness(0.92);
+        color: var(--root-text-color);
+    }
+
+a.cancel-button::before {
+    background-color: var(--root-background-content-color);
+}
+    a.cancel-button:hover::before {
+        opacity: 0.5;
+    }
+
+@media (max-width: 277px) {
+    .confirm-button,
+    .cancel-button {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100%;
+        text-align: center;
+    }
 }
 
-.orange {
-    color: #FFB546;
+
+.authentication-checkbox label {
+    padding-left: var(--root-form-button-padding-sides);
+    padding-right: var(--root-form-button-padding-sides);
+    padding-bottom: var(--root-form-button-padding-up-and-down);
+    padding-top: var(--root-form-button-padding-up-and-down);
+    background-color: var(--root-background-content-color);
+    outline: 1px solid var(--root-border-color-to-default-background-container);
+    border-radius: var(--root-checkbox-border-radius);
+    outline-offset: -1px;
+    color: var(--root-text-color);
 }
 
-.margin-button-login-submit {
-    margin-top: 100px;
+.authentication-checkbox input[type="checkbox"] {
+    display: none;
 }
 
-.gradianteLaranja {
-    background: rgb(255,181,70);
-    background: linear-gradient(-110deg, rgba(255,181,70,1) 35%, rgba(255,255,255,1) 100%);
+.authentication-checkbox input[type="checkbox"]:checked ~ label{
+    outline-color: var(--root-main-color);
+    outline-width: var(--root-checkbox-border-thickness-when-selected);
 }
+
+.authentication-checkbox input[type="checkbox"]:hover ~ label {
+    filter: brightness(0.95);
+}
+
+.insert-file {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px dashed black;
+    width: 20em;
+    padding: 1em;
+    gap: 1em;
+    height: fit-content;
+}
+    .insert-file label {
+        font-weight: bold;
+    }
+
+    .insert-file label::after{
+        content:'';
+        position:relative;
+        display: block;
+        left:calc(50% -  var(--root-small-icon-size) / 2);
+        width: var(--root-small-icon-size);
+        height: var(--root-small-icon-size);
+        background-image: url('../images/uploadPdf.png');
+        background-size: cover;
+    }
+
+    .insert-file div.insert-file-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        min-width: 50%;
+        max-width: 75%;
+        height: fit-content;
+    }
+        .insert-file div.insert-file-input .file-name {
+            /*NewText*/
+            width: 100%;
+            white-space: normal; /* Wrap the text to the next line */
+            word-wrap: break-word; /* Break long words if needed */
+            text-align: center;
+        }
+
+        .insert-file input[type="file"] {
+            /*OldText and Button*/
+            color: transparent;
+            width: var(--root-insert-file-input-width);
+        }
+
+        .insert-file input[type="file"]::-webkit-file-upload-button {
+            /*Button*/
+            background-color: var(--root-background-content-color);
+            color: var(--root-border-color-to-default-background-container);
+            border: 2px solid var(--root-border-color-to-default-background-container);
+            border-radius: var(--root-input-text-radius);
+            width: 100%;
+            outline: none;
+            cursor: pointer;
+        }
+
+            .insert-file input[type="file"]::-webkit-file-upload-button:hover {
+                filter: brightness(0.92);
+            }
+
+.authentication-input-text-div button.password-hidden,
+.authentication-input-text-div button.password-visible {
+    position: relative;
+    bottom: calc(1em + var(--root-input-text-height));
+    left: calc(var(--root-input-text-width) - 25px - 1px);
+    background-color: var(--root-background-content-color);
+    border: none;
+
+}
+
+.password-visible {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url('../images/eye-opened.png');
+    background-size: cover;
+}
+
+.password-hidden {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url('../images/eye-closed.png');
+    background-size: cover;
+}
+
 
 .gsignin-div {
     margin: auto;
-    width: 50%;
+    width: fit-content;
 }
 
 .gsi-material-button {
@@ -138,8 +564,7 @@ body {
     width: 40px;
     max-width: 400px;
     min-width: min-content;
-    bottom: 110px;
-
+    bottom: 150px;
 }
 
     .gsi-material-button .gsi-material-button-icon {
@@ -213,9 +638,10 @@ body {
             background-color: #303030;
             opacity: 8%;
         }
-    .gsi-material-text {
-        margin-right: 12px;
-    }
+
+.gsi-material-text {
+    margin-right: 12px;
+}
 
 @media (max-width: 572px) {
     .gsi-material-text {
@@ -229,119 +655,4 @@ body {
         marigin: 0px;
         width: fit-content;
     }
-}
-
-  
-.gradianteAzul {
-    background: rgb(102,209,255);
-    background: linear-gradient(-110deg, rgba(102,209,255) 35%, rgba(255,255,255,1) 100%);
-}
-
-
-.buttons{
-    display:flex;
-    justify-content:space-evenly;
-}
-
-.cancel {
-    background-color: #f44336;
-    padding: 10px 15px;
-    margin: 0px 0px 0px 10px;
-    text-align: center;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    color: white;
-    text-decoration: none;
-}
-
-.cancel:hover {
-    background-color: red;
-    color: white;
-}
-
-.insert-file{
-    border: 1px solid grey;
-    border-radius:5px;
-    margin-bottom: 10px;
-}
-
-.blueBackground {
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 80%, rgba(102,209,255) 100%);
-}
-
-.addProduct {
-    display: flex;
-    justify-content:space-between;
-}
-
-.addProductLeft {
-    display:flex;
-    flex-direction:column;
-    width:500px;
-}
-
-.addProductRight {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
-.precoUnidade {
-    display:flex;
-    width:100%;
-}
-
-#peso {
-    display: none;
-}
-
-#lojas {
-    display: none;
-}
-
-.shopTable {
-    width: 100%;
-    border: 1px solid;
-}
-
-.bottom {
-    display:flex;
-    flex-direction: column;
-}
-
-.bottom > *{
-    margin-top: 10px;
-}
-
-.form {
-    margin: 0px 200px 0px 200px
-}
-
-.image{
-    display:none;
-}
-
-.custom-file-upload {
-    border-radius: 5px;
-    background-color: rgba(102,209,255);
-    color:white;
-    padding: 5px 10px;
-    width:100%;
-    text-align:center;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.preco{
-    width: 60%;
-}
-
-.unidade {
-    width: 40%;
-}
-
-.imagePlaceholder {
-    border: 1px solid black;
 }
