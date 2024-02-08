@@ -58,11 +58,11 @@
 <div class="buttons">
     <form asp-action="ApproveProduct">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Aprove" class="approve-button" />
+        <input type="submit" value="ApproveProduct" class="approve-button" />
     </form>
     <form asp-action="ReproveProduct">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Reprove" class="reprove-button" />
-        <a asp-action="NonConfirmedList">Voltar atrás</a>
+        <input type="submit" value="ReproveProduct" class="reprove-button" />
+        <a asp-action="NonAprovedProducts">Voltar atrás</a>
     </form>
 </div>
