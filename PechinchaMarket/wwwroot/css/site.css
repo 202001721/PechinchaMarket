@@ -273,23 +273,24 @@ body {
 
 .addProduct {
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 
 .addProductLeft {
     display:flex;
     flex-direction:column;
-    width:400px
+    width:500px;
 }
 
 .addProductRight {
     display: flex;
     flex-direction: column;
+    width: 300px;
 }
 
 .precoUnidade {
     display:flex;
-    justify-content:space-between;
+    width:100%;
 }
 
 #peso {
@@ -298,4 +299,49 @@ body {
 
 #lojas {
     display: none;
+}
+
+.shopTable {
+    width: 100%;
+    border: 1px solid;
+}
+
+.bottom {
+    display:flex;
+    flex-direction: column;
+}
+
+.bottom > *{
+    margin-top: 10px;
+}
+
+.form {
+    margin: 0px 200px 0px 200px
+}
+
+.image{
+    display:none;
+}
+
+.custom-file-upload {
+    border-radius: 5px;
+    background-color: rgba(102,209,255);
+    color:white;
+    padding: 5px 10px;
+    width:100%;
+    text-align:center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.preco{
+    width: 60%;
+}
+
+.unidade {
+    width: 40%;
+}
+
+.imagePlaceholder {
+    border: 1px solid black;
 }

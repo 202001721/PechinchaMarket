@@ -50,7 +50,6 @@
 
     }
 
-
 </script>
 
 
@@ -66,7 +65,7 @@
 <hr />
 <body class="blueBackground">
     <div >
-        <form asp-action="Create" enctype="multipart/form-data" >
+        <form asp-action="Create" enctype="multipart/form-data" class="form" >
             <div class="addProduct">
                 <div class="addProductLeft">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -81,12 +80,12 @@
                         <span asp-validation-for="Brand" class="text-danger"></span>
                     </div>
                     <div class="precoUnidade">
-                        <div class="form-group">
+                        <div class="preco">
                             <label class="control-label">Preço</label>
                             <input name="price" class="form-control" id="price" onchange="changePrice()">
                         </div>
                         /
-                        <div class="form-group">
+                        <div class="unidade">
                             <label asp-for="Unidade" class="control-label"></label>
                             <select asp-for="Unidade" asp-items="Html.GetEnumSelectList<UnidadeMedida>()" class="form-control" onchange="whatUnit()" id="select">
                                 <option value="">Escolha uma unidade</option>
@@ -113,15 +112,17 @@
                     </div>
                 </div>
                 <div class="addProductRight">
-                    <img id="image_preview" src="#" alt="your image" width="300px" height="300px" />
+                    <img id="image_preview" src="#" alt="your image" width="300px" height="300px" class="imagePlaceholder"/>
                     <div class="uploadImage">
-                        <input type="file" asp-for="Image" class="form-control" name="file" onchange="readfile(this)"  />
+                        <label asp-for="Image" class="custom-file-upload">Adicionar Foto</label>
+                        <input type="file" asp-for="Image" class="image" name="file" onchange="readfile(this)"  />
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                 </div>
             </div>
-            <div id="lojas">
-                <table>
+            <div class="bottom">
+            <div id="lojas" >
+                <table class="shopTable">
                     <thead>
                         <tr>
                             <th>
@@ -150,7 +151,7 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-            
+            </div>
         </form>
     </div>
 </body>

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace PechinchaMarket.Models
 {
@@ -18,6 +19,8 @@ namespace PechinchaMarket.Models
         public UnidadeMedida Unidade { get; set; }
         [EnumDataType(typeof(Estado))]
         public Estado? ProdEstado { get; set; }
+
+        [Display(Name = "Categoria")]
         [EnumDataType(typeof(Categoria))]
         public Categoria ProdCategoria { get; set; }
 
