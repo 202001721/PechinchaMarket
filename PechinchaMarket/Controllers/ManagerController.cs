@@ -33,6 +33,20 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
+        
+        public async Task<ActionResult> NonAprovedProducts()
+        {
+
+            var model = _context.Comerciante
+       .Join(_context.Users,
+           comerciante => comerciante.UserId,
+           user => user.Id,
+           (comerciante, user) => new Tuple<Comerciante, PechinchaMarketUser>(comerciante, user))
+       .ToList();
+
+            return View(model);
+        }
+
         // GET: Comerciantes/Details/5
         public async Task<IActionResult> DetailsComerciante(Guid? id)
         {
@@ -50,7 +64,24 @@ namespace PechinchaMarket.Controllers
 
             return View(comerciante);
         }
-        
+
+        public async Task<IActionResult> DetailsProduct(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var comerciante = await _context.Comerciante
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (comerciante == null)
+            {
+                return NotFound();
+            }
+
+            return View(comerciante);
+        }
+
         public async Task<IActionResult> Aprove(Guid? id)
         {
            
