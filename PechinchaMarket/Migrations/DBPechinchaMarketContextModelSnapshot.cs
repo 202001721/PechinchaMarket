@@ -274,13 +274,15 @@ namespace PechinchaMarket.Migrations
 
             modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
                 {
-
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ClosingTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ComercianteId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("OpeningTime")
                         .HasColumnType("datetime2");
@@ -295,7 +297,77 @@ namespace PechinchaMarket.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ComercianteId");
+
                     b.ToTable("Loja");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProdCategoria")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProdEstado")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Unidade")
+                        .HasColumnType("int");
+
+                    b.Property<float?>("Weight")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Produto");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.ProdutoLoja", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float?>("Discount")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("DiscountDuration")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("LojaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LojaId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ProdutoLoja");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -351,19 +423,15 @@ namespace PechinchaMarket.Migrations
 
             modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
                 {
-                    b.HasOne("PechinchaMarket.Models.Comerciante", "Comerciante")
+                    b.HasOne("PechinchaMarket.Models.Comerciante", null)
                         .WithMany("Lojas")
-                        .HasForeignKey("ComercianteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Comerciante");
+                        .HasForeignKey("ComercianteId");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.ProdutoLoja", b =>
                 {
                     b.HasOne("PechinchaMarket.Models.Loja", "Loja")
-                        .WithMany("ProdutoLojas")
+                        .WithMany()
                         .HasForeignKey("LojaId");
 
                     b.HasOne("PechinchaMarket.Models.Produto", "Produto")
@@ -380,11 +448,6 @@ namespace PechinchaMarket.Migrations
             modelBuilder.Entity("PechinchaMarket.Models.Comerciante", b =>
                 {
                     b.Navigation("Lojas");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
-                {
-                    b.Navigation("ProdutoLojas");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
 
@@ -14,10 +15,13 @@ namespace PechinchaMarket.Controllers
     public class ProdutosController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
 
-        public ProdutosController(DBPechinchaMarketContext context)
+        public ProdutosController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+
         }
 
         // GET: Produtos
@@ -60,6 +64,7 @@ namespace PechinchaMarket.Controllers
         // GET: Produtos/Create
         public IActionResult Create()
         {
+            ViewData["Shops"] = _context.Loja;
             return View();
         }
 
@@ -68,29 +73,47 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file, int price)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file, float[] price)
         {
             if (ModelState.IsValid)
             {
-               var memoryStreamImg = new MemoryStream();
+                var memoryStreamImg = new MemoryStream();
 
                 await file.CopyToAsync(memoryStreamImg);
 
-                produto.ProdEstado = Estado.InAnalysis;
-                produto.Image = memoryStreamImg.ToArray();
-                produto.ProdutoLojas = new List<ProdutoLoja> {
-                    new ProdutoLoja
+                var userId = _userManager.GetUserId(User);
+                List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
+                if (!lojas.IsNullOrEmpty())
+                {
+                    List<ProdutoLoja> ProdL = new List<ProdutoLoja>();
+                    
+                    for(int i = 0; i< lojas.Count;i++)
                     {
-                        Price = price,
+                        int pi = i+1;
+                        var p = new ProdutoLoja { Price = price[pi], Loja = lojas[i] };
+                        ProdL.Add(p);
                     }
-                };
+                    
+                    
 
-                _context.Add(produto); 
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                    produto.ProdEstado = Estado.InAnalysis;
+                    produto.Image = memoryStreamImg.ToArray();
+                    produto.ProdutoLojas = ProdL;
+
+                    _context.Add(produto);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    TempData["alertMessage"] = "Nao existe nenhuma loja";
+                    return View(produto);
+                }
+                
             }
             return View(produto);
         }
+
 
         // GET: Produtos/Edit/5
         public async Task<IActionResult> Edit(int? id)

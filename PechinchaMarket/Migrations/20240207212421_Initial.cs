@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -81,7 +81,6 @@ namespace PechinchaMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:PechinchaMarket/Migrations/20240207160241_Initial.cs
                 name: "Produto",
                 columns: table => new
                 {
@@ -98,20 +97,6 @@ namespace PechinchaMarket.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Produto", x => x.Id);
-========
-                name: "Loja",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    adress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OpeningTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ClosingTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Loja", x => x.Id);
->>>>>>>> main:PechinchaMarket/Migrations/20240206190514_inicial.cs
                 });
 
             migrationBuilder.CreateTable(
@@ -224,12 +209,12 @@ namespace PechinchaMarket.Migrations
                 name: "Loja",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Open = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Closed = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ComercianteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    adress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OpeningTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ClosingTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ComercianteId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -238,8 +223,7 @@ namespace PechinchaMarket.Migrations
                         name: "FK_Loja_Comerciante_ComercianteId",
                         column: x => x.ComercianteId,
                         principalTable: "Comerciante",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -249,9 +233,10 @@ namespace PechinchaMarket.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<float>(type: "real", nullable: false),
+                    Discount = table.Column<float>(type: "real", nullable: true),
                     DiscountDuration = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
-                    LojaId = table.Column<int>(type: "int", nullable: true)
+                    LojaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -347,9 +332,6 @@ namespace PechinchaMarket.Migrations
 
             migrationBuilder.DropTable(
                 name: "ProdutoLoja");
-
-            migrationBuilder.DropTable(
-                name: "Loja");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

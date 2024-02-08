@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public float Price { get; set;}
+        public float? Discount { get; set;}
         public DateTime? DiscountDuration { get; set;}
 
         public Produto Produto { get; set;}
