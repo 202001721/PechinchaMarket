@@ -44,15 +44,13 @@
                 <div class="insert-file">
 
                     <label asp-for="Input.Image">Logotipo</label>
-                    <input type="file" asp-for="Input.Image" />
+                    <input type="file" asp-for="Input.Image" accept="image/jpeg, image/png" />
                 </div>
                 <div class="insert-file">
-
                     <label asp-for="Input.Document">Documento de autenticação</label>
-                    <input type="file" asp-for="Input.Document"/>
-
+                    <input type="file" asp-for="Input.Document" accept="application/pdf"/>
                 </div>
-                <div class="buttons" >
+                <div class="buttons">
                     <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
                     <a class="cancel" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cancelar</a>
                 </div>
