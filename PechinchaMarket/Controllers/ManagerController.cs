@@ -35,6 +35,12 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
+        
+        public async Task<ActionResult> NonAprovedProducts(int id)
+        {
+            return View(await _context.Produto.ToListAsync());
+        }
+
         // GET: Comerciantes/Details/5
         public async Task<IActionResult> DetailsComerciante(Guid? id)
         {
@@ -56,7 +62,24 @@ namespace PechinchaMarket.Controllers
 
             return View(model);
         }
-        
+
+        public async Task<IActionResult> DetailsProduct(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (produto == null)
+            {
+                return NotFound();
+            }
+
+            return View(produto);
+        }
+
         public async Task<IActionResult> Aprove(Guid? id)
         {
            
@@ -70,6 +93,22 @@ namespace PechinchaMarket.Controllers
             
 
             return View(comerciante);
+
+        }
+
+        public async Task<IActionResult> ApproveProduct(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (produto == null) { return NotFound(); }
+
+
+            return View(produto);
 
         }
 
@@ -88,18 +127,32 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction(nameof(NonConfirmedList));
 
         }
+
+        [HttpPost, ActionName("ApproveProduct")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AproveConfirmedProduct(int? id)
+        {
+            var produto = await _context.Produto.FindAsync(id);
+            if (produto != null)
+            {
+                produto.ProdEstado = 0;
+            }
+            await _context.SaveChangesAsync();
+
+
+            return RedirectToAction(nameof(NonAprovedProducts));
+
+        }
+
         public async Task<IActionResult> Reprove(Guid? id)
         {
-
             if (id == null)
             {
                 return NotFound();
             }
             var comerciante = await _context.Comerciante
                 .FirstOrDefaultAsync(m => m.Id == id);
-          
             if (comerciante == null) { return NotFound(); }
-
 
             return View(comerciante);
 
@@ -118,8 +171,7 @@ namespace PechinchaMarket.Controllers
                 await SendEmailAsync(utilizador.Email, "Seu cadastro foi negado",
               "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito");
                 _context.Comerciante.Remove(comerciante);
-               
-               _context.Users.Remove(utilizadorId);
+                _context.Users.Remove(utilizadorId);
 
             }
             await _context.SaveChangesAsync();
@@ -129,13 +181,45 @@ namespace PechinchaMarket.Controllers
 
         }
 
-        public async Task<IActionResult> ShowLogo(Guid? id)
+        public async Task<IActionResult> ReproveProduct(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (produto == null) { return NotFound(); }
+
+
+            return View(produto);
+
+        }
+
+        [HttpPost, ActionName("ReproveProduct")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ReproveConfirmedProduct(int? id)
+        {
+            var produto = await _context.Produto.FindAsync(id);
+            if (produto != null)
+            {
+                produto.ProdEstado = (Estado?)1;
+            }
+            await _context.SaveChangesAsync();
+
+
+            return RedirectToAction(nameof(NonAprovedProducts));
+
+        }
+
+      public async Task<IActionResult> ShowLogo(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
             var comerciante = await _context.Comerciante
                 .FirstOrDefaultAsync(m => m.Id == id);
 
