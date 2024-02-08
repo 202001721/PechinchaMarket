@@ -151,9 +151,9 @@ namespace PechinchaMarket.Controllers
             var produto = await _context.Comerciante
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            return File(produto.document, "pdf");
+            return File(produto.document, "application/pdf");
         }
-
+       
         private async Task<bool> SendEmailAsync(string email, string subject, string body)
         {
 
