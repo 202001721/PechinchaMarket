@@ -47,8 +47,8 @@
             @Html.DisplayNameFor(model => model.Item1.logo)
         </dt>
         <dd class="col-sm-10">
-   
-            <img src='@Url.Action( "ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})' width="fit-content"  />
+
+            <span class="comerciante-logo" style="background-image: url('@Url.Action("ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})');">  </span> <!-- <img src='@Url.Action("ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id })' width="fit-content" /> -->
         </dd>
     </dl>
 
