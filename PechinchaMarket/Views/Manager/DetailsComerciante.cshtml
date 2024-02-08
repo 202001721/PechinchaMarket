@@ -61,9 +61,7 @@
     <form asp-action="Reprove">
         <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id" />
         <input type="submit" value="Reprove" class="reprove-button" />
+
         <a class="voltar-button" asp-action="NonConfirmedList">Voltar atrás</a>
     </form>
-  
-        
-    
 </div>

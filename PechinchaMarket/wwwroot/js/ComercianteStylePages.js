@@ -3,5 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var root = document.documentElement;
 
     // Set the value of the CSS variable to blue
-    root.style.setProperty('--root-main-color', rgb(102, 209, 255));
+    root.style.setProperty('--root-main-color', 'rgb(102, 209, 255)');
+    console.log("hello");
+
 });

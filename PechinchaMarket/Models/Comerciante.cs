@@ -22,5 +22,7 @@ namespace PechinchaMarket.Models
         public byte[] logo { get; set; }
         public byte[] document { get; set; }
         public bool isApproved { get; set; }
+
+        public List<Loja> Lojas { get; set; }
     }
 }

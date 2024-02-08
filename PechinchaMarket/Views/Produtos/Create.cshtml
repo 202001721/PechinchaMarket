@@ -5,6 +5,7 @@
 
     IEnumerable<Loja> shops = ViewData["Shops"] as IEnumerable<Loja>;
 }
+
 <script type="text/javascript">
     function readfile(input) {
         if (input.files && input.files[0]) {
@@ -51,10 +52,10 @@
 
 </script>
 
+<link rel="stylesheet" href="~/css/produto.css" />
+<script type="text/javascript" src="~/js/ComercianteStylePages.js"></script>
 
 <h1>Adicionar Produto</h1>
-<link href="~/css/produto.css" rel="stylesheet" />
-<script type="text/javascript" src="~/js/ComercianteStylePages.js"></script>
 
 @if(null != TempData["alertMessage"])
 {

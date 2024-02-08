@@ -14,16 +14,16 @@
     --root-background-content-color: white;
     /*cor do texto no website todo*/
     --root-text-color: black;
-    /*cor do border de um containers/botıes/etc.. com fundo default (root-background-content-color)*/
+    /*cor do border de um containers/bot√µes/etc.. com fundo default (root-background-content-color)*/
     --root-border-color-to-default-background-container: black;
-    /*cor de fundo do but„o do tipo de conta*/
+    /*cor de fundo do but√£o do tipo de conta*/
     --root-account-type-button-color: white;
-    /*cor do border do but„o do tipo de conta*/
+    /*cor do border do but√£o do tipo de conta*/
     --root-account-type-button-border-color: grey;
     /*-------------------------------*-
     |*           Tamanhos            *|
     -*-------------------------------*/
-    /*Width da caixa de autenticaÁ„o*/
+    /*Width da caixa de autentica√ß√£o*/
     --root-authentication-box-width: 40em;
     --root-authentication-box-content-width: 30em;
     --root-authentication-box-height: 40em;

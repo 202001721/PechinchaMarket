@@ -4,59 +4,60 @@
 }
 
 
-.buttons{
-    display:flex;
-justify - content:space - evenly;
+
+.buttons {
+    display: flex;
+    justify-content:space-evenly;
 }
 
 .cancel {
     background-color: #f44336;
     padding: 10px 15px;
-margin: 0px 0px 0px 10px;
-text - align: center;
-border: 1px solid transparent;
-border - radius: 5px;
-box - shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-color: white;
-text - decoration: none;
+    margin: 0px 0px 0px 10px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: white;
+    text-decoration: none;
 }
 
-.cancel: hover {
-    background - color: red;
-color: white;
-}
+    .cancel:hover {
+        background-color: red;
+        color: white;
+    }
 
-.insert - file{
-border: 1px solid grey;
-    border - radius:5px;
-    margin - bottom: 10px;
+.insert-file {
+    border: 1px solid grey;
+    border-radius:5px;
+    margin-bottom: 10px;
 }
 
 .blueBackground {
     background: rgb(255, 255, 255);
-background: linear - gradient(0deg, rgba(255, 255, 255, 1) 80 %, rgba(102, 209, 255) 100 %);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80 %, rgba(102, 209, 255) 100 %);
 }
 
 .addProduct {
     display: flex;
-justify - content:space - between;
+    justify-content:space-between;
 }
 
 .addProductLeft {
-    display:flex;
-flex - direction:column;
-width: 500px;
+    display: flex;
+    flex-direction:column;
+    width: 500px;
 }
 
 .addProductRight {
     display: flex;
-flex - direction: column;
-width: 300px;
+    flex-direction: column;
+    width: 300px;
 }
 
 .precoUnidade {
-    display:flex;
-width: 100 %;
+    display: flex;
+    width: 100%;
 }
 
 #peso {
@@ -68,44 +69,44 @@ width: 100 %;
 }
 
 .shopTable {
-    width: 100 %;
-border: 1px solid;
+    width: 100%;
+    border: 1px solid;
 }
 
 .bottom {
-    display:flex;
-flex - direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
-.bottom > *{
-    margin - top: 10px;
-}
+    .bottom > * {
+        margin-top: 10px;
+    }
 
 .form {
     margin: 0px 200px 0px 200px
 }
 
-.image{
-    display:none;
+.image {
+    display: none;
 }
 
-.custom - file - upload {
-    border - radius: 5px;
-    background - color: rgba(102, 209, 255);
-color: white;
-padding: 5px 10px;
-width: 100 %;
-    text - align:center;
-    margin - top: 10px;
-cursor: pointer;
+.custom-file-upload {
+    border-radius: 5px;
+    background-color: rgba(102, 209, 255);
+    color: white;
+    padding: 5px 10px;
+    width: 100%;
+    text-align:center;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
-.preco{
-    width: 60 %;
+.preco {
+    width: 60%;
 }
 
 .unidade {
-    width: 40 %;
+    width: 40%;
 }
 
 .imagePlaceholder {
