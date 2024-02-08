@@ -136,10 +136,10 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Comerciante
+            var comerciante = await _context.Comerciante
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            return File(produto.logo, "image/jpg");
+            return File(comerciante.logo, "image/jpg");
         }
         public async Task<IActionResult> ShowDocument(Guid? id)
         {
@@ -148,10 +148,10 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Comerciante
+            var comerciante = await _context.Comerciante
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            return File(produto.document, "application/pdf");
+            return File(comerciante.document, "application/pdf");
         }
        
         private async Task<bool> SendEmailAsync(string email, string subject, string body)
