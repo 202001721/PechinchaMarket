@@ -7,7 +7,7 @@
 <link href="~/css/manager.css" rel="stylesheet" />
  
 
-<h1>NonConfirmedList</h1>
+<h1>Lista de comerciantes em espera</h1>
 
 
    
@@ -18,10 +18,12 @@
          @foreach (var item in Model)
         {
             @if (item.Item1.isApproved == false)
-            {
+            {  // @Model.FirstOrDefault().Item1.Id}
                 <div class="card">
 
-                    <div class="card-image"><a href="#"> Imagem</a> </div>
+                    <div class="card-image"> <img src='@Url.Action( "ShowLogo", "Manager", new { id = item.Item1.Id
+
+                  })'/> </div>
                     <h2>@Html.DisplayFor(modelItem => item.Item2.UserName)</h2>
                     <p>Email: @Html.DisplayFor(modelItem => item.Item2.Email)</p>
                     <p>Contacto: @Html.DisplayFor(modelItem => item.Item1.contact)</p>

@@ -22,13 +22,18 @@ body {
     border-radius: 20px;
 }
 
-.card-image {
+.card-image{
     background-color: oldlace;
     height: 100px;
     margin-bottom: 15px;
     background-size: cover;
     border-radius: 20px 20px 0 0;
 }
+    .card-image img {
+        width: 100%; 
+        height: 100%;
+        object-fit: cover;
+    }
 
 .card p{
     padding:5px; 
@@ -60,9 +65,19 @@ body {
     color: #fff; /* White text color */
     padding: 5px 5px;
     border: none;
-  ;
     cursor: pointer;
 }
+
+.voltar-button {
+    background-color: #0b0c0d;
+    ;
+    color: #fff; /* White text color */
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 
 .reprove-button {
     background-color: #dc3545;
@@ -83,4 +98,10 @@ body {
 .approve-button:hover,
 .reprove-button:hover {
     opacity: 0.6;
+}
+.buttons-form {
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 0;
 }
