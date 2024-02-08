@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,23 +12,24 @@ using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Controllers
 {
-    public class ComerciantesController : Controller
+    public class LojasController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
 
-        public ComerciantesController(DBPechinchaMarketContext context)
+        public LojasController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        // GET: Comerciantes
+        // GET: Lojas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Comerciante.ToListAsync());
+            return View(await _context.Loja.ToListAsync());
         }
-    
 
-        // GET: Comerciantes/Details/5
+        // GET: Lojas/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -34,40 +37,42 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var comerciante = await _context.Comerciante
+            var loja = await _context.Loja
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (comerciante == null)
+            if (loja == null)
             {
                 return NotFound();
             }
 
-            return View(comerciante);
+            return View(loja);
         }
 
-        // GET: Comerciantes/Create
+        // GET: Lojas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Comerciantes/Create
+        // POST: Lojas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,contact,logo,document")] Comerciante comerciante)
+        public async Task<IActionResult> Create([Bind("Id,adress,OpeningTime,ClosingTime")] Loja loja)
         {
+            ModelState.Remove("UserId");
             if (ModelState.IsValid)
             {
-                comerciante.Id = Guid.NewGuid();
-                _context.Add(comerciante);
+                loja.Id = Guid.NewGuid();
+                loja.UserId = _userManager.GetUserId(User);
+                _context.Add(loja);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(comerciante);
+            return View(loja);
         }
 
-        // GET: Comerciantes/Edit/5
+        // GET: Lojas/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -75,22 +80,22 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var comerciante = await _context.Comerciante.FindAsync(id);
-            if (comerciante == null)
+            var loja = await _context.Loja.FindAsync(id);
+            if (loja == null)
             {
                 return NotFound();
             }
-            return View(comerciante);
+            return View(loja);
         }
 
-        // POST: Comerciantes/Edit/5
+        // POST: Lojas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,UserId,contact,logo,document")] Comerciante comerciante)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,adress,OpeningTime,ClosingTime,UserId")] Loja loja)
         {
-            if (id != comerciante.Id)
+            if (id != loja.Id)
             {
                 return NotFound();
             }
@@ -99,12 +104,12 @@ namespace PechinchaMarket.Controllers
             {
                 try
                 {
-                    _context.Update(comerciante);
+                    _context.Update(loja);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ComercianteExists(comerciante.Id))
+                    if (!LojaExists(loja.Id))
                     {
                         return NotFound();
                     }
@@ -115,10 +120,10 @@ namespace PechinchaMarket.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(comerciante);
+            return View(loja);
         }
 
-        // GET: Comerciantes/Delete/5
+        // GET: Lojas/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -126,36 +131,34 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var comerciante = await _context.Comerciante
+            var loja = await _context.Loja
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (comerciante == null)
+            if (loja == null)
             {
                 return NotFound();
             }
 
-            return View(comerciante);
+            return View(loja);
         }
 
-        // POST: Comerciantes/Delete/5
+        // POST: Lojas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var comerciante = await _context.Comerciante.FindAsync(id);
-            if (comerciante != null)
+            var loja = await _context.Loja.FindAsync(id);
+            if (loja != null)
             {
-                _context.Comerciante.Remove(comerciante);
+                _context.Loja.Remove(loja);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-
-
-        private bool ComercianteExists(Guid id)
+        private bool LojaExists(Guid id)
         {
-            return _context.Comerciante.Any(e => e.Id == id);
+            return _context.Loja.Any(e => e.Id == id);
         }
     }
 }

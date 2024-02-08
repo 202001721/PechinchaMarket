@@ -23,9 +23,13 @@ var connectionString = builder.Configuration.GetConnectionString("DBPechinchaMar
 
 builder.Services.AddDbContext<DBPechinchaMarketContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<PechinchaMarketUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBPechinchaMarketContext>();
+// builder.Services.AddDefaultIdentity<PechinchaMarketUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBPechinchaMarketContext>();
 
-
+builder.Services.AddIdentity<PechinchaMarketUser, IdentityRole>(options =>
+options.SignIn.RequireConfirmedAccount = true)
+.AddEntityFrameworkStores<DBPechinchaMarketContext>()
+.AddDefaultTokenProviders()
+.AddDefaultUI();
 
 
 // Add services to the container.
@@ -54,4 +58,13 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager =
+    scope.ServiceProvider.GetRequiredService<UserManager<PechinchaMarketUser>>();
+    var roleManager =
+    scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    await DataSeeder.SeedData(userManager, roleManager);
+}
 app.Run();
