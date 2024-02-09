@@ -452,18 +452,17 @@ a.cancel-button::before {
     gap: 1em;
     height: fit-content;
 }
-    .insert-file label {
+    .insert-file div.title {
         font-weight: bold;
     }
 
-    .insert-file label::after{
-        content:'';
-        position:relative;
+    .insert-file div.title::after {
+        content: '';
+        position: relative;
         display: block;
-        left:calc(50% -  var(--root-small-icon-size) / 2);
+        left: calc(50% - var(--root-small-icon-size) / 2);
         width: var(--root-small-icon-size);
         height: var(--root-small-icon-size);
-        background-image: url('../images/uploadPdf.png');
         background-size: cover;
     }
 
@@ -486,25 +485,58 @@ a.cancel-button::before {
         }
 
         .insert-file input[type="file"] {
-            /*OldText and Button*/
+            /*OldText and OldButton*/
+            z-index: 1;
             color: transparent;
             width: var(--root-insert-file-input-width);
         }
 
-        .insert-file input[type="file"]::-webkit-file-upload-button {
-            /*Button*/
-            background-color: var(--root-background-content-color);
-            color: var(--root-border-color-to-default-background-container);
-            border: 2px solid var(--root-border-color-to-default-background-container);
-            border-radius: var(--root-input-text-radius);
-            width: 100%;
-            outline: none;
-            cursor: pointer;
-        }
+            .insert-file input[type="file"]::-webkit-file-upload-button {
+                /*OldButton*/
+                padding-top:0;
+                padding-bottom: 0;
+                position: absolute;
+                left: calc(50vw - var(--root-insert-file-input-width) / 2);
+                margin: 0 auto;
+                background-color: var(--root-background-content-color);
+                color: var(--root-border-color-to-default-background-container);
+                border: 2px solid var(--root-border-color-to-default-background-container);
+                border-radius: var(--root-input-text-radius);
+                outline: none;
+                cursor: pointer;
+            }
+
+    .insert-file label {
+        /*NewButton*/
+        z-index: 2;
+        position: relative;
+        left: calc(0.5 * var(--root-insert-file-input-width));
+        text-align: center;
+        width: var(--root-insert-file-input-width);
+        background-color: var(--root-background-content-color);
+        color: var(--root-border-color-to-default-background-container);
+        border: 2px solid var(--root-border-color-to-default-background-container);
+        border-radius: var(--root-input-text-radius);
+        outline: none;
+        cursor: pointer;
+    }
 
             .insert-file input[type="file"]::-webkit-file-upload-button:hover {
                 filter: brightness(0.92);
             }
+
+.insert-file.file-type-image div.title::after{
+    background-image: url('../images/uploadImage.png') !important;
+}
+
+
+.insert-file.file-type-pdf div.title::after{
+    background-image: url('../images/uploadPdf.png') !important;
+}
+    .insert-file.file-type-pdf input[type="file"]::-webkit-file-upload-button {
+        content: 'Adicionar Documento'
+    }
+
 
 .authentication-input-text-div button.password-hidden,
 .authentication-input-text-div button.password-visible {

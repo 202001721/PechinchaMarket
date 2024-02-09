@@ -14,7 +14,7 @@ function updateUrlParameter(key, value) {
 }
 
 function updateFileName(input) {
-    var fileContainer = input.parentNode; // Get the parent node of the input (the .insert-file container)
+    var fileContainer = input.parentNode.parentNode; // Get the parent node of the input (the .insert-file container)
     var fileNameElement = fileContainer.querySelector('.file-name');
     fileNameElement.innerText = input.files[0] ? input.files[0].name : 'No file chosen';
 }

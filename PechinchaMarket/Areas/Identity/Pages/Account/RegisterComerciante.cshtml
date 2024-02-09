@@ -7,6 +7,7 @@
 }
 
 <script type="text/javascript" src="~/js/AuthenticationBasedOnPhases.js"></script>
+<script type="text/javascript" src="~/js/ComercianteStylePages.js"></script>
 
 <body class="gradiante-main-color background-height">
     <div class="content-background authentication-box center-div-x-axis">
@@ -53,17 +54,23 @@
                 </div>
 
                 <div class="authentication-phase authentication-basedon-column" id="phase1">
-                    <div class="insert-file">
-                        <label asp-for="Input.Image">Logotipo</label>
+                    <div class="insert-file file-type-image">
+                        <div class="title">Logotipo</div>
                         <div class ="insert-file-input">
-                            <input type="file" onchange="updateFileName(this)" asp-for="Input.Image" />
+                            <div>
+                                <label asp-for="Input.Image">Carregar</label>
+                                <input type="file" onchange="updateFileName(this)" asp-for="Input.Image"/>
+                            </div>
                             <div class="file-name">No file chosen</div>
                         </div>
                     </div>
-                    <div class="insert-file">
-                        <label asp-for="Input.Document">Documento de autenticação</label>
+                    <div class="insert-file file-type-pdf">
+                        <div class="title">Documento de autenticação</div>
                         <div class="insert-file-input">
-                            <input type="file" onchange="updateFileName(this)" asp-for="Input.Document" />
+                            <div>
+                                <label asp-for="Input.Document">Carregar</label>
+                                <input type="file" title="Adicionar documento" onchange="updateFileName(this)" asp-for="Input.Document" />
+                            </div>
                             <div class="file-name">No file chosen</div>
                         </div>
                     </div>
