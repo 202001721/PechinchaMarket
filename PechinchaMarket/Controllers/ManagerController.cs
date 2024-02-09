@@ -21,7 +21,7 @@ namespace PechinchaMarket.Controllers
             _context = context;
         }
 
-        
+        // GET: Comerciantes não aprovados
         public async Task<ActionResult> NonConfirmedList()
         {
             
@@ -35,7 +35,7 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
-        
+        // GET: Produtos não aprovados
         public async Task<ActionResult> NonAprovedProducts(int id)
         {
             return View(await _context.Produto.ToListAsync());
@@ -63,6 +63,7 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
+        // GET: Produtos/Details/5
         public async Task<IActionResult> DetailsProduct(int? id)
         {
             if (id == null)
@@ -79,7 +80,7 @@ namespace PechinchaMarket.Controllers
 
             return View(produto);
         }
-
+        
         public async Task<IActionResult> Aprove(Guid? id)
         {
            
@@ -95,7 +96,7 @@ namespace PechinchaMarket.Controllers
             return View(comerciante);
 
         }
-
+        //Aprovar Porduto
         public async Task<IActionResult> ApproveProduct(int? id)
         {
 
@@ -128,6 +129,7 @@ namespace PechinchaMarket.Controllers
 
         }
 
+        //Mudar o estado do produto para aprovado
         [HttpPost, ActionName("ApproveProduct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AproveConfirmedProduct(int? id)
@@ -181,6 +183,7 @@ namespace PechinchaMarket.Controllers
 
         }
 
+        //Reprovar Produto
         public async Task<IActionResult> ReproveProduct(int? id)
         {
 
@@ -198,6 +201,7 @@ namespace PechinchaMarket.Controllers
 
         }
 
+        //Mudar o estado do produto para reporvado
         [HttpPost, ActionName("ReproveProduct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ReproveConfirmedProduct(int? id)
