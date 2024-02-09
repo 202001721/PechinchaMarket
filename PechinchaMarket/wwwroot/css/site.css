@@ -164,6 +164,7 @@ body {
 
 .a-div-button {
     width: fit-content;
+    text-decoration: none;
 }
 
     .a-div-button button {
@@ -500,7 +501,7 @@ a.cancel-button::before {
                 margin: 0 auto;
                 background-color: var(--root-background-content-color);
                 color: var(--root-border-color-to-default-background-container);
-                border: 2px solid var(--root-border-color-to-default-background-container);
+                border: none;
                 border-radius: var(--root-input-text-radius);
                 outline: none;
                 cursor: pointer;
@@ -691,4 +692,100 @@ a.cancel-button::before {
         marigin: 0px;
         width: fit-content;
     }
+}
+
+[class^="support-image-"] {
+    display: inline-block !important;
+    background-size: cover !important;
+    margin: 0 auto;
+}
+
+.support-image-1 {
+    width:700px;
+    height:400px;
+    background-image: url(../images/AuthenticationSupport1.png);
+}
+
+.support-image-2 {
+    width: 700px;
+    height: 400px;
+    background-image: url(../images/AuthenticationSupport2.png);
+}
+
+.support-image-3 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport3.png);
+}
+
+.support-image-4 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport4.png);
+}
+
+.support-image-5 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport5.png);
+}
+
+.support-image-6 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport6.png);
+}
+
+.support-image-7 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport7.png);
+}
+
+.support-image-8 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport8.png);
+}
+
+.support-image-9 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport9.png);
+}
+
+.support-image-10 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport10.png);
+}
+
+.support-image-11 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport11.png);
+}
+
+.support-image-12 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport12.png);
+}
+
+.support-image-13 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport13.png);
+}
+
+.support-image-14 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport14.png);
+}
+
+.support-image-15 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport15.png);
 }
