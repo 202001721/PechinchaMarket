@@ -222,7 +222,7 @@ namespace PechinchaMarket.Controllers
         }
 
       public async Task<IActionResult> ShowLogo(Guid? id)
-        {
+      {
             if (id == null)
             {
                 return NotFound();
@@ -231,7 +231,19 @@ namespace PechinchaMarket.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return File(comerciante.logo, "image/jpg");
+      }
+        //Mostrar imagem do produto
+        public async Task<IActionResult> ShowImage(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
         }
+        var produto = await _context.Produto
+            .FirstOrDefaultAsync(m => m.Id == id);
+
+        return File(produto.Image, "image/jpg");
+    }
         public async Task<IActionResult> ShowDocument(Guid? id)
         {
             if (id == null)
