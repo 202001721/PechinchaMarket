@@ -165,6 +165,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         logo = memoryStreamImg.ToArray(),
                         document = memoryStreamDoc.ToArray(),
                         isApproved = false,
+                        Name= Input.UserName
 
                     };
                     

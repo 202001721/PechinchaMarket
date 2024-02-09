@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,6 +55,7 @@ namespace PechinchaMarket.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Preferencias = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -70,6 +71,7 @@ namespace PechinchaMarket.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     contact = table.Column<int>(type: "int", nullable: false),
                     logo = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     document = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
