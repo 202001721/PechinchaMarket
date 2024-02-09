@@ -118,9 +118,12 @@ namespace PechinchaMarket.Controllers
         public async Task<IActionResult> AproveConfirmed(Guid? id)
         {
             var comerciante = await _context.Comerciante.FindAsync(id);
+            var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
             if (comerciante != null)
             {
                 comerciante.isApproved = true;
+                await SendEmailAsync(utilizador.Email, "Seu cadastro foi aceito",
+              "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito");
             }
             await _context.SaveChangesAsync();
 
