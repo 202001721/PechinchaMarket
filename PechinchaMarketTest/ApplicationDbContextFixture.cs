@@ -13,7 +13,7 @@ namespace PechinchaMarketTest
 {
     public class ApplicationDbContextFixture : IDisposable
     {
-        public DBPechinchaMarketContext DbContext { get; private set; }
+        public DBPechinchaMarketContext DbContext { get; set; }
 
         public ApplicationDbContextFixture() {
             
@@ -26,10 +26,6 @@ namespace PechinchaMarketTest
             DbContext = new DBPechinchaMarketContext(options);
             DbContext.Database.EnsureCreated();
 
-            // Adicione uma nova liga para teste
-            var user = CreateUser();
-            
-            DbContext.Cliente.Add(new Cliente { Id=Guid.NewGuid(), UserId="", Localizacao="Lisboa", Preferencias=new List<Categoria>() });
 
             DbContext.SaveChanges();
         }
