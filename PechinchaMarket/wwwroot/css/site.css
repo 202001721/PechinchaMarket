@@ -44,6 +44,7 @@
     --root-small-icon-size: 3em;
     --root-huge-icon-size: 5em;
     --root-comerciante-logo: 10rem;
+    --root-produto-image: 15rem;
     --root-account-type-logo-size: 3em;
     --root-account-type-button-width: 8em;
     --root-account-type-button-heigth: 8em;
@@ -55,7 +56,6 @@
     --root-checkbox-border-radius: 0.5em;
     --root-input-text-radius: 0.25em;
     --root-checkbox-border-thickness-when-selected: 0.2em;
-
     --root-insert-file-input-width: 6.5em;
 }
 
