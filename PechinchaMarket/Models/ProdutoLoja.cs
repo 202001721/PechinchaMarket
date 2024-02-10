@@ -1,4 +1,6 @@
-﻿namespace PechinchaMarket.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PechinchaMarket.Models
 {
     /**
      * Class ProdutoLoja
@@ -13,8 +15,11 @@
     public class ProdutoLoja
     {
         public int Id { get; set; }
+        [Display(Name = "Preço")]
         public float Price { get; set;}
+        [Display(Name = "Desconto")]
         public float? Discount { get; set;}
+        [Display(Name = "Duração do desconto")]
         public DateTime? DiscountDuration { get; set;}
 
         public Produto Produto { get; set;}

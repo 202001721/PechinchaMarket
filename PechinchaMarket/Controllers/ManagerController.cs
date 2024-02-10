@@ -71,14 +71,21 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto
+            var model = _context.Produto.Where(produto => produto.Id == id)
+       .Join(_context.ProdutoLoja,
+           produto => produto.Id,
+           prodLoja=> prodLoja.Produto.Id,
+           (produto, prodLoja) => new Tuple<Produto, ProdutoLoja>(produto, prodLoja))
+       .ToList();
+
+            /*var produto = await _context.Produto
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (produto == null)
             {
                 return NotFound();
-            }
+            }*/
 
-            return View(produto);
+            return View(model);
         }
         
         public async Task<IActionResult> Aprove(Guid? id)
