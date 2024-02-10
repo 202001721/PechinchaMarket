@@ -687,9 +687,6 @@ a.cancel-button::before {
     }
 
     .gsignin-div {
-        position: absolute;
-        left: calc(50vw - 38.17px);
-        marigin: 0px;
         width: fit-content;
     }
 }
