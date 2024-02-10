@@ -12,6 +12,10 @@ h1 {
     padding-bottom: 1em;
 }
 
+.content {
+    padding: 2em;
+}
+
 .button {
     background-color: white;
     width: 10em;
