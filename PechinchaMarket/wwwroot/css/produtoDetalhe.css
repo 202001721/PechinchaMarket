@@ -8,6 +8,13 @@ h2 {
     padding-bottom: 1em;
 }
 
+.numberstyle-qty {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba($inputText,0.25);
+}
+
 .content {
     padding-left: 5em;
     font-size: 20px;
