@@ -230,6 +230,10 @@ namespace PechinchaMarket.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Preferencias")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -248,6 +252,10 @@ namespace PechinchaMarket.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -278,6 +286,10 @@ namespace PechinchaMarket.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ClosingTime")
                         .HasColumnType("datetime2");
 
@@ -288,10 +300,6 @@ namespace PechinchaMarket.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("adress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

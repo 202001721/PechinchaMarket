@@ -40,7 +40,9 @@
 
 .addProduct {
     display: flex;
-    justify-content:space-between;
+    justify-content: center;
+    gap: 0 20px;
+    flex-wrap: wrap;
 }
 
 .addProductLeft {
@@ -78,12 +80,17 @@
     flex-direction: column;
 }
 
-    .bottom > * {
-        margin-top: 10px;
-    }
+.bottom > * {
+    margin-top: 10px;
+    flex-shrink:1;
+}
 
 .form {
-    margin: 0px 200px 0px 200px
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    width:fit-content;
+    margin:0 auto;
 }
 
 .image {

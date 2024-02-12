@@ -1,67 +1,66 @@
 ﻿@using System.Drawing
-@model PechinchaMarket.Models.Produto
+@model IEnumerable<Tuple<PechinchaMarket.Models.Produto, PechinchaMarket.Models.ProdutoLoja>>
 
 @{
     ViewData["Title"] = "Details";
 }
-<link href="~/css/manager.css" rel="stylesheet" />
+<link href="~/css/produto.css" rel="stylesheet" />
+<link href="~/css/produtoDetalhe.css" rel="stylesheet" />
 
-<div>
+<a class="img-back" asp-action="NonAprovedProducts">
+</a>
+<div class="content">
     <h2>Novo Produto Por Aceitar</h2>
-    <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Brand)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Brand)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-        <dd class="col-sm-10">
-            <img src='@Url.Action( "show", "produtos", new { id = Model.Id })' />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Weight)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Unidade)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Unidade)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProdEstado)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProdEstado)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProdCategoria)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProdCategoria)
-        </dd>
+        
+        <div class="addProductLeft">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item1.Name):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FirstOrDefault().Item1.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item1.Brand):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FirstOrDefault().Item1.Brand)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item2.Price):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FirstOrDefault().Item2.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item1.Unidade)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item1.Weight):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FirstOrDefault().Item1.Weight)Kg
+            </dd>        
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Item1.ProdCategoria):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FirstOrDefault().Item1.ProdCategoria)
+            </dd>
+        </div>
+        <div class="addProductRight">
+            <dd class="col-sm-10">
+
+                <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})');">  </span>
+            </dd>
+        </div>        
     </dl>
-</div>
-<div class="buttons">
-    <form asp-action="ApproveProduct">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Aprovar" class="approve-button" />
-    </form>
-    <form asp-action="ReproveProduct">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Reprovar" class="reprove-button" />
-        <a asp-action="NonAprovedProducts">Voltar atrás</a>
-    </form>
+
+    <div class="buttons-form">
+        <form asp-action="ApproveProduct">
+            <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id " />
+            <input type="submit" value="Aceitar" class="approve-button" />
+        </form>
+        <form asp-action="ReproveProduct">
+            <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id" />
+            <input type="submit" value="Recusar" class="reprove-button" />
+        </form>
+    </div>
 </div>

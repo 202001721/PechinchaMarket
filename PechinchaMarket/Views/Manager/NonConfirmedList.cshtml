@@ -22,7 +22,7 @@
                     <div class="card-image"> <img src='@Url.Action( "ShowLogo", "Manager", new { id = item.Item1.Id
 
                   })'/> </div>
-                    <h2>@Html.DisplayFor(modelItem => item.Item2.UserName)</h2>
+                    <h2>@Html.DisplayFor(modelItem => item.Item1.Name)</h2>
                     <p>Email: @Html.DisplayFor(modelItem => item.Item2.Email)</p>
                     <p>Contacto: @Html.DisplayFor(modelItem => item.Item1.contact)</p>
                     <a asp-area="" asp-controller="Manager" asp-action="DetailsComerciante" asp-route-id="@item.Item1.Id"> Details</a>

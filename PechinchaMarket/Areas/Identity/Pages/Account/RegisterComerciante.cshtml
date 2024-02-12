@@ -7,11 +7,12 @@
 }
 
 <script type="text/javascript" src="~/js/AuthenticationBasedOnPhases.js"></script>
+<script type="text/javascript" src="~/js/ComercianteStylePages.js"></script>
 
 <body class="gradiante-main-color background-height">
     <div class="content-background authentication-box center-div-x-axis">
         <div class="rigth-text support-link">
-            <a asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="1">Precisa de ajuda?</a>
+            <a asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="2">Precisa de ajuda?</a>
         </div>
         <div class="centered-content">
             <div class="authentication-header">
@@ -53,18 +54,24 @@
                 </div>
 
                 <div class="authentication-phase authentication-basedon-column" id="phase1">
-                    <div class="insert-file">
-                        <label asp-for="Input.Image">Logotipo</label>
+                    <div class="insert-file file-type-image">
+                        <div class="title">Logotipo</div>
                         <div class ="insert-file-input">
-                            <input type="file" onchange="updateFileName(this)" asp-for="Input.Image" />
-                            <div class="file-name">No file chosen</div>
+                            <div>
+                                <label asp-for="Input.Image">Carregar</label>
+                                <input type="file" onchange="updateFileName(this)" asp-for="Input.Image" accept="image/*" />
+                            </div>
+                            <div class="file-name">Nenhum ficheiro escolhido</div>
                         </div>
                     </div>
-                    <div class="insert-file">
-                        <label asp-for="Input.Document">Documento de autenticação</label>
+                    <div class="insert-file file-type-pdf">
+                        <div class="title">Documento de autenticação</div>
                         <div class="insert-file-input">
-                            <input type="file" onchange="updateFileName(this)" asp-for="Input.Document" />
-                            <div class="file-name">No file chosen</div>
+                            <div>
+                                <label asp-for="Input.Document">Carregar</label>
+                                <input type="file" onchange="updateFileName(this)" asp-for="Input.Document" accept="application/pdf" />
+                            </div>
+                            <div class="file-name">Nenhum ficheiro escolhido</div>
                         </div>
                     </div>
 
