@@ -14,16 +14,16 @@
     --root-background-content-color: white;
     /*cor do texto no website todo*/
     --root-text-color: black;
-    /*cor do border de um containers/botıes/etc.. com fundo default (root-background-content-color)*/
+    /*cor do border de um containers/bot√µes/etc.. com fundo default (root-background-content-color)*/
     --root-border-color-to-default-background-container: black;
-    /*cor de fundo do but„o do tipo de conta*/
+    /*cor de fundo do but√£o do tipo de conta*/
     --root-account-type-button-color: white;
-    /*cor do border do but„o do tipo de conta*/
+    /*cor do border do but√£o do tipo de conta*/
     --root-account-type-button-border-color: grey;
     /*-------------------------------*-
     |*           Tamanhos            *|
     -*-------------------------------*/
-    /*Width da caixa de autenticaÁ„o*/
+    /*Width da caixa de autentica√ß√£o*/
     --root-authentication-box-width: 40em;
     --root-authentication-box-content-width: 30em;
     --root-authentication-box-height: 40em;
@@ -43,6 +43,8 @@
     --root-text-size: 1em;
     --root-small-icon-size: 3em;
     --root-huge-icon-size: 5em;
+    --root-comerciante-logo: 10rem;
+    --root-produto-image: 15rem;
     --root-account-type-logo-size: 3em;
     --root-account-type-button-width: 8em;
     --root-account-type-button-heigth: 8em;
@@ -54,7 +56,6 @@
     --root-checkbox-border-radius: 0.5em;
     --root-input-text-radius: 0.25em;
     --root-checkbox-border-thickness-when-selected: 0.2em;
-
     --root-insert-file-input-width: 6.5em;
 }
 
@@ -66,6 +67,8 @@ html {
 body {
     height: 100%;
     width: 100%;
+    min-height: 100vh;
+    
 }
 
 @media (min-width: 768px) {
@@ -103,9 +106,13 @@ body {
     background: linear-gradient(-110deg, var(--root-main-color) 35%, rgba(255,255,255,1) 100%);
 }
 
+.gradiante2-main-color {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80%, var(--root-main-color) 100%);
+}
+
 .background-height{
     min-height: 100vh;
-    min-width: 100vw;
+   
 }
 
 .content-background {
@@ -157,6 +164,7 @@ body {
 
 .a-div-button {
     width: fit-content;
+    text-decoration: none;
 }
 
     .a-div-button button {
@@ -445,18 +453,17 @@ a.cancel-button::before {
     gap: 1em;
     height: fit-content;
 }
-    .insert-file label {
+    .insert-file div.title {
         font-weight: bold;
     }
 
-    .insert-file label::after{
-        content:'';
-        position:relative;
+    .insert-file div.title::after {
+        content: '';
+        position: relative;
         display: block;
-        left:calc(50% -  var(--root-small-icon-size) / 2);
+        left: calc(50% - var(--root-small-icon-size) / 2);
         width: var(--root-small-icon-size);
         height: var(--root-small-icon-size);
-        background-image: url('../images/uploadPdf.png');
         background-size: cover;
     }
 
@@ -479,25 +486,58 @@ a.cancel-button::before {
         }
 
         .insert-file input[type="file"] {
-            /*OldText and Button*/
+            /*OldText and OldButton*/
+            z-index: 1;
             color: transparent;
             width: var(--root-insert-file-input-width);
         }
 
-        .insert-file input[type="file"]::-webkit-file-upload-button {
-            /*Button*/
-            background-color: var(--root-background-content-color);
-            color: var(--root-border-color-to-default-background-container);
-            border: 2px solid var(--root-border-color-to-default-background-container);
-            border-radius: var(--root-input-text-radius);
-            width: 100%;
-            outline: none;
-            cursor: pointer;
-        }
+            .insert-file input[type="file"]::-webkit-file-upload-button {
+                /*OldButton*/
+                padding-top:0;
+                padding-bottom: 0;
+                position: absolute;
+                left: calc(50vw - var(--root-insert-file-input-width) / 2);
+                margin: 0 auto;
+                background-color: var(--root-background-content-color);
+                color: var(--root-border-color-to-default-background-container);
+                border: none;
+                border-radius: var(--root-input-text-radius);
+                outline: none;
+                cursor: pointer;
+            }
+
+    .insert-file label {
+        /*NewButton*/
+        z-index: 2;
+        position: relative;
+        left: calc(0.5 * var(--root-insert-file-input-width));
+        text-align: center;
+        width: var(--root-insert-file-input-width);
+        background-color: var(--root-background-content-color);
+        color: var(--root-border-color-to-default-background-container);
+        border: 2px solid var(--root-border-color-to-default-background-container);
+        border-radius: var(--root-input-text-radius);
+        outline: none;
+        cursor: pointer;
+    }
 
             .insert-file input[type="file"]::-webkit-file-upload-button:hover {
                 filter: brightness(0.92);
             }
+
+.insert-file.file-type-image div.title::after{
+    background-image: url('../images/uploadImage.png') !important;
+}
+
+
+.insert-file.file-type-pdf div.title::after{
+    background-image: url('../images/uploadPdf.png') !important;
+}
+    .insert-file.file-type-pdf input[type="file"]::-webkit-file-upload-button {
+        content: 'Adicionar Documento'
+    }
+
 
 .authentication-input-text-div button.password-hidden,
 .authentication-input-text-div button.password-visible {
@@ -647,9 +687,102 @@ a.cancel-button::before {
     }
 
     .gsignin-div {
-        position: absolute;
-        left: calc(50vw - 38.17px);
-        marigin: 0px;
         width: fit-content;
     }
+}
+
+[class^="support-image-"] {
+    display: inline-block !important;
+    background-size: cover !important;
+    margin: 0 auto;
+}
+
+.support-image-1 {
+    width:700px;
+    height:400px;
+    background-image: url(../images/AuthenticationSupport1.png);
+}
+
+.support-image-2 {
+    width: 700px;
+    height: 400px;
+    background-image: url(../images/AuthenticationSupport2.png);
+}
+
+.support-image-3 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport3.png);
+}
+
+.support-image-4 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport4.png);
+}
+
+.support-image-5 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport5.png);
+}
+
+.support-image-6 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport6.png);
+}
+
+.support-image-7 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport7.png);
+}
+
+.support-image-8 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport8.png);
+}
+
+.support-image-9 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport9.png);
+}
+
+.support-image-10 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport10.png);
+}
+
+.support-image-11 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport11.png);
+}
+
+.support-image-12 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport12.png);
+}
+
+.support-image-13 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport13.png);
+}
+
+.support-image-14 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport14.png);
+}
+
+.support-image-15 {
+    width: 800px;
+    height: 700px;
+    background-image: url(../images/AuthenticationSupport15.png);
 }

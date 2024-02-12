@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\images\AuthenticationSupport\**" />
+    <Content Remove="wwwroot\images\AuthenticationSupport\**" />
+    <EmbeddedResource Remove="wwwroot\images\AuthenticationSupport\**" />
+    <None Remove="wwwroot\images\AuthenticationSupport\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\images\logo_projeto.png" />
   </ItemGroup>
 
@@ -17,6 +24,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
