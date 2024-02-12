@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tuple<PechinchaMarket.Models.Produto, PechinchaMarket.Models.ProdutoLoja, PechinchaMarket.Models.Loja, PechinchaMarket.Models.Comerciante>>
+﻿@model IEnumerable<Tuple<PechinchaMarket.Areas.Identity.Data.PechinchaMarketUser, PechinchaMarket.Models.Comerciante, PechinchaMarket.Models.Loja, PechinchaMarket.Models.ProdutoLoja, PechinchaMarket.Models.Produto>>
 
 @{
     ViewData["Title"] = "Adicionar Produto na Lista";
@@ -23,7 +23,7 @@
         </form>
     </div>
     
-    <!--Lojas   (deve ser botão, é suposto ser selecionavel ou é só para visualizar)-->
+    <!--Lojas   (deve ser botão, é suposto ser selecionavel e para visualizar)-->
 
     <!--Zona de produtos semelhantes [produtos com nome parecido/ na mesma categoria/ outra forma?!]
             "card" com imagem do produto, nome e preço/unidade
