@@ -139,19 +139,19 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                 returnUrl = returnUrl ?? Url.Content("~/");
                 var _name = info.Principal.Identity.Name;
                 var user = CreateUser();
-                
+
                 Cliente cliente = new Cliente()
                 {
                     UserId = user.Id,
                     Preferencias = new List<Categoria>(),
                     Localizacao = "",
-
+                    Name = _name,
                 };
 
                 _logger.LogInformation("O Nome do Utilizador é {Name}.", _name);
                 var _email = info.Principal.FindFirstValue(ClaimTypes.Email);
     
-                await _userStore.SetUserNameAsync(user, _name.Replace(" ", "_"), CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, _name.Replace(" ", ""), CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, _email, CancellationToken.None);
 
                 var resultado = await _userManager.CreateAsync(user);
@@ -268,12 +268,6 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
 
-            //TODO
-            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
-            // message.From = ?
-            // message.Port = ?
-            // message.Host = ?
-            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
             try
             {
                 MailMessage message = new MailMessage();

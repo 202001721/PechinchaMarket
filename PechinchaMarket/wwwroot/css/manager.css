@@ -5,14 +5,20 @@
 }
 
 .container {
-    display: flex;
+   display: flex;
    justify-content: flex-start;
    flex-wrap: wrap;
+   margin-left: 1em;
 }
 body {
 
     background: rgb(255, 102, 102);
-    background: linear-gradient(to bottom, rgba(255, 102, 102) 0%, rgba(255, 255, 255, 1) 30%);
+    background: linear-gradient(to bottom, rgba(255, 102, 102) 0%, rgba(255, 255, 255, 1) 15%);
+}
+
+h2 {
+    padding-top: 2em;
+    padding-bottom: 1em;
 }
 
 .card {
@@ -22,13 +28,18 @@ body {
     border-radius: 20px;
 }
 
-.card-image {
+.card-image{
     background-color: oldlace;
     height: 100px;
     margin-bottom: 15px;
     background-size: cover;
     border-radius: 20px 20px 0 0;
 }
+    .card-image img {
+        width: 100%; 
+        height: 100%;
+        object-fit: cover;
+    }
 
 .card p{
     padding:5px; 
@@ -56,20 +67,43 @@ body {
 /* Add these styles to your existing CSS or manager.css */
 
 .approve-button {
-    background-color: #28a745; /* Green color for the "Approved" button */
-    color: #fff; /* White text color */
+    background-color: #FF4646;
+    opacity: 0.85;
+    width: 10em;
+    border: 2.5px solid #FF4646;
+    align-items: center;
+    margin-block: 2em;
+    margin-inline-end: 1.5em;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
     padding: 5px 5px;
-    border: none;
-  ;
     cursor: pointer;
 }
 
-.reprove-button {
-    background-color: #dc3545;
-    color: #fff;
+.voltar-button {
+    background-color: transparent;
+    color: black;
     padding: 5px 5px;
     border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
 
+
+.reprove-button {
+    background-color: white;
+    
+    width: 10em;
+    border: 2.5px solid #FF4646;
+    opacity: 0.85;
+    align-items: center;
+    margin-block: 2em;
+    margin-inline-end: 1.5em;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: black;
+    padding: 5px 5px;
     cursor: pointer;
 }
 
@@ -83,4 +117,29 @@ body {
 .approve-button:hover,
 .reprove-button:hover {
     opacity: 0.6;
+}
+.buttons-form {
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 0;
+}
+
+.comerciante-logo {
+    display: inline-block;
+    width: var(--root-comerciante-logo);
+    height: var(--root-comerciante-logo);
+    background-size: cover;
+}
+
+.ProductLeft {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.ProductRight {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
 }

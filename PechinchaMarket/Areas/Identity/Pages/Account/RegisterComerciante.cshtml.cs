@@ -18,15 +18,16 @@ using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
     public class RegisterComercianteModel : PageModel
     {
         private readonly SignInManager<PechinchaMarketUser> _signInManager;
-        private readonly UserManager<PechinchaMarketUser> _userManager;
-        private readonly IUserStore<PechinchaMarketUser> _userStore;
-        private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
+        private readonly Microsoft.AspNetCore.Identity.IUserStore<PechinchaMarketUser> _userStore;
+        private readonly Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly DBPechinchaMarketContext _context;
@@ -34,8 +35,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
 
         public RegisterComercianteModel(
-            UserManager<PechinchaMarketUser> userManager,
-            IUserStore<PechinchaMarketUser> userStore,
+            Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
+            Microsoft.AspNetCore.Identity.IUserStore<PechinchaMarketUser> userStore,
             SignInManager<PechinchaMarketUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
@@ -148,7 +149,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Comerciante");
+                     await _userManager.AddToRoleAsync(user, "Comerciante");
                     var userId = await _userManager.GetUserIdAsync(user);
 
                     var memoryStreamImg = new MemoryStream();
@@ -164,10 +165,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         logo = memoryStreamImg.ToArray(),
                         document = memoryStreamDoc.ToArray(),
                         isApproved = false,
+                        Name= Input.UserName
 
                     };
-
+                    
                     _context.Add(comerciante);
+                    user.EmailConfirmed = true;
                     await _context.SaveChangesAsync();
                     
 
@@ -176,17 +179,19 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
+                        "/Account/WaitForConfirmation",
                         pageHandler: null,
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+                  
 
-                    await SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    //await SendEmailAsync(Input.Email, "Confirm your email",
+                    //  $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        
+                        return RedirectToPage("WaitForConfirmation", new { email = Input.Email, returnUrl = returnUrl });
                     }
                     else
                     {
@@ -261,13 +266,13 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             }
         }
 
-        private IUserEmailStore<PechinchaMarketUser> GetEmailStore()
+        private Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<PechinchaMarketUser>)_userStore;
+            return (Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser>)_userStore;
         }
     }
 }

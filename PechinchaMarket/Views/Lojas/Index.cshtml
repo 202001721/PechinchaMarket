@@ -8,7 +8,7 @@
 }
 <link href="~/css/loja.css" rel="stylesheet" />
 
-<h1>Lojas do/a @UserManager.GetUserName(User)</h1>
+<h1>Lojas</h1>
 
 <p>
     <a asp-action="Create">Adicionar Loja</a>
@@ -17,7 +17,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.adress)
+                @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.OpeningTime)
@@ -34,7 +34,7 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.adress)
+                        @Html.DisplayFor(modelItem => item.Address)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.OpeningTime)

@@ -1,0 +1,80 @@
+﻿body {
+    background: rgb(255, 102, 102);
+    background: linear-gradient(to bottom, rgba(255, 102, 102) 0%, rgba(255, 255, 255, 1) 15%);
+}
+
+h2 {
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+
+.content {
+    padding-left: 5em;
+    font-size: 20px;
+}
+
+.buttons-form {
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 0;
+}
+
+.approve-button {
+    background-color: #FF4646;
+    opacity: 0.85;
+    width: 10em;
+    border: 2.5px solid #FF4646;
+    align-items: center;
+    margin-block: 2em;
+    margin-inline-end: 1.5em;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.img-back {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../images/down-arrow.png);
+    background-size: cover;
+    transform: rotate(90deg);
+    margin-top: 1.5em;
+    margin-left: 1.5em;
+    margin-bottom: 0em;
+}
+
+.voltar-button {
+    background-color: transparent;
+    color: black;
+    padding: 5px 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.reprove-button {
+    background-color: white;
+    width: 10em;
+    border: 2.5px solid #FF4646;
+    opacity: 0.85;
+    align-items: center;
+    margin-block: 2em;
+    margin-inline-end: 1.5em;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: black;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.imagem-produto {
+    display: inline-block;
+    width: var(--root-produto-image);
+    height: var(--root-produto-image);
+    background-size: cover;
+}

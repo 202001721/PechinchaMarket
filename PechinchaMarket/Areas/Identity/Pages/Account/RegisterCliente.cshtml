@@ -6,61 +6,76 @@
     ViewData["Title"] = "Registar";
 }
 
+<script type="text/javascript" src="~/js/AuthenticationBasedOnPhases.js"></script>
 
-<body class="gradianteLaranja">
-<div class="box2">
-    <div class="col-md-4">
-            <div class="right">
-                <a class="orange" asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="1">Precisa de ajuda?</a>
+
+<body class="gradiante-main-color background-height">
+    <div class="content-background authentication-box center-div-x-axis">
+        <div class="rigth-text support-link">
+            <a asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="1">Precisa de ajuda?</a>
+        </div>
+        <div class="centered-content">
+            <div class="authentication-header">
+                <span class="huge-icon-logo center-div-x-axis"></span>
+                <h3 class="center-text">Criar conta como Cliente</h3>
             </div>
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>@ViewData["Title"]</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email">Email</label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-           
-            <div class="form-floating mb-3">
-                <input asp-for="Input.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="XXXXXXXXXXX" />
-                <label asp-for="Input.UserName">Nome</label>
-                <span asp-validation-for="Input.UserName" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Localizacao" class="form-control" autocomplete="localizacao" aria-required="true" placeholder="XXXXXXXXXXX" />
-                <label asp-for="Input.Localizacao">Localização</label>
-                <span asp-validation-for="Input.Localizacao" class="text-danger"></span>
-            </div> 
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            @foreach (Categoria categoria in Enum.GetValues(typeof(Categoria)))
-            {
-                <div>
-                    <input type="checkbox" name="categorias" value="@categoria" id="@($"chk_{categoria}")" />
-                    <label for="@($"chk_{categoria}")">@categoria.ToString()</label>
-                    <input type="hidden" asp-for="SelectedCategories" value="@categoria" />
-                </div>
-            }
+              <div class="authentication-phase authentication-basedon-column" id="phase0">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
-            <div class="buttons">
-                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-                <a class="cancel" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cancelar</a>
-            </div>
-        </form>
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email"/>
+                        <label asp-for="Input.Email">Email</label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.UserName" autocomplete="username" aria-required="true" placeholder="Nome" />
+                        <label asp-for="Input.UserName">Nome</label>
+                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.Localizacao" autocomplete="localizacao" aria-required="true" placeholder="Localização" />
+                        <label asp-for="Input.Localizacao">Localização</label>
+                        <span asp-validation-for="Input.Localizacao" class="text-danger"></span>
+                    </div>
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Password" />
+                        <label asp-for="Input.Password">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirme a password" />
+                        <label asp-for="Input.ConfirmPassword">Confirme a password</label>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="authentication-buttons">
+                        <a class="cancel-button" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cancelar</a>
+                        <div class="confirm-button" onclick="toogleSignUpFase(1, 2)">Continuar</div>
+                    </div>
+                </div>
+
+                <div class="authentication-phase authentication-basedon-row" id="phase1">
+                    @foreach (Categoria categoria in Enum.GetValues(typeof(Categoria)))
+                    {
+                        <div class="authentication-checkbox">
+                            <input type="checkbox" name="categorias" value="@categoria" id="@($"chk_{categoria}")" />
+                            <label for="@($"chk_{categoria}")">@categoria.ToString()</label>
+                            <input type="hidden" asp-for="SelectedCategories" value="@categoria"/>
+                        </div>
+                    }
+
+                    <div class="authentication-buttons">
+                        <a class="cancel-button" onclick="toogleSignUpFase(0, 2)">Voltar Atrás</a>
+                        <button class="confirm-button" id="registerSubmit" type="submit">Registar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-   
-</div>
 </body>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

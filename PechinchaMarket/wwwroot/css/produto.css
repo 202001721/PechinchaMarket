@@ -1,0 +1,121 @@
+﻿.gradianteAzul {
+    background: rgb(102, 209, 255);
+    background: linear-gradient(-110deg, rgba(102, 209, 255) 35 %, rgba(255, 255, 255, 1) 100 %);
+}
+
+
+
+.buttons {
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.cancel {
+    background-color: #f44336;
+    padding: 10px 15px;
+    margin: 0px 0px 0px 10px;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: white;
+    text-decoration: none;
+}
+
+    .cancel:hover {
+        background-color: red;
+        color: white;
+    }
+
+.insert-file {
+    border: 1px solid grey;
+    border-radius:5px;
+    margin-bottom: 10px;
+}
+
+.blueBackground {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80 %, rgba(102, 209, 255) 100 %);
+}
+
+.addProduct {
+    display: flex;
+    justify-content: center;
+    gap: 0 20px;
+    flex-wrap: wrap;
+}
+
+.addProductLeft {
+    display: flex;
+    flex-direction:column;
+    width: 500px;
+}
+
+.addProductRight {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.precoUnidade {
+    display: flex;
+    width: 100%;
+}
+
+#peso {
+    display: none;
+}
+
+#lojas {
+    display: none;
+}
+
+.shopTable {
+    width: 100%;
+    border: 1px solid;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom > * {
+    margin-top: 10px;
+    flex-shrink:1;
+}
+
+.form {
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    width:fit-content;
+    margin:0 auto;
+}
+
+.image {
+    display: none;
+}
+
+.custom-file-upload {
+    border-radius: 5px;
+    background-color: rgba(102, 209, 255);
+    color: white;
+    padding: 5px 10px;
+    width: 100%;
+    text-align:center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.preco {
+    width: 60%;
+}
+
+.unidade {
+    width: 40%;
+}
+
+.imagePlaceholder {
+    border: 1px solid black;
+}
