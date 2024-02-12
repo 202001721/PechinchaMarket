@@ -3,24 +3,40 @@
 @{
     ViewData["Title"] = "Adicionar Produto na Lista";
 }
-<link href="~/css/produtoDetalhe.css" rel="stylesheet" />
+<link href="~/css/ResultadoPesquisa.css" rel="stylesheet" />
 
-<div class="">
 
-    <div class="addProductLeft">
-         <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})');">  </span>
+<div class="content">
+
+    <div class="productLeft">
+         <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.FirstOrDefault().Item5.Id})');">  </span>
     </div>
 
-    <div class="addProductLeft">
-        @Html.DisplayFor(model => model.FirstOrDefault().Item1.Name) - @Html.DisplayFor(model => model.FirstOrDefault().Item4.Name)
-
-        @Html.DisplayFor(model => model.FirstOrDefault().Item2.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item1.Unidade)
-
-        <input class="numberstyle" type="number" min="1" max="99" step="1" value="1">
-        <form asp-action="AddProduct">
-            <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id " />
-            <input type="submit" value="Adicionar à lista" class="" />
-        </form>
+    <div class="productRight">
+        <div>
+            @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
+            @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)
+        </div>
+        
+        <div>
+            @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+        </div>
+        
+        <div class="acoes">
+            
+            <div class="quantity">
+                <span class="ci ci-minus">-</span>
+                <input class="numberstyle" type="number" min="1" max="99" step="1" value="1">
+                <span class="ci ci-plus">+</span>
+            </div>
+            <form asp-action="AddProduct">
+                <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item5.Id " />
+                <input type="submit" value="Adicionar à lista" class="button-add" />
+            </form>
+            
+            <input type="submit" value="Lojas" class="button-shops" />
+        </div>
+        
     </div>
     
     <!--Lojas   (deve ser botão, é suposto ser selecionavel e para visualizar)-->

@@ -19,17 +19,6 @@ namespace PechinchaMarket.Controllers
 
         public async Task<ActionResult> AddToList()
         {
-
-            /* var model = _context.Comerciante
-        .Join(_context.Users,
-            comerciante => comerciante.UserId,
-            user => user.Id
-        .Join(_context.Loja,
-            user => user.UserId,
-            loja => loja.UserId,
-            (comerciante, user, loja) => new Tuple<Comerciante, PechinchaMarketUser, Loja>(comerciante, user, loja)))
-        .ToList();*/
-
             var model = _context.Users
     .Join(_context.Comerciante,
         user => user.Id,
@@ -46,7 +35,7 @@ namespace PechinchaMarket.Controllers
     .Join(_context.Produto,
         temp => temp.ProdutoLoja.Produto.Id,
         produto => produto.Id,
-        (temp, produto) => new { temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja, Produto = produto })
+        (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja,produto ))
     .ToList();
 
             return View(model);
