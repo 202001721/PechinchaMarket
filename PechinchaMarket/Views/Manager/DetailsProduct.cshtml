@@ -2,13 +2,12 @@
 @model IEnumerable<Tuple<PechinchaMarket.Models.Produto, PechinchaMarket.Models.ProdutoLoja>>
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhe do Produto";
 }
 <link href="~/css/produto.css" rel="stylesheet" />
 <link href="~/css/produtoDetalhe.css" rel="stylesheet" />
 
-<a class="img-back" asp-action="NonAprovedProducts">
-</a>
+<a class="img-back" asp-action="NonAprovedProducts"></a>
 <div class="content">
     <h2>Novo Produto Por Aceitar</h2>
     <dl class="row">
