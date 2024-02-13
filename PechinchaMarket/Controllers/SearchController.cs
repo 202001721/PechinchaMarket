@@ -69,13 +69,23 @@ namespace PechinchaMarket.Controllers
             var produto = await _context.Produto.FindAsync(id);
 
             // Verificar se o cliente já possui uma lista de compras existente
-            var primeiraLista = (await _context.ListaProdutos
+            var listas = (await _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString())
-                .ToListAsync())
-                .FirstOrDefault();
+                .ToListAsync());
+
+            if(listas.Count > 0 && listas.Any(l => l.name == nome))
+            {
+                var novoDetalhe = new DetalheListaProd
+                {
+                    quantity = quantityValue,
+                    ListaProdutosId = listas.FirstOrDefault(l => l.name == nome).Id.ToString(),
+                    ProdutoId = id.ToString(),
+                };
+                _context.Add(novoDetalhe);
+            }
 
             //Não tem nenhuma lista
-            if (primeiraLista == null)
+            else if (listas.Count == 0 || listas.Any(l => l.name != nome))
             {
                 var novaListaProdutos = new ListaProdutos
                 {
@@ -93,19 +103,6 @@ namespace PechinchaMarket.Controllers
                     ProdutoId = produto.Id.ToString(),
                 };
                 _context.Add(novoDetalhe);
-            }
-
-            //Já tem lista
-            else
-            {
-                // Adicionar o produto à lista de compras existente
-
-                /*var listaDeComprasDoCliente = await _context.ListaProdutos
-                .Where(l => l.cliente.Id == cliente.Id)
-                .ToListAsync();
-                listaDeComprasDoCliente.FirstOrDefault().produtos.Add(produto);
-
-                _context.Update(listaDeComprasDoCliente);*/
             }
             
             await _context.SaveChangesAsync();
