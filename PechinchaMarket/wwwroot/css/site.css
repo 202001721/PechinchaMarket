@@ -841,6 +841,10 @@ a.cancel-button::before {
         background-color: var(--root-main-color);
         transition: width 0.3s ease, opacity 0.2s ease;
     }
+        .nav-search-div button:hover {
+            filter: brightness(0.95);
+        }
+
 
         .nav-search-div button::before {
             content: '';
