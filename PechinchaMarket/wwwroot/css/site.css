@@ -57,6 +57,7 @@
     --root-input-text-radius: 0.25em;
     --root-checkbox-border-thickness-when-selected: 0.2em;
     --root-insert-file-input-width: 6.5em;
+    --root-search-height: 30px;
 }
 
 html {
@@ -69,6 +70,10 @@ body {
     width: 100%;
     min-height: 100vh;
     
+}
+
+.mb-3 {
+    margin-bottom: 0rem!important;
 }
 
 @media (min-width: 768px) {
