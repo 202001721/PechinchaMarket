@@ -35,6 +35,8 @@
     --root-account-type-button-min-space: 1em;
     --root-all-authentication-content-min-space: 5em;
     --root-authentication-button-min-space: 1em;
+    --root-pechincha-container-margin-top: 2em; /*containers standerd no WEBSITE todo*/
+    --root-pechincha-container-margin-sides: 5em;
     /*Paddings's do conteudo das variaveis*/
     --root-input-text-padding-sides: 1em;
     --root-form-button-padding-sides: 2em;
@@ -59,6 +61,8 @@
     --root-checkbox-border-thickness-when-selected: 0.2em;
     --root-insert-file-input-width: 6.5em;
     --root-search-height: 30px;
+
+    --root-filter-area-width: 5em;
 }
 
 html {
@@ -860,4 +864,108 @@ a.cancel-button::before {
             border-top: 1px solid black;
         }
 
+.pechincha-container {
+    display: flex;
+    justify-content: center;
+}
 
+    .pechincha-container section {
+        width: calc(100vw - var(--root-pechincha-container-margin-sides));
+        min-height: 100%
+    }
+
+.column-container,
+.row-container,
+.right-flex,
+.left-flex,
+.center-x-flex,
+.edges-flex,
+.wrap-flex 
+.center-y-flex{
+    display: flex;
+}
+
+.column-container {
+    flex-direction: column;
+}
+
+.row-container {
+    flex-direction: row;
+}
+
+.right-flex {
+    justify-content: right;
+}
+
+.left-flex {
+    justify-content: left;
+}
+
+.center-x-flex {
+    justify-content: center;
+}
+
+.center-y-flex {
+    align-items: center;
+}
+
+.edges-flex {
+    justify-content: space-between;
+}
+
+.wrap-flex {
+    flex-wrap: wrap;
+}
+
+.thin-outline {
+    outline: 1px solid var(--root-border-color-to-default-background-container);
+}
+
+.rounded-border {
+    border-radius: 10px;
+}
+
+.small-padding {
+    padding: 1em;
+}
+
+.small-margin-top {
+    margin-top: 1em;
+}
+
+.filter-area-width {
+    min-width: var(--root-filter-area-width); 
+}
+
+.fit-content-width {
+    width: fit-content;
+}
+
+.search-result{
+    height: 8em;
+    text-decoration: none;
+    color: var(--root-text-color);
+    background-color: var(--root-background-content-color);
+    padding: 1em;
+    width: 140px;
+}
+
+.search-result:hover {
+    color: var(--root-text-color);
+    filter: brightness(0.95);
+}
+
+.search-image {
+    display: inline-block;
+    width: var(--root-medium-icon-size);
+    height: var(--root-medium-icon-size);
+    background-size: cover;
+}
+
+.sad-face {
+    display: inline-block;
+    width: 100px;
+    height: 69px;
+    background-size: 100% 100%;
+    background-image: url('../images/sad.png');
+}

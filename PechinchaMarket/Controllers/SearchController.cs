@@ -89,6 +89,16 @@ namespace PechinchaMarket.Controllers
             return false;
         }
 
+        public async Task<IActionResult> ShowImage(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
 
+            return File(produto.Image, "image/jpg");
+        }
     }
 }
