@@ -114,3 +114,4 @@ document.addEventListener('DOMContentLoaded', observeTextDanger);
 function goBack() {
     window.history.back();
 }
+

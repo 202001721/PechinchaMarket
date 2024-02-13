@@ -41,7 +41,8 @@
     --root-form-button-padding-up-and-down: 0.25em;
     /*Size do conteudo*/
     --root-text-size: 1em;
-    --root-small-icon-size: 3em;
+    --root-small-icon-size: 2em;
+    --root-medium-icon-size: 3em;
     --root-huge-icon-size: 5em;
     --root-comerciante-logo: 10rem;
     --root-produto-image: 15rem;
@@ -57,6 +58,7 @@
     --root-input-text-radius: 0.25em;
     --root-checkbox-border-thickness-when-selected: 0.2em;
     --root-insert-file-input-width: 6.5em;
+    --root-search-height: 30px;
 }
 
 html {
@@ -69,6 +71,12 @@ body {
     width: 100%;
     min-height: 100vh;
     
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
 }
 
 @media (min-width: 768px) {
@@ -461,9 +469,9 @@ a.cancel-button::before {
         content: '';
         position: relative;
         display: block;
-        left: calc(50% - var(--root-small-icon-size) / 2);
-        width: var(--root-small-icon-size);
-        height: var(--root-small-icon-size);
+        left: calc(50% - var(--root-medium-icon-size) / 2);
+        width: var(--root-medium-icon-size);
+        height: var(--root-medium-icon-size);
         background-size: cover;
     }
 
@@ -786,3 +794,70 @@ a.cancel-button::before {
     height: 700px;
     background-image: url(../images/AuthenticationSupport15.png);
 }
+
+.nav-search-div {
+    display: flex; 
+    
+    position: relative;
+    width: 300px;
+    height: var(--root-search-height);
+}
+    .nav-search-div input,
+    .nav-search-div button {
+        position: absolute;
+    }
+
+    .nav-search-div input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: var(--root-search-height);
+        outline: 1px solid black;
+        padding-left: var(--root-input-text-padding-sides);
+        padding-right: calc(5px + var(--root-search-height));
+    }
+        .nav-search-div input:focus {
+            outline: 1px solid var(--blue-color);
+        }
+
+        .nav-search-div input:focus ~ button{
+            opacity: 1;
+            width: var(--root-search-height);
+        }
+
+
+    .nav-search-div button {
+        opacity: 1;
+        right: 0;
+        width: var(--root-search-height);
+        height: 100%;
+        border: none;
+        border-radius: 50%; /* Make it a circle */
+        outline: 1px solid black;
+        background-color: var(--root-main-color);
+        transition: width 0.3s ease, opacity 0.2s ease;
+    }
+
+        .nav-search-div button::before {
+            content: '';
+            position: absolute;
+            top: 27%;
+            left: 27%;
+            aspect-ratio: 1 / 1;
+            width: 30%;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+
+        .nav-search-div button::after {
+            content: '';
+            position: absolute;
+            bottom: 28%;
+            right: 28%;
+            transform: rotate(45deg);
+            aspect-ratio: 2 / 1;
+            width: 25%;
+            border-top: 1px solid black;
+        }
+
+
