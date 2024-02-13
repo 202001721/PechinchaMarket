@@ -2,8 +2,10 @@
 
 @{
     ViewData["Title"] = "Adicionar Produto na Lista";
+
+    IEnumerable<ListaProdutos> listas = ViewData["Listas"] as IEnumerable<ListaProdutos>;
 }
-<link href="~/css/ResultadoPesquisa.css" rel="stylesheet" />
+<link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
 
 <div class="content">
@@ -15,7 +17,11 @@
     <div class="productRight">
         <div>
             @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
-            @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)
+            @Html.DisplayFor(model => model.FirstOrDefault().Item5.Brand) - @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)
+        </div>
+
+        <div>
+            Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().Item3.Address)
         </div>
         
         <div>
@@ -25,10 +31,9 @@
         <div class="acoes">
             
             <div class="quantity">
-                <span class="ci ci-minus">-</span>
                 <input class="numberstyle" type="number" min="1" max="99" step="1" value="1" id="quantityInput">
-                <span class="ci ci-plus">+</span>
             </div>
+            
             <form asp-action="AddProduct">
                 <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item5.Id, quantityValue, name" />
                 <input name="nome" type="text" id="name"/>
@@ -36,9 +41,27 @@
                 <input type="submit" value="Adicionar à lista" class="button-add" onclick="updateQuantity()" />
             </form>
             
-            <input type="submit" value="Lojas" class="button-shops" />
+            <input type="submit" value="Lojas" class="button-shops" />          
+
         </div>
-        
+
+    </div>
+
+    <div class="productLimite">
+        <input type="submit" value="Selecionar Lista" class="button-add" onclick="showListas()" id="selecionarListaButton" />
+
+        <div id="listas">
+            <table class="lista-item">
+                @foreach (ListaProdutos l in listas)
+                {
+                    <tr>
+                        <td onclick="selectLista('@l.name','@l.Id')">
+                            @Html.DisplayFor(modelItem => l.name)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
     </div>
     
     <!--Lojas   (deve ser botão, é suposto ser selecionavel e para visualizar)-->
@@ -54,6 +77,20 @@
         function updateQuantity() {
             var quantity = document.getElementById('quantityInput').value;
             document.getElementById('quantityValue').value = quantity;
+        }
+
+        function showListas() {
+            var x = document.getElementById("listas");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function selectLista(name, id) {
+            var x = document.getElementById("name");
+            x.value = name;
         }
     </script>
 }

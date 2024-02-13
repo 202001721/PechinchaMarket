@@ -16,12 +16,17 @@
 .productLeft {
     flex: 1;
     margin-right: 1em;
-    margin-left: 2em;
+    margin-left: 5em;
 }
 
 .productRight {
     flex: 2;
-    margin-left: 1em;
+    margin-left: 2em;
+}
+
+.productLimite {
+    flex: 3;
+    margin-left: 2em;
 }
 
 .imagem-produto {
@@ -62,9 +67,15 @@
     align-items: center;
     width: 7em;
 }
-    /*.button-shops .icon {
-        position: absolute;
-        top: 50%; // Posiciona o ícone no meio verticalmente 
-        right: 5px; // Distância do ícone em relação à borda direita do botão 
-        transform: translateY(-50%); // Ajusta para centralizar verticalmente 
-    }*/
+
+.lista-item {
+    margin-bottom: 5px; 
+}
+    .lista-item td {
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .lista-item td.selected {
+        background-color: #e0e0e0;
+    }
