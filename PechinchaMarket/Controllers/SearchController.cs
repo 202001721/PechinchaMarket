@@ -100,5 +100,40 @@ namespace PechinchaMarket.Controllers
 
             return File(produto.Image, "image/jpg");
         }
+
+        [HttpGet]
+        public IActionResult GetSugestiveNames(string input) { 
+            var nameList = _context.Produto
+                                      .Select(m => m.Name)
+                                      .Distinct()
+                                      .ToList();
+
+            var result = new List<string>();
+
+           foreach(var name in nameList) {
+                foreach (string word in name.Split(' ')) {
+                    if (word.Length >= input.Length) {
+                        var needcorrectvalue = Math.Floor((double) word.Length * 0.4);
+                        for (int i = 0; i < input.Length; i++) {
+                            if (string.Equals(word[i].ToString(), input[i].ToString(), StringComparison.OrdinalIgnoreCase))
+                            {
+                                needcorrectvalue--;
+                            }
+                            else 
+                            {
+                                break;
+                            }
+
+                            if (needcorrectvalue == 0) {
+                                result.Add(word);
+                                break;
+                            }
+                        }
+                    }
+                }
+           }
+
+            return Json(result);
+        }
     }
 }

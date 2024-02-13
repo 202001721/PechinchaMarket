@@ -115,3 +115,11 @@ function goBack() {
     window.history.back();
 }
 
+function sugest(userInput) {
+    fetch(`/Search/GetSugestiveNames?input=${userInput}`)
+        .then(response => response.json())
+        .then(suggestions => {
+            console.log(suggestions);
+            console.dir(suggestions);
+        });
+}
