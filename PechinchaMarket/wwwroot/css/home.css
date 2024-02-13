@@ -1,0 +1,21 @@
+.background {
+    background-image: url("../images/fundohome.png");
+    height: 400px;
+    padding: 20px;
+    background-size: cover;
+}
+
+
+
+.searchbox{
+    background: white;
+    width: 460px;
+    border: 3px solid orange;
+    border-radius:10px;
+    padding:20px;
+}
+
+.title{
+    font-size:17px;
+    font-weight: bold;
+}
