@@ -39,4 +39,6 @@ public DbSet<PechinchaMarket.Models.ProdutoLoja> ProdutoLoja { get; set; } = def
 
 public DbSet<PechinchaMarket.Models.ListaProdutos> ListaProdutos { get; set; } = default!;
 
+public DbSet<PechinchaMarket.Models.DetalheListaProd> DetalheListaProd { get; set; } = default!;
+
 }

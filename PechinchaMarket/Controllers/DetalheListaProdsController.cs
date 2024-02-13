@@ -10,22 +10,22 @@ using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Controllers
 {
-    public class ListaProdutosController : Controller
+    public class DetalheListaProdsController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
 
-        public ListaProdutosController(DBPechinchaMarketContext context)
+        public DetalheListaProdsController(DBPechinchaMarketContext context)
         {
             _context = context;
         }
 
-        // GET: ListaProdutos
+        // GET: DetalheListaProds
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ListaProdutos.ToListAsync());
+            return View(await _context.DetalheListaProd.ToListAsync());
         }
 
-        // GET: ListaProdutos/Details/5
+        // GET: DetalheListaProds/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -33,41 +33,40 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var listaProdutos = await _context.ListaProdutos
+            var detalheListaProd = await _context.DetalheListaProd
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (listaProdutos == null)
+            if (detalheListaProd == null)
             {
                 return NotFound();
             }
 
-            return View(listaProdutos);
+            return View(detalheListaProd);
         }
 
-        // GET: ListaProdutos/Create
+        // GET: DetalheListaProds/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: ListaProdutos/Create
+        // POST: DetalheListaProds/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Create([Bind("Id,name,ClienteId,state")] ListaProdutos listaProdutos)
+        public async Task<IActionResult> Create([Bind("Id,quantity,ListaProdutosId,ProdutoId")] DetalheListaProd detalheListaProd)
         {
             if (ModelState.IsValid)
             {
-                listaProdutos.Id = Guid.NewGuid();
-                _context.Add(listaProdutos);
+                detalheListaProd.Id = Guid.NewGuid();
+                _context.Add(detalheListaProd);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(listaProdutos);
+            return View(detalheListaProd);
         }
 
-        // GET: ListaProdutos/Edit/5
+        // GET: DetalheListaProds/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -75,23 +74,22 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var listaProdutos = await _context.ListaProdutos.FindAsync(id);
-            if (listaProdutos == null)
+            var detalheListaProd = await _context.DetalheListaProd.FindAsync(id);
+            if (detalheListaProd == null)
             {
                 return NotFound();
             }
-            return View(listaProdutos);
+            return View(detalheListaProd);
         }
 
-        // POST: ListaProdutos/Edit/5
+        // POST: DetalheListaProds/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,name,ClienteId,state")] ListaProdutos listaProdutos)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,quantity,ListaProdutosId,ProdutoId")] DetalheListaProd detalheListaProd)
         {
-            if (id != listaProdutos.Id)
+            if (id != detalheListaProd.Id)
             {
                 return NotFound();
             }
@@ -100,12 +98,12 @@ namespace PechinchaMarket.Controllers
             {
                 try
                 {
-                    _context.Update(listaProdutos);
+                    _context.Update(detalheListaProd);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ListaProdutosExists(listaProdutos.Id))
+                    if (!DetalheListaProdExists(detalheListaProd.Id))
                     {
                         return NotFound();
                     }
@@ -116,11 +114,10 @@ namespace PechinchaMarket.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(listaProdutos);
+            return View(detalheListaProd);
         }
 
-        // GET: ListaProdutos/Delete/5
-
+        // GET: DetalheListaProds/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -128,35 +125,34 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var listaProdutos = await _context.ListaProdutos
+            var detalheListaProd = await _context.DetalheListaProd
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (listaProdutos == null)
+            if (detalheListaProd == null)
             {
                 return NotFound();
             }
 
-            return View(listaProdutos);
+            return View(detalheListaProd);
         }
 
-        // POST: ListaProdutos/Delete/5
+        // POST: DetalheListaProds/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var listaProdutos = await _context.ListaProdutos.FindAsync(id);
-            if (listaProdutos != null)
+            var detalheListaProd = await _context.DetalheListaProd.FindAsync(id);
+            if (detalheListaProd != null)
             {
-                _context.ListaProdutos.Remove(listaProdutos);
+                _context.DetalheListaProd.Remove(detalheListaProd);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-
-        private bool ListaProdutosExists(Guid id)
+        private bool DetalheListaProdExists(Guid id)
         {
-            return _context.ListaProdutos.Any(e => e.Id == id);
+            return _context.DetalheListaProd.Any(e => e.Id == id);
         }
     }
 }

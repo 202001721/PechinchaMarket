@@ -1,0 +1,70 @@
+﻿body {
+    background: rgb(250, 181, 70);
+    background: linear-gradient(to bottom, rgba(250, 181, 70) 10%, rgba(255, 255, 255, 1) 25%);
+    margin: 0; 
+}
+
+.content {
+    padding: 12em 5em;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.productLeft {
+    flex: 1;
+    margin-right: 1em;
+    margin-left: 2em;
+}
+
+.productRight {
+    flex: 2;
+    margin-left: 1em;
+}
+
+.imagem-produto {
+    display: block;
+    width: var(--root-produto-image);
+    height: var(--root-produto-image);
+    background-size: cover;
+}
+
+.acoes {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2em;
+    gap: 2em;
+}
+
+.button-add {
+    background-color: #FFC266;
+    border: 1px solid #FFC266;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    width: 10em;
+}
+
+.button-shops {
+    background-color: #669AFF;
+    border: 1px solid #669AFF;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7em;
+}
+    /*.button-shops .icon {
+        position: absolute;
+        top: 50%; // Posiciona o ícone no meio verticalmente 
+        right: 5px; // Distância do ícone em relação à borda direita do botão 
+        transform: translateY(-50%); // Ajusta para centralizar verticalmente 
+    }*/

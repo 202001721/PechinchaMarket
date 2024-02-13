@@ -1,4 +1,4 @@
-﻿@model PechinchaMarket.Models.ListaProdutos
+﻿@model PechinchaMarket.Models.DetalheListaProd
 
 @{
     ViewData["Title"] = "Edit";
@@ -7,7 +7,7 @@
 
 <h1>Edit</h1>
 
-<h4>ListaProdutos</h4>
+<h4>DetalheListaProd</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,19 +15,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
+                <label asp-for="quantity" class="control-label"></label>
+                <input asp-for="quantity" class="form-control" />
+                <span asp-validation-for="quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" />
-                <span asp-validation-for="ClienteId" class="text-danger"></span>
+                <label asp-for="ListaProdutosId" class="control-label"></label>
+                <input asp-for="ListaProdutosId" class="form-control" />
+                <span asp-validation-for="ListaProdutosId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="state" class="control-label"></label>
-                <select asp-for="state" class="form-control"></select>
-                <span asp-validation-for="state" class="text-danger"></span>
+                <label asp-for="ProdutoId" class="control-label"></label>
+                <input asp-for="ProdutoId" class="form-control" />
+                <span asp-validation-for="ProdutoId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
