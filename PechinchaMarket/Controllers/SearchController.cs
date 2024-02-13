@@ -8,9 +8,11 @@ namespace PechinchaMarket.Controllers
     public class SearchController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
-        public SearchController(DBPechinchaMarketContext context)
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
+        public SearchController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -39,6 +41,77 @@ namespace PechinchaMarket.Controllers
     .ToList();
 
             return View(model);
+        }
+
+        [HttpPost, ActionName("AddProduct")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddProduct(int? id, int quantityValue, string nome)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            int contadorDeListas = 1;
+
+            //User logado
+            var userId = _userManager.GetUserId(User);
+            var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
+
+            //Produto selecionado
+            var produto = await _context.Produto.FindAsync(id);
+
+            // Verificar se o cliente já possui uma lista de compras existente
+            var primeiraLista = (await _context.ListaProdutos
+                .Where(l => l.ClienteId == cliente.Id.ToString())
+                .ToListAsync())
+                .FirstOrDefault();
+
+            //Não tem nenhuma lista
+            //if (primeiraLista == null)
+            // {
+            var novaListaProdutos = new ListaProdutos
+                {
+                    name = nome ?? "Lista de compras " + contadorDeListas,
+                    ClienteId = cliente.Id.ToString(),
+                    state = EstadoProdutoCompra.PorComprar,
+                };
+                _context.Add(novaListaProdutos);
+                contadorDeListas++;
+
+                var novoDetalhe = new DetalheListaProd
+                {
+                    quantity = quantityValue,
+                    ListaProdutosId = novaListaProdutos.Id.ToString(),
+                    ProdutoId = produto.Id.ToString(),
+                };
+                _context.Add(novoDetalhe);
+           // }
+           //Já tem lista
+            //else
+           // {
+                //Perguntar se deseja adicionar o produto à lista existente ou criar uma nova lista
+
+
+                // Adicionar o produto à lista de compras existente
+                /*var listaDeComprasDoCliente = await _context.ListaProdutos
+                .Where(l => l.cliente.Id == cliente.Id)
+                .ToListAsync();
+                listaDeComprasDoCliente.FirstOrDefault().produtos.Add(produto);
+
+                _context.Update(listaDeComprasDoCliente);*/
+           //}
+            
+            await _context.SaveChangesAsync();
+
+            return View("AddToList");
+
+        }
+
+        public async Task<IActionResult> AddProductToList()
+        {
+            return View();
         }
     }
 }

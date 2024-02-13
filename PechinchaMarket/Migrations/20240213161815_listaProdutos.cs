@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class listaProdutos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -86,9 +86,10 @@ namespace PechinchaMarket.Migrations
                 name: "ListaProdutos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantidade = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClienteId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    state = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -235,7 +236,7 @@ namespace PechinchaMarket.Migrations
                     Unidade = table.Column<int>(type: "int", nullable: false),
                     ProdEstado = table.Column<int>(type: "int", nullable: true),
                     ProdCategoria = table.Column<int>(type: "int", nullable: false),
-                    ListaProdutosId = table.Column<int>(type: "int", nullable: true)
+                    ListaProdutosId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
