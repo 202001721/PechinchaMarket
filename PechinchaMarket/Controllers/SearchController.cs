@@ -67,13 +67,15 @@ namespace PechinchaMarket.Controllers
 
             //Produto selecionado
             var produto = await _context.Produto.FindAsync(id);
+            var name = nome;
 
-            // Verificar se o cliente já possui uma lista de compras existente
+            // Verificar se o cliente já possui uma lista de produtos
             var listas = (await _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString())
                 .ToListAsync());
 
-            if(listas.Count > 0 && listas.Any(l => l.name == nome))
+            //Se ja tiver uma lista de produtos vai adicionar um detalhe a essa lista
+            if (listas.Count > 0 && listas.Any(l => l.name == nome))
             {
                 var novoDetalhe = new DetalheListaProd
                 {

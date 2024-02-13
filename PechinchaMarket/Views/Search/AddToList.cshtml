@@ -33,36 +33,39 @@
             <div class="quantity">
                 <input class="numberstyle" type="number" min="1" max="99" step="1" value="1" id="quantityInput">
             </div>
+
+            <div>
+                <input name="nome" type="text" id="name" onclick="showListas()" />
+                <div id="listas">
+                    <table class="lista-item">
+                        @foreach (ListaProdutos l in listas)
+                        {
+                            <tr>
+                                <td onclick="selectLista('@l.name','@l.Id')">
+                                    @Html.DisplayFor(modelItem => l.name)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
             
             <form asp-action="AddProduct">
-                <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item5.Id, quantityValue, name" />
-                <input name="nome" type="text" id="name"/>
+                <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item5.Id, quantityValue, nameValue" />
+                <input name="nome" type="hidden" id="nameValue"/>
                 <input name="quantityValue" type="hidden" dirname="quantity" id="quantityValue" />
-                <input type="submit" value="Adicionar à lista" class="button-add" onclick="updateQuantity()" />
+                <input type="submit" value="Adicionar à lista" class="button-add" onclick="updateQuantity(); updateName()" />
             </form>
             
-            <input type="submit" value="Lojas" class="button-shops" />          
+            <div>
+                <input type="submit" value="Lojas" class="button-shops" />
+            </div>
+                   
 
         </div>
 
     </div>
 
-    <div class="productLimite">
-        <input type="submit" value="Selecionar Lista" class="button-add" onclick="showListas()" id="selecionarListaButton" />
-
-        <div id="listas">
-            <table class="lista-item">
-                @foreach (ListaProdutos l in listas)
-                {
-                    <tr>
-                        <td onclick="selectLista('@l.name','@l.Id')">
-                            @Html.DisplayFor(modelItem => l.name)
-                        </td>
-                    </tr>
-                }
-            </table>
-        </div>
-    </div>
     
     <!--Lojas   (deve ser botão, é suposto ser selecionavel e para visualizar)-->
 
@@ -77,6 +80,11 @@
         function updateQuantity() {
             var quantity = document.getElementById('quantityInput').value;
             document.getElementById('quantityValue').value = quantity;
+        }
+
+        function updateName() {
+            var name = document.getElementById('name').value;
+            document.getElementById('nameValue').value = name;        
         }
 
         function showListas() {
