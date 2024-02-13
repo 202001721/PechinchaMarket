@@ -13,16 +13,21 @@ namespace PechinchaMarket.Controllers
     public class ListaProdutosController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
 
-        public ListaProdutosController(DBPechinchaMarketContext context)
+        public ListaProdutosController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: ListaProdutos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ListaProdutos.ToListAsync());
+            var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault().Id.ToString();
+
+            var lista = from l in _context.ListaProdutos where l.ClienteId == clienteId select l;
+            return View(lista);
         }
 
         // GET: ListaProdutos/Details/5
@@ -57,9 +62,15 @@ namespace PechinchaMarket.Controllers
 
         public async Task<IActionResult> Create([Bind("Id,name,ClienteId,state")] ListaProdutos listaProdutos)
         {
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("state");
             if (ModelState.IsValid)
             {
                 listaProdutos.Id = Guid.NewGuid();
+                var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault()?.Id.ToString();
+
+                listaProdutos.ClienteId = clienteId;
+                listaProdutos.state = EstadoProdutoCompra.PorComprar;
                 _context.Add(listaProdutos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

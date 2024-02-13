@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class listaProdutos : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -83,23 +83,50 @@ namespace PechinchaMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DetalheListaProd",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false),
+                    ListaProdutosId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProdutoId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DetalheListaProd", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ListaProdutos",
                 columns: table => new
                 {
-<<<<<<<< HEAD:PechinchaMarket/Migrations/20240212163533_Initial.cs
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantidade = table.Column<int>(type: "int", nullable: false)
-========
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClienteId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     state = table.Column<int>(type: "int", nullable: false)
->>>>>>>> Miriam:PechinchaMarket/Migrations/20240213161815_listaProdutos.cs
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ListaProdutos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Produto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Weight = table.Column<float>(type: "real", nullable: true),
+                    Unidade = table.Column<int>(type: "int", nullable: false),
+                    ProdEstado = table.Column<int>(type: "int", nullable: true),
+                    ProdCategoria = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Produto", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -230,35 +257,6 @@ namespace PechinchaMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Produto",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    Weight = table.Column<float>(type: "real", nullable: true),
-                    Unidade = table.Column<int>(type: "int", nullable: false),
-                    ProdEstado = table.Column<int>(type: "int", nullable: true),
-                    ProdCategoria = table.Column<int>(type: "int", nullable: false),
-<<<<<<<< HEAD:PechinchaMarket/Migrations/20240212163533_Initial.cs
-                    ListaProdutosId = table.Column<int>(type: "int", nullable: true)
-========
-                    ListaProdutosId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
->>>>>>>> Miriam:PechinchaMarket/Migrations/20240213161815_listaProdutos.cs
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Produto", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Produto_ListaProdutos_ListaProdutosId",
-                        column: x => x.ListaProdutosId,
-                        principalTable: "ListaProdutos",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProdutoLoja",
                 columns: table => new
                 {
@@ -331,11 +329,6 @@ namespace PechinchaMarket.Migrations
                 column: "ComercianteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produto_ListaProdutosId",
-                table: "Produto",
-                column: "ListaProdutosId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ProdutoLoja_LojaId",
                 table: "ProdutoLoja",
                 column: "LojaId");
@@ -368,6 +361,12 @@ namespace PechinchaMarket.Migrations
                 name: "Cliente");
 
             migrationBuilder.DropTable(
+                name: "DetalheListaProd");
+
+            migrationBuilder.DropTable(
+                name: "ListaProdutos");
+
+            migrationBuilder.DropTable(
                 name: "ProdutoLoja");
 
             migrationBuilder.DropTable(
@@ -384,9 +383,6 @@ namespace PechinchaMarket.Migrations
 
             migrationBuilder.DropTable(
                 name: "Comerciante");
-
-            migrationBuilder.DropTable(
-                name: "ListaProdutos");
         }
     }
 }

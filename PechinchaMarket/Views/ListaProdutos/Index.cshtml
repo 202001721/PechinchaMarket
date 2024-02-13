@@ -5,45 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
+<link href="~/css/listas.css" rel="stylesheet" />
 
-<h1>Index</h1>
+<body>
+    <div class="content">
+        <h1>As minhas listas</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClienteId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.state)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClienteId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.state)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        
+        <a asp-action="Create" class="create"></a>
+        
+
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="itembox">
+                    <p>@Html.DisplayFor(modelItem => item.name)</p>
+
+                    <p>@Html.DisplayFor(modelItem => item.state)</p>
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="bin"></a>
+            </div>
+        }
+    </div>
+</body>
+

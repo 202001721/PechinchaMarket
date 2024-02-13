@@ -27,10 +27,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
                             </li>
-                        }
-
-                        @if (User.IsInRole("Comerciante"))
-                        {
+                        
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Lojas" asp-action="Index">Lojas</a>
                             </li>
@@ -44,9 +41,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonAprovedProducts">Produtos</a>
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="AddToList">Produtos Add</a>
-                        </li>
+                        @if (User.IsInRole("Cliente"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ListaProdutos" asp-action="Index">Listas</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

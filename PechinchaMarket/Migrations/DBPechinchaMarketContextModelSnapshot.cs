@@ -369,9 +369,6 @@ namespace PechinchaMarket.Migrations
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int?>("ListaProdutosId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -389,8 +386,6 @@ namespace PechinchaMarket.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ListaProdutosId");
 
                     b.ToTable("Produto");
                 });
@@ -485,13 +480,6 @@ namespace PechinchaMarket.Migrations
                         .HasForeignKey("ComercianteId");
                 });
 
-            modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>
-                {
-                    b.HasOne("PechinchaMarket.Models.ListaProdutos", null)
-                        .WithMany("Produtos")
-                        .HasForeignKey("ListaProdutosId");
-                });
-
             modelBuilder.Entity("PechinchaMarket.Models.ProdutoLoja", b =>
                 {
                     b.HasOne("PechinchaMarket.Models.Loja", "Loja")
@@ -512,11 +500,6 @@ namespace PechinchaMarket.Migrations
             modelBuilder.Entity("PechinchaMarket.Models.Comerciante", b =>
                 {
                     b.Navigation("Lojas");
-                });
-
-            modelBuilder.Entity("PechinchaMarket.Models.ListaProdutos", b =>
-                {
-                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>
