@@ -7,5 +7,6 @@
 
         public ListaProdutos ListaProdutos { get; set; }
         public ProdutoLoja ProdutoLoja { get; set; } 
+
     }
 }
