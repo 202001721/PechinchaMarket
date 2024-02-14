@@ -42,9 +42,13 @@ namespace PechinchaMarket.Controllers
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
+            var produto = model.FirstOrDefault().Item4.Id;
 
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());
+
+            ViewData["Lojas"] = _context.Loja;
+                //.Where(l => l.Id == produto);
 
             return View(model);
         }
@@ -66,7 +70,7 @@ namespace PechinchaMarket.Controllers
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
 
             //Produto selecionado
-            var produto = await _context.Produto.FindAsync(id);
+            var produto = await _context.ProdutoLoja.FindAsync(id);
             var name = nome;
 
             // Verificar se o cliente já possui uma lista de produtos
@@ -81,7 +85,7 @@ namespace PechinchaMarket.Controllers
                 {
                     quantity = quantityValue,
                     ListaProdutosId = listas.FirstOrDefault(l => l.name == nome).Id.ToString(),
-                    ProdutoId = id.ToString(),
+                    ProdutoLojaId = id.ToString(),
                 };
                 _context.Add(novoDetalhe);
             }
@@ -102,7 +106,7 @@ namespace PechinchaMarket.Controllers
                 {
                     quantity = quantityValue,
                     ListaProdutosId = novaListaProdutos.Id.ToString(),
-                    ProdutoId = produto.Id.ToString(),
+                    ProdutoLojaId = produto.Id.ToString(),
                 };
                 _context.Add(novoDetalhe);
             }

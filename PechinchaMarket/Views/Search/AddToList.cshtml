@@ -4,9 +4,13 @@
     ViewData["Title"] = "Adicionar Produto na Lista";
 
     IEnumerable<ListaProdutos> listas = ViewData["Listas"] as IEnumerable<ListaProdutos>;
+    IEnumerable<Loja> lojas = ViewData["Lojas"] as IEnumerable<Loja>;
 }
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
+<form asp-action="AddToList">
+    <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item5.Id" />
+</form>
 
 <div class="content">
 
@@ -51,16 +55,29 @@
             </div>
             
             <form asp-action="AddProduct">
-                <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item5.Id, quantityValue, nameValue" />
+                <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item4.Id, quantityValue, nameValue" />
                 <input name="nome" type="hidden" id="nameValue"/>
                 <input name="quantityValue" type="hidden" dirname="quantity" id="quantityValue" />
                 <input type="submit" value="Adicionar à lista" class="button-add" onclick="updateQuantity(); updateName()" />
             </form>
             
             <div>
-                <input type="submit" value="Lojas" class="button-shops" />
+                <input type="submit" value="Lojas" class="button-shops" onclick="showLojas()" />
             </div>
-                   
+             
+            <div class="lojas" id="lojas">
+                <h2>Lojas</h2>
+                @foreach (Loja l in lojas)
+                {
+                    <div>
+                        @Html.DisplayFor(modelItem => l.Address)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => l.OpeningTime) - @Html.DisplayFor(modelItem => l.ClosingTime)
+                    </div>
+                    <hr />
+                }
+            </div>
 
         </div>
 
@@ -87,9 +104,18 @@
             document.getElementById('nameValue').value = name;        
         }
 
+        function showLojas() {
+            var x = document.getElementById("lojas");
+            if (x.style.display == "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
         function showListas() {
             var x = document.getElementById("listas");
-            if (x.style.display === "none") {
+            if (x.style.display == "none") {
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
