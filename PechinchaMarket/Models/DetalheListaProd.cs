@@ -4,7 +4,9 @@
     {
         public Guid Id { get; set; }
         public int quantity { get; set; }
-        public string ListaProdutosId { get; set; }
-        public string ProdutoLojaId { get; set; }
+
+        public ListaProdutos ListaProdutos { get; set; }
+        public ProdutoLoja ProdutoLoja { get; set; } 
+
     }
 }

@@ -10,6 +10,12 @@ using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Controllers
 {
+    public class MyViewModel
+    {
+        public ListaProdutos ListaProdutos { get; set; }
+        public List<DetalheListaProd> DetalhesListaProdutos { get; set; }
+    }
+
     public class ListaProdutosController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
@@ -71,6 +77,7 @@ namespace PechinchaMarket.Controllers
 
                 listaProdutos.ClienteId = clienteId;
                 listaProdutos.state = EstadoProdutoCompra.PorComprar;
+                listaProdutos.detalheListaProds = new List<DetalheListaProd>();
                 _context.Add(listaProdutos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,12 +93,22 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var listaProdutos = await _context.ListaProdutos.FindAsync(id);
+            ListaProdutos? listaProdutos = await _context.ListaProdutos.FindAsync(id);
             if (listaProdutos == null)
             {
                 return NotFound();
             }
-            return View(listaProdutos);
+            List<DetalheListaProd> detalheListaProds = (from dl in _context.DetalheListaProd where dl.ListaProdutos.Id == id select dl).ToList();
+
+            
+
+            MyViewModel myViewModel = new MyViewModel
+            {
+                ListaProdutos = listaProdutos,
+                DetalhesListaProdutos = detalheListaProds,
+            };
+
+            return View(myViewModel);
         }
 
         // POST: ListaProdutos/Edit/5

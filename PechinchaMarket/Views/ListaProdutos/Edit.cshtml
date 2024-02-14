@@ -1,14 +1,60 @@
-﻿@model PechinchaMarket.Models.ListaProdutos
+﻿@model PechinchaMarket.Controllers.MyViewModel
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h4>@Model.ListaProdutos.name</h4>
+<button>editar nome</button>
 
-<h4>ListaProdutos</h4>
+<div class="list">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Quantidade
+                </th>
+                <th>
+                    Produto
+                </th>
+                <th>
+                    Comerciante
+                </th>
+                <th>
+                    Preço
+                </th>
+                <th>
+                    Localidade
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dl in Model.DetalhesListaProdutos)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => dl.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.UserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.Address)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 <hr />
+<!--
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -35,7 +81,7 @@
         </form>
     </div>
 </div>
-
+-->
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
