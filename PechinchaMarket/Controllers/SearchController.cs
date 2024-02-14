@@ -112,7 +112,7 @@ namespace PechinchaMarket.Controllers
 
            foreach(var name in nameList) {
                 foreach (string word in name.Split(' ')) {
-                    if (word.Length >= input.Length) {
+                   if (word.Length > input.Length) {
                         var needcorrectvalue = Math.Floor((double) word.Length * 0.4);
                         for (int i = 0; i < input.Length; i++) {
                             if (string.Equals(word[i].ToString(), input[i].ToString(), StringComparison.OrdinalIgnoreCase))
@@ -124,9 +124,8 @@ namespace PechinchaMarket.Controllers
                                 break;
                             }
 
-                            if (needcorrectvalue == 0) {
+                            if (needcorrectvalue <= 0 && i + 1 == input.Length) {
                                 result.Add(word);
-                                break;
                             }
                         }
                     }

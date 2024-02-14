@@ -115,11 +115,74 @@ function goBack() {
     window.history.back();
 }
 
-function sugest(userInput) {
-    fetch(`/Search/GetSugestiveNames?input=${userInput}`)
-        .then(response => response.json())
-        .then(suggestions => {
-            console.log(suggestions);
-            console.dir(suggestions);
-        });
+function sugest(userInput, searchBar) {
+    if (userInput !== '') {
+        fetch(`/Search/GetSugestiveNames?input=${userInput}`)
+            .then(response => response.json())
+            .then(suggestions => {
+                var suggestionslist = document.getElementById("search-sugestions");
+
+                if (suggestions.length > 0 && suggestionslist) {
+                    //clean sugestions
+                    suggestionslist.innerHTML = '';
+                    suggestionslist.style.display = 'block';
+
+                    suggestions.forEach(suggestion => {
+                        //bold
+                        const difference = findDifference(suggestion, userInput);
+
+                        var listItem = document.createElement('div');
+                        listItem.onclick = function () {
+                            var searchText = document.getElementById('searchInput');
+                            if (searchText) {
+                                searchText.value = userInput + difference; // Replace "Your desired text" with the text you want to insert
+                                document.getElementById('searchForm').submit(); // Submit the form
+                            }
+                        }
+
+                        var span1 = document.createElement('span');
+                        var span2 = document.createElement('span');
+                        span1.textContent = userInput;
+                        span2.textContent = difference;
+
+                        listItem.appendChild(span1);
+                        listItem.appendChild(span2);
+                        suggestionslist.appendChild(listItem);
+                    });
+                    if (searchBar) {
+                        searchBar.style.borderBottom = "none";
+                        searchBar.style.borderRadius = "15px 15px 0px 0px";
+                        suggestionslist.style.width = suggestionslist.parentNode.offsetWidth + 'px';
+                    }
+                } else if (suggestionslist){
+                    //clean sugestions
+                    suggestionslist.innerHTML = '';
+                    suggestionslist.style.display = 'none';
+                    if (searchBar) {
+                        searchBar.style.borderBottom = "";
+                        searchBar.style.borderRadius = "";
+                    }
+                }
+            });
+    }
 }
+
+function findDifference(str1, str2) {
+    var i = str1.length - str2.length;
+    if (i > 0) {
+        return str1.substring((str1.length - i));
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const phaseParam = urlParams.get('search');
+    if (phaseParam !== null) {
+        var navbars = document.querySelectorAll('.nav-search-div');
+        navbars.forEach(navbar => {
+            var textinput = navbar.querySelector('input[type="text"]');
+            textinput.value = phaseParam;
+        });
+    } 
+});

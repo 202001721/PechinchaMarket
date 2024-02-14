@@ -799,11 +799,16 @@ a.cancel-button::before {
     background-image: url(../images/AuthenticationSupport15.png);
 }
 
+.search-input-size {
+    width: 500px;
+    flex-shrink: 1;
+}
+
 .nav-search-div {
-    display: flex; 
-    
+    display: flex;
+    z-index: 2;
     position: relative;
-    width: 300px;
+    width: 100%;
     height: var(--root-search-height);
 }
     .nav-search-div input,
@@ -816,12 +821,12 @@ a.cancel-button::before {
         height: 100%;
         border: none;
         border-radius: var(--root-search-height);
-        outline: 1px solid black;
+        border: 1px solid black;
         padding-left: var(--root-input-text-padding-sides);
         padding-right: calc(5px + var(--root-search-height));
     }
         .nav-search-div input:focus {
-            outline: 1px solid var(--blue-color);
+            outline: none;
         }
 
         .nav-search-div input:focus ~ button{
@@ -837,7 +842,7 @@ a.cancel-button::before {
         height: 100%;
         border: none;
         border-radius: 50%; /* Make it a circle */
-        outline: 1px solid black;
+        border: 1px solid black;
         background-color: var(--root-main-color);
         transition: width 0.3s ease, opacity 0.2s ease;
     }
@@ -867,6 +872,51 @@ a.cancel-button::before {
             width: 25%;
             border-top: 1px solid black;
         }
+
+.sugestions {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    width: 100%; /*Este valor é fake e é atualizado no oninput*/    
+    
+    max-height: 50vh;
+    overflow: auto;
+
+    background-color: var(--root-background-content-color);
+    margin-top: calc(-1 * var(--root-search-height) * 0.5);
+    padding-top: calc(10px + var(--root-search-height) * 0.5);
+    padding-bottom: 10px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 0px 0px 15px 15px;
+}
+
+    .sugestions::before {
+        position: relative;
+        content: '';
+        display:block;
+        width: 92%;
+        top: -4px;
+        margin: 0 auto;
+        height: 1px;
+        background-color: gray;
+    }
+
+    .sugestions div {
+        padding-left: var(--root-input-text-padding-sides);
+        padding-right: calc(5px + var(--root-search-height));
+        cursor: pointer;
+        background-color: var(--root-background-content-color);
+    }
+
+        .sugestions div:hover {
+            filter:  brightness(0.95);
+        }
+
+    .sugestions div > span:nth-child(2){
+        font-weight: bold;
+    }
 
 .pechincha-container {
     display: flex;
