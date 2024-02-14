@@ -83,8 +83,8 @@ namespace PechinchaMarket.Controllers
                 var novoDetalhe = new DetalheListaProd
                 {
                     quantity = quantityValue,
-                    ListaProdutosId = novaListaProdutos.Id.ToString(),
-                    ProdutoId = produto.Id.ToString(),
+                    ListaProdutos = novaListaProdutos,
+                    ProdutoLoja = produto.ProdutoLojas.First(), //isto foi modificado para não dar erro mas está errado
                 };
                 _context.Add(novoDetalhe);
            // }

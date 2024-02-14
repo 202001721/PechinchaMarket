@@ -12,8 +12,8 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240213194515_initial")]
-    partial class initial
+    [Migration("20240214160223_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -289,18 +289,20 @@ namespace PechinchaMarket.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ListaProdutosId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("ListaProdutosId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ProdutoId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ProdutoLojaId")
+                        .HasColumnType("int");
 
                     b.Property<int>("quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ListaProdutosId");
+
+                    b.HasIndex("ProdutoLojaId");
 
                     b.ToTable("DetalheListaProd");
                 });
@@ -476,6 +478,25 @@ namespace PechinchaMarket.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PechinchaMarket.Models.DetalheListaProd", b =>
+                {
+                    b.HasOne("PechinchaMarket.Models.ListaProdutos", "ListaProdutos")
+                        .WithMany("detalheListaProds")
+                        .HasForeignKey("ListaProdutosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PechinchaMarket.Models.ProdutoLoja", "ProdutoLoja")
+                        .WithMany()
+                        .HasForeignKey("ProdutoLojaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ListaProdutos");
+
+                    b.Navigation("ProdutoLoja");
+                });
+
             modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
                 {
                     b.HasOne("PechinchaMarket.Models.Comerciante", null)
@@ -503,6 +524,11 @@ namespace PechinchaMarket.Migrations
             modelBuilder.Entity("PechinchaMarket.Models.Comerciante", b =>
                 {
                     b.Navigation("Lojas");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.ListaProdutos", b =>
+                {
+                    b.Navigation("detalheListaProds");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>

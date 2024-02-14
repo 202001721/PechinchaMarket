@@ -13,5 +13,7 @@ namespace PechinchaMarket.Models
         [Display(Name = "Estado")]
         public EstadoProdutoCompra state { get; set; }
 
+        public List<DetalheListaProd>? detalheListaProds { get; set; }
+
     }
 }
