@@ -16,12 +16,17 @@
 .productLeft {
     flex: 1;
     margin-right: 1em;
-    margin-left: 2em;
+    margin-left: 5em;
 }
 
 .productRight {
     flex: 2;
-    margin-left: 1em;
+    margin-left: 2em;
+}
+
+.productLimite {
+    flex: 3;
+    margin-left: 2em;
 }
 
 .imagem-produto {
@@ -47,7 +52,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 0;
     width: 10em;
 }
 
@@ -62,9 +66,41 @@
     align-items: center;
     width: 7em;
 }
-    /*.button-shops .icon {
-        position: absolute;
-        top: 50%; // Posiciona o ícone no meio verticalmente 
-        right: 5px; // Distância do ícone em relação à borda direita do botão 
-        transform: translateY(-50%); // Ajusta para centralizar verticalmente 
-    }*/
+
+.lojas {
+    background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(250, 181, 70));
+    height: 100%;
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    width: 350px;
+}
+
+    .lojas h2 {
+        margin-top: 3em;
+        margin-left: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    .lojas div {
+        margin-left: 1.7em;
+    }
+
+    .lojas hr {
+        width: 90%;
+        margin-left: 1em;
+        border-color: black;
+    }
+
+.lista-item {
+    margin-bottom: 5px; 
+}
+    .lista-item td {
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .lista-item td.selected {
+        background-color: #e0e0e0;
+    }
