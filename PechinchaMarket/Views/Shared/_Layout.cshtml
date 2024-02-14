@@ -46,7 +46,13 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonAprovedProducts">Produtos</a>
                             </li>
                         }
-                        
+                        @if (User.IsInRole("Cliente"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ListaProdutos" asp-action="Index">Listas</a>
+                            </li>
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
