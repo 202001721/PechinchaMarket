@@ -1,5 +1,3 @@
-
-
 :root {
     /*-------------------------------*-
     |*             Cores             *|
@@ -61,7 +59,6 @@
     --root-checkbox-border-thickness-when-selected: 0.2em;
     --root-insert-file-input-width: 6.5em;
     --root-search-height: 30px;
-
     --root-filter-area-width: 5em;
 }
 
@@ -99,6 +96,10 @@ body {
 
 .pb-3 {
     padding: 0px !important;
+}
+
+.mb-3 {
+    margin-bottom: 0px !important;
 }
 
 .container {
@@ -993,6 +994,10 @@ a.cancel-button::before {
 
 .fit-content-width {
     width: fit-content;
+}
+
+.screen-height {    
+    height: 100vh;
 }
 
 .search-result{

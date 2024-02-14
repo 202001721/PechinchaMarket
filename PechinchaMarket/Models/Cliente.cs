@@ -18,7 +18,7 @@ namespace PechinchaMarket.Models
         public string Name { get; set; } 
         public string UserId { get; set; }
         [EnumDataType(typeof(Categoria))]
-        public List<Categoria> Preferencias { get; set; }
+        public List<Categoria>? Preferencias { get; set; }
         public string Localizacao { get; set; }
     }
 }
