@@ -8,30 +8,27 @@
 }
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
-<form asp-action="AddToList">
-    <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item5.Id" />
-</form>
 
-<div class="content">
+<div class="row-container center-x-flex center-y-flex screen-height">
 
-    <div class="productLeft">
-         <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.FirstOrDefault().Item5.Id})');">  </span>
-    </div>
+    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.FirstOrDefault().Item5.Id})');">  </span>
+    
+    <div class="fit-content-width">
+       <div class="info">
+            <div>
+               <h3> @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
+                @Html.DisplayFor(model => model.FirstOrDefault().Item5.Brand) - @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)</h3>
+            </div>
 
-    <div class="productRight">
-        <div>
-            @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
-            @Html.DisplayFor(model => model.FirstOrDefault().Item5.Brand) - @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)
-        </div>
+            <div>
+                Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().Item3.Address)
+            </div>
 
-        <div>
-            Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().Item3.Address)
-        </div>
-        
-        <div>
-            @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
-        </div>
-        
+            <div>
+                @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+            </div>
+       </div>
+                
         <div class="acoes">
             
             <div class="quantity">
@@ -39,7 +36,7 @@
             </div>
 
             <div>
-                <input name="nome" type="text" id="name" onclick="showListas()" />
+                <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off"/>
                 <div id="listas">
                     <table class="lista-item">
                         @foreach (ListaProdutos l in listas)
@@ -66,6 +63,7 @@
             </div>
              
             <div class="lojas" id="lojas">
+                <a class="img-back" onclick="showLojas()"></a>
                 <h2>Lojas</h2>
                 @foreach (Loja l in lojas)
                 {

@@ -12,8 +12,8 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240214160223_Initial")]
-    partial class Initial
+    [Migration("20240214165307_listaProdutos")]
+    partial class listaProdutos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

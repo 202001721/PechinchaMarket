@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using System.Linq;
 
 namespace PechinchaMarket.Controllers
 {
@@ -47,8 +48,11 @@ namespace PechinchaMarket.Controllers
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());
 
-            ViewData["Lojas"] = _context.Loja;
-                //.Where(l => l.Id == produto);
+            ViewData["Lojas"] = _context.Loja
+        .Join(_context.ProdutoLoja, loja => loja.Id, produtoLoja => produtoLoja.Loja.Id, (loja, produtoLoja) => new { Loja = loja, ProdutoLoja = produtoLoja })
+        .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
+        .Select(joined => joined.Loja)
+        .ToList();
 
             return View(model);
         }
