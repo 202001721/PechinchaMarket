@@ -1,5 +1,11 @@
 ﻿namespace PechinchaMarket.Models
 {
+    /**
+     * Enumerado Concelhos
+     * 
+     * 
+     * Contem Concelhos com um enumerado dos seus distritos 
+     */
     public class Concelhos
     {
         public enum ConcelhosAveiro

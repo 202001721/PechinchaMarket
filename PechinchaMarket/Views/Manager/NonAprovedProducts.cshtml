@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PechinchaMarket.Models.Produto>
+
+@{
+    ViewData["Title"] = "NonAprovedProducts";
+}
+<link href="~/css/manager.css" rel="stylesheet" />
+
+
+<h2>Produtos pendentes para aprovação: </h2>
+
+
+<body>
+    <section class="container">
+
+
+        @foreach (var item in Model)
+        {
+           @if (item.ProdEstado == Estado.InAnalysis)
+            {
+                <div class="card">
+
+                    <div class="card-image">
+                        <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Id
+
+                  })' />
+                    </div>
+                    <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+                    <p>Marca: @Html.DisplayFor(modelItem => item.Brand)</p>
+                    <a asp-area="" asp-controller="Manager" asp-action="DetailsProduct" asp-route-id="@item.Id"> Details</a>
+                </div>
+
+            }
+
+
+        }
+
+    </section>
+
+</body>

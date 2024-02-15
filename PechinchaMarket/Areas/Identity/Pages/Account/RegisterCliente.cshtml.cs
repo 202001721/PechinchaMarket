@@ -23,23 +23,24 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
     public class RegisterClienteModel : PageModel
     {
         private readonly SignInManager<PechinchaMarketUser> _signInManager;
-        private readonly UserManager<PechinchaMarketUser> _userManager;
-        private readonly IUserStore<PechinchaMarketUser> _userStore;
-        private readonly IUserEmailStore<PechinchaMarketUser> _emailStore;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
+        private readonly Microsoft.AspNetCore.Identity.IUserStore<PechinchaMarketUser> _userStore;
+        private readonly Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterClienteModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly DBPechinchaMarketContext _context;
 
 
         public RegisterClienteModel(
-            UserManager<PechinchaMarketUser> userManager,
-            IUserStore<PechinchaMarketUser> userStore,
+            Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
+            Microsoft.AspNetCore.Identity.IUserStore<PechinchaMarketUser> userStore,
             SignInManager<PechinchaMarketUser> signInManager,
             ILogger<RegisterClienteModel> logger,
             IEmailSender emailSender,
@@ -47,7 +48,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         {
             _userManager = userManager;
             _userStore = userStore;
-            _emailStore = (IUserEmailStore<PechinchaMarketUser>)GetEmailStore();
+            _emailStore = (Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser>)GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
@@ -139,8 +140,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
                 Input.SelectedCategories = Request.Form["categorias"].Select(c => Enum.Parse<Categoria>(c)).ToList();
-
-                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
+               
+                
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -148,7 +149,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
 
-
+                   
+                    await _userManager.AddToRoleAsync(user, "Cliente");
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -157,6 +159,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         UserId = userId,
                         Preferencias = Input.SelectedCategories,
                         Localizacao = Input.Localizacao,
+                        Name= Input.UserName
 
                     };
 
@@ -252,13 +255,13 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             }
         }
 
-        private IUserEmailStore<PechinchaMarketUser> GetEmailStore()
+        private Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<PechinchaMarketUser>)_userStore;
+            return (Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser>)_userStore;
         }
 
         

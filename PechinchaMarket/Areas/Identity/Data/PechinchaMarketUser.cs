@@ -10,4 +10,5 @@ namespace PechinchaMarket.Areas.Identity.Data;
 // Add profile data for application users by adding properties to the PechinchaMarketUser class
 public class PechinchaMarketUser : IdentityUser
 {
+
 }

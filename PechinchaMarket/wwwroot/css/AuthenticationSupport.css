@@ -110,3 +110,8 @@ html {
     margin-left: 10vw;
     margin-right: 10vw;
 }
+
+.content-container {
+    display:flex;
+    flex-direction: column;
+}

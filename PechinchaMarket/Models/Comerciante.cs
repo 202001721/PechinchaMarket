@@ -18,9 +18,12 @@ namespace PechinchaMarket.Models
     {
         public Guid Id { get; set; }
         public string UserId { get; set; }
+        public string Name { get; set; }
         public int contact { get; set; }
         public byte[] logo { get; set; }
         public byte[] document { get; set; }
         public bool isApproved { get; set; }
+
+        public List<Loja> Lojas { get; set; }
     }
 }

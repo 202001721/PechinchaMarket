@@ -31,7 +31,6 @@ options.SignIn.RequireConfirmedAccount = true)
 .AddDefaultTokenProviders()
 .AddDefaultUI();
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

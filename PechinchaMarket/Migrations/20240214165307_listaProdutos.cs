@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class listaProdutos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,6 +55,7 @@ namespace PechinchaMarket.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Preferencias = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -70,6 +71,7 @@ namespace PechinchaMarket.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     contact = table.Column<int>(type: "int", nullable: false),
                     logo = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     document = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
@@ -78,6 +80,39 @@ namespace PechinchaMarket.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comerciante", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListaProdutos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClienteId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    state = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListaProdutos", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Produto",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Weight = table.Column<float>(type: "real", nullable: true),
+                    Unidade = table.Column<int>(type: "int", nullable: false),
+                    ProdEstado = table.Column<int>(type: "int", nullable: true),
+                    ProdCategoria = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Produto", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -186,6 +221,81 @@ namespace PechinchaMarket.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Loja",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OpeningTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ClosingTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ComercianteId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Loja", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Loja_Comerciante_ComercianteId",
+                        column: x => x.ComercianteId,
+                        principalTable: "Comerciante",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProdutoLoja",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Price = table.Column<float>(type: "real", nullable: false),
+                    Discount = table.Column<float>(type: "real", nullable: true),
+                    DiscountDuration = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ProdutoId = table.Column<int>(type: "int", nullable: false),
+                    LojaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProdutoLoja", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProdutoLoja_Loja_LojaId",
+                        column: x => x.LojaId,
+                        principalTable: "Loja",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ProdutoLoja_Produto_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DetalheListaProd",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false),
+                    ListaProdutosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProdutoLojaId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DetalheListaProd", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DetalheListaProd_ListaProdutos_ListaProdutosId",
+                        column: x => x.ListaProdutosId,
+                        principalTable: "ListaProdutos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DetalheListaProd_ProdutoLoja_ProdutoLojaId",
+                        column: x => x.ProdutoLojaId,
+                        principalTable: "ProdutoLoja",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -224,6 +334,31 @@ namespace PechinchaMarket.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetalheListaProd_ListaProdutosId",
+                table: "DetalheListaProd",
+                column: "ListaProdutosId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetalheListaProd_ProdutoLojaId",
+                table: "DetalheListaProd",
+                column: "ProdutoLojaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Loja_ComercianteId",
+                table: "Loja",
+                column: "ComercianteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProdutoLoja_LojaId",
+                table: "ProdutoLoja",
+                column: "LojaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProdutoLoja_ProdutoId",
+                table: "ProdutoLoja",
+                column: "ProdutoId");
         }
 
         /// <inheritdoc />
@@ -248,13 +383,28 @@ namespace PechinchaMarket.Migrations
                 name: "Cliente");
 
             migrationBuilder.DropTable(
-                name: "Comerciante");
+                name: "DetalheListaProd");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "ListaProdutos");
+
+            migrationBuilder.DropTable(
+                name: "ProdutoLoja");
+
+            migrationBuilder.DropTable(
+                name: "Loja");
+
+            migrationBuilder.DropTable(
+                name: "Produto");
+
+            migrationBuilder.DropTable(
+                name: "Comerciante");
         }
     }
 }

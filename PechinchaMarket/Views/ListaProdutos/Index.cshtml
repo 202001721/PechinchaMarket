@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PechinchaMarket.Models.ListaProdutos>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<link href="~/css/listas.css" rel="stylesheet" />
+
+<body>
+    <div class="content">
+        <h1>As minhas listas</h1>
+
+        
+        <a asp-action="Create" class="create"></a>
+        
+
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="itembox">
+                    <p>@Html.DisplayFor(modelItem => item.name)</p>
+
+                    <p>@Html.DisplayFor(modelItem => item.state)</p>
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="bin"></a>
+            </div>
+        }
+    </div>
+</body>
+

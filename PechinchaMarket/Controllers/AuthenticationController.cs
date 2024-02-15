@@ -11,6 +11,7 @@ namespace PechinchaMarket.Controllers
             _logger = logger;
         }
 
+        //View Pagina de Autentnticação dependendo do secção
         public IActionResult AuthenticationSupport(int? section)
         {
             ViewData["Section"] = section ?? 0;

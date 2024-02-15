@@ -22,10 +22,10 @@
             @Html.DisplayFor(model => model.FirstOrDefault().Item2.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Item2.UserName)
+            @Html.DisplayNameFor(model => model.Item1.Name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstOrDefault().Item2.UserName)
+            @Html.DisplayFor(model => model.FirstOrDefault().Item1.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Item1.contact)
@@ -37,9 +37,9 @@
             @Html.DisplayNameFor(model => model.Item1.document)
         </dt>
         <dd class = "col-sm-10">
-            <!-- View (.cshtml) -->
+ 
 
-            <embed src="@Url.Action("ShowDocument", "Manager", new { id = @Model.FirstOrDefault().Item1.Id })" width="50%" height="300px" type="application/pdf" />
+            <embed src="@Url.Action("ShowDocument", "Manager", new { id = @Model.FirstOrDefault().Item1.Id })" width="fit-content" height="300px" type="application/pdf" />
            
 
         </dd>
@@ -47,8 +47,8 @@
             @Html.DisplayNameFor(model => model.Item1.logo)
         </dt>
         <dd class="col-sm-10">
-            <!--  @Html.DisplayFor(model => model.FirstOrDefault().Item1.logo) -->
-            <img src='@Url.Action( "ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})'   />
+
+            <span class="comerciante-logo" style="background-image: url('@Url.Action("ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})');">  </span> <!-- <img src='@Url.Action("ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id })' width="fit-content" /> -->
         </dd>
     </dl>
 
@@ -61,9 +61,7 @@
     <form asp-action="Reprove">
         <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id" />
         <input type="submit" value="Reprove" class="reprove-button" />
+
         <a class="voltar-button" asp-action="NonConfirmedList">Voltar atrás</a>
     </form>
-  
-        
-    
 </div>

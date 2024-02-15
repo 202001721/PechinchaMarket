@@ -1,0 +1,128 @@
+﻿@model IEnumerable<Tuple<PechinchaMarket.Areas.Identity.Data.PechinchaMarketUser, PechinchaMarket.Models.Comerciante, PechinchaMarket.Models.Loja, PechinchaMarket.Models.ProdutoLoja, PechinchaMarket.Models.Produto>>
+
+@{
+    ViewData["Title"] = "Adicionar Produto na Lista";
+
+    IEnumerable<ListaProdutos> listas = ViewData["Listas"] as IEnumerable<ListaProdutos>;
+    IEnumerable<Loja> lojas = ViewData["Lojas"] as IEnumerable<Loja>;
+}
+<link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
+
+
+<div class="row-container center-x-flex center-y-flex screen-height">
+
+    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.FirstOrDefault().Item5.Id})');">  </span>
+    
+    <div class="fit-content-width">
+       <div class="info">
+            <div>
+               <h3> @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
+                @Html.DisplayFor(model => model.FirstOrDefault().Item5.Brand) - @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)</h3>
+            </div>
+
+            <div>
+                Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().Item3.Address)
+            </div>
+
+            <div>
+                @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+            </div>
+       </div>
+                
+        <div class="acoes">
+            
+            <div class="quantity">
+                <input class="numberstyle" type="number" min="1" max="99" step="1" value="1" id="quantityInput">
+            </div>
+
+            <div>
+                <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off"/>
+                <div id="listas">
+                    <table class="lista-item">
+                        @foreach (ListaProdutos l in listas)
+                        {
+                            <tr>
+                                <td onclick="selectLista('@l.name','@l.Id')">
+                                    @Html.DisplayFor(modelItem => l.name)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            
+            <form asp-action="AddProduct">
+                <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item4.Id, quantityValue, nameValue" />
+                <input name="nome" type="hidden" id="nameValue"/>
+                <input name="quantityValue" type="hidden" dirname="quantity" id="quantityValue" />
+                <input type="submit" value="Adicionar à lista" class="button-add" onclick="updateQuantity(); updateName()" />
+            </form>
+            
+            <div>
+                <input type="submit" value="Lojas" class="button-shops" onclick="showLojas()" />
+            </div>
+             
+            <div class="lojas" id="lojas">
+                <a class="img-back" onclick="showLojas()"></a>
+                <h2>Lojas</h2>
+                @foreach (Loja l in lojas)
+                {
+                    <div>
+                        @Html.DisplayFor(modelItem => l.Address)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => l.OpeningTime) - @Html.DisplayFor(modelItem => l.ClosingTime)
+                    </div>
+                    <hr />
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+    
+    <!--Lojas   (deve ser botão, é suposto ser selecionavel e para visualizar)-->
+
+    <!--Zona de produtos semelhantes [produtos com nome parecido/ na mesma categoria/ outra forma?!]
+            "card" com imagem do produto, nome e preço/unidade
+    -->
+
+</div>
+
+@section Scripts{
+    <script>
+        function updateQuantity() {
+            var quantity = document.getElementById('quantityInput').value;
+            document.getElementById('quantityValue').value = quantity;
+        }
+
+        function updateName() {
+            var name = document.getElementById('name').value;
+            document.getElementById('nameValue').value = name;        
+        }
+
+        function showLojas() {
+            var x = document.getElementById("lojas");
+            if (x.style.display == "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function showListas() {
+            var x = document.getElementById("listas");
+            if (x.style.display == "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function selectLista(name, id) {
+            var x = document.getElementById("name");
+            x.value = name;
+        }
+    </script>
+}
