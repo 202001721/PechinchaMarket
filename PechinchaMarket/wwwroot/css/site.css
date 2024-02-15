@@ -79,6 +79,12 @@ body {
     gap: 0px 10px;
 }
 
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -97,8 +103,8 @@ body {
     padding: 0px !important;
 }
 
-mb-3 {
-    margin: 0px !important;
+.mb-3 {
+    margin-bottom: 0px !important;
 }
 
 .container {
@@ -474,15 +480,15 @@ a.cancel-button:hover::before {
         font-weight: bold;
     }
 
-        .insert-file div.title::after {
-            content: '';
-            position: relative;
-            display: block;
-            left: calc(50% - var(--root-medium-icon-size) / 2);
-            width: var(--root-medium-icon-size);
-            height: var(--root-medium-icon-size);
-            background-size: cover;
-        }
+    .insert-file div.title::after {
+        content: '';
+        position: relative;
+        display: block;
+        left: calc(50% - var(--root-medium-icon-size) / 2);
+        width: var(--root-medium-icon-size);
+        height: var(--root-medium-icon-size);
+        background-size: cover;
+    }
 
     .insert-file div.insert-file-input {
         display: flex;
@@ -817,7 +823,6 @@ a.cancel-button:hover::before {
     width: 100%;
     height: var(--root-search-height);
 }
-
     .nav-search-div input,
     .nav-search-div button {
         position: absolute;
@@ -832,15 +837,14 @@ a.cancel-button:hover::before {
         padding-left: var(--root-input-text-padding-sides);
         padding-right: calc(5px + var(--root-search-height));
     }
-
         .nav-search-div input:focus {
             outline: none;
         }
 
-            .nav-search-div input:focus ~ button {
-                opacity: 1;
-                width: var(--root-search-height);
-            }
+        .nav-search-div input:focus ~ button{
+            opacity: 1;
+            width: var(--root-search-height);
+        }
 
 
     .nav-search-div button {
@@ -886,8 +890,7 @@ a.cancel-button:hover::before {
     display: none;
     z-index: 1;
     position: absolute;
-    width: 100%; /*Este valor é fake e é atualizado no oninput*/
-
+    width: 100%; /*Este valor é fake e é atualizado no oninput*/    
     max-height: 50vh;
     overflow: auto;
     background-color: var(--root-background-content-color);
@@ -903,7 +906,7 @@ a.cancel-button:hover::before {
     .sugestions::before {
         position: relative;
         content: '';
-        display: block;
+        display:block;
         width: 92%;
         top: -4px;
         margin: 0 auto;
@@ -926,6 +929,7 @@ a.cancel-button:hover::before {
             font-weight: bold;
         }
 
+
 .pechincha-container {
     display: flex;
     justify-content: center;
@@ -942,8 +946,8 @@ a.cancel-button:hover::before {
 .left-flex,
 .center-x-flex,
 .edges-flex,
-.wrap-flex
-.center-y-flex {
+.wrap-flex 
+.center-y-flex{
     display: flex;
 }
 
@@ -1016,10 +1020,10 @@ a.cancel-button:hover::before {
     width: 140px;
 }
 
-    .search-result:hover {
-        color: var(--root-text-color);
-        filter: brightness(0.95);
-    }
+.search-result:hover {
+    color: var(--root-text-color);
+    filter: brightness(0.95);
+}
 
 .search-image {
     display: inline-block;
