@@ -248,19 +248,24 @@ namespace PechinchaMarket.Controllers
         [HttpGet]
         public IActionResult SimilarProducts(int? id)
         {
-            var name = _context.Produto.FirstOrDefault(p => p.Id == id);
-            if (name == null)
+            var product = _context.Produto.FirstOrDefault(p => p.Id == id);
+            if (product == null)
             {
                 return NotFound();
             }
 
+            var searchWords = product.Name.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             var similarProducts = new List<Produto>();
 
-            foreach (var word in name.Name.Split(" "))
+            foreach (var word in searchWords)
             {
-                similarProducts.AddRange(_context.Produto.Where(p => p.Name.Contains(word) && p.Id != id).ToList());
+                var productsWithWord = _context.Produto
+                    .Where(p => p.Name.Contains(word) && p.Id != id)
+                    .ToList();
+                similarProducts.AddRange(productsWithWord);
             }
 
+            similarProducts = similarProducts.Distinct().ToList();
 
             return Json(similarProducts);
         }

@@ -8,7 +8,7 @@
 }
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
-<div style="display='none'" id="produtoId">
+<div style="display:none" id="produtoId">
     @Html.DisplayFor(model => model.FirstOrDefault().Item5.Id)
 </div>
 
@@ -85,10 +85,11 @@
     </div>
 
 </div>
-
-<div id="produtosSemelhantes">
-
+<div class="produtos-semelhantes">
+    <div id="produtosSemelhantes">
+    </div>
 </div>
+
 
 @section Scripts{
     <script>
@@ -127,17 +128,17 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             var productId = document.getElementById("produtoId");
-            console.log(productId.textContent);
             fetch(`/Search/SimilarProducts?id=${productId.textContent}`)
                 .then(response => response.json())
                 .then(suggestions => {
                     var produtosSemelhantes = document.getElementById("produtosSemelhantes");
 
                     if (produtosSemelhantes != null) {
-                        var div = document.createElement("div");
-                        div.innerHTML = suggestions[0].name;
-                        produtosSemelhantes.appendChild(div);
-                        console.log(suggestions);
+                        suggestions.forEach(suggestion => {
+                            var div = document.createElement("div");
+                            div.innerHTML = suggestion.name;
+                            produtosSemelhantes.appendChild(div);
+                        });
                     }
 
                 });
