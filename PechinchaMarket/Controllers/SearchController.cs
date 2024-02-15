@@ -136,7 +136,7 @@ namespace PechinchaMarket.Controllers
             return Json(result);
         }
           
-        public async Task<ActionResult> AddToList()
+        public async Task<ActionResult> AddToList(int id)
         {
                 var model = _context.Users
         .Join(_context.Comerciante,
@@ -151,7 +151,7 @@ namespace PechinchaMarket.Controllers
             temp => temp.Loja.Id,
             produtoLoja => produtoLoja.Loja.Id,
             (temp, produtoLoja) => new { temp.User, temp.Comerciante, temp.Loja, ProdutoLoja = produtoLoja })
-        .Join(_context.Produto,
+        .Join(_context.Produto.Where(produto => produto.Id == id),
             temp => temp.ProdutoLoja.Produto.Id,
             produto => produto.Id,
             (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja,produto ))
@@ -159,7 +159,7 @@ namespace PechinchaMarket.Controllers
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
-            var produto = model.FirstOrDefault().Item4.Id;
+            var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
 
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());

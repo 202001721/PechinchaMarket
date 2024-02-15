@@ -54,7 +54,7 @@
                     <div class="wrap-flex small-margin-top">
                         @foreach (var produto in Model)
                         {
-                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-id="@produto.Id">
+                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                                 <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
                                 <span>@produto.Name</span>
                             </a>
