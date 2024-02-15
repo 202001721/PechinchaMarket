@@ -15,5 +15,6 @@ namespace PechinchaMarket.Models
 
         public List<DetalheListaProd>? detalheListaProds { get; set; }
 
+        //public List<ProdutoLoja> produtoLojas { get; set; }
     }
 }

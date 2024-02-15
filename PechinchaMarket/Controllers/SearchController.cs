@@ -42,7 +42,7 @@ namespace PechinchaMarket.Controllers
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
-            var produto = model.FirstOrDefault().Item4.Id;
+           // var produto = model.FirstOrDefault().Item4.Id;
 
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());
@@ -114,7 +114,7 @@ namespace PechinchaMarket.Controllers
             
             await _context.SaveChangesAsync();
 
-            return View("AddToList");
+            return View(RedirectToAction("Edit", "ListaProdutos"));
 
         }
 

@@ -1,12 +1,39 @@
-﻿@model PechinchaMarket.Controllers.MyViewModel
+﻿@model PechinchaMarket.Models.ListaProdutos
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
+
+    float totalprice = 0;
 }
 
-<h4>@Model.ListaProdutos.name</h4>
-<button>editar nome</button>
+<link type="text/css" rel="stylesheet" href="~/css/listedit.css" />
+
+<script>
+    function editName(){
+        var title = document.getElementById("title");
+        var inputtitle = document.getElementById("inputtitle");
+        var changeName = document.getElementById("changename");
+        var submit = document.getElementById("submitname");
+
+        inputtitle.style.display = "block";
+        title.style.display = "none";
+        changeName.style.display = "none";
+        submit.style.display = "block";
+    }
+</script>
+
+<div class="title">
+    <form  asp-action="ChangeName">
+        <input type="hidden" asp-for="Id" />
+        <input type="text" asp-for="name" id="inputtitle" value="@Model.name" name="name">
+        <input type="submit" value="Save" id="submitname" />
+    </form>
+    <h4 id="title">@Model.name</h4>
+    <button id="changename" onclick="editName()">editar nome</button>
+</div>
 
 <div class="list">
     <table>
@@ -30,30 +57,75 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var dl in Model.DetalhesListaProdutos)
+            @if (Model.detalheListaProds != null)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.UserId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.Address)
-                    </td>
-                </tr>
+                foreach (var dl in Model.detalheListaProds)
+                {
+                    <tr>
+                        <td>
+                            <input type="number" value="@dl.quantity">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => comerciante.Where(c => c.UserId == dl.ProdutoLoja.Loja.UserId).First().Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => dl.ProdutoLoja.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.Address)
+                        </td>
+                        <td>
+                            <input type="checkbox"/>
+                        </td>
+                    </tr>
+                }
             }
         </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <input type="submit" />
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                    Total:
+                    @if (Model.detalheListaProds != null)
+                    {
+                        @foreach (var dl in Model.detalheListaProds)
+                        {
+                            totalprice = totalprice + dl.ProdutoLoja.Price;
+                        }
+                        @totalprice
+                    }
+                </td>
+                <td></td>
+                <td><input type="submit" /></td>
+
+            </tr>
+        </tfoot>
     </table>
 </div>
-<hr />
+
+<div class="formatar">
+    <h4>Formate a lista ao seu gosto</h4>
+    <p>Formato do ficheiro</p>
+    <label for="pdf">PDF</label>
+    <input type="radio" id="pdf" name="ficheiro" value="pdf"/>
+    <label for="png">PNG</label>
+    <input type="radio" id="png" name="ficheiro" value="png" />
+
+    <p>Formato do conteúdo</p>
+    <label for="simples">Simples</label>
+    <input type="radio" id="simples" name="conteudo" value="simples" />
+    <label for="ilustrativo">Ilustrativo</label>
+    <input type="radio" id="ilustrativo" name="conteudo" value="ilustrativo" />
+
+    <button>Gerar Lista</button>
+</div>
 <!--
 <div class="row">
     <div class="col-md-4">

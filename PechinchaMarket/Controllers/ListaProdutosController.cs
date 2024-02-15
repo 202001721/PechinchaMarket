@@ -10,11 +10,6 @@ using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Controllers
 {
-    public class MyViewModel
-    {
-        public ListaProdutos ListaProdutos { get; set; }
-        public List<DetalheListaProd> DetalhesListaProdutos { get; set; }
-    }
 
     public class ListaProdutosController : Controller
     {
@@ -93,22 +88,32 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            ListaProdutos? listaProdutos = await _context.ListaProdutos.FindAsync(id);
+            ListaProdutos? listaProdutos = await _context.ListaProdutos
+                .Include(l=>l.detalheListaProds)
+                    .ThenInclude(d => d.ProdutoLoja)
+                        .ThenInclude(p => p.Produto)
+                .Include(l=>l.detalheListaProds)
+                    .ThenInclude(d=>d.ProdutoLoja)
+                        .ThenInclude(l => l.Loja)
+                .FirstOrDefaultAsync(d => d.Id == id);
+      
             if (listaProdutos == null)
             {
                 return NotFound();
             }
-            List<DetalheListaProd> detalheListaProds = (from dl in _context.DetalheListaProd where dl.ListaProdutos.Id == id select dl).ToList();
 
-            
+            ViewData["Comerciante"] = _context.Comerciante;
+            return View(listaProdutos);
+        }
 
-            MyViewModel myViewModel = new MyViewModel
-            {
-                ListaProdutos = listaProdutos,
-                DetalhesListaProdutos = detalheListaProds,
-            };
-
-            return View(myViewModel);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeName(Guid id, string name)
+        {
+            var l = _context.ListaProdutos.Single(b => b.Id == id);
+            l.name = name;
+            await _context.SaveChangesAsync();
+            return View("Edit",l);
         }
 
         // POST: ListaProdutos/Edit/5
