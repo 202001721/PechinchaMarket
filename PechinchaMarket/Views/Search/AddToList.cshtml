@@ -8,10 +8,13 @@
 }
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
+<div style="display='none'" id="produtoId">
+    @Html.DisplayFor(model => model.FirstOrDefault().Item5.Id)
+</div>
 
 <div class="row-container center-x-flex center-y-flex screen-height">
 
-    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.Select(x => x.Item5.Id).FirstOrDefault()})');">  </span>
+    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Search", new { id = @Model.Select(x => x.Item5.Id).FirstOrDefault()})');">  </span>
     
     <div class="fit-content-width">
        <div class="info">
@@ -81,12 +84,9 @@
 
     </div>
 
-    
-    <!--Lojas   (deve ser botão, é suposto ser selecionavel e para visualizar)-->
+</div>
 
-    <!--Zona de produtos semelhantes [produtos com nome parecido/ na mesma categoria/ outra forma?!]
-            "card" com imagem do produto, nome e preço/unidade
-    -->
+<div id="produtosSemelhantes">
 
 </div>
 
@@ -124,5 +124,23 @@
             var x = document.getElementById("name");
             x.value = name;
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var productId = document.getElementById("produtoId");
+            console.log(productId.textContent);
+            fetch(`/Search/SimilarProducts?id=${productId.textContent}`)
+                .then(response => response.json())
+                .then(suggestions => {
+                    var produtosSemelhantes = document.getElementById("produtosSemelhantes");
+
+                    if (produtosSemelhantes != null) {
+                        var div = document.createElement("div");
+                        div.innerHTML = suggestions[0].name;
+                        produtosSemelhantes.appendChild(div);
+                        console.log(suggestions);
+                    }
+
+                });
+        });
     </script>
 }

@@ -31,6 +31,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Lojas" asp-action="Index">Lojas</a>
                             </li>
                         }
+                        @if (User.IsInRole("Cliente"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="AddToList">Produtos Add</a>
+                            </li>
+                        }
                         @if (User.IsInRole("Manager"))
                         {
                             <li class="nav-item">

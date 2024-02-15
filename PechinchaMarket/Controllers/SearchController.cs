@@ -5,6 +5,7 @@ using System.Linq;
 using PechinchaMarket.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Models;
+using System;
 
 namespace PechinchaMarket.Controllers
 {
@@ -234,13 +235,34 @@ namespace PechinchaMarket.Controllers
             
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Edit", "ListaProdutosController");
+
+            return RedirectToAction("Index", "ListaProdutosController");
 
         }
 
         public async Task<IActionResult> AddProductToList()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult SimilarProducts(int? id)
+        {
+            var name = _context.Produto.FirstOrDefault(p => p.Id == id);
+            if (name == null)
+            {
+                return NotFound();
+            }
+
+            var similarProducts = new List<Produto>();
+
+            foreach (var word in name.Name.Split(" "))
+            {
+                similarProducts.AddRange(_context.Produto.Where(p => p.Name.Contains(word) && p.Id != id).ToList());
+            }
+
+
+            return Json(similarProducts);
         }
     }
 }
