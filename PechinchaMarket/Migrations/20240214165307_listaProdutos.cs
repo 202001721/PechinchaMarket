@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class listaProdutos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -80,6 +80,20 @@ namespace PechinchaMarket.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comerciante", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ListaProdutos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ClienteId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    state = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ListaProdutos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -256,6 +270,32 @@ namespace PechinchaMarket.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "DetalheListaProd",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false),
+                    ListaProdutosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProdutoLojaId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DetalheListaProd", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DetalheListaProd_ListaProdutos_ListaProdutosId",
+                        column: x => x.ListaProdutosId,
+                        principalTable: "ListaProdutos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DetalheListaProd_ProdutoLoja_ProdutoLojaId",
+                        column: x => x.ProdutoLojaId,
+                        principalTable: "ProdutoLoja",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -296,6 +336,16 @@ namespace PechinchaMarket.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DetalheListaProd_ListaProdutosId",
+                table: "DetalheListaProd",
+                column: "ListaProdutosId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DetalheListaProd_ProdutoLojaId",
+                table: "DetalheListaProd",
+                column: "ProdutoLojaId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Loja_ComercianteId",
                 table: "Loja",
                 column: "ComercianteId");
@@ -333,13 +383,19 @@ namespace PechinchaMarket.Migrations
                 name: "Cliente");
 
             migrationBuilder.DropTable(
-                name: "ProdutoLoja");
+                name: "DetalheListaProd");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "ListaProdutos");
+
+            migrationBuilder.DropTable(
+                name: "ProdutoLoja");
 
             migrationBuilder.DropTable(
                 name: "Loja");

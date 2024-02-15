@@ -280,6 +280,52 @@ namespace PechinchaMarket.Migrations
                     b.ToTable("Comerciante");
                 });
 
+            modelBuilder.Entity("PechinchaMarket.Models.DetalheListaProd", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ListaProdutosId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ProdutoLojaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListaProdutosId");
+
+                    b.HasIndex("ProdutoLojaId");
+
+                    b.ToTable("DetalheListaProd");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.ListaProdutos", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ClienteId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("state")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ListaProdutos");
+                });
+
             modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
                 {
                     b.Property<Guid>("Id")
@@ -429,6 +475,25 @@ namespace PechinchaMarket.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PechinchaMarket.Models.DetalheListaProd", b =>
+                {
+                    b.HasOne("PechinchaMarket.Models.ListaProdutos", "ListaProdutos")
+                        .WithMany("detalheListaProds")
+                        .HasForeignKey("ListaProdutosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PechinchaMarket.Models.ProdutoLoja", "ProdutoLoja")
+                        .WithMany()
+                        .HasForeignKey("ProdutoLojaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ListaProdutos");
+
+                    b.Navigation("ProdutoLoja");
+                });
+
             modelBuilder.Entity("PechinchaMarket.Models.Loja", b =>
                 {
                     b.HasOne("PechinchaMarket.Models.Comerciante", null)
@@ -456,6 +521,11 @@ namespace PechinchaMarket.Migrations
             modelBuilder.Entity("PechinchaMarket.Models.Comerciante", b =>
                 {
                     b.Navigation("Lojas");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.ListaProdutos", b =>
+                {
+                    b.Navigation("detalheListaProds");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.Produto", b =>

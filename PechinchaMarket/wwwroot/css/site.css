@@ -71,7 +71,12 @@ body {
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
 }
 
 .navbar-brand {
@@ -106,16 +111,17 @@ body {
     padding: 0px;
 }
 
+
 .display-none {
     display: none !important;
 }
 
-.center-text{
+.center-text {
     text-align: center;
 }
 
 /*Gradiante-main-color*/
-.gradiante-main-color{
+.gradiante-main-color {
     background: linear-gradient(-110deg, var(--root-main-color) 35%, rgba(255,255,255,1) 100%);
 }
 
@@ -123,9 +129,8 @@ body {
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80%, var(--root-main-color) 100%);
 }
 
-.background-height{
+.background-height {
     min-height: 100vh;
-   
 }
 
 .content-background {
@@ -148,21 +153,21 @@ body {
         gap: var(--root-all-authentication-content-min-space);
     }
 
-        .authentication-box div .authentication-header {
-            display: flex;
-            flex-direction: column;
-            margin-top: var(--root-authentication-content-margin-top);
-            text-align: center;
-            gap: 0em;
-        }
+    .authentication-box div .authentication-header {
+        display: flex;
+        flex-direction: column;
+        margin-top: var(--root-authentication-content-margin-top);
+        text-align: center;
+        gap: 0em;
+    }
 
-        .authentication-box div .inline-div {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-bottom: var(--root-authentication-account-type-content-margin-bottom);
-            gap: 0em var(--root-account-type-button-min-space);
-        }
+    .authentication-box div .inline-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: var(--root-authentication-account-type-content-margin-bottom);
+        gap: 0em var(--root-account-type-button-min-space);
+    }
 
 .account-type-button {
     background-color: var(--root-account-type-button-color);
@@ -197,9 +202,9 @@ body {
     background-size: cover;
 }
 
-    .a-div-button button .account-type-cliente-logo {
-        margin-top: var(--root-account-type-logo-in-button-margin-top);
-    }
+.a-div-button button .account-type-cliente-logo {
+    margin-top: var(--root-account-type-logo-in-button-margin-top);
+}
 
 .account-type-comerciante-logo {
     display: inline-block;
@@ -209,9 +214,9 @@ body {
     background-size: cover;
 }
 
-    .a-div-button button .account-type-comerciante-logo {
-        margin-top: var(--root-account-type-logo-in-button-margin-top);
-    }
+.a-div-button button .account-type-comerciante-logo {
+    margin-top: var(--root-account-type-logo-in-button-margin-top);
+}
 
 
 .center-div-x-axis {
@@ -293,6 +298,7 @@ body {
         padding-right: var(--root-input-text-padding-sides);
         outline: none;
     }
+
         .authentication-input-text-div input:focus {
             outline: none;
             border: none;
@@ -328,6 +334,7 @@ body {
         opacity: 0;
         transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
     }
+
         .authentication-input-text-div label::after {
             z-index: -1;
             content: ''; /* Required for pseudo-elements */
@@ -358,6 +365,7 @@ body {
             left: calc(var(--root-authentication-box-width-media) - 25px - 1px) !important;
         }
 }
+
 .authentication-buttons {
     margin-top: var(--root-all-authentication-content-min-space);
     margin-bottom: var(--root-authentication-content-margin-bottom);
@@ -378,7 +386,6 @@ body {
 .confirm-button {
     flex: 0 1 auto;
     width: fit-content;
-
     padding-left: var(--root-form-button-padding-sides);
     padding-right: var(--root-form-button-padding-sides);
     padding-bottom: var(--root-form-button-padding-up-and-down);
@@ -407,6 +414,7 @@ body {
     color: var(--root-text-color);
     cursor: pointer;
 }
+
     .cancel-button:hover {
         filter: brightness(0.92);
         color: var(--root-text-color);
@@ -415,9 +423,10 @@ body {
 a.cancel-button::before {
     background-color: var(--root-background-content-color);
 }
-    a.cancel-button:hover::before {
-        opacity: 0.5;
-    }
+
+a.cancel-button:hover::before {
+    opacity: 0.5;
+}
 
 @media (max-width: 277px) {
     .confirm-button,
@@ -446,14 +455,14 @@ a.cancel-button::before {
     display: none;
 }
 
-.authentication-checkbox input[type="checkbox"]:checked ~ label{
-    outline-color: var(--root-main-color);
-    outline-width: var(--root-checkbox-border-thickness-when-selected);
-}
+    .authentication-checkbox input[type="checkbox"]:checked ~ label {
+        outline-color: var(--root-main-color);
+        outline-width: var(--root-checkbox-border-thickness-when-selected);
+    }
 
-.authentication-checkbox input[type="checkbox"]:hover ~ label {
-    filter: brightness(0.95);
-}
+    .authentication-checkbox input[type="checkbox"]:hover ~ label {
+        filter: brightness(0.95);
+    }
 
 .insert-file {
     display: flex;
@@ -466,6 +475,7 @@ a.cancel-button::before {
     gap: 1em;
     height: fit-content;
 }
+
     .insert-file div.title {
         font-weight: bold;
     }
@@ -490,6 +500,7 @@ a.cancel-button::before {
         max-width: 75%;
         height: fit-content;
     }
+
         .insert-file div.insert-file-input .file-name {
             /*NewText*/
             width: 100%;
@@ -498,27 +509,27 @@ a.cancel-button::before {
             text-align: center;
         }
 
-        .insert-file input[type="file"] {
-            /*OldText and OldButton*/
-            z-index: 1;
-            color: transparent;
-            width: var(--root-insert-file-input-width);
-        }
+    .insert-file input[type="file"] {
+        /*OldText and OldButton*/
+        z-index: 1;
+        color: transparent;
+        width: var(--root-insert-file-input-width);
+    }
 
-            .insert-file input[type="file"]::-webkit-file-upload-button {
-                /*OldButton*/
-                padding-top:0;
-                padding-bottom: 0;
-                position: absolute;
-                left: calc(50vw - var(--root-insert-file-input-width) / 2);
-                margin: 0 auto;
-                background-color: var(--root-background-content-color);
-                color: var(--root-border-color-to-default-background-container);
-                border: none;
-                border-radius: var(--root-input-text-radius);
-                outline: none;
-                cursor: pointer;
-            }
+        .insert-file input[type="file"]::-webkit-file-upload-button {
+            /*OldButton*/
+            padding-top: 0;
+            padding-bottom: 0;
+            position: absolute;
+            left: calc(50vw - var(--root-insert-file-input-width) / 2);
+            margin: 0 auto;
+            background-color: var(--root-background-content-color);
+            color: var(--root-border-color-to-default-background-container);
+            border: none;
+            border-radius: var(--root-input-text-radius);
+            outline: none;
+            cursor: pointer;
+        }
 
     .insert-file label {
         /*NewButton*/
@@ -535,18 +546,19 @@ a.cancel-button::before {
         cursor: pointer;
     }
 
-            .insert-file input[type="file"]::-webkit-file-upload-button:hover {
-                filter: brightness(0.92);
-            }
+    .insert-file input[type="file"]::-webkit-file-upload-button:hover {
+        filter: brightness(0.92);
+    }
 
-.insert-file.file-type-image div.title::after{
-    background-image: url('../images/uploadImage.png') !important;
-}
+    .insert-file.file-type-image div.title::after {
+        background-image: url('../images/uploadImage.png') !important;
+    }
 
 
-.insert-file.file-type-pdf div.title::after{
-    background-image: url('../images/uploadPdf.png') !important;
-}
+    .insert-file.file-type-pdf div.title::after {
+        background-image: url('../images/uploadPdf.png') !important;
+    }
+
     .insert-file.file-type-pdf input[type="file"]::-webkit-file-upload-button {
         content: 'Adicionar Documento'
     }
@@ -559,7 +571,6 @@ a.cancel-button::before {
     left: calc(var(--root-input-text-width) - 25px - 1px);
     background-color: var(--root-background-content-color);
     border: none;
-
 }
 
 .password-visible {
@@ -711,8 +722,8 @@ a.cancel-button::before {
 }
 
 .support-image-1 {
-    width:700px;
-    height:400px;
+    width: 700px;
+    height: 400px;
     background-image: url(../images/AuthenticationSupport1.png);
 }
 
@@ -847,6 +858,7 @@ a.cancel-button::before {
         background-color: var(--root-main-color);
         transition: width 0.3s ease, opacity 0.2s ease;
     }
+
         .nav-search-div button:hover {
             filter: brightness(0.95);
         }
@@ -879,10 +891,8 @@ a.cancel-button::before {
     z-index: 1;
     position: absolute;
     width: 100%; /*Este valor é fake e é atualizado no oninput*/    
-    
     max-height: 50vh;
     overflow: auto;
-
     background-color: var(--root-background-content-color);
     margin-top: calc(-1 * var(--root-search-height) * 0.5);
     padding-top: calc(10px + var(--root-search-height) * 0.5);
@@ -912,12 +922,13 @@ a.cancel-button::before {
     }
 
         .sugestions div:hover {
-            filter:  brightness(0.95);
+            filter: brightness(0.95);
         }
 
-    .sugestions div > span:nth-child(2){
-        font-weight: bold;
-    }
+        .sugestions div > span:nth-child(2) {
+            font-weight: bold;
+        }
+
 
 .pechincha-container {
     display: flex;
@@ -989,18 +1000,18 @@ a.cancel-button::before {
 }
 
 .filter-area-width {
-    min-width: var(--root-filter-area-width); 
+    min-width: var(--root-filter-area-width);
+}
+
+.screen-height {
+    height: 100vh;
 }
 
 .fit-content-width {
     width: fit-content;
 }
 
-.screen-height {    
-    height: 100vh;
-}
-
-.search-result{
+.search-result {
     height: 8em;
     text-decoration: none;
     color: var(--root-text-color);

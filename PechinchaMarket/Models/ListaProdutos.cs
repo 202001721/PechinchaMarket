@@ -4,14 +4,16 @@ namespace PechinchaMarket.Models
 {
     public class ListaProdutos
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+        [Display(Name = "Nome")]
+        public string name { get; set; }
 
-        public Cliente? cliente;
-        [Display(Name = "Quantidade")]
-        public int Quantidade { get; set; }
+        public string ClienteId { get; set; }
+        
         [Display(Name = "Estado")]
-        public EstadoProdutoCompra estado;
-        public List<Produto>? Produtos { get; set; }
+        public EstadoProdutoCompra state { get; set; }
+
+        public List<DetalheListaProd>? detalheListaProds { get; set; }
 
     }
 }

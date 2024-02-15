@@ -1,0 +1,49 @@
+.itembox {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    border: 2px solid var(--root-main-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.5s;
+}
+
+    .itembox:hover {
+        color: var(--root-main-color);
+        transform: scale(1.02);
+    }
+
+.bin{
+    height:35px;
+    width:35px;
+    background-image: url(../images/recycle-bin.png);
+    background-size:cover;
+    margin-left:10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.create {
+    display:block;
+    background-image: url(../images/add.png);
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+    margin-bottom:10px;
+}
+
+.content {
+    padding: 20px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80%, var(--root-main-color) 100%);
+}
+
+p{
+    margin-bottom:0;
+}
+
