@@ -35,6 +35,13 @@
     height: var(--root-produto-image);
     background-size: 100% 100%;
 }
+.imagem {
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-size: 100% 100%;
+    margin: 1em;
+}
 
 .info div {
     display: flex;
@@ -126,4 +133,39 @@
 
     .lista-item td.selected {
         background-color: #e0e0e0;
+    }
+
+.produtos-semelhantes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 0.5em;
+    border: solid 0.18em #FFC266;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow-x: auto;
+}
+
+.items-semelhantes {
+    display: flex;
+}
+
+.produto-semelhante {
+    margin-right: 1em;
+    margin-left: 1em;
+    position: relative;
+}
+    .produto-semelhante a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .produto-semelhante:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -1.5em;
+        border-right: 1px solid gray;
     }

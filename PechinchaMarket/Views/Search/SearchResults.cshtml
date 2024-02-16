@@ -57,7 +57,7 @@
                     <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width">
                         @foreach (var produto in Model)
                         {
-                            <a class="search-result column-container center-y-flex edges-flex center-text" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-id="@produto.Id">
+                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                                 <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
                                 <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
                                 <span>@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>

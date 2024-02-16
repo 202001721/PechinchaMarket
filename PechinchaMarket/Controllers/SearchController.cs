@@ -6,6 +6,7 @@ using PechinchaMarket.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Models;
 using Microsoft.AspNetCore.Components.Forms;
+using System;
 
 namespace PechinchaMarket.Controllers
 {
@@ -219,9 +220,8 @@ namespace PechinchaMarket.Controllers
             string result = name.Substring(0, index);
             return result;
         }
-
-
-        public async Task<ActionResult> AddToList()
+          
+        public async Task<ActionResult> AddToList(int id)
         {
                 var model = _context.Users
         .Join(_context.Comerciante,
@@ -236,7 +236,7 @@ namespace PechinchaMarket.Controllers
             temp => temp.Loja.Id,
             produtoLoja => produtoLoja.Loja.Id,
             (temp, produtoLoja) => new { temp.User, temp.Comerciante, temp.Loja, ProdutoLoja = produtoLoja })
-        .Join(_context.Produto,
+        .Join(_context.Produto.Where(produto => produto.Id == id),
             temp => temp.ProdutoLoja.Produto.Id,
             produto => produto.Id,
             (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja,produto ))
@@ -244,7 +244,7 @@ namespace PechinchaMarket.Controllers
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
-            var produto = model.FirstOrDefault().Item4.Id;
+            var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
 
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());
@@ -254,6 +254,8 @@ namespace PechinchaMarket.Controllers
         .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
         .Select(joined => joined.Loja)
         .ToList();
+
+            ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
 
             return View(model);
         }
@@ -319,13 +321,41 @@ namespace PechinchaMarket.Controllers
             
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Edit", "ListaProdutosController");
+
+            return RedirectToAction("Index", "ListaProdutos");
 
         }
 
         public async Task<IActionResult> AddProductToList()
         {
             return View();
+        }
+
+        //[HttpGet]
+        public List<Produto> SimilarProducts(int? id)
+        {
+            var product = _context.Produto.FirstOrDefault(p => p.Id == id);
+
+            if(product == null) {
+                return null;
+            }
+
+            var searchWords = product.Name.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            var similarProducts = new List<Produto>();
+
+            foreach (var word in searchWords)
+            {
+                var productsWithWord = _context.Produto
+                    .Where(p => p.Name.Contains(word) && p.Id != id)
+                    .ToList();
+                similarProducts.AddRange(productsWithWord);
+            }
+
+            similarProducts = similarProducts.Distinct().ToList();
+
+            return similarProducts;
+
+            //return Json(similarProducts);
         }
     }
 }
