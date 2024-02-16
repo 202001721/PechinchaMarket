@@ -934,6 +934,7 @@ a.cancel-button:hover::before {
 .pechincha-container {
     display: flex;
     justify-content: center;
+    margin-top: var(--root-pechincha-container-margin-top);
 }
 
     .pechincha-container section {

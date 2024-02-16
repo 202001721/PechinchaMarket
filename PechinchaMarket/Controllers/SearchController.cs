@@ -33,8 +33,23 @@ namespace PechinchaMarket.Controllers
         // Action method to display search results
         public IActionResult SearchResults(string search)
         {
+            /*
+            var produtos = _context.Produto.Where(p => p.ProdEstado == Estado.Approved)
+                                           .Select(p => new { 
+                                                   p.Name,
+                                                   p.Brand,
+                                                   p.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price
+                                           })
+                                           .ToList();
+            */
 
-            var produtos = _context.Produto.ToList();
+            var produtos = _context.Produto
+                .Where(p => p.ProdEstado == Estado.Approved)
+                    .Include(p => p.ProdutoLojas)
+                        .ThenInclude(p => p.Loja).ToList();
+
+            ViewData["Comerciante"] = _context.Comerciante;
+
 
 
             var result = new List<Produto>();
@@ -130,6 +145,7 @@ namespace PechinchaMarket.Controllers
         [HttpGet]
         public IActionResult GetSugestiveNames(string input) {
             var nameList = _context.Produto
+                                      .Where(p => p.ProdEstado == Estado.Approved)
                                       .Select(m => m.Name)
                                       .Distinct()
                                       .ToList();
