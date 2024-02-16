@@ -73,7 +73,9 @@
                         {
                             <tr>
                                 <td>
-                                    <input type="number" value="@dl.quantity" class="numberselect">
+                                    <!--<input type="number" value="@dl.quantity" class="numberselect">-->
+                                    @Html.DisplayFor(modelItem => dl.quantity)
+
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Name)
@@ -102,7 +104,7 @@
                 <tfoot>
                     <tr>
                         <td>
-                            <input type="submit" />
+                            <!-- <input type="submit" />-->
                         </td>
                         <td></td>
                         <td></td>
