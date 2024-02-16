@@ -20,11 +20,11 @@
         }
         else
         {
-            <div class="column-container">
+            <div class="column-container fit-content-height">
                 <div class="thin-outline rounded-border right-flex">
                     <span class="">Ainda não implementado</span>
                 </div>
-                <div class="row-container edges-flex">
+                <div class="row-container left-flex small-gap-x fit-content-height">
                     <div class="thin-outline rounded-border small-padding filter-area-width small-margin-top">
                         <h4 class="fit-content-width">Filtrar Por:</h4>
                         <div class="fit-content-width">
@@ -51,10 +51,10 @@
                             <div class="fit-content-width">slider</div>
                         </div>
                     </div>
-                    <div class="wrap-flex small-margin-top">
+                    <div class="wrap-flex small-margin-top min-content-height max-width">
                         @foreach (var produto in Model)
                         {
-                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-id="@produto.Id">
+                            <a class="search-result column-container center-y-flex edges-flex center-text" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-id="@produto.Id">
                                 <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
                                 <span>@produto.Name</span>
                             </a>

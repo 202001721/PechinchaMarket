@@ -235,7 +235,6 @@ namespace PechinchaMarket.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Preferencias")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
