@@ -115,7 +115,7 @@
                             {
                                 @foreach (var dl in Model.detalheListaProds)
                                 {
-                                    totalprice = totalprice + dl.ProdutoLoja.Price;
+                                    totalprice = totalprice + (dl.quantity * dl.ProdutoLoja.Price);
                                 }
                                 @totalprice
                                 
