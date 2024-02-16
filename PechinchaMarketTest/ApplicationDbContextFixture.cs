@@ -21,7 +21,7 @@ namespace PechinchaMarketTest
             connection.Open();
 
             var options = new DbContextOptionsBuilder<DBPechinchaMarketContext>()
-                    .UseSqlite("DataSource=:memory:")
+                    .UseSqlite(connection)
                     .Options;
             DbContext = new DBPechinchaMarketContext(options);
             DbContext.Database.EnsureCreated();

@@ -1,4 +1,4 @@
-﻿@model PechinchaMarket.Models.ListaProdutos
+﻿@model PechinchaMarket.Models.DetalheListaProd
 
 @{
     ViewData["Title"] = "Details";
@@ -8,26 +8,28 @@
 <h1>Details</h1>
 
 <div>
-    <h4>ListaProdutos</h4>
+    <h4>DetalheListaProd</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
+            @Html.DisplayNameFor(model => model.quantity)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.name)
+            @Html.DisplayFor(model => model.quantity)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ClienteId)
+            @Html.DisplayNameFor(model => model.ListaProdutos)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ClienteId)
+            @Html.DisplayFor(model => model.ListaProdutos)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.state)
+
+            @Html.DisplayNameFor(model => model.ProdutoLoja)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.state)
+            @Html.DisplayFor(model => model.ProdutoLoja)
+
         </dd>
     </dl>
 </div>

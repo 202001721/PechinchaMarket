@@ -2,15 +2,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="navbar">
-
-</div>
 
 
-<div class="background">
-    <div class="searchbox">
+<link type="text/css" rel="stylesheet" href="~/css/home.css" />
+
+<body>
+    <div class="background">
+        <div class="searchbox">
+            <p class="title">Encontre os produtos que procura por mais barato!</p>
+            <p>Nós somos uma comunidade com mais de 3000 empresas e milhões de produtos que o ajudam a encontrar o que deseja</p>
+            
+            <form id="searchForm" method="post" asp-controller="Search" asp-action="search">
+                <div class="nav-search-div">
+                    <input type="text" id="searchInput" name="searchText" autocomplete="off" />
+                    <button type="submit"></button>
+                </div>
+            </form>
+            <ul class="navbar-nav flex-grow-1">
+            </ul>
+        </div>
+    </div>
+    <div class="gradiante2-main-color">
 
     </div>
-</div>
+</body>
 
 

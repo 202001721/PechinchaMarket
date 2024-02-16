@@ -10,23 +10,34 @@ using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Controllers
 {
+    public class MyViewModel
+    {
+        public ListaProdutos ListaProdutos { get; set; }
+        public List<DetalheListaProd> DetalhesListaProdutos { get; set; }
+    }
+
     public class ListaProdutosController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
 
-        public ListaProdutosController(DBPechinchaMarketContext context)
+        public ListaProdutosController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: ListaProdutos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ListaProdutos.ToListAsync());
+            var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault().Id.ToString();
+
+            var lista = from l in _context.ListaProdutos where l.ClienteId == clienteId select l;
+            return View(lista);
         }
 
         // GET: ListaProdutos/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -54,10 +65,19 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Quantidade")] ListaProdutos listaProdutos)
+
+        public async Task<IActionResult> Create([Bind("Id,name,ClienteId,state")] ListaProdutos listaProdutos)
         {
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("state");
             if (ModelState.IsValid)
             {
+                listaProdutos.Id = Guid.NewGuid();
+                var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault()?.Id.ToString();
+
+                listaProdutos.ClienteId = clienteId;
+                listaProdutos.state = EstadoProdutoCompra.PorComprar;
+                listaProdutos.detalheListaProds = new List<DetalheListaProd>();
                 _context.Add(listaProdutos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -66,19 +86,29 @@ namespace PechinchaMarket.Controllers
         }
 
         // GET: ListaProdutos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var listaProdutos = await _context.ListaProdutos.FindAsync(id);
+            ListaProdutos? listaProdutos = await _context.ListaProdutos.FindAsync(id);
             if (listaProdutos == null)
             {
                 return NotFound();
             }
-            return View(listaProdutos);
+            List<DetalheListaProd> detalheListaProds = (from dl in _context.DetalheListaProd where dl.ListaProdutos.Id == id select dl).ToList();
+
+            
+
+            MyViewModel myViewModel = new MyViewModel
+            {
+                ListaProdutos = listaProdutos,
+                DetalhesListaProdutos = detalheListaProds,
+            };
+
+            return View(myViewModel);
         }
 
         // POST: ListaProdutos/Edit/5
@@ -86,7 +116,8 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Quantidade")] ListaProdutos listaProdutos)
+
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,name,ClienteId,state")] ListaProdutos listaProdutos)
         {
             if (id != listaProdutos.Id)
             {
@@ -117,7 +148,8 @@ namespace PechinchaMarket.Controllers
         }
 
         // GET: ListaProdutos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -137,7 +169,7 @@ namespace PechinchaMarket.Controllers
         // POST: ListaProdutos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var listaProdutos = await _context.ListaProdutos.FindAsync(id);
             if (listaProdutos != null)
@@ -149,7 +181,8 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ListaProdutosExists(int id)
+
+        private bool ListaProdutosExists(Guid id)
         {
             return _context.ListaProdutos.Any(e => e.Id == id);
         }
