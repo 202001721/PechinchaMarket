@@ -39,9 +39,9 @@
             </div>
 
             <div>
-                <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off"/>
+                <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off" placeholder="Nome da Lista"/>
                 <div id="listas">
-                    <table class="lista-item">
+                    <table class="lista-item" id="item">
                         @foreach (ListaProdutos l in listas)
                         {
                             <tr>
@@ -100,7 +100,7 @@
 
         function updateName() {
             var name = document.getElementById('name').value;
-            document.getElementById('nameValue').value = name;        
+            document.getElementById('nameValue').value = name;
         }
 
         function showLojas() {
@@ -124,6 +124,7 @@
         function selectLista(name, id) {
             var x = document.getElementById("name");
             x.value = name;
+            showListas();
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -136,12 +137,39 @@
                     if (produtosSemelhantes != null) {
                         suggestions.forEach(suggestion => {
                             var div = document.createElement("div");
-                            div.innerHTML = suggestion.name;
+                            div.classList.add("produto-box");
+
+                            if (suggestion.image) {
+                                var imgDiv = document.createElement("div");
+                                var img = document.createElement("img");
+                                img.src = `data:image/jpeg;base64, ${suggestion.image}`;
+                                img.alt = suggestion.name;
+                                imgDiv.appendChild(img);
+                                div.appendChild(imgDiv);
+                            }
+
+                            var textDiv = document.createElement("div");
+                            var name = document.createElement("p");
+                            name.textContent = suggestion.name;
+                            textDiv.appendChild(name);
+                            div.appendChild(textDiv);
+
+                            div.addEventListener('click', function () {
+                                console.log('Clicou no produto: ' + suggestion.name);
+                                AddToList( suggestion.id);
+                            });
+
+                            div.style.cursor = "pointer"; // Adiciona um estilo de cursor para indicar que é clicável
+                            div.style.border = "1px solid black"; // Adiciona uma borda para visualizar o elemento clicável
+
+
+                            console.log(suggestion);
                             produtosSemelhantes.appendChild(div);
                         });
                     }
 
                 });
         });
+        
     </script>
 }

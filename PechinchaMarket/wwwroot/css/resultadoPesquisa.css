@@ -130,15 +130,28 @@
 
 .produtos-semelhantes {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 10px;
+    justify-content: flex-start;
+    padding: 0.5em;
+    border: solid 0.18em #FFC266;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow-x: auto;
 }
 
-    .produtos-semelhantes div {
-        background-color: #f2f2f2;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 200px;
+    .produtos-semelhantes .produto-box {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .produto-box p {
+        margin: 0; 
+    }
+    .produto-box img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        object-fit: cover;
     }
