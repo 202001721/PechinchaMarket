@@ -1,7 +1,75 @@
+.list {
+    border: 1px solid black !important;
+    width: fit-content;
+    padding:20px;
+}
+
+.formatar {
+    border: 2px solid var(--root-main-color) !important;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+}
+
+.listformatar {
+    display: flex;
+    justify-content:space-between;
+}
+
+.title{
+    display:flex;
+}
+
+.title2{
+    display:flex;
+    margin-bottom:20px;
+}
+
+.content {
+    padding: 60px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80%, var(--root-main-color) 100%);
+}
+
+.bin {
+    width: 28px;
+    height:28px;
+}
+
+.numberselect{
+    width: 40px;
+}
+
 #inputtitle{
     display:none;
 }
 
 #submitname{
     display:none;
+}
+
+#changename {
+    background-image: url("../images/edit-text.png");
+    width:28px;
+    height:28px;
+}
+
+tfoot{
+    border-top:1px solid black;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    
+}
+
+
+tr:nth-child(even) {
+    background-color: #fcf4cc
+}
+
+th {
+    background-color: var(--root-main-color);
+    color: white;
 }
