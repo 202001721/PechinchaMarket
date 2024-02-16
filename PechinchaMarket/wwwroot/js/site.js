@@ -117,7 +117,8 @@ function goBack() {
 
 function sugest(userInput, searchBar) {
     if (userInput !== '') {
-        fetch(`/Search/GetSugestiveNames?input=${userInput}`)
+        console.log(userInput);
+        fetch(`/Search/GetSugestiveNames?input=${encodeURIComponent(userInput)}`)
             .then(response => response.json())
             .then(suggestions => {
                 var suggestionslist = document.getElementById("search-sugestions");
@@ -127,7 +128,9 @@ function sugest(userInput, searchBar) {
                     suggestionslist.innerHTML = '';
                     suggestionslist.style.display = 'block';
 
+                    var index = 0;
                     suggestions.forEach(suggestion => {
+                        index++;
                         //bold
                         const difference = findDifference(suggestion, userInput);
 
@@ -154,6 +157,7 @@ function sugest(userInput, searchBar) {
                         searchBar.style.borderRadius = "15px 15px 0px 0px";
                         suggestionslist.style.width = suggestionslist.parentNode.offsetWidth + 'px';
                     }
+                    addKeyboardActionsOnSearchBar();
                 } else if (suggestionslist){
                     //clean sugestions
                     suggestionslist.innerHTML = '';
@@ -174,7 +178,74 @@ function findDifference(str1, str2) {
     }
 }
 
+function addKeyboardActionsOnSearchBar() {
+    var navbars = document.querySelectorAll('.nav-search-div');
+    navbars.forEach(navbar => {
+        var textinput = navbar.querySelector('input[type="text"]');
+        var suggestions = document.querySelector('.sugestions');
+        if (textinput && suggestions) {
+            const divs = Array.from(suggestions.children);
+            console.log(suggestions.children);
+            let hoveredIndex = -1;
+            // Add event listener to the input field
+            textinput.addEventListener('keydown', (event) => {
+                if (event.keyCode === 40) { // Down arrow key
+                    event.preventDefault(); // Prevent default scrolling behavior
 
+                    if (hoveredIndex != -1) {
+                        divs[hoveredIndex].classList.remove('hovered');
+                    }
+
+                    if (hoveredIndex < divs.length - 1) {
+                        hoveredIndex++;
+                    } else {
+                        hoveredIndex = 0;
+                    }
+                    divs[hoveredIndex].classList.add('hovered'); // Add the 'hovered' class to the div
+                } else if (event.keyCode === 38) {
+                    event.preventDefault(); // Prevent default scrolling behavior
+
+                    if (hoveredIndex != -1) {
+                        divs[hoveredIndex].classList.remove('hovered');
+                    }
+
+                    if (hoveredIndex > 0) {
+                        hoveredIndex--; 
+                    } else {
+                        hoveredIndex = divs.length - 1;
+                    }
+                    divs[hoveredIndex].classList.add('hovered'); // Add the 'hovered' class to the div
+                }
+            });
+
+            // Add event listeners to each div
+            divs.forEach((div, index) => {
+                // Add mouseover event listener
+                div.addEventListener('mouseover', () => {
+                    hoveredIndex = index; // Update the hovered index
+                    divs.forEach((d, i) => d.classList.toggle('hovered', i === hoveredIndex)); // Toggle the 'hovered' class
+                });
+            });
+
+            // Add keydown event listener to the document to handle Enter key press
+            document.addEventListener('keydown', (event) => {
+                const hoveredElement = document.querySelector('.hovered'); 
+                if (event.keyCode === 13 && hoveredElement != null) { // Enter key and a div is hovered
+                    hoveredElement.click(); // Simulate a click on the hovered div
+                }
+            });
+
+            document.addEventListener('mouseover', function () {
+                const hoveredElements = document.querySelectorAll('.hovered');
+                hoveredElements.forEach(function (element) {
+                    element.classList.remove('hovered');
+                });
+                hoveredIndex = -1;
+            });
+
+        }
+    });
+}
 document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const phaseParam = urlParams.get('search');
