@@ -35,6 +35,13 @@
     height: var(--root-produto-image);
     background-size: 100% 100%;
 }
+.imagem {
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-size: 100% 100%;
+    margin: 1em;
+}
 
 .info div {
     display: flex;
@@ -140,18 +147,25 @@
     overflow-x: auto;
 }
 
-    .produtos-semelhantes .produto-box {
-        max-width: 200px;
-        height: auto;
-        margin-bottom: 20px;
+.items-semelhantes {
+    display: flex;
+}
+
+.produto-semelhante {
+    margin-right: 1em;
+    margin-left: 1em;
+    position: relative;
+}
+    .produto-semelhante a {
+        text-decoration: none;
+        color: black;
     }
 
-    .produto-box p {
-        margin: 0; 
-    }
-    .produto-box img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-        object-fit: cover;
+    .produto-semelhante:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -1.5em;
+        border-right: 1px solid gray;
     }

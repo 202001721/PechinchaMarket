@@ -171,6 +171,8 @@ namespace PechinchaMarket.Controllers
         .Select(joined => joined.Loja)
         .ToList();
 
+            ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
+
             return View(model);
         }
 
@@ -236,7 +238,7 @@ namespace PechinchaMarket.Controllers
             await _context.SaveChangesAsync();
 
 
-            return RedirectToAction("Index", "ListaProdutosController");
+            return RedirectToAction("Index", "ListaProdutos");
 
         }
 
@@ -245,13 +247,13 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult SimilarProducts(int? id)
+        //[HttpGet]
+        public List<Produto> SimilarProducts(int? id)
         {
             var product = _context.Produto.FirstOrDefault(p => p.Id == id);
-            if (product == null)
-            {
-                return NotFound();
+
+            if(product == null) {
+                return null;
             }
 
             var searchWords = product.Name.Split(" ", StringSplitOptions.RemoveEmptyEntries);
@@ -267,7 +269,9 @@ namespace PechinchaMarket.Controllers
 
             similarProducts = similarProducts.Distinct().ToList();
 
-            return Json(similarProducts);
+            return similarProducts;
+
+            //return Json(similarProducts);
         }
     }
 }
