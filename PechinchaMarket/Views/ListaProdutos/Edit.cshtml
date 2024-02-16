@@ -52,6 +52,9 @@
                             Produto
                         </th>
                         <th>
+                            Marca
+                        </th>
+                        <th>
                             Comerciante
                         </th>
                         <th>
@@ -76,7 +79,10 @@
                                     @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Name)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => comerciante.Where(c => c.UserId == dl.ProdutoLoja.Loja.UserId).First().Name)
+                                    @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Brand)
+                                </td>
+                                <td>
+                                    <img class="logo" src='@Url.Action( "show", "listaProdutos", new { id = comerciante.Where(c => c.UserId == dl.ProdutoLoja.Loja.UserId).First().Id })' />
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => dl.ProdutoLoja.Price)€
@@ -98,6 +104,7 @@
                         <td>
                             <input type="submit" />
                         </td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td>

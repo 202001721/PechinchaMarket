@@ -182,7 +182,7 @@ namespace PechinchaMarket.Controllers
 
 
             Table table = new Table();
-            table.ColumnWidths = "70 50 70 50 60";
+            table.ColumnWidths = "70 50 50 70 50 60";
 
             MarginInfo margin = new MarginInfo();
             margin.Top = 5f;
@@ -194,6 +194,7 @@ namespace PechinchaMarket.Controllers
             Row row0 = table.Rows.Add();
             row0.Cells.Add("Quantidade");
             row0.Cells.Add("Produto");
+            row0.Cells.Add("Marca");
             row0.Cells.Add("Comerciante");
             row0.Cells.Add("Preço");
             row0.Cells.Add("Morada");
@@ -212,8 +213,27 @@ namespace PechinchaMarket.Controllers
                 Row row = table.Rows.Add();
                 row.Cells.Add(item.quantity.ToString());
                 row.Cells.Add(item.ProdutoLoja.Produto.Name);
-                var c = _context.Comerciante.Where(c => c.UserId == item.ProdutoLoja.Loja.UserId).First().Name;
-                row.Cells.Add(c);
+                row.Cells.Add(item.ProdutoLoja.Produto.Brand);
+
+                if(conteudo == "simples")
+                {
+                    var c = _context.Comerciante.Where(c => c.UserId == item.ProdutoLoja.Loja.UserId).First().Name;
+                    row.Cells.Add(c);
+                }
+                if(conteudo == "ilustrativo")
+                {
+                    var c = _context.Comerciante.Where(c => c.UserId == item.ProdutoLoja.Loja.UserId).First().logo;
+                    Aspose.Pdf.Image img = new Aspose.Pdf.Image();
+                    var image = c;
+                    MemoryStream memStream = new MemoryStream();
+                    memStream.Write(image, 0, image.Length);
+                    img.ImageStream = memStream;
+                    img.FixWidth = 40;
+                    img.FixHeight = 40;
+                    Cell cellImage = row.Cells.Add();
+                    cellImage.Paragraphs.Add(img);
+                }
+                
                 row.Cells.Add(item.ProdutoLoja.Price.ToString() + "€");
                 row.Cells.Add(item.ProdutoLoja.Loja.Address);
 
@@ -230,9 +250,9 @@ namespace PechinchaMarket.Controllers
                     memStream.Write(image, 0, image.Length);
                     img.ImageStream = memStream;
                     // Set width for image instance
-                    img.FixWidth = 60;
+                    img.FixWidth = 40;
                     // Set height for image instance
-                    img.FixHeight = 60;
+                    img.FixHeight = 40;
                     // Create cell object and add it to row instance
                     Cell cellImage = row.Cells.Add();
                     // Add image to paragraphs collection of recently added cell instance
@@ -359,6 +379,19 @@ namespace PechinchaMarket.Controllers
         private bool ListaProdutosExists(Guid id)
         {
             return _context.ListaProdutos.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Show(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var c = await _context.Comerciante
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return File(c.logo, "image/jpg");
         }
     }
 }
