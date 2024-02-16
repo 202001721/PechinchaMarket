@@ -64,7 +64,7 @@ namespace PechinchaMarket.Controllers
         // GET: Produtos/Create
         public IActionResult Create()
         {
-            ViewData["Shops"] = _context.Loja;
+            ViewData["Shops"] = _context.Loja.Where(l => l.UserId == _userManager.GetUserId(User));
             return View();
         }
 

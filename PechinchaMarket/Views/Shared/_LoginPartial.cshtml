@@ -4,6 +4,19 @@
 @inject SignInManager<PechinchaMarketUser> SignInManager
 @inject UserManager<PechinchaMarketUser> UserManager
 
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form id="searchForm" method="post" asp-controller="Search" asp-action="search" class="search-input-size">
+        <div class="nav-search-div">
+            <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="sugest(this.value, this)"/>
+            <button type="submit"></button>
+        </div>
+        <div class="sugestions" id="search-sugestions"></div>
+    </form>
+    <ul class="navbar-nav flex-grow-1"></ul>
+}
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
