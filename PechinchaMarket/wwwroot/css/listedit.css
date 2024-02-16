@@ -2,6 +2,7 @@
     border: 1px solid black !important;
     width: fit-content;
     padding:20px;
+    height:fit-content;
 }
 
 .formatar {
@@ -15,6 +16,7 @@
 .listformatar {
     display: flex;
     justify-content:space-between;
+    flex-wrap:wrap;
 }
 
 .title{
@@ -27,7 +29,7 @@
 }
 
 .content {
-    padding: 60px;
+    padding: 20px 15%;
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80%, var(--root-main-color) 100%);
 }
 
@@ -38,6 +40,18 @@
 
 .numberselect{
     width: 40px;
+}
+
+.formato{
+    margin-bottom:20px;
+}
+
+.btngerar {
+    background-color: var(--root-main-color);
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 #inputtitle{

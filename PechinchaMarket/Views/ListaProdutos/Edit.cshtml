@@ -125,26 +125,30 @@
             <form asp-action="CreateDocument">
                 <input type="hidden" asp-for="Id" />
                 <h4>Formate a lista ao seu gosto</h4>
-                <p>Formato do ficheiro</p>
-                <div>
-                    <label for="pdf">PDF</label>
+                
+                Formato do ficheiro
+                <div class="formato">
+                    
                     <input type="radio" id="pdf" name="ficheiro" value="pdf" checked />
+                    <label for="pdf">PDF</label>
 
-                    <label for="png">PNG</label>
                     <input type="radio" id="png" name="ficheiro" value="png" />
+                    <label for="png">PNG</label>
                 </div>
 
-                <p>Formato do conteúdo</p>
-
-                <div>
-                    <label for="simples">Simples</label>
+                
+                Formato do conteúdo
+                <div class="formato">
+                    
                     <input type="radio" id="simples" name="conteudo" value="simples" checked />
+                    <label for="simples">Simples</label>
 
-                    <label for="ilustrativo">Ilustrativo</label>
                     <input type="radio" id="ilustrativo" name="conteudo" value="ilustrativo" />
+                    <label for="ilustrativo">Ilustrativo</label>
+
                 </div>
 
-                <input type="submit" value="Gerar Lista" />
+                <input type="submit" class="btngerar" value="Gerar Lista" />
             </form>
             
         </div>
