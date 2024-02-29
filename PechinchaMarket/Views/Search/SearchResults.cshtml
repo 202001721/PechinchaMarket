@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
 }
 
 @model List<Produto>;
@@ -20,43 +21,46 @@
         }
         else
         {
-            <div class="column-container">
+            <div class="column-container fit-content-height">
                 <div class="thin-outline rounded-border right-flex">
                     <span class="">Ainda não implementado</span>
                 </div>
-                <div class="row-container edges-flex">
-                    <div class="thin-outline rounded-border small-padding filter-area-width small-margin-top">
-                        <h4 class="fit-content-width">Filtrar Por:</h4>
-                        <div class="fit-content-width">
-                            Zona:
-                            <ul class="fit-content-width">
-                                <li class="fit-content-width">placeholder</li>
-                                <li class="fit-content-width">placeholder</li>
-                            </ul>
-                        </div>
-                        <div class="fit-content-width">
-                            Comerciante:
-                            <ul class="fit-content-width">
-                                <li class="fit-content-width">placeholder</li>
-                                <li class="fit-content-width">placeholder</li>
-                            </ul>
-                        </div>
-                        <div class="fit-content-width">
-                            Categoria:
-                            <ul class="fit-content-width">
-                            </ul>
-                        </div>
-                        <div class="fit-content-width">
-                            Preço:
-                            <div class="fit-content-width">slider</div>
+                <div class="row-container left-flex small-gap-x">
+                    <div>
+                        <div class="thin-outline rounded-border small-padding filter-area-width small-margin-top">
+                            <h4 class="fit-content-width">Filtrar Por:</h4>
+                            <div class="fit-content-width">
+                                Zona:
+                                <ul class="fit-content-width">
+                                    <li class="fit-content-width">placeholder</li>
+                                    <li class="fit-content-width">placeholder</li>
+                                </ul>
+                            </div>
+                            <div class="fit-content-width">
+                                Comerciante:
+                                <ul class="fit-content-width">
+                                    <li class="fit-content-width">placeholder</li>
+                                    <li class="fit-content-width">placeholder</li>
+                                </ul>
+                            </div>
+                            <div class="fit-content-width">
+                                Categoria:
+                                <ul class="fit-content-width">
+                                </ul>
+                            </div>
+                            <div class="fit-content-width">
+                                Preço:
+                                <div class="fit-content-width">slider</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="wrap-flex small-margin-top">
+                    <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width">
                         @foreach (var produto in Model)
                         {
-                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-id="@produto.Id">
+                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                                 <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
-                                <span>@produto.Name</span>
+                                <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                                <span>@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
                             </a>
                         }
                     </div>

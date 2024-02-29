@@ -1,89 +1,170 @@
-﻿@model PechinchaMarket.Controllers.MyViewModel
+﻿@model PechinchaMarket.Models.ListaProdutos
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
+
+    float totalprice = 0;
 }
 
-<h4>@Model.ListaProdutos.name</h4>
-<button>editar nome</button>
 
-<div class="list">
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    Quantidade
-                </th>
-                <th>
-                    Produto
-                </th>
-                <th>
-                    Comerciante
-                </th>
-                <th>
-                    Preço
-                </th>
-                <th>
-                    Localidade
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var dl in Model.DetalhesListaProdutos)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.UserId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.Address)
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<hr />
-<!--
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<script>
+    function editName(){
+        var title = document.getElementById("title");
+        var inputtitle = document.getElementById("inputtitle");
+        var changeName = document.getElementById("changename");
+        var submit = document.getElementById("submitname");
+
+        inputtitle.style.display = "block";
+        title.style.display = "none";
+        changeName.style.display = "none";
+    }
+</script>
+
+
+<link type="text/css" rel="stylesheet" href="~/css/listedit.css" />
+
+<div class="content">
+    <div class="title">
+        <form class="title2" asp-action="ChangeName">
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <input asp-for="ClienteId" class="form-control" />
-                <span asp-validation-for="ClienteId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="state" class="control-label"></label>
-                <select asp-for="state" class="form-control"></select>
-                <span asp-validation-for="state" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+            <input type="text" asp-for="name" id="inputtitle" class="form-control" value="@Model.name" name="name">
+            <input type="submit" value="Save" id="submitname" />
         </form>
+        <h4 id="title">@Model.name</h4>
+        <input type="image" id="changename" onclick="editName()" src="~/images/edit-text.png"/>
     </div>
-</div>
--->
-<div>
-    <a asp-action="Index">Back to List</a>
+
+    <div class="listformatar">
+        <div class="list">
+            <form id="formDelete" asp-action="DeleteMany">
+                <input type="hidden" asp-for="Id" />
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Quantidade
+                        </th>
+                        <th>
+                            Produto
+                        </th>
+                        <th>
+                            Marca
+                        </th>
+                        <th>
+                            Comerciante
+                        </th>
+                        <th>
+                            Preço
+                        </th>
+                        <th>
+                            Localidade
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.detalheListaProds != null)
+                    {
+                        foreach (var dl in Model.detalheListaProds)
+                        {
+                            <tr>
+                                <td>
+                                    <!--<input type="number" value="@dl.quantity" class="numberselect">-->
+                                    @Html.DisplayFor(modelItem => dl.quantity)
+
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => dl.ProdutoLoja.Produto.Brand)
+                                </td>
+                                <td>
+                                    <img class="logo" src='@Url.Action( "show", "listaProdutos", new { id = comerciante.Where(c => c.UserId == dl.ProdutoLoja.Loja.UserId).First().Id })' />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => dl.ProdutoLoja.Price)€
+                                </td>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.Address)
+                                </td>
+                                <td>
+                                    <input type="checkbox" value="@dl.Id" name="deletes" form="formDelete"/>
+                                </td>
+                                
+                            </tr>
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <!-- <input type="submit" />-->
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            Total:
+                            @if (Model.detalheListaProds != null)
+                            {
+                                @foreach (var dl in Model.detalheListaProds)
+                                {
+                                    totalprice = totalprice + (dl.quantity * dl.ProdutoLoja.Price);
+                                }
+                                @totalprice
+                                
+                            }
+                            €
+                        </td>
+                        <td></td>
+                        <td><input form="formDelete" type="image" class="bin" src="~/images/recycle-bin.png" /></td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="formatar">
+            <form asp-action="CreateDocument">
+                <input type="hidden" asp-for="Id" />
+                <h4>Formate a lista ao seu gosto</h4>
+                
+                Formato do ficheiro
+                <div class="formato">
+                    
+                    <input type="radio" id="pdf" name="ficheiro" value="pdf" checked />
+                    <label for="pdf">PDF</label>
+
+                    <input type="radio" id="png" name="ficheiro" value="png" />
+                    <label for="png">PNG</label>
+                </div>
+
+                
+                Formato do conteúdo
+                <div class="formato">
+                    
+                    <input type="radio" id="simples" name="conteudo" value="simples" checked />
+                    <label for="simples">Simples</label>
+
+                    <input type="radio" id="ilustrativo" name="conteudo" value="ilustrativo" />
+                    <label for="ilustrativo">Ilustrativo</label>
+
+                </div>
+
+                <input type="submit" class="btngerar" value="Gerar Lista" />
+            </form>
+            
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 </div>
 
 @section Scripts {

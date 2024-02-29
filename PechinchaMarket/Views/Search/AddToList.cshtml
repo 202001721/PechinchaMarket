@@ -5,13 +5,18 @@
 
     IEnumerable<ListaProdutos> listas = ViewData["Listas"] as IEnumerable<ListaProdutos>;
     IEnumerable<Loja> lojas = ViewData["Lojas"] as IEnumerable<Loja>;
+    IEnumerable<Produto> produtos = ViewData["ProdutosSemelhantes"] as IEnumerable<Produto>;
 }
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
 
+<div style="display:none" id="produtoId">
+    @Html.DisplayFor(model => model.FirstOrDefault().Item5.Id)
+</div>
+
 <div class="row-container center-x-flex center-y-flex screen-height">
 
-    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.FirstOrDefault().Item5.Id})');">  </span>
+    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Search", new { id = @Model.Select(x => x.Item5.Id).FirstOrDefault()})');">  </span>
     
     <div class="fit-content-width">
        <div class="info">
@@ -32,13 +37,13 @@
         <div class="acoes">
             
             <div class="quantity">
-                <input class="numberstyle" type="number" min="1" max="99" step="1" value="1" id="quantityInput">
+                <input class="numberstyle" type="number" min="1" max="99" step="1" value="1" id="quantityInput" onKeyDown="return false">
             </div>
 
             <div>
-                <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off"/>
+                <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off" placeholder="Nome da Lista"/>
                 <div id="listas">
-                    <table class="lista-item">
+                    <table class="lista-item" id="item">
                         @foreach (ListaProdutos l in listas)
                         {
                             <tr>
@@ -81,14 +86,24 @@
 
     </div>
 
-    
-    <!--Lojas   (deve ser botão, é suposto ser selecionavel e para visualizar)-->
-
-    <!--Zona de produtos semelhantes [produtos com nome parecido/ na mesma categoria/ outra forma?!]
-            "card" com imagem do produto, nome e preço/unidade
-    -->
-
 </div>
+<div class="produtos-semelhantes"
+    <div class="items-semelhantes">
+        @if(produtos != null)
+        {
+            @foreach (Produto l in produtos)
+            {
+                 <div class="produto-semelhante">
+                    <a asp-action="AddToList" asp-route-id="@l.Id">
+                        <span class="imagem" style="background-image: url('@Url.Action("ShowImage", "Search", new { id = l.Id})"></span>
+                        @Html.DisplayFor(modelItem => l.Name) - @Html.DisplayFor(modelItem => l.Brand)
+                    </a>
+                </div>
+            }
+        }        
+    </div>
+</div>
+
 
 @section Scripts{
     <script>
@@ -99,7 +114,7 @@
 
         function updateName() {
             var name = document.getElementById('name').value;
-            document.getElementById('nameValue').value = name;        
+            document.getElementById('nameValue').value = name;
         }
 
         function showLojas() {
@@ -123,6 +138,8 @@
         function selectLista(name, id) {
             var x = document.getElementById("name");
             x.value = name;
+            showListas();
         }
+        
     </script>
 }
