@@ -244,6 +244,7 @@ namespace PechinchaMarket.Controllers
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
+
             var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
 
             ViewData["Listas"] = _context.ListaProdutos
