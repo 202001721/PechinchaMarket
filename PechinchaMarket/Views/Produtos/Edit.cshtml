@@ -48,7 +48,7 @@
                         <input type="date" id="duracao" onchange="" />-->
                         <div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
-                            <input type="text" id="daterange" onclick="toggleDatepickers('daterange')" readonly="true" onchange="changeDate()" />
+                            <input type="text" id="daterange" onclick="toggleDatepickers()" readonly="true" />
 
                             <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
                             <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">
@@ -114,10 +114,10 @@
                                             <input type="number"  name="discount" class="discount custom-input" /> %
                                         </td>
                                         <td>
-                                            <input type="text" id="daterange2" onclick="toggleDatepickers('daterange2')" readonly="true" />
+                                            <input type="text" id="data" class="data" onclick="openDatepicker()" readonly="true"/>
 
-                                            <input type="date" id="startDatePicker2" style="display: none" onchange="handleDateChange(event)">
-                                            <input type="date" id="endDatePicker2" style="display: none" onchange="handleDateChange(event)">
+                                            <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
+                                            <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">
                                         </td>
                                     </tr>
                                 }
@@ -187,63 +187,47 @@
         }
 
         function changeDate() {
-            var d = document.getElementById("daterange");
-            var dt = document.getElementsByClassName("daterange2")
-
+            var da = document.getElementById("daterange");
+            console.log(da.value)
+            var dt = document.getElementsByClassName("data");
+            console.log(dt) 
             for (let item of dt) {
-                item.value = d.value
+                item.value = da.value
             }
         }
 
         let startDate = null;
         let endDate = null;
 
-        function toggleDatepickers(inputId) {
-            if (inputId === "daterange") {
-                toggleSinglePair(startDatePicker, endDatePicker);
-            } else if (inputId === "daterange2") {
-                toggleSinglePair(startDatePicker2, endDatePicker2);
-            }
-        }
+        function toggleDatepickers() {
+            const startDatePicker = document.getElementById("startDatePicker");
+            const endDatePicker = document.getElementById("endDatePicker");
 
-        function toggleSinglePair(startPicker, endPicker) {
-            if (startPicker?.style?.display === "none") {
-                startPicker.style.display = "block";
-                endPicker.style.display = "block";
+            if (startDatePicker.style.display === "none") {
+                startDatePicker.style.display = "block";
+                endDatePicker.style.display = "block";
             } else {
-                startPicker.style.display = "none";
-                endPicker.style.display = "none";
+                startDatePicker.style.display = "none";
+                endDatePicker.style.display = "none";
             }
         }
 
         function handleDateChange(event) {
-            const selectedDate = event.target.valueAsDate;
+            const selectedDate = event.target.value;
 
-            if (event.target.id === "startDatePicker" || event.target.id === "startDatePicker2") {
-                handleStartDateChange(selectedDate);
-            } else if (event.target.id === "endDatePicker" || event.target.id === "endDatePicker2") {
-                const rangeId = event.target.id.includes("startDate") ? "daterange" : "daterange2";
-                handleEndDateChange(selectedDate, rangeId);
-            }
-        }
+            if (event.target.id === "startDatePicker") {
+                startDate = new Date(selectedDate).toLocaleDateString('pt-BR');
+            } else if (event.target.id === "endDatePicker") {
+                endDate = new Date(selectedDate).toLocaleDateString('pt-BR');
 
-        function handleStartDateChange(selectedDate) {
-            startDate = selectedDate.toLocaleDateString('pt-BR');
-        }
+                // Atualizar o valor do input para mostrar o intervalo de datas
+                document.getElementById("daterange").value = startDate + " - " + endDate;
 
-        function handleEndDateChange(selectedDate, rangeId) {
-            endDate = selectedDate.toLocaleDateString('pt-BR');
-
-            // Atualizar o valor do input para mostrar o intervalo de datas
-            document.getElementById(rangeId).value = startDate + " - " + endDate;
-
-            // Esconder os inputs de data correspondentes ao rangeId
-            if (rangeId === "daterange") {
+                // Esconder os inputs de data
                 document.getElementById("startDatePicker").style.display = "none";
                 document.getElementById("endDatePicker").style.display = "none";
-            } else if (rangeId === "daterange2") {
-                document.getElementById("startDatePicker2").style.display = "none";
-                document.getElementById("endDatePicker2").style.display = "none";
+
+                changeDate();
             }
         }
 
