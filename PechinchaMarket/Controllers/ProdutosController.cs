@@ -121,14 +121,36 @@ namespace PechinchaMarket.Controllers
             if (id == null)
             {
                 return NotFound();
-            }
+            }            
 
-            var produto = await _context.Produto.FindAsync(id);
-            if (produto == null)
-            {
-                return NotFound();
-            }
-            return View(produto);
+            var model = _context.Users
+        .Join(_context.Comerciante,
+            user => user.Id,
+            comerciante => comerciante.UserId,
+            (user, comerciante) => new { User = user, Comerciante = comerciante })
+        .Join(_context.Loja,
+            temp => temp.User.Id,
+            loja => loja.UserId,
+            (temp, loja) => new { temp.User, temp.Comerciante, Loja = loja })
+        .Join(_context.ProdutoLoja,
+            temp => temp.Loja.Id,
+            produtoLoja => produtoLoja.Loja.Id,
+            (temp, produtoLoja) => new { temp.User, temp.Comerciante, temp.Loja, ProdutoLoja = produtoLoja })
+        .Join(_context.Produto.Where(produto => produto.Id == id),
+            temp => temp.ProdutoLoja.Produto.Id,
+            produto => produto.Id,
+            (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja, produto))
+        .ToList();
+
+            var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
+
+            ViewData["Lojas"] = _context.Loja
+        .Join(_context.ProdutoLoja, loja => loja.Id, produtoLoja => produtoLoja.Loja.Id, (loja, produtoLoja) => new { Loja = loja, ProdutoLoja = produtoLoja })
+        .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
+        .Select(joined => joined.Loja)
+        .ToList();
+
+            return View(model);
         }
 
         // POST: Produtos/Edit/5
@@ -203,5 +225,6 @@ namespace PechinchaMarket.Controllers
         {
             return _context.Produto.Any(e => e.Id == id);
         }
+        
     }
 }

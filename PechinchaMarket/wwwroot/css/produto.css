@@ -3,13 +3,19 @@
     background: linear-gradient(-110deg, rgba(102, 209, 255) 35 %, rgba(255, 255, 255, 1) 100 %);
 }
 
+h2{
+     margin-top: -1.5em;
+     margin-left: 3em; 
+}
 
+h6 {
+    margin-top: 1em;
+}
 
 .buttons {
     display: flex;
     justify-content:space-evenly;
 }
-
 .cancel {
     background-color: #f44336;
     padding: 10px 15px;
@@ -70,6 +76,10 @@
     display: none;
 }
 
+.desconto {
+    display: block;
+}
+
 .shopTable {
     width: 100%;
     border: 1px solid;
@@ -81,7 +91,7 @@
 }
 
 .bottom > * {
-    margin-top: 10px;
+    margin-top: 1.5em;;
     flex-shrink:1;
 }
 
@@ -91,10 +101,26 @@
     flex-direction:column;
     width:fit-content;
     margin:0 auto;
+    margin-top: 3em;
+}
+.form-group{
+    padding-block: 0.4em;
 }
 
 .image {
     display: none;
+}
+
+.img-back {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../images/down-arrow.png);
+    background-size: cover;
+    transform: rotate(90deg);
+    margin-top: 1.5em;
+    margin-left: 1.5em;
+    margin-bottom: 0em;
 }
 
 .custom-file-upload {
@@ -118,4 +144,15 @@
 
 .imagePlaceholder {
     border: 1px solid black;
+}
+
+th, td {
+    padding: 10px; 
+    text-align: left; 
+}
+
+.custom-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 40%;
 }
