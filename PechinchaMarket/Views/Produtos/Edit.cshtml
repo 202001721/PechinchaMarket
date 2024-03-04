@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tuple<PechinchaMarket.Areas.Identity.Data.PechinchaMarketUser, PechinchaMarket.Models.Comerciante, PechinchaMarket.Models.Loja, PechinchaMarket.Models.ProdutoLoja, PechinchaMarket.Models.Produto>>
+﻿@model IEnumerable<Tuple<PechinchaMarket.Models.ProdutoLoja, PechinchaMarket.Models.Produto>>
 
 @{
     ViewData["Title"] = "Edit";
@@ -11,54 +11,54 @@
 
 <body class="gradiante2-secondary-color background-height">
     <div>
-        <form asp-action="Edit" enctype="multipart/form-data" class="form">
+        <form asp-action="Edit" enctype="multipart/form-data"  class="form">
+            <input type="hidden" name="produtoId" value="@Model.FirstOrDefault().Item2.Id" />
             <div class="addProduct">
             <div class="addProductLeft">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div style="display:none" id="produtoId">
-                    @Html.DisplayFor(model => model.FirstOrDefault().Item5.Id)
+                    @Html.DisplayFor(model => model.FirstOrDefault().Item2.Id)
                 </div>
                 <div class="form-group">
-                        @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
+                        <input type="text" name="name" style="display: none" value="@Model.FirstOrDefault().Item2.Name" />
+                        @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)
                 </div>
                 <div class="form-group">
-                        @Html.DisplayFor(model => model.FirstOrDefault().Item5.Brand)
+                        <input type="text" name="brand" style="display: none" value="@Model.FirstOrDefault().Item2.Brand" />
+                        @Html.DisplayFor(model => model.FirstOrDefault().Item2.Brand)
                 </div>
                 <div class="form-group">
                     <label>Categoria: </label>
-                    @Html.DisplayFor(model => model.FirstOrDefault().Item5.ProdCategoria)
+                    @Html.DisplayFor(model => model.FirstOrDefault().Item2.ProdCategoria)
                 </div>
                 <hr />
                     <div class="precoUnidade form-group">
                         <div class="preco">
-                            <input name="price" class="form-control" id="price" onchange="changePrice()" placeholder="€" value="@Model.FirstOrDefault().Item4.Price">
+                            <input name="price" class="form-control" id="price" onchange="changePrice()" placeholder="€" value="@Model.FirstOrDefault().Item1.Price">
                         </div>
                          €/ 
                         <div class="unidade">
-                            @Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                            @Html.DisplayFor(model => model.FirstOrDefault().Item2.Unidade)
                         </div>
                     </div>
-                    <h6>Desconto</h6>
+                    <div>
+                        <input type="checkbox" id="discounts" onchange="hasDiscount(this)" />
+                        <label for="discounts">Aplicar desconto</label>
+                    </div>
                     <div id="descontos" class="desconto form-group">
                        <div class="">
                             <label for="valor">Valor: </label>
-                            <input type="number" id="valor" onchange="changeDiscount()" /> %
+                            <input name="discount" class="form-control custom-input" id="valor" onchange="changeDiscount()" />%
                        </div> 
-                        <!--<label for="duracao">Duração: </label>
-                        <input type="date" id="duracao" onchange="" />-->
                         <div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
-                            <input type="text" id="daterange" onclick="toggleDatepickers()" readonly="true" />
+                            <input name="duration" type="text" id="daterange" onclick="toggleDatepickers()" readonly="true" />
 
                             <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
                             <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">
                         </div>
                         
-                    </div>                    
-                    <!--<div>
-                        <input type="checkbox" id="discounts" onchange="hasDiscount(this)" />
-                        <label for="discounts">Desconto</label>
-                    </div>-->
+                    </div>     
                     <div class="form-group">
                         <input type="checkbox" id="shops" onchange="hasShops(this)" />
                         <label for="shops">Personalizar desconto por loja</label>
@@ -67,10 +67,11 @@
             <div class="addProductRight">
                 <div class="form-group">
                         <label>Imagem: </label>
-                        <img id="image_preview" src="@Url.Action("Show", "Produtos", new { id = @Model.Select(x => x.Item5.Id).FirstOrDefault()})" alt="your image" width="250px" height="250px" class="imagePlaceholder" />
+                        <img id="image_preview" src="@Url.Action("Show", "Produtos", new { id = @Model.Select(x => x.Item2.Id).FirstOrDefault()})" alt="your image" width="250px" height="250px" class="imagePlaceholder" />
                         <div class="uploadImage">
-                            <input type="file" asp-for="@Model.FirstOrDefault().Item5.Image" class="image" name="file" onchange="readfile(this)" />
-                            <span asp-validation-for="@Model.FirstOrDefault().Item5.Image" class="text-danger"></span>
+                            <label asp-for ="@Model.FirstOrDefault().Item2.Image" class="custom-file-upload">Adicionar Foto</label>
+                            <input type="file" asp-for="@Model.FirstOrDefault().Item2.Image" class="image" name="file" onchange="readfile(this)" />
+                            <span asp-validation-for="@Model.FirstOrDefault().Item2.Image" class="text-danger"></span>
                         </div>
                 </div>
             </div>
@@ -106,12 +107,16 @@
                                         <td>
                                             @{
                                                 // Preço pela morada
-                                                var price = Model.Where(x => x.Item4.Loja.Address == l.Address).Select(x => x.Item4.Price).FirstOrDefault();
+                                                var price = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.Price).FirstOrDefault();
                                             }
                                             <input type="number" id="priceInput" name="price" class="prices custom-input" value="@price" /> €
                                         </td>
                                         <td>
-                                            <input type="number"  name="discount" class="discount custom-input" /> %
+                                            @{
+                                                // Desconto pela morada
+                                                var desconto = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.Discount).FirstOrDefault();
+                                            }
+                                            <input type="number"  name="discount" class="discount custom-input" value="@desconto"/> %
                                         </td>
                                         <td>
                                             <input type="text" id="data" class="data" onclick="openDatepicker()" readonly="true"/>
@@ -127,7 +132,8 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Guardar Alterações" class="btn btn-primary" />
+                    <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item2.Id, " />
+                    <input type="submit" value="Guardar Alterações" class="blue-button" />
                 </div>
             </div>
         </form>

@@ -54,7 +54,7 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Price,Discount,DiscountDuration")] ProdutoLoja produtoLoja)
+        public async Task<IActionResult> Create([Bind("Id,Price,Discount,,StartDiscount,EndDiscount")] ProdutoLoja produtoLoja)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Price,Discount,DiscountDuration")] ProdutoLoja produtoLoja)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Price,Discount,StartDiscount,EndDiscount")] ProdutoLoja produtoLoja)
         {
             if (id != produtoLoja.Id)
             {
