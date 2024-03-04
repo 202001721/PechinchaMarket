@@ -12,8 +12,8 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240216173146_Initial")]
-    partial class Initial
+    [Migration("20240304181101_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -371,6 +371,7 @@ namespace PechinchaMarket.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Image")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")

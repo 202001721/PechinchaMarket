@@ -73,8 +73,9 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file, float[] price)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Image,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file, float[] price)
         {
+            ModelState.Remove("Image");
             if (ModelState.IsValid)
             {
                 var memoryStreamImg = new MemoryStream();

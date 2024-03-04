@@ -1,0 +1,55 @@
+\doxysection{Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller Class Reference}
+\hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller}{}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller}\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+Inheritance diagram for Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac52211c5ffbd142ec8fbc3591b8b4a55}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac52211c5ffbd142ec8fbc3591b8b4a55} 
+{\bfseries Lista\+Produtos\+Controller} (\mbox{\hyperlink{class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_d_b_pechincha_market_context}{DBPechincha\+Market\+Context}} context, Microsoft.\+Asp\+Net\+Core.\+Identity.\+User\+Manager$<$ \mbox{\hyperlink{class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_pechincha_market_user}{Pechincha\+Market\+User}} $>$ user\+Manager)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a7edd9b4a4fd6a1fdbccafcb9b298c96b}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a7edd9b4a4fd6a1fdbccafcb9b298c96b} 
+async Task$<$ IAction\+Result $>$ {\bfseries Index} ()
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a0e835dac71c933b53ee9741041ede6c9}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a0e835dac71c933b53ee9741041ede6c9} 
+async Task$<$ IAction\+Result $>$ {\bfseries Details} (Guid? id)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a8c1ce9fed18b9fa9b98152406afe0bd6}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a8c1ce9fed18b9fa9b98152406afe0bd6} 
+IAction\+Result {\bfseries Create} ()
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac305938038dab03c8377040a1cd1718a}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac305938038dab03c8377040a1cd1718a} 
+async Task$<$ IAction\+Result $>$ {\bfseries Create} (\mbox{[}Bind("{}Id,name,Cliente\+Id,state"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_lista_produtos}{Lista\+Produtos}} lista\+Produtos)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a6787bfe1db4cdba47a5063b98dc792eb}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a6787bfe1db4cdba47a5063b98dc792eb} 
+async Task$<$ IAction\+Result $>$ {\bfseries Edit} (Guid? id)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a05731939a16daa9f4a82e6e519e47dff}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a05731939a16daa9f4a82e6e519e47dff} 
+async Task$<$ IAction\+Result $>$ {\bfseries Change\+Name} (Guid id, string name)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ad58b82a1f0a848a4f7be99e9187aa456}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ad58b82a1f0a848a4f7be99e9187aa456} 
+async Task$<$ IAction\+Result $>$ {\bfseries Delete\+Many} (Guid id, Guid\mbox{[}$\,$\mbox{]} deletes)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a9171f14069ac52d4c219a1b5a9de8496}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a9171f14069ac52d4c219a1b5a9de8496} 
+File\+Content\+Result {\bfseries Create\+Document} (Guid id, string conteudo, string ficheiro)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a1689ca1e2f818c3f44bb1e0b84dd8838}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a1689ca1e2f818c3f44bb1e0b84dd8838} 
+async Task$<$ IAction\+Result $>$ {\bfseries Edit} (Guid id, \mbox{[}Bind("{}Id,name,Cliente\+Id,state"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_lista_produtos}{Lista\+Produtos}} lista\+Produtos)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a888d2a2771fe7d309839356568b54eca}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a888d2a2771fe7d309839356568b54eca} 
+async Task$<$ IAction\+Result $>$ {\bfseries Delete} (Guid? id)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a45ec26c7ef9c9a55cd73e4761fef52b1}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a45ec26c7ef9c9a55cd73e4761fef52b1} 
+async Task$<$ IAction\+Result $>$ {\bfseries Delete\+Confirmed} (Guid id)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_aa0dec5e370ed5f5681e9a9aaa791ee27}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_aa0dec5e370ed5f5681e9a9aaa791ee27} 
+async Task$<$ IAction\+Result $>$ {\bfseries Show} (Guid? id)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Controllers/Lista\+Produtos\+Controller.\+cs\end{DoxyCompactItemize}

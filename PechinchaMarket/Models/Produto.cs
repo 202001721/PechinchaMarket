@@ -25,7 +25,7 @@ namespace PechinchaMarket.Models
         [Display(Name = "Marca")]
         public string Brand { get; set; }
         [Display(Name = "Imagem")]
-        public byte[]? Image { get; set; }
+        public byte[] Image { get; set; }
         [Display(Name = "Peso")]
         public float? Weight { get; set; }
 

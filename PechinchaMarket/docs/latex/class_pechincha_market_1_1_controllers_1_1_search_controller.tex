@@ -1,0 +1,55 @@
+\doxysection{Pechincha\+Market.\+Controllers.\+Search\+Controller Class Reference}
+\hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller}{}\label{class_pechincha_market_1_1_controllers_1_1_search_controller}\index{PechinchaMarket.Controllers.SearchController@{PechinchaMarket.Controllers.SearchController}}
+Inheritance diagram for Pechincha\+Market.\+Controllers.\+Search\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pechincha_market_1_1_controllers_1_1_search_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a5dd209b9d598d658424f6ff00460894f}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a5dd209b9d598d658424f6ff00460894f} 
+{\bfseries Search\+Controller} (\mbox{\hyperlink{class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_d_b_pechincha_market_context}{DBPechincha\+Market\+Context}} context, Microsoft.\+Asp\+Net\+Core.\+Identity.\+User\+Manager$<$ \mbox{\hyperlink{class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_pechincha_market_user}{Pechincha\+Market\+User}} $>$ user\+Manager)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a565b099670ceeb54146478d75f1d146c}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a565b099670ceeb54146478d75f1d146c} 
+IAction\+Result {\bfseries Index} ()
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a26e4d204f0fdce3094a69ef7a723abab}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a26e4d204f0fdce3094a69ef7a723abab} 
+IAction\+Result {\bfseries Search} (string search\+Text)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_aac84715471af367be001c68be5e55369}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_aac84715471af367be001c68be5e55369} 
+IAction\+Result {\bfseries Search\+Results} (string search)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a85f9524d121367834dddd08569537978}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a85f9524d121367834dddd08569537978} 
+List$<$ \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} $>$ {\bfseries search\+Algorithm} (List$<$ \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} $>$ produtos, String input)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a03919fa3caf8fe571ba92780961755a5}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a03919fa3caf8fe571ba92780961755a5} 
+string\mbox{[}$\,$\mbox{]} {\bfseries split\+Name\+Based\+On\+Input} (string name, string input)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_ac3168d5446f977b557d8aafc44662767}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_ac3168d5446f977b557d8aafc44662767} 
+Boolean {\bfseries compare\+To\+Search} (string str1, string input)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a27c5000f97e642bcc543534d5edd4a51}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a27c5000f97e642bcc543534d5edd4a51} 
+async Task$<$ IAction\+Result $>$ {\bfseries Show\+Image} (int? id)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_adf8919cd36d1f64cf9d5e819b03600aa}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_adf8919cd36d1f64cf9d5e819b03600aa} 
+IAction\+Result {\bfseries Get\+Sugestive\+Names} (string input)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_aefacaf9a0dae480d5757140d5d857fa1}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_aefacaf9a0dae480d5757140d5d857fa1} 
+async Task$<$ Action\+Result $>$ {\bfseries Add\+To\+List} (int id)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_acaec62449d36895fe4effbb6b19cc58e}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_acaec62449d36895fe4effbb6b19cc58e} 
+async Task$<$ IAction\+Result $>$ {\bfseries Add\+Product} (int? id, int quantity\+Value, string nome)
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a673d3e988eac726a5a8115ef30061115}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a673d3e988eac726a5a8115ef30061115} 
+async Task$<$ IAction\+Result $>$ {\bfseries Add\+Product\+To\+List} ()
+\item 
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_search_controller_a2768ed5169fb5e302df94e5408eadacc}\label{class_pechincha_market_1_1_controllers_1_1_search_controller_a2768ed5169fb5e302df94e5408eadacc} 
+List$<$ \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} $>$ {\bfseries Similar\+Products} (int? id)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Controllers/Search\+Controller.\+cs\end{DoxyCompactItemize}
