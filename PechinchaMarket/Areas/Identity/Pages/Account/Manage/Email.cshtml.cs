@@ -4,6 +4,8 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -124,9 +126,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                     pageHandler: null,
                     values: new { area = "Identity", userId = userId, email = Input.NewEmail, code = code },
                     protocol: Request.Scheme);
-                await _emailSender.SendEmailAsync(
+                await SendEmailAsync(
                     Input.NewEmail,
-                    "Confirm your email",
+                    "Confirm your new email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 StatusMessage = "Confirmation link to change email sent. Please check your email.";
@@ -167,6 +169,48 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToPage();
+        }
+        
+        /// <summary>
+        /// Enviar email ao utilizador que se registou
+        /// </summary>
+        /// <param name="email"></param> email do utilizador
+        /// <param name="subject"></param> assunto do email
+        /// <param name="confirmLink"></param> mensagem com o link de confirmação
+        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        {
+
+            //TODO
+            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
+            // message.From = ?
+            // message.Port = ?
+            // message.Host = ?
+            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                message.From = new MailAddress("pechinchamarket@outlook.com");
+                message.To.Add(email);
+                message.Subject = subject;
+                message.IsBodyHtml = true;
+                message.Body = confirmLink;
+
+                smtpClient.Port = 587;
+                smtpClient.Host = "smtp-mail.outlook.com";
+
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); // verificar a extensao que esta usando 
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Send(message);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

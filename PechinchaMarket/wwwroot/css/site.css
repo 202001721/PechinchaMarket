@@ -10,6 +10,8 @@
     --root-text-color-on-main-color: white;
     /*cor de background tudo que contem texto ou qualquer tipo de conteudo*/
     --root-background-content-color: white;
+    /*cor de constraste do background*/
+    --root-background-contrast-color: rgb(242, 242, 242);
     /*cor do texto no website todo*/
     --root-text-color: black;
     /*cor do border de um containers/botões/etc.. com fundo default (root-background-content-color)*/
@@ -49,7 +51,7 @@
     --root-account-type-logo-size: 3em;
     --root-account-type-button-width: 8em;
     --root-account-type-button-heigth: 8em;
-    --root-account-type-button-border-width: 0.1em;
+    --root-account-type-button-border-width: 0.3em;
     --root-account-type-button-border-radius: 1em;
     --root-account-type-logo-in-button-margin-top: calc(0.5 * calc(var(--root-account-type-button-width) - var(--root-text-size) - var(--root-account-type-logo-size)));
     --root-input-text-width: 20em;
@@ -111,6 +113,9 @@ body {
     padding: 0px;
 }
 
+.background-constrast-color {
+    background-color: var(--root-background-contrast-color);
+}
 
 .display-none {
     display: none !important;
@@ -286,6 +291,7 @@ body {
 .authentication-input-text-div {
     width: var(--root-input-text-width);
     height: fit-content;
+    position: relative;
 }
 
     .authentication-input-text-div input {
@@ -297,6 +303,14 @@ body {
         padding-left: var(--root-input-text-padding-sides);
         padding-right: var(--root-input-text-padding-sides);
         outline: none;
+    }
+
+
+    .authentication-input-text-div.success::after {
+        content: '✓';
+        position: absolute;
+        top: calc(var(--root-input-text-height) / 4);
+        left: 90%;
     }
 
         .authentication-input-text-div input:focus {
@@ -323,6 +337,12 @@ body {
                 color: var(--blue-color) !important;
             }
 
+        .authentication-input-text-div input:disabled,
+        .authentication-input-text-div label::after {
+            border: 1px solid var(--root-background-contrast-color) !important;
+            background-color: var(--root-background-contrast-color) !important;
+        }
+
     .authentication-input-text-div label {
         z-index: 90;
         position: relative;
@@ -333,6 +353,12 @@ body {
         padding-right: 0.5em;
         opacity: 0;
         transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+
+        /*unselectable text*/
+        -webkit-user-select: none; /* Safari 3.1+ */
+        -moz-user-select: none; /* Firefox 2+ */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Standard syntax */
     }
 
         .authentication-input-text-div label::after {
@@ -997,6 +1023,14 @@ a.cancel-button:hover::before {
     gap: 0px 2em;
 }
 
+.smaller-gap-x {
+    gap: 0px 1em;
+}
+
+.small-gap-y {
+    gap: 2em 0px;
+}
+
 .small-padding {
     padding: 1em;
 }
@@ -1050,10 +1084,93 @@ a.cancel-button:hover::before {
     background-size: 100% 100%;
 }
 
+.small-perfil-image,
+.big-perfil-image {
+    display: inline-block;
+    background-size: 100% 100%;
+    border-radius: 100%;
+}
+
+    .small-perfil-image {
+        width: var(--root-small-icon-size);
+        height: var(--root-small-icon-size);
+    }
+
+    .big-perfil-image {
+        width: var(--root-huge-icon-size);
+        height: var(--root-huge-icon-size);
+    }
+
 .sad-face {
     display: inline-block;
     width: 100px;
     height: 69px;
     background-size: 100% 100%;
     background-image: url('../images/sad.png');
+}
+
+/*
+    This class's makes the following tags look like a button:
+    - button
+    - div
+    - a
+
+    Example:
+    <div class="pechincha-button main-button-color"></div>
+    <div class="pechincha-button default-button-color"></div>
+*/
+.pechincha-button {
+    flex: 0 1 auto;
+    width: calc((var(--root-form-button-padding-sides) * 2) + 3em);
+    height: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 5px;
+
+    /*unselectable text*/
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+    .pechincha-button:hover {
+        filter: brightness(0.92);
+    }
+
+.main-button-color {
+    background-color: var(--root-main-color);
+    border: none;
+    color: var(--root-text-color-on-main-color);
+}
+    .main-button-color:hover {
+        color: var(--root-text-color-on-main-color);
+    }
+a.main-button-color::before {
+    background-color: var(--root-main-color);
+}
+a.main-button-color:hover::before {
+    opacity: 0.5;
+}
+
+.default-button-color {
+    background-color: var(--root-background-content-color);
+    border: 1px solid var(--root-border-color-to-default-background-container);
+    color: var(--root-text-color);
+}
+    .default-button-color:hover {
+        color: var(--root-text-color);
+    }
+a.default-button-color::before {
+    background-color: var(--root-background-content-color);
+}
+
+a.default-button-color:hover::before {
+    opacity: 0.5;
 }

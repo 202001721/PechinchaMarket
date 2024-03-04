@@ -20,5 +20,6 @@ namespace PechinchaMarket.Models
         [EnumDataType(typeof(Categoria))]
         public List<Categoria>? Preferencias { get; set; }
         public string Localizacao { get; set; }
+        public byte[]? Image { get; set; }
     }
 }

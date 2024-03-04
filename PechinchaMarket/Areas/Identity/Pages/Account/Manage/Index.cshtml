@@ -5,26 +5,171 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-<h3>@ViewData["Title"]</h3>
-<partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
-    <div class="col-md-6">
-        <form id="profile-form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
-                <label asp-for="Username" class="form-label"></label>
+    <div class="thin-outline rounded-border small-padding">
+        <div class="column-container small-gap-y">
+            <span class="big-perfil-image" style="background-image: url('data:image/jpeg;base64,@ViewData["UserPhoto"]')">
+                
+            </span>
+            <div class="background-constrast-color small-padding rounded-border">
+                <form asp-page-handler="Action1" id="username-form" method="post" class="row-container edges-flex">
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.UserName" placeholder="Please choose your username." disabled/>
+                        <label asp-for="Input.UserName"></label>
+                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="row-container center-y-flex smaller-gap-x">
+                        <button type="submit" class="pechincha-button main-button-color display-none">Salvar</button>
+                        <div class="pechincha-button default-button-color" onclick="toogleEditableField(this)">Editar</div>
+                    </div>
+                </form>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+
+            <div class="background-constrast-color small-padding">
+                <form asp-page-handler="Action2" id="phone-form" method="post" class="row-container edges-flex">
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.PhoneNumber" placeholder="Phone number"/>
+                        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="row-container smaller-gap-x">
+                        <button type="submit" class="pechincha-button main-button-color">Salvar</button>
+                        <div class="pechincha-button default-button-color">Cancelar</div>
+                    </div>
+                </form>
             </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
-        </form>
+
+            <div class="background-constrast-color small-padding rounded-border">
+                <form id="email-form" method="post" class="row-container edges-flex">
+                    @if (Model.IsEmailConfirmed)
+                    {
+                        <div class="authentication-input-text-div success">
+                            <input asp-for="Email" placeholder="Please enter your email." disabled />
+                            <label asp-for="Email"></label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="authentication-input-text-div">
+                            <input asp-for="Email" placeholder="Please enter your email." disabled />
+                            <label asp-for="Email" ></label>
+                            <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                        </div>
+                    }
+                    <div class="authentication-input-text-div display-none">
+                        <input asp-for="Input.NewEmail" autocomplete="email" aria-required="true" placeholder="Please enter new email." />
+                        <label asp-for="Input.NewEmail" ></label>
+                        <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                    </div>
+                    <div class="row-container center-y-flex smaller-gap-x">
+                        <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="pechincha-button main-button-color display-none">Mudar Email</button>
+                        <div class="pechincha-button default-button-color" onclick="displayEditableField(this)">Editar</div>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-md-6">
+                @if (ViewData.ContainsKey("HasPassword"))
+                {
+                    @if ((bool)ViewData["HasPassword"])
+                    {
+                        <form asp-page-handler="ChangePassword" id="change-password-form" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Input.OldPassword" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Please enter your old password." />
+                                <label asp-for="Input.OldPassword" class="form-label"></label>
+                                <span asp-validation-for="Input.OldPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Input.NewPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Please enter your new password." />
+                                <label asp-for="Input.NewPassword" class="form-label"></label>
+                                <span asp-validation-for="Input.NewPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Please confirm your new password." />
+                                <label asp-for="Input.ConfirmPassword" class="form-label"></label>
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="w-100 btn btn-lg btn-primary">Update password</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-page-handler="SetPassword" id="set-password-form" method="post" asp-page="./index" asp-page-handler="Action1Async">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Input.NewPassword" class="form-control" autocomplete="new-password" placeholder="Please enter your new password." />
+                                <label asp-for="Input.NewPassword" class="form-label"></label>
+                                <span asp-validation-for="Input.NewPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" placeholder="Please confirm your new password." />
+                                <label asp-for="Input.ConfirmPassword" class="form-label"></label>
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="w-100 btn btn-lg btn-primary">Set password</button>
+                        </form>
+                    }
+                }
+            </div>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<script>
+    function toogleEditableField(button) {
+
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+        
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            input.disabled = !input.disabled;
+        });
+        
+        elemtToHide.classList.toggle('display-none');
+        
+        if (elemtToHide.classList.contains('display-none')) {
+            button.textContent = "Editar";
+        } else { 
+            button.textContent = "Cancelar";
+        }
+    }
+
+    function displayEditableField(button) {
+
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (!input.disabled && input.parentNode.tagName.toLowerCase() === 'div') {
+                input.parentNode.classList.toggle('display-none');
+            }
+        });
+
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+            var height = element.getBoundingClientRect().height;
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = (height - 24) + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('display-none');
+
+        if (elemtToHide.classList.contains('display-none')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }
+    }
+</script>
