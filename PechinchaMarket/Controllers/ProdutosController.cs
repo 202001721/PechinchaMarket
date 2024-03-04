@@ -134,12 +134,13 @@ namespace PechinchaMarket.Controllers
             .ToList();
 
             var produto = model.Select(x => x.Item2.Id).FirstOrDefault();
+            var userId = _userManager.GetUserId(User);
 
             ViewData["Lojas"] = _context.Loja
-        .Join(_context.ProdutoLoja, loja => loja.Id, produtoLoja => produtoLoja.Loja.Id, (loja, produtoLoja) => new { Loja = loja, ProdutoLoja = produtoLoja })
-        .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
-        .Select(joined => joined.Loja)
-        .ToList();
+      .Join(_context.ProdutoLoja, loja => loja.Id, produtoLoja => produtoLoja.Loja.Id, (loja, produtoLoja) => new { Loja = loja, ProdutoLoja = produtoLoja })
+      .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
+      .Select(joined => joined.Loja)
+      .ToList();
 
             return View(model);
         }
@@ -149,15 +150,12 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto, float price, float discount, IFormFile file, string duration)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto, float[] price, float[] discount, IFormFile file, string duration)
         {
             if (id != produto.Id)
             {
                 return NotFound();
             }
-
-            //ModelState.Remove("Produto");
-            //ModelState.Remove("duration");
 
             if (ModelState.IsValid)
             {
@@ -181,7 +179,7 @@ namespace PechinchaMarket.Controllers
                             produtoToUpdate.Image = memoryStream.ToArray();
                         }
                     }
-
+                    
                     // Atualizar as propriedades editáveis do produto
                     produtoToUpdate.Image = file != null ? produtoToUpdate.Image : produto.Image;
 
@@ -190,25 +188,35 @@ namespace PechinchaMarket.Controllers
                         var durationParts = duration.Split('-');
                         if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
                         {
-                            foreach (var currentProdutoLoja in produtoToUpdate.ProdutoLojas)
+
+                            var userId = _userManager.GetUserId(User);
+                            List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
+                            if (!lojas.IsNullOrEmpty())
                             {
-                                currentProdutoLoja.Price = price;
-                                currentProdutoLoja.Discount = discount;
-                                currentProdutoLoja.StartDiscount = inicioPromocao;
-                                currentProdutoLoja.EndDiscount = fimPromocao;
-                                _context.Update(currentProdutoLoja);
+
+                                for (int i = 0; i < lojas.Count && i < produtoToUpdate.ProdutoLojas.Count; i++)
+                                {
+                                    var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+                                    currentProdutoLoja.Price = price[i];
+                                    currentProdutoLoja.Discount = discount[i];
+                                    currentProdutoLoja.StartDiscount = inicioPromocao;
+                                    currentProdutoLoja.EndDiscount = fimPromocao;
+                                    _context.Update(currentProdutoLoja);
+                                }
+                            }
+                            else
+                            {
+                                TempData["alertMessage"] = "Formato inválido para a duração";
                             }
                         }
                         else
                         {
                             TempData["alertMessage"] = "Formato inválido para a duração";
                         }
-                    }
-                    else
-                    {
-                        TempData["alertMessage"] = "Formato inválido para a duração";
-                    }
 
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }

@@ -48,11 +48,11 @@
                     <div id="descontos" class="desconto form-group">
                        <div class="">
                             <label for="valor">Valor: </label>
-                            <input name="discount" class="form-control custom-input" id="valor" onchange="changeDiscount()" />%
-                       </div> 
+                                <input name="discount" class="form-control custom-input" id="valor" onchange="changeDiscount()"/>
+                        </div> %
                         <div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
-                            <input name="duration" type="text" id="daterange" onclick="toggleDatepickers()" readonly="true" />
+                            <input name="duration" type="text" id="daterange" onclick="toggleDatepickers()" readonly="true"/>
 
                             <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
                             <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">
@@ -119,7 +119,16 @@
                                             <input type="number"  name="discount" class="discount custom-input" value="@desconto"/> %
                                         </td>
                                         <td>
-                                            <input type="text" id="data" class="data" onclick="openDatepicker()" readonly="true"/>
+                                            @{
+                                                // Duração pela morada
+                                                var inicio = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.StartDiscount).FirstOrDefault();
+                                                var fim = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.EndDiscount).FirstOrDefault();
+                                                string inicioOriginal = inicio?.ToString("dd/MM/yyyy");
+                                                string fimOriginal = fim?.ToString("dd/MM/yyyy");
+                                                var duracao = inicioOriginal + " - " + fimOriginal;
+
+                                            }
+                                            <input type="text" id="data" class="data" onclick="openDatepicker()" readonly="true" value="@duracao"/>
 
                                             <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
                                             <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">

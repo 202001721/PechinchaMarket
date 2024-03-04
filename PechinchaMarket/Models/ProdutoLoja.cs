@@ -20,8 +20,10 @@ namespace PechinchaMarket.Models
         [Display(Name = "Desconto")]
         public float? Discount { get; set;}
         [Display(Name = "Inicio do desconto")]
+        [DataType(DataType.Date)]
         public DateTime? StartDiscount { get; set;}
         [Display(Name = "Fim do desconto")]
+        [DataType(DataType.Date)]
         public DateTime? EndDiscount { get; set; }
 
         public Produto Produto { get; set;}
