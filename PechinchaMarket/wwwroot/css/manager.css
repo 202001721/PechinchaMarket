@@ -58,7 +58,7 @@ h2 {
     text-decoration:none;
 }
 
-.card:hover{
+.change-button:hover{
     background-color: aliceblue;
     cursor:pointer;
     transform: scale(1.05);
