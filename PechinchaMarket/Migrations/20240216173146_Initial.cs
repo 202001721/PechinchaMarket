@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class listaProdutos : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,7 +57,7 @@ namespace PechinchaMarket.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Preferencias = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Preferencias = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

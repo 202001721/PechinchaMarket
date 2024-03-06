@@ -59,7 +59,7 @@
     --root-checkbox-border-thickness-when-selected: 0.2em;
     --root-insert-file-input-width: 6.5em;
     --root-search-height: 30px;
-    --root-filter-area-width: 5em;
+    --root-filter-area-width: 10em;
 }
 
 html {
@@ -925,7 +925,8 @@ a.cancel-button:hover::before {
         background-color: var(--root-background-content-color);
     }
 
-        .sugestions div:hover {
+        .sugestions div:hover,
+        .sugestions div.hovered{
             filter: brightness(0.95);
         }
 
@@ -937,6 +938,7 @@ a.cancel-button:hover::before {
 .pechincha-container {
     display: flex;
     justify-content: center;
+    margin-top: var(--root-pechincha-container-margin-top);
 }
 
     .pechincha-container section {
@@ -995,6 +997,10 @@ a.cancel-button:hover::before {
     border-radius: 10px;
 }
 
+.small-gap-x {
+    gap: 0px 2em;
+}
+
 .small-padding {
     padding: 1em;
 }
@@ -1015,13 +1021,25 @@ a.cancel-button:hover::before {
     width: fit-content;
 }
 
+.max-width {
+    width: 100%; 
+}
+
+.fit-content-height {
+    height: fit-content;
+}
+
+.min-content-height {
+    height: min-content;
+}
+
 .search-result {
-    height: 8em;
+    height: 12em;
+    aspect-ratio: 1 / 1;
     text-decoration: none;
     color: var(--root-text-color);
     background-color: var(--root-background-content-color);
     padding: 1em;
-    width: 140px;
 }
 
 .search-result:hover {
@@ -1033,7 +1051,7 @@ a.cancel-button:hover::before {
     display: inline-block;
     width: var(--root-medium-icon-size);
     height: var(--root-medium-icon-size);
-    background-size: cover;
+    background-size: 100% 100%;
 }
 
 .sad-face {
