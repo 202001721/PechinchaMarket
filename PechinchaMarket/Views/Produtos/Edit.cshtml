@@ -53,10 +53,6 @@
                         <div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
                             <input type="text" id="datefilter" value="" />
-                            <!--<input name="duration" type="text"  onclick="toggleDatepickers()" readonly="true"/>
-
-                            <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
-                            <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">-->
                         </div>
                         
                     </div>     
@@ -113,7 +109,7 @@
                                         </td>
                                         <td>
 
-                                            <input type="text" name="duration" value="@pl.StartDiscount - @pl.EndDiscount" />
+                                            <input type="text" id="datas" name="duration" value="@pl.StartDiscount - @pl.EndDiscount" />
                                         </td>
                                     </tr>
                                 }
@@ -188,43 +184,6 @@
             }
         }
 
-        /*let startDate = null;
-        let endDate = null;
-
-        function toggleDatepickers() {
-            const startDatePicker = document.getElementById("startDatePicker");
-            const endDatePicker = document.getElementById("endDatePicker");
-
-            if (startDatePicker.style.display === "none") {
-                startDatePicker.style.display = "block";
-                endDatePicker.style.display = "block";
-            } else {
-                startDatePicker.style.display = "none";
-                endDatePicker.style.display = "none";
-            }
-        }
-
-        function handleDateChange(event) {
-            const selectedDate = event.target.value;
-
-            if (event.target.id === "startDatePicker") {
-                startDate = new Date(selectedDate).toLocaleDateString('pt-BR');
-                validateDate(startDate, endDate); // Validar a data de início
-            } else if (event.target.id === "endDatePicker") {
-                endDate = new Date(selectedDate).toLocaleDateString('pt-BR');
-                validateDate(startDate, endDate); // Validar a data de fim
-
-                // Atualizar o valor do input para mostrar o intervalo de datas
-                document.getElementById("daterange").value = startDate + " - " + endDate;
-
-                // Esconder os inputs de data
-                document.getElementById("startDatePicker").style.display = "none";
-                document.getElementById("endDatePicker").style.display = "none";
-
-                changeDate();
-            }
-        }*/
-
         function validateDate(startDate, endDate) {
             var startDateObj = new Date(startDate);
             var endDateObj = new Date(endDate);
@@ -274,6 +233,31 @@
         }
 
         initializeDateRangePicker();
+
+
+        function detailDateRangePicker() {
+            $('input[id="datas"]').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+
+            $('input[id="datas"]').on('apply.daterangepicker', function (ev, picker) {
+                const startDate = picker.startDate.format('DD/MM/YYYY');
+                const endDate = picker.endDate.format('DD/MM/YYYY');
+                $(this).val(startDate + ' - ' + endDate);
+                if (!validateDate(startDate, endDate)) {
+                    $(this).val(''); // Limpa o valor do input se a data não for válida
+                }
+            });
+
+            $('input[id="datas"]').on('cancel.daterangepicker', function (ev, picker) {
+                $(this).val('');
+            });
+        }
+
+        detailDateRangePicker();
 
     </script>
 }

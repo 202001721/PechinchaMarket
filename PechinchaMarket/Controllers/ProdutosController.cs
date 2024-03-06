@@ -143,7 +143,7 @@ namespace PechinchaMarket.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto, float[] price, float[] discount, IFormFile file, string duration)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto, float[] price, float[] discount, IFormFile file, string[] duration)
         {
             if (id != produto.Id)
             {
@@ -206,38 +206,30 @@ namespace PechinchaMarket.Controllers
                         }
                     }
 
-                    if (!string.IsNullOrEmpty(duration) && duration.Contains("-"))
+                    if (duration != null)
                     {
-                        var durationParts = duration.Split('-');
-                        if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < duration.Length; i++)
                         {
-                            var userId = _userManager.GetUserId(User);
-                            List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
 
-                            if (!lojas.IsNullOrEmpty())
+                            if (!string.IsNullOrEmpty(duration[i]) && duration[i].Contains("-"))
                             {
-                                for (int i = 0; i < lojas.Count && i < produtoToUpdate.ProdutoLojas.Count; i++)
+                                var durationParts = duration[i].Split('-');
+                                if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
                                 {
-                                    var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
-
                                     // Atualizar os campos StartDiscount e EndDiscount
                                     currentProdutoLoja.StartDiscount = inicioPromocao;
                                     currentProdutoLoja.EndDiscount = fimPromocao;
-
                                     _context.Update(currentProdutoLoja);
                                 }
+                                else
+                                {
+                                    TempData["alertMessage"] = "Formato inválido para a duração";
+                                }
                             }
-                            else
-                            {
-                                TempData["alertMessage"] = "Formato inválido para a duração";
-                            }
-                        }
-                        else
-                        {
-                            TempData["alertMessage"] = "Formato inválido para a duração";
                         }
 
-                        await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Index));
                     }
                 }
