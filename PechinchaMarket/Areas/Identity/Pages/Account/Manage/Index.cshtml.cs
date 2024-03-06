@@ -18,6 +18,7 @@ using PechinchaMarket.Areas.Identity.Data;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using NuGet.Packaging.Signing;
 using PechinchaMarket.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 {
@@ -153,6 +154,20 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 else if (User.IsInRole("Cliente"))
                 {
                     var userPhotoContext = _context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault();
+                    
+                    if (userPhotoContext.IsNullOrEmpty()) {
+                        var defaultpath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "userphoto_0.png");
+                        byte[] imageData2;
+                        using (var stream = new FileStream(defaultpath, FileMode.Open))
+                        {
+                            using (var memoryStream = new MemoryStream())
+                            {
+                                await stream.CopyToAsync(memoryStream);
+                                imageData2 = memoryStream.ToArray();
+                            }
+                        }
+                        userPhotoContext = imageData2;
+                    }
                     ViewData["UserPhoto"] = ShowImage(userPhotoContext);
 
                     userName = _context.Cliente.Where(x => x.UserId.Equals(userId)).Select(x => x.Name).FirstOrDefault();
