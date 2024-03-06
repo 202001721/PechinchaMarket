@@ -22,7 +22,10 @@
 </div>
 
     <section class="containers">
-
+        <form asp-controller="Produtos" asp-action="Create">
+            <button type="submit" class="botoes"> Adicionar </button>
+     </form>
+        
 
         @foreach (var item in Model)
         {
@@ -36,20 +39,17 @@
                 <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
                 <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
                 <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
-              
+
+                <p><a asp-action="Edit" asp-route-id=@item.Item1.Id> Editar</a></p> 
 
             </div>
-                
-
-         
 
             }
 
 
         
-
     </section>
-    <button class="botoes"> <a asp-action="Create">Adicionar</a> </button>
+  
 </body>
 
   

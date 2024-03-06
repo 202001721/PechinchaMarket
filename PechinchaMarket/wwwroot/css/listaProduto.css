@@ -23,7 +23,10 @@
     /*  height: 350px; */
     margin: 10px;
     border-radius: 20px;
+   
 }
+
+
 .card-image {
     background-color: white;
     height: 100px;
@@ -46,8 +49,9 @@
     }
 .botoes {
     display: inline-block;
-    width: 10em;
-    margin-block: 2em;
+    width: 215px;
+    height: 300px;
+    margin:10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
     padding: 10px 20px;
@@ -59,8 +63,12 @@
     border-radius: 30px;
     cursor: pointer;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
-    
 }
+    .botoes:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        transition: all 1s ease;
+    }
 .botoes a{
     text-decoration:none;
 }
@@ -84,6 +92,14 @@
         background-color: red;
  }
 
+.card p a {
+    text-decoration: none;
+    color: red;
+}
+
+a {
+    text-decoration: none;
+}
 .card p {
     font-size: 20px;
     font-family: 'Roboto', arial, sans-serif;
