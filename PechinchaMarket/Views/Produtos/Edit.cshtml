@@ -184,16 +184,6 @@
             }
         }
 
-        function changeDate() {
-            var da = document.getElementById("daterange");
-            console.log(da.value)
-            var dt = document.getElementsByClassName("data");
-            console.log(dt) 
-            for (let item of dt) {
-                item.value = da.value
-            }
-        }
-
         let startDate = null;
         let endDate = null;
 
@@ -215,8 +205,10 @@
 
             if (event.target.id === "startDatePicker") {
                 startDate = new Date(selectedDate).toLocaleDateString('pt-BR');
+                validateDate(startDate, endDate); // Validar a data de início
             } else if (event.target.id === "endDatePicker") {
                 endDate = new Date(selectedDate).toLocaleDateString('pt-BR');
+                validateDate(startDate, endDate); // Validar a data de fim
 
                 // Atualizar o valor do input para mostrar o intervalo de datas
                 document.getElementById("daterange").value = startDate + " - " + endDate;
@@ -227,6 +219,34 @@
 
                 changeDate();
             }
+        }
+
+        function changeDate() {
+            var da = document.getElementById("daterange").value;
+            var dt = document.getElementsByClassName("data");
+            for (let item of dt) {
+                item.value = da;
+            }
+        }
+
+        function validateDate(startDate, endDate) {
+            var startDateObj = new Date(startDate);
+            var endDateObj = new Date(endDate);
+            var today = new Date();
+
+            if (startDateObj < today) {
+                alert('A data de início não pode ser anterior a hoje');
+                document.getElementById('startDatePicker').value = '';
+                return false; // Retorna falso se a data de início não for válida
+            }
+
+            if (endDateObj <= startDateObj) {
+                alert('A data de fim deve ser posterior à data de início');
+                document.getElementById('endDatePicker').value = '';
+                return false; // Retorna falso se a data de fim não for válida
+            }
+
+            return true; // Retorna verdadeiro se ambas as datas forem válidas
         }
 
     </script>

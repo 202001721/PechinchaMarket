@@ -128,7 +128,16 @@ namespace PechinchaMarket.Controllers
 
             return View(model);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="produto"></param>
+        /// <param name="price"></param>
+        /// <param name="discount"></param>
+        /// <param name="file"></param>
+        /// <param name="duration"></param>
+        /// <returns></returns>
         // POST: Produtos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -169,8 +178,33 @@ namespace PechinchaMarket.Controllers
                         _context.Update(produtoToUpdate);
                     }
 
-                    //produtoToUpdate.Image = file != null ? produtoToUpdate.Image : produto.Image;
-                    
+                    //Atualizar o campo Price
+                    if (price != null)
+                    {
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        {
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                           
+                            currentProdutoLoja.Price = price[i];
+
+                            _context.Update(currentProdutoLoja);
+                        }
+                    }
+
+                    // Atualizar o campo Discount
+                    if ( discount != null)
+                    {
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        {
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                            
+                            currentProdutoLoja.Discount = discount[i];
+
+                            _context.Update(currentProdutoLoja);
+                        }
+                    }
 
                     if (!string.IsNullOrEmpty(duration) && duration.Contains("-"))
                     {
@@ -179,19 +213,14 @@ namespace PechinchaMarket.Controllers
                         {
                             var userId = _userManager.GetUserId(User);
                             List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
+
                             if (!lojas.IsNullOrEmpty())
                             {
                                 for (int i = 0; i < lojas.Count && i < produtoToUpdate.ProdutoLojas.Count; i++)
                                 {
                                     var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
 
-                                    // Atualizar os campos específicos apenas se os valores forem fornecidos
-                                    if (price != null && i < price.Length)
-                                        currentProdutoLoja.Price = price[i];
-
-                                    if (discount != null && i < discount.Length)
-                                        currentProdutoLoja.Discount = discount[i];
-
+                                    // Atualizar os campos StartDiscount e EndDiscount
                                     currentProdutoLoja.StartDiscount = inicioPromocao;
                                     currentProdutoLoja.EndDiscount = fimPromocao;
 
