@@ -52,10 +52,11 @@
                         </div> %
                         <div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
-                            <input name="duration" type="text" id="daterange" onclick="toggleDatepickers()" readonly="true"/>
+                            <input type="text" id="datefilter" value="" />
+                            <!--<input name="duration" type="text"  onclick="toggleDatepickers()" readonly="true"/>
 
                             <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
-                            <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">
+                            <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">-->
                         </div>
                         
                     </div>     
@@ -111,10 +112,8 @@
                                             <input type="number"  name="discount" class="discount custom-input" value="@pl.Discount"/> %
                                         </td>
                                         <td>
-                                            <input type="text" id="data" class="data" onclick="openDatepicker()" readonly="true" value="@pl.StartDiscount - @pl.EndDiscount"/>
 
-                                            <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
-                                            <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">
+                                            <input type="text" name="duration" value="@pl.StartDiscount - @pl.EndDiscount" />
                                         </td>
                                     </tr>
                                 }
@@ -134,6 +133,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <script>
         function readfile(input) {
@@ -184,7 +188,7 @@
             }
         }
 
-        let startDate = null;
+        /*let startDate = null;
         let endDate = null;
 
         function toggleDatepickers() {
@@ -219,15 +223,7 @@
 
                 changeDate();
             }
-        }
-
-        function changeDate() {
-            var da = document.getElementById("daterange").value;
-            var dt = document.getElementsByClassName("data");
-            for (let item of dt) {
-                item.value = da;
-            }
-        }
+        }*/
 
         function validateDate(startDate, endDate) {
             var startDateObj = new Date(startDate);
@@ -248,6 +244,36 @@
 
             return true; // Retorna verdadeiro se ambas as datas forem válidas
         }
+
+        function initializeDateRangePicker() {
+            $('input[id="datefilter"]').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+
+            $('input[id="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+                const startDate = picker.startDate.format('DD/MM/YYYY');
+                const endDate = picker.endDate.format('DD/MM/YYYY');
+                $(this).val(startDate + ' - ' + endDate);
+                if (!validateDate(startDate, endDate)) {
+                    $(this).val(''); // Limpa o valor do input se a data não for válida
+                }
+
+                // Atualizar os inputs com o ID "datas" em cada linha da tabela
+                $('input[name="duration"]').each(function () {
+                    $(this).val(startDate + ' - ' + endDate);
+                });
+            });
+
+            $('input[id="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+                $(this).val('');
+                $('input[name="duration"]').val(''); // Limpar o valor dos inputs com o ID "datas" ao cancelar
+            });
+        }
+
+        initializeDateRangePicker();
 
     </script>
 }
