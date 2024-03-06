@@ -4,14 +4,20 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.coluna{
-    display:flex;
+.coluna {
+    display: flex;
     padding: 10px;
-    justify-content:center;
-    
+    justify-content: center;
+    text-decoration: none;
 }
-
-
+.coluna h2 a{
+    text-decoration:none;
+    color:black;
+}
+.coluna-selecionada h2 a {
+    text-decoration: none;
+    color: black;
+}
 .card {
     width: 220px;
     /*  height: 350px; */
@@ -19,22 +25,51 @@
     border-radius: 20px;
 }
 .card-image {
-    background-color: oldlace;
+    background-color: white;
     height: 100px;
     margin-bottom: 15px;
     background-size: cover;
     border-radius: 20px 20px 0 0;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
     .card-image img {
-        width: 100%;
+        width: 60%;
         height: 100%;
         object-fit: cover;
+        padding:5px;
+        justify-content:center;
+       
+        
     }
+.botoes {
+    display: inline-block;
+    width: 10em;
+    margin-block: 2em;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border: 2.5px solid #66D1FF;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+    
+}
+.botoes a{
+    text-decoration:none;
+}
 .coluna-selecionada {
     display: flex;
     padding: 10px;
     justify-content: center;
-    background-color:white;
+    background-color: white;
+    text-decoration: none;
 }
 .coluna {
     justify-content: center;
@@ -48,12 +83,7 @@
 .coluna:active {
         background-color: red;
  }
-.search-image {
-    display: inline-block;
-    width: var(--root-medium-icon-size);
-    height: var(--root-medium-icon-size);
-    background-size: 100% 100%;
-}
+
 .card p {
     font-size: 20px;
     font-family: 'Roboto', arial, sans-serif;
@@ -62,6 +92,11 @@
 
 body {
     background: rgb(102,209,255);
-    background: linear-gradient(180deg, rgba(102,209,255,1) 10%, rgba(255,255,255,1) 30%);
+    background: linear-gradient(180deg, rgba(102,209,255,1) 10%, rgba(255,255,255,1) 25%);
+}
+.containers{
+    display:flex;
+    justify-content:flex-start;
+    margin:15px;
 }
 

@@ -27,7 +27,13 @@ namespace PechinchaMarket.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Produto.ToListAsync());
+            var produtos = _context.Produto
+             .Where(p => p.ProdEstado == Estado.Approved).Join(_context.ProdutoLoja,
+             produto => produto.Id,
+             loja => loja.Id,
+             (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
+
+            return View(produtos);
         }
 
         // GET: Produtos/Details/5
@@ -46,6 +52,17 @@ namespace PechinchaMarket.Controllers
             }
 
             return View(produto);
+        }
+
+        public async Task<ActionResult> ProductsInAnalysis()
+        {
+            var produtos = _context.Produto
+           .Where(p => p.ProdEstado == Estado.InAnalysis).Join(_context.ProdutoLoja,
+           produto => produto.Id,
+           loja => loja.Id,
+           (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
+
+            return View(produtos);
         }
 
         public async Task<IActionResult> Show(int? id)

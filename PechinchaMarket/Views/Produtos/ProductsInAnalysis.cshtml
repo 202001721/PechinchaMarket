@@ -9,19 +9,19 @@
 
 <body>
 
-<div class="container-box"> 
-   
-               <span class="coluna-selecionada">
+    <div class="container-box">
+
+        <span class="coluna">
             <h2> <a asp-action="Index"> Produtos Publicados </a> </h2>
         </span>
 
-            <span class="coluna">
+        <span class="coluna-selecionada">
             <h2> <a asp-action="ProductsInAnalysis"> Produtos Pendentes</a></h2>
-             </span>
-            
-</div>
+        </span>
 
-    <section class="containers">
+    </div>
+
+    <section class="container">
 
 
         @foreach (var item in Model)
@@ -32,24 +32,24 @@
                     <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Item1.Id
 
                   })' />
-                  </div>
+                </div>
                 <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
                 <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
                 <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
-              
+
 
             </div>
-                
-
-         
-
-            }
 
 
-        
+
+
+        }
+
+
+
 
     </section>
     <button class="botoes"> <a asp-action="Create">Adicionar</a> </button>
 </body>
 
-  
+
