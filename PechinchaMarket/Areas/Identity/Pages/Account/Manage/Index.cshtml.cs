@@ -16,6 +16,8 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Areas.Identity.Data;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using NuGet.Packaging.Signing;
+using PechinchaMarket.Models;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 {
@@ -57,12 +59,6 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public string Username { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [TempData]
         public string StatusMessage { get; set; }
 
@@ -79,7 +75,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public class InputModel
         {
-            [Display(Name = "User name")]
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Nome")]
             public string UserName { get; set; }
 
 
@@ -87,9 +85,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Phone]
-            [Display(Name = "Phone number")]
-            public string PhoneNumber { get; set; }
+            [Required]
+            [Display(Name = "Localização")]
+            public string Location { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -97,7 +95,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             /// </summary>
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Novo email")]
             public string NewEmail { get; set; }
 
             /// <summary>
@@ -106,7 +104,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
-            [Display(Name = "Current password")]
+            [Display(Name = "Password atual")]
             public string OldPassword { get; set; }
 
             /// <summary>
@@ -114,9 +112,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "A {0} deve ser pelo menos {2} e no maximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "New password")]
+            [Display(Name = "Nova password")]
             public string NewPassword { get; set; }
 
             /// <summary>
@@ -124,26 +122,24 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm new password")]
-            [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+            [Display(Name = "Confirme nova password")]
+            [Compare("NewPassword", ErrorMessage = "A nova password e a password de confirmação não são iguais.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name ="Selecione uma foto")]
+            public string NewPhoto { get; set; }
+
+
         }
 
         private async Task LoadAsync(PechinchaMarketUser user)
         {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            var email = await _userManager.GetEmailAsync(user);
-            Email = email;
+            var userId = _userManager.GetUserId(User);
+            var userName = "";
 
-            Input = new InputModel
-            {
-                UserName = userName,
-                PhoneNumber = phoneNumber,
-                NewEmail = email,
-            };
-
-            IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
+            var userPhoto = 0;
+            var userLocation = "";
 
             if (user != null)
             {
@@ -156,14 +152,49 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 }
                 else if (User.IsInRole("Cliente"))
                 {
-                    ViewData["UserPhoto"] = ShowImage(
-                        _context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
+                    var userPhotoContext = _context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault();
+                    ViewData["UserPhoto"] = ShowImage(userPhotoContext);
+
+                    userName = _context.Cliente.Where(x => x.UserId.Equals(userId)).Select(x => x.Name).FirstOrDefault();
+                    userLocation = _context.Cliente.Where(x => x.UserId.Equals(userId)).Select(x => x.Localizacao).FirstOrDefault();
+
+                    for (int i = 0; i < 17; i++) {
+                        var webRootPath = _webHostEnvironment.WebRootPath;
+                        var choosedPhotoPath = Path.Combine(webRootPath, "images", $"userphoto_{i}.png");
+
+                        byte[] imageData;
+                        using (var stream = new FileStream(choosedPhotoPath, FileMode.Open))
+                        {
+                            using (var memoryStream = new MemoryStream())
+                            {
+                                await stream.CopyToAsync(memoryStream);
+                                imageData = memoryStream.ToArray();
+                            }
+                        }
+
+                        if (CompareBytes(imageData, userPhotoContext)) {
+                            userPhoto = i;
+                            break;
+                        }
+                    }
                 }
                 else if (User.IsInRole("Manager"))
                 {
                     ViewData["UserPhoto"] = ShowImage(null);
                 }
             }
+
+            var email = await _userManager.GetEmailAsync(user);
+            Email = email;
+
+            Input = new InputModel
+            {
+                UserName = userName,
+                Location = userLocation,
+                NewPhoto = userPhoto.ToString(),
+            };
+
+            IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
 
             var hasPassword = await _userManager.HasPasswordAsync(user);
             ViewData["HasPassword"] = hasPassword;
@@ -175,28 +206,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }else{
-                var cliente = _context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).ToList();
-
-                if (User.IsInRole("Comerciante"))
-                {
-                    ViewData["UserPhoto"] = ShowImage(
-                        _context.Comerciante.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.logo).FirstOrDefault());
-                }
-                else if (User.IsInRole("Cliente"))
-                {
-                    ViewData["UserPhoto"] = ShowImage(
-                        _context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
-                }
-                else if (User.IsInRole("Manager"))
-                {
-                    ViewData["UserPhoto"] = ShowImage(null);
-                }
-                else {
-                    return NotFound($"Unable to load user role with ID '{_userManager.GetUserId(User)}'.");
-                }
             }
-
 
             var hasPassword = await _userManager.HasPasswordAsync(user);
             ViewData["HasPassword"] = hasPassword;
@@ -205,24 +215,29 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAction1Async() {
+        public async Task<IActionResult> OnPostChangeNameAsync()
+        {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            removeAllFromModelStateBut("Input.UserName");
             if (!ModelState.IsValid)
             {
                 await LoadAsync(user);
                 return Page();
             }
 
-            var userName = await _userManager.GetUserNameAsync(user);
-            if (Input.UserName != userName)
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+            if (Input.UserName != cliente.Name)
             {
-                var userNameResult = await _userManager.SetUserNameAsync(user, Input.UserName);
-                if (!userNameResult.Succeeded)
+                cliente.Name = Input.UserName;
+                var changes = _context.SaveChanges();
+
+                if (changes == 0)
                 {
                     StatusMessage = "Unexpected error when trying to set user name.";
                     return RedirectToPage();
@@ -234,7 +249,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             return RedirectToPage();
         }
 
-        public async Task<IActionResult> OnPostAction2Async()
+        public async Task<IActionResult> OnPostChangeLocationAsync()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
@@ -242,19 +257,23 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            removeAllFromModelStateBut("Input.Location");
             if (!ModelState.IsValid)
             {
                 await LoadAsync(user);
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+            if (Input.Location != cliente.Localizacao)
             {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
+                cliente.Localizacao = Input.Location;
+                var changes = _context.SaveChanges();
+
+                if (changes == 0)
                 {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
+                    StatusMessage = "Unexpected error when trying to set the location";
                     return RedirectToPage();
                 }
             }
@@ -272,6 +291,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            removeAllFromModelStateBut("Input.NewEmail");
             if (!ModelState.IsValid)
             {
                 await LoadAsync(user);
@@ -310,6 +330,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+            removeAllFromModelStateBut("Input.NewEmail");
             if (!ModelState.IsValid)
             {
                 await LoadAsync(user);
@@ -336,15 +357,16 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnPostSetPasswordAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            removeAllFromModelStateBut([nameof(Input.NewPassword), nameof(Input.ConfirmPassword)]);
+            if (!ModelState.IsValid){
+                await LoadAsync(user);
+                return Page();
             }
 
             var addPasswordResult = await _userManager.AddPasswordAsync(user, Input.NewPassword);
@@ -354,6 +376,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+                await LoadAsync(user);
                 return Page();
             }
 
@@ -365,15 +388,18 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnPostChangePasswordAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+
+            removeAllFromModelStateBut([nameof(Input.OldPassword), nameof(Input.NewPassword), nameof(Input.ConfirmPassword)]);
+            if (!ModelState.IsValid)
+            {
+                await LoadAsync(user);
+                return Page();
             }
 
             var changePasswordResult = await _userManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
@@ -383,6 +409,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+
+                await LoadAsync(user);
                 return Page();
             }
 
@@ -393,7 +421,58 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             return RedirectToPage();
         }
 
+        public async Task<IActionResult> OnPostChangePhotoAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
 
+            removeAllFromModelStateBut("Input.NewPhoto");
+            if (!ModelState.IsValid)
+            {
+                await LoadAsync(user);
+                return Page();
+            }
+
+            var webRootPath = _webHostEnvironment.WebRootPath;
+            var choosedPhotoPath = Path.Combine(webRootPath, "images", $"userphoto_{Input.NewPhoto}.png");
+
+            // Check if the file exists
+            if (!System.IO.File.Exists(choosedPhotoPath))
+            {
+                StatusMessage = "The selected image file does not exist.";
+                return RedirectToPage();
+            }
+
+            byte[] imageData;
+            using (var stream = new FileStream(choosedPhotoPath, FileMode.Open))
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await stream.CopyToAsync(memoryStream);
+                    imageData = memoryStream.ToArray();
+                }
+            }
+
+            if (imageData.Count() != 0) {
+                var userId = _userManager.GetUserId(User);
+                Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+                cliente.Image = imageData;
+                var changes = _context.SaveChanges();
+
+                if (changes == 0)
+                {
+                    StatusMessage = "Unexpected error when trying to set photo.";
+                    return RedirectToPage();
+                }
+            }
+
+            await _signInManager.RefreshSignInAsync(user);
+            StatusMessage = "Your profile has been updated";
+            return RedirectToPage();
+        }
 
 
         /// <summary>
@@ -451,5 +530,54 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
             return Convert.ToBase64String(image);
         }
+
+        public bool CompareBytes(byte[] imageData1, byte[] imageData2) {
+            bool equal = false;
+            if (imageData1.Length == imageData2.Length)
+            {
+                equal = true;
+
+                // Compare each byte in the arrays
+                for (int i = 0; i < imageData1.Length; i++)
+                {
+                    if (imageData1[i] != imageData2[i])
+                    {
+                        equal = false;
+                        break;
+                    }
+                }
+
+            }
+            return equal;
+        }
+
+        public void removeAllFromModelStateBut(params string[] propertyNames)
+        {
+            var allPropertyNames = new string[]{
+                nameof(Input.UserName),
+                "Input.UserName",
+                nameof(Input.Location),
+                "Input.Location",
+                nameof(Input.NewEmail),
+                "Input.NewEmail",
+                nameof(Input.OldPassword),
+                "Input.OldPassword",
+                nameof(Input.NewPassword),
+                "Input.NewPassword",
+                nameof(Input.ConfirmPassword),
+                "Input.ConfirmPassword",
+                nameof(Input.NewPhoto),
+                "Input.NewPhoto",
+            };
+
+            foreach (var propertyName in allPropertyNames)
+            {
+                if (!propertyNames.Contains(propertyName))
+                {
+                    ModelState.Remove(propertyName);
+                }
+            }
+        }
+
     }
 }

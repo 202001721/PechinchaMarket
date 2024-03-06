@@ -11,7 +11,8 @@
     /*cor de background tudo que contem texto ou qualquer tipo de conteudo*/
     --root-background-content-color: white;
     /*cor de constraste do background*/
-    --root-background-contrast-color: rgb(242, 242, 242);
+    --root-background-contrast-color: rgb(225, 225, 225);
+    --root-background-contrast-color-2: rgb(242, 242, 242);
     /*cor do texto no website todo*/
     --root-text-color: black;
     /*cor do border de um containers/botões/etc.. com fundo default (root-background-content-color)*/
@@ -115,6 +116,10 @@ body {
 
 .background-constrast-color {
     background-color: var(--root-background-contrast-color);
+}
+
+.background-constrast-color-2 {
+    background-color: var(--root-background-contrast-color-2);
 }
 
 .display-none {
@@ -337,8 +342,8 @@ body {
                 color: var(--blue-color) !important;
             }
 
-        .authentication-input-text-div input:disabled,
-        .authentication-input-text-div label::after {
+        .authentication-input-text-div.edit-perfil-input input:disabled,
+        .authentication-input-text-div.edit-perfil-input label::after {
             border: 1px solid var(--root-background-contrast-color) !important;
             background-color: var(--root-background-contrast-color) !important;
         }
@@ -974,8 +979,10 @@ a.cancel-button:hover::before {
 .left-flex,
 .center-x-flex,
 .edges-flex,
-.wrap-flex 
-.center-y-flex{
+.space-around-flex,
+.wrap-flex, 
+.center-y-flex,
+.bottom-y-flex{
     display: flex;
 }
 
@@ -995,12 +1002,20 @@ a.cancel-button:hover::before {
     justify-content: left;
 }
 
+.space-around-flex {
+    justify-content: space-around;
+}
+
 .center-x-flex {
     justify-content: center;
 }
 
 .center-y-flex {
     align-items: center;
+}
+
+.bottom-y-flex {
+    align-items: flex-end;
 }
 
 .edges-flex {
@@ -1011,6 +1026,10 @@ a.cancel-button:hover::before {
     flex-wrap: wrap;
 }
 
+.shrink-flex {
+    flex-shrink: 5;
+}
+
 .thin-outline {
     outline: 1px solid var(--root-border-color-to-default-background-container);
 }
@@ -1019,21 +1038,50 @@ a.cancel-button:hover::before {
     border-radius: 10px;
 }
 
-.small-gap-x {
-    gap: 0px 2em;
+.medium-gap-x {
+    gap: 0px 5em;
 }
 
-.smaller-gap-x {
-    gap: 0px 1em;
+.medium-gap-y {
+    gap: 5em 0px;
+}
+
+.small-gap-x {
+    gap: 0px 2em;
 }
 
 .small-gap-y {
     gap: 2em 0px;
 }
 
+.small-gap {
+    gap: 2em 2em;
+}
+
+.smaller-gap-x {
+    gap: 0px 1em;
+}
+
+.smaller-gap-y {
+    gap: 1em 0px;
+}
+
 .small-padding {
     padding: 1em;
 }
+
+.small-padding-right {
+    padding-right: 2em;
+}
+
+.small-padding-left {
+    padding-left: 2em;
+}
+
+.medium-padding-top {
+    padding-top: 4em;
+}
+
 
 .small-margin-top {
     margin-top: 1em;
@@ -1055,12 +1103,20 @@ a.cancel-button:hover::before {
     width: 100%; 
 }
 
+.max-height {
+    height: 100%;
+}
+
 .fit-content-height {
     height: fit-content;
 }
 
 .min-content-height {
     height: min-content;
+}
+
+.max-content-height {
+    height: max-content;
 }
 
 .search-result {
@@ -1085,7 +1141,8 @@ a.cancel-button:hover::before {
 }
 
 .small-perfil-image,
-.big-perfil-image {
+.big-perfil-image,
+.huge-perfil-image{
     display: inline-block;
     background-size: 100% 100%;
     border-radius: 100%;
@@ -1099,6 +1156,11 @@ a.cancel-button:hover::before {
     .big-perfil-image {
         width: var(--root-huge-icon-size);
         height: var(--root-huge-icon-size);
+    }
+
+    .huge-perfil-image{
+        width: 200px; 
+        aspect-ratio: 1 / 1;
     }
 
 .sad-face {
@@ -1174,3 +1236,207 @@ a.default-button-color::before {
 a.default-button-color:hover::before {
     opacity: 0.5;
 }
+
+.off-screen {
+    position: absolute;
+    left: -9999px;
+}
+
+.new-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s; /* Smooth transition */
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+    .new-page > div.small-page {
+        width: 400px;
+        height: 400px;
+        top: calc(50vh - (400px / 2));
+    }
+
+    .new-page > div.big-page {
+        width: 800px;
+        height: 600px;
+        top: calc(50vh - (600px / 2));
+    }
+
+    .new-page > div.small-page,
+    .new-page > div.big-page {
+        background-color: var(--root-background-content-color);
+        position: absolute;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    @media screen and (max-height: 400px) {
+        .new-page > div.small-page {
+            position: relative !important;
+            top: 0 !important;
+        }
+    }
+
+    @media screen and (max-height: 600px) {
+
+        .new-page > div.big-page {
+            position: relative !important;
+            top: 0 !important;
+        }
+    }
+
+    .new-page .title {
+        font-size: 20px;
+    }
+
+    .no-overflow {
+        overflow: hidden !important;
+    }
+
+    .cross-button {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 100%;
+        background-color: var(--root-background-content-color);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .cross-button:hover {
+            filter: brightness(0.92);
+        }
+    }
+
+    @media not all and (hover: hover) {
+        .cross-button:active {
+            filter: brightness(0.92);
+        }
+    }
+
+    .cross-button::before,
+    .cross-button::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 1px;
+        background-color: black;
+        transform: translate(-50%, -50%);
+    }
+
+    .cross-button::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .cross-button::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .clickable-div {
+        cursor: pointer;
+        background-color: var(--root-background-content-color);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .clickable-div:hover {
+            filter: brightness(0.92);
+        }
+    }
+
+    @media not all and (hover: hover) {
+        .clickable-div:active {
+            filter: brightness(0.92);
+        }
+    }
+
+
+    .perfil-image-border {
+        border: 2px solid white;
+        outline: 2px solid black;
+    }
+
+    .perfil-image-div-position {
+        position: relative;
+        top: 50px;
+        left: 1em;
+    }
+
+    .perfil-image-to-edit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .perfil-image-to-edit span {
+            text-indent: -9999px;
+            font-size: 20px;
+            font-weight: 500;
+            z-index: 99;
+        }
+
+    @media (hover: hover) and (pointer: fine) {
+        .perfil-image-to-edit:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 100%;
+            z-index: 10;
+        }
+
+        .perfil-image-to-edit:hover span {
+            text-indent: 0px;
+        }
+    }
+
+    .perfil-button-image-edit {
+        margin-bottom: 10px;
+    }
+
+    .unselectable-text {
+        -webkit-user-select: none; /* Safari 3.1+ */
+        -moz-user-select: none; /* Firefox 2+ */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Standard syntax */
+    }
+
+.photo-chooser {
+    height: 300px;
+    overflow: auto;
+    padding-top: 1em;
+}
+
+.photo-option input[type="radio"]:checked + label span.big-perfil-image {
+    outline-color: var(--blue-color);
+    position: relative;
+}
+
+    .photo-option input[type="radio"]:checked + label span.big-perfil-image::after {
+        content: '✓';
+        text-align: center;
+        outline: 2px solid var(--blue-color);
+        background-color: var(--root-background-content-color);
+        border-radius: 100%;
+        height: 30%;
+        width: 30%;
+        bottom: 0px;
+        right: 0px;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--blue-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        margin-left: var(--root-huge-icon-size);
+    }
