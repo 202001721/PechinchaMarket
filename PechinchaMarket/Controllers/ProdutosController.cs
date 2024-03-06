@@ -141,6 +141,10 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
+            ModelState.Remove("file");
+            ModelState.Remove("discount");
+            ModelState.Remove("duration");
+
             if (ModelState.IsValid)
             {
                 try
@@ -162,7 +166,11 @@ namespace PechinchaMarket.Controllers
                             await file.CopyToAsync(memoryStream);
                             produtoToUpdate.Image = memoryStream.ToArray();
                         }
+                        _context.Update(produtoToUpdate);
                     }
+
+                    //produtoToUpdate.Image = file != null ? produtoToUpdate.Image : produto.Image;
+                    
 
                     if (!string.IsNullOrEmpty(duration) && duration.Contains("-"))
                     {
@@ -215,9 +223,14 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
+
+                await _context.SaveChangesAsync();
             }
+            
             return RedirectToAction(nameof(Index));
         }
+
+        
 
         // GET: Produtos/Delete/5
         public async Task<IActionResult> Delete(int? id)
