@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tuple<PechinchaMarket.Models.ProdutoLoja, PechinchaMarket.Models.Produto>>
+﻿@model PechinchaMarket.Models.Produto
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,33 +12,33 @@
 <body class="gradiante2-secondary-color background-height">
     <div>
         <form asp-action="Edit" enctype="multipart/form-data"  class="form">
-            <input type="hidden" name="produtoId" value="@Model.FirstOrDefault().Item2.Id" />
+            <input type="hidden" name="produtoId" value="@Model.Id" />
             <div class="addProduct">
             <div class="addProductLeft">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div style="display:none" id="produtoId">
-                    @Html.DisplayFor(model => model.FirstOrDefault().Item2.Id)
+                    @Html.DisplayFor(model => model.Id)
                 </div>
                 <div class="form-group">
-                        <input type="text" name="name" style="display: none" value="@Model.FirstOrDefault().Item2.Name" />
-                        @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)
+                        <input type="text" name="name" style="display: none" value="@Model.Name" />
+                        @Html.DisplayFor(model => model.Name)
                 </div>
                 <div class="form-group">
-                        <input type="text" name="brand" style="display: none" value="@Model.FirstOrDefault().Item2.Brand" />
-                        @Html.DisplayFor(model => model.FirstOrDefault().Item2.Brand)
+                        <input type="text" name="brand" style="display: none" value="@Model.Brand" />
+                        @Html.DisplayFor(model => model.Brand)
                 </div>
                 <div class="form-group">
                     <label>Categoria: </label>
-                    @Html.DisplayFor(model => model.FirstOrDefault().Item2.ProdCategoria)
+                    @Html.DisplayFor(model => model.ProdCategoria)
                 </div>
                 <hr />
                     <div class="precoUnidade form-group">
                         <div class="preco">
-                            <input name="price" class="form-control" id="price" onchange="changePrice()" placeholder="€" value="@Model.FirstOrDefault().Item1.Price">
+                            <input class="form-control" id="price" onchange="changePrice()" placeholder="€" value="">
                         </div>
                          €/ 
                         <div class="unidade">
-                            @Html.DisplayFor(model => model.FirstOrDefault().Item2.Unidade)
+                            @Html.DisplayFor(model => model.Unidade)
                         </div>
                     </div>
                     <div>
@@ -67,11 +67,11 @@
             <div class="addProductRight">
                 <div class="form-group">
                         <label>Imagem: </label>
-                        <img id="image_preview" src="@Url.Action("Show", "Produtos", new { id = @Model.Select(x => x.Item2.Id).FirstOrDefault()})" alt="your image" width="250px" height="250px" class="imagePlaceholder" />
+                        <img id="image_preview" src="@Url.Action("Show", "Produtos", new { id = @Model.Id})" alt="your image" width="250px" height="250px" class="imagePlaceholder" />
                         <div class="uploadImage">
-                            <label asp-for ="@Model.FirstOrDefault().Item2.Image" class="custom-file-upload">Adicionar Foto</label>
-                            <input type="file" asp-for="@Model.FirstOrDefault().Item2.Image" class="image" name="file" onchange="readfile(this)" />
-                            <span asp-validation-for="@Model.FirstOrDefault().Item2.Image" class="text-danger"></span>
+                            <label asp-for ="@Model.Image" class="custom-file-upload">Adicionar Foto</label>
+                            <input type="file" asp-for="@Model.Image" class="image" name="file" onchange="readfile(this)" />
+                            <span asp-validation-for="@Model.Image" class="text-danger"></span>
                         </div>
                 </div>
             </div>
@@ -96,39 +96,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if (lojas != null)
+                            @if (Model.ProdutoLojas != null)
                             {
-                                @foreach (Loja l in lojas)
+                                @foreach (var pl in Model.ProdutoLojas)
                                 {
                                     <tr>
                                         <td>
-                                            @Html.DisplayFor(modelItem => l.Address)
+                                            @Html.DisplayFor(modelItem => pl.Loja.Address)
                                         </td>
                                         <td>
-                                            @{
-                                                // Preço pela morada
-                                                var price = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.Price).FirstOrDefault();
-                                            }
-                                            <input type="number" id="priceInput" name="price" class="prices custom-input" value="@price" /> €
+                                            <input type="number" id="priceInput" name="price" class="prices custom-input" value="@pl.Price" /> €
                                         </td>
                                         <td>
-                                            @{
-                                                // Desconto pela morada
-                                                var desconto = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.Discount).FirstOrDefault();
-                                            }
-                                            <input type="number"  name="discount" class="discount custom-input" value="@desconto"/> %
+                                            <input type="number"  name="discount" class="discount custom-input" value="@pl.Discount"/> %
                                         </td>
                                         <td>
-                                            @{
-                                                // Duração pela morada
-                                                var inicio = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.StartDiscount).FirstOrDefault();
-                                                var fim = Model.Where(x => x.Item1.Loja.Address == l.Address).Select(x => x.Item1.EndDiscount).FirstOrDefault();
-                                                string inicioOriginal = inicio?.ToString("dd/MM/yyyy");
-                                                string fimOriginal = fim?.ToString("dd/MM/yyyy");
-                                                var duracao = inicioOriginal + " - " + fimOriginal;
-
-                                            }
-                                            <input type="text" id="data" class="data" onclick="openDatepicker()" readonly="true" value="@duracao"/>
+                                            <input type="text" id="data" class="data" onclick="openDatepicker()" readonly="true" value="@pl.StartDiscount - @pl.EndDiscount"/>
 
                                             <input type="date" id="startDatePicker" style="display: none" onchange="handleDateChange(event)">
                                             <input type="date" id="endDatePicker" style="display: none" onchange="handleDateChange(event)">
@@ -141,7 +124,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item2.Id, " />
+                    <input name="id" type="hidden" asp-for="@Model.Id, " />
                     <input type="submit" value="Guardar Alterações" class="blue-button" />
                 </div>
             </div>

@@ -124,23 +124,7 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var model = _context.Produto
-            .Where(produto => produto.Id == id)
-            .Join(_context.ProdutoLoja,
-                temp => temp.Id,
-                produtoLoja => produtoLoja.Produto.Id,
-                (temp, produtoLoja) => new { Produto = temp, ProdutoLoja = produtoLoja })
-            .Select(x => Tuple.Create(x.ProdutoLoja, x.Produto))
-            .ToList();
-
-            var produto = model.Select(x => x.Item2.Id).FirstOrDefault();
-            var userId = _userManager.GetUserId(User);
-
-            ViewData["Lojas"] = _context.Loja
-      .Join(_context.ProdutoLoja, loja => loja.Id, produtoLoja => produtoLoja.Loja.Id, (loja, produtoLoja) => new { Loja = loja, ProdutoLoja = produtoLoja })
-      .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
-      .Select(joined => joined.Loja)
-      .ToList();
+            var model = _context.Produto.Include(x => x.ProdutoLojas).ThenInclude(x => x.Loja).Where(x => x.Id == id).FirstOrDefault();
 
             return View(model);
         }
@@ -179,28 +163,30 @@ namespace PechinchaMarket.Controllers
                             produtoToUpdate.Image = memoryStream.ToArray();
                         }
                     }
-                    
-                    // Atualizar as propriedades editáveis do produto
-                    produtoToUpdate.Image = file != null ? produtoToUpdate.Image : produto.Image;
 
                     if (!string.IsNullOrEmpty(duration) && duration.Contains("-"))
                     {
                         var durationParts = duration.Split('-');
                         if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
                         {
-
                             var userId = _userManager.GetUserId(User);
                             List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
                             if (!lojas.IsNullOrEmpty())
                             {
-
                                 for (int i = 0; i < lojas.Count && i < produtoToUpdate.ProdutoLojas.Count; i++)
                                 {
                                     var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
-                                    currentProdutoLoja.Price = price[i];
-                                    currentProdutoLoja.Discount = discount[i];
+
+                                    // Atualizar os campos específicos apenas se os valores forem fornecidos
+                                    if (price != null && i < price.Length)
+                                        currentProdutoLoja.Price = price[i];
+
+                                    if (discount != null && i < discount.Length)
+                                        currentProdutoLoja.Discount = discount[i];
+
                                     currentProdutoLoja.StartDiscount = inicioPromocao;
                                     currentProdutoLoja.EndDiscount = fimPromocao;
+
                                     _context.Update(currentProdutoLoja);
                                 }
                             }
@@ -217,8 +203,6 @@ namespace PechinchaMarket.Controllers
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Index));
                     }
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
