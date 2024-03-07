@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Models;
 using Microsoft.AspNetCore.Components.Forms;
 using System;
+using Microsoft.AspNetCore.Hosting;
 
 namespace PechinchaMarket.Controllers
 {
@@ -14,10 +15,14 @@ namespace PechinchaMarket.Controllers
     {
         private readonly DBPechinchaMarketContext _context;
         private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
-        public SearchController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public SearchController(DBPechinchaMarketContext context, 
+            Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
+            IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -156,6 +161,32 @@ namespace PechinchaMarket.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return File(produto.Image, "image/jpg");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPerfilImage() {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            var userId = _userManager.GetUserId(User);
+
+            if (User.IsInRole("Comerciante"))
+            {
+                var image = ShowImage(_context.Comerciante.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.logo).FirstOrDefault());
+                return Json(image);
+            }
+            else if (User.IsInRole("Cliente"))
+            {
+                var image = ShowImage(_context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
+                return Json(image);
+            }
+            else {
+                var image = ShowImage(_context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
+                return Json(image);
+            }
         }
 
         [HttpGet]
@@ -390,5 +421,22 @@ namespace PechinchaMarket.Controllers
 
             //return Json(similarProducts);
         }
+
+        public string ShowImage(byte[]? image)
+        {
+            if (image == null)
+            {
+                var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "userphoto_0.png");
+                if (!System.IO.File.Exists(imagePath))
+                    return null;
+
+                return Convert.ToBase64String(System.IO.File.ReadAllBytes(imagePath));
+            }
+
+            return Convert.ToBase64String(image);
+        }
+
     }
 }
+
+
