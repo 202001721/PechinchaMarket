@@ -1030,6 +1030,14 @@ a.cancel-button:hover::before {
     flex-shrink: 5;
 }
 
+.push-left {
+    margin-right: auto;
+}
+
+.push-right {
+    margin-left: auto;
+}
+
 .thin-outline {
     outline: 1px solid var(--root-border-color-to-default-background-container);
 }
@@ -1140,7 +1148,15 @@ a.cancel-button:hover::before {
     background-size: 100% 100%;
 }
 
+.small-image {
+    display: inline-block;
+    background-size: 100% 100%;
+    width: var(--root-small-icon-size);
+    height: var(--root-small-icon-size);
+}
+
 .small-perfil-image,
+.medium-perfil-image,
 .big-perfil-image,
 .huge-perfil-image{
     display: inline-block;
@@ -1151,6 +1167,11 @@ a.cancel-button:hover::before {
     .small-perfil-image {
         width: var(--root-small-icon-size);
         height: var(--root-small-icon-size);
+    }
+
+    .medium-perfil-image {
+        width: var(--root-medium-icon-size);
+        height: var(--root-medium-icon-size);
     }
 
     .big-perfil-image {
@@ -1488,3 +1509,28 @@ a.default-button-color:hover::before {
     .edit-checkbox input[type="checkbox"]:hover ~ label {
         filter: brightness(0.95);
     }
+
+.no-padding {
+    padding: 0px;
+}
+
+.height-fit-content {
+    height: fit-content;
+}
+
+.perfil-nav-menu {
+    background-color: var(--root-background-content-color);
+    width: 5em;
+    position: relative;
+    top: calc(var(--root-small-icon-size) + 10px);
+    right: 3em;
+}
+
+.remove-hover:hover {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+            <div class="edges-flex max-width">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
 
                     <span class="small-icon-logo"></span> PechinchaMarket
@@ -22,9 +22,10 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        @if (User.IsInRole("Comerciante"))
+                <div class="navbar-collapse collapse d-sm-inline-flex center-y-flex">
+                    <!--
+                    <ul class="navbar-nav">
+                        @@//if (User.IsInRole("Comerciante"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
@@ -33,7 +34,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Lojas" asp-action="Index">Lojas</a>
                             </li>
                         }
-                        @if (User.IsInRole("Manager"))
+                        @@//if (User.IsInRole("Manager"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonConfirmedList">Comerciantes</a>
@@ -42,7 +43,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonAprovedProducts">Produtos</a>
                             </li>
                         }
-                        @if (User.IsInRole("Cliente"))
+                        @@//if (User.IsInRole("Cliente"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="ListaProdutos" asp-action="Index">Listas</a>
@@ -50,6 +51,7 @@
                         }
 
                     </ul>
+                    -->
                     <partial name="_LoginPartial" />
                 </div>
             </div>
