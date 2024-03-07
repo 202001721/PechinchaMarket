@@ -7,28 +7,24 @@
 <h1>Produtos</h1>
 
 
-
 <body>
 
-<div class="container-box"> 
-   
-               <span class="coluna-selecionada">
+    <div class="container-box">
+
+        <span class="coluna">
             <h2> <a asp-action="Index"> Produtos Publicados </a> </h2>
         </span>
 
-            <span class="coluna">
+        <span class="coluna-selecionada">
             <h2> <a asp-action="ProductsInAnalysis"> Produtos Pendentes</a></h2>
-             </span>
-            
-</div>
+        </span>
+
+    </div>
 
     <section class="containers">
-
-        <button class="botoes">  <a asp-action="Create"> Adicionar produto </a></button>
-
-     
-     
-        
+        <form asp-controller="Produtos" asp-action="Create">
+            <button type="submit" class="botoes"> Adicionar </button>
+        </form>
 
         @foreach (var item in Model)
         {
@@ -38,22 +34,23 @@
                     <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Item1.Id
 
                   })' />
-                  </div>
+                </div>
                 <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
                 <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
                 <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
-
-                <p><a asp-action="Edit" asp-route-id=@item.Item1.Id> Editar</a></p> 
+                <p> <a asp-action="Edit" asp-route-id="@item.Item1.Id"> Editar</a> </p>
 
             </div>
 
-            }
 
 
-        
+
+        }
+
+
+
+
     </section>
-  
 </body>
 
-  
 

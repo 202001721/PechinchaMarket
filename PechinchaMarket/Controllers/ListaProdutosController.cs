@@ -14,6 +14,7 @@ using Aspose.Pdf.Devices;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Aspose.Pdf.Text;
+using Aspose.Pdf.Operators;
 
 namespace PechinchaMarket.Controllers
 {
@@ -41,6 +42,9 @@ namespace PechinchaMarket.Controllers
             var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault().Id.ToString();
 
             var lista = from l in _context.ListaProdutos where l.ClienteId == clienteId select l;
+           
+
+
             return View(lista);
         }
 

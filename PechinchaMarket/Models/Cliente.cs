@@ -24,5 +24,6 @@ namespace PechinchaMarket.Models
 
         /// <summary> localização do cliente</summary>
         public string Localizacao { get; set; }
+        public byte[]? Image { get; set; }
     }
 }

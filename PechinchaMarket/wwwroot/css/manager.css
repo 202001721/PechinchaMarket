@@ -28,18 +28,21 @@ h2 {
     border-radius: 20px;
 }
 
-.card-image{
+.card-image {
     background-color: oldlace;
     height: 100px;
     margin-bottom: 15px;
     background-size: cover;
     border-radius: 20px 20px 0 0;
+ 
 }
     .card-image img {
-        width: 100%; 
+        width: 100%;
         height: 100%;
         object-fit: cover;
+      
     }
+
 
 .card p{
     padding:5px; 
@@ -58,7 +61,7 @@ h2 {
     text-decoration:none;
 }
 
-.card:hover{
+.change-button:hover{
     background-color: aliceblue;
     cursor:pointer;
     transform: scale(1.05);
