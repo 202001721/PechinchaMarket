@@ -148,7 +148,22 @@
                                 <button id="change-photo" type="submit" class="pechincha-button main-button-color row-container">Salvar</button>
                             </div>
                         </form>
-                    }else if(User.IsInRole("Comcerciante")){
+                    }else if(User.IsInRole("Comerciante")){
+                        <form asp-page-handler="ChangePhotoComerciante" id="change-photo-comerciante" method="post" enctype="multipart/form-data">
+                            >
+                            <div class="insert-file file-type-image">
+                                <div class="title">Logotipo</div>
+                                <div class="insert-file-input">
+                                    <div>
+                                        <label asp-for="Input.Logo">Carregar</label>
+                                        <input  type="file" onchange="updateFileName(this)" asp-for="Input.Logo" accept="image/*" />
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="confirm-button" type="submit">Salvar</button>
+
+                        </form>
                         
                     }
 

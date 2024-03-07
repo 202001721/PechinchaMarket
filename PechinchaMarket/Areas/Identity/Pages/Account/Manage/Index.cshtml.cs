@@ -19,19 +19,20 @@ using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pag
 using NuGet.Packaging.Signing;
 using PechinchaMarket.Models;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNet.Identity;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<PechinchaMarketUser> _userManager;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
         private readonly SignInManager<PechinchaMarketUser> _signInManager;
         private readonly DBPechinchaMarketContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public IndexModel(
-            UserManager<PechinchaMarketUser> userManager,
+            Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
             SignInManager<PechinchaMarketUser> signInManager,
             DBPechinchaMarketContext context,
             IWebHostEnvironment webHostEnvironment,
@@ -94,6 +95,16 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public class InputModel
         {
+            /// <summary>
+            ///  Image that represents the user of type Comerciante
+            /// </summary>
+
+            [Required]
+            [Display(Name ="Logo")]
+            public IFormFile Logo { get; set; }
+
+
+
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Nome")]
@@ -152,6 +163,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             
             [Display(Name = "Preferências")]
             public bool[] Preferences { get; set; }
+
+            
         }
 
         private async Task LoadAsync(PechinchaMarketUser user)
@@ -516,6 +529,37 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
+            StatusMessage = "Your profile has been updated";
+            return RedirectToPage();
+        }
+
+        public async Task<ActionResult> OnPostChangePhotoComercianteAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            removeAllFromModelStateBut("Input.Logo");
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+          
+
+            var memoryStreamImg = new MemoryStream();
+           if(Input.Logo != null)
+            {
+                await Input.Logo.CopyToAsync(memoryStreamImg);
+            }
+           
+           
+
+            var userId = _userManager.GetUserId(User);
+            Comerciante comerciante = _context.Comerciante.Where(c => c.UserId.Equals(userId)).FirstOrDefault();
+            comerciante.logo = memoryStreamImg.ToArray();
+
+            await _context.SaveChangesAsync();
+
+            await _signInManager.RefreshSignInAsync(user);
+          
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
