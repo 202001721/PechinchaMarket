@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -140,32 +141,114 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto.FindAsync(id);
-            if (produto == null)
-            {
-                return NotFound();
-            }
-            return View(produto);
-        }
+            var model = _context.Produto.Include(x => x.ProdutoLojas).ThenInclude(x => x.Loja).Where(x => x.Id == id).FirstOrDefault();
 
+            return View(model);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="produto"></param>
+        /// <param name="price"></param>
+        /// <param name="discount"></param>
+        /// <param name="file"></param>
+        /// <param name="duration"></param>
+        /// <returns></returns>
         // POST: Produtos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto, float[] price, float[] discount, IFormFile file, string[] duration)
         {
             if (id != produto.Id)
             {
                 return NotFound();
             }
 
+            ModelState.Remove("file");
+            ModelState.Remove("discount");
+            ModelState.Remove("duration");
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(produto);
+                    var produtoToUpdate = await _context.Produto
+                        .Include(p => p.ProdutoLojas)
+                        .FirstOrDefaultAsync(p => p.Id == id);
+
+                    if (produtoToUpdate == null)
+                    {
+                        return NotFound();
+                    }
+
+                    if (file != null)
+                    {
+                        // Atualizar a imagem do produto, se for o caso
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(memoryStream);
+                            produtoToUpdate.Image = memoryStream.ToArray();
+                        }
+                        _context.Update(produtoToUpdate);
+                    }
+
+                    //Atualizar o campo Price
+                    if (price != null)
+                    {
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        {
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                           
+                            currentProdutoLoja.Price = price[i];
+
+                            _context.Update(currentProdutoLoja);
+                        }
+                    }
+
+                    // Atualizar o campo Discount
+                    if ( discount != null)
+                    {
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        {
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                            
+                            currentProdutoLoja.Discount = discount[i];
+
+                            _context.Update(currentProdutoLoja);
+                        }
+                    }
+
+                    if (duration != null)
+                    {
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < duration.Length; i++)
+                        {
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                            if (!string.IsNullOrEmpty(duration[i]) && duration[i].Contains("-"))
+                            {
+                                var durationParts = duration[i].Split('-');
+                                if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
+                                {
+                                    // Atualizar os campos StartDiscount e EndDiscount
+                                    currentProdutoLoja.StartDiscount = inicioPromocao;
+                                    currentProdutoLoja.EndDiscount = fimPromocao;
+                                    _context.Update(currentProdutoLoja);
+                                }
+                                else
+                                {
+                                    TempData["alertMessage"] = "Formato inválido para a duração";
+                                }
+                            }
+                        }
+
                     await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -178,10 +261,14 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
+                await _context.SaveChangesAsync();
             }
-            return View(produto);
+            
+            return RedirectToAction(nameof(Index));
         }
+
+        
 
         // GET: Produtos/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -220,5 +307,6 @@ namespace PechinchaMarket.Controllers
         {
             return _context.Produto.Any(e => e.Id == id);
         }
+        
     }
 }
