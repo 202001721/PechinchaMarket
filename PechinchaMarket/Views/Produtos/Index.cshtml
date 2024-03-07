@@ -23,9 +23,11 @@
 </div>
 
     <section class="containers">
-        <form asp-controller="Produtos" asp-action="Create">
-            <button type="submit" class="botoes"> Adicionar </button>
-     </form>
+
+        <button class="botoes">  <a asp-action="Create"> Adicionar produto </a></button>
+
+     
+     
         
 
         @foreach (var item in Model)
