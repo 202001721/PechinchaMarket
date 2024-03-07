@@ -34,7 +34,7 @@
                 <hr />
                     <div class="precoUnidade form-group">
                         <div class="preco">
-                            <input class="form-control" id="price" onchange="changePrice()" placeholder="€" value="">
+                            <input class="form-control" id="price" onchange="changePrice()" placeholder="€" value="" min="1" max="999">
                         </div>
                          €/ 
                         <div class="unidade">
@@ -48,7 +48,7 @@
                     <div id="descontos" class="desconto form-group">
                        <div class="">
                             <label for="valor">Valor: </label>
-                                <input class="form-control custom-input" id="valor" onchange="changeDiscount()"/>
+                            <input class="form-control custom-input" id="valor" onchange="changeDiscount()" min="1" max="999"/>
                         </div> %
                         <div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
@@ -102,10 +102,10 @@
                                             @Html.DisplayFor(modelItem => pl.Loja.Address)
                                         </td>
                                         <td>
-                                            <input type="number" id="priceInput" name="price" class="prices custom-input" value="@pl.Price" /> €
+                                            <input type="number" id="priceInput" name="price" class="prices custom-input" value="@pl.Price" min="1" max="999" /> €
                                         </td>
                                         <td>
-                                            <input type="number"  name="discount" class="discount custom-input" value="@pl.Discount"/> %
+                                            <input type="number" name="discount" class="discount custom-input" value="@pl.Discount" min="1" max="999" /> %
                                         </td>
                                         <td>
 
