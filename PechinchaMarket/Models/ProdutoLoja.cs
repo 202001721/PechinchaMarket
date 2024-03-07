@@ -24,11 +24,13 @@ namespace PechinchaMarket.Models
         [Display(Name = "Desconto")]
         public float? Discount { get; set;}
 
-        /// <summary>
-        /// Tempo de duração do disconto
-        /// </summary>
-        [Display(Name = "Duração do desconto")]
-        public DateTime? DiscountDuration { get; set;}
+        [Display(Name = "Inicio do desconto")]
+        [DataType(DataType.Date)]
+        public DateTime? StartDiscount { get; set;}
+        [Display(Name = "Fim do desconto")]
+        [DataType(DataType.Date)]
+        public DateTime? EndDiscount { get; set; }
+
 
         /// <summary>
         /// O produto que ira ser posto a venda na loja
