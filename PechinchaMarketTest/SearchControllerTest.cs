@@ -21,15 +21,14 @@ namespace PechinchaMarketTest
     {
         private DBPechinchaMarketContext _context;
         private UserManager<PechinchaMarketUser> _userManager;
-        private readonly IWebHostEnvironment _webHostEnvironment;
+        private IWebHostEnvironment _webHostEnvironment;
         private Produto produto;
         private ProdutoLoja produtoLoja;
         private Cliente cliente;
 
-        public SearchControllerTest(ApplicationDbContextFixture context, IWebHostEnvironment webHostEnvironment)
+        public SearchControllerTest(ApplicationDbContextFixture context)
         {
             _context = context.DbContext;
-            _webHostEnvironment = webHostEnvironment;
 
             Restart_Context();
         }
@@ -52,6 +51,13 @@ namespace PechinchaMarketTest
             userMgr.Setup(s => s.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("1");
 
             _userManager = userMgr.Object;
+            //
+
+            var mockEnvironment = new Mock<IWebHostEnvironment>();
+            mockEnvironment
+                .Setup(m => m.WebRootPath)
+                .Returns("wwwroot");
+            _webHostEnvironment = mockEnvironment.Object;
 
             produto = new Produto
             {

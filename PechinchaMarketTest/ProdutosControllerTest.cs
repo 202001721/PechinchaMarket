@@ -142,8 +142,8 @@ namespace PechinchaMarketTest
             stream.Position = 0;
             IFormFile file = new FormFile(stream, 0, stream.Length, "id_from_form", fileName);
 
-            //var result = await controller.Edit(1, produto, [2], [10], file, "10/10/2024 - 11/11/2024");
-            //var viewResult = Assert.IsType<RedirectToActionResult>(result);
+            var result = await controller.Edit(1, produto, [2], [10], file, ["10/10/2024 - 11/11/2024"]);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
         }
     }
