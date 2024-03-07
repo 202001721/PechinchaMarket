@@ -128,18 +128,31 @@ namespace PechinchaMarket.Controllers
 
             return View(model);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="produto"></param>
+        /// <param name="price"></param>
+        /// <param name="discount"></param>
+        /// <param name="file"></param>
+        /// <param name="duration"></param>
+        /// <returns></returns>
         // POST: Produtos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto, float[] price, float[] discount, IFormFile file, string duration)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria")] Produto produto, float[] price, float[] discount, IFormFile file, string[] duration)
         {
             if (id != produto.Id)
             {
                 return NotFound();
             }
+
+            ModelState.Remove("file");
+            ModelState.Remove("discount");
+            ModelState.Remove("duration");
 
             if (ModelState.IsValid)
             {
@@ -162,45 +175,61 @@ namespace PechinchaMarket.Controllers
                             await file.CopyToAsync(memoryStream);
                             produtoToUpdate.Image = memoryStream.ToArray();
                         }
+                        _context.Update(produtoToUpdate);
                     }
 
-                    if (!string.IsNullOrEmpty(duration) && duration.Contains("-"))
+                    //Atualizar o campo Price
+                    if (price != null)
                     {
-                        var durationParts = duration.Split('-');
-                        if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
                         {
-                            var userId = _userManager.GetUserId(User);
-                            List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
-                            if (!lojas.IsNullOrEmpty())
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                           
+                            currentProdutoLoja.Price = price[i];
+
+                            _context.Update(currentProdutoLoja);
+                        }
+                    }
+
+                    // Atualizar o campo Discount
+                    if ( discount != null)
+                    {
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        {
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                            
+                            currentProdutoLoja.Discount = discount[i];
+
+                            _context.Update(currentProdutoLoja);
+                        }
+                    }
+
+                    if (duration != null)
+                    {
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < duration.Length; i++)
+                        {
+                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
+
+                            if (!string.IsNullOrEmpty(duration[i]) && duration[i].Contains("-"))
                             {
-                                for (int i = 0; i < lojas.Count && i < produtoToUpdate.ProdutoLojas.Count; i++)
+                                var durationParts = duration[i].Split('-');
+                                if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
                                 {
-                                    var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
-
-                                    // Atualizar os campos específicos apenas se os valores forem fornecidos
-                                    if (price != null && i < price.Length)
-                                        currentProdutoLoja.Price = price[i];
-
-                                    if (discount != null && i < discount.Length)
-                                        currentProdutoLoja.Discount = discount[i];
-
+                                    // Atualizar os campos StartDiscount e EndDiscount
                                     currentProdutoLoja.StartDiscount = inicioPromocao;
                                     currentProdutoLoja.EndDiscount = fimPromocao;
-
                                     _context.Update(currentProdutoLoja);
                                 }
+                                else
+                                {
+                                    TempData["alertMessage"] = "Formato inválido para a duração";
+                                }
                             }
-                            else
-                            {
-                                TempData["alertMessage"] = "Formato inválido para a duração";
-                            }
-                        }
-                        else
-                        {
-                            TempData["alertMessage"] = "Formato inválido para a duração";
                         }
 
-                        await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Index));
                     }
                 }
@@ -215,9 +244,14 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
+
+                await _context.SaveChangesAsync();
             }
+            
             return RedirectToAction(nameof(Index));
         }
+
+        
 
         // GET: Produtos/Delete/5
         public async Task<IActionResult> Delete(int? id)
