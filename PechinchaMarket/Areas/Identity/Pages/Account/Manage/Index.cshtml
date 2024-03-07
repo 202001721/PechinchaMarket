@@ -267,6 +267,28 @@
                         </div>
                     </form>
                 </div>
+
+
+                <div class="background-constrast-color small-padding rounded-border">
+                    <form asp-page-handler="ChangePreferences" id="preferences-form" method="post" class="row-container edges-flex">
+                        <div class="">
+                            <label asp-for="Input.Preferences" class="preferences-label"></label>
+                            <div class ="row-container wrap-flex small-gap preferences-parent">
+                                @for (var i = 0; i < Model.Input.Preferences.Length; i++)
+                                {
+                                    <div class="edit-checkbox">
+                                        <input id="preference_@i" type="checkbox" asp-for="@Model.Input.Preferences[i]"/>
+                                        <label for="preference_@i">@Model.PreferencesLabels[i]</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="row-container smaller-gap-x">
+                            <button type="submit" class="pechincha-button main-button-color off-screen">Salvar</button>
+                            <div class="pechincha-button default-button-color" onclick="preferencesEditableField(this)">Editar</div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -341,6 +363,28 @@
                     element.style.height = element.children[0].getBoundingClientRect().height + 'px';
                 }
             }
+        });
+
+        elemtToHide.classList.toggle('off-screen');
+
+        if (elemtToHide.classList.contains('off-screen')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }   
+    }
+
+    function preferencesEditableField(button) { 
+    var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input[type="checkbox"]');
+        inputs.forEach(function (input) {
+            if (!input.checked) {
+                input.parentNode.classList.toggle('display-none');
+            }
+
+            input.disabled = !input.disabled;
         });
 
         elemtToHide.classList.toggle('off-screen');
@@ -434,5 +478,17 @@
         });
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById("preferences-form");
+
+        var inputs = form.querySelectorAll('input[type="checkbox"]');
+        inputs.forEach(function (input) {
+            if (!input.checked) {
+                input.parentNode.classList.toggle('display-none');
+            }
+
+            input.disabled = !input.disabled;
+        });
+    });
     
 </script>

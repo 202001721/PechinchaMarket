@@ -1440,3 +1440,51 @@ a.default-button-color:hover::before {
         position: absolute;
         margin-left: var(--root-huge-icon-size);
     }
+
+.preferences-parent {
+    max-width: 300px;
+}
+
+.preferences-label {
+    position: relative;
+    height: fit-content;
+    padding-left: 8px;
+    padding-right: 8px;
+    bottom: calc(var(--root-text-size) - 2px);
+    left: 10px;
+}
+
+    .preferences-label ~ * {
+        position: relative;
+        bottom: calc(var(--root-text-size) - 2px);
+    }
+
+.edit-checkbox label {
+    width: 120%;
+    height: calc((var(--root-form-button-padding-up-and-down) * 2) + 1em);
+    background-color: var(--root-background-content-color);
+    text-align: center;
+    outline: 1px solid var(--root-border-color-to-default-background-container);
+    border-radius: var(--root-checkbox-border-radius);
+    outline-offset: -1px;
+    color: var(--root-text-color);
+    cursor: pointer;
+}
+
+.edit-checkbox input:disabled ~ label {
+    background-color: var(--root-background-contrast-color-2);
+    outline-width: 3px !important;
+}
+
+.edit-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+    .edit-checkbox input[type="checkbox"]:checked ~ label {
+        outline-color: var(--root-main-color);
+        outline-width: 3px;
+    }
+
+    .edit-checkbox input[type="checkbox"]:hover ~ label {
+        filter: brightness(0.95);
+    }

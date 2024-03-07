@@ -56,6 +56,24 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public bool IsEmailConfirmed { get; set; }
 
+        /**
+         * 1 - Categoria.Enlatados.ToString(),
+         * 2 - Categoria.Frescos.ToString(),
+         * 3 -  Categoria.Biologicos.ToString(),
+         * 4 -  Categoria.Congelados.ToString(),
+         * 5 -  Categoria.Pastelaria.ToString(),
+         * 6 -  Categoria.Talho.ToString(),
+         * 7 -  Categoria.Peixaria.ToString(),
+         * 8 -  Categoria.Charcutaria.ToString(),
+         * 9 -  Categoria.Bebidas.ToString(),
+         * 10 -  Categoria.Vegan.ToString(),
+         * 11 -  Categoria.Doces.ToString(),
+         * 12 -  Categoria.Snacks.ToString(),
+         * 13 -  Categoria.BebidasAlcoólicas.ToString()
+         */
+        public string[] PreferencesLabels { get; set; } = Enum.GetNames(typeof(Categoria));
+
+
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
@@ -131,7 +149,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             [Display(Name ="Selecione uma foto")]
             public string NewPhoto { get; set; }
 
-
+            
+            [Display(Name = "Preferências")]
+            public bool[] Preferences { get; set; }
         }
 
         private async Task LoadAsync(PechinchaMarketUser user)
@@ -141,6 +161,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
             var userPhoto = 0;
             var userLocation = "";
+            bool[] userPreferences = Enumerable.Repeat(false, Enum.GetNames(typeof(Categoria)).Count()).ToArray(); ;
 
             if (user != null)
             {
@@ -192,6 +213,15 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                             break;
                         }
                     }
+
+                    var userPreferencesContext = _context.Cliente.Where(x => x.UserId.Equals(userId)).Select(x => x.Preferencias).FirstOrDefault().ToArray();
+                    for (int i = 0; i < Enum.GetNames(typeof(Categoria)).Length; i++) {
+                        foreach (var contextpreference in userPreferencesContext) {
+                            if (contextpreference.ToString().Equals(Enum.GetNames(typeof(Categoria))[i])) {
+                                userPreferences[i] = true;
+                            }
+                        }
+                    }
                 }
                 else if (User.IsInRole("Manager"))
                 {
@@ -207,6 +237,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 UserName = userName,
                 Location = userLocation,
                 NewPhoto = userPhoto.ToString(),
+                Preferences = userPreferences,
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
@@ -489,6 +520,48 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             return RedirectToPage();
         }
 
+        public async Task<IActionResult> OnPostChangePreferencesAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            removeAllFromModelStateBut("Input.Preferences");
+            if (!ModelState.IsValid)
+            {
+                await LoadAsync(user);
+                return Page();
+            }
+
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+
+            List<Categoria> newPreferences = new List<Categoria>();
+            for (int i = 0; i < Input.Preferences.Length; i++)
+            {
+                if (Input.Preferences[i])
+                    newPreferences.Add((Categoria)i);
+            }
+
+            if (!ListsAreEqual(newPreferences, cliente.Preferencias))
+            {
+                cliente.Preferencias = newPreferences;
+                var changes = _context.SaveChanges();
+
+                if (changes == 0)
+                {
+                    StatusMessage = "Unexpected error when trying to set preferences.";
+                    return RedirectToPage();
+                }
+            }
+
+            await _signInManager.RefreshSignInAsync(user);
+            StatusMessage = "Your profile has been updated";
+            return RedirectToPage();
+        }
+
 
         /// <summary>
         /// Enviar email ao utilizador que se registou
@@ -564,6 +637,27 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
             }
             return equal;
+        }
+
+        public static bool ListsAreEqual<T>(List<T> list1, List<T> list2)
+        {
+            if (list1.Count != list2.Count)
+            {
+                return false;
+            }
+
+            var dict1 = list1.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+            var dict2 = list2.GroupBy(x => x).ToDictionary(g => g.Key, g => g.Count());
+
+            foreach (var key in dict1.Keys)
+            {
+                if (!dict2.ContainsKey(key) || dict1[key] != dict2[key])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void removeAllFromModelStateBut(params string[] propertyNames)
