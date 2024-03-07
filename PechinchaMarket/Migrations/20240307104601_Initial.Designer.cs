@@ -12,7 +12,7 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240307102229_Initial")]
+    [Migration("20240307104601_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace PechinchaMarket.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -228,6 +228,9 @@ namespace PechinchaMarket.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Localizacao")
                         .IsRequired()

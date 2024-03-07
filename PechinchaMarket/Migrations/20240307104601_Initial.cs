@@ -58,7 +58,8 @@ namespace PechinchaMarket.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Preferencias = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Localizacao = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
