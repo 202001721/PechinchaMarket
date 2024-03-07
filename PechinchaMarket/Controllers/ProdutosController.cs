@@ -123,7 +123,11 @@ namespace PechinchaMarket.Controllers
             return View(produto);
         }
 
-
+        /// <summary>
+        /// Função Edit - utilizada quando o comerciante pretende editar um produto
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>View com opções de edição do produto</returns>
         // GET: Produtos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -137,6 +141,16 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Função Edit httpPost - utilizada quando o comerciante realiza submit do formulário de edição de um produto
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <param name="produto">informação do produto a ser atualizada</param>
+        /// <param name="price">novo preço do produto</param>
+        /// <param name="discount">desconto do produto</param>
+        /// <param name="file">imagem do produto</param>
+        /// <param name="duration">duração do desconto</param>
+        /// <returns>View da lista de produtos</returns>
         // POST: Produtos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

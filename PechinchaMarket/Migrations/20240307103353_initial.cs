@@ -250,7 +250,8 @@ namespace PechinchaMarket.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<float>(type: "real", nullable: false),
                     Discount = table.Column<float>(type: "real", nullable: true),
-                    DiscountDuration = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    StartDiscount = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EndDiscount = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
                     LojaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },

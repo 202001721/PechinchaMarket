@@ -26,12 +26,10 @@ IAction\+Result {\bfseries Create} ()
 \item 
 async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a0dc774141bc57f7cc703dcb9a898cb8c}{Create}} (\mbox{[}Bind("{}Id,Name,Brand,Image,Weight,Unidade,Prod\+Categoria"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} produto, IForm\+File file, float\mbox{[}$\,$\mbox{]} price)
 \begin{DoxyCompactList}\small\item\em Função Create -\/ Utilizada quando o comerciante pretende criar um novo produto. \end{DoxyCompactList}\item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_aaacdc141e055c561dc8341316b7dc61b}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_aaacdc141e055c561dc8341316b7dc61b} 
-async Task$<$ IAction\+Result $>$ {\bfseries Edit} (int? id)
-\item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a4034e5d0fcba20e758dc8121597af632}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a4034e5d0fcba20e758dc8121597af632} 
-async Task$<$ IAction\+Result $>$ {\bfseries Edit} (int id, \mbox{[}Bind("{}Id,Name,Brand,Image,Weight,Unidade,Prod\+Estado,Prod\+Categoria"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} produto)
-\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_produtos_controller_aaacdc141e055c561dc8341316b7dc61b}{Edit}} (int? id)
+\begin{DoxyCompactList}\small\item\em Função Edit -\/ utilizada quando o comerciante pretende editar um produto. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a174062bbb81b7d3f5207242ede925e08}{Edit}} (int id, \mbox{[}Bind("{}Id,Name,Brand,Image,Weight,Unidade,Prod\+Estado,Prod\+Categoria"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} produto, float\mbox{[}$\,$\mbox{]} price, float\mbox{[}$\,$\mbox{]} discount, IForm\+File file, string duration)
+\begin{DoxyCompactList}\small\item\em Função Edit http\+Post -\/ utilizada quando o comerciante realiza submit do formulário de edição de um produto. \end{DoxyCompactList}\item 
 \Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_ad4cc18050088983dda130f70389c6ef4}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_ad4cc18050088983dda130f70389c6ef4} 
 async Task$<$ IAction\+Result $>$ {\bfseries Delete} (int? id)
 \item 
@@ -62,6 +60,52 @@ Função Create -\/ Utilizada quando o comerciante pretende criar um novo produt
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 View da lista dos produtos do comerciante
+\end{DoxyReturn}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a174062bbb81b7d3f5207242ede925e08}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a174062bbb81b7d3f5207242ede925e08} 
+\index{PechinchaMarket.Controllers.ProdutosController@{PechinchaMarket.Controllers.ProdutosController}!Edit@{Edit}}
+\index{Edit@{Edit}!PechinchaMarket.Controllers.ProdutosController@{PechinchaMarket.Controllers.ProdutosController}}
+\doxysubsubsection{\texorpdfstring{Edit()}{Edit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Produtos\+Controller.\+Edit (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{[}\+Bind("{}\+Id,\+Name,\+Brand,\+Image,\+Weight,\+Unidade,\+Prod\+Estado,\+Prod\+Categoria"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}}}]{produto,  }\item[{float\mbox{[}$\,$\mbox{]}}]{price,  }\item[{float\mbox{[}$\,$\mbox{]}}]{discount,  }\item[{IForm\+File}]{file,  }\item[{string}]{duration }\end{DoxyParamCaption})}
+
+
+
+Função Edit http\+Post -\/ utilizada quando o comerciante realiza submit do formulário de edição de um produto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id do produto\\
+\hline
+{\em produto} & informação do produto a ser atualizada\\
+\hline
+{\em price} & novo preço do produto\\
+\hline
+{\em discount} & desconto do produto\\
+\hline
+{\em file} & imagem do produto\\
+\hline
+{\em duration} & duração do desconto\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View da lista de produtos
+\end{DoxyReturn}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_aaacdc141e055c561dc8341316b7dc61b}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_aaacdc141e055c561dc8341316b7dc61b} 
+\index{PechinchaMarket.Controllers.ProdutosController@{PechinchaMarket.Controllers.ProdutosController}!Edit@{Edit}}
+\index{Edit@{Edit}!PechinchaMarket.Controllers.ProdutosController@{PechinchaMarket.Controllers.ProdutosController}}
+\doxysubsubsection{\texorpdfstring{Edit()}{Edit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Produtos\+Controller.\+Edit (\begin{DoxyParamCaption}\item[{int?}]{id }\end{DoxyParamCaption})}
+
+
+
+Função Edit -\/ utilizada quando o comerciante pretende editar um produto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id do produto\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View com opções de edição do produto
 \end{DoxyReturn}
 
 

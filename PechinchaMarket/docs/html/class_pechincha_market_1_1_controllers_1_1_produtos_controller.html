@@ -110,12 +110,12 @@ IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (
 <tr class="memitem:a0dc774141bc57f7cc703dcb9a898cb8c" id="r_a0dc774141bc57f7cc703dcb9a898cb8c"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dc774141bc57f7cc703dcb9a898cb8c">Create</a> ([Bind(&quot;Id,Name,Brand,Image,Weight,Unidade,ProdCategoria&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_produto.html">Produto</a> produto, IFormFile file, float[] price)</td></tr>
 <tr class="memdesc:a0dc774141bc57f7cc703dcb9a898cb8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função Create - Utilizada quando o comerciante pretende criar um novo produto.  <br /></td></tr>
 <tr class="separator:a0dc774141bc57f7cc703dcb9a898cb8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaacdc141e055c561dc8341316b7dc61b" id="r_aaacdc141e055c561dc8341316b7dc61b"><td class="memItemLeft" align="right" valign="top"><a id="aaacdc141e055c561dc8341316b7dc61b" name="aaacdc141e055c561dc8341316b7dc61b"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Edit</b> (int? id)</td></tr>
+<tr class="memitem:aaacdc141e055c561dc8341316b7dc61b" id="r_aaacdc141e055c561dc8341316b7dc61b"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaacdc141e055c561dc8341316b7dc61b">Edit</a> (int? id)</td></tr>
+<tr class="memdesc:aaacdc141e055c561dc8341316b7dc61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função Edit - utilizada quando o comerciante pretende editar um produto.  <br /></td></tr>
 <tr class="separator:aaacdc141e055c561dc8341316b7dc61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4034e5d0fcba20e758dc8121597af632" id="r_a4034e5d0fcba20e758dc8121597af632"><td class="memItemLeft" align="right" valign="top"><a id="a4034e5d0fcba20e758dc8121597af632" name="a4034e5d0fcba20e758dc8121597af632"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Edit</b> (int id, [Bind(&quot;Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_produto.html">Produto</a> produto)</td></tr>
-<tr class="separator:a4034e5d0fcba20e758dc8121597af632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a174062bbb81b7d3f5207242ede925e08" id="r_a174062bbb81b7d3f5207242ede925e08"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a174062bbb81b7d3f5207242ede925e08">Edit</a> (int id, [Bind(&quot;Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_produto.html">Produto</a> produto, float[] price, float[] discount, IFormFile file, string duration)</td></tr>
+<tr class="memdesc:a174062bbb81b7d3f5207242ede925e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função Edit httpPost - utilizada quando o comerciante realiza submit do formulário de edição de um produto.  <br /></td></tr>
+<tr class="separator:a174062bbb81b7d3f5207242ede925e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4cc18050088983dda130f70389c6ef4" id="r_ad4cc18050088983dda130f70389c6ef4"><td class="memItemLeft" align="right" valign="top"><a id="ad4cc18050088983dda130f70389c6ef4" name="ad4cc18050088983dda130f70389c6ef4"></a>
 async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Delete</b> (int? id)</td></tr>
 <tr class="separator:ad4cc18050088983dda130f70389c6ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,6 +158,87 @@ async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bot
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>View da lista dos produtos do comerciante</dd></dl>
+
+</div>
+</div>
+<a id="a174062bbb81b7d3f5207242ede925e08" name="a174062bbb81b7d3f5207242ede925e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a174062bbb81b7d3f5207242ede925e08">&#9670;&#160;</a></span>Edit() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ProdutosController.Edit </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[Bind(&quot;Id,Name,Brand,Image,Weight,Unidade,ProdEstado,ProdCategoria&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_produto.html">Produto</a></td>          <td class="paramname"><span class="paramname"><em>produto</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float[]</td>          <td class="paramname"><span class="paramname"><em>price</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float[]</td>          <td class="paramname"><span class="paramname"><em>discount</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IFormFile</td>          <td class="paramname"><span class="paramname"><em>file</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função Edit httpPost - utilizada quando o comerciante realiza submit do formulário de edição de um produto. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>id do produto</td></tr>
+    <tr><td class="paramname">produto</td><td>informação do produto a ser atualizada</td></tr>
+    <tr><td class="paramname">price</td><td>novo preço do produto</td></tr>
+    <tr><td class="paramname">discount</td><td>desconto do produto</td></tr>
+    <tr><td class="paramname">file</td><td>imagem do produto</td></tr>
+    <tr><td class="paramname">duration</td><td>duração do desconto</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View da lista de produtos</dd></dl>
+
+</div>
+</div>
+<a id="aaacdc141e055c561dc8341316b7dc61b" name="aaacdc141e055c561dc8341316b7dc61b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaacdc141e055c561dc8341316b7dc61b">&#9670;&#160;</a></span>Edit() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ProdutosController.Edit </td>
+          <td>(</td>
+          <td class="paramtype">int?</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função Edit - utilizada quando o comerciante pretende editar um produto. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>id do produto</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View com opções de edição do produto</dd></dl>
 
 </div>
 </div>
