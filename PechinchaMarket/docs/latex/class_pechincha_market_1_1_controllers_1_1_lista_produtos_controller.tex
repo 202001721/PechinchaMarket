@@ -1,5 +1,10 @@
 \doxysection{Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller Class Reference}
 \hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller}{}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller}\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+
+
+Controller para as listas de produtos dos clientes.  
+
+
 Inheritance diagram for Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,30 +17,24 @@ Inheritance diagram for Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Contr
 \Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac52211c5ffbd142ec8fbc3591b8b4a55}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac52211c5ffbd142ec8fbc3591b8b4a55} 
 {\bfseries Lista\+Produtos\+Controller} (\mbox{\hyperlink{class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_d_b_pechincha_market_context}{DBPechincha\+Market\+Context}} context, Microsoft.\+Asp\+Net\+Core.\+Identity.\+User\+Manager$<$ \mbox{\hyperlink{class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_pechincha_market_user}{Pechincha\+Market\+User}} $>$ user\+Manager)
 \item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a7edd9b4a4fd6a1fdbccafcb9b298c96b}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a7edd9b4a4fd6a1fdbccafcb9b298c96b} 
-async Task$<$ IAction\+Result $>$ {\bfseries Index} ()
-\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a7edd9b4a4fd6a1fdbccafcb9b298c96b}{Index}} ()
+\begin{DoxyCompactList}\small\item\em Função Index -\/ Utilizada quando o cliente prentende ver as suas listas. \end{DoxyCompactList}\item 
 \Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a0e835dac71c933b53ee9741041ede6c9}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a0e835dac71c933b53ee9741041ede6c9} 
 async Task$<$ IAction\+Result $>$ {\bfseries Details} (Guid? id)
 \item 
 \Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a8c1ce9fed18b9fa9b98152406afe0bd6}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a8c1ce9fed18b9fa9b98152406afe0bd6} 
 IAction\+Result {\bfseries Create} ()
 \item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac305938038dab03c8377040a1cd1718a}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac305938038dab03c8377040a1cd1718a} 
-async Task$<$ IAction\+Result $>$ {\bfseries Create} (\mbox{[}Bind("{}Id,name,Cliente\+Id,state"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_lista_produtos}{Lista\+Produtos}} lista\+Produtos)
-\item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a6787bfe1db4cdba47a5063b98dc792eb}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a6787bfe1db4cdba47a5063b98dc792eb} 
-async Task$<$ IAction\+Result $>$ {\bfseries Edit} (Guid? id)
-\item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a05731939a16daa9f4a82e6e519e47dff}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a05731939a16daa9f4a82e6e519e47dff} 
-async Task$<$ IAction\+Result $>$ {\bfseries Change\+Name} (Guid id, string name)
-\item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ad58b82a1f0a848a4f7be99e9187aa456}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ad58b82a1f0a848a4f7be99e9187aa456} 
-async Task$<$ IAction\+Result $>$ {\bfseries Delete\+Many} (Guid id, Guid\mbox{[}$\,$\mbox{]} deletes)
-\item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a9171f14069ac52d4c219a1b5a9de8496}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a9171f14069ac52d4c219a1b5a9de8496} 
-File\+Content\+Result {\bfseries Create\+Document} (Guid id, string conteudo, string ficheiro)
-\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac305938038dab03c8377040a1cd1718a}{Create}} (\mbox{[}Bind("{}Id,name,Cliente\+Id,state"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_lista_produtos}{Lista\+Produtos}} lista\+Produtos)
+\begin{DoxyCompactList}\small\item\em Função Create -\/ Utilizada pelo cliente quando pretende criar uma nova lista. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a6787bfe1db4cdba47a5063b98dc792eb}{Edit}} (Guid? id)
+\begin{DoxyCompactList}\small\item\em Função Edit -\/ utilizada quando o cliente pretende editar ou visualizar uma das suas listas. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a05731939a16daa9f4a82e6e519e47dff}{Change\+Name}} (Guid id, string name)
+\begin{DoxyCompactList}\small\item\em Função Change\+Name -\/ utilizada quando o cliente pretende mudar o nome da sua lista. \end{DoxyCompactList}\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ad58b82a1f0a848a4f7be99e9187aa456}{Delete\+Many}} (Guid id, Guid\mbox{[}$\,$\mbox{]} deletes)
+\begin{DoxyCompactList}\small\item\em Função Delete\+Many -\/ Utilizada quando o cliente quer eliminar produtos especificos da sua lista. \end{DoxyCompactList}\item 
+File\+Content\+Result \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a9171f14069ac52d4c219a1b5a9de8496}{Create\+Document}} (Guid id, string conteudo, string ficheiro)
+\begin{DoxyCompactList}\small\item\em Função Create\+Document -\/ Utilizada quando o utilizador pretende criar um documento com a sua lista. \end{DoxyCompactList}\item 
 \Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a1689ca1e2f818c3f44bb1e0b84dd8838}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a1689ca1e2f818c3f44bb1e0b84dd8838} 
 async Task$<$ IAction\+Result $>$ {\bfseries Edit} (Guid id, \mbox{[}Bind("{}Id,name,Cliente\+Id,state"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_lista_produtos}{Lista\+Produtos}} lista\+Produtos)
 \item 
@@ -50,6 +49,123 @@ async Task$<$ IAction\+Result $>$ {\bfseries Show} (Guid? id)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Controller para as listas de produtos dos clientes. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a05731939a16daa9f4a82e6e519e47dff}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a05731939a16daa9f4a82e6e519e47dff} 
+\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}!ChangeName@{ChangeName}}
+\index{ChangeName@{ChangeName}!PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+\doxysubsubsection{\texorpdfstring{ChangeName()}{ChangeName()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller.\+Change\+Name (\begin{DoxyParamCaption}\item[{Guid}]{id,  }\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+Função Change\+Name -\/ utilizada quando o cliente pretende mudar o nome da sua lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id da lista\\
+\hline
+{\em name} & novo nome a atualizar na base de dados\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View da página de editar com o novo nome atualizado
+\end{DoxyReturn}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac305938038dab03c8377040a1cd1718a}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ac305938038dab03c8377040a1cd1718a} 
+\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}!Create@{Create}}
+\index{Create@{Create}!PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller.\+Create (\begin{DoxyParamCaption}\item[{\mbox{[}\+Bind("{}\+Id,name,\+Cliente\+Id,state"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_lista_produtos}{Lista\+Produtos}}}]{lista\+Produtos }\end{DoxyParamCaption})}
+
+
+
+Função Create -\/ Utilizada pelo cliente quando pretende criar uma nova lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+Produtos} & Nova lista a ser adicionada à base de dados\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View com a lista das suas listas
+\end{DoxyReturn}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a9171f14069ac52d4c219a1b5a9de8496}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a9171f14069ac52d4c219a1b5a9de8496} 
+\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}!CreateDocument@{CreateDocument}}
+\index{CreateDocument@{CreateDocument}!PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+\doxysubsubsection{\texorpdfstring{CreateDocument()}{CreateDocument()}}
+{\footnotesize\ttfamily File\+Content\+Result Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller.\+Create\+Document (\begin{DoxyParamCaption}\item[{Guid}]{id,  }\item[{string}]{conteudo,  }\item[{string}]{ficheiro }\end{DoxyParamCaption})}
+
+
+
+Função Create\+Document -\/ Utilizada quando o utilizador pretende criar um documento com a sua lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id da lista\\
+\hline
+{\em conteudo} & tipo de conteudo selecionado, entre simples e ilustrativo\\
+\hline
+{\em ficheiro} & tipo de ficheiro selecioando, entre pdf e png\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Novo ficheiro com as definições pretendidas
+\end{DoxyReturn}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ad58b82a1f0a848a4f7be99e9187aa456}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_ad58b82a1f0a848a4f7be99e9187aa456} 
+\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}!DeleteMany@{DeleteMany}}
+\index{DeleteMany@{DeleteMany}!PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+\doxysubsubsection{\texorpdfstring{DeleteMany()}{DeleteMany()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller.\+Delete\+Many (\begin{DoxyParamCaption}\item[{Guid}]{id,  }\item[{Guid\mbox{[}$\,$\mbox{]}}]{deletes }\end{DoxyParamCaption})}
+
+
+
+Função Delete\+Many -\/ Utilizada quando o cliente quer eliminar produtos especificos da sua lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id da lista\\
+\hline
+{\em deletes} & lista de ids de produtos da lista que se pretende eliminar\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View da página de editar com os produtos removidos
+\end{DoxyReturn}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a6787bfe1db4cdba47a5063b98dc792eb}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a6787bfe1db4cdba47a5063b98dc792eb} 
+\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}!Edit@{Edit}}
+\index{Edit@{Edit}!PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+\doxysubsubsection{\texorpdfstring{Edit()}{Edit()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller.\+Edit (\begin{DoxyParamCaption}\item[{Guid?}]{id }\end{DoxyParamCaption})}
+
+
+
+Função Edit -\/ utilizada quando o cliente pretende editar ou visualizar uma das suas listas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id da lista\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View da lista pretendida
+\end{DoxyReturn}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a7edd9b4a4fd6a1fdbccafcb9b298c96b}\label{class_pechincha_market_1_1_controllers_1_1_lista_produtos_controller_a7edd9b4a4fd6a1fdbccafcb9b298c96b} 
+\index{PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}!Index@{Index}}
+\index{Index@{Index}!PechinchaMarket.Controllers.ListaProdutosController@{PechinchaMarket.Controllers.ListaProdutosController}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Lista\+Produtos\+Controller.\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Função Index -\/ Utilizada quando o cliente prentende ver as suas listas. 
+
+\begin{DoxyReturn}{Returns}
+View com uma lista das suas listas
+\end{DoxyReturn}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Controllers/Lista\+Produtos\+Controller.\+cs\end{DoxyCompactItemize}
+Pechincha\+Market/\+Pechincha\+Market/\+Controllers/Lista\+Produtos\+Controller.\+cs\end{DoxyCompactItemize}

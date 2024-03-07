@@ -68,6 +68,13 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Função Create - Utilizada quando o comerciante pretende criar um novo produto
+        /// </summary>
+        /// <param name="produto">novo produto a adicionar à base de dados</param>
+        /// <param name="file">imagem do produto</param>
+        /// <param name="price">conjunto de preços para definir estes nos ProdutoLojas definidos</param>
+        /// <returns>View da lista dos produtos do comerciante</returns>
         // POST: Produtos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

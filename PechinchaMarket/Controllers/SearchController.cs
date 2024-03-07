@@ -25,12 +25,22 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Função Search - quando o cliente pesquisa algo, a função chama a outra função SearchResults
+        /// </summary>
+        /// <param name="searchText">texto a ser pesquisado</param>
+        /// <returns>redireciona para a ação SearchResults</returns>
         [HttpPost]
         public IActionResult Search(string searchText)
         {
             return RedirectToAction("SearchResults", new { search = searchText});
         }
 
+        /// <summary>
+        /// Função SearchResults - é realizada quando o cliente pesquisa na barra de pesquisa
+        /// </summary>
+        /// <param name="search">texto inserido na barra de pesquisa</param>
+        /// <returns>View com os produtos do resultado da pesquisa</returns>
         // Action method to display search results
         public IActionResult SearchResults(string search)
         {
@@ -131,6 +141,11 @@ namespace PechinchaMarket.Controllers
             return false;
         }
 
+        /// <summary>
+        /// Função ShowImage - mostra a imagem do produto pretendido
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>ficheiro da imagem do produto</returns>
         public async Task<IActionResult> ShowImage(int? id)
         {
             if (id == null)
@@ -220,7 +235,12 @@ namespace PechinchaMarket.Controllers
             string result = name.Substring(0, index);
             return result;
         }
-          
+         
+        /// <summary>
+        /// Função AddToList - é realizada quando o cliente pretende visualizar um produto 
+        /// </summary>
+        /// <param name="id">id do produto pretendido</param>
+        /// <returns>View com os detalhes do produto em questão</returns>
         public async Task<ActionResult> AddToList(int id)
         {
                 var model = _context.Users
@@ -261,6 +281,13 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Função AddProduct - realizada quando o cliente pretende adicionar um produto à sua lista
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <param name="quantityValue">quantidade de produto</param>
+        /// <param name="nome">nome da lista</param>
+        /// <returns>View das listas do cliente</returns>
         [HttpPost, ActionName("AddProduct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddProduct(int? id, int quantityValue, string nome)
@@ -332,6 +359,11 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Função SimilarProducts - seleciona um conjunto de produtos similares ao produto a ser visualizado 
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>Lista de produtos semelhantes</returns>
         //[HttpGet]
         public List<Produto> SimilarProducts(int? id)
         {

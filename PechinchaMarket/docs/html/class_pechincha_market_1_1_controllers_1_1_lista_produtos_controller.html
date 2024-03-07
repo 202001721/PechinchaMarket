@@ -83,6 +83,9 @@ $(function() {
   <div class="headertitle"><div class="title">PechinchaMarket.Controllers.ListaProdutosController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Controller para as listas de produtos dos clientes.  
+ <a href="#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for PechinchaMarket.Controllers.ListaProdutosController:</div>
 <div class="dyncontent">
@@ -95,8 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac52211c5ffbd142ec8fbc3591b8b4a55" id="r_ac52211c5ffbd142ec8fbc3591b8b4a55"><td class="memItemLeft" align="right" valign="top"><a id="ac52211c5ffbd142ec8fbc3591b8b4a55" name="ac52211c5ffbd142ec8fbc3591b8b4a55"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ListaProdutosController</b> (<a class="el" href="class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_d_b_pechincha_market_context.html">DBPechinchaMarketContext</a> context, Microsoft.AspNetCore.Identity.UserManager&lt; <a class="el" href="class_pechincha_market_1_1_areas_1_1_identity_1_1_data_1_1_pechincha_market_user.html">PechinchaMarketUser</a> &gt; userManager)</td></tr>
 <tr class="separator:ac52211c5ffbd142ec8fbc3591b8b4a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7edd9b4a4fd6a1fdbccafcb9b298c96b" id="r_a7edd9b4a4fd6a1fdbccafcb9b298c96b"><td class="memItemLeft" align="right" valign="top"><a id="a7edd9b4a4fd6a1fdbccafcb9b298c96b" name="a7edd9b4a4fd6a1fdbccafcb9b298c96b"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> ()</td></tr>
+<tr class="memitem:a7edd9b4a4fd6a1fdbccafcb9b298c96b" id="r_a7edd9b4a4fd6a1fdbccafcb9b298c96b"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7edd9b4a4fd6a1fdbccafcb9b298c96b">Index</a> ()</td></tr>
+<tr class="memdesc:a7edd9b4a4fd6a1fdbccafcb9b298c96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função Index - Utilizada quando o cliente prentende ver as suas listas.  <br /></td></tr>
 <tr class="separator:a7edd9b4a4fd6a1fdbccafcb9b298c96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e835dac71c933b53ee9741041ede6c9" id="r_a0e835dac71c933b53ee9741041ede6c9"><td class="memItemLeft" align="right" valign="top"><a id="a0e835dac71c933b53ee9741041ede6c9" name="a0e835dac71c933b53ee9741041ede6c9"></a>
 async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Details</b> (Guid? id)</td></tr>
@@ -104,20 +107,20 @@ async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bot
 <tr class="memitem:a8c1ce9fed18b9fa9b98152406afe0bd6" id="r_a8c1ce9fed18b9fa9b98152406afe0bd6"><td class="memItemLeft" align="right" valign="top"><a id="a8c1ce9fed18b9fa9b98152406afe0bd6" name="a8c1ce9fed18b9fa9b98152406afe0bd6"></a>
 IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
 <tr class="separator:a8c1ce9fed18b9fa9b98152406afe0bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac305938038dab03c8377040a1cd1718a" id="r_ac305938038dab03c8377040a1cd1718a"><td class="memItemLeft" align="right" valign="top"><a id="ac305938038dab03c8377040a1cd1718a" name="ac305938038dab03c8377040a1cd1718a"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ([Bind(&quot;Id,name,ClienteId,state&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_lista_produtos.html">ListaProdutos</a> listaProdutos)</td></tr>
+<tr class="memitem:ac305938038dab03c8377040a1cd1718a" id="r_ac305938038dab03c8377040a1cd1718a"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac305938038dab03c8377040a1cd1718a">Create</a> ([Bind(&quot;Id,name,ClienteId,state&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_lista_produtos.html">ListaProdutos</a> listaProdutos)</td></tr>
+<tr class="memdesc:ac305938038dab03c8377040a1cd1718a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função Create - Utilizada pelo cliente quando pretende criar uma nova lista.  <br /></td></tr>
 <tr class="separator:ac305938038dab03c8377040a1cd1718a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6787bfe1db4cdba47a5063b98dc792eb" id="r_a6787bfe1db4cdba47a5063b98dc792eb"><td class="memItemLeft" align="right" valign="top"><a id="a6787bfe1db4cdba47a5063b98dc792eb" name="a6787bfe1db4cdba47a5063b98dc792eb"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Edit</b> (Guid? id)</td></tr>
+<tr class="memitem:a6787bfe1db4cdba47a5063b98dc792eb" id="r_a6787bfe1db4cdba47a5063b98dc792eb"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6787bfe1db4cdba47a5063b98dc792eb">Edit</a> (Guid? id)</td></tr>
+<tr class="memdesc:a6787bfe1db4cdba47a5063b98dc792eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função Edit - utilizada quando o cliente pretende editar ou visualizar uma das suas listas.  <br /></td></tr>
 <tr class="separator:a6787bfe1db4cdba47a5063b98dc792eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05731939a16daa9f4a82e6e519e47dff" id="r_a05731939a16daa9f4a82e6e519e47dff"><td class="memItemLeft" align="right" valign="top"><a id="a05731939a16daa9f4a82e6e519e47dff" name="a05731939a16daa9f4a82e6e519e47dff"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ChangeName</b> (Guid id, string name)</td></tr>
+<tr class="memitem:a05731939a16daa9f4a82e6e519e47dff" id="r_a05731939a16daa9f4a82e6e519e47dff"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05731939a16daa9f4a82e6e519e47dff">ChangeName</a> (Guid id, string name)</td></tr>
+<tr class="memdesc:a05731939a16daa9f4a82e6e519e47dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função ChangeName - utilizada quando o cliente pretende mudar o nome da sua lista.  <br /></td></tr>
 <tr class="separator:a05731939a16daa9f4a82e6e519e47dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad58b82a1f0a848a4f7be99e9187aa456" id="r_ad58b82a1f0a848a4f7be99e9187aa456"><td class="memItemLeft" align="right" valign="top"><a id="ad58b82a1f0a848a4f7be99e9187aa456" name="ad58b82a1f0a848a4f7be99e9187aa456"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteMany</b> (Guid id, Guid[] deletes)</td></tr>
+<tr class="memitem:ad58b82a1f0a848a4f7be99e9187aa456" id="r_ad58b82a1f0a848a4f7be99e9187aa456"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad58b82a1f0a848a4f7be99e9187aa456">DeleteMany</a> (Guid id, Guid[] deletes)</td></tr>
+<tr class="memdesc:ad58b82a1f0a848a4f7be99e9187aa456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função DeleteMany - Utilizada quando o cliente quer eliminar produtos especificos da sua lista.  <br /></td></tr>
 <tr class="separator:ad58b82a1f0a848a4f7be99e9187aa456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9171f14069ac52d4c219a1b5a9de8496" id="r_a9171f14069ac52d4c219a1b5a9de8496"><td class="memItemLeft" align="right" valign="top"><a id="a9171f14069ac52d4c219a1b5a9de8496" name="a9171f14069ac52d4c219a1b5a9de8496"></a>
-FileContentResult&#160;</td><td class="memItemRight" valign="bottom"><b>CreateDocument</b> (Guid id, string conteudo, string ficheiro)</td></tr>
+<tr class="memitem:a9171f14069ac52d4c219a1b5a9de8496" id="r_a9171f14069ac52d4c219a1b5a9de8496"><td class="memItemLeft" align="right" valign="top">FileContentResult&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9171f14069ac52d4c219a1b5a9de8496">CreateDocument</a> (Guid id, string conteudo, string ficheiro)</td></tr>
+<tr class="memdesc:a9171f14069ac52d4c219a1b5a9de8496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função CreateDocument - Utilizada quando o utilizador pretende criar um documento com a sua lista.  <br /></td></tr>
 <tr class="separator:a9171f14069ac52d4c219a1b5a9de8496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1689ca1e2f818c3f44bb1e0b84dd8838" id="r_a1689ca1e2f818c3f44bb1e0b84dd8838"><td class="memItemLeft" align="right" valign="top"><a id="a1689ca1e2f818c3f44bb1e0b84dd8838" name="a1689ca1e2f818c3f44bb1e0b84dd8838"></a>
 async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Edit</b> (Guid id, [Bind(&quot;Id,name,ClienteId,state&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_lista_produtos.html">ListaProdutos</a> listaProdutos)</td></tr>
@@ -132,8 +135,182 @@ async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bot
 async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Show</b> (Guid? id)</td></tr>
 <tr class="separator:aa0dec5e370ed5f5681e9a9aaa791ee27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Controller para as listas de produtos dos clientes. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a05731939a16daa9f4a82e6e519e47dff" name="a05731939a16daa9f4a82e6e519e47dff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05731939a16daa9f4a82e6e519e47dff">&#9670;&#160;</a></span>ChangeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ListaProdutosController.ChangeName </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função ChangeName - utilizada quando o cliente pretende mudar o nome da sua lista. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>id da lista</td></tr>
+    <tr><td class="paramname">name</td><td>novo nome a atualizar na base de dados</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View da página de editar com o novo nome atualizado</dd></dl>
+
+</div>
+</div>
+<a id="ac305938038dab03c8377040a1cd1718a" name="ac305938038dab03c8377040a1cd1718a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac305938038dab03c8377040a1cd1718a">&#9670;&#160;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ListaProdutosController.Create </td>
+          <td>(</td>
+          <td class="paramtype">[Bind(&quot;Id,name,ClienteId,state&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_lista_produtos.html">ListaProdutos</a></td>          <td class="paramname"><span class="paramname"><em>listaProdutos</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função Create - Utilizada pelo cliente quando pretende criar uma nova lista. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listaProdutos</td><td>Nova lista a ser adicionada à base de dados</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View com a lista das suas listas</dd></dl>
+
+</div>
+</div>
+<a id="a9171f14069ac52d4c219a1b5a9de8496" name="a9171f14069ac52d4c219a1b5a9de8496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9171f14069ac52d4c219a1b5a9de8496">&#9670;&#160;</a></span>CreateDocument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FileContentResult PechinchaMarket.Controllers.ListaProdutosController.CreateDocument </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>conteudo</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>ficheiro</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função CreateDocument - Utilizada quando o utilizador pretende criar um documento com a sua lista. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>id da lista</td></tr>
+    <tr><td class="paramname">conteudo</td><td>tipo de conteudo selecionado, entre simples e ilustrativo</td></tr>
+    <tr><td class="paramname">ficheiro</td><td>tipo de ficheiro selecioando, entre pdf e png</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Novo ficheiro com as definições pretendidas</dd></dl>
+
+</div>
+</div>
+<a id="ad58b82a1f0a848a4f7be99e9187aa456" name="ad58b82a1f0a848a4f7be99e9187aa456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad58b82a1f0a848a4f7be99e9187aa456">&#9670;&#160;</a></span>DeleteMany()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ListaProdutosController.DeleteMany </td>
+          <td>(</td>
+          <td class="paramtype">Guid</td>          <td class="paramname"><span class="paramname"><em>id</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Guid[]</td>          <td class="paramname"><span class="paramname"><em>deletes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função DeleteMany - Utilizada quando o cliente quer eliminar produtos especificos da sua lista. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>id da lista</td></tr>
+    <tr><td class="paramname">deletes</td><td>lista de ids de produtos da lista que se pretende eliminar</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View da página de editar com os produtos removidos</dd></dl>
+
+</div>
+</div>
+<a id="a6787bfe1db4cdba47a5063b98dc792eb" name="a6787bfe1db4cdba47a5063b98dc792eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6787bfe1db4cdba47a5063b98dc792eb">&#9670;&#160;</a></span>Edit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ListaProdutosController.Edit </td>
+          <td>(</td>
+          <td class="paramtype">Guid?</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função Edit - utilizada quando o cliente pretende editar ou visualizar uma das suas listas. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>id da lista</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View da lista pretendida</dd></dl>
+
+</div>
+</div>
+<a id="a7edd9b4a4fd6a1fdbccafcb9b298c96b" name="a7edd9b4a4fd6a1fdbccafcb9b298c96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7edd9b4a4fd6a1fdbccafcb9b298c96b">&#9670;&#160;</a></span>Index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ListaProdutosController.Index </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função Index - Utilizada quando o cliente prentende ver as suas listas. </p>
+<dl class="section return"><dt>Returns</dt><dd>View com uma lista das suas listas</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Controllers/<b>ListaProdutosController.cs</b></li>
+<li>PechinchaMarket/PechinchaMarket/Controllers/<b>ListaProdutosController.cs</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

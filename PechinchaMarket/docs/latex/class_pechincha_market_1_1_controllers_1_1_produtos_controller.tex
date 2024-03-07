@@ -24,9 +24,8 @@ async Task$<$ IAction\+Result $>$ {\bfseries Show} (int? id)
 \Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a75c8318f93a7afb3b6c082d42606343b}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a75c8318f93a7afb3b6c082d42606343b} 
 IAction\+Result {\bfseries Create} ()
 \item 
-\Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a1336694a7bba3740027affe37f060730}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a1336694a7bba3740027affe37f060730} 
-async Task$<$ IAction\+Result $>$ {\bfseries Create} (\mbox{[}Bind("{}Id,Name,Brand,Weight,Unidade,Prod\+Categoria"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} produto, IForm\+File file, float\mbox{[}$\,$\mbox{]} price)
-\item 
+async Task$<$ IAction\+Result $>$ \mbox{\hyperlink{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a0dc774141bc57f7cc703dcb9a898cb8c}{Create}} (\mbox{[}Bind("{}Id,Name,Brand,Image,Weight,Unidade,Prod\+Categoria"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}} produto, IForm\+File file, float\mbox{[}$\,$\mbox{]} price)
+\begin{DoxyCompactList}\small\item\em Função Create -\/ Utilizada quando o comerciante pretende criar um novo produto. \end{DoxyCompactList}\item 
 \Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_aaacdc141e055c561dc8341316b7dc61b}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_aaacdc141e055c561dc8341316b7dc61b} 
 async Task$<$ IAction\+Result $>$ {\bfseries Edit} (int? id)
 \item 
@@ -41,6 +40,31 @@ async Task$<$ IAction\+Result $>$ {\bfseries Delete\+Confirmed} (int id)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a0dc774141bc57f7cc703dcb9a898cb8c}\label{class_pechincha_market_1_1_controllers_1_1_produtos_controller_a0dc774141bc57f7cc703dcb9a898cb8c} 
+\index{PechinchaMarket.Controllers.ProdutosController@{PechinchaMarket.Controllers.ProdutosController}!Create@{Create}}
+\index{Create@{Create}!PechinchaMarket.Controllers.ProdutosController@{PechinchaMarket.Controllers.ProdutosController}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily async Task$<$ IAction\+Result $>$ Pechincha\+Market.\+Controllers.\+Produtos\+Controller.\+Create (\begin{DoxyParamCaption}\item[{\mbox{[}\+Bind("{}\+Id,\+Name,\+Brand,\+Image,\+Weight,\+Unidade,\+Prod\+Categoria"{})\mbox{]} \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}}}]{produto,  }\item[{IForm\+File}]{file,  }\item[{float\mbox{[}$\,$\mbox{]}}]{price }\end{DoxyParamCaption})}
+
+
+
+Função Create -\/ Utilizada quando o comerciante pretende criar um novo produto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em produto} & novo produto a adicionar à base de dados\\
+\hline
+{\em file} & imagem do produto\\
+\hline
+{\em price} & conjunto de preços para definir estes nos Produto\+Lojas definidos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+View da lista dos produtos do comerciante
+\end{DoxyReturn}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Controllers/Produtos\+Controller.\+cs\end{DoxyCompactItemize}
+Pechincha\+Market/\+Pechincha\+Market/\+Controllers/Produtos\+Controller.\+cs\end{DoxyCompactItemize}

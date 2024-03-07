@@ -107,9 +107,9 @@ async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bot
 <tr class="memitem:a75c8318f93a7afb3b6c082d42606343b" id="r_a75c8318f93a7afb3b6c082d42606343b"><td class="memItemLeft" align="right" valign="top"><a id="a75c8318f93a7afb3b6c082d42606343b" name="a75c8318f93a7afb3b6c082d42606343b"></a>
 IActionResult&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
 <tr class="separator:a75c8318f93a7afb3b6c082d42606343b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1336694a7bba3740027affe37f060730" id="r_a1336694a7bba3740027affe37f060730"><td class="memItemLeft" align="right" valign="top"><a id="a1336694a7bba3740027affe37f060730" name="a1336694a7bba3740027affe37f060730"></a>
-async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ([Bind(&quot;Id,Name,Brand,Weight,Unidade,ProdCategoria&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_produto.html">Produto</a> produto, IFormFile file, float[] price)</td></tr>
-<tr class="separator:a1336694a7bba3740027affe37f060730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc774141bc57f7cc703dcb9a898cb8c" id="r_a0dc774141bc57f7cc703dcb9a898cb8c"><td class="memItemLeft" align="right" valign="top">async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dc774141bc57f7cc703dcb9a898cb8c">Create</a> ([Bind(&quot;Id,Name,Brand,Image,Weight,Unidade,ProdCategoria&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_produto.html">Produto</a> produto, IFormFile file, float[] price)</td></tr>
+<tr class="memdesc:a0dc774141bc57f7cc703dcb9a898cb8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função Create - Utilizada quando o comerciante pretende criar um novo produto.  <br /></td></tr>
+<tr class="separator:a0dc774141bc57f7cc703dcb9a898cb8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaacdc141e055c561dc8341316b7dc61b" id="r_aaacdc141e055c561dc8341316b7dc61b"><td class="memItemLeft" align="right" valign="top"><a id="aaacdc141e055c561dc8341316b7dc61b" name="aaacdc141e055c561dc8341316b7dc61b"></a>
 async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Edit</b> (int? id)</td></tr>
 <tr class="separator:aaacdc141e055c561dc8341316b7dc61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,8 +123,46 @@ async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bot
 async Task&lt; IActionResult &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteConfirmed</b> (int id)</td></tr>
 <tr class="separator:aa85328f367c031c3ae9d6f9676c57427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0dc774141bc57f7cc703dcb9a898cb8c" name="a0dc774141bc57f7cc703dcb9a898cb8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc774141bc57f7cc703dcb9a898cb8c">&#9670;&#160;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; IActionResult &gt; PechinchaMarket.Controllers.ProdutosController.Create </td>
+          <td>(</td>
+          <td class="paramtype">[Bind(&quot;Id,Name,Brand,Image,Weight,Unidade,ProdCategoria&quot;)] <a class="el" href="class_pechincha_market_1_1_models_1_1_produto.html">Produto</a></td>          <td class="paramname"><span class="paramname"><em>produto</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IFormFile</td>          <td class="paramname"><span class="paramname"><em>file</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float[]</td>          <td class="paramname"><span class="paramname"><em>price</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função Create - Utilizada quando o comerciante pretende criar um novo produto. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">produto</td><td>novo produto a adicionar à base de dados</td></tr>
+    <tr><td class="paramname">file</td><td>imagem do produto</td></tr>
+    <tr><td class="paramname">price</td><td>conjunto de preços para definir estes nos ProdutoLojas definidos</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>View da lista dos produtos do comerciante</dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Controllers/<b>ProdutosController.cs</b></li>
+<li>PechinchaMarket/PechinchaMarket/Controllers/<b>ProdutosController.cs</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
