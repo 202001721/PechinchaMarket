@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Controller;
@@ -20,13 +21,15 @@ namespace PechinchaMarketTest
     {
         private DBPechinchaMarketContext _context;
         private UserManager<PechinchaMarketUser> _userManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         private Produto produto;
         private ProdutoLoja produtoLoja;
         private Cliente cliente;
 
-        public SearchControllerTest(ApplicationDbContextFixture context)
+        public SearchControllerTest(ApplicationDbContextFixture context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context.DbContext;
+            _webHostEnvironment = webHostEnvironment;
 
             Restart_Context();
         }
@@ -96,7 +99,7 @@ namespace PechinchaMarketTest
         {
             Restart_Context();
 
-            var controller = new SearchController(_context,_userManager);
+            var controller = new SearchController(_context,_userManager, _webHostEnvironment);
 
             var result = controller.Index();
 
@@ -108,7 +111,7 @@ namespace PechinchaMarketTest
         {
             Restart_Context();
 
-            var controller = new SearchController( _context,_userManager);
+            var controller = new SearchController( _context,_userManager, _webHostEnvironment);
 
             var result = controller.Search("manteiga");
 
@@ -122,7 +125,7 @@ namespace PechinchaMarketTest
         {
             Restart_Context();
 
-            var controller = new SearchController(_context, _userManager);
+            var controller = new SearchController(_context, _userManager, _webHostEnvironment);
 
             var result = controller.SearchResults("manteiga");
 
@@ -137,7 +140,7 @@ namespace PechinchaMarketTest
         {
             Restart_Context();
 
-            var controller = new SearchController(_context, _userManager);
+            var controller = new SearchController(_context, _userManager, _webHostEnvironment);
 
             var result = controller.SearchResults("xmanteiga");
 
@@ -167,7 +170,7 @@ namespace PechinchaMarketTest
         public async void ShowImage_returnsFile()
         {
             Restart_Context(); //Como os testes não são executados sequencialmente
-            var controller = new SearchController(_context,_userManager);
+            var controller = new SearchController(_context,_userManager, _webHostEnvironment);
 
             var result = await controller.ShowImage(produto.Id);
 
@@ -178,7 +181,7 @@ namespace PechinchaMarketTest
         public async void AddToList_returnsTuple()
         {
             Restart_Context();
-            var controller = new SearchController(_context, _userManager);
+            var controller = new SearchController(_context, _userManager, _webHostEnvironment);
             var result = await controller.AddToList(produto.Id);
 
             var viewResult = Assert.IsType<ViewResult>( result );
@@ -203,7 +206,7 @@ namespace PechinchaMarketTest
         public void SimilarProduct()
         {
             Restart_Context();
-            var controller = new SearchController(_context, _userManager);
+            var controller = new SearchController(_context, _userManager, _webHostEnvironment);
             var result = controller.SimilarProducts(produto.Id);
             
             Assert.IsType<List<Produto>>(result);

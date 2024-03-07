@@ -12,13 +12,8 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-<<<<<<<< HEAD:PechinchaMarket/Migrations/20240307103353_initial.Designer.cs
-    [Migration("20240307103353_initial")]
-    partial class initial
-========
-    [Migration("20240307104601_Initial")]
+    [Migration("20240307135335_Initial")]
     partial class Initial
->>>>>>>> origin/Integraçao:PechinchaMarket/Migrations/20240307104601_Initial.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
