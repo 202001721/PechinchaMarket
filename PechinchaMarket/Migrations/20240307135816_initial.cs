@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -105,7 +105,7 @@ namespace PechinchaMarket.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Brand = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Weight = table.Column<float>(type: "real", nullable: true),
                     Unidade = table.Column<int>(type: "int", nullable: false),
                     ProdEstado = table.Column<int>(type: "int", nullable: true),
@@ -251,7 +251,8 @@ namespace PechinchaMarket.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<float>(type: "real", nullable: false),
                     Discount = table.Column<float>(type: "real", nullable: true),
-                    DiscountDuration = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    StartDiscount = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    EndDiscount = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
                     LojaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },

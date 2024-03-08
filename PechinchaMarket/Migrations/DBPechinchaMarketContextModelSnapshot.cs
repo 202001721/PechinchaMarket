@@ -371,6 +371,7 @@ namespace PechinchaMarket.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Image")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
@@ -405,7 +406,7 @@ namespace PechinchaMarket.Migrations
                     b.Property<float?>("Discount")
                         .HasColumnType("real");
 
-                    b.Property<DateTime?>("DiscountDuration")
+                    b.Property<DateTime?>("EndDiscount")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("LojaId")
@@ -416,6 +417,9 @@ namespace PechinchaMarket.Migrations
 
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDiscount")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

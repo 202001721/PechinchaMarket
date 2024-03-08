@@ -34,118 +34,139 @@
                         <div class="title unselectable-text">Mudar de foto</div>
                         <div class="cross-button" onclick="choosePerfilImage()"></div>
                     </div>
-                    <form asp-page-handler="ChangePhoto" class="column-container edges-flex max-width max-height" id="change-photo-form">
-                        <div>
-                            <label asp-for="Input.NewPhoto"></label>
-                        </div>
-                        <div class="wrap-flex small-gap center-x-flex small-padding-right small-padding-left photo-chooser">
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage0" name="Input.NewPhoto" value="0" asp-for="Input.NewPhoto" />
-                                <label for="radioImage0">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_0.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage1" name="Input.NewPhoto" value="1" asp-for="Input.NewPhoto" />
-                                <label for="radioImage1">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_1.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage2" name="Input.NewPhoto" value="2" asp-for="Input.NewPhoto" />
-                                <label for="radioImage2">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_2.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage3" name="Input.NewPhoto" value="3" asp-for="Input.NewPhoto" />
-                                <label for="radioImage3">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_3.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage4" name="Input.NewPhoto" value="4" asp-for="Input.NewPhoto" />
-                                <label for="radioImage4">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_4.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage5" name="Input.NewPhoto" value="5" asp-for="Input.NewPhoto" />
-                                <label for="radioImage5">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_5.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage6" name="Input.NewPhoto" value="6" asp-for="Input.NewPhoto" />
-                                <label for="radioImage6">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_6.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage7" name="Input.NewPhoto" value="7" asp-for="Input.NewPhoto" />
-                                <label for="radioImage7">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_7.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage8" name="Input.NewPhoto" value="8" asp-for="Input.NewPhoto" />
-                                <label for="radioImage8">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_8.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage9" name="Input.NewPhoto" value="9" asp-for="Input.NewPhoto" />
-                                <label for="radioImage9">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_9.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage10" name="Input.NewPhoto" value="10" asp-for="Input.NewPhoto" />
-                                <label for="radioImage10">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_10.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage11" name="Input.NewPhoto" value="11" asp-for="Input.NewPhoto" />
-                                <label for="radioImage11">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_11.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage12" name="Input.NewPhoto" value="12" asp-for="Input.NewPhoto" />
-                                <label for="radioImage12">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_12.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage13" name="Input.NewPhoto" value="13" asp-for="Input.NewPhoto" />
-                                <label for="radioImage13">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_13.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage14" name="Input.NewPhoto" value="14" asp-for="Input.NewPhoto" />
-                                <label for="radioImage14">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_14.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage15" name="Input.NewPhoto" value="15" asp-for="Input.NewPhoto" />
-                                <label for="radioImage15">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_15.png');"></span>
-                                </label>
-                            </span>
-                            <span class="photo-option">
-                                <input class="display-none" type="radio" id="radioImage16" name="Input.NewPhoto" value="16" asp-for="Input.NewPhoto" />
-                                <label for="radioImage16">
-                                    <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_16.png');"></span>
-                                </label>
-                            </span>
-                        </div>
-                        <div class="row-container right-flex max-width">
-                            <button id="change-photo" type="submit" class="pechincha-button main-button-color row-container">Salvar</button>
-                        </div>
-                    </form>
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <form asp-page-handler="ChangePhoto" class="column-container edges-flex max-width max-height" id="change-photo-form">
+                            <div>
+                                <label asp-for="Input.NewPhoto"></label>
+                            </div>
+                            <div class="wrap-flex small-gap center-x-flex small-padding-right small-padding-left photo-chooser">
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage0" name="Input.NewPhoto" value="0" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage0">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_0.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage1" name="Input.NewPhoto" value="1" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage1">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_1.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage2" name="Input.NewPhoto" value="2" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage2">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_2.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage3" name="Input.NewPhoto" value="3" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage3">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_3.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage4" name="Input.NewPhoto" value="4" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage4">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_4.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage5" name="Input.NewPhoto" value="5" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage5">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_5.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage6" name="Input.NewPhoto" value="6" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage6">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_6.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage7" name="Input.NewPhoto" value="7" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage7">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_7.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage8" name="Input.NewPhoto" value="8" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage8">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_8.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage9" name="Input.NewPhoto" value="9" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage9">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_9.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage10" name="Input.NewPhoto" value="10" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage10">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_10.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage11" name="Input.NewPhoto" value="11" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage11">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_11.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage12" name="Input.NewPhoto" value="12" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage12">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_12.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage13" name="Input.NewPhoto" value="13" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage13">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_13.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage14" name="Input.NewPhoto" value="14" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage14">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_14.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage15" name="Input.NewPhoto" value="15" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage15">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_15.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage16" name="Input.NewPhoto" value="16" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage16">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_16.png');"></span>
+                                    </label>
+                                </span>
+                            </div>
+                            <div class="row-container right-flex max-width">
+                                <button id="change-photo" type="submit" class="pechincha-button main-button-color row-container">Salvar</button>
+                            </div>
+                        </form>
+                    }else if(User.IsInRole("Comerciante")){
+                        <form asp-page-handler="ChangePhotoComerciante" id="change-photo-comerciante" method="post" enctype="multipart/form-data">
+                            >
+                            <div class="insert-file file-type-image">
+                                <div class="title">Logotipo</div>
+                                <div class="insert-file-input">
+                                    <div>
+                                        <label asp-for="Input.Logo">Carregar</label>
+                                        <input  type="file" onchange="updateFileName(this)" asp-for="Input.Logo" accept="image/*" />
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="confirm-button" type="submit">Salvar</button>
+
+                        </form>
+                        
+                    }
+
                 </div>
             </div>
 
@@ -268,27 +289,30 @@
                     </form>
                 </div>
 
-
-                <div class="background-constrast-color small-padding rounded-border">
-                    <form asp-page-handler="ChangePreferences" id="preferences-form" method="post" class="row-container edges-flex">
-                        <div class="">
-                            <label asp-for="Input.Preferences" class="preferences-label"></label>
-                            <div class ="row-container wrap-flex small-gap preferences-parent">
-                                @for (var i = 0; i < Model.Input.Preferences.Length; i++)
-                                {
-                                    <div class="edit-checkbox">
-                                        <input id="preference_@i" type="checkbox" asp-for="@Model.Input.Preferences[i]"/>
-                                        <label for="preference_@i">@Model.PreferencesLabels[i]</label>
-                                    </div>
-                                }
+                @if  (User.IsInRole("Cliente"))
+                {
+                    <div class="background-constrast-color small-padding rounded-border">
+                        <form asp-page-handler="ChangePreferences" id="preferences-form" method="post" class="row-container edges-flex">
+                            <div class="">
+                                <label asp-for="Input.Preferences" class="preferences-label"></label>
+                                <div class="row-container wrap-flex small-gap preferences-parent">
+                                    @for (var i = 0; i < Model.Input.Preferences.Length; i++)
+                                    {
+                                        <div class="edit-checkbox">
+                                            <input id="preference_@i" type="checkbox" asp-for="@Model.Input.Preferences[i]" />
+                                            <label for="preference_@i">@Model.PreferencesLabels[i]</label>
+                                        </div>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                        <div class="row-container smaller-gap-x">
-                            <button type="submit" class="pechincha-button main-button-color off-screen">Salvar</button>
-                            <div class="pechincha-button default-button-color" onclick="preferencesEditableField(this)">Editar</div>
-                        </div>
-                    </form>
-                </div>
+                            <div class="row-container smaller-gap-x">
+                                <button type="submit" class="pechincha-button main-button-color off-screen">Salvar</button>
+                                <div class="pechincha-button default-button-color" onclick="preferencesEditableField(this)">Editar</div>
+                            </div>
+                        </form>
+                    </div>
+                }
+               
             </div>
         </div>
     </div>

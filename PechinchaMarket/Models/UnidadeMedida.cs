@@ -1,10 +1,8 @@
 ﻿namespace PechinchaMarket.Models
 {   
-    /**
-     * Enumerado UnidadeMedida
-     * 
-     * Corresponde ao tipo de unidade de medida
-     */
+    /// <summary>
+    /// Corresponde a um tipo de unidade de medida
+    /// </summary>
     public enum UnidadeMedida
     {
         /*Peso em Kilogramas*/

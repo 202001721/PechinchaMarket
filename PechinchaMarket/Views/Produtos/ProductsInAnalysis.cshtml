@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Tuple<PechinchaMarket.Models.Produto, PechinchaMarket.Models.ProdutoLoja>>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/css/listaProduto.css" rel="stylesheet" />
+<h1>Produtos</h1>
+
+
+<body>
+
+    <div class="container-box">
+
+        <span class="coluna">
+            <h2> <a asp-action="Index"> Produtos Publicados </a> </h2>
+        </span>
+
+        <span class="coluna-selecionada">
+            <h2> <a asp-action="ProductsInAnalysis"> Produtos Pendentes</a></h2>
+        </span>
+
+    </div>
+
+    <section class="containers">
+       
+
+        @foreach (var item in Model)
+        {
+            <div class="card">
+
+                <div class="card-image">
+                    <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Item1.Id
+
+                  })' />
+                </div>
+                <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
+                <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
+                <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
+                <p> <a asp-action="Edit" asp-route-id="@item.Item1.Id"> Editar</a> </p>
+
+            </div>
+
+
+
+
+        }
+
+
+
+
+    </section>
+</body>
+
+

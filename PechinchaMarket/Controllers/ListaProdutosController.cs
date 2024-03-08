@@ -14,10 +14,13 @@ using Aspose.Pdf.Devices;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Aspose.Pdf.Text;
+using Aspose.Pdf.Operators;
 
 namespace PechinchaMarket.Controllers
 {
-
+    /// <summary>
+    /// Controller para as listas de produtos dos clientes.
+    /// </summary>
     public class ListaProdutosController : Controller
     {
         private readonly DBPechinchaMarketContext _context;
@@ -29,12 +32,19 @@ namespace PechinchaMarket.Controllers
             _userManager = userManager;
         }
 
+        /// <summary>
+        /// Função Index - Utilizada quando o cliente prentende ver as suas listas.
+        /// </summary>
+        /// <returns>View com uma lista das suas listas</returns>
         // GET: ListaProdutos
         public async Task<IActionResult> Index()
         {
             var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault().Id.ToString();
 
             var lista = from l in _context.ListaProdutos where l.ClienteId == clienteId select l;
+           
+
+
             return View(lista);
         }
 
@@ -62,6 +72,11 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Função Create - Utilizada pelo cliente quando pretende criar uma nova lista.
+        /// </summary>
+        /// <param name="listaProdutos">Nova lista a ser adicionada à base de dados</param>
+        /// <returns>View com a lista das suas listas</returns>
         // POST: ListaProdutos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -87,6 +102,11 @@ namespace PechinchaMarket.Controllers
             return View(listaProdutos);
         }
 
+        /// <summary>
+        /// Função Edit - utilizada quando o cliente pretende editar ou visualizar uma das suas listas.
+        /// </summary>
+        /// <param name="id">id da lista</param>
+        /// <returns>View da lista pretendida</returns>
         // GET: ListaProdutos/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
@@ -113,6 +133,12 @@ namespace PechinchaMarket.Controllers
             return View(listaProdutos);
         }
 
+        /// <summary>
+        /// Função ChangeName - utilizada quando o cliente pretende mudar o nome da sua lista
+        /// </summary>
+        /// <param name="id">id da lista</param>
+        /// <param name="name">novo nome a atualizar na base de dados</param>
+        /// <returns>View da página de editar com o novo nome atualizado</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeName(Guid id, string name)
@@ -134,6 +160,12 @@ namespace PechinchaMarket.Controllers
             return View("Edit",listaProdutos);
         }
 
+        /// <summary>
+        /// Função DeleteMany - Utilizada quando o cliente quer eliminar produtos especificos da sua lista
+        /// </summary>
+        /// <param name="id">id da lista</param>
+        /// <param name="deletes">lista de ids de produtos da lista que se pretende eliminar</param>
+        /// <returns>View da página de editar com os produtos removidos</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteMany(Guid id, Guid[] deletes)
@@ -164,6 +196,13 @@ namespace PechinchaMarket.Controllers
             return View("Edit", listaProdutos);
         }
 
+        /// <summary>
+        /// Função CreateDocument - Utilizada quando o utilizador pretende criar um documento com a sua lista.
+        /// </summary>
+        /// <param name="id">id da lista</param>
+        /// <param name="conteudo">tipo de conteudo selecionado, entre simples e ilustrativo</param>
+        /// <param name="ficheiro">tipo de ficheiro selecioando, entre pdf e png</param>
+        /// <returns>Novo ficheiro com as definições pretendidas</returns>
         //Syncfusion.Pdf.AspNet.Mvc5
         public FileContentResult CreateDocument(Guid id, string conteudo, string ficheiro)
         {
@@ -304,6 +343,7 @@ namespace PechinchaMarket.Controllers
 
 
         }
+
 
         // POST: ListaProdutos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.

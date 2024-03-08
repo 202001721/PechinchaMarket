@@ -1,11 +1,10 @@
 ﻿namespace PechinchaMarket.Models
 {
-    /**
-     * Enumerado Concelhos
-     * 
-     * 
-     * Contem Concelhos com um enumerado dos seus distritos 
-     */
+    /// <summary>
+    /// 
+    /// Contem Concelhos com um enumerado dos seus distritos.
+    /// Possivelmente para remover.
+    /// </summary>
     public class Concelhos
     {
         public enum ConcelhosAveiro

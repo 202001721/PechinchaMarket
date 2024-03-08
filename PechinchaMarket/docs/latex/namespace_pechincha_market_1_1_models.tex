@@ -1,0 +1,99 @@
+\doxysection{Pechincha\+Market.\+Models Namespace Reference}
+\hypertarget{namespace_pechincha_market_1_1_models}{}\label{namespace_pechincha_market_1_1_models}\index{PechinchaMarket.Models@{PechinchaMarket.Models}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_cliente}{Cliente}}
+\begin{DoxyCompactList}\small\item\em Define a informação necessária do cliente da plataforma. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_comerciante}{Comerciante}}
+\begin{DoxyCompactList}\small\item\em Classe {\ttfamily Comerciante} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_concelhos}{Concelhos}}
+\begin{DoxyCompactList}\small\item\em Contem Concelhos com um enumerado dos seus distritos. Possivelmente para remover. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_detalhe_lista_prod}{Detalhe\+Lista\+Prod}}
+\begin{DoxyCompactList}\small\item\em Classe de relação entre um {\ttfamily Produto\+Loja} e uma {\ttfamily Lista\+Produtos}. Isto é, um produto de uma loja especifica com colocado dentro de uma lista do cliente. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_error_view_model}{Error\+View\+Model}}
+\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_lista_produtos}{Lista\+Produtos}}
+\begin{DoxyCompactList}\small\item\em Lista de produtos de um cliente. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_loja}{Loja}}
+\begin{DoxyCompactList}\small\item\em Loja de um comerciante. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto}{Produto}}
+\begin{DoxyCompactList}\small\item\em classe de produto \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_pechincha_market_1_1_models_1_1_produto_loja}{Produto\+Loja}}
+\begin{DoxyCompactList}\small\item\em Classe para um produto de uma loja especifica. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_pechincha_market_1_1_models_ad7b1f4246e5f0ca7a9e1c667b19805ab}{Categoria}} \{ \newline
+{\bfseries Enlatados}
+, {\bfseries Frescos}
+, {\bfseries Biologicos}
+, {\bfseries Congelados}
+, \newline
+{\bfseries Pastelaria}
+, {\bfseries Talho}
+, {\bfseries Peixaria}
+, {\bfseries Charcutaria}
+, \newline
+{\bfseries Bebidas}
+, {\bfseries Vegan}
+, {\bfseries Doces}
+, {\bfseries Snacks}
+, \newline
+{\bfseries Bebidas\+Alcoólicas}
+ \}
+\item 
+\Hypertarget{namespace_pechincha_market_1_1_models_a520342ddbb9c5c90e88b674515fa8949}\label{namespace_pechincha_market_1_1_models_a520342ddbb9c5c90e88b674515fa8949} 
+enum \mbox{\hyperlink{namespace_pechincha_market_1_1_models_a520342ddbb9c5c90e88b674515fa8949}{Distrito}} \{ \newline
+{\bfseries Aveiro}
+, {\bfseries Beja}
+, {\bfseries Braga}
+, {\bfseries Braganca}
+, \newline
+{\bfseries Castelo\+Branco}
+, {\bfseries Coimbra}
+, {\bfseries Evora}
+, {\bfseries Faro}
+, \newline
+{\bfseries Guarda}
+, {\bfseries Leiria}
+, {\bfseries Lisboa}
+, {\bfseries Portalegre}
+, \newline
+{\bfseries Porto}
+, {\bfseries Santarem}
+, {\bfseries Setubal}
+, {\bfseries Viana\+Castelo}
+, \newline
+{\bfseries Vila\+Real}
+, {\bfseries Viseu}
+ \}
+\begin{DoxyCompactList}\small\item\em Contém todos os distritos de Portugal. Possivelmente para remover. \end{DoxyCompactList}\item 
+\Hypertarget{namespace_pechincha_market_1_1_models_af45f8e235eaba22b82d56531b07fb388}\label{namespace_pechincha_market_1_1_models_af45f8e235eaba22b82d56531b07fb388} 
+enum \mbox{\hyperlink{namespace_pechincha_market_1_1_models_af45f8e235eaba22b82d56531b07fb388}{Estado}} \{ {\bfseries Approved}
+, {\bfseries Repproved}
+, {\bfseries In\+Analysis}
+ \}
+\begin{DoxyCompactList}\small\item\em Define um estado de submissão. \end{DoxyCompactList}\item 
+\Hypertarget{namespace_pechincha_market_1_1_models_af170e8eb9a4c01c6403cbb32c6675d91}\label{namespace_pechincha_market_1_1_models_af170e8eb9a4c01c6403cbb32c6675d91} 
+enum \mbox{\hyperlink{namespace_pechincha_market_1_1_models_af170e8eb9a4c01c6403cbb32c6675d91}{Estado\+Produto\+Compra}} \{ {\bfseries Comprado}
+, {\bfseries Lembrar\+Depois}
+, {\bfseries Por\+Comprar}
+ \}
+\begin{DoxyCompactList}\small\item\em Estado da lista de compras. \end{DoxyCompactList}\item 
+\Hypertarget{namespace_pechincha_market_1_1_models_affaf71d276f9905ba7c7075709aa4cc4}\label{namespace_pechincha_market_1_1_models_affaf71d276f9905ba7c7075709aa4cc4} 
+enum \mbox{\hyperlink{namespace_pechincha_market_1_1_models_affaf71d276f9905ba7c7075709aa4cc4}{Unidade\+Medida}} \{ {\bfseries Kg}
+, {\bfseries Unit}
+, {\bfseries Liter}
+ \}
+\begin{DoxyCompactList}\small\item\em Corresponde a um tipo de unidade de medida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_pechincha_market_1_1_models_ad7b1f4246e5f0ca7a9e1c667b19805ab}\label{namespace_pechincha_market_1_1_models_ad7b1f4246e5f0ca7a9e1c667b19805ab} 
+\index{PechinchaMarket.Models@{PechinchaMarket.Models}!Categoria@{Categoria}}
+\index{Categoria@{Categoria}!PechinchaMarket.Models@{PechinchaMarket.Models}}
+\doxysubsubsection{\texorpdfstring{Categoria}{Categoria}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_pechincha_market_1_1_models_ad7b1f4246e5f0ca7a9e1c667b19805ab}{Pechincha\+Market.\+Models.\+Categoria}}}
+
+Classe Enumerada {\ttfamily Categoria}. Categorias dos produtos. 

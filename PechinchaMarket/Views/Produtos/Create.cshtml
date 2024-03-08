@@ -50,6 +50,32 @@
 
     }
 
+    function validationPrice() {
+        var p = document.getElementById("price");
+        var val = document.getElementById("validation");
+
+        if (p.value == null || p.value == "") {
+            val.innerHTML = "The Preço field is required.";
+        } else if (isNaN(p.value)) {
+            val.innerHTML = "The Preço field must be a number.";
+        } else {
+            val.innerHTML = "";
+        }
+
+    }
+
+    function validationImage() {
+        var i = document.getElementById("Image");
+        var val = document.getElementById("validationImg");
+
+        if (i.files.length == 0) {
+            val.innerHTML = "The Image field is required"
+        } else {
+            val.innerHTML = "";
+        }
+
+    }
+
 </script>
 
 <link type="text/css" rel="stylesheet" href="~/css/produto.css" />
@@ -85,7 +111,8 @@
                     <div class="precoUnidade">
                         <div class="preco">
                             <label class="control-label">Preço(€)</label>
-                            <input name="price" class="form-control" id="price" onchange="changePrice()" placeholder="€">
+                            <input name="price" class="form-control" id="price" onchange=" changePrice(); " placeholder="€">
+                            <div id="validation" class="text-danger"></div>
                         </div>
                         /
                         <div class="unidade">
@@ -118,8 +145,8 @@
                     <img id="image_preview" src="#" alt="your image" width="300px" height="300px" class="imagePlaceholder"/>
                     <div class="uploadImage">
                         <label asp-for="Image" class="custom-file-upload">Adicionar Foto</label>
-                        <input type="file" asp-for="Image" class="image" name="file" onchange="readfile(this)"  />
-                        <span asp-validation-for="Image" class="text-danger"></span>
+                        <input id="Image" type="file" asp-for="Image" class="image" name="file" onchange="readfile(this)" />
+                        <span id="validationImg" asp-validation-for="Image" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -155,7 +182,7 @@
                 </table>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Create" class="btn btn-primary" onclick="validationPrice(); validationImage();" />
             </div>
             </div>
         </form>

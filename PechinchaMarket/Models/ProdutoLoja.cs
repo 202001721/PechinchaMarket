@@ -2,27 +2,51 @@
 
 namespace PechinchaMarket.Models
 {
-    /**
-     * Class ProdutoLoja
-     * 
-     * Id - id da entrada na tabela
-     * Price - preço do produto na loja
-     * Discount - Disconto do produto (opcional)
-     * DiscountDuration - Tempo de duração do disconto
-     * Produto - O produto que ira ser posto a venda na loja
-     * Loja - A loja que ira por o produto a venda
-     */
+    /// <summary>
+    /// Classe para um produto de uma loja especifica.
+    /// </summary>
     public class ProdutoLoja
     {
+        /// <summary>
+        /// id da entrada na tabela
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// preço do produto na loja
+        /// </summary>
         [Display(Name = "Preço")]
         public float Price { get; set;}
+
+        /// <summary>
+        /// Disconto do produto (opcional)
+        /// </summary>
         [Display(Name = "Desconto")]
         public float? Discount { get; set;}
-        [Display(Name = "Duração do desconto")]
-        public DateTime? DiscountDuration { get; set;}
 
+        /// <summary>
+        /// Data de inicio do desconto
+        /// </summary>
+        [Display(Name = "Inicio do desconto")]
+        [DataType(DataType.Date)]
+        public DateTime? StartDiscount { get; set;}
+
+        /// <summary>
+        /// Data do fim do desconto
+        /// </summary>
+        [Display(Name = "Fim do desconto")]
+        [DataType(DataType.Date)]
+        public DateTime? EndDiscount { get; set; }
+
+
+        /// <summary>
+        /// O produto que ira ser posto a venda na loja
+        /// </summary>
         public Produto Produto { get; set;}
+
+        /// <summary>
+        /// A loja que ira por o produto a venda
+        /// </summary>
         public Loja? Loja { get; set;}
     }
 }

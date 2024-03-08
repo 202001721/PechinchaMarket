@@ -12,8 +12,8 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240302220659_init")]
-    partial class init
+    [Migration("20240307135816_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -374,6 +374,7 @@ namespace PechinchaMarket.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Image")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
@@ -408,7 +409,7 @@ namespace PechinchaMarket.Migrations
                     b.Property<float?>("Discount")
                         .HasColumnType("real");
 
-                    b.Property<DateTime?>("DiscountDuration")
+                    b.Property<DateTime?>("EndDiscount")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("LojaId")
@@ -419,6 +420,9 @@ namespace PechinchaMarket.Migrations
 
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDiscount")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
