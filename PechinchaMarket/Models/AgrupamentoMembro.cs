@@ -2,9 +2,11 @@
 {
     public class AgrupamentoMembro
     {
-        public Guid ClienteId { get; set; }
+        public Guid Id { get; set; }
 
-        public Guid AgrupamentoId { get; set; }
+        public Cliente Cliente { get; set; }
+
+        public Agrupamento Agrupamento { get; set; }
         
         public NivelPrivilegio Privilegio { get; set; }
     }

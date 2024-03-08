@@ -29,14 +29,14 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
         private readonly SignInManager<PechinchaMarketUser> _signInManager;
         private readonly DBPechinchaMarketContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly ILogger<ChangePasswordModel> _logger;
+        private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(
             Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
             SignInManager<PechinchaMarketUser> signInManager,
             DBPechinchaMarketContext context,
             IWebHostEnvironment webHostEnvironment,
-            ILogger<ChangePasswordModel> logger)
+            ILogger<IndexModel> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;

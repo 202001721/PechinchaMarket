@@ -22,6 +22,21 @@ namespace PechinchaMarket.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AgrupamentoListaProdutos", b =>
+                {
+                    b.Property<Guid>("ListaProdutosId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("agrupamentosId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ListaProdutosId", "agrupamentosId");
+
+                    b.HasIndex("agrupamentosId");
+
+                    b.ToTable("AgrupamentoListaProdutos");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -218,6 +233,48 @@ namespace PechinchaMarket.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.Agrupamento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Codigo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Agrupamentos");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.AgrupamentoMembro", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AgrupamentoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ClienteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Privilegio")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AgrupamentoId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("AgrupamentosMembro");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.Cliente", b =>
@@ -430,6 +487,21 @@ namespace PechinchaMarket.Migrations
                     b.ToTable("ProdutoLoja");
                 });
 
+            modelBuilder.Entity("AgrupamentoListaProdutos", b =>
+                {
+                    b.HasOne("PechinchaMarket.Models.ListaProdutos", null)
+                        .WithMany()
+                        .HasForeignKey("ListaProdutosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PechinchaMarket.Models.Agrupamento", null)
+                        .WithMany()
+                        .HasForeignKey("agrupamentosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -479,6 +551,25 @@ namespace PechinchaMarket.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.AgrupamentoMembro", b =>
+                {
+                    b.HasOne("PechinchaMarket.Models.Agrupamento", "Agrupamento")
+                        .WithMany()
+                        .HasForeignKey("AgrupamentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PechinchaMarket.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Agrupamento");
+
+                    b.Navigation("Cliente");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.DetalheListaProd", b =>

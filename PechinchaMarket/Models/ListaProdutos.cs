@@ -34,5 +34,8 @@ namespace PechinchaMarket.Models
         /// </summary>
         public List<DetalheListaProd>? detalheListaProds { get; set; }
 
+
+        public List<Agrupamento>? agrupamentos { get; set; }
+
     }
 }

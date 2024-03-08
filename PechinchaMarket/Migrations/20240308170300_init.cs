@@ -6,11 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PechinchaMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Agrupamentos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Codigo = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Agrupamentos", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -223,6 +236,32 @@ namespace PechinchaMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AgrupamentosMembro",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ClienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AgrupamentoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Privilegio = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AgrupamentosMembro", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AgrupamentosMembro_Agrupamentos_AgrupamentoId",
+                        column: x => x.AgrupamentoId,
+                        principalTable: "Agrupamentos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AgrupamentosMembro_Cliente_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "Cliente",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Loja",
                 columns: table => new
                 {
@@ -241,6 +280,30 @@ namespace PechinchaMarket.Migrations
                         column: x => x.ComercianteId,
                         principalTable: "Comerciante",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AgrupamentoListaProdutos",
+                columns: table => new
+                {
+                    ListaProdutosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    agrupamentosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AgrupamentoListaProdutos", x => new { x.ListaProdutosId, x.agrupamentosId });
+                    table.ForeignKey(
+                        name: "FK_AgrupamentoListaProdutos_Agrupamentos_agrupamentosId",
+                        column: x => x.agrupamentosId,
+                        principalTable: "Agrupamentos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AgrupamentoListaProdutos_ListaProdutos_ListaProdutosId",
+                        column: x => x.ListaProdutosId,
+                        principalTable: "ListaProdutos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -297,6 +360,21 @@ namespace PechinchaMarket.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AgrupamentoListaProdutos_agrupamentosId",
+                table: "AgrupamentoListaProdutos",
+                column: "agrupamentosId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AgrupamentosMembro_AgrupamentoId",
+                table: "AgrupamentosMembro",
+                column: "AgrupamentoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AgrupamentosMembro_ClienteId",
+                table: "AgrupamentosMembro",
+                column: "ClienteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -367,6 +445,12 @@ namespace PechinchaMarket.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AgrupamentoListaProdutos");
+
+            migrationBuilder.DropTable(
+                name: "AgrupamentosMembro");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -382,10 +466,13 @@ namespace PechinchaMarket.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Cliente");
+                name: "DetalheListaProd");
 
             migrationBuilder.DropTable(
-                name: "DetalheListaProd");
+                name: "Agrupamentos");
+
+            migrationBuilder.DropTable(
+                name: "Cliente");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
