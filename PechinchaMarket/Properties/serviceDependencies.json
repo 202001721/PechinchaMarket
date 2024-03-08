@@ -2,7 +2,8 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:DBPechinchaMarketContextConnection"
+      "connectionId": "ConnectionStrings:DBPechinchaMarketContextConnection",
+      "dynamicId": null
     }
   }
 }
