@@ -208,7 +208,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
 
-           
+            //TODO
+            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
+            // message.From = ?
+            // message.Port = ?
+            // message.Host = ?
+            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
             try
             {
                 MailMessage message = new MailMessage();
@@ -225,10 +230,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); 
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); // verificar a extensao que esta usando 
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-              //  smtpClient.Send(message);
-                await smtpClient.SendMailAsync(message);
+                smtpClient.Send(message);
                 return true;
             }
             catch (Exception)
