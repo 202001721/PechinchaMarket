@@ -105,6 +105,10 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
 
 
+            /// <summary>
+            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+            ///     directly from your code. This API may change or be removed in future releases.
+            /// </summary>
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Nome")]
@@ -112,9 +116,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
 
             /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
+            ///     
             /// </summary>
+            [Required]
+            [Display(Name = "Contacto")]
+            public int UserPhone { get; set;}
+
             [Required]
             [Display(Name = "Localização")]
             public string Location { get; set; }
@@ -175,6 +182,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             var userPhoto = 0;
             var userLocation = "";
             bool[] userPreferences = Enumerable.Repeat(false, Enum.GetNames(typeof(Categoria)).Count()).ToArray(); ;
+            var userPhone = 0;
 
             if (user != null)
             {
@@ -184,6 +192,20 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 {
                     ViewData["UserPhoto"] = ShowImage(
                         _context.Comerciante.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.logo).FirstOrDefault());
+
+                    userName = _context.Comerciante.Where(x => x.UserId.Equals(userId)).Select(x => x.Name).FirstOrDefault();
+                    userPhone = _context.Comerciante.Where(x => x.UserId.Equals(userId)).Select(x => x.contact).FirstOrDefault();
+
+
+                    var email = await _userManager.GetEmailAsync(user);
+                    Email = email;
+
+                    Input = new InputModel
+                    {
+                        UserName = userName,
+                        UserPhone = userPhone,
+                        Preferences = userPreferences,
+                    };
                 }
                 else if (User.IsInRole("Cliente"))
                 {
@@ -235,6 +257,17 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                             }
                         }
                     }
+
+                    var email = await _userManager.GetEmailAsync(user);
+                    Email = email;
+
+                    Input = new InputModel
+                    {
+                        UserName = userName,
+                        Location = userLocation,
+                        NewPhoto = userPhoto.ToString(),
+                        Preferences = userPreferences,
+                    };
                 }
                 else if (User.IsInRole("Manager"))
                 {
@@ -242,16 +275,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 }
             }
 
-            var email = await _userManager.GetEmailAsync(user);
-            Email = email;
-
-            Input = new InputModel
-            {
-                UserName = userName,
-                Location = userLocation,
-                NewPhoto = userPhoto.ToString(),
-                Preferences = userPreferences,
-            };
+            
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
 
@@ -298,13 +322,13 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
                 if (changes == 0)
                 {
-                    StatusMessage = "Unexpected error when trying to set user name.";
+                    StatusMessage = "Ocorreu um erro inesperado ao tentar definir o nome do utilizador.";
                     return RedirectToPage();
                 }
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "O seu perfil foi atualizado.";
             return RedirectToPage();
         }
 
@@ -332,15 +356,50 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
                 if (changes == 0)
                 {
-                    StatusMessage = "Unexpected error when trying to set the location";
+                    StatusMessage = "Ocorreu um erro inesperado ao tentar definir a localização.";
                     return RedirectToPage();
                 }
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "O seu perfil foi atualizado.";
             return RedirectToPage();
         }
+
+        public async Task<IActionResult> OnPostChangePhoneAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            removeAllFromModelStateBut("Input.UserPhone");
+            if (!ModelState.IsValid)
+            {
+                await LoadAsync(user);
+                return Page();
+            }
+
+            var userId = _userManager.GetUserId(User);
+            Comerciante comerciante = _context.Comerciante.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+            if (Input.UserPhone != comerciante.contact)
+            {
+                comerciante.contact = Input.UserPhone;
+                var changes = _context.SaveChanges();
+
+                if (changes == 0)
+                {
+                    StatusMessage = "Ocorreu um erro inesperado ao tentar definir o contacto.";
+                    return RedirectToPage();
+                }
+            }
+
+            await _signInManager.RefreshSignInAsync(user);
+            StatusMessage = "O seu perfil foi atualizado.";
+            return RedirectToPage();
+        }
+
 
         public async Task<IActionResult> OnPostChangeEmailAsync()
         {
@@ -373,11 +432,11 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                     "Confirm your new email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = "Link de confirmação enviado. Porfavor verifique o seu email.";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "O seu email não foi alterado";
             return RedirectToPage();
         }
 
@@ -410,7 +469,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
                 "Confirm your email",
                 $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Link de confirmação enviado. Porfavor verifique o seu email.";
             return RedirectToPage();
         }
 
@@ -440,7 +499,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your password has been set.";
+            StatusMessage = "A sua senha foi definida";
 
             return RedirectToPage();
         }
@@ -475,7 +534,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
             await _signInManager.RefreshSignInAsync(user);
             _logger.LogInformation("User changed their password successfully.");
-            StatusMessage = "Your password has been changed.";
+            StatusMessage = "Sua senha foi alterada.";
 
             return RedirectToPage();
         }
@@ -501,7 +560,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             // Check if the file exists
             if (!System.IO.File.Exists(choosedPhotoPath))
             {
-                StatusMessage = "The selected image file does not exist.";
+                StatusMessage = "Ocorreu um erro. Não foi possivel localizar o ficheiro da imagem selecionada.";
                 return RedirectToPage();
             }
 
@@ -523,13 +582,13 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
                 if (changes == 0)
                 {
-                    StatusMessage = "Unexpected error when trying to set photo.";
+                    StatusMessage = "Ocorreu um erro inesperado ao tentar definir a foto.";
                     return RedirectToPage();
                 }
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "O seu perfil foi atualizado.";
             return RedirectToPage();
         }
 
@@ -560,7 +619,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
             await _signInManager.RefreshSignInAsync(user);
           
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "O seu perfil foi atualizado.";
             return RedirectToPage();
         }
 
@@ -596,13 +655,13 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
                 if (changes == 0)
                 {
-                    StatusMessage = "Unexpected error when trying to set preferences.";
+                    StatusMessage = "Ocorreu um erro inesperado ao tentar definir as preferências.";
                     return RedirectToPage();
                 }
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "O seu perfil foi atualizado.";
             return RedirectToPage();
         }
 
@@ -709,6 +768,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             var allPropertyNames = new string[]{
                 nameof(Input.UserName),
                 "Input.UserName",
+                "Input.UserPhone",
                 nameof(Input.Location),
                 "Input.Location",
                 nameof(Input.NewEmail),
