@@ -109,7 +109,7 @@
                                         </td>
                                         <td>
 
-                                            <input type="text" id="datas" name="duration" value="@pl.StartDiscount - @pl.EndDiscount" />
+                                            <input type="text" id="date" name="duration" value="@pl.StartDiscount - @pl.EndDiscount" />
                                         </td>
                                     </tr>
                                 }
@@ -235,29 +235,38 @@
         initializeDateRangePicker();
 
 
-        function detailDateRangePicker() {
-            $('input[id="datas"]').daterangepicker({
+        function detailsDateRangePicker() {
+            $('input[id="date"]').daterangepicker({
                 autoUpdateInput: false,
                 locale: {
                     cancelLabel: 'Clear'
                 }
             });
 
-            $('input[id="datas"]').on('apply.daterangepicker', function (ev, picker) {
-                const startDate = picker.startDate.format('DD/MM/YYYY');
-                const endDate = picker.endDate.format('DD/MM/YYYY');
+            $('input[id="date"]').on('apply.daterangepicker', function (ev, picker) {
+                const startDate = picker.startDate.format('DD/MM/YYYY HH:mm:ss');
+                const endDate = picker.endDate.format('DD/MM/YYYY HH:mm:ss');
                 $(this).val(startDate + ' - ' + endDate);
                 if (!validateDate(startDate, endDate)) {
                     $(this).val(''); // Limpa o valor do input se a data não for válida
                 }
             });
 
-            $('input[id="datas"]').on('cancel.daterangepicker', function (ev, picker) {
+            $('input[id="date"]').on('cancel.daterangepicker', function (ev, picker) {
                 $(this).val('');
             });
         }
 
-        detailDateRangePicker();
+        detailsDateRangePicker();
+
+
+        function loadDatas(value1, value2) {
+            const element = document.getElementById("date");
+            if (element) {
+                const dataRange = value1 + " - " + value2;
+                element.setAttribute('value', dataRange);
+            }
+        }
 
     </script>
 }
