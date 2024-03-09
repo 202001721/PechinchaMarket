@@ -27,9 +27,10 @@
     <section class="containers">
 
         <!--<button class="botoes">  <a asp-action="Create"> Adicionar produto </a></button>-->
-                    
-       <div id="publicados-products">
-            @foreach (var item in Model.Where(p => p.Item1.ProdEstado == Estado.Approved))
+
+        <div id="publicados-products" style="display:flex;">
+            @foreach (var item in Model.Where(p => p.Item1.ProdEstado == Estado.Approved).GroupBy(p => p.Item1)
+            .Select(g => g.First()))
             {
                 <div class="card">
 
@@ -49,7 +50,8 @@
         </div>
 
         <div id="pendentes-products" style="display:none;">
-            @foreach (var item in Model.Where(p => p.Item1.ProdEstado == Estado.InAnalysis))
+            @foreach (var item in Model.Where(p => p.Item1.ProdEstado == Estado.InAnalysis).GroupBy(p => p.Item1)
+            .Select(g => g.First()))
             {
                 <div class="card">
                     <div class="card-image">

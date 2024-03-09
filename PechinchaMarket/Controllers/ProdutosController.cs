@@ -30,7 +30,7 @@ namespace PechinchaMarket.Controllers
         {
             var produtos = _context.Produto.Join(_context.ProdutoLoja,
              produto => produto.Id,
-             loja => loja.Id,
+             loja => loja.Produto.Id,
              (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
 
             return View(produtos);
@@ -172,6 +172,7 @@ namespace PechinchaMarket.Controllers
             ModelState.Remove("file");
             ModelState.Remove("discount");
             ModelState.Remove("duration");
+            ModelState.Remove("Image");
 
             if (ModelState.IsValid)
             {
