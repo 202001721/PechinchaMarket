@@ -116,3 +116,22 @@ body {
     margin:15px;
 }
 
+.options {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img-trash {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/recycle-bin.png);
+    background-size: cover;
+}
+.img-edit {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/edit-text.png);
+    background-size: cover;
+}
