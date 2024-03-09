@@ -14,9 +14,8 @@
     text-decoration:none;
     color:black;
 }
-.coluna-selecionada h2 a {
-    text-decoration: none;
-    color: black;
+.coluna-selecionada {
+    background-color: white;
 }
 .card {
     width: 220px;
@@ -89,7 +88,7 @@
     transition: all 1s ease;
  }
 .coluna:active {
-        background-color: red;
+     background-color: white;
  }
 
 .card p a {
