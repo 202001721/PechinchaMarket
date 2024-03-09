@@ -1,65 +1,59 @@
-﻿@model IEnumerable<PechinchaMarket.Models.Produto>
+﻿@model IEnumerable<Tuple<PechinchaMarket.Models.Produto, PechinchaMarket.Models.ProdutoLoja>>
 
 @{
     ViewData["Title"] = "Index";
 }
-
+<link href="~/css/listaProduto.css" rel="stylesheet" />
 <h1>Produtos</h1>
 
-<p>
-    <a asp-action="Create">Criar Produto</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Unidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProdEstado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProdCategoria)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Unidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProdEstado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProdCategoria)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+<body>
+
+<div class="container-box"> 
+   
+               <span class="coluna-selecionada">
+            <h2> <a asp-action="Index"> Produtos Publicados </a> </h2>
+        </span>
+
+            <span class="coluna">
+            <h2> <a asp-action="ProductsInAnalysis"> Produtos Pendentes</a></h2>
+             </span>
+            
+</div>
+
+    <section class="containers">
+
+        <button class="botoes">  <a asp-action="Create"> Adicionar produto </a></button>
+
+     
+     
+        
+
+        @foreach (var item in Model)
+        {
+            <div class="card">
+
+                <div class="card-image">
+                    <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Item1.Id
+
+                  })' />
+                  </div>
+                <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
+                <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
+                <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
+
+                <p><a asp-action="Edit" asp-route-id=@item.Item1.Id> Editar</a></p> 
+
+            </div>
+
+            }
+
+
+        
+    </section>
+  
+</body>
+
+  
+

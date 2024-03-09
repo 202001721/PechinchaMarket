@@ -1,10 +1,8 @@
 ﻿namespace PechinchaMarket.Models
 {
-    /**
-     * Enumardo Estado
-     *
-     * Contem o estado de uma submissão
-     */
+    /// <summary>
+    /// Define um estado de submissão.
+    /// </summary>
     public enum Estado
     {
         /*A submissão foi aprovada*/

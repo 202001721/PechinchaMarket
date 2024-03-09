@@ -10,6 +10,9 @@
     --root-text-color-on-main-color: white;
     /*cor de background tudo que contem texto ou qualquer tipo de conteudo*/
     --root-background-content-color: white;
+    /*cor de constraste do background*/
+    --root-background-contrast-color: rgb(225, 225, 225);
+    --root-background-contrast-color-2: rgb(242, 242, 242);
     /*cor do texto no website todo*/
     --root-text-color: black;
     /*cor do border de um containers/botões/etc.. com fundo default (root-background-content-color)*/
@@ -49,7 +52,7 @@
     --root-account-type-logo-size: 3em;
     --root-account-type-button-width: 8em;
     --root-account-type-button-heigth: 8em;
-    --root-account-type-button-border-width: 0.1em;
+    --root-account-type-button-border-width: 0.3em;
     --root-account-type-button-border-radius: 1em;
     --root-account-type-logo-in-button-margin-top: calc(0.5 * calc(var(--root-account-type-button-width) - var(--root-text-size) - var(--root-account-type-logo-size)));
     --root-input-text-width: 20em;
@@ -111,6 +114,13 @@ body {
     padding: 0px;
 }
 
+.background-constrast-color {
+    background-color: var(--root-background-contrast-color);
+}
+
+.background-constrast-color-2 {
+    background-color: var(--root-background-contrast-color-2);
+}
 
 .display-none {
     display: none !important;
@@ -290,6 +300,7 @@ body {
 .authentication-input-text-div {
     width: var(--root-input-text-width);
     height: fit-content;
+    position: relative;
 }
 
     .authentication-input-text-div input {
@@ -301,6 +312,14 @@ body {
         padding-left: var(--root-input-text-padding-sides);
         padding-right: var(--root-input-text-padding-sides);
         outline: none;
+    }
+
+
+    .authentication-input-text-div.success::after {
+        content: '✓';
+        position: absolute;
+        top: calc(var(--root-input-text-height) / 4);
+        left: 90%;
     }
 
         .authentication-input-text-div input:focus {
@@ -327,6 +346,12 @@ body {
                 color: var(--blue-color) !important;
             }
 
+        .authentication-input-text-div.edit-perfil-input input:disabled,
+        .authentication-input-text-div.edit-perfil-input label::after {
+            border: 1px solid var(--root-background-contrast-color) !important;
+            background-color: var(--root-background-contrast-color) !important;
+        }
+
     .authentication-input-text-div label {
         z-index: 90;
         position: relative;
@@ -337,6 +362,12 @@ body {
         padding-right: 0.5em;
         opacity: 0;
         transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+
+        /*unselectable text*/
+        -webkit-user-select: none; /* Safari 3.1+ */
+        -moz-user-select: none; /* Firefox 2+ */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Standard syntax */
     }
 
         .authentication-input-text-div label::after {
@@ -952,8 +983,10 @@ a.cancel-button:hover::before {
 .left-flex,
 .center-x-flex,
 .edges-flex,
-.wrap-flex 
-.center-y-flex{
+.space-around-flex,
+.wrap-flex, 
+.center-y-flex,
+.bottom-y-flex{
     display: flex;
 }
 
@@ -973,12 +1006,20 @@ a.cancel-button:hover::before {
     justify-content: left;
 }
 
+.space-around-flex {
+    justify-content: space-around;
+}
+
 .center-x-flex {
     justify-content: center;
 }
 
 .center-y-flex {
     align-items: center;
+}
+
+.bottom-y-flex {
+    align-items: flex-end;
 }
 
 .edges-flex {
@@ -989,6 +1030,18 @@ a.cancel-button:hover::before {
     flex-wrap: wrap;
 }
 
+.shrink-flex {
+    flex-shrink: 5;
+}
+
+.push-left {
+    margin-right: auto;
+}
+
+.push-right {
+    margin-left: auto;
+}
+
 .thin-outline {
     outline: 1px solid var(--root-border-color-to-default-background-container);
 }
@@ -997,13 +1050,50 @@ a.cancel-button:hover::before {
     border-radius: 10px;
 }
 
+.medium-gap-x {
+    gap: 0px 5em;
+}
+
+.medium-gap-y {
+    gap: 5em 0px;
+}
+
 .small-gap-x {
     gap: 0px 2em;
+}
+
+.small-gap-y {
+    gap: 2em 0px;
+}
+
+.small-gap {
+    gap: 2em 2em;
+}
+
+.smaller-gap-x {
+    gap: 0px 1em;
+}
+
+.smaller-gap-y {
+    gap: 1em 0px;
 }
 
 .small-padding {
     padding: 1em;
 }
+
+.small-padding-right {
+    padding-right: 2em;
+}
+
+.small-padding-left {
+    padding-left: 2em;
+}
+
+.medium-padding-top {
+    padding-top: 4em;
+}
+
 
 .small-margin-top {
     margin-top: 1em;
@@ -1025,12 +1115,20 @@ a.cancel-button:hover::before {
     width: 100%; 
 }
 
+.max-height {
+    height: 100%;
+}
+
 .fit-content-height {
     height: fit-content;
 }
 
 .min-content-height {
     height: min-content;
+}
+
+.max-content-height {
+    height: max-content;
 }
 
 .search-result {
@@ -1054,10 +1152,389 @@ a.cancel-button:hover::before {
     background-size: 100% 100%;
 }
 
+.small-image {
+    display: inline-block;
+    background-size: 100% 100%;
+    width: var(--root-small-icon-size);
+    height: var(--root-small-icon-size);
+}
+
+.small-perfil-image,
+.medium-perfil-image,
+.big-perfil-image,
+.huge-perfil-image{
+    display: inline-block;
+    background-size: 100% 100%;
+    border-radius: 100%;
+}
+
+    .small-perfil-image {
+        width: var(--root-small-icon-size);
+        height: var(--root-small-icon-size);
+    }
+
+    .medium-perfil-image {
+        width: var(--root-medium-icon-size);
+        height: var(--root-medium-icon-size);
+    }
+
+    .big-perfil-image {
+        width: var(--root-huge-icon-size);
+        height: var(--root-huge-icon-size);
+    }
+
+    .huge-perfil-image{
+        width: 200px; 
+        aspect-ratio: 1 / 1;
+    }
+
 .sad-face {
     display: inline-block;
     width: 100px;
     height: 69px;
     background-size: 100% 100%;
     background-image: url('../images/sad.png');
+}
+
+/*
+    This class's makes the following tags look like a button:
+    - button
+    - div
+    - a
+
+    Example:
+    <div class="pechincha-button main-button-color"></div>
+    <div class="pechincha-button default-button-color"></div>
+*/
+.pechincha-button {
+    flex: 0 1 auto;
+    width: calc((var(--root-form-button-padding-sides) * 2) + 3em);
+    height: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 5px;
+
+    /*unselectable text*/
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+    .pechincha-button:hover {
+        filter: brightness(0.92);
+    }
+
+.main-button-color {
+    background-color: var(--root-main-color);
+    border: none;
+    color: var(--root-text-color-on-main-color);
+}
+    .main-button-color:hover {
+        color: var(--root-text-color-on-main-color);
+    }
+a.main-button-color::before {
+    background-color: var(--root-main-color);
+}
+a.main-button-color:hover::before {
+    opacity: 0.5;
+}
+
+.default-button-color {
+    background-color: var(--root-background-content-color);
+    border: 1px solid var(--root-border-color-to-default-background-container);
+    color: var(--root-text-color);
+}
+    .default-button-color:hover {
+        color: var(--root-text-color);
+    }
+a.default-button-color::before {
+    background-color: var(--root-background-content-color);
+}
+
+a.default-button-color:hover::before {
+    opacity: 0.5;
+}
+
+.off-screen {
+    position: absolute;
+    left: -9999px;
+}
+
+.new-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s; /* Smooth transition */
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+    .new-page > div.small-page {
+        width: 400px;
+        height: 400px;
+        top: calc(50vh - (400px / 2));
+    }
+
+    .new-page > div.big-page {
+        width: 800px;
+        height: 600px;
+        top: calc(50vh - (600px / 2));
+    }
+
+    .new-page > div.small-page,
+    .new-page > div.big-page {
+        background-color: var(--root-background-content-color);
+        position: absolute;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    @media screen and (max-height: 400px) {
+        .new-page > div.small-page {
+            position: relative !important;
+            top: 0 !important;
+        }
+    }
+
+    @media screen and (max-height: 600px) {
+
+        .new-page > div.big-page {
+            position: relative !important;
+            top: 0 !important;
+        }
+    }
+
+    .new-page .title {
+        font-size: 20px;
+    }
+
+    .no-overflow {
+        overflow: hidden !important;
+    }
+
+    .cross-button {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 100%;
+        background-color: var(--root-background-content-color);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .cross-button:hover {
+            filter: brightness(0.92);
+        }
+    }
+
+    @media not all and (hover: hover) {
+        .cross-button:active {
+            filter: brightness(0.92);
+        }
+    }
+
+    .cross-button::before,
+    .cross-button::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 1px;
+        background-color: black;
+        transform: translate(-50%, -50%);
+    }
+
+    .cross-button::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .cross-button::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .clickable-div {
+        cursor: pointer;
+        background-color: var(--root-background-content-color);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .clickable-div:hover {
+            filter: brightness(0.92);
+        }
+    }
+
+    @media not all and (hover: hover) {
+        .clickable-div:active {
+            filter: brightness(0.92);
+        }
+    }
+
+
+    .perfil-image-border {
+        border: 2px solid white;
+        outline: 2px solid black;
+    }
+
+    .perfil-image-div-position {
+        position: relative;
+        top: 50px;
+        left: 1em;
+    }
+
+    .perfil-image-to-edit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .perfil-image-to-edit span {
+            text-indent: -9999px;
+            font-size: 20px;
+            font-weight: 500;
+            z-index: 99;
+        }
+
+    @media (hover: hover) and (pointer: fine) {
+        .perfil-image-to-edit:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 100%;
+            z-index: 10;
+        }
+
+        .perfil-image-to-edit:hover span {
+            text-indent: 0px;
+        }
+    }
+
+    .perfil-button-image-edit {
+        margin-bottom: 10px;
+    }
+
+    .unselectable-text {
+        -webkit-user-select: none; /* Safari 3.1+ */
+        -moz-user-select: none; /* Firefox 2+ */
+        -ms-user-select: none; /* IE 10+ */
+        user-select: none; /* Standard syntax */
+    }
+
+.photo-chooser {
+    height: 300px;
+    overflow: auto;
+    padding-top: 1em;
+}
+
+.photo-option input[type="radio"]:checked + label span.big-perfil-image {
+    outline-color: var(--blue-color);
+    position: relative;
+}
+
+    .photo-option input[type="radio"]:checked + label span.big-perfil-image::after {
+        content: '✓';
+        text-align: center;
+        outline: 2px solid var(--blue-color);
+        background-color: var(--root-background-content-color);
+        border-radius: 100%;
+        height: 30%;
+        width: 30%;
+        bottom: 0px;
+        right: 0px;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--blue-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        margin-left: var(--root-huge-icon-size);
+    }
+
+.preferences-parent {
+    max-width: 300px;
+}
+
+.preferences-label {
+    position: relative;
+    height: fit-content;
+    padding-left: 8px;
+    padding-right: 8px;
+    bottom: calc(var(--root-text-size) - 2px);
+    left: 10px;
+}
+
+    .preferences-label ~ * {
+        position: relative;
+        bottom: calc(var(--root-text-size) - 2px);
+    }
+
+.edit-checkbox label {
+    width: 120%;
+    height: calc((var(--root-form-button-padding-up-and-down) * 2) + 1em);
+    background-color: var(--root-background-content-color);
+    text-align: center;
+    outline: 1px solid var(--root-border-color-to-default-background-container);
+    border-radius: var(--root-checkbox-border-radius);
+    outline-offset: -1px;
+    color: var(--root-text-color);
+    cursor: pointer;
+}
+
+.edit-checkbox input:disabled ~ label {
+    background-color: var(--root-background-contrast-color-2);
+    outline-width: 3px !important;
+}
+
+.edit-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+    .edit-checkbox input[type="checkbox"]:checked ~ label {
+        outline-color: var(--root-main-color);
+        outline-width: 3px;
+    }
+
+    .edit-checkbox input[type="checkbox"]:hover ~ label {
+        filter: brightness(0.95);
+    }
+
+.no-padding {
+    padding: 0px;
+}
+
+.height-fit-content {
+    height: fit-content;
+}
+
+.perfil-nav-menu {
+    background-color: var(--root-background-content-color);
+    width: 5em;
+    position: relative;
+    top: calc(var(--root-small-icon-size) + 10px);
+    right: 3em;
+}
+
+.remove-hover:hover {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.cursor-pointer{
+    cursor: pointer;
 }

@@ -1,10 +1,9 @@
 ﻿namespace PechinchaMarket.Models
 {
-    /**
-     * Enumerado Distrito
-     * 
-     * Contém todos os distritos em portugal
-     */
+    /// <summary>
+    /// Contém todos os distritos de Portugal.
+    /// Possivelmente para remover.
+    /// </summary>
     public enum Distrito
     {
         Aveiro,

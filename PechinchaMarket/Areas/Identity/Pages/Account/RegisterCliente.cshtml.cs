@@ -232,7 +232,9 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); // verificar a extensao que esta usando 
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.Send(message);
+                //smtpClient.Send(message);
+                await smtpClient.SendMailAsync(message);
+              
                 return true;
             }
             catch (Exception)

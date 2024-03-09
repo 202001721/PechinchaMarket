@@ -160,6 +160,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     resultado = await _userManager.AddLoginAsync(user, info);
                     if (resultado.Succeeded)
                     {
+                        await _userManager.AddToRoleAsync(user, "Cliente");
+
                         _context.Add(cliente);
                         await _context.SaveChangesAsync();
 
@@ -224,6 +226,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
+                        await _userManager.AddToRoleAsync(user, "Cliente");
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
                         var userId = await _userManager.GetUserIdAsync(user);

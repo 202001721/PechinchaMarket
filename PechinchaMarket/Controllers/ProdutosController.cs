@@ -28,7 +28,13 @@ namespace PechinchaMarket.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Produto.ToListAsync());
+            var produtos = _context.Produto
+             .Where(p => p.ProdEstado == Estado.Approved).Join(_context.ProdutoLoja,
+             produto => produto.Id,
+             loja => loja.Id,
+             (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
+
+            return View(produtos);
         }
 
         // GET: Produtos/Details/5
@@ -47,6 +53,17 @@ namespace PechinchaMarket.Controllers
             }
 
             return View(produto);
+        }
+
+        public async Task<ActionResult> ProductsInAnalysis()
+        {
+            var produtos = _context.Produto
+           .Where(p => p.ProdEstado == Estado.InAnalysis).Join(_context.ProdutoLoja,
+           produto => produto.Id,
+           loja => loja.Id,
+           (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
+
+            return View(produtos);
         }
 
         public async Task<IActionResult> Show(int? id)
@@ -69,13 +86,21 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Função Create - Utilizada quando o comerciante pretende criar um novo produto
+        /// </summary>
+        /// <param name="produto">novo produto a adicionar à base de dados</param>
+        /// <param name="file">imagem do produto</param>
+        /// <param name="price">conjunto de preços para definir estes nos ProdutoLojas definidos</param>
+        /// <returns>View da lista dos produtos do comerciante</returns>
         // POST: Produtos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file, float[] price)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brand,Image,Weight,Unidade,ProdCategoria")] Produto produto, IFormFile file, float[] price)
         {
+            ModelState.Remove("Image");
             if (ModelState.IsValid)
             {
                 var memoryStreamImg = new MemoryStream();
@@ -115,7 +140,11 @@ namespace PechinchaMarket.Controllers
             return View(produto);
         }
 
-
+        /// <summary>
+        /// Função Edit - utilizada quando o comerciante pretende editar um produto
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>View com opções de edição do produto</returns>
         // GET: Produtos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -128,16 +157,18 @@ namespace PechinchaMarket.Controllers
 
             return View(model);
         }
+
+
         /// <summary>
-        /// 
+        /// Função Edit httpPost - utilizada quando o comerciante realiza submit do formulário de edição de um produto
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="produto"></param>
-        /// <param name="price"></param>
-        /// <param name="discount"></param>
-        /// <param name="file"></param>
-        /// <param name="duration"></param>
-        /// <returns></returns>
+        /// <param name="id">id do produto</param>
+        /// <param name="produto">informação do produto a ser atualizada</param>
+        /// <param name="price">novo preço do produto</param>
+        /// <param name="discount">desconto do produto</param>
+        /// <param name="file">imagem do produto</param>
+        /// <param name="duration">duração do desconto</param>
+        /// <returns>View da lista de produtos</returns>
         // POST: Produtos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

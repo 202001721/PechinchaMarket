@@ -1,0 +1,517 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<div class="row">
+    <partial name="_StatusMessage" for="StatusMessage" />
+    <div>
+        <div class="thin-outline rounded-border column-container">
+            <div class="perfil-image-div-position row-container small-gap-x bottom-y-flex">
+                <span class="big-perfil-image perfil-image-border clickable-div perfil-image-to-edit" style="background-image: url('data:image/jpeg;base64,@ViewData["UserPhoto"]')" onclick="zoomPerfilImage()">
+                    <span class="unselectable-text">Zoom</span>
+                </span>
+                <div class="pechincha-button default-button-color row-container perfil-button-image-edit" onclick="choosePerfilImage()">Editar Foto</div>
+            </div>
+            <div class="new-page display-none" id="zoom-perfil-image">
+                <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                    <div class="edges-flex max-width">
+                        <div class="title unselectable-text">Alterar foto</div>
+                        <div class="cross-button" onclick="zoomPerfilImage()"></div>
+                    </div>
+                    <span class="huge-perfil-image perfil-image-border" style="background-image: url('data:image/jpeg;base64,@ViewData["UserPhoto"]')"></span>
+                    <div class="row-container right-flex max-width">
+                        <div class="pechincha-button main-button-color row-container" onclick="zoomPerfilImage(); choosePerfilImage();">Editar Foto</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-page display-none" id="choose-perfil-image">
+                <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                    <div class="edges-flex max-width">
+                        <div class="title unselectable-text">Mudar de foto</div>
+                        <div class="cross-button" onclick="choosePerfilImage()"></div>
+                    </div>
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <form asp-page-handler="ChangePhoto" class="column-container edges-flex max-width max-height" id="change-photo-form">
+                            <div>
+                                <label asp-for="Input.NewPhoto"></label>
+                            </div>
+                            <div class="wrap-flex small-gap center-x-flex small-padding-right small-padding-left photo-chooser">
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage0" name="Input.NewPhoto" value="0" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage0">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_0.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage1" name="Input.NewPhoto" value="1" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage1">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_1.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage2" name="Input.NewPhoto" value="2" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage2">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_2.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage3" name="Input.NewPhoto" value="3" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage3">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_3.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage4" name="Input.NewPhoto" value="4" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage4">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_4.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage5" name="Input.NewPhoto" value="5" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage5">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_5.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage6" name="Input.NewPhoto" value="6" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage6">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_6.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage7" name="Input.NewPhoto" value="7" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage7">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_7.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage8" name="Input.NewPhoto" value="8" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage8">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_8.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage9" name="Input.NewPhoto" value="9" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage9">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_9.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage10" name="Input.NewPhoto" value="10" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage10">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_10.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage11" name="Input.NewPhoto" value="11" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage11">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_11.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage12" name="Input.NewPhoto" value="12" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage12">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_12.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage13" name="Input.NewPhoto" value="13" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage13">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_13.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage14" name="Input.NewPhoto" value="14" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage14">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_14.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage15" name="Input.NewPhoto" value="15" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage15">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_15.png');"></span>
+                                    </label>
+                                </span>
+                                <span class="photo-option">
+                                    <input class="display-none" type="radio" id="radioImage16" name="Input.NewPhoto" value="16" asp-for="Input.NewPhoto" />
+                                    <label for="radioImage16">
+                                        <span class="big-perfil-image perfil-image-border" style="background-image: url('/images/userphoto_16.png');"></span>
+                                    </label>
+                                </span>
+                            </div>
+                            <div class="row-container right-flex max-width">
+                                <button id="change-photo" type="submit" class="pechincha-button main-button-color row-container">Salvar</button>
+                            </div>
+                        </form>
+                    }else if(User.IsInRole("Comerciante")){
+                        <form asp-page-handler="ChangePhotoComerciante" id="change-photo-comerciante" method="post" enctype="multipart/form-data">
+                            >
+                            <div class="insert-file file-type-image">
+                                <div class="title">Logotipo</div>
+                                <div class="insert-file-input">
+                                    <div>
+                                        <label asp-for="Input.Logo">Carregar</label>
+                                        <input  type="file" onchange="updateFileName(this)" asp-for="Input.Logo" accept="image/*" />
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="confirm-button" type="submit">Salvar</button>
+
+                        </form>
+                        
+                    }
+
+                </div>
+            </div>
+
+
+            <div class="background-constrast-color-2 small-padding smaller-gap-y medium-padding-top column-container">
+                <div class="background-constrast-color small-padding rounded-border">
+                    <form asp-page-handler="ChangeName" id="change-name-form" method="post" class="row-container edges-flex">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="authentication-input-text-div edit-perfil-input">
+                            <input asp-for="Input.UserName" id="name-input" placeholder="Please choose your username." disabled />
+                            <label asp-for="Input.UserName"></label>
+                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="row-container center-y-flex smaller-gap-x">
+                            <button type="submit" id="ChangeName-button" class="pechincha-button main-button-color off-screen">Salvar</button>
+                            <div class="pechincha-button default-button-color" onclick="toogleEditableField(this)">Editar</div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="background-constrast-color small-padding rounded-border">
+                    <form asp-page-handler="ChangeEmail" id="email-form" method="post" class="row-container edges-flex">
+                        <div class="column-container smaller-gap-y edges-flex max-content-height">
+                            @if (Model.IsEmailConfirmed)
+                            {
+                                <div class="authentication-input-text-div edit-perfil-input success">
+                                    <input asp-for="Email" autocomplete="email" placeholder="Please enter your email." disabled />
+                                    <label asp-for="Email"></label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="authentication-input-text-div edit-perfil-input">
+                                    <input asp-for="Email" autocomplete="email" placeholder="Please enter your email." disabled />
+                                    <label asp-for="Email"></label>
+                                    <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                                </div>
+                            }
+                            <div class="authentication-input-text-div edit-perfil-input display-none">
+                                <input asp-for="Input.NewEmail" autocomplete="email" aria-required="true" placeholder="Please enter new email." />
+                                <label asp-for="Input.NewEmail"></label>
+                                <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row-container center-y-flex smaller-gap-x">
+                            <button id="change-email-button" type="submit" class="pechincha-button main-button-color display-none">Mudar Email</button>
+                            <div class="pechincha-button default-button-color" onclick="displayEditableField(this)">Editar</div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="background-constrast-color small-padding rounded-border">
+                    @if (ViewData.ContainsKey("HasPassword"))
+                    {
+                        @if ((bool)ViewData["HasPassword"])
+                        {
+                            <form asp-page-handler="ChangePassword" id="change-password-form" method="post" class="row-container edges-flex">
+                                <div class="column-container smaller-gap-y edges-flex max-content-height">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                                    <div class="authentication-input-text-div edit-perfil-input">
+                                        <input asp-for="Input.OldPassword" id="current-password" autocomplete="current-password" aria-required="true" placeholder="Please enter your old password." disabled />
+                                        <label asp-for="Input.OldPassword"></label>
+                                        <span asp-validation-for="Input.OldPassword" class="text-danger"></span>
+                                    </div>
+                                    <div class="authentication-input-text-div edit-perfil-input display-none">
+                                        <input asp-for="Input.NewPassword" autocomplete="new-password" aria-required="true" placeholder="Please enter your new password." />
+                                        <label asp-for="Input.NewPassword"></label>
+                                        <span asp-validation-for="Input.NewPassword" class="text-danger"></span>
+                                    </div>
+                                    <div class="authentication-input-text-div edit-perfil-input display-none">
+                                        <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Please confirm your new password." />
+                                        <label asp-for="Input.ConfirmPassword"></label>
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row-container center-y-flex smaller-gap-x">
+                                    <button type="submit" class="pechincha-button main-button-color display-none">Salvar</button>
+                                    <div class="pechincha-button default-button-color" onclick="passswordEditableField(this)">Editar</div>
+                                </div>
+
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-page-handler="SetPassword" id="set-password-form" method="post" class="row-container edges-flex">
+                                <div class="column-container">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                                    <div class="authentication-input-text-div edit-perfil-input">
+                                        <input asp-for="Input.NewPassword" autocomplete="new-password" placeholder="Please enter your new password." />
+                                        <label asp-for="Input.NewPassword"></label>
+                                        <span asp-validation-for="Input.NewPassword" class="text-danger"></span>
+                                    </div>
+                                    <div class="authentication-input-text-div edit-perfil-input">
+                                        <input asp-for="Input.ConfirmPassword" autocomplete="new-password" placeholder="Please confirm your new password." />
+                                        <label asp-for="Input.ConfirmPassword"></label>
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row-container center-y-flex smaller-gap-x">
+                                    <button type="submit" class="pechincha-button main-button-color display-none">Salvar</button>
+                                    <div class="pechincha-button default-button-color" onclick="passswordEditableField(this)">Editar</div>
+                                </div>
+                            </form>
+                        }
+                    }
+                </div>
+
+                <div class="background-constrast-color small-padding rounded-border">
+                    <form asp-page-handler="ChangeLocation" id="location-form" method="post" class="row-container edges-flex">
+                        <div class="authentication-input-text-div edit-perfil-input">
+                            <input asp-for="Input.Location" id="location-input" placeholder="Please choose your phone number" disabled />
+                            <label asp-for="Input.Location"></label>
+                            <span asp-validation-for="Input.Location" class="text-danger"></span>
+                        </div>
+                        <div class="row-container smaller-gap-x">
+                            <button type="submit" class="pechincha-button main-button-color off-screen">Salvar</button>
+                            <div class="pechincha-button default-button-color" onclick="locationEditableField(this)">Editar</div>
+                        </div>
+                    </form>
+                </div>
+
+                @if  (User.IsInRole("Cliente"))
+                {
+                    <div class="background-constrast-color small-padding rounded-border">
+                        <form asp-page-handler="ChangePreferences" id="preferences-form" method="post" class="row-container edges-flex">
+                            <div class="">
+                                <label asp-for="Input.Preferences" class="preferences-label"></label>
+                                <div class="row-container wrap-flex small-gap preferences-parent">
+                                    @for (var i = 0; i < Model.Input.Preferences.Length; i++)
+                                    {
+                                        <div class="edit-checkbox">
+                                            <input id="preference_@i" type="checkbox" asp-for="@Model.Input.Preferences[i]" />
+                                            <label for="preference_@i">@Model.PreferencesLabels[i]</label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row-container smaller-gap-x">
+                                <button type="submit" class="pechincha-button main-button-color off-screen">Salvar</button>
+                                <div class="pechincha-button default-button-color" onclick="preferencesEditableField(this)">Editar</div>
+                            </div>
+                        </form>
+                    </div>
+                }
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<script>
+    function choosePerfilImage() {
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("choose-perfil-image");
+        chooseimage.classList.toggle('display-none');
+    }
+
+    function zoomPerfilImage(){ 
+        document.body.classList.toggle('no-overflow');
+        zoomimage = document.getElementById("zoom-perfil-image");
+        zoomimage.classList.toggle('display-none');
+    }
+
+    function toogleEditableField(button) {
+
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+        
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (input.id === 'name-input') {
+                input.disabled = !input.disabled;
+            }
+        });
+        
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('off-screen');
+        
+        if (elemtToHide.classList.contains('off-screen')) {
+            button.textContent = "Editar";
+        } else { 
+            button.textContent = "Cancelar";
+        }
+    }
+
+
+    function locationEditableField(button){ 
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (input.id === 'location-input') {
+                input.disabled = !input.disabled;
+            }
+        });
+
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('off-screen');
+
+        if (elemtToHide.classList.contains('off-screen')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }   
+    }
+
+    function preferencesEditableField(button) { 
+    var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input[type="checkbox"]');
+        inputs.forEach(function (input) {
+            if (!input.checked) {
+                input.parentNode.classList.toggle('display-none');
+            }
+
+            input.disabled = !input.disabled;
+        });
+
+        elemtToHide.classList.toggle('off-screen');
+
+        if (elemtToHide.classList.contains('off-screen')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }   
+    }
+
+    function displayEditableField(button) {
+
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (!input.disabled && input.parentNode.tagName.toLowerCase() === 'div') {
+                input.parentNode.classList.toggle('display-none');
+            }
+        });
+
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('display-none');
+
+        if (elemtToHide.classList.contains('display-none')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }
+    }
+
+    function passswordEditableField(button) {
+
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (input.parentNode.tagName.toLowerCase() === 'div' && input.id !== 'current-password') {
+                input.parentNode.classList.toggle('display-none');
+            } else if (input.parentNode.tagName.toLowerCase() === 'div' && input.id === 'current-password') {
+                input.disabled = !input.disabled;
+                if (input.disabled) {
+                    input.value = '*'.repeat(25);
+                } else { 
+                    input.value = '';
+                }
+            }
+        });
+
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('display-none');
+
+        if (elemtToHide.classList.contains('display-none')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var inputs = document.querySelectorAll('input');
+        inputs.forEach(function (input) { 
+            if (input.parentNode.tagName.toLowerCase() === 'div' && input.id === 'current-password') {
+                if (input.disabled) {
+                    input.value = '*'.repeat(25);
+                } else {
+                    input.value = '';
+                }
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById("preferences-form");
+
+        var inputs = form.querySelectorAll('input[type="checkbox"]');
+        inputs.forEach(function (input) {
+            if (!input.checked) {
+                input.parentNode.classList.toggle('display-none');
+            }
+
+            input.disabled = !input.disabled;
+        });
+    });
+    
+</script>

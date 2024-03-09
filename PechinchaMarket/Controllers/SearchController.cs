@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Models;
 using Microsoft.AspNetCore.Components.Forms;
 using System;
+using Microsoft.AspNetCore.Hosting;
 
 namespace PechinchaMarket.Controllers
 {
@@ -14,10 +15,14 @@ namespace PechinchaMarket.Controllers
     {
         private readonly DBPechinchaMarketContext _context;
         private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
-        public SearchController(DBPechinchaMarketContext context, Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public SearchController(DBPechinchaMarketContext context, 
+            Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
+            IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -25,12 +30,22 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Função Search - quando o cliente pesquisa algo, a função chama a outra função SearchResults
+        /// </summary>
+        /// <param name="searchText">texto a ser pesquisado</param>
+        /// <returns>redireciona para a ação SearchResults</returns>
         [HttpPost]
         public IActionResult Search(string searchText)
         {
             return RedirectToAction("SearchResults", new { search = searchText});
         }
 
+        /// <summary>
+        /// Função SearchResults - é realizada quando o cliente pesquisa na barra de pesquisa
+        /// </summary>
+        /// <param name="search">texto inserido na barra de pesquisa</param>
+        /// <returns>View com os produtos do resultado da pesquisa</returns>
         // Action method to display search results
         public IActionResult SearchResults(string search)
         {
@@ -131,6 +146,11 @@ namespace PechinchaMarket.Controllers
             return false;
         }
 
+        /// <summary>
+        /// Função ShowImage - mostra a imagem do produto pretendido
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>ficheiro da imagem do produto</returns>
         public async Task<IActionResult> ShowImage(int? id)
         {
             if (id == null)
@@ -141,6 +161,32 @@ namespace PechinchaMarket.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return File(produto.Image, "image/jpg");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPerfilImage() {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            var userId = _userManager.GetUserId(User);
+
+            if (User.IsInRole("Comerciante"))
+            {
+                var image = ShowImage(_context.Comerciante.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.logo).FirstOrDefault());
+                return Json(image);
+            }
+            else if (User.IsInRole("Cliente"))
+            {
+                var image = ShowImage(_context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
+                return Json(image);
+            }
+            else {
+                var image = ShowImage(_context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
+                return Json(image);
+            }
         }
 
         [HttpGet]
@@ -220,7 +266,12 @@ namespace PechinchaMarket.Controllers
             string result = name.Substring(0, index);
             return result;
         }
-          
+         
+        /// <summary>
+        /// Função AddToList - é realizada quando o cliente pretende visualizar um produto 
+        /// </summary>
+        /// <param name="id">id do produto pretendido</param>
+        /// <returns>View com os detalhes do produto em questão</returns>
         public async Task<ActionResult> AddToList(int id)
         {
                 var model = _context.Users
@@ -261,6 +312,13 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Função AddProduct - realizada quando o cliente pretende adicionar um produto à sua lista
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <param name="quantityValue">quantidade de produto</param>
+        /// <param name="nome">nome da lista</param>
+        /// <returns>View das listas do cliente</returns>
         [HttpPost, ActionName("AddProduct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddProduct(int? id, int quantityValue, string nome)
@@ -332,6 +390,11 @@ namespace PechinchaMarket.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Função SimilarProducts - seleciona um conjunto de produtos similares ao produto a ser visualizado 
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>Lista de produtos semelhantes</returns>
         //[HttpGet]
         public List<Produto> SimilarProducts(int? id)
         {
@@ -358,5 +421,22 @@ namespace PechinchaMarket.Controllers
 
             //return Json(similarProducts);
         }
+
+        public string ShowImage(byte[]? image)
+        {
+            if (image == null)
+            {
+                var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "userphoto_0.png");
+                if (!System.IO.File.Exists(imagePath))
+                    return null;
+
+                return Convert.ToBase64String(System.IO.File.ReadAllBytes(imagePath));
+            }
+
+            return Convert.ToBase64String(image);
+        }
+
     }
 }
+
+
