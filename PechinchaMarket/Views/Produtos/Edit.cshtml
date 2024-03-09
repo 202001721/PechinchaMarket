@@ -52,7 +52,7 @@
                         </div> 
                         <div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
-                            <input type="text" id="datefilter" value="" />
+                            <input type="text" onclick="openDiscountDuration()" value="" />
                         </div>
                         
                     </div>     
@@ -108,14 +108,28 @@
                                             <input type="number" name="discount" class="discount custom-input" value="@pl.Discount" min="0" max="999" /> %
                                         </td>
                                         <td>
-
-                                            <input type="text" id="date" name="duration" value="@pl.StartDiscount - @pl.EndDiscount" />
+                                            <input type="text" name="duration" onclick="openDiscountDuration()" />
                                         </td>
                                     </tr>
                                 }
                             }
                         </tbody>
                     </table>
+                </div>
+
+                <div class="new-page display-none" id="data-select">
+                    <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                        <div class="edges-flex max-width">
+                            <div class="title unselectable-text">Selecionar duração do desconto</div>
+                            <div class="cross-button" onclick="openDiscountDuration()"></div>
+                        </div>
+                        <div class="wrap-flex small-gap center-x-flex small-padding-right small-padding-left calendar-chooser row-container" id="calendar">
+
+                        </div>
+                        <div class="row-container right-flex max-width">
+                            <div class="pechincha-button main-button-color row-container" onclick="">Salvar</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -204,6 +218,12 @@
             return true; // Retorna verdadeiro se ambas as datas forem válidas
         }
 
+        function openDiscountDuration() {
+            document.body.classList.toggle('no-overflow');
+            data = document.getElementById("data-select");
+            data.classList.toggle('display-none');
+        }
+
         function initializeDateRangePicker() {
             $('input[id="datefilter"]').daterangepicker({
                 autoUpdateInput: false,
@@ -260,13 +280,145 @@
         detailsDateRangePicker();
 
 
-        function loadDatas(value1, value2) {
-            const element = document.getElementById("date");
-            if (element) {
-                const dataRange = value1 + " - " + value2;
-                element.setAttribute('value', dataRange);
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var currentDate = new Date();
+
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"];
+
+            // Get the div element to contain the calendar
+            var calendarDiv = document.getElementById("calendar");
+            calendarDiv.innerHTML = ''; // Clear existing content
+
+            for (var l = currentDate.getMonth(); l < 12; l++) {
+
+                var monthName = monthNames[l];
+
+                // Get the number of days in the specified month
+                var daysInMonth = new Date(currentDate.getFullYear(), l+1, 0).getDate();
+
+                // Get the first day of the specified month (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+                var firstDayOfMonth = new Date(currentDate.getFullYear(), l, 1).getDay();
+                var firstDayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][firstDayOfMonth];
+
+                // Create div elements for the month name
+                var monthDiv = document.createElement("div");
+                monthDiv.classList.add("month");
+                var monthNameSpan = document.createElement("div");
+                monthNameSpan.classList.add("month-name");
+                monthNameSpan.classList.add("unselectable-text");
+                monthNameSpan.textContent = monthName;
+                monthDiv.appendChild(monthNameSpan);
+                calendarDiv.appendChild(monthDiv);
+
+                // Create div elements for each day of the specified month
+                for (var i = 1; i <= daysInMonth; i++) {
+                    var dayDiv = document.createElement("span");
+                    dayDiv.classList.add("day");
+                    dayDiv.classList.add("unselectable-text");
+                    dayDiv.textContent = i;
+                    monthDiv.appendChild(dayDiv);
+                }
             }
+        });
+
+        var calendarDiv = document.getElementById('calendar');
+        var isMouseDown = false;
+        var startDay = null;
+        var lastSelectedMonth = null;
+        
+
+        calendarDiv.addEventListener('mousedown', function (event) {
+            if (event.target.classList.contains('day') && !isMouseDown) {
+                
+                calendarDiv.querySelectorAll('.day-selected').forEach(toggleSelection);
+                isMouseDown = true;
+                startDay = event.target;
+                lastSelectedMonth = event.target.parentNode.querySelector('.month-name').textContent;
+                addSelection(event.target);
+            }
+        });
+
+        calendarDiv.addEventListener('mousemove', function (event) {
+            if (isMouseDown && event.target.classList.contains('day')) {
+                var endDay = event.target;
+                var days = Array.from(event.target.parentNode.querySelectorAll('.day'));
+                var startIndex = days.indexOf(startDay);
+                var endIndex = days.indexOf(endDay);
+
+                
+                if (lastSelectedMonth != event.target.parentNode.querySelector('.month-name').textContent) {
+                    startIndex = 0;
+
+                    var minIndex = Math.min(startIndex, endIndex);
+                    var maxIndex = Math.max(startIndex, endIndex);
+
+
+                    if (startIndex < endIndex) {
+                        for (var i = minIndex; i <= maxIndex; i++) {
+                            addSelection(days[i]);
+                        }
+                    } else {
+                        for (var i = minIndex; i >= maxIndex; i--) {
+                            addSelection(days[i]);
+                        }
+                    }
+                    var query = calendarDiv.querySelectorAll(`.month-name`);
+                    var query2 = null;
+                    console.log(lastSelectedMonth);
+                    for (var i = 0; i < query.length; i++) {
+                        if (query[i].textContent == lastSelectedMonth) {
+                            query2 = Array.from(query[i].parentNode.querySelectorAll('.day'));
+                            break;
+
+                        }
+                    }
+                    startIndex = query2.indexOf(startDay);
+                    endIndex = query2.length - 1;
+
+                    var minIndex = Math.min(startIndex, endIndex);
+                    var maxIndex = Math.max(startIndex, endIndex);
+
+                    if (startIndex < endIndex) {
+                        for (var i = minIndex; i <= maxIndex; i++) {
+                            addSelection(query2[i]);
+                        }
+                    } else {
+                        for (var i = minIndex; i >= maxIndex; i--) {
+                            addSelection(query2[i]);
+                        }
+                    }
+                    lastSelectedMonth = event.target.parentNode.querySelector('.month-name').textContent;
+                } else {
+                    var minIndex = Math.min(startIndex, endIndex);
+                    var maxIndex = Math.max(startIndex, endIndex);
+
+                    if (startIndex < endIndex) {
+                        for (var i = minIndex; i <= maxIndex; i++) {
+                            addSelection(days[i]);
+                        }
+                    } else {
+                        for (var i = minIndex; i >= maxIndex; i--) {
+                            addSelection(days[i]);
+                        }
+                    }
+                }
+            }
+        });        
+
+        document.addEventListener('mouseup', function () {
+            isMouseDown = false;
+        });
+
+        function toggleSelection(dayElement) {
+            dayElement.classList.toggle('day-selected');
         }
 
+        function addSelection(dayElement) {
+            if (!dayElement.classList.contains('day-selected')) {
+                dayElement.classList.add('day-selected');
+            }
+        }
     </script>
 }
