@@ -3,6 +3,7 @@
 *@
 @{
     IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
+  
 }
 
 @model List<Produto>;
@@ -23,7 +24,19 @@
         {
             <div class="column-container fit-content-height">
                 <div class="thin-outline rounded-border right-flex">
-                    <span class="">Ainda não implementado</span>
+                   
+                    <div class="dropdown">
+                        <button class="dropbtn">Ordenar ↓ </button>
+                        <div class="dropdown-content">
+                            <a onclick="sortResultsByPriceDesc()">Preço Descendente</a>
+                            <a onclick="sortResultsByPriceAsc()">Preço Ascendente</a>
+                            <a onclick="sortResultsByBrandAsc()">Marca Ascendente</a>
+                            <a>Marca Descendente</a>
+                        </div>
+                    </div>
+                     
+
+                   
                 </div>
                 <div class="row-container left-flex small-gap-x">
                     <div>
@@ -54,18 +67,81 @@
                             </div>
                         </div>
                     </div>
-                    <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width">
+                    <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width" id="search-results">
                         @foreach (var produto in Model)
                         {
                             <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                                 <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
                                 <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                                <span>@produto.Brand</span>
                                 <span>@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
                             </a>
                         }
                     </div>
+                  
                 </div>
             </div>
         }
     </section>
 </div>
+
+<script>
+    function sortResultsByPriceDesc(){
+        var resultsContainer = document.getElementById("search-results");
+
+        var results = Array.from(document.getElementById("search-results").children);
+
+    
+        function sortByPrice(a, b) {
+            var priceA = parseFloat(a.children[3].textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.children[3].textContent.replace(/[^\d.]/g, ''));
+            return priceB - priceA;
+        }
+        results.sort(sortByPrice);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
+        }); 
+       
+    }
+    function sortResultsByPriceAsc() {
+        var resultsContainer = document.getElementById("search-results");
+
+        var results = Array.from(document.getElementById("search-results").children);
+
+
+        function sortByPrice(a, b) {
+            var priceA = parseFloat(a.children[3].textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.children[3].textContent.replace(/[^\d.]/g, ''));
+            return priceA - priceB;
+        }
+        results.sort(sortByPrice);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
+        });
+    }
+
+    function sortResultsByBrandAsc() {
+        var resultsContainer = document.getElementById("search-results");
+
+        var results = Array.from(document.getElementById("search-results").children);
+
+        console.log("entrei Asc");
+        function sortByPrice(a, b) {
+            var brandA = parseFloat(a.children[2].textContent);
+            var brandB = parseFloat(b.children[2].textContent);
+            if (brandA < brandB) { return 1; } else { return 0; }
+        }
+        results.sort(sortByPrice);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
+        });
+    }
+
+
+</script>
