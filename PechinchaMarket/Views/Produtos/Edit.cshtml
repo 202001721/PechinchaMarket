@@ -257,77 +257,41 @@
             if (event.target.classList.contains('day') && !isMouseDown) {
                 
                 calendarDiv.querySelectorAll('.day-selected').forEach(toggleSelection);
+                calendarDiv.querySelectorAll('.day-selected-master').forEach(toggleMasterSelection);
                 isMouseDown = true;
                 startDay = event.target;
                 lastSelectedMonth = event.target.parentNode.querySelector('.month-name').textContent;
-                addSelection(event.target);
+                addMasterSelection(event.target);
             }
         });
 
         calendarDiv.addEventListener('mousemove', function (event) {
             if (isMouseDown && event.target.classList.contains('day')) {
                 var endDay = event.target;
-                var days = Array.from(event.target.parentNode.querySelectorAll('.day'));
+                var days = Array.from(calendarDiv.querySelectorAll('.day'));
                 var startIndex = days.indexOf(startDay);
                 var endIndex = days.indexOf(endDay);
 
-                
-                if (lastSelectedMonth != event.target.parentNode.querySelector('.month-name').textContent) {
-                    startIndex = 0;
+                var minIndex = Math.min(startIndex, endIndex);
+                var maxIndex = Math.max(startIndex, endIndex);
 
-                    var minIndex = Math.min(startIndex, endIndex);
-                    var maxIndex = Math.max(startIndex, endIndex);
-
-
-                    if (startIndex < endIndex) {
-                        for (var i = minIndex; i <= maxIndex; i++) {
-                            addSelection(days[i]);
-                        }
-                    } else {
-                        for (var i = minIndex; i >= maxIndex; i--) {
-                            addSelection(days[i]);
+                if (startIndex < endIndex) {
+                    for (var i = minIndex; i <= maxIndex; i++) {
+                        addSelection(days[i]);
+                        if (days[i].classList.contains('day-selected-master') && days[i] !== startDay) {
+                            days[i].classList.remove('day-selected-master');
                         }
                     }
-                    var query = calendarDiv.querySelectorAll(`.month-name`);
-                    var query2 = null;
-                    console.log(lastSelectedMonth);
-                    for (var i = 0; i < query.length; i++) {
-                        if (query[i].textContent == lastSelectedMonth) {
-                            query2 = Array.from(query[i].parentNode.querySelectorAll('.day'));
-                            break;
-
-                        }
-                    }
-                    startIndex = query2.indexOf(startDay);
-                    endIndex = query2.length - 1;
-
-                    var minIndex = Math.min(startIndex, endIndex);
-                    var maxIndex = Math.max(startIndex, endIndex);
-
-                    if (startIndex < endIndex) {
-                        for (var i = minIndex; i <= maxIndex; i++) {
-                            addSelection(query2[i]);
-                        }
-                    } else {
-                        for (var i = minIndex; i >= maxIndex; i--) {
-                            addSelection(query2[i]);
-                        }
-                    }
-                    lastSelectedMonth = event.target.parentNode.querySelector('.month-name').textContent;
                 } else {
-                    var minIndex = Math.min(startIndex, endIndex);
-                    var maxIndex = Math.max(startIndex, endIndex);
-
-                    if (startIndex < endIndex) {
-                        for (var i = minIndex; i <= maxIndex; i++) {
-                            addSelection(days[i]);
-                        }
-                    } else {
-                        for (var i = minIndex; i >= maxIndex; i--) {
-                            addSelection(days[i]);
+                    for (var i = minIndex; i >= maxIndex; i--) {
+                        addSelection(days[i]);
+                        if (days[i].classList.contains('day-selected-master') && days[i] !== startDay) {
+                            days[i].classList.remove('day-selected-master');
                         }
                     }
                 }
+
+                addMasterSelection(event.target);
             }
         });        
 
@@ -339,9 +303,19 @@
             dayElement.classList.toggle('day-selected');
         }
 
+        function toggleMasterSelection(dayElement) {
+            dayElement.classList.toggle('day-selected-master');
+        }
+
         function addSelection(dayElement) {
             if (!dayElement.classList.contains('day-selected')) {
                 dayElement.classList.add('day-selected');
+            }
+        }
+
+        function addMasterSelection(dayElement) {
+            if (!dayElement.classList.contains('day-selected-master')) {
+                dayElement.classList.add('day-selected-master');
             }
         }
     </script>
