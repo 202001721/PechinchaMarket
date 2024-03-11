@@ -48,12 +48,12 @@
                     <div id="descontos" class="desconto form-group">
                        <div class="">
                             <label for="valor">Valor: </label>
-                            <input class="form-control custom-input" id="valor" onchange="changeDiscount()" min="0" max="999" />%
+                            <input class="form-control custom-input" id="valor" onchange="changeDiscount()" min="0" max="100" placeholder="%"/>
                         </div> 
-                        <div class="duracao">
+                        <!--<div class="duracao">
                             <label for="daterange">Selecione o intervalo de datas:</label>
-                            <input type="text" onclick="openDiscountDuration()" value="" />
-                        </div>
+                            <input type="text" id="data" onclick="openDiscountDuration(); clickedInput(this);" onchange="changeData()" value="" />
+                        </div>-->
                         
                     </div>     
                     <div class="form-group">
@@ -108,7 +108,7 @@
                                             <input type="number" name="discount" class="discount custom-input" value="@pl.Discount" min="0" max="999" /> %
                                         </td>
                                         <td>
-                                            <input type="text" name="duration" onclick="openDiscountDuration()" />
+                                            <input type="text" id="duration" name="duration" onclick="openDiscountDuration(); clickedInput(this);" value="@pl.StartDiscount - @pl.EndDiscount" />
                                         </td>
                                     </tr>
                                 }
@@ -127,7 +127,7 @@
 
                         </div>
                         <div class="row-container right-flex max-width">
-                            <div class="pechincha-button main-button-color row-container" onclick="">Salvar</div>
+                            <div class="pechincha-button main-button-color row-container" id="salvarButton" onclick="">Salvar</div>
                         </div>
                     </div>
                 </div>
@@ -198,10 +198,25 @@
             }
         }
 
+        function changeData() {
+            var v = document.getElementById("data");
+            var d = document.getElementsById("duration")
+
+            for (let item of d) {
+                item.value = v.value
+            }
+        }
+
         function openDiscountDuration() {
             document.body.classList.toggle('no-overflow');
             data = document.getElementById("data-select");
             data.classList.toggle('display-none');
+        }
+
+        function closeDiscountDuration() {
+            document.body.classList.toggle('no-overflow');
+            data = document.getElementById("data-select");
+            data.classList.add('display-none');
         }
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -318,5 +333,43 @@
                 dayElement.classList.add('day-selected-master');
             }
         }
+
+        let dataInput = null;
+
+        function clickedInput(input){
+            dataInput = input;
+        }
+
+        document.getElementById('salvarButton').addEventListener('click', function () {
+            var selectedSpans = document.querySelectorAll('.day-selected-master');
+            var startDateElement = selectedSpans[0];
+            var endDateElement = selectedSpans[1];
+            var startDay = startDateElement.textContent;
+            var startMonth = getMonthFromCalendar(startDateElement);
+            var endDay = endDateElement.textContent;
+            var endMonth = getMonthFromCalendar(endDateElement);
+            var currentYear = new Date().getFullYear(); 
+            saveDate(startDay, startMonth, endDay, endMonth, currentYear);
+        });
+
+        function getMonthFromCalendar(dateElement) {
+            return dateElement.parentNode.querySelector('.month-name').textContent;
+        }
+
+        function saveDate(startDay, startMonth, endDay, endMonth, currentYear) {
+            var startDateFormatted = `${startDay}/${getMonthNumber(startMonth)}/${currentYear}`;
+            var endDateFormatted = `${endDay}/${getMonthNumber(endMonth)}/${currentYear}`;
+                       
+            dataInput.value = `${startDateFormatted} - ${endDateFormatted}`;
+
+            closeDiscountDuration();
+        }
+
+        function getMonthNumber(monthName) {
+            var monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            return monthNames.indexOf(monthName) + 1;
+        }
+        
     </script>
 }
