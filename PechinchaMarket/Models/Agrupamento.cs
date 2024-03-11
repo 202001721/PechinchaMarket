@@ -6,7 +6,7 @@
 
         public string Nome { get; set; }
 
-        public int Codigo { get; set; }
+        public long Codigo { get; set; }
 
         public List<ListaProdutos>? ListaProdutos { get; set; }
     }

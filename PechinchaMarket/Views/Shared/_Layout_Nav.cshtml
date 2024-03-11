@@ -42,13 +42,13 @@
                     <div class="row">
                         <div class="col-md-3">
                             <ul class="nav nav-pills flex-column">
-                                <li class="nav-item"><a class="nav-link" id="profile" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
+                                <li class="nav-item"><a class="unselectable-text nav-link" id="profile" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
                                 @if (hasExternalLogins)
                                 {
-                                    <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/ExternalLogins">External logins</a></li>
+                                    <li id="external-logins" class="nav-item"><a id="external-login" class="unselectable-text nav-link" asp-area="Identity" asp-page="/Account/Manage/ExternalLogins">External logins</a></li>
                                 }
-                                <li class="nav-item"><a class="nav-link active" asp-area="" asp-controller="Agrupamentos" asp-action="Index">Agrupamentos</a></li>
-                                <li class="nav-item"><a class="nav-link" id="personal-data" asp-area="Identity" asp-page="/Account/Manage/Index">Personal data</a></li>
+                                <li class="nav-item"><a class="unselectable-text nav-link active" asp-area="" asp-controller="Agrupamentos" asp-action="Index">Agrupamentos</a></li>
+                                <li class="nav-item"><a class="unselectable-text nav-link" id="personal-data" asp-area="Identity" asp-page="/Account/Manage/PersonalData">Personal data</a></li>
                             </ul>
                         </div>
                         <div class="col-md-9" id="content-container">

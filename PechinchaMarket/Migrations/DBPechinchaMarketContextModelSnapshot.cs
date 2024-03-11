@@ -241,8 +241,8 @@ namespace PechinchaMarket.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Codigo")
-                        .HasColumnType("int");
+                    b.Property<long>("Codigo")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Nome")
                         .IsRequired()

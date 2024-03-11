@@ -1082,6 +1082,11 @@ a.cancel-button:hover::before {
     padding: 1em;
 }
 
+.smaller-padding {
+    padding: 0.5em;
+}
+
+
 .small-padding-right {
     padding-right: 2em;
 }
@@ -1265,6 +1270,10 @@ a.default-button-color:hover::before {
 .off-screen {
     position: absolute;
     left: -9999px;
+}
+
+.text-indent {
+    text-indent: -9999px;
 }
 
 .new-page {
@@ -1537,4 +1546,57 @@ a.default-button-color:hover::before {
 
 .cursor-pointer{
     cursor: pointer;
+}
+
+
+.colapsable-div {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.colapsable-content {
+    width:100%;
+}
+
+.colapsable-button {
+    position: relative;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+    .colapsable-button.active {
+        transform: rotate(180deg);
+    }
+
+    .colapsable-button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 10px;
+        height: 2px;
+        background-color: var(--root-main-color);
+        transform-origin: center;
+        transform: rotate(45deg);
+    }
+
+    .colapsable-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 10px;
+        height: 2px;
+        background-color: var(--root-main-color);
+        transform-origin: center;
+        transform: rotate(-45deg);
+    }
+
+.grow-div {
+    transition: height 1.0s ease;
+    overflow: hidden;
 }

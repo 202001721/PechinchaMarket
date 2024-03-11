@@ -766,20 +766,14 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
         public void removeAllFromModelStateBut(params string[] propertyNames)
         {
             var allPropertyNames = new string[]{
-                nameof(Input.UserName),
                 "Input.UserName",
                 "Input.UserPhone",
-                nameof(Input.Location),
+                "Input.Logo",
                 "Input.Location",
-                nameof(Input.NewEmail),
                 "Input.NewEmail",
-                nameof(Input.OldPassword),
                 "Input.OldPassword",
-                nameof(Input.NewPassword),
                 "Input.NewPassword",
-                nameof(Input.ConfirmPassword),
                 "Input.ConfirmPassword",
-                nameof(Input.NewPhoto),
                 "Input.NewPhoto",
             };
 
