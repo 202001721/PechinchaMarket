@@ -28,10 +28,9 @@ namespace PechinchaMarket.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
-            var produtos = _context.Produto
-             .Where(p => p.ProdEstado == Estado.Approved).Join(_context.ProdutoLoja,
+            var produtos = _context.Produto.Join(_context.ProdutoLoja,
              produto => produto.Id,
-             loja => loja.Id,
+             loja => loja.Produto.Id,
              (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
 
             return View(produtos);
@@ -54,19 +53,8 @@ namespace PechinchaMarket.Controllers
 
             return View(produto);
         }
-
-        public async Task<ActionResult> ProductsInAnalysis()
-        {
-            var produtos = _context.Produto
-           .Where(p => p.ProdEstado == Estado.InAnalysis).Join(_context.ProdutoLoja,
-           produto => produto.Id,
-           loja => loja.Id,
-           (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
-
-            return View(produtos);
-        }
-
-        public async Task<IActionResult> Show(int? id)
+                
+        public async Task<IActionResult> ShowImage(int? id)
         { 
             if (id == null)
             {
@@ -184,6 +172,7 @@ namespace PechinchaMarket.Controllers
             ModelState.Remove("file");
             ModelState.Remove("discount");
             ModelState.Remove("duration");
+            ModelState.Remove("Image");
 
             if (ModelState.IsValid)
             {

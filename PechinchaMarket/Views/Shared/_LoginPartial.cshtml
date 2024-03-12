@@ -14,13 +14,14 @@
         </form>
     </div>
     <div class="small-padding-right">
-        <ul class="navbar-nav small-gap-x">
+    <ul class="navbar-nav small-gap-x center-y-flex">
         @if (SignInManager.IsSignedIn(User))
         {
             <li class="nav-item no-padding height-fit-content center-x-flex center-y-flex">
                 <span id="manage" class="cursor-pointer perfil-image-border nav-link small-perfil-image no-padding" asp-area="Identity" asp-page="/Account/Manage/Index" onclick="displayperfilmenu()">
                     <div class="display-none perfil-nav-menu" id="perfil-menu">
                         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Perfil</a>
+
                         <form class="clickable-div" id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                             <button id="logout" type="submit" class="remove-hover clickable-div nav-link btn btn-link text-dark border-0">Logout</button>
                         </form>

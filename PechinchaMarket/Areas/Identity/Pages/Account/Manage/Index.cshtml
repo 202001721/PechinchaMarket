@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = "Profil";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
@@ -176,7 +176,7 @@
                     <form asp-page-handler="ChangeName" id="change-name-form" method="post" class="row-container edges-flex">
                         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                         <div class="authentication-input-text-div edit-perfil-input">
-                            <input asp-for="Input.UserName" id="name-input" placeholder="Please choose your username." disabled />
+                            <input asp-for="Input.UserName" id="name-input" placeholder="Por favor escolha o seu nome." disabled />
                             <label asp-for="Input.UserName"></label>
                             <span asp-validation-for="Input.UserName" class="text-danger"></span>
                         </div>
@@ -275,22 +275,22 @@
                     }
                 </div>
 
-                <div class="background-constrast-color small-padding rounded-border">
-                    <form asp-page-handler="ChangeLocation" id="location-form" method="post" class="row-container edges-flex">
-                        <div class="authentication-input-text-div edit-perfil-input">
-                            <input asp-for="Input.Location" id="location-input" placeholder="Please choose your phone number" disabled />
-                            <label asp-for="Input.Location"></label>
-                            <span asp-validation-for="Input.Location" class="text-danger"></span>
-                        </div>
-                        <div class="row-container smaller-gap-x">
-                            <button type="submit" class="pechincha-button main-button-color off-screen">Salvar</button>
-                            <div class="pechincha-button default-button-color" onclick="locationEditableField(this)">Editar</div>
-                        </div>
-                    </form>
-                </div>
-
-                @if  (User.IsInRole("Cliente"))
+                @if (User.IsInRole("Cliente"))
                 {
+                    <div class="background-constrast-color small-padding rounded-border">
+                        <form asp-page-handler="ChangeLocation" id="location-form" method="post" class="row-container edges-flex">
+                            <div class="authentication-input-text-div edit-perfil-input">
+                                <input asp-for="Input.Location" id="location-input" placeholder="Please choose your phone number" disabled />
+                                <label asp-for="Input.Location"></label>
+                                <span asp-validation-for="Input.Location" class="text-danger"></span>
+                            </div>
+                            <div class="row-container smaller-gap-x">
+                                <button type="submit" class="pechincha-button main-button-color off-screen">Salvar</button>
+                                <div class="pechincha-button default-button-color" onclick="locationEditableField(this)">Editar</div>
+                            </div>
+                        </form>
+                    </div>
+
                     <div class="background-constrast-color small-padding rounded-border">
                         <form asp-page-handler="ChangePreferences" id="preferences-form" method="post" class="row-container edges-flex">
                             <div class="">
@@ -311,8 +311,24 @@
                             </div>
                         </form>
                     </div>
+                }else if(User.IsInRole("Comerciante"))
+                {
+                    <div class="background-constrast-color small-padding rounded-border">
+                        <form asp-page-handler="ChangePhone" id="change-phone-form" method="post" class="row-container edges-flex">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="authentication-input-text-div edit-perfil-input">
+                                <input asp-for="Input.UserPhone" id="phone-input" placeholder="Por favor escolha o seu nome." type="number" disabled />
+                                <label asp-for="Input.UserPhone"></label>
+                                <span asp-validation-for="Input.UserPhone" class="text-danger"></span>
+                            </div>
+                            <div class="row-container center-y-flex smaller-gap-x">
+                                <button type="submit" id="ChangeName-button" class="pechincha-button main-button-color off-screen">Salvar</button>
+                                <div class="pechincha-button default-button-color" onclick="phoneEditableField(this)">Editar</div>
+                            </div>
+                        </form>
+                    </div>
                 }
-               
+
             </div>
         </div>
     </div>
@@ -366,6 +382,35 @@
         }
     }
 
+    function phoneEditableField(button) { 
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (input.id === 'phone-input') {
+                input.disabled = !input.disabled;
+            }
+        });
+
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('off-screen');
+
+        if (elemtToHide.classList.contains('off-screen')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }
+    }
 
     function locationEditableField(button){ 
         var form = button.parentNode.parentNode;
