@@ -54,7 +54,7 @@ namespace PechinchaMarket.Controllers
             return View(produto);
         }
                 
-        public async Task<IActionResult> Show(int? id)
+        public async Task<IActionResult> ShowImage(int? id)
         { 
             if (id == null)
             {

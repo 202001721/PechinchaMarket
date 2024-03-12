@@ -64,7 +64,7 @@
             <div class="addProductRight">
                 <div class="form-group">
                         <label>Imagem: </label>
-                        <img id="image_preview" src="@Url.Action("Show", "Produtos", new { id = @Model.Id})" alt="your image" width="250px" height="250px" class="imagePlaceholder" />
+                        <img id="image_preview" src="@Url.Action("ShowImage", "Produtos", new { id = @Model.Id})" alt="your image" width="250px" height="250px" class="imagePlaceholder" />
                         <div class="uploadImage">
                             <label asp-for ="@Model.Image" class="custom-file-upload">Adicionar Foto</label>
                             <input type="file" asp-for="@Model.Image" class="image" name="file" onchange="readfile(this)" />
