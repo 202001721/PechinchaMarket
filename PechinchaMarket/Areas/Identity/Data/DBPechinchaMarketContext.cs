@@ -40,4 +40,9 @@ public DbSet<PechinchaMarket.Models.ListaProdutos> ListaProdutos { get; set; } =
 
 public DbSet<PechinchaMarket.Models.DetalheListaProd> DetalheListaProd { get; set; } = default!;
 
+public DbSet<PechinchaMarket.Models.Agrupamento> Agrupamentos { get; set; } = default!;
+
+public DbSet<PechinchaMarket.Models.AgrupamentoMembro> AgrupamentosMembro { get; set; } = default!;
+
+
 }
