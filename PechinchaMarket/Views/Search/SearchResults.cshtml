@@ -31,7 +31,7 @@
                             <a onclick="sortResultsByPriceDesc()">Preço Descendente</a>
                             <a onclick="sortResultsByPriceAsc()">Preço Ascendente</a>
                             <a onclick="sortResultsByBrandAsc()">Marca Ascendente</a>
-                            <a>Marca Descendente</a>
+                            <a onclick="sortResultsByBrandDesc()">Marca Descendente</a>
                         </div>
                     </div>
                      
@@ -126,22 +126,45 @@
 
     function sortResultsByBrandAsc() {
         var resultsContainer = document.getElementById("search-results");
-
         var results = Array.from(document.getElementById("search-results").children);
 
-        console.log("entrei Asc");
-        function sortByPrice(a, b) {
-            var brandA = parseFloat(a.children[2].textContent);
-            var brandB = parseFloat(b.children[2].textContent);
-            if (brandA < brandB) { return 1; } else { return 0; }
+  
+
+        function sortByBrand(a, b) {
+            var brandA = a.children[2].textContent;
+            var brandB = b.children[2].textContent;
+
+            return brandA.localeCompare(brandB);
         }
-        results.sort(sortByPrice);
+
+        results.sort(sortByBrand);
         resultsContainer.innerHTML = '';
 
         results.forEach(function (result) {
             resultsContainer.appendChild(result);
         });
     }
+    function sortResultsByBrandDesc() {
+        var resultsContainer = document.getElementById("search-results");
+        var results = Array.from(document.getElementById("search-results").children);
+
+      
+
+        function sortByBrand(a, b) {
+            var brandA = a.children[2].textContent;
+            var brandB = b.children[2].textContent;
+
+            return brandB.localeCompare(brandA);
+        }
+
+        results.sort(sortByBrand);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
+        });
+    }
+
 
 
 </script>

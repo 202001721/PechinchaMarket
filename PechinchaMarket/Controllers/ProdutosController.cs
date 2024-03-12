@@ -28,14 +28,29 @@ namespace PechinchaMarket.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
-            var produtos = _context.Produto
-             .Where(p => p.ProdEstado == Estado.Approved).Join(_context.ProdutoLoja,
-             produto => produto.Id,
-             loja => loja.Id,
-             (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
+            var userId = _userManager.GetUserId(User);
+            var comerciante = await _context.Comerciante.FirstOrDefaultAsync(c => c.UserId == userId);
 
-            return View(produtos);
+            if (comerciante != null)
+            {
+                var produtos = await _context.Produto
+                    .Join(_context.ProdutoLoja,
+                        produto => produto.Id,
+                        produtoLoja => produtoLoja.Id,
+                        (produto, produtoLoja) => new { Produto = produto, ProdutoLoja = produtoLoja })
+                    .Where(p => p.ProdutoLoja.Loja.UserId == comerciante.UserId)
+                    .Select(p => new Tuple<Produto, ProdutoLoja>(p.Produto, p.ProdutoLoja))
+                    .ToListAsync();
+
+                return View(produtos);
+            }
+            else
+            {
+                // Se o comerciante não for encontrado, redirecionar para uma página de erro ou lidar com a situação de outra forma
+                return NotFound();
+            }
         }
+
 
         // GET: Produtos/Details/5
         public async Task<IActionResult> Details(int? id)
