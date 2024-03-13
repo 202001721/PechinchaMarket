@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Register</name>
+   <name>a_Login</name>
    <tag></tag>
-   <elementGuidId>953373d0-e5b8-4f53-a395-b81dfcd019fb</elementGuidId>
+   <elementGuidId>8c21056b-3e93-443a-9a54-c7ae8e88c77a</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[@id='register']</value>
+         <value>//a[@id='login']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#register</value>
+         <value>#login</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Register&quot;i]</value>
+         <value>internal:role=link[name=&quot;Login&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>7b6d0ee6-622d-4f32-a1ac-2d086455b143</webElementGuid>
+      <webElementGuid>6f82a102-eda5-4818-8183-60f6b7e31891</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,94 +37,94 @@
       <name>class</name>
       <type>Main</type>
       <value>nav-link text-dark</value>
-      <webElementGuid>ce72b4be-71a7-427c-826e-127c8c2de3e8</webElementGuid>
+      <webElementGuid>38256be6-e9db-495e-a141-e62f5ce4b34c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>register</value>
-      <webElementGuid>c75ae243-eeb2-4447-acfd-a8adc9a161fd</webElementGuid>
+      <value>login</value>
+      <webElementGuid>719867f6-b21f-41bf-97d3-d1221748bbab</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>href</name>
       <type>Main</type>
-      <value>/Identity/Account/Register</value>
-      <webElementGuid>4391d894-b824-44ae-9f86-4898dc7c617f</webElementGuid>
+      <value>/Identity/Account/Login</value>
+      <webElementGuid>579a5576-56de-4a49-b4bb-e35d1d285a2d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Register</value>
-      <webElementGuid>e8116598-fdb8-4cdb-94c2-d2bfacfeb308</webElementGuid>
+      <value>Login</value>
+      <webElementGuid>19bd6028-88db-4424-867d-4cd5d428b93c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;register&quot;)</value>
-      <webElementGuid>ea5989f4-c90c-4abc-b5fe-83752d1e240f</webElementGuid>
+      <value>id(&quot;login&quot;)</value>
+      <webElementGuid>960ab84f-83c5-4e68-86a9-18c04f7d3574</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//a[@id='register']</value>
-      <webElementGuid>1203c3f2-5b82-448a-8e17-9f706f0d05e5</webElementGuid>
+      <value>//a[@id='login']</value>
+      <webElementGuid>50be3275-1177-4671-b613-3051eb5f70da</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:link</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Register')]</value>
-      <webElementGuid>f2598cb8-b696-4393-8a52-f2c119421d16</webElementGuid>
+      <value>//a[contains(text(),'Login')]</value>
+      <webElementGuid>d6994be5-cf92-4aa7-bafe-0265e6b2235e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::a[1]</value>
-      <webElementGuid>9f29aabf-6618-4c52-9547-8eddabb0d64e</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Register'])[1]/following::a[1]</value>
+      <webElementGuid>8d9201b5-1585-49b3-914b-3d8ee5271585</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Register']/parent::*</value>
-      <webElementGuid>06afb90d-1907-40ac-8981-dae89dbcb5b8</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Login']/parent::*</value>
+      <webElementGuid>32fd8053-d167-4983-9550-1ae661932a3c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:href</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Register')]</value>
-      <webElementGuid>f58b6bf4-8627-45e8-94e0-80a01568bd70</webElementGuid>
+      <value>//a[contains(@href, '/Identity/Account/Login')]</value>
+      <webElementGuid>d6d1c4ff-d839-4a2b-b584-9928e625697b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li/a</value>
-      <webElementGuid>97c95e27-97c7-433e-9260-db97dc06c52a</webElementGuid>
+      <value>//li[2]/a</value>
+      <webElementGuid>82ffd2b5-2df5-4b19-a12c-7c38c60f1c21</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'register' and @href = '/Identity/Account/Register' and (text() = 'Register' or . = 'Register')]</value>
-      <webElementGuid>51d864f5-e72e-4cef-8d9c-0ecb4f4cbf6b</webElementGuid>
+      <value>//a[@id = 'login' and @href = '/Identity/Account/Login' and (text() = 'Login' or . = 'Login')]</value>
+      <webElementGuid>0cc302f7-9d4e-4faf-aedc-a1ec334cf46f</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

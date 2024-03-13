@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Register</name>
+   <name>button_Login</name>
    <tag></tag>
-   <elementGuidId>953373d0-e5b8-4f53-a395-b81dfcd019fb</elementGuidId>
+   <elementGuidId>f310c489-b09c-40f6-89a1-b7f30d8de8ed</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[@id='register']</value>
+         <value>//button[@id='login-submit']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#register</value>
+         <value>#login-submit</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Register&quot;i]</value>
+         <value>internal:role=button[name=&quot;Login&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,103 +28,111 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>7b6d0ee6-622d-4f32-a1ac-2d086455b143</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>ce72b4be-71a7-427c-826e-127c8c2de3e8</webElementGuid>
+      <value>button</value>
+      <webElementGuid>ef7c1094-e612-4b43-b07f-ea9f1d5e21d7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>register</value>
-      <webElementGuid>c75ae243-eeb2-4447-acfd-a8adc9a161fd</webElementGuid>
+      <value>login-submit</value>
+      <webElementGuid>74e14035-8611-4e76-8a30-4f4399c2789b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>href</name>
+      <name>type</name>
       <type>Main</type>
-      <value>/Identity/Account/Register</value>
-      <webElementGuid>4391d894-b824-44ae-9f86-4898dc7c617f</webElementGuid>
+      <value>submit</value>
+      <webElementGuid>4b9ad6fc-c45b-486b-9dee-2e342e892c4f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>confirm-button</value>
+      <webElementGuid>6678a970-ee78-4bac-ba17-0176afbdb391</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Register</value>
-      <webElementGuid>e8116598-fdb8-4cdb-94c2-d2bfacfeb308</webElementGuid>
+      <value>Login</value>
+      <webElementGuid>2fea993d-ba46-4224-b933-d7571f536bdb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;register&quot;)</value>
-      <webElementGuid>ea5989f4-c90c-4abc-b5fe-83752d1e240f</webElementGuid>
+      <value>id(&quot;login-submit&quot;)</value>
+      <webElementGuid>b01fc356-f7b0-4237-80bc-4836772c2dd9</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//a[@id='register']</value>
-      <webElementGuid>1203c3f2-5b82-448a-8e17-9f706f0d05e5</webElementGuid>
+      <value>//button[@id='login-submit']</value>
+      <webElementGuid>2998b697-0ec5-46c1-b21f-5fad825741d4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
+      <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Register')]</value>
-      <webElementGuid>f2598cb8-b696-4393-8a52-f2c119421d16</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::a[1]</value>
-      <webElementGuid>9f29aabf-6618-4c52-9547-8eddabb0d64e</webElementGuid>
+      <value>//form[@id='account']/div/div[3]/button[2]</value>
+      <webElementGuid>0baf0317-6ab6-410b-9439-96859021ffe6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Register']/parent::*</value>
-      <webElementGuid>06afb90d-1907-40ac-8981-dae89dbcb5b8</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Back'])[1]/following::button[1]</value>
+      <webElementGuid>5513c397-2b59-40a2-b6f3-4a26c6b2c6e0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Register')]</value>
-      <webElementGuid>f58b6bf4-8627-45e8-94e0-80a01568bd70</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/following::button[2]</value>
+      <webElementGuid>70c58b97-8e1c-4c86-bf63-2b1921ef3e43</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar com o Google'])[1]/preceding::button[1]</value>
+      <webElementGuid>1d9b0d8a-0df0-48d5-b86d-157e87c8d2f7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Sign in with Google'])[1]/preceding::button[1]</value>
+      <webElementGuid>ce1cde26-a1ae-46de-b88a-d2384988492f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li/a</value>
-      <webElementGuid>97c95e27-97c7-433e-9260-db97dc06c52a</webElementGuid>
+      <value>//button[2]</value>
+      <webElementGuid>00cc75b7-68a7-4192-ab36-6e5b4d50c077</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'register' and @href = '/Identity/Account/Register' and (text() = 'Register' or . = 'Register')]</value>
-      <webElementGuid>51d864f5-e72e-4cef-8d9c-0ecb4f4cbf6b</webElementGuid>
+      <value>//button[@id = 'login-submit' and @type = 'submit' and (text() = 'Login' or . = 'Login')]</value>
+      <webElementGuid>f3dd9266-beaa-46da-94b8-b99492ac130c</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

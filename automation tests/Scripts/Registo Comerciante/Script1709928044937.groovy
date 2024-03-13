@@ -25,8 +25,10 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a
 
 WebUI.click(findTestObject('Object Repository/Page_Register - PechinchaMarket/span_Comerciante_account-type-comerciante-logo'))
 
+var(email = (('pechincha+' + System.nanoTime()) + '@Gmail.com'))
+
 WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Criar conta como Comerciante_Input.Email'), 
-    'pechinchazinha@outlook.pt')
+    email)
 
 WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Email_Input.UserName'), 
     'Pechincha')
@@ -55,4 +57,6 @@ WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - Pechin
 WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/button_Registar'))
 
 WebUI.click(findTestObject('Object Repository/Page_WaitForConfirmation - PechinchaMarket/a_Login'))
+
+WebUI.closeBrowser()
 

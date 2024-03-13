@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Register</name>
+   <name>label_Snacks</name>
    <tag></tag>
-   <elementGuidId>953373d0-e5b8-4f53-a395-b81dfcd019fb</elementGuidId>
+   <elementGuidId>1f3674cb-9ce4-47ac-957a-c286bee2da15</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[@id='register']</value>
+         <value>//div[@id='phase1']/div[12]/label</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#register</value>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Register&quot;i]</value>
+         <value>internal:text=&quot;Snacks&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,103 +28,95 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>7b6d0ee6-622d-4f32-a1ac-2d086455b143</webElementGuid>
+      <value>label</value>
+      <webElementGuid>4d7474d8-18e0-4dbc-871d-6137507ce1e1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>for</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>ce72b4be-71a7-427c-826e-127c8c2de3e8</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>id</name>
-      <type>Main</type>
-      <value>register</value>
-      <webElementGuid>c75ae243-eeb2-4447-acfd-a8adc9a161fd</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>href</name>
-      <type>Main</type>
-      <value>/Identity/Account/Register</value>
-      <webElementGuid>4391d894-b824-44ae-9f86-4898dc7c617f</webElementGuid>
+      <value>chk_Snacks</value>
+      <webElementGuid>84655a60-8adb-40f0-962d-b3495ab1c604</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Register</value>
-      <webElementGuid>e8116598-fdb8-4cdb-94c2-d2bfacfeb308</webElementGuid>
+      <value>Snacks</value>
+      <webElementGuid>51758f43-5403-40b2-95c8-85da6efdb762</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;register&quot;)</value>
-      <webElementGuid>ea5989f4-c90c-4abc-b5fe-83752d1e240f</webElementGuid>
+      <value>id(&quot;phase1&quot;)/div[@class=&quot;authentication-checkbox&quot;]/label[1]</value>
+      <webElementGuid>fe83515e-011b-4fe3-9c87-eafc5b3b5c1b</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
+      <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//a[@id='register']</value>
-      <webElementGuid>1203c3f2-5b82-448a-8e17-9f706f0d05e5</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
-      <type>Main</type>
-      <value>//a[contains(text(),'Register')]</value>
-      <webElementGuid>f2598cb8-b696-4393-8a52-f2c119421d16</webElementGuid>
+      <value>//div[@id='phase1']/div[12]/label</value>
+      <webElementGuid>742ed2a2-515c-4167-8173-a224a9966a4c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::a[1]</value>
-      <webElementGuid>9f29aabf-6618-4c52-9547-8eddabb0d64e</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Doces'])[1]/following::label[1]</value>
+      <webElementGuid>f607d33e-7e00-462b-837b-a34a45a75707</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Register']/parent::*</value>
-      <webElementGuid>06afb90d-1907-40ac-8981-dae89dbcb5b8</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Vegan'])[1]/following::label[2]</value>
+      <webElementGuid>7182b03a-e3c3-4879-8107-8e7d490862d7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Register')]</value>
-      <webElementGuid>f58b6bf4-8627-45e8-94e0-80a01568bd70</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/preceding::label[1]</value>
+      <webElementGuid>0b5c89dc-17e3-4a6e-9944-f2ea33398fbe</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar Atrás'])[1]/preceding::label[2]</value>
+      <webElementGuid>7ea759ed-65a5-48c4-9fec-bf8d32e3b712</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Snacks']/parent::*</value>
+      <webElementGuid>060aaa4a-9e7d-478e-b450-6653841bbb50</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li/a</value>
-      <webElementGuid>97c95e27-97c7-433e-9260-db97dc06c52a</webElementGuid>
+      <value>//div[12]/label</value>
+      <webElementGuid>e6ffa404-a617-4810-a307-f9d0ee983c19</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'register' and @href = '/Identity/Account/Register' and (text() = 'Register' or . = 'Register')]</value>
-      <webElementGuid>51d864f5-e72e-4cef-8d9c-0ecb4f4cbf6b</webElementGuid>
+      <value>//label[(text() = 'Snacks' or . = 'Snacks')]</value>
+      <webElementGuid>97937bb1-58dc-4f0f-ad59-6ccf8564e16b</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

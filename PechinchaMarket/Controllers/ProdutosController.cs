@@ -212,43 +212,28 @@ namespace PechinchaMarket.Controllers
                         {
                             await file.CopyToAsync(memoryStream);
                             produtoToUpdate.Image = memoryStream.ToArray();
+                            _context.Update(produtoToUpdate);
                         }
-                        _context.Update(produtoToUpdate);
                     }
 
-                    //Atualizar o campo Price
+                    // Atualizar o campo Price
                     if (price != null)
                     {
-                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < price.Length; i++)
                         {
                             var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
-
-                           
                             currentProdutoLoja.Price = price[i];
-
                             _context.Update(currentProdutoLoja);
                         }
                     }
 
-                    // Atualizar o campo Discount
-                    if ( discount != null)
+                    // Atualizar o campo Discount e Duration
+                    if (discount != null && duration != null)
                     {
-                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < discount.Length && i < duration.Length; i++)
                         {
                             var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
-
-                            
                             currentProdutoLoja.Discount = discount[i];
-
-                            _context.Update(currentProdutoLoja);
-                        }
-                    }
-
-                    if (duration != null)
-                    {
-                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < duration.Length; i++)
-                        {
-                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
 
                             if (!string.IsNullOrEmpty(duration[i]) && duration[i].Contains("-"))
                             {
@@ -265,11 +250,17 @@ namespace PechinchaMarket.Controllers
                                     TempData["alertMessage"] = "Formato inválido para a duração";
                                 }
                             }
+                            else if (string.IsNullOrEmpty(duration[i]) && discount[i] > 0)
+                            {
+                                TempData["alertMessage"] = "É necessário especificar a duração para aplicar um desconto.";
+                            }
+
+                            _context.Update(currentProdutoLoja);
                         }
+                    }
 
                     await _context.SaveChangesAsync();
-                        return RedirectToAction(nameof(Index));
-                    }
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -282,14 +273,10 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
-
-                await _context.SaveChangesAsync();
             }
-            
+
             return RedirectToAction(nameof(Index));
         }
-
-        
 
         // GET: Produtos/Delete/5
         public async Task<IActionResult> Delete(int? id)

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Register</name>
+   <name>a_Perfil</name>
    <tag></tag>
-   <elementGuidId>953373d0-e5b8-4f53-a395-b81dfcd019fb</elementGuidId>
+   <elementGuidId>39d243c4-3a49-41c3-b0d4-ef5710531a0c</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[@id='register']</value>
+         <value>//div[@id='perfil-menu']/a</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#register</value>
+         <value>a.nav-link.text-dark</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Register&quot;i]</value>
+         <value>internal:role=link[name=&quot;Perfil&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>7b6d0ee6-622d-4f32-a1ac-2d086455b143</webElementGuid>
+      <webElementGuid>49d16ede-0d9b-439d-b863-d9a99333c7c3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,94 +37,94 @@
       <name>class</name>
       <type>Main</type>
       <value>nav-link text-dark</value>
-      <webElementGuid>ce72b4be-71a7-427c-826e-127c8c2de3e8</webElementGuid>
+      <webElementGuid>5823b83b-3089-49ca-ac07-6ef964cd1ecc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>id</name>
+      <name>title</name>
       <type>Main</type>
-      <value>register</value>
-      <webElementGuid>c75ae243-eeb2-4447-acfd-a8adc9a161fd</webElementGuid>
+      <value>Manage</value>
+      <webElementGuid>03c5a7fb-58c7-4351-a59f-7c44713e8365</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>href</name>
       <type>Main</type>
-      <value>/Identity/Account/Register</value>
-      <webElementGuid>4391d894-b824-44ae-9f86-4898dc7c617f</webElementGuid>
+      <value>/Identity/Account/Manage</value>
+      <webElementGuid>750e0591-19a0-4d4b-8727-eb53c77f076b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Register</value>
-      <webElementGuid>e8116598-fdb8-4cdb-94c2-d2bfacfeb308</webElementGuid>
+      <value>Perfil</value>
+      <webElementGuid>efd72754-bd8b-41a2-bad6-b8b24dc54e68</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;register&quot;)</value>
-      <webElementGuid>ea5989f4-c90c-4abc-b5fe-83752d1e240f</webElementGuid>
+      <value>id(&quot;perfil-menu&quot;)/a[@class=&quot;nav-link text-dark&quot;]</value>
+      <webElementGuid>8e4f600c-617d-4aeb-85f4-f1c07127caa7</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
+      <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//a[@id='register']</value>
-      <webElementGuid>1203c3f2-5b82-448a-8e17-9f706f0d05e5</webElementGuid>
+      <value>//div[@id='perfil-menu']/a</value>
+      <webElementGuid>b2170285-2c14-4d0c-bf99-c91f5f8d7802</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:link</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Register')]</value>
-      <webElementGuid>f2598cb8-b696-4393-8a52-f2c119421d16</webElementGuid>
+      <value>//a[contains(text(),'Perfil')]</value>
+      <webElementGuid>c0ebc35b-897f-4382-99f2-7ddab20d903e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::a[1]</value>
-      <webElementGuid>9f29aabf-6618-4c52-9547-8eddabb0d64e</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/preceding::a[1]</value>
+      <webElementGuid>2aa4babf-fd3f-4f27-b061-77d4c51acf11</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Register']/parent::*</value>
-      <webElementGuid>06afb90d-1907-40ac-8981-dae89dbcb5b8</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
+      <webElementGuid>1efd1c7c-2314-4b3c-b11e-f82977f2b591</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:href</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Register')]</value>
-      <webElementGuid>f58b6bf4-8627-45e8-94e0-80a01568bd70</webElementGuid>
+      <value>//a[contains(@href, '/Identity/Account/Manage')]</value>
+      <webElementGuid>5f291fd1-6358-4296-b73a-43014984760e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li/a</value>
-      <webElementGuid>97c95e27-97c7-433e-9260-db97dc06c52a</webElementGuid>
+      <value>//span/div/a</value>
+      <webElementGuid>527b044f-fc9c-4059-a022-9a254485c0de</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'register' and @href = '/Identity/Account/Register' and (text() = 'Register' or . = 'Register')]</value>
-      <webElementGuid>51d864f5-e72e-4cef-8d9c-0ecb4f4cbf6b</webElementGuid>
+      <value>//a[@title = 'Manage' and @href = '/Identity/Account/Manage' and (text() = 'Perfil' or . = 'Perfil')]</value>
+      <webElementGuid>a93a8eb0-f292-4c13-b248-577cc6941217</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
