@@ -4,37 +4,81 @@
     //Layout = "~/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
     Layout = "~/Views/Shared/_Layout_Nav.cshtml";
     ViewData["Title"] = "Agrupamentos";
+
+    var lists = ViewData["Lists"] as List<ListaProdutos>;
+
 }
 
 <h1>Agrupamentos</h1>
 
 <p>
     <form asp-action="Create">
-        <button type="submit">Criar Agrupamento</button>
+        <button class="pechincha-button default-button-color bigger-button" type="submit">Criar Agrupamento</button>
     </form>
 </p>
 
 <div class="column-container smaller-gap-y">
     @foreach (var item in Model) {
-        <div class="background-constrast-color-2 rounded-border grow-div">
+        <div class="background-constrast-color-2 rounded-border">
             <div class="colapsable-div smaller-padding" onclick="colapse(this)">
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
                 <button class="colapsable-button"></button>
             </div>
-            <div class="off-screen smaller-padding">
-                <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post">
-                    <input type="hidden" asp-for="@item.Agrupamento.Id" />
-                    <div class="form-group">
-                        <label asp-for="@item.Agrupamento.Nome" class="control-label"></label>
-                        <input asp-for="@item.Agrupamento.Nome" name="Nome" class="form-control" />
-                        <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
-                    </div>
+            <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
+                <div class="background-constrast-color small-padding rounded-border">
+                    <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post" class="row-container edges-flex">
+                        <input type="hidden" asp-for="@item.Agrupamento.Id" />
+                        <div class="authentication-input-text-div edit-perfil-input">
+                            <input asp-for="@item.Agrupamento.Nome" name="nome" id="name-input" disabled />
+                            <label asp-for="@item.Agrupamento.Nome"></label>
+                            <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
+                        </div>
 
-                    <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <div class="row-container center-y-flex smaller-gap-x">
+                            <input type="submit" value="Save" class="pechincha-button main-button-color off-screen" />
+                            <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Editar</div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="background-constrast-color small-padding rounded-border">
+                    <span>Listas</span>
+                    <div class="row-container right-flex max-width">
+                        <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd();">Adicionar Lista</div>
                     </div>
-                </form>
-                @Html.DisplayFor(modelItem => item.Agrupamento.Nome)
+                </div>
+
+
+                <div class="new-page display-none" id="add-list">
+                    <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                        <div class="edges-flex max-width">
+                            <div class="title unselectable-text">Adicionar uma Lista</div>
+                            <div class="cross-button" onclick="chooseListToAdd();"></div>
+                        </div>
+                        <form asp-action="AddList" asp-route-id=@item.Agrupamento.Id method="post" class="column-container edges-flex max-width max-height">
+                            <div>
+                                <label asp-for="@item.Agrupamento.ListaProdutos"></label>
+                            </div>
+                            <div class="column-container wrap-flex small-gap center-x-flex small-padding-right small-padding-left list-chooser">
+                                @if (lists != null)
+                                {
+                                    @foreach (var list in lists)
+                                    {
+                                        <div>
+                                            <input asp-for="@list.Id" type="radio" value="@list.Id">
+                                            <label asp-for="@list.Id">@list.name</label>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                            <div class="row-container right-flex max-width">
+                                <button type="submit" value="Save" class="pechincha-button main-button-color row-container">Salvar</button>
+                            </div>
+                        </form>
+                            
+
+                    </div>
+                </div>
             </div>
         </div>
     }
@@ -47,5 +91,41 @@
         div.children[1].classList.toggle("active");
         var hiddenContent = div.nextElementSibling;
         hiddenContent.classList.toggle("off-screen");
+    }
+
+    function changeNameEditableField(button) {
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (input.id === 'name-input') {
+                input.disabled = !input.disabled;
+            }
+        });
+
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('off-screen');
+
+        if (elemtToHide.classList.contains('off-screen')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }
+    }
+
+    function chooseListToAdd(){ 
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("add-list");
+        chooseimage.classList.toggle('display-none');
     }
 </script>

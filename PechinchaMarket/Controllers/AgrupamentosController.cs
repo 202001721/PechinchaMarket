@@ -25,9 +25,16 @@ namespace PechinchaMarket.Controllers
         // GET: Agrupamentos
         public async Task<IActionResult> Index()
         {
-            var agrupamentos = await _context.AgrupamentosMembro
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
                                         .Include(x => x.Agrupamento)
                                              .ThenInclude(x => x.ListaProdutos).ToListAsync();
+            
+            var lists = _context.ListaProdutos.Where(x => x.ClienteId == cliente.Id.ToString()).ToList();
+            ViewData["Lists"] = lists;
+
             return View(agrupamentos);
         }
 
@@ -189,6 +196,55 @@ namespace PechinchaMarket.Controllers
             return View("Index", agrupamentos);
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddList(Guid id, Guid ListaProdutosId)
+        {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+                                        .Include(x => x.Agrupamento)
+                                             .ThenInclude(x => x.ListaProdutos).ToListAsync();
+
+            var errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            ViewBag.ErrorMessages = errorMessages;
+
+            var errors = ModelState.Values
+         .SelectMany(v => v.Errors)
+         .Select(e => e.ErrorMessage)
+         .ToList();
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("Name");
+            if (ModelState.IsValid)
+            { 
+                try
+                {
+                    var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
+                    var listaprodutos_context = _context.ListaProdutos.Single(x => x.Id == ListaProdutosId);
+                    agrupamento_context.ListaProdutos.Add(listaprodutos_context);
+                    //_context.Update(agrupamento);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ListaProdutosExists(ListaProdutosId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+
+                return View("Index", agrupamentos);
+            }
+            return View("Index", agrupamentos);
+        }
+
         // GET: Agrupamentos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
@@ -225,6 +281,11 @@ namespace PechinchaMarket.Controllers
         private bool AgrupamentoExists(Guid id)
         {
             return _context.Agrupamentos.Any(e => e.Id == id);
+        }
+
+        private bool ListaProdutosExists(Guid id)
+        {
+            return _context.ListaProdutos.Any(e => e.Id == id);
         }
 
         private long GenerateRandomNumber() {
