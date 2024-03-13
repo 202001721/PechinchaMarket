@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PechinchaMarket.Models.AgrupamentoMembro>
+
+@{
+    //Layout = "~/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Nav.cshtml";
+    ViewData["Title"] = "Agrupamentos";
+}
+
+<h1>Agrupamentos</h1>
+
+<p>
+    <form asp-action="Create">
+        <button type="submit">Criar Agrupamento</button>
+    </form>
+</p>
+
+<div class="column-container smaller-gap-y">
+    @foreach (var item in Model) {
+        <div class="background-constrast-color-2 rounded-border grow-div">
+            <div class="colapsable-div smaller-padding" onclick="colapse(this)">
+                <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
+                <button class="colapsable-button"></button>
+            </div>
+            <div class="off-screen smaller-padding">
+                <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post">
+                    <input type="hidden" asp-for="@item.Agrupamento.Id" />
+                    <div class="form-group">
+                        <label asp-for="@item.Agrupamento.Nome" class="control-label"></label>
+                        <input asp-for="@item.Agrupamento.Nome" name="Nome" class="form-control" />
+                        <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+                @Html.DisplayFor(modelItem => item.Agrupamento.Nome)
+            </div>
+        </div>
+    }
+</div>
+
+
+<script>
+    function colapse(div) { 
+        div.children[0].classList.toggle("text-indent");
+        div.children[1].classList.toggle("active");
+        var hiddenContent = div.nextElementSibling;
+        hiddenContent.classList.toggle("off-screen");
+    }
+</script>

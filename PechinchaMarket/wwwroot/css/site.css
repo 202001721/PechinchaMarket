@@ -1082,6 +1082,11 @@ a.cancel-button:hover::before {
     padding: 1em;
 }
 
+.smaller-padding {
+    padding: 0.5em;
+}
+
+
 .small-padding-right {
     padding-right: 2em;
 }
@@ -1267,6 +1272,10 @@ a.default-button-color:hover::before {
     left: -9999px;
 }
 
+.text-indent {
+    text-indent: -9999px;
+}
+
 .new-page {
     width: 100vw;
     height: 100vh;
@@ -1441,10 +1450,39 @@ a.default-button-color:hover::before {
     padding-top: 1em;
 }
 
-.photo-option input[type="radio"]:checked + label span.big-perfil-image {
-    outline-color: var(--blue-color);
-    position: relative;
+.calendar-chooser {
+    height: 400px;
+    overflow: auto;
+    padding-top: 1em;
 }
+    .calendar-chooser .month-name {
+        grid-column: 1 / span 7;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .calendar-chooser .month {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .calendar-chooser .day {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .calendar-chooser .day-selected {
+        background-color: rgb(222, 237, 255);
+    }
+
+    .calendar-chooser .day-selected-master {
+        background-color: rgb(156, 200, 251);
+    }
+
+    .photo-option input[type="radio"]:checked + label span.big-perfil-image {
+        outline-color: var(--blue-color);
+        position: relative;
+    }
 
     .photo-option input[type="radio"]:checked + label span.big-perfil-image::after {
         content: '✓';
@@ -1539,6 +1577,7 @@ a.default-button-color:hover::before {
     cursor: pointer;
 }
 
+
 /* 09 / 03*/
 
 
@@ -1588,4 +1627,56 @@ a.default-button-color:hover::before {
 .dropdown:hover .dropbtn {
     cursor: pointer;
     transition: all 1s ease;
+
+.colapsable-div {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.colapsable-content {
+    width:100%;
+}
+
+.colapsable-button {
+    position: relative;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+    .colapsable-button.active {
+        transform: rotate(180deg);
+    }
+
+    .colapsable-button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 10px;
+        height: 2px;
+        background-color: var(--root-main-color);
+        transform-origin: center;
+        transform: rotate(45deg);
+    }
+
+    .colapsable-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 10px;
+        height: 2px;
+        background-color: var(--root-main-color);
+        transform-origin: center;
+        transform: rotate(-45deg);
+    }
+
+.grow-div {
+    transition: height 1.0s ease;
+    overflow: hidden;
+
 }
