@@ -46,7 +46,7 @@ namespace PechinchaMarket.Controllers
             }
             else
             {
-                // Se o comerciante não for encontrado, redirecionar para uma página de erro ou lidar com a situação de outra forma
+                
                 return NotFound();
             }
         }

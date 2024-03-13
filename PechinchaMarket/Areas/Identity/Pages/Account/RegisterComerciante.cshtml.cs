@@ -170,7 +170,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     };
                     
                     _context.Add(comerciante);
-                    user.EmailConfirmed = true;
+                    user.EmailConfirmed = false;
                     await _context.SaveChangesAsync();
                     
 
