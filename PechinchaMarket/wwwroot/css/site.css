@@ -126,6 +126,10 @@ body {
     display: none !important;
 }
 
+.display-flex {
+    display: flex !important;
+}
+
 .center-text {
     text-align: center;
 }
@@ -1086,7 +1090,6 @@ a.cancel-button:hover::before {
     padding: 0.5em;
 }
 
-
 .small-padding-right {
     padding-right: 2em;
 }
@@ -1099,9 +1102,20 @@ a.cancel-button:hover::before {
     padding-top: 4em;
 }
 
+.small-margin-bottom {
+    margin-bottom: 1em;
+}
 
 .small-margin-top {
     margin-top: 1em;
+}
+
+.small-margin-left {
+    margin-left: 1em;
+}
+
+.small-margin-right {
+    margin-right: 1em;
 }
 
 .filter-area-width {
@@ -1266,6 +1280,17 @@ a.default-button-color::before {
 a.default-button-color:hover::before {
     opacity: 0.5;
 }
+
+.bigger-button {
+    width: calc((var(--root-form-button-padding-sides) * 2) + 7em) !important;
+    height: 30px !important;
+}
+
+.medium-button {
+    width: calc((var(--root-form-button-padding-sides) * 2) + 5em) !important;
+    height: 30px !important;
+}
+
 
 .off-screen {
     position: absolute;
@@ -1449,6 +1474,16 @@ a.default-button-color:hover::before {
     overflow: auto;
     padding-top: 1em;
 }
+
+.list-chooser {
+    height: 300px;
+    overflow: auto;
+    padding-top: 1em;
+}
+
+.photo-option input[type="radio"]:checked + label span.big-perfil-image {
+    outline-color: var(--blue-color);
+    position: relative;
 
 .calendar-chooser {
     height: 400px;
@@ -1675,8 +1710,13 @@ a.default-button-color:hover::before {
         transform: rotate(-45deg);
     }
 
-.grow-div {
-    transition: height 1.0s ease;
-    overflow: hidden;
+.small-heading {
+    font-size: 1.25em;
+    font-weight: bold;
+    width: fit-content;
+}
 
+.break-line {
+    width: 100%;
+    border: 1px solid black;
 }

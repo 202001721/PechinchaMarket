@@ -2,6 +2,8 @@
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
+<link rel="stylesheet" href="~/css/navbar.css" />
+
 <ul class="nav nav-pills flex-column">
     <li class="nav-item"><a class="unselectable-text nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
     @if (hasExternalLogins)
