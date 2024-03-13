@@ -42,9 +42,21 @@
                 </div>
 
                 <div class="background-constrast-color small-padding rounded-border">
-                    <span>Listas</span>
-                    <div class="row-container right-flex max-width">
+                    <div class="row-container edges-flex max-width">
+                        <span class="small-heading">Listas</span>
                         <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd();">Adicionar Lista</div>
+                    </div>
+                    <div class="break-line"></div>
+                    <div class="row-container edges-flex max-width">
+                        <div class="column-container">
+                            @if (item.Agrupamento.ListaProdutos != null)
+                            {
+                                @foreach (var list in item.Agrupamento.ListaProdutos)
+                                {
+                                    <div>@list.name</div>
+                                }
+                            }
+                        </div>
                     </div>
                 </div>
 
@@ -56,17 +68,15 @@
                             <div class="cross-button" onclick="chooseListToAdd();"></div>
                         </div>
                         <form asp-action="AddList" asp-route-id=@item.Agrupamento.Id method="post" class="column-container edges-flex max-width max-height">
-                            <div>
-                                <label asp-for="@item.Agrupamento.ListaProdutos"></label>
-                            </div>
+                            <div>Lista de Produtos</div>
                             <div class="column-container wrap-flex small-gap center-x-flex small-padding-right small-padding-left list-chooser">
                                 @if (lists != null)
                                 {
                                     @foreach (var list in lists)
                                     {
                                         <div>
-                                            <input asp-for="@list.Id" type="radio" value="@list.Id">
-                                            <label asp-for="@list.Id">@list.name</label>
+                                            <input name="listaId" id="@list.Id+'Ola'" type="radio" value="@list.Id">
+                                            <label for="@list.Id+'Ola'">@list.name</label>
                                         </div>
                                     }
                                 }

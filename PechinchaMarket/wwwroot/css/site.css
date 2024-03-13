@@ -126,6 +126,10 @@ body {
     display: none !important;
 }
 
+.display-flex {
+    display: flex !important;
+}
+
 .center-text {
     text-align: center;
 }
@@ -1086,7 +1090,6 @@ a.cancel-button:hover::before {
     padding: 0.5em;
 }
 
-
 .small-padding-right {
     padding-right: 2em;
 }
@@ -1624,3 +1627,14 @@ a.default-button-color:hover::before {
         transform: rotate(-45deg);
     }
 
+.small-heading {
+    font-size: 1.25em;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.break-line {
+    width: 100%;
+    border: 1px solid black;
+
+}

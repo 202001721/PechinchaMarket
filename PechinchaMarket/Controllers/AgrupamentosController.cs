@@ -199,7 +199,7 @@ namespace PechinchaMarket.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddList(Guid id, Guid ListaProdutosId)
+        public async Task<IActionResult> AddList(Guid id, String listaId)
         {
             var userId = _userManager.GetUserId(User);
             Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
@@ -222,14 +222,15 @@ namespace PechinchaMarket.Controllers
                 try
                 {
                     var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
-                    var listaprodutos_context = _context.ListaProdutos.Single(x => x.Id == ListaProdutosId);
+                    var main = _context.ListaProdutos.ToList();
+                    var listaprodutos_context = _context.ListaProdutos.Single(x => x.Id.ToString() == listaId);
                     agrupamento_context.ListaProdutos.Add(listaprodutos_context);
                     //_context.Update(agrupamento);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ListaProdutosExists(ListaProdutosId))
+                    if (!ListaProdutosExists(listaId))
                     {
                         return NotFound();
                     }
@@ -283,9 +284,9 @@ namespace PechinchaMarket.Controllers
             return _context.Agrupamentos.Any(e => e.Id == id);
         }
 
-        private bool ListaProdutosExists(Guid id)
+        private bool ListaProdutosExists(String id)
         {
-            return _context.ListaProdutos.Any(e => e.Id == id);
+            return _context.ListaProdutos.Any(e => e.Id.ToString() == id);
         }
 
         private long GenerateRandomNumber() {
