@@ -8,6 +8,8 @@
 @model List<Produto>;
 
 
+
+
 <div class="pechincha-container">
     <section>
         @if (Model.Count == 0)
@@ -39,8 +41,15 @@
                             <div class="fit-content-width">
                                 Comerciante:
                                 <ul class="fit-content-width">
-                                    <li class="fit-content-width">placeholder</li>
-                                    <li class="fit-content-width">placeholder</li>
+                                    @foreach(var c in comerciante)
+                                    {
+                                        <li style="list-style-type:none">
+                                            <input type="checkbox" value=@c.Name id=comerciantes class="comerciantes" onchange="filterComerciante();" unchecked />
+                                            <label for=@c.Name>@c.Name</label>
+                                        </li>
+                                    }
+                                    
+                                        
                                 </ul>
                             </div>
                             <div class="fit-content-width">
@@ -50,11 +59,26 @@
                             </div>
                             <div class="fit-content-width">
                                 Preço:
-                                <div class="fit-content-width">slider</div>
+                                <div class="range_container">
+                                    <div class="sliders_control">
+                                        <input id="fromSlider" type="range" value="10" min="0" max="100" />
+                                        <input id="toSlider" type="range" value="40" min="0" max="100" />
+                                    </div>
+                                    <div class="form_control">
+                                        <div class="form_control_container">
+                                            <div class="form_control_container__time">Min</div>
+                                            <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="100" />
+                                        </div>
+                                        <div class="form_control_container">
+                                            <div class="form_control_container__time">Max</div>
+                                            <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="100" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width">
+                    <div id="produtos" class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width">
                         @foreach (var produto in Model)
                         {
                             <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
@@ -69,3 +93,43 @@
         }
     </section>
 </div>
+
+<script>
+    function filterComerciante() {
+        var comerciantes = document.getElementsByClassName("comerciantes");
+        var comerciantesSelected = Array.from(comerciantes);
+
+        for (item of Array.from(comerciantes)) {
+            if (item.checked == false) {
+                var i = comerciantesSelected.indexOf(item);
+                comerciantesSelected.splice(i, 1);
+            }
+        }
+
+        ///////para tras ta a funcionar/////
+        var produtos = document.getElementById("produtos").children;
+
+        Array.from(produtos).forEach((item) => {
+            item.style.display = 'flex';
+            var b = false; 
+            comerciantesSelected.forEach((com) => {
+                if (item.textContent.includes(com.value)) {
+                    b = true;
+                }
+            });
+            if (!b) {
+                item.style.display = 'none';
+            }
+        });
+
+        if (comerciantesSelected.length === 0) {
+            for(item of produtos){
+                item.style.display = 'flex';
+            }
+        }
+    }
+
+
+
+
+</script>
