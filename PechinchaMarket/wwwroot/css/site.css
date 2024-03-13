@@ -1484,6 +1484,7 @@ a.default-button-color:hover::before {
 .photo-option input[type="radio"]:checked + label span.big-perfil-image {
     outline-color: var(--blue-color);
     position: relative;
+}
 
 .calendar-chooser {
     height: 400px;
