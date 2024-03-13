@@ -207,13 +207,6 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         /// <param name="confirmLink"></param> mensagem com o link de confirmação
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
-
-            //TODO
-            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
-            // message.From = ?
-            // message.Port = ?
-            // message.Host = ?
-            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
             try
             {
                 MailMessage message = new MailMessage();
@@ -230,9 +223,11 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); // verificar a extensao que esta usando 
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos");
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.Send(message);
+                //smtpClient.Send(message);
+                await smtpClient.SendMailAsync(message);
+              
                 return true;
             }
             catch (Exception)

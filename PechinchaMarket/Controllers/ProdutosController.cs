@@ -28,14 +28,31 @@ namespace PechinchaMarket.Controllers
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
-            var produtos = _context.Produto
-             .Where(p => p.ProdEstado == Estado.Approved).Join(_context.ProdutoLoja,
-             produto => produto.Id,
-             loja => loja.Id,
-             (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
 
-            return View(produtos);
+            var userId = _userManager.GetUserId(User);
+            var comerciante = await _context.Comerciante.FirstOrDefaultAsync(c => c.UserId == userId);
+
+
+            if (comerciante != null)
+            {
+                var produtos = await _context.Produto
+                    .Join(_context.ProdutoLoja,
+                        produto => produto.Id,
+                        produtoLoja => produtoLoja.Id,
+                        (produto, produtoLoja) => new { Produto = produto, ProdutoLoja = produtoLoja })
+                    .Where(p => p.ProdutoLoja.Loja.UserId == comerciante.UserId)
+                    .Select(p => new Tuple<Produto, ProdutoLoja>(p.Produto, p.ProdutoLoja))
+                    .ToListAsync();
+
+                return View(produtos);
+            }
+            else
+            {
+                
+                return NotFound();
+            }
         }
+
 
         // GET: Produtos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -54,19 +71,8 @@ namespace PechinchaMarket.Controllers
 
             return View(produto);
         }
-
-        public async Task<ActionResult> ProductsInAnalysis()
-        {
-            var produtos = _context.Produto
-           .Where(p => p.ProdEstado == Estado.InAnalysis).Join(_context.ProdutoLoja,
-           produto => produto.Id,
-           loja => loja.Id,
-           (produto, loja) => new Tuple<Produto, ProdutoLoja>(produto, loja)).ToList();
-
-            return View(produtos);
-        }
-
-        public async Task<IActionResult> Show(int? id)
+                
+        public async Task<IActionResult> ShowImage(int? id)
         { 
             if (id == null)
             {
@@ -184,6 +190,7 @@ namespace PechinchaMarket.Controllers
             ModelState.Remove("file");
             ModelState.Remove("discount");
             ModelState.Remove("duration");
+            ModelState.Remove("Image");
 
             if (ModelState.IsValid)
             {
@@ -205,43 +212,28 @@ namespace PechinchaMarket.Controllers
                         {
                             await file.CopyToAsync(memoryStream);
                             produtoToUpdate.Image = memoryStream.ToArray();
+                            _context.Update(produtoToUpdate);
                         }
-                        _context.Update(produtoToUpdate);
                     }
 
-                    //Atualizar o campo Price
+                    // Atualizar o campo Price
                     if (price != null)
                     {
-                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < price.Length; i++)
                         {
                             var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
-
-                           
                             currentProdutoLoja.Price = price[i];
-
                             _context.Update(currentProdutoLoja);
                         }
                     }
 
-                    // Atualizar o campo Discount
-                    if ( discount != null)
+                    // Atualizar o campo Discount e Duration
+                    if (discount != null && duration != null)
                     {
-                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count; i++)
+                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < discount.Length && i < duration.Length; i++)
                         {
                             var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
-
-                            
                             currentProdutoLoja.Discount = discount[i];
-
-                            _context.Update(currentProdutoLoja);
-                        }
-                    }
-
-                    if (duration != null)
-                    {
-                        for (int i = 0; i < produtoToUpdate.ProdutoLojas.Count && i < duration.Length; i++)
-                        {
-                            var currentProdutoLoja = produtoToUpdate.ProdutoLojas[i];
 
                             if (!string.IsNullOrEmpty(duration[i]) && duration[i].Contains("-"))
                             {
@@ -258,11 +250,17 @@ namespace PechinchaMarket.Controllers
                                     TempData["alertMessage"] = "Formato inválido para a duração";
                                 }
                             }
+                            else if (string.IsNullOrEmpty(duration[i]) && discount[i] > 0)
+                            {
+                                TempData["alertMessage"] = "É necessário especificar a duração para aplicar um desconto.";
+                            }
+
+                            _context.Update(currentProdutoLoja);
                         }
+                    }
 
                     await _context.SaveChangesAsync();
-                        return RedirectToAction(nameof(Index));
-                    }
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -275,14 +273,10 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
-
-                await _context.SaveChangesAsync();
             }
-            
+
             return RedirectToAction(nameof(Index));
         }
-
-        
 
         // GET: Produtos/Delete/5
         public async Task<IActionResult> Delete(int? id)
