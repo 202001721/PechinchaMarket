@@ -1578,6 +1578,56 @@ a.default-button-color:hover::before {
 }
 
 
+/* 09 / 03*/
+
+
+.dropbtn {
+    background-color: rgb(250, 181, 70);
+    color: white;
+    border-radius: 15% 15% 15%;
+    font-size: 16px;
+    border: none;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right:20%;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        font-size: 15px;
+        text-decoration: none;
+        display: block;
+    }
+
+       
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    cursor: pointer;
+    transition: all 1s ease;
+
 .colapsable-div {
     position: relative;
     display: flex;
@@ -1628,4 +1678,5 @@ a.default-button-color:hover::before {
 .grow-div {
     transition: height 1.0s ease;
     overflow: hidden;
+
 }

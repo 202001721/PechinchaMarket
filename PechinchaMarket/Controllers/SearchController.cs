@@ -79,6 +79,8 @@ namespace PechinchaMarket.Controllers
             return View(result);
         }
 
+    
+
         public List<Produto> searchAlgorithm(List<Produto> produtos, String input)
         {
             var result = new List<Produto>();
