@@ -29,11 +29,11 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaM
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'), 'manteiga')
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Logout_cursor-pointer small-image nav-lin_58ce0e'))
 
-WebUI.click(findTestObject('Page_- PechinchaMarket/Page_Home Page - PechinchaMarket/button_submit'))
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/p_Lista de compras'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Manteiga  - Lidl                         _21e6c0'))
+WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
 
 WebUI.closeBrowser()
 

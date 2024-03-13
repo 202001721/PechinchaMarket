@@ -31,9 +31,14 @@ WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/butto
 
 WebUI.setText(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'), 'manteiga')
 
-WebUI.click(findTestObject('Page_- PechinchaMarket/Page_Home Page - PechinchaMarket/button_submit'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/button_submit'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Manteiga  - Lidl                         _21e6c0'))
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/span_Manteiga Vegetal - COntinente'))
 
-WebUI.closeBrowser()
+WebUI.setText(findTestObject('Object Repository/Page_Adicionar Produto na Lista - PechinchaMarket/input_Morada da Loja Rua Mouzinho de Abacax_1b2e14'), 
+    'Lista de compras')
+
+WebUI.click(findTestObject('Object Repository/Page_Adicionar Produto na Lista - PechinchaMarket/input_Morada da Loja Avenida da Liberdade_b_8d12f8'))
+
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Lista de compras                    PorComprar'))
 

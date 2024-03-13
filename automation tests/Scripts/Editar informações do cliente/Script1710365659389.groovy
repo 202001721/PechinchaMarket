@@ -29,11 +29,19 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaM
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'), 'manteiga')
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                                _6a042e'))
 
-WebUI.click(findTestObject('Page_- PechinchaMarket/Page_Home Page - PechinchaMarket/button_submit'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Perfil'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Manteiga  - Lidl                         _21e6c0'))
+WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/div_Editar'))
 
-WebUI.closeBrowser()
+WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/label_Doces'))
+
+WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/button_Salvar'))
+
+WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/span_Perfil                                _6a042e'))
+
+WebUI.click(findTestObject('Page_Profil - PechinchaMarket/Page_Profil - PechinchaMarket/button_O seu perfil foi atualizado_btn-close'))
+
+WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/button_Logout'))
 

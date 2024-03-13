@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>select_Escolha uma categoria               _8ff80a</name>
+   <tag></tag>
+   <elementGuidId>51e61bb5-d7d2-4a0a-81cb-1e84626f6db3</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//select[@id='ProdCategoria']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#ProdCategoria</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:label=&quot;Categoria&quot;i</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>select</value>
+      <webElementGuid>74d3de01-3fcd-4235-a86f-9c2636698732</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>form-control</value>
+      <webElementGuid>f01a4bbf-a7aa-4019-83bc-2a7a3d9c790e</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-val</name>
+      <type>Main</type>
+      <value>true</value>
+      <webElementGuid>799574e3-fc90-4823-9ac5-4fc6402da11d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-val-required</name>
+      <type>Main</type>
+      <value>The Categoria field is required.</value>
+      <webElementGuid>88ce3c16-b386-4224-a86e-431d3eddb9b3</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>ProdCategoria</value>
+      <webElementGuid>76e3e254-c87a-43ba-a018-274318ce7c32</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>ProdCategoria</value>
+      <webElementGuid>4a9112f0-ad28-412f-8aea-7c4861d1521f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                            Escolha uma categoria
+                        Enlatados
+Frescos
+Biologicos
+Congelados
+Pastelaria
+Talho
+Peixaria
+Charcutaria
+Bebidas
+Vegan
+Doces
+Snacks
+BebidasAlcoólicas
+</value>
+      <webElementGuid>4c099e13-6e76-4a46-ae6e-0d6e30a73c1c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;ProdCategoria&quot;)</value>
+      <webElementGuid>4a153b57-9850-42c1-addf-99f90c797662</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//select[@id='ProdCategoria']</value>
+      <webElementGuid>ebbc4bfe-be57-4d6e-b0df-13b0d8350207</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoria'])[1]/following::select[1]</value>
+      <webElementGuid>bf10fa49-40c8-4612-8749-73900d0e2ac5</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Peso'])[1]/following::select[1]</value>
+      <webElementGuid>7269d7c2-43e4-40ea-92fa-16152a30ff6c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Personalizar por loja'])[1]/preceding::select[1]</value>
+      <webElementGuid>5cdd28ed-22c1-465a-9a1b-34889469b3eb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar Foto'])[1]/preceding::select[1]</value>
+      <webElementGuid>c4a77cce-a6b3-4f59-a3cd-d6d8bb72f6b2</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[5]/select</value>
+      <webElementGuid>a1c00e91-244b-4e80-b9a0-0624de9252a9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//select[@id = 'ProdCategoria' and @name = 'ProdCategoria' and (text() = '
+                            Escolha uma categoria
+                        Enlatados
+Frescos
+Biologicos
+Congelados
+Pastelaria
+Talho
+Peixaria
+Charcutaria
+Bebidas
+Vegan
+Doces
+Snacks
+BebidasAlcoólicas
+' or . = '
+                            Escolha uma categoria
+                        Enlatados
+Frescos
+Biologicos
+Congelados
+Pastelaria
+Talho
+Peixaria
+Charcutaria
+Bebidas
+Vegan
+Doces
+Snacks
+BebidasAlcoólicas
+')]</value>
+      <webElementGuid>7c08ac96-4da6-44bb-8ccd-385c53603fae</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

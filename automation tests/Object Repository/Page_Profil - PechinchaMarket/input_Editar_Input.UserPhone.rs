@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input_Login_Input.Email</name>
+   <name>input_Editar_Input.UserPhone</name>
    <tag></tag>
-   <elementGuidId>8f02aa8a-5769-4419-91bc-da8f18c60a63</elementGuidId>
+   <elementGuidId>d5aabfa1-6df9-4a96-b560-5394020551f7</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='Input_Email']</value>
+         <value>//input[@id='phone-input']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#Input_Email</value>
+         <value>#phone-input</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:attr=[placeholder=&quot;Email&quot;i]</value>
+         <value>#phone-input</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,39 +29,31 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>f0cbefca-0789-42aa-b25a-7cfdd3c8a4b8</webElementGuid>
+      <webElementGuid>86e8d113-c6b3-4a2b-973d-5598221fc5bb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>autocomplete</name>
+      <name>id</name>
       <type>Main</type>
-      <value>username</value>
-      <webElementGuid>643d8c21-d5c3-4eb8-9c12-27e654ddbc53</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>aria-required</name>
-      <type>Main</type>
-      <value>true</value>
-      <webElementGuid>579aa02e-ed16-4c8a-9724-ba5a55fa41e5</webElementGuid>
+      <value>phone-input</value>
+      <webElementGuid>53d243bc-949e-448e-a9ff-c1d2915a81b5</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>placeholder</name>
       <type>Main</type>
-      <value>Email</value>
-      <webElementGuid>4c878deb-0f3c-48f4-a30c-c2f280c2efb0</webElementGuid>
+      <value>Por favor escolha o seu nome.</value>
+      <webElementGuid>60807110-89e7-40f4-a9ae-ca6c45a0c870</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>type</name>
       <type>Main</type>
-      <value>email</value>
-      <webElementGuid>4242cbfa-d866-4380-8f99-283aa6d08241</webElementGuid>
+      <value>number</value>
+      <webElementGuid>420671ed-ad76-4c7c-808e-656db8ab8456</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,78 +61,70 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>fcb72025-869a-4837-bc19-115ac8922cf3</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>data-val-email</name>
-      <type>Main</type>
-      <value>The Email field is not a valid e-mail address.</value>
-      <webElementGuid>664be639-1cd3-4443-8d98-104d68023c42</webElementGuid>
+      <webElementGuid>04658934-7ff1-4913-921b-9aed14f2bbe6</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>data-val-required</name>
       <type>Main</type>
-      <value>The Email field is required.</value>
-      <webElementGuid>5bf351f5-9a7b-41f5-b9a8-a6ef03f2b236</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>id</name>
-      <type>Main</type>
-      <value>Input_Email</value>
-      <webElementGuid>55f16585-3c6d-4537-99a6-64a8b03aebc4</webElementGuid>
+      <value>The Contacto field is required.</value>
+      <webElementGuid>9bf77cbb-3deb-4b3e-b847-ba6aab3264a4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
-      <value>Input.Email</value>
-      <webElementGuid>d0bf560e-396c-4275-b803-cd57d4e29558</webElementGuid>
+      <value>Input.UserPhone</value>
+      <webElementGuid>7a4b8b0d-1ca7-4c1c-b200-2bddaeeff184</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>value</name>
+      <type>Main</type>
+      <value>932465871</value>
+      <webElementGuid>9fe55f1a-f117-4719-b20b-8c97ad9725f7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;Input_Email&quot;)</value>
-      <webElementGuid>49a8db1f-9941-4f61-b76a-ad570517e4ab</webElementGuid>
+      <value>id(&quot;phone-input&quot;)</value>
+      <webElementGuid>078ad29f-ae3c-4ae9-bb01-1bd72b61087d</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='Input_Email']</value>
-      <webElementGuid>43f096ac-8977-4cbb-a0b5-225d1e5a9ea1</webElementGuid>
+      <value>//input[@id='phone-input']</value>
+      <webElementGuid>bfec23b8-a61d-41b8-b231-b4ad720e4ff4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div/input</value>
-      <webElementGuid>3ad78882-0edc-4c9d-b326-ecd209680cfb</webElementGuid>
+      <value>//form[@id='change-phone-form']/div/input</value>
+      <webElementGuid>7befecef-5811-4953-be2d-55b6324521c1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div/div/input</value>
-      <webElementGuid>0da25368-919f-4543-b321-69f5a4addfaa</webElementGuid>
+      <value>//div[4]/form/div/input</value>
+      <webElementGuid>ccf8d9f3-fa5f-4572-ad3b-0bf2e7c2dde6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//input[@placeholder = 'Email' and @type = 'email' and @id = 'Input_Email' and @name = 'Input.Email']</value>
-      <webElementGuid>63dc2f30-65c4-47e8-b44c-3eaeed407d69</webElementGuid>
+      <value>//input[@id = 'phone-input' and @placeholder = 'Por favor escolha o seu nome.' and @type = 'number' and @name = 'Input.UserPhone']</value>
+      <webElementGuid>e48baba2-6891-4d64-b7e9-d992f78d3497</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input_Morada da Loja Avenida da Liberdade_b_8d12f8</name>
+   <name>input_Horrio de Fecho_button</name>
    <tag></tag>
-   <elementGuidId>70bf1f77-d32a-4216-8540-feeb342f3e36</elementGuidId>
+   <elementGuidId>27208c79-69ee-4e94-bcdc-190237085909</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@value='Adicionar à lista']</value>
+         <value>//input[@value='Create']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>input.button-add</value>
+         <value>input.btn.btn-primary</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Adicionar à lista&quot;i]</value>
+         <value>internal:role=button[name=&quot;Create&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>833228fc-39cf-4f19-9643-291d23b83961</webElementGuid>
+      <webElementGuid>82087994-a136-430d-a900-d614c288d770</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,55 +37,55 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>8c46db8a-faa4-47ad-8fd7-54f1c84515a8</webElementGuid>
+      <webElementGuid>5cb41bfd-d8be-4cd4-8cb2-ba76cea00fe8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>Adicionar à lista</value>
-      <webElementGuid>bb4fa8e8-28c9-4946-ba20-e0704aaefded</webElementGuid>
+      <value>Create</value>
+      <webElementGuid>44bf194b-c397-44f2-b3c8-66f768e5e221</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>button-add</value>
-      <webElementGuid>a516d570-4e36-40cc-9299-1c60541bb5a2</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>onclick</name>
-      <type>Main</type>
-      <value>updateQuantity(); updateName()</value>
-      <webElementGuid>3c8060c6-c452-4832-9663-1586c5db1d83</webElementGuid>
+      <value>btn btn-primary</value>
+      <webElementGuid>23728601-1855-4837-86b3-01bb0a797674</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;row-container center-x-flex center-y-flex screen-height&quot;]/div[@class=&quot;fit-content-width&quot;]/div[@class=&quot;acoes&quot;]/form[1]/input[@class=&quot;button-add&quot;]</value>
-      <webElementGuid>d83f4b1a-165f-4e27-9b47-910fcd8aefbf</webElementGuid>
+      <value>/html[1]/body[@class=&quot;gradiante2-main-color background-height&quot;]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[1]/form[@class=&quot;form&quot;]/div[@class=&quot;bottom&quot;]/div[@class=&quot;form-group&quot;]/input[@class=&quot;btn btn-primary&quot;]</value>
+      <webElementGuid>99c8899f-4c2f-4a8d-994d-6433376165ae</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>validationPrice(); validationImage();</value>
+      <webElementGuid>07cd4bfe-f251-463d-b4bf-afa272275892</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@value='Adicionar à lista']</value>
-      <webElementGuid>0060b0ee-17ac-4b57-84da-0b0bfdd1a461</webElementGuid>
+      <value>//input[@value='Create']</value>
+      <webElementGuid>b6e989c0-ee0b-4535-a1ca-5082a3bd19d0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//input[4]</value>
-      <webElementGuid>48a0708c-ec8b-4f5a-8aa6-cb36b0dcbe3c</webElementGuid>
+      <value>//div[2]/div[2]/input</value>
+      <webElementGuid>e8138136-d70b-43d6-8544-76f6dce107e0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,22 +93,22 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'submit']</value>
-      <webElementGuid>f78b81d4-efd0-49e3-ac97-d555d08ed73f</webElementGuid>
+      <webElementGuid>d0ea8e89-95e7-4bab-9ced-beebc3ae34c6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@value='Lojas']</value>
-      <webElementGuid>dd51246b-e656-4520-9062-a3931ddb195b</webElementGuid>
+      <value>//input[@value='Criar']</value>
+      <webElementGuid>d0ed5d72-1888-4754-9643-0f5aef71f610</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[3]/input</value>
-      <webElementGuid>a7147bc1-587a-45f5-88bb-9e6750db173d</webElementGuid>
+      <value>//div[4]/input</value>
+      <webElementGuid>7dfe1d8c-2b51-469b-9e57-03ea113602b3</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

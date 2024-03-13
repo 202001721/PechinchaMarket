@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Perfil</name>
+   <name>a_Adicionar Loja</name>
    <tag></tag>
-   <elementGuidId>39d243c4-3a49-41c3-b0d4-ef5710531a0c</elementGuidId>
+   <elementGuidId>b78a5d0e-c282-444f-b9f1-f9d7d52f37be</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='perfil-menu']/a</value>
+         <value>//a[contains(text(),'Adicionar Loja')]</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>a.nav-link.text-dark</value>
+         <value>a.button-a</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Perfil&quot;i]</value>
+         <value>internal:role=link[name=&quot;Adicionar Loja&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,110 +29,110 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>e7a52a28-6389-4205-8e1c-79efeec36af6</webElementGuid>
+      <webElementGuid>d8f234ae-2b05-48b4-9971-435450922df3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>03bace37-75d9-4929-a3fe-2886d8c6f7e4</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
-      <type>Main</type>
-      <value>Manage</value>
-      <webElementGuid>b9808178-4692-4f35-a5fb-891586ba65ad</webElementGuid>
+      <value>button-a</value>
+      <webElementGuid>9472525d-27bc-4536-adc0-295c7d61d48f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>href</name>
       <type>Main</type>
-      <value>/Identity/Account/Manage</value>
-      <webElementGuid>83245762-f11e-4740-b480-961ff6bde968</webElementGuid>
+      <value>/Lojas/Create</value>
+      <webElementGuid>5c2562ae-e51f-4ba6-b9fe-d2f7df8bf848</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Perfil</value>
-      <webElementGuid>4c4240ad-eeca-46f5-abf9-7104d8ad24f1</webElementGuid>
+      <value>Adicionar Loja</value>
+      <webElementGuid>32415ea1-6812-425d-9cce-5b6148f8f998</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;perfil-menu&quot;)/a[@class=&quot;nav-link text-dark&quot;]</value>
-      <webElementGuid>c351c558-aa33-499c-ac86-21bda6e98bd3</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/p[1]/a[@class=&quot;button-a&quot;]</value>
+      <webElementGuid>aa69bf0b-6e60-4fce-8e0f-9d30b6fd61c8</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//div[@id='perfil-menu']/a</value>
-      <webElementGuid>6955d21b-73c9-4022-a82b-6bd323bb8915</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>xpath:link</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Perfil')]</value>
-      <webElementGuid>f049eae0-862c-49ad-9405-a2615f0630d4</webElementGuid>
+      <value>//a[contains(text(),'Adicionar Loja')]</value>
+      <webElementGuid>f18149b4-5825-4f39-85b2-f16eb7761d82</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/preceding::a[1]</value>
-      <webElementGuid>28772681-f7d9-4657-b84d-63d7e6eef3ee</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[2]/following::a[1]</value>
+      <webElementGuid>8998eae0-e739-4f9a-a38b-82c46bd0f352</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
-      <webElementGuid>78f26413-1841-4851-a60d-f50d61317f66</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/following::a[1]</value>
+      <webElementGuid>fed7bcb0-8f59-4a0a-ac4e-217f7923ed05</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Morada'])[1]/preceding::a[1]</value>
+      <webElementGuid>967d30ec-fff2-4a21-aa5d-b5c4cd557d7a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Horário de Abertura'])[1]/preceding::a[1]</value>
+      <webElementGuid>0ffcf6c9-3ee2-40cf-a5fc-9cdab36af834</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Adicionar Loja']/parent::*</value>
+      <webElementGuid>cfcd7e0f-0d98-4718-a5d2-1a8081d50d84</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:href</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Manage')]</value>
-      <webElementGuid>7b044c6d-2ce0-4b1f-bdc6-505965c9fdb7</webElementGuid>
+      <value>//a[contains(@href, '/Lojas/Create')]</value>
+      <webElementGuid>286dfa9b-6216-4512-a108-a03cee0b24e9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//span/div/a</value>
-      <webElementGuid>85a89c7e-9859-4504-8676-447d7798daac</webElementGuid>
+      <value>//p/a</value>
+      <webElementGuid>0a6d8226-fc41-4488-a481-af683bae5040</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@title = 'Manage' and @href = '/Identity/Account/Manage' and (text() = 'Perfil' or . = 'Perfil')]</value>
-      <webElementGuid>376cd69e-45f5-473b-bc63-2c6a52337911</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[1]/preceding::a[1]</value>
-      <webElementGuid>fde8739f-b4e1-4655-9797-1a9a70e9cdee</webElementGuid>
+      <value>//a[@href = '/Lojas/Create' and (text() = 'Adicionar Loja' or . = 'Adicionar Loja')]</value>
+      <webElementGuid>82fa6b64-6ddf-4819-b2ac-02f6350e34d7</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

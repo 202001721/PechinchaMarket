@@ -23,17 +23,37 @@ WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'cliente@gmail.com')
+WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'lidl@gmail.com')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), '8MulHJ6VnguuWGcei07mUQ==')
 
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Password_password-hidden'))
+
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'), 'manteiga')
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Produtos'))
 
-WebUI.click(findTestObject('Page_- PechinchaMarket/Page_Home Page - PechinchaMarket/button_submit'))
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Criar Produtos'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Manteiga  - Lidl                         _21e6c0'))
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Nome_Name'), 'Manteiga')
 
-WebUI.closeBrowser()
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Marca_Brand'), 'Mimosa')
+
+WebUI.click(findTestObject('Object Repository/Page_Create - PechinchaMarket/label_Adicionar Foto'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Preo()_price'), '2')
+
+WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Create - PechinchaMarket/select_Escolha uma unidade                 _2a5e59'), 
+    '1', true)
+
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Peso_Weight'), '250')
+
+WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Create - PechinchaMarket/select_Escolha uma categoria               _8ff80a'), 
+    '1', true)
+
+WebUI.click(findTestObject('Object Repository/Page_Create - PechinchaMarket/label_Personalizar por loja'))
+
+WebUI.click(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Horrio de Fecho_button'))
+
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Produtos Pendentes'))
 

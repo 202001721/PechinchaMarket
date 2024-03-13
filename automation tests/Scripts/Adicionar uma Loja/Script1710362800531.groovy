@@ -23,17 +23,33 @@ WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'cliente@gmail.com')
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/div_Email'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'lidl@gmail.com')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), '8MulHJ6VnguuWGcei07mUQ==')
 
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Password_password-hidden'))
+
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Password_password-hidden'))
+
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'), 'manteiga')
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Lojas'))
 
-WebUI.click(findTestObject('Page_- PechinchaMarket/Page_Home Page - PechinchaMarket/button_submit'))
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Adicionar Loja'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Manteiga  - Lidl                         _21e6c0'))
+def uniqueNumber = System.currentTimeMillis()
 
-WebUI.closeBrowser()
+def address = 'Rua Vice Almirante ' + uniqueNumber
+
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Morada_Address'), address)
+
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/Page_Create - PechinchaMarket/input_Horrio de Abertura_OpeningTime'), 
+    '20:50')
+
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/Page_Create - PechinchaMarket/input_Horrio de Fecho_ClosingTime'), 
+    '23:00')
+
+WebUI.click(findTestObject('Page_Create - PechinchaMarket/input_Horrio de Fecho_button'))
 

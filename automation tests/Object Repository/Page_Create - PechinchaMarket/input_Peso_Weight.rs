@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input_Login_Input.Email</name>
+   <name>input_Peso_Weight</name>
    <tag></tag>
-   <elementGuidId>8f02aa8a-5769-4419-91bc-da8f18c60a63</elementGuidId>
+   <elementGuidId>c8be8219-e0c3-48e1-b55e-db5ee7838567</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='Input_Email']</value>
+         <value>//input[@id='Weight']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#Input_Email</value>
+         <value>#Weight</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:attr=[placeholder=&quot;Email&quot;i]</value>
+         <value>internal:attr=[placeholder=&quot;Kg&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,39 +29,31 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>f0cbefca-0789-42aa-b25a-7cfdd3c8a4b8</webElementGuid>
+      <webElementGuid>a98ce93e-f14a-4c60-82d9-b9466e1620d1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>autocomplete</name>
+      <name>class</name>
       <type>Main</type>
-      <value>username</value>
-      <webElementGuid>643d8c21-d5c3-4eb8-9c12-27e654ddbc53</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>aria-required</name>
-      <type>Main</type>
-      <value>true</value>
-      <webElementGuid>579aa02e-ed16-4c8a-9724-ba5a55fa41e5</webElementGuid>
+      <value>form-control</value>
+      <webElementGuid>0c6b1cd6-8679-48ea-accf-161e4f4a02e6</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>placeholder</name>
       <type>Main</type>
-      <value>Email</value>
-      <webElementGuid>4c878deb-0f3c-48f4-a30c-c2f280c2efb0</webElementGuid>
+      <value>Kg</value>
+      <webElementGuid>0671f8f7-cfbf-4591-9841-eea21de9b73b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>type</name>
       <type>Main</type>
-      <value>email</value>
-      <webElementGuid>4242cbfa-d866-4380-8f99-283aa6d08241</webElementGuid>
+      <value>text</value>
+      <webElementGuid>e4746e90-f1e4-4b69-96f6-41f1735cf0cb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,78 +61,70 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>fcb72025-869a-4837-bc19-115ac8922cf3</webElementGuid>
+      <webElementGuid>84ebf74b-cced-4732-8f8c-d7bb3481149c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>data-val-email</name>
+      <name>data-val-number</name>
       <type>Main</type>
-      <value>The Email field is not a valid e-mail address.</value>
-      <webElementGuid>664be639-1cd3-4443-8d98-104d68023c42</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>data-val-required</name>
-      <type>Main</type>
-      <value>The Email field is required.</value>
-      <webElementGuid>5bf351f5-9a7b-41f5-b9a8-a6ef03f2b236</webElementGuid>
+      <value>The field Peso must be a number.</value>
+      <webElementGuid>6d863ff8-eaa7-490e-8bc0-a550552e6a72</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>Input_Email</value>
-      <webElementGuid>55f16585-3c6d-4537-99a6-64a8b03aebc4</webElementGuid>
+      <value>Weight</value>
+      <webElementGuid>02b8f25a-cb08-4c01-bf7c-7d6a79876ca4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
-      <value>Input.Email</value>
-      <webElementGuid>d0bf560e-396c-4275-b803-cd57d4e29558</webElementGuid>
+      <value>Weight</value>
+      <webElementGuid>d7b55080-782c-4817-9d4d-c9e0b089b371</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;Input_Email&quot;)</value>
-      <webElementGuid>49a8db1f-9941-4f61-b76a-ad570517e4ab</webElementGuid>
+      <value>id(&quot;Weight&quot;)</value>
+      <webElementGuid>4d8dc3b8-c5da-49c3-9f6b-0a759335180c</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='Input_Email']</value>
-      <webElementGuid>43f096ac-8977-4cbb-a0b5-225d1e5a9ea1</webElementGuid>
+      <value>//input[@id='Weight']</value>
+      <webElementGuid>019f263c-cab3-4b2f-ad1c-ce3bfae4e7f4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div/input</value>
-      <webElementGuid>3ad78882-0edc-4c9d-b326-ecd209680cfb</webElementGuid>
+      <value>//div[@id='peso']/input</value>
+      <webElementGuid>72b90948-7567-4f32-a729-1452c466115c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div/div/input</value>
-      <webElementGuid>0da25368-919f-4543-b321-69f5a4addfaa</webElementGuid>
+      <value>//div[4]/input</value>
+      <webElementGuid>96fc2ba9-7abc-48a1-89fe-dd43fb4f1ab4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//input[@placeholder = 'Email' and @type = 'email' and @id = 'Input_Email' and @name = 'Input.Email']</value>
-      <webElementGuid>63dc2f30-65c4-47e8-b44c-3eaeed407d69</webElementGuid>
+      <value>//input[@placeholder = 'Kg' and @type = 'text' and @id = 'Weight' and @name = 'Weight']</value>
+      <webElementGuid>e4a0c0c1-b61c-4269-94b5-2285c84c50cd</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

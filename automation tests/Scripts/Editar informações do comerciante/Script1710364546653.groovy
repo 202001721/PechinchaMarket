@@ -23,17 +23,19 @@ WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'cliente@gmail.com')
+WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'lidl@gmail.com')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), '8MulHJ6VnguuWGcei07mUQ==')
 
-WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
+WebUI.click(findTestObject('Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'), 'manteiga')
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                                _6a042e'))
 
-WebUI.click(findTestObject('Page_- PechinchaMarket/Page_Home Page - PechinchaMarket/button_submit'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Perfil'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Manteiga  - Lidl                         _21e6c0'))
+WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/div_Editar'))
 
-WebUI.closeBrowser()
+WebUI.setText(findTestObject('Object Repository/Page_Profil - PechinchaMarket/input_Editar_Input.UserPhone'), '932465873')
+
+WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/button_Salvar'))
 

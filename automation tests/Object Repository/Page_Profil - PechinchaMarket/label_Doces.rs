@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Login</name>
+   <name>label_Doces</name>
    <tag></tag>
-   <elementGuidId>8c21056b-3e93-443a-9a54-c7ae8e88c77a</elementGuidId>
+   <elementGuidId>82f26bde-5e5d-4465-a371-74baedd3d784</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[@id='login']</value>
+         <value>//form[@id='preferences-form']/div/div/div[11]/label</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#login</value>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Login&quot;i]</value>
+         <value>internal:text=&quot;Doces&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,103 +28,95 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>1f23def5-d767-4633-8d64-d82665712668</webElementGuid>
+      <value>label</value>
+      <webElementGuid>090c68e2-5062-45f2-8408-89bede573337</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>for</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>9b057c93-66fc-4dfd-b412-f2037e508bc9</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>id</name>
-      <type>Main</type>
-      <value>login</value>
-      <webElementGuid>ca78320a-753a-492a-8c6e-5d4f4b570fd1</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>href</name>
-      <type>Main</type>
-      <value>/Identity/Account/Login</value>
-      <webElementGuid>c6bcedd8-7ed7-44f9-9394-e3bc8b439290</webElementGuid>
+      <value>preference_10</value>
+      <webElementGuid>f3faf000-0377-4404-bd8c-f8bbf595464b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Login</value>
-      <webElementGuid>d6f0c9ad-7a01-4d19-a3e4-562ea5239937</webElementGuid>
+      <value>Doces</value>
+      <webElementGuid>3b0e51b2-2d3b-4199-b527-47465992ebda</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;login&quot;)</value>
-      <webElementGuid>f52ae0c8-971a-4771-b844-a537a7506bd2</webElementGuid>
+      <value>id(&quot;preferences-form&quot;)/div[1]/div[@class=&quot;row-container wrap-flex small-gap preferences-parent&quot;]/div[@class=&quot;edit-checkbox&quot;]/label[1]</value>
+      <webElementGuid>5037152f-43ba-482b-bc4b-c65c90e49f0d</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
+      <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//a[@id='login']</value>
-      <webElementGuid>8b878685-23bf-4092-820e-6bba75622f42</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
-      <type>Main</type>
-      <value>//a[contains(text(),'Login')]</value>
-      <webElementGuid>62c5dc26-6b46-4c13-ba6a-35bb78c18549</webElementGuid>
+      <value>//form[@id='preferences-form']/div/div/div[11]/label</value>
+      <webElementGuid>4adf18a9-ac54-4314-bcd9-e2483f53aa4f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Register'])[1]/following::a[1]</value>
-      <webElementGuid>f959ae05-1271-4b17-83d8-f9c321f9cf9c</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Vegan'])[1]/following::label[1]</value>
+      <webElementGuid>6d9e05e5-1ccd-47fe-9398-2517399063cd</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Login']/parent::*</value>
-      <webElementGuid>4eaaf58d-ce6d-46ce-b006-527c18d49110</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Bebidas'])[1]/following::label[2]</value>
+      <webElementGuid>c65ed4e2-1014-49fd-b30c-4425d4530c4b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Login')]</value>
-      <webElementGuid>ac2a3b85-0432-4c0f-858e-4d845f4f5d5f</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Snacks'])[1]/preceding::label[1]</value>
+      <webElementGuid>1382a8dd-228f-43a8-b75f-4169955496b5</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/preceding::label[2]</value>
+      <webElementGuid>825cc37e-357f-46fc-bea8-d5b89273660b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Doces']/parent::*</value>
+      <webElementGuid>d1061ce8-0506-4168-9c50-6f18bfa7c598</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li[2]/a</value>
-      <webElementGuid>eb3c0e80-6c71-4bb7-b11e-d5954c531c55</webElementGuid>
+      <value>//div[11]/label</value>
+      <webElementGuid>a013285c-c04f-44e5-8c88-e6ac49897592</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'login' and @href = '/Identity/Account/Login' and (text() = 'Login' or . = 'Login')]</value>
-      <webElementGuid>2da3fa21-c5cc-4104-aff1-0eec91498168</webElementGuid>
+      <value>//label[(text() = 'Doces' or . = 'Doces')]</value>
+      <webElementGuid>044803d8-72e2-442b-bb30-b6ef2e240950</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

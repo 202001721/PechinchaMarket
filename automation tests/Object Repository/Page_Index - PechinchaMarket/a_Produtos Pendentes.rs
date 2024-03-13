@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Login</name>
+   <name>a_Produtos Pendentes</name>
    <tag></tag>
-   <elementGuidId>8c21056b-3e93-443a-9a54-c7ae8e88c77a</elementGuidId>
+   <elementGuidId>2dbca5f7-c908-475e-87de-fc909da1dfa9</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[@id='login']</value>
+         <value>//a[@id='pendentes']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#login</value>
+         <value>#pendentes</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Login&quot;i]</value>
+         <value>internal:text=&quot;Produtos Pendentes&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,102 +29,86 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>1f23def5-d767-4633-8d64-d82665712668</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>9b057c93-66fc-4dfd-b412-f2037e508bc9</webElementGuid>
+      <webElementGuid>7499c798-b7ab-4257-8dd2-2a03d461c512</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>login</value>
-      <webElementGuid>ca78320a-753a-492a-8c6e-5d4f4b570fd1</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>href</name>
-      <type>Main</type>
-      <value>/Identity/Account/Login</value>
-      <webElementGuid>c6bcedd8-7ed7-44f9-9394-e3bc8b439290</webElementGuid>
+      <value>pendentes</value>
+      <webElementGuid>9c292306-d171-4a32-bc31-377ea8381c05</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Login</value>
-      <webElementGuid>d6f0c9ad-7a01-4d19-a3e4-562ea5239937</webElementGuid>
+      <value> Produtos Pendentes</value>
+      <webElementGuid>f0b018bf-50a5-4d3d-b7b0-e7a58b53d48f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;login&quot;)</value>
-      <webElementGuid>f52ae0c8-971a-4771-b844-a537a7506bd2</webElementGuid>
+      <value>id(&quot;pendentes&quot;)</value>
+      <webElementGuid>e511113a-de13-4f9c-a064-e5c78ffb16c0</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//a[@id='login']</value>
-      <webElementGuid>8b878685-23bf-4092-820e-6bba75622f42</webElementGuid>
+      <value>//a[@id='pendentes']</value>
+      <webElementGuid>2c416579-8dd9-4720-8ec9-635335b698f9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:link</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Login')]</value>
-      <webElementGuid>62c5dc26-6b46-4c13-ba6a-35bb78c18549</webElementGuid>
+      <value>//a[contains(text(),'Produtos Pendentes')]</value>
+      <webElementGuid>1e8df615-67ce-43ae-83d1-90d2a78654b3</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Register'])[1]/following::a[1]</value>
-      <webElementGuid>f959ae05-1271-4b17-83d8-f9c321f9cf9c</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos Publicados'])[1]/following::a[1]</value>
+      <webElementGuid>0f09a5c5-4f63-409f-9274-d727e5617850</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Login']/parent::*</value>
-      <webElementGuid>4eaaf58d-ce6d-46ce-b006-527c18d49110</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Criar Produtos'])[1]/following::a[2]</value>
+      <webElementGuid>899dddb9-a9ad-4f66-a5fb-bfab6c9b6ec4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Login')]</value>
-      <webElementGuid>ac2a3b85-0432-4c0f-858e-4d845f4f5d5f</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Produtos Pendentes']/parent::*</value>
+      <webElementGuid>80bac568-ef7d-4006-9a81-4119c53a8f97</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li[2]/a</value>
-      <webElementGuid>eb3c0e80-6c71-4bb7-b11e-d5954c531c55</webElementGuid>
+      <value>//span[3]/h2/a</value>
+      <webElementGuid>6f0a3130-0444-4ca6-ab09-1a853b395e85</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'login' and @href = '/Identity/Account/Login' and (text() = 'Login' or . = 'Login')]</value>
-      <webElementGuid>2da3fa21-c5cc-4104-aff1-0eec91498168</webElementGuid>
+      <value>//a[@id = 'pendentes' and (text() = ' Produtos Pendentes' or . = ' Produtos Pendentes')]</value>
+      <webElementGuid>572f5c3c-14dd-4aa5-b750-b3754e8bdba3</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

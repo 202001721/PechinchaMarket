@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Login</name>
+   <name>label_Adicionar Foto</name>
    <tag></tag>
-   <elementGuidId>8c21056b-3e93-443a-9a54-c7ae8e88c77a</elementGuidId>
+   <elementGuidId>dec78f7f-0413-492f-8be0-1e8da3343aad</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[@id='login']</value>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='Personalizar por loja'])[1]/following::label[1]</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#login</value>
+         <value>label.custom-file-upload</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Login&quot;i]</value>
+         <value>internal:text=&quot;Adicionar Foto&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,103 +28,95 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>1f23def5-d767-4633-8d64-d82665712668</webElementGuid>
+      <value>label</value>
+      <webElementGuid>6be86062-d66c-483b-9c79-ecf5a2134fd9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>9b057c93-66fc-4dfd-b412-f2037e508bc9</webElementGuid>
+      <value>custom-file-upload</value>
+      <webElementGuid>a5e0d937-5da2-42c6-8b70-93b8991846c1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>id</name>
+      <name>for</name>
       <type>Main</type>
-      <value>login</value>
-      <webElementGuid>ca78320a-753a-492a-8c6e-5d4f4b570fd1</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>href</name>
-      <type>Main</type>
-      <value>/Identity/Account/Login</value>
-      <webElementGuid>c6bcedd8-7ed7-44f9-9394-e3bc8b439290</webElementGuid>
+      <value>Image</value>
+      <webElementGuid>744cf7a7-5b8e-49c1-b165-46e1c1c7f87b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Login</value>
-      <webElementGuid>d6f0c9ad-7a01-4d19-a3e4-562ea5239937</webElementGuid>
+      <value>Adicionar Foto</value>
+      <webElementGuid>e8001590-ae8c-40d6-a1c4-200c1e3bcc70</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;login&quot;)</value>
-      <webElementGuid>f52ae0c8-971a-4771-b844-a537a7506bd2</webElementGuid>
+      <value>/html[1]/body[@class=&quot;gradiante2-main-color background-height&quot;]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[1]/form[@class=&quot;form&quot;]/div[@class=&quot;addProduct&quot;]/div[@class=&quot;addProductRight&quot;]/div[@class=&quot;uploadImage&quot;]/label[@class=&quot;custom-file-upload&quot;]</value>
+      <webElementGuid>583ccc72-4a1b-4928-8dc3-f27d372d7f5e</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[@id='login']</value>
-      <webElementGuid>8b878685-23bf-4092-820e-6bba75622f42</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
-      <type>Main</type>
-      <value>//a[contains(text(),'Login')]</value>
-      <webElementGuid>62c5dc26-6b46-4c13-ba6a-35bb78c18549</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Personalizar por loja'])[1]/following::label[1]</value>
+      <webElementGuid>7591dd53-919f-4764-9d03-ab84eab394d5</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Register'])[1]/following::a[1]</value>
-      <webElementGuid>f959ae05-1271-4b17-83d8-f9c321f9cf9c</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoria'])[1]/following::label[2]</value>
+      <webElementGuid>37e05a56-24c3-4d9f-b2b3-ee3c0ccd4572</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Login']/parent::*</value>
-      <webElementGuid>4eaaf58d-ce6d-46ce-b006-527c18d49110</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Morada'])[1]/preceding::label[1]</value>
+      <webElementGuid>4d7d8840-69eb-4e9d-86a8-bdb9d1cefda7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Login')]</value>
-      <webElementGuid>ac2a3b85-0432-4c0f-858e-4d845f4f5d5f</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Preço'])[1]/preceding::label[1]</value>
+      <webElementGuid>43ecc4c4-0c48-494d-bd66-1aa6915fb8ea</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Adicionar Foto']/parent::*</value>
+      <webElementGuid>5fc3acd0-aef0-48fb-8ee6-101d78da755f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li[2]/a</value>
-      <webElementGuid>eb3c0e80-6c71-4bb7-b11e-d5954c531c55</webElementGuid>
+      <value>//div[2]/div/label</value>
+      <webElementGuid>c7427b90-99bd-41db-8384-42130612ac62</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'login' and @href = '/Identity/Account/Login' and (text() = 'Login' or . = 'Login')]</value>
-      <webElementGuid>2da3fa21-c5cc-4104-aff1-0eec91498168</webElementGuid>
+      <value>//label[(text() = 'Adicionar Foto' or . = 'Adicionar Foto')]</value>
+      <webElementGuid>211fa1b4-6ecc-40c6-87ab-f9fb435002a3</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

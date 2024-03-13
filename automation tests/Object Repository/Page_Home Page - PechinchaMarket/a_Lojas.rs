@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Perfil</name>
+   <name>a_Lojas</name>
    <tag></tag>
-   <elementGuidId>39d243c4-3a49-41c3-b0d4-ef5710531a0c</elementGuidId>
+   <elementGuidId>9c60e2b1-0308-402c-803a-edba39d309db</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='perfil-menu']/a</value>
+         <value>//a[contains(text(),'Lojas')]</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>a.nav-link.text-dark</value>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Perfil&quot;i]</value>
+         <value>internal:role=link[name=&quot;Lojas&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>e7a52a28-6389-4205-8e1c-79efeec36af6</webElementGuid>
+      <webElementGuid>1d57933b-dc8e-4991-8b43-bb353ba42115</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,102 +37,86 @@
       <name>class</name>
       <type>Main</type>
       <value>nav-link text-dark</value>
-      <webElementGuid>03bace37-75d9-4929-a3fe-2886d8c6f7e4</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
-      <type>Main</type>
-      <value>Manage</value>
-      <webElementGuid>b9808178-4692-4f35-a5fb-891586ba65ad</webElementGuid>
+      <webElementGuid>1c52e27e-3b9c-4ab5-ba0c-c94392e7ac4f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>href</name>
       <type>Main</type>
-      <value>/Identity/Account/Manage</value>
-      <webElementGuid>83245762-f11e-4740-b480-961ff6bde968</webElementGuid>
+      <value>/Lojas</value>
+      <webElementGuid>f4d47e92-95d1-4712-9861-415afaff8620</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Perfil</value>
-      <webElementGuid>4c4240ad-eeca-46f5-abf9-7104d8ad24f1</webElementGuid>
+      <value>Lojas</value>
+      <webElementGuid>acdca211-67c5-41bd-abfc-dcc8ad133f9b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;perfil-menu&quot;)/a[@class=&quot;nav-link text-dark&quot;]</value>
-      <webElementGuid>c351c558-aa33-499c-ac86-21bda6e98bd3</webElementGuid>
+      <value>/html[1]/body[1]/header[1]/nav[@class=&quot;navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3&quot;]/div[@class=&quot;edges-flex max-width&quot;]/div[@class=&quot;navbar-collapse collapse d-sm-inline-flex center-y-flex&quot;]/div[@class=&quot;small-padding-right&quot;]/ul[@class=&quot;navbar-nav small-gap-x center-y-flex&quot;]/li[@class=&quot;nav-item&quot;]/a[@class=&quot;nav-link text-dark&quot;]</value>
+      <webElementGuid>91ed6051-cf94-4bd9-9b39-96729b32e5c3</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//div[@id='perfil-menu']/a</value>
-      <webElementGuid>6955d21b-73c9-4022-a82b-6bd323bb8915</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>xpath:link</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Perfil')]</value>
-      <webElementGuid>f049eae0-862c-49ad-9405-a2615f0630d4</webElementGuid>
+      <value>//a[contains(text(),'Lojas')]</value>
+      <webElementGuid>9a6feb66-919f-4b68-a965-19344bad45c7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/preceding::a[1]</value>
-      <webElementGuid>28772681-f7d9-4657-b84d-63d7e6eef3ee</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[1]/following::a[1]</value>
+      <webElementGuid>b4b39acb-ec59-4398-9e95-ce6d647743f2</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
-      <webElementGuid>78f26413-1841-4851-a60d-f50d61317f66</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/following::a[2]</value>
+      <webElementGuid>84a07af3-1853-4da7-a825-31d8fb9e972a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Lojas']/parent::*</value>
+      <webElementGuid>c5747e32-63b3-4bcd-be69-9a056069311e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:href</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Manage')]</value>
-      <webElementGuid>7b044c6d-2ce0-4b1f-bdc6-505965c9fdb7</webElementGuid>
+      <value>//a[contains(@href, '/Lojas')]</value>
+      <webElementGuid>b2f2a9d0-b44b-407a-b187-6e38504300a4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//span/div/a</value>
-      <webElementGuid>85a89c7e-9859-4504-8676-447d7798daac</webElementGuid>
+      <value>//li[3]/a</value>
+      <webElementGuid>a9ed3472-b93c-4138-8a6a-85288caaf305</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@title = 'Manage' and @href = '/Identity/Account/Manage' and (text() = 'Perfil' or . = 'Perfil')]</value>
-      <webElementGuid>376cd69e-45f5-473b-bc63-2c6a52337911</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[1]/preceding::a[1]</value>
-      <webElementGuid>fde8739f-b4e1-4655-9797-1a9a70e9cdee</webElementGuid>
+      <value>//a[@href = '/Lojas' and (text() = 'Lojas' or . = 'Lojas')]</value>
+      <webElementGuid>66f84a5d-f758-49b7-83e5-41a5a6a284a4</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

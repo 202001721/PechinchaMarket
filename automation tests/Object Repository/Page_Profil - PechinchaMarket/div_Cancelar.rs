@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Produtos</name>
+   <name>div_Cancelar</name>
    <tag></tag>
-   <elementGuidId>eb7c77a6-5dad-4bd4-a8d2-fb2d09e62943</elementGuidId>
+   <elementGuidId>6de2c74f-56f5-41ed-a6be-6bf22640af37</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//a[contains(text(),'Produtos')]</value>
+         <value>//div[@onclick='toogleEditableField(this)']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>li.nav-item > a.nav-link.text-dark</value>
+         <value>div.row-container.center-y-flex.smaller-gap-x > div.pechincha-button.default-button-color</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Produtos&quot;i]</value>
+         <value>internal:text=&quot;Cancelar&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,103 +28,111 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>f37a5c89-756b-485b-a148-93b8824116f6</webElementGuid>
+      <value>div</value>
+      <webElementGuid>b94ae28f-556c-4c07-bda3-c3f3dc047df0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>2935118b-c88c-4fd4-a8dc-dac6b9d5f6aa</webElementGuid>
+      <value>pechincha-button default-button-color</value>
+      <webElementGuid>35ed65fa-ca25-4613-bc2c-ff8e009de153</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>href</name>
+      <name>onclick</name>
       <type>Main</type>
-      <value>/Produtos</value>
-      <webElementGuid>b7904763-7642-4277-868c-0b68ab53611c</webElementGuid>
+      <value>toogleEditableField(this)</value>
+      <webElementGuid>f03bbaa5-2fbf-46f8-9b00-5c228a920b48</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Produtos</value>
-      <webElementGuid>5bcee93e-4123-4181-865e-d26a74170aee</webElementGuid>
+      <value>Cancelar</value>
+      <webElementGuid>f721a184-0ef7-42d7-8822-05a0b22c221c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/header[1]/nav[@class=&quot;navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3&quot;]/div[@class=&quot;edges-flex max-width&quot;]/div[@class=&quot;navbar-collapse collapse d-sm-inline-flex center-y-flex&quot;]/div[@class=&quot;small-padding-right&quot;]/ul[@class=&quot;navbar-nav small-gap-x center-y-flex&quot;]/li[@class=&quot;nav-item&quot;]/a[@class=&quot;nav-link text-dark&quot;]</value>
-      <webElementGuid>e3d1edb3-97f5-45d0-8c91-b41d27070909</webElementGuid>
+      <value>id(&quot;change-name-form&quot;)/div[@class=&quot;row-container center-y-flex smaller-gap-x&quot;]/div[@class=&quot;pechincha-button default-button-color&quot;]</value>
+      <webElementGuid>0a6e930e-b584-49e4-8bf4-e1982f598839</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
+      <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Produtos')]</value>
-      <webElementGuid>10e3bd29-91b6-4afe-87db-98705d22fc38</webElementGuid>
+      <value>//div[@onclick='toogleEditableField(this)']</value>
+      <webElementGuid>e8cad2b3-5eec-4be0-8350-6fcc9661b1d1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='change-name-form']/div[2]/div</value>
+      <webElementGuid>943cd63e-94c8-461a-8547-16263b50e322</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/following::a[1]</value>
-      <webElementGuid>c33d13d1-d7e8-485f-823b-527cd1f834ae</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[2]/following::div[1]</value>
+      <webElementGuid>288c1dbd-615f-4d30-ad43-970b27124897</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Perfil'])[1]/following::a[1]</value>
-      <webElementGuid>ae81a4d9-75e2-409b-be35-e70105dcecf4</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Nome'])[1]/following::div[2]</value>
+      <webElementGuid>d639cfa7-cdb7-48d4-ae52-dc1d86ea3c0f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/preceding::a[1]</value>
-      <webElementGuid>71e60464-4086-497a-bd8e-504865a507b3</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/preceding::div[1]</value>
+      <webElementGuid>a363d4a2-3c94-4ba8-b3a0-caafecb7a1aa</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Produtos']/parent::*</value>
-      <webElementGuid>1de57301-601f-4113-a355-4ddfeec79ff1</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Novo email'])[1]/preceding::div[2]</value>
+      <webElementGuid>29a04680-5782-44da-9165-d913d3ff0443</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Produtos')]</value>
-      <webElementGuid>94ecce4b-e442-4c95-8371-8aaf7597f0a0</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Cancelar']/parent::*</value>
+      <webElementGuid>4bbdf432-60db-484b-b579-85a12193c5ab</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li[2]/a</value>
-      <webElementGuid>393d0dd3-74eb-43b9-831f-d8494c4d4297</webElementGuid>
+      <value>//form/div[2]/div</value>
+      <webElementGuid>7ef23c74-ed75-454c-bac7-d006e3bcf3e3</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@href = '/Produtos' and (text() = 'Produtos' or . = 'Produtos')]</value>
-      <webElementGuid>04244c17-648b-49e0-b8ca-362dd0a084f4</webElementGuid>
+      <value>//div[(text() = 'Cancelar' or . = 'Cancelar')]</value>
+      <webElementGuid>60b7c65c-a451-431a-90bf-efd3bb4d0cfc</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
