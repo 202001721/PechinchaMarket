@@ -1316,9 +1316,9 @@ a.default-button-color:hover::before {
 }
     
     .new-page > div.small-page {
-        width: 400px;
-        height: 400px;
-        top: calc(50vh - (400px / 2));
+        width: 200px;
+        height: 300px;
+        top: calc(50vh - (300px / 2));
     }
 
     .new-page > div.big-page {
@@ -1335,7 +1335,7 @@ a.default-button-color:hover::before {
         border-radius: 10px;
     }
 
-    @media screen and (max-height: 400px) {
+    @media screen and (max-height: 300px) {
         .new-page > div.small-page {
             position: relative !important;
             top: 0 !important;

@@ -25,7 +25,8 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a
 
 WebUI.click(findTestObject('Object Repository/Page_Register - PechinchaMarket/span_Comerciante_account-type-comerciante-logo'))
 
-var(email = (('pechincha+' + System.nanoTime()) + '@Gmail.com'))
+def nanoTimeAsString = System.nanoTime().toString()
+def email = 'pechincha+' + nanoTimeAsString + '@gmail.com'
 
 WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Criar conta como Comerciante_Input.Email'), 
     email)
