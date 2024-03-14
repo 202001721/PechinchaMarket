@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var counter = 0;
 }
 <link href="~/css/listaProduto.css" rel="stylesheet" />
 <h1>Produtos</h1>
@@ -43,9 +44,28 @@
 
                     <div class="options">
                         <p><a class="img-edit" asp-action="Edit" asp-route-id="@item.Item1.Id"></a> </p>
-                        <p><a class="img-trash" asp-action="Delete" asp-route-id=@item.Item1.Id></a></p>
+                        <p><a class="img-trash" onclick="deletePopup(@counter);"></a></p>
+                    </div>
+
+                    <div class="new-page display-none" id="delete-popup-@counter">
+                        <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                            <div class="edges-flex max-width">
+                                <div class="title unselectable-text">Eliminar Produto</div>
+                                <div class="cross-button" onclick="deletePopup(@counter);"></div>
+                            </div>
+                            <div class="column-container right-flex max-width max-height">
+                                <div class="row-container center-x-flex max-width">
+                                    <a asp-action="Delete" asp-route-id=@item.Item1.Id class="pechincha-button main-button-color row-container">Salvar</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div>
+
+                </div>
+                counter++;
             }
         </div>
 
@@ -84,5 +104,11 @@
             document.getElementById('publicados-products').style.display = 'none';
             document.getElementById('pendentes-products').style.display = 'flex';
         });
+
+        function deletePopup(text) {
+            document.body.classList.toggle('no-overflow');
+            chooseimage = document.getElementById("delete-popup-" + text);
+            chooseimage.classList.toggle('display-none');
+        }
     </script>
 }

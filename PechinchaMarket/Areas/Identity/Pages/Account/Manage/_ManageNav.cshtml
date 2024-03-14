@@ -10,6 +10,9 @@
     {
         <li id="external-logins" class="nav-item"><a id="external-login" class="unselectable-text nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
     }
-    <li class="nav-item"><a class="unselectable-text nav-link @ManageNavPages.AgrupamentosNavClass(ViewContext)" asp-area="" asp-controller="Agrupamentos" asp-action="Index">Agrupamentos</a></li>
+    @if (User.IsInRole("Cliente"))
+    {
+        <li class="nav-item"><a class="unselectable-text nav-link @ManageNavPages.AgrupamentosNavClass(ViewContext)" asp-area="" asp-controller="Agrupamentos" asp-action="Index">Agrupamentos</a></li>
+    }
     <li class="nav-item"><a class="unselectable-text nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
 </ul>
