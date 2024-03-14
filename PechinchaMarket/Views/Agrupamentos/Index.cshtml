@@ -6,7 +6,7 @@
     ViewData["Title"] = "Agrupamentos";
 
     var lists = ViewData["Lists"] as List<ListaProdutos>;
-
+    var counter = 0;
 }
 
 <h1>Agrupamentos</h1>
@@ -19,11 +19,13 @@
 
 <div class="column-container smaller-gap-y">
     @foreach (var item in Model) {
+
         <div class="background-constrast-color-2 rounded-border">
             <div class="colapsable-div smaller-padding" onclick="colapse(this)">
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
                 <button class="colapsable-button"></button>
             </div>
+
             <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
                 <div class="background-constrast-color small-padding rounded-border">
                     <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post" class="row-container edges-flex">
@@ -44,7 +46,7 @@
                 <div class="background-constrast-color small-padding rounded-border">
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Listas</span>
-                        <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd();">Adicionar Lista</div>
+                        <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
                     </div>
                     <div class="break-line"></div>
                     <div class="row-container edges-flex max-width">
@@ -59,15 +61,14 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="new-page display-none" id="add-list">
+                <div class="new-page display-none" id="add-list-@counter">
                     <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
                         <div class="edges-flex max-width">
                             <div class="title unselectable-text">Adicionar uma Lista</div>
-                            <div class="cross-button" onclick="chooseListToAdd();"></div>
+                            <div class="cross-button" onclick="chooseListToAdd(@counter);"></div>
                         </div>
-                        <form asp-action="AddList" asp-route-id=@item.Agrupamento.Id method="post" class="column-container edges-flex max-width max-height">
+                        <form asp-action="AddList" method="post" class="column-container edges-flex max-width max-height">
+                            <input type="hidden" name="id" value="@item.Agrupamento.Id" />
                             <div>Lista de Produtos</div>
                             <div class="column-container wrap-flex small-gap center-x-flex small-padding-right small-padding-left list-chooser">
                                 @if (lists != null)
@@ -86,11 +87,11 @@
                             </div>
                         </form>
                             
-
                     </div>
                 </div>
             </div>
         </div>
+        counter++;
     }
 </div>
 
@@ -133,9 +134,13 @@
         }
     }
 
-    function chooseListToAdd(){ 
+    function chooseListToAdd(text){ 
         document.body.classList.toggle('no-overflow');
-        chooseimage = document.getElementById("add-list");
+        chooseimage = document.getElementById("add-list-"+text);
+        console.log(text);
+        console.log("add-list-" + text);
+        console.log(chooseimage);
+
         chooseimage.classList.toggle('display-none');
     }
 </script>
