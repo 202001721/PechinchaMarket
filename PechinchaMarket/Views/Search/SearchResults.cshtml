@@ -3,10 +3,24 @@
 *@
 @{
     IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
+    IEnumerable<Categoria> categorias = ViewData["Categoria"] as IEnumerable<Categoria>;
   
 }
 
 @model List<Produto>;
+
+@{
+    var prodLojasPrices = new List<float>();
+    foreach (var item in Model)
+    {
+        foreach (var prodLoja in item.ProdutoLojas)
+        {
+            prodLojasPrices.Add(prodLoja.Price);
+        }
+    }
+}
+
+<link type="text/css" rel="stylesheet" href="~/css/slider.css" />
 
 
 <div class="pechincha-container">
@@ -49,21 +63,54 @@
                                     <li class="fit-content-width">placeholder</li>
                                 </ul>
                             </div>
-                            <div class="fit-content-width">
-                                Comerciante:
-                                <ul class="fit-content-width">
-                                    <li class="fit-content-width">placeholder</li>
-                                    <li class="fit-content-width">placeholder</li>
+                            <div class="max-width">
+                                <button type="button" class="collapsible">Comerciante:</button>
+                                <ul class="max-width open">
+                                    @foreach(var c in comerciante)
+                                    {
+                                        <li style="list-style-type:none">
+                                            <input type="checkbox" value=@c.Name id=comerciantes class="comerciantes" onchange="filtrar();" unchecked />
+                                            <label for=@c.Name>@c.Name</label>
+                                        </li>
+                                    }
+                                    
+                                        
                                 </ul>
                             </div>
-                            <div class="fit-content-width">
-                                Categoria:
-                                <ul class="fit-content-width">
+                            <div class="max-width">
+                                <button type="button" class="collapsible">Categoria:</button>
+                                <ul class="max-width open">
+                                    @foreach (var c in categorias)
+                                    {
+                                        <li style="list-style-type:none">
+                                            <input type="checkbox" value=@c id=categorias class="categorias" onchange="filtrar();" unchecked />
+                                            <label for=@c>@c</label>
+                                        </li>
+                                    }
+
+
                                 </ul>
                             </div>
-                            <div class="fit-content-width">
-                                Preço:
-                                <div class="fit-content-width">slider</div>
+                            <div class="max-width">
+                                <button type="button" class="collapsible">Preço:</button>
+                                <div class="max-width open">
+                                    <div class="range_container">
+                                        <div class="sliders_control">
+                                            <input id="fromSlider" type="range" step="0.01" value="0" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
+                                            <input id="toSlider" type="range" step="0.01" value="@prodLojasPrices.Max()" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
+                                        </div>
+                                        <div class="form_control">
+                                            <div class="form_control_container">
+                                                <div class="form_control_container__time">Min</div>
+                                                <input class="form_control_container__time__input" type="number" step="0.01" id="fromInput" value="0" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
+                                            </div>
+                                            <div class="form_control_container">
+                                                <div class="form_control_container__time">Max</div>
+                                                <input class="form_control_container__time__input" type="number" step="0.01" id="toInput" value="@prodLojasPrices.Max()" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,8 +120,9 @@
                             <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                                 <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
                                 <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
-                                <span>@produto.Brand</span>
-                                <span>@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
+                                <span id="categoria" hidden>@produto.ProdCategoria</span>
+                                <span id="brand">@produto.Brand</span>
+                                <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
                             </a>
                         }
                     </div>
@@ -86,6 +134,178 @@
 </div>
 
 <script>
+    function filtrar() {
+
+        var produtos = document.getElementById("search-results").children;
+
+        var categoria = document.getElementsByClassName("categorias");
+        var categoriasSelected = Array.from(categoria);
+        var comerciantes = document.getElementsByClassName("comerciantes");
+        var comerciantesSelected = Array.from(comerciantes);
+
+        var precoMin = document.getElementById("fromInput").value;
+        var precoMax = document.getElementById("toInput").value;
+
+        for (item of Array.from(comerciantes)) {
+            if (item.checked == false) {
+                var i = comerciantesSelected.indexOf(item);
+                comerciantesSelected.splice(i, 1);
+            }
+        }
+
+        for (item of Array.from(categorias)) {
+            if (item.checked == false) {
+                var i = categoriasSelected.indexOf(item);
+                categoriasSelected.splice(i, 1);
+            }
+        }
+
+        for(item of produtos){
+            if (parseFloat(item.querySelector("#price").textContent) > precoMax) {
+                item.style.display = 'none';
+            } 
+            else if (parseFloat(item.querySelector("#price").textContent) < precoMin) {
+                item.style.display = 'none';
+            } else {
+                item.style.display = "flex";
+            }
+
+            if(categoriasSelected.length > 0){
+                var b = false;
+                for(cat of categoriasSelected){
+                    if (item.textContent.includes(cat.value)){
+                        b = true;
+                    }
+                }
+                if(!b){
+                    item.style.display = 'none';
+                }
+            }
+            
+            if (comerciantesSelected.length > 0) {
+                var b = false;
+                for (com of comerciantesSelected) {
+                    if (item.textContent.includes(com.value)) {
+                        b = true;
+                    }
+                }
+                if (!b) {
+                    item.style.display = 'none';
+                }
+            }
+            
+        }
+
+    }
+
+
+
+    //slider
+    function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
+        const [from, to] = getParsed(fromInput, toInput);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+        if (from > to) {
+            fromSlider.value = to;
+            fromInput.value = to;
+        } else {
+            fromSlider.value = from;
+        }
+    }
+
+    function controlToInput(toSlider, fromInput, toInput, controlSlider) {
+        const [from, to] = getParsed(fromInput, toInput);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+        setToggleAccessible(toInput);
+        if (from <= to) {
+            toSlider.value = to;
+            toInput.value = to;
+        } else {
+            toInput.value = from;
+        }
+    }
+
+    function controlFromSlider(fromSlider, toSlider, fromInput) {
+        const [from, to] = getParsed(fromSlider, toSlider);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+        if (from > to) {
+            fromSlider.value = to;
+            fromInput.value = to;
+        } else {
+            fromInput.value = from;
+        }
+    }
+
+    function controlToSlider(fromSlider, toSlider, toInput) {
+        const [from, to] = getParsed(fromSlider, toSlider);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+        setToggleAccessible(toSlider);
+        if (from <= to) {
+            toSlider.value = to;
+            toInput.value = to;
+        } else {
+            toInput.value = from;
+            toSlider.value = from;
+        }
+    }
+
+    function getParsed(currentFrom, currentTo) {
+        const from = parseFloat(currentFrom.value, 10);
+        const to = parseFloat(currentTo.value, 10);
+        return [from, to];
+    }
+
+    function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
+        const rangeDistance = to.max - to.min;
+        const fromPosition = from.value - to.min;
+        const toPosition = to.value - to.min;
+        controlSlider.style.background = `linear-gradient(
+          to right,
+          ${sliderColor} 0%,
+          ${sliderColor} ${(fromPosition) / (rangeDistance) * 100}%,
+          ${rangeColor} ${((fromPosition) / (rangeDistance)) * 100}%,
+          ${rangeColor} ${(toPosition) / (rangeDistance) * 100}%,
+          ${sliderColor} ${(toPosition) / (rangeDistance) * 100}%,
+          ${sliderColor} 100%)`;
+    }
+
+    function setToggleAccessible(currentTarget) {
+        const toSlider = document.querySelector('#toSlider');
+        if (Number(currentTarget.value) <= 0) {
+            toSlider.style.zIndex = 2;
+        } else {
+            toSlider.style.zIndex = 0;
+        }
+    }
+
+    const fromSlider = document.querySelector('#fromSlider');
+    const toSlider = document.querySelector('#toSlider');
+    const fromInput = document.querySelector('#fromInput');
+    const toInput = document.querySelector('#toInput');
+    fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+    setToggleAccessible(toSlider);
+
+    fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
+    toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
+    fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
+    toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
+
+    //collapsibles
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+
     function sortResultsByPriceDesc(){
         var resultsContainer = document.getElementById("search-results");
 
@@ -93,8 +313,8 @@
 
     
         function sortByPrice(a, b) {
-            var priceA = parseFloat(a.children[3].textContent.replace(/[^\d.]/g, ''));
-            var priceB = parseFloat(b.children[3].textContent.replace(/[^\d.]/g, ''));
+            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
             return priceB - priceA;
         }
         results.sort(sortByPrice);
@@ -112,8 +332,8 @@
 
 
         function sortByPrice(a, b) {
-            var priceA = parseFloat(a.children[3].textContent.replace(/[^\d.]/g, ''));
-            var priceB = parseFloat(b.children[3].textContent.replace(/[^\d.]/g, ''));
+            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
             return priceA - priceB;
         }
         results.sort(sortByPrice);
@@ -131,8 +351,8 @@
   
 
         function sortByBrand(a, b) {
-            var brandA = a.children[2].textContent;
-            var brandB = b.children[2].textContent;
+            var brandA = a.getElementById("brand").textContent;
+            var brandB = b.getElementById("brand").textContent;
 
             return brandA.localeCompare(brandB);
         }
@@ -151,8 +371,8 @@
       
 
         function sortByBrand(a, b) {
-            var brandA = a.children[2].textContent;
-            var brandB = b.children[2].textContent;
+            var brandA = a.getElementById("brand").textContent;
+            var brandB = b.getElementById("brand").textContent;
 
             return brandB.localeCompare(brandA);
         }
@@ -164,7 +384,5 @@
             resultsContainer.appendChild(result);
         });
     }
-
-
 
 </script>
