@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Produtos Pendentes</name>
+   <tag></tag>
+   <elementGuidId>2dbca5f7-c908-475e-87de-fc909da1dfa9</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//a[@id='pendentes']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#pendentes</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:text=&quot;Produtos Pendentes&quot;i</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>7499c798-b7ab-4257-8dd2-2a03d461c512</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>pendentes</value>
+      <webElementGuid>9c292306-d171-4a32-bc31-377ea8381c05</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value> Produtos Pendentes</value>
+      <webElementGuid>f0b018bf-50a5-4d3d-b7b0-e7a58b53d48f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;pendentes&quot;)</value>
+      <webElementGuid>e511113a-de13-4f9c-a064-e5c78ffb16c0</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//a[@id='pendentes']</value>
+      <webElementGuid>2c416579-8dd9-4720-8ec9-635335b698f9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>//a[contains(text(),'Produtos Pendentes')]</value>
+      <webElementGuid>1e8df615-67ce-43ae-83d1-90d2a78654b3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos Publicados'])[1]/following::a[1]</value>
+      <webElementGuid>0f09a5c5-4f63-409f-9274-d727e5617850</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Criar Produtos'])[1]/following::a[2]</value>
+      <webElementGuid>899dddb9-a9ad-4f66-a5fb-bfab6c9b6ec4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Produtos Pendentes']/parent::*</value>
+      <webElementGuid>80bac568-ef7d-4006-9a81-4119c53a8f97</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//span[3]/h2/a</value>
+      <webElementGuid>6f0a3130-0444-4ca6-ab09-1a853b395e85</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@id = 'pendentes' and (text() = ' Produtos Pendentes' or . = ' Produtos Pendentes')]</value>
+      <webElementGuid>572f5c3c-14dd-4aa5-b750-b3754e8bdba3</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

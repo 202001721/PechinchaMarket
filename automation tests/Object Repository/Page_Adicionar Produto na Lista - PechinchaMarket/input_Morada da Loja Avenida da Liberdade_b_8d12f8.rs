@@ -7,18 +7,18 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@value='Lojas']</value>
+         <value>//input[@value='Adicionar à lista']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>input.button-shops</value>
+         <value>input.button-add</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Lojas&quot;i]</value>
+         <value>internal:role=button[name=&quot;Adicionar à lista&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>c3007ad6-0340-4a8b-a6f7-6b16fb901b91</webElementGuid>
+      <webElementGuid>833228fc-39cf-4f19-9643-291d23b83961</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,42 +37,66 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>912010d4-47ce-47ed-aa12-057f7e678faa</webElementGuid>
+      <webElementGuid>8c46db8a-faa4-47ad-8fd7-54f1c84515a8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>Lojas</value>
-      <webElementGuid>6ff48d04-73ed-4b21-be3a-c05831749b25</webElementGuid>
+      <value>Adicionar à lista</value>
+      <webElementGuid>bb4fa8e8-28c9-4946-ba20-e0704aaefded</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>button-shops</value>
-      <webElementGuid>89e7d8fa-26a7-4674-b5cd-025eef044583</webElementGuid>
+      <value>button-add</value>
+      <webElementGuid>a516d570-4e36-40cc-9299-1c60541bb5a2</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>onclick</name>
       <type>Main</type>
-      <value>showLojas()</value>
-      <webElementGuid>dacc1d30-b991-434d-b7a2-a5de3b19e4c5</webElementGuid>
+      <value>updateQuantity(); updateName()</value>
+      <webElementGuid>3c8060c6-c452-4832-9663-1586c5db1d83</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;row-container center-x-flex center-y-flex screen-height&quot;]/div[@class=&quot;fit-content-width&quot;]/div[@class=&quot;acoes&quot;]/div[3]/input[@class=&quot;button-shops&quot;]</value>
-      <webElementGuid>ed4d3f9d-3ead-4006-9394-0130735a0572</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;row-container center-x-flex center-y-flex screen-height&quot;]/div[@class=&quot;fit-content-width&quot;]/div[@class=&quot;acoes&quot;]/form[1]/input[@class=&quot;button-add&quot;]</value>
+      <webElementGuid>d83f4b1a-165f-4e27-9b47-910fcd8aefbf</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@value='Adicionar à lista']</value>
+      <webElementGuid>0060b0ee-17ac-4b57-84da-0b0bfdd1a461</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//input[4]</value>
+      <webElementGuid>48a0708c-ec8b-4f5a-8aa6-cb36b0dcbe3c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'submit']</value>
+      <webElementGuid>f78b81d4-efd0-49e3-ac97-d555d08ed73f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
@@ -86,13 +110,5 @@
       <type>Main</type>
       <value>//div[3]/input</value>
       <webElementGuid>a7147bc1-587a-45f5-88bb-9e6750db173d</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//input[@type = 'submit']</value>
-      <webElementGuid>61acadcc-622c-469a-a34d-81cdfa2fa5df</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

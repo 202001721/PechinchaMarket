@@ -69,12 +69,19 @@ namespace PechinchaMarket.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id")] Agrupamento agrupamento)
         {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+                                        .Include(x => x.Agrupamento)
+                                             .ThenInclude(x => x.ListaProdutos).ToListAsync();
+
+            var lists = _context.ListaProdutos.Where(x => x.ClienteId == cliente.Id.ToString()).ToList();
+            ViewData["Lists"] = lists;
 
             ModelState.Remove("Nome");
             if (ModelState.IsValid)
             {
-                var userId = _userManager.GetUserId(User);
-                Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
                 if (cliente != null) {
                     agrupamento.Id = Guid.NewGuid();
                     agrupamento.Nome = "Agrupamento " + (_context.AgrupamentosMembro.Where(x => x.Cliente.UserId.Equals(userId)).Select(x => x.Agrupamento).ToList().Count() + 1);
@@ -124,6 +131,16 @@ namespace PechinchaMarket.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Codigo")] Agrupamento agrupamento)
         {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+                                        .Include(x => x.Agrupamento)
+                                             .ThenInclude(x => x.ListaProdutos).ToListAsync();
+
+            var lists = _context.ListaProdutos.Where(x => x.ClienteId == cliente.Id.ToString()).ToList();
+            ViewData["Lists"] = lists;
+
             if (id != agrupamento.Id)
             {
                 return NotFound();
@@ -156,9 +173,11 @@ namespace PechinchaMarket.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditName(Guid id, [Bind("Id","Nome")] Agrupamento agrupamento) {
-            var agrupamentos = await _context.AgrupamentosMembro
-                                        .Include(x => x.Agrupamento)
-                                             .ThenInclude(x => x.ListaProdutos).ToListAsync();
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+                            .Include(x => x.Agrupamento)
+                                 .ThenInclude(x => x.ListaProdutos).ToListAsync();
 
             if (id != agrupamento.Id)
             {
@@ -189,11 +208,11 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
-                
 
-                return View("Index", agrupamentos);
+
+                return RedirectToAction("Index", new { model = agrupamentos });
             }
-            return View("Index", agrupamentos);
+            return RedirectToAction("Index", new { model = agrupamentos });
         }
 
 
@@ -211,10 +230,6 @@ namespace PechinchaMarket.Controllers
             var errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
             ViewBag.ErrorMessages = errorMessages;
 
-            var errors = ModelState.Values
-         .SelectMany(v => v.Errors)
-         .Select(e => e.ErrorMessage)
-         .ToList();
             ModelState.Remove("ClienteId");
             ModelState.Remove("Name");
             if (ModelState.IsValid)
@@ -241,9 +256,9 @@ namespace PechinchaMarket.Controllers
                 }
 
 
-                return View("Index", agrupamentos);
+                return RedirectToAction("Index", new { model = agrupamentos });
             }
-            return View("Index", agrupamentos);
+            return RedirectToAction("Index", new { model = agrupamentos });
         }
 
         // GET: Agrupamentos/Delete/5
