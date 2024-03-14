@@ -1,29 +1,26 @@
-﻿/
-.range_container {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 35% auto;
+﻿.range_container{
+    padding-top:20px;
 }
 
 .sliders_control {
     position: relative;
-    min-height: 50px;
+    width:180px;
+    min-height: 20px;
 }
 
 .form_control {
     position: relative;
     display: flex;
     justify-content: space-between;
-    font-size: 24px;
+    font-size: 12px;
     color: #635a5a;
 }
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     pointer-events: all;
-    width: 24px;
-    height: 24px;
+    width: 15px;
+    height: 15px;
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 0 0 1px #C6C6C6;
@@ -53,8 +50,8 @@ input[type=range]::-webkit-slider-thumb:active {
 input[type="number"] {
     color: #8a8383;
     width: 50px;
-    height: 30px;
-    font-size: 20px;
+    height: 20px;
+    font-size: 15px;
     border: none;
 }
 

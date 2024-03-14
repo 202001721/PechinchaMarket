@@ -65,6 +65,7 @@ namespace PechinchaMarket.Controllers
                         .ThenInclude(p => p.Loja).ToList();
 
             ViewData["Comerciante"] = _context.Comerciante;
+            ViewData["Categoria"] = Enum.GetValues(typeof(Categoria));
 
 
 
