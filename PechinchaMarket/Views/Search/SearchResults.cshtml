@@ -4,6 +4,7 @@
 @{
     IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
     IEnumerable<Categoria> categorias = ViewData["Categoria"] as IEnumerable<Categoria>;
+  
 }
 
 @model List<Produto>;
@@ -37,7 +38,19 @@
         {
             <div class="column-container fit-content-height">
                 <div class="thin-outline rounded-border right-flex">
-                    <span class="">Ainda não implementado</span>
+                   
+                    <div class="dropdown">
+                        <button class="dropbtn">Ordenar ↓ </button>
+                        <div class="dropdown-content">
+                            <a onclick="sortResultsByPriceDesc()">Preço Descendente</a>
+                            <a onclick="sortResultsByPriceAsc()">Preço Ascendente</a>
+                            <a onclick="sortResultsByBrandAsc()">Marca Ascendente</a>
+                            <a onclick="sortResultsByBrandDesc()">Marca Descendente</a>
+                        </div>
+                    </div>
+                     
+
+                   
                 </div>
                 <div class="row-container left-flex small-gap-x">
                     <div>
@@ -101,17 +114,19 @@
                             </div>
                         </div>
                     </div>
-                    <div id="produtos" class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width">
+                    <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width" id="search-results">
                         @foreach (var produto in Model)
                         {
                             <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                                 <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
                                 <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
-                                <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
                                 <span id="categoria" hidden>@produto.ProdCategoria</span>
+                                <span id="brand">@produto.Brand</span>
+                                <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
                             </a>
                         }
                     </div>
+                  
                 </div>
             </div>
         }
@@ -121,7 +136,7 @@
 <script>
     function filtrar() {
 
-        var produtos = document.getElementById("produtos").children;
+        var produtos = document.getElementById("search-results").children;
 
         var categoria = document.getElementsByClassName("categorias");
         var categoriasSelected = Array.from(categoria);
@@ -288,6 +303,85 @@
             } else {
                 content.style.maxHeight = content.scrollHeight + "px";
             }
+        });
+    }
+
+    function sortResultsByPriceDesc(){
+        var resultsContainer = document.getElementById("search-results");
+
+        var results = Array.from(document.getElementById("search-results").children);
+
+    
+        function sortByPrice(a, b) {
+            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            return priceB - priceA;
+        }
+        results.sort(sortByPrice);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
+        }); 
+       
+    }
+    function sortResultsByPriceAsc() {
+        var resultsContainer = document.getElementById("search-results");
+
+        var results = Array.from(document.getElementById("search-results").children);
+
+
+        function sortByPrice(a, b) {
+            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            return priceA - priceB;
+        }
+        results.sort(sortByPrice);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
+        });
+    }
+
+    function sortResultsByBrandAsc() {
+        var resultsContainer = document.getElementById("search-results");
+        var results = Array.from(document.getElementById("search-results").children);
+
+  
+
+        function sortByBrand(a, b) {
+            var brandA = a.getElementById("brand").textContent;
+            var brandB = b.getElementById("brand").textContent;
+
+            return brandA.localeCompare(brandB);
+        }
+
+        results.sort(sortByBrand);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
+        });
+    }
+    function sortResultsByBrandDesc() {
+        var resultsContainer = document.getElementById("search-results");
+        var results = Array.from(document.getElementById("search-results").children);
+
+      
+
+        function sortByBrand(a, b) {
+            var brandA = a.getElementById("brand").textContent;
+            var brandB = b.getElementById("brand").textContent;
+
+            return brandB.localeCompare(brandA);
+        }
+
+        results.sort(sortByBrand);
+        resultsContainer.innerHTML = '';
+
+        results.forEach(function (result) {
+            resultsContainer.appendChild(result);
         });
     }
 

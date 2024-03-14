@@ -24,6 +24,7 @@ using Microsoft.Extensions.Logging;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
 using Microsoft.AspNet.Identity;
+using PechinchaMarket.Services;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
 {
@@ -34,7 +35,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly Microsoft.AspNetCore.Identity.IUserStore<PechinchaMarketUser> _userStore;
         private readonly Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser> _emailStore;
         private readonly ILogger<RegisterClienteModel> _logger;
-        private readonly IEmailSender _emailSender;
+        // private readonly IEmailSender _emailSender;
         private readonly DBPechinchaMarketContext _context;
 
 
@@ -51,7 +52,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             _emailStore = (Microsoft.AspNetCore.Identity.IUserEmailStore<PechinchaMarketUser>)GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
+            //_emailSender = emailSender;
             _context = context;
         }
 
@@ -168,13 +169,16 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
-                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl, context = _context },
                         protocol: Request.Scheme);
 
+                    EmailSender emailSenderService = new EmailSender(_context);
 
+                    emailSenderService.SendEmail("Confirme seu email",Input.Email,Input.UserName,
+                        $"Por favor confirme o seu registo no PechinchaMarket {HtmlEncoder.Default.Encode(callbackUrl)}").Wait();
 
-                    await SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    /* await SendEmailAsync(Input.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -205,15 +209,11 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         /// <param name="email"></param> email do utilizador
         /// <param name="subject"></param> assunto do email
         /// <param name="confirmLink"></param> mensagem com o link de confirmação
+        
+
+        /*
         private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
         {
-
-            //TODO
-            //INSERT YOUR OWN MAIL SERVER CREDENTIALS
-            // message.From = ?
-            // message.Port = ?
-            // message.Host = ?
-            // smtpClient.Credentials = new NetworkCredential(?Username,?Password);
             try
             {
                 MailMessage message = new MailMessage();
@@ -230,16 +230,18 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                 smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); // verificar a extensao que esta usando 
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos");
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.Send(message);
+                //smtpClient.Send(message);
+                await smtpClient.SendMailAsync(message);
+              
                 return true;
             }
             catch (Exception)
             {
                 return false;
             }
-        }
+        }*/
 
         private PechinchaMarketUser CreateUser()
         {

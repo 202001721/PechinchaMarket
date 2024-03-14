@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PechinchaMarket.Areas.Identity.Data
+@inject SignInManager<PechinchaMarketUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PechinchaMarket</title>
+    <link rel="icon" type="image/x-icon" href="./PechinchaMarket.png" />
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PechinchaMarket.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="edges-flex max-width">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+
+                    <span class="small-icon-logo"></span> PechinchaMarket
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex center-y-flex">
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="pechincha-container">
+                <section>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <ul class="nav nav-pills flex-column">
+                                <li class="nav-item"><a class="unselectable-text nav-link" id="profile" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
+                                @if (hasExternalLogins)
+                                {
+                                    <li id="external-logins" class="nav-item"><a id="external-login" class="unselectable-text nav-link" asp-area="Identity" asp-page="/Account/Manage/ExternalLogins">External logins</a></li>
+                                }
+                                <li class="nav-item"><a class="unselectable-text nav-link active" asp-area="" asp-controller="Agrupamentos" asp-action="Index">Agrupamentos</a></li>
+                                <li class="nav-item"><a class="unselectable-text nav-link" id="personal-data" asp-area="Identity" asp-page="/Account/Manage/PersonalData">Personal data</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9" id="content-container">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -126,6 +126,10 @@ body {
     display: none !important;
 }
 
+.display-flex {
+    display: flex !important;
+}
+
 .center-text {
     text-align: center;
 }
@@ -1082,6 +1086,10 @@ a.cancel-button:hover::before {
     padding: 1em;
 }
 
+.smaller-padding {
+    padding: 0.5em;
+}
+
 .small-padding-right {
     padding-right: 2em;
 }
@@ -1094,9 +1102,20 @@ a.cancel-button:hover::before {
     padding-top: 4em;
 }
 
+.small-margin-bottom {
+    margin-bottom: 1em;
+}
 
 .small-margin-top {
     margin-top: 1em;
+}
+
+.small-margin-left {
+    margin-left: 1em;
+}
+
+.small-margin-right {
+    margin-right: 1em;
 }
 
 .filter-area-width {
@@ -1262,9 +1281,24 @@ a.default-button-color:hover::before {
     opacity: 0.5;
 }
 
+.bigger-button {
+    width: calc((var(--root-form-button-padding-sides) * 2) + 7em) !important;
+    height: 30px !important;
+}
+
+.medium-button {
+    width: calc((var(--root-form-button-padding-sides) * 2) + 5em) !important;
+    height: 30px !important;
+}
+
+
 .off-screen {
     position: absolute;
     left: -9999px;
+}
+
+.text-indent {
+    text-indent: -9999px;
 }
 
 .new-page {
@@ -1280,10 +1314,11 @@ a.default-button-color:hover::before {
     justify-content: center;
     overflow: auto;
 }
+    
     .new-page > div.small-page {
-        width: 400px;
-        height: 400px;
-        top: calc(50vh - (400px / 2));
+        width: 200px;
+        height: 300px;
+        top: calc(50vh - (300px / 2));
     }
 
     .new-page > div.big-page {
@@ -1300,7 +1335,7 @@ a.default-button-color:hover::before {
         border-radius: 10px;
     }
 
-    @media screen and (max-height: 400px) {
+    @media screen and (max-height: 300px) {
         .new-page > div.small-page {
             position: relative !important;
             top: 0 !important;
@@ -1441,10 +1476,50 @@ a.default-button-color:hover::before {
     padding-top: 1em;
 }
 
+.list-chooser {
+    height: 300px;
+    overflow: auto;
+    padding-top: 1em;
+}
+
 .photo-option input[type="radio"]:checked + label span.big-perfil-image {
     outline-color: var(--blue-color);
     position: relative;
 }
+
+.calendar-chooser {
+    height: 400px;
+    overflow: auto;
+    padding-top: 1em;
+}
+    .calendar-chooser .month-name {
+        grid-column: 1 / span 7;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .calendar-chooser .month {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .calendar-chooser .day {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .calendar-chooser .day-selected {
+        background-color: rgb(222, 237, 255);
+    }
+
+    .calendar-chooser .day-selected-master {
+        background-color: rgb(156, 200, 251);
+    }
+
+    .photo-option input[type="radio"]:checked + label span.big-perfil-image {
+        outline-color: var(--blue-color);
+        position: relative;
+    }
 
     .photo-option input[type="radio"]:checked + label span.big-perfil-image::after {
         content: '✓';
@@ -1537,4 +1612,114 @@ a.default-button-color:hover::before {
 
 .cursor-pointer{
     cursor: pointer;
+}
+
+
+/* 09 / 03*/
+
+
+.dropbtn {
+    background-color: rgb(250, 181, 70);
+    color: white;
+    border-radius: 15% 15% 15%;
+    font-size: 16px;
+    border: none;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right:20%;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        font-size: 15px;
+        text-decoration: none;
+        display: block;
+    }
+
+       
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    cursor: pointer;
+    transition: all 1s ease;
+}
+
+.colapsable-div {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.colapsable-content {
+    width:100%;
+}
+
+.colapsable-button {
+    position: relative;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+    .colapsable-button.active {
+        transform: rotate(180deg);
+    }
+
+    .colapsable-button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 10px;
+        height: 2px;
+        background-color: var(--root-main-color);
+        transform-origin: center;
+        transform: rotate(45deg);
+    }
+
+    .colapsable-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 10px;
+        height: 2px;
+        background-color: var(--root-main-color);
+        transform-origin: center;
+        transform: rotate(-45deg);
+    }
+
+.small-heading {
+    font-size: 1.25em;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.break-line {
+    width: 100%;
+    border: 1px solid black;
 }

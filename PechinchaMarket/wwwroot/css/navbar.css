@@ -1,0 +1,17 @@
+﻿:root {
+    /*cor principal do website (tema)*/
+    --root-main-color: rgb(255,181,70, 1);
+}
+
+.unselectable-text.nav-link.active {
+    background-color: var(--root-main-color) !important;
+    color: white !important;
+}
+
+.unselectable-text.nav-link {
+    color: black;
+}
+
+.unselectable-text.nav-link:hover{
+    color: black;
+}

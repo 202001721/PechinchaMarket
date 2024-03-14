@@ -129,6 +129,7 @@ namespace PechinchaMarket.Controllers
             if (comerciante != null)
             {
                 comerciante.isApproved = true;
+                utilizador.EmailConfirmed = true;
                 if(utilizador != null) {
                     await SendEmailAsync(utilizador.Email, "Seu cadastro foi aceito",
               "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito");

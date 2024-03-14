@@ -80,6 +80,8 @@ namespace PechinchaMarket.Controllers
             return View(result);
         }
 
+    
+
         public List<Produto> searchAlgorithm(List<Produto> produtos, String input)
         {
             var result = new List<Produto>();
@@ -147,22 +149,7 @@ namespace PechinchaMarket.Controllers
             return false;
         }
 
-        /// <summary>
-        /// Função ShowImage - mostra a imagem do produto pretendido
-        /// </summary>
-        /// <param name="id">id do produto</param>
-        /// <returns>ficheiro da imagem do produto</returns>
-        public async Task<IActionResult> ShowImage(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            return File(produto.Image, "image/jpg");
-        }
+       
 
         [HttpGet]
         public async Task<IActionResult> GetPerfilImage() {

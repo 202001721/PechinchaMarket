@@ -6,54 +6,83 @@
 <link href="~/css/listaProduto.css" rel="stylesheet" />
 <h1>Produtos</h1>
 
-
-
 <body>
 
 <div class="container-box"> 
    
-               <span class="coluna-selecionada">
-            <h2> <a asp-action="Index"> Produtos Publicados </a> </h2>
+        <span class="coluna">
+            <h2><a asp-action="Create" id="criar"> Criar Produtos</a></h2>
         </span>
 
-            <span class="coluna">
-            <h2> <a asp-action="ProductsInAnalysis"> Produtos Pendentes</a></h2>
-             </span>
+        <span class="coluna">
+            <h2><a id ="publicados"> Produtos Publicados</a></h2>
+        </span>
+
+        <span class="coluna">
+            <h2><a id="pendentes"> Produtos Pendentes</a></h2>
+        </span>
             
 </div>
 
     <section class="containers">
 
-        <button class="botoes">  <a asp-action="Create"> Adicionar produto </a></button>
+        <!--<button class="botoes">  <a asp-action="Create"> Adicionar produto </a></button>-->
 
-     
-     
-        
+        <div id="publicados-products" style="display:flex;">
+            @foreach (var item in Model.Where(p => p.Item1.ProdEstado == Estado.Approved).GroupBy(p => p.Item1)
+            .Select(g => g.First()))
+            {
+                <div class="card">
 
-        @foreach (var item in Model)
-        {
-            <div class="card">
+                    <div class="card-image">
+                        <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Item1.Id})' />
+                    </div>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
 
-                <div class="card-image">
-                    <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Item1.Id
-
-                  })' />
-                  </div>
-                <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
-                <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
-                <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
-
-                <p><a asp-action="Edit" asp-route-id=@item.Item1.Id> Editar</a></p> 
-
-            </div>
-
+                    <div class="options">
+                        <p><a class="img-edit" asp-action="Edit" asp-route-id="@item.Item1.Id"></a> </p>
+                        <p><a class="img-trash" asp-action="Delete" asp-route-id=@item.Item1.Id></a></p>
+                    </div>
+                </div>
             }
+        </div>
 
+        <div id="pendentes-products" style="display:none;">
+            @foreach (var item in Model.Where(p => p.Item1.ProdEstado == Estado.InAnalysis).GroupBy(p => p.Item1)
+            .Select(g => g.First()))
+            {
+                <div class="card">
+                    <div class="card-image">
+                        <img src='@Url.Action("ShowImage", "Manager", new { id = item.Item1.Id})' />
+                    </div>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.Name)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item1.Brand)</p>
+                    <p>@Html.DisplayFor(modelItem => item.Item2.Price)€/@item.Item1.Unidade</p>
+                    <div class="options">
+                        <p><a class="img-trash" asp-action="Delete" asp-route-id=@item.Item1.Id></a></p>
+                    </div>
+                </div>
+            }
+        </div>
 
-        
     </section>
   
 </body>
 
-  
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
+    <script>
+        document.getElementById('publicados').addEventListener('click', function () {
+            document.getElementById('publicados-products').style.display = 'flex';
+            document.getElementById('pendentes-products').style.display = 'none';
+        });
+
+        document.getElementById('pendentes').addEventListener('click', function () {
+            document.getElementById('publicados-products').style.display = 'none';
+            document.getElementById('pendentes-products').style.display = 'flex';
+        });
+    </script>
+}
