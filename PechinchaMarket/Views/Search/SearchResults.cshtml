@@ -59,8 +59,8 @@
                             <div class="fit-content-width">
                                 Zona:
                                 <ul class="fit-content-width">
-                                    <li class="fit-content-width">placeholder</li>
-                                    <li class="fit-content-width">placeholder</li>
+                                    <li class="fit-content-width">em progresso</li>
+                                    <li class="fit-content-width">em progresso</li>
                                 </ul>
                             </div>
                             <div class="max-width">
@@ -117,14 +117,27 @@
                     <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width" id="search-results">
                         @foreach (var produto in Model)
                         {
-                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
-                                <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
-                                <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
-                                <span id="categoria" hidden>@produto.ProdCategoria</span>
-                                <span id="brand">@produto.Brand</span>
-                                <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
-                            </a>
-                        }
+                            @if (User.IsInRole("Cliente"))
+                            {
+                                <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
+                                    <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
+                                    <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                                    <span id="categoria" hidden>@produto.ProdCategoria</span>
+                                    <span id="brand">@produto.Brand</span>
+                                    <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="search-result column-container center-y-flex edges-flex">
+                                    <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
+                                    <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                                    <span id="categoria" hidden>@produto.ProdCategoria</span>
+                                    <span id="brand">@produto.Brand</span>
+                                    <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
+                                </a>
+                            }
+                    }
                     </div>
                   
                 </div>
