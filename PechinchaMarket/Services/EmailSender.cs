@@ -8,8 +8,8 @@ namespace PechinchaMarket.Services
     public class EmailSender
     {
         private DBPechinchaMarketContext _context;
-        public EmailSender(DBPechinchaMarketContext context) {
-            _context = context;
+        public EmailSender() {
+          
         }
         public async Task SendEmail(string subject, string toEmail, string username,string message )
         {

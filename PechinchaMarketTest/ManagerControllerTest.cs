@@ -17,6 +17,7 @@ namespace PechinchaMarketTest
         private DBPechinchaMarketContext _context;
         private Comerciante comerciante;
         private Produto produto;
+        private PechinchaMarketUser utilizador;
 
         public ManagerControllerTest(ApplicationDbContextFixture context)
         {
@@ -29,11 +30,23 @@ namespace PechinchaMarketTest
         {
             _context.Comerciante.RemoveRange(_context.Comerciante);
             _context.Produto.RemoveRange(_context.Produto);
+            _context.Users.RemoveRange(_context.Users);
+
+
 
             var guid_Comerciante = Guid.NewGuid();
+
+            utilizador = new PechinchaMarketUser
+            {
+                Email = "email@gmail.com",
+                UserName = "utilizador",
+                EmailConfirmed = true,
+                Id = Guid.NewGuid().ToString(),
+
+            };
             comerciante = new Comerciante { Id = guid_Comerciante, 
                                             Name = "Continente", 
-                                            UserId = guid_Comerciante.ToString(), 
+                                            UserId =utilizador.Id, 
                                             contact = 987654321, 
                                             logo = GenerateRandomBytes(100),
                                             document = GenerateRandomBytes(100),

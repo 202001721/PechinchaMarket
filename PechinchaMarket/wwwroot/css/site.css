@@ -1665,6 +1665,23 @@ a.default-button-color:hover::before {
     cursor: pointer;
     transition: all 1s ease;
 }
+.delete-button {
+    background-color: white;
+    width: 6em;
+    border: 2.5px solid #FF4646;
+    opacity: 0.85;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: black;
+    cursor: pointer;
+    margin: 0em 1em 0em 0em;
+}
+.delete-div{
+    display:flex;
+    justify-content:flex-end;
+   
+}
 
 .colapsable-div {
     position: relative;
