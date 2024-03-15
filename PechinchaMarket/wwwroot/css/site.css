@@ -1085,6 +1085,9 @@ a.cancel-button:hover::before {
 .small-padding {
     padding: 1em;
 }
+.small-padding-right2{
+    padding-right: 1em;
+}
 
 .smaller-padding {
     padding: 0.5em;
@@ -1665,18 +1668,19 @@ a.default-button-color:hover::before {
     cursor: pointer;
     transition: all 1s ease;
 }
-.delete-button {
-    background-color: white;
-    width: 6em;
+.delete-button-color {
     border: 2.5px solid #FF4646;
+    background-color:white;
     opacity: 0.85;
-    align-items: center;
-    border-radius: 5px;
+    color: var(--root-text-color border-radius);
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-    color: black;
-    cursor: pointer;
-    margin: 0em 1em 0em 0em;
 }
+    .delete-button-color:hover {
+        background-color: #FF4646;
+        color: white;
+        transition: background-color 0.3s ease-in-out;
+        
+    }
 .delete-div{
     display:flex;
     justify-content:flex-end;

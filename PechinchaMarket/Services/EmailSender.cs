@@ -7,13 +7,14 @@ namespace PechinchaMarket.Services
 {
     public class EmailSender
     {
-        private DBPechinchaMarketContext _context;
-        public EmailSender() {
-          
+        private readonly IConfiguration _config; 
+        public EmailSender(IConfiguration config = null)
+        {
+            _config = config;
         }
         public async Task SendEmail(string subject, string toEmail, string username,string message )
         {
-            var apiKey = "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";
+            var apiKey = _config["SendGrid:ApiKey"];
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("pechinchamarket@outlook.com", "PechinchaMarket");
 
