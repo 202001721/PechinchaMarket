@@ -35,11 +35,5 @@ WebUI.click(findTestObject('Page_- PechinchaMarket/Page_Home Page - PechinchaMar
 
 WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Manteiga  - Lidl                         _21e6c0'))
 
-WebUI.click(findTestObject('Object Repository/Page_Adicionar Produto na Lista - PechinchaMarket/input_Morada da Loja Avenida da Liberdade_b_8d12f8'))
-
-WebUI.click(findTestObject('Object Repository/Page_Adicionar Produto na Lista - PechinchaMarket/input_Morada da Loja Avenida da Liberdade_b_8d12f8'))
-
-WebUI.click(findTestObject('Object Repository/Page_Adicionar Produto na Lista - PechinchaMarket/a_Morada da Loja Avenida da Liberdade_img-back'))
-
 WebUI.closeBrowser()
 

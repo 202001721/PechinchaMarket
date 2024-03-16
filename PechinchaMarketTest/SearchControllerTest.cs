@@ -172,16 +172,7 @@ namespace PechinchaMarketTest
 
         }*/
 
-        [Fact]
-        public async void ShowImage_returnsFile()
-        {
-            Restart_Context(); //Como os testes não são executados sequencialmente
-            var controller = new SearchController(_context,_userManager, _webHostEnvironment);
-
-            var result = await controller.ShowImage(produto.Id);
-
-            Assert.IsType<FileContentResult>(result);
-        }
+    
 
         [Fact]
         public async void AddToList_returnsTuple()

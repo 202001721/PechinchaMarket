@@ -47,6 +47,7 @@
     --root-small-icon-size: 2em;
     --root-medium-icon-size: 3em;
     --root-huge-icon-size: 5em;
+    --root-gigantic-icon-size:8em;
     --root-comerciante-logo: 10rem;
     --root-produto-image: 15rem;
     --root-account-type-logo-size: 3em;
@@ -62,7 +63,7 @@
     --root-checkbox-border-thickness-when-selected: 0.2em;
     --root-insert-file-input-width: 6.5em;
     --root-search-height: 30px;
-    --root-filter-area-width: 10em;
+    --root-filter-area-width: 16em;
 }
 
 html {
@@ -1085,6 +1086,9 @@ a.cancel-button:hover::before {
 .small-padding {
     padding: 1em;
 }
+.small-padding-right2{
+    padding-right: 1em;
+}
 
 .smaller-padding {
     padding: 0.5em;
@@ -1176,6 +1180,18 @@ a.cancel-button:hover::before {
     background-size: 100% 100%;
     width: var(--root-small-icon-size);
     height: var(--root-small-icon-size);
+}
+.medium-image {
+    display: inline-block;
+    background-size: 100% 100%;
+    width: var(--root-medium-icon-size);
+    height: var(--root-medium-icon-size);
+}
+.huge-image {
+    display: inline-block;
+    background-size: 100% 100%;
+    width: var(--root-gigantic-icon-size);
+    height: var(--root-gigantic-icon-size);
 }
 
 .small-perfil-image,
@@ -1314,6 +1330,7 @@ a.default-button-color:hover::before {
     justify-content: center;
     overflow: auto;
 }
+    
     .new-page > div.small-page {
         width: 400px;
         height: 400px;
@@ -1333,7 +1350,7 @@ a.default-button-color:hover::before {
         padding: 10px;
         border-radius: 10px;
     }
-
+  
     @media screen and (max-height: 400px) {
         .new-page > div.small-page {
             position: relative !important;
@@ -1484,6 +1501,7 @@ a.default-button-color:hover::before {
 .photo-option input[type="radio"]:checked + label span.big-perfil-image {
     outline-color: var(--blue-color);
     position: relative;
+}
 
 .calendar-chooser {
     height: 400px;
@@ -1662,6 +1680,25 @@ a.default-button-color:hover::before {
 .dropdown:hover .dropbtn {
     cursor: pointer;
     transition: all 1s ease;
+}
+.delete-button-color {
+    border: 2.5px solid #FF4646;
+    background-color:white;
+    opacity: 0.85;
+    color: var(--root-text-color border-radius);
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+}
+    .delete-button-color:hover {
+        background-color: #FF4646;
+        color: white;
+        transition: background-color 0.3s ease-in-out;
+        
+    }
+.delete-div{
+    display:flex;
+    justify-content:flex-end;
+   
+}
 
 .colapsable-div {
     position: relative;
@@ -1719,4 +1756,8 @@ a.default-button-color:hover::before {
 .break-line {
     width: 100%;
     border: 1px solid black;
+}
+.small-page-product{
+    width:calc(var(--root-gigantic-icon-size) + 4em);
+    word-wrap:break-word;
 }

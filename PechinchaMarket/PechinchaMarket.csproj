@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>1e4e45c3-d89e-4010-a846-c3a6d746ebc1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +39,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
     <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="SendGrid" Version="9.29.2" />
   </ItemGroup>
 
   <ItemGroup>

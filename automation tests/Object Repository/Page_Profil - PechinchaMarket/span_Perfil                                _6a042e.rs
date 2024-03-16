@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>6c3b2171-d9f6-43ca-8a4b-6b7126c34c24</webElementGuid>
+      <webElementGuid>e7db7a8d-0253-4fcb-9c66-6a6919904deb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>manage</value>
-      <webElementGuid>2a1d81ec-ef73-48c4-b0df-9923825b0dd1</webElementGuid>
+      <webElementGuid>a9699f8b-e0a6-4d14-8567-cbffc7892cbf</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>cursor-pointer perfil-image-border nav-link small-perfil-image no-padding</value>
-      <webElementGuid>dce5abbb-be61-48f5-83e0-90c6d3c6ad45</webElementGuid>
+      <webElementGuid>a5fd093e-adf0-42ab-8758-5b9ff6e5e343</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>asp-area</name>
       <type>Main</type>
       <value>Identity</value>
-      <webElementGuid>ade014ea-99a3-45ec-a10d-844308fac753</webElementGuid>
+      <webElementGuid>450efcca-22c8-4d2d-95a0-fe2557c0931a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>asp-page</name>
       <type>Main</type>
       <value>/Account/Manage/Index</value>
-      <webElementGuid>0ec93e56-d727-4a84-876f-69e531d137ab</webElementGuid>
+      <webElementGuid>4b0819d1-4048-4815-9c61-6f3b13e6c439</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>displayperfilmenu()</value>
-      <webElementGuid>14c2f851-bd85-4e1b-a279-c15df8b0060c</webElementGuid>
+      <webElementGuid>06227016-c5a1-4603-bfdb-762686488e73</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -85,7 +85,7 @@
                         
                     
                 </value>
-      <webElementGuid>c169d87f-bc34-42a7-8d4a-1af97542a3c0</webElementGuid>
+      <webElementGuid>2462882f-7e65-4075-9b96-331ef644fa4c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;manage&quot;)</value>
-      <webElementGuid>d321a8a0-1972-4bb1-859f-78bf46249b4a</webElementGuid>
+      <webElementGuid>cf2b0f62-e7ac-403d-bd7a-c2dab7cbb366</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='manage']</value>
-      <webElementGuid>a20e67fd-3e0f-46fe-a821-0c277dee553d</webElementGuid>
+      <webElementGuid>d45a998b-4a8e-4dfc-9363-d6fbd26ca333</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//li/span</value>
-      <webElementGuid>adcc8ada-6312-4a30-be7f-e9881004d428</webElementGuid>
+      <webElementGuid>d6968dd4-e73d-464d-9622-adbc94e45b59</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -133,6 +133,6 @@
                         
                     
                 ')]</value>
-      <webElementGuid>e8828cfb-79c4-4172-89be-a57138ae12cd</webElementGuid>
+      <webElementGuid>2c0d8d12-f2d1-4f69-9383-31d897516f62</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

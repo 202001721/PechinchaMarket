@@ -35,16 +35,24 @@ namespace PechinchaMarket.Controllers
 
             if (comerciante != null)
             {
-                var produtos = await _context.Produto
+                var products = await _context.Produto
+    .Where(x => x.ProdutoLojas.Any(pl => pl.Loja.UserId.Equals(comerciante.UserId)))
+    .Include(x => x.ProdutoLojas)
+        .ThenInclude(x => x.Loja)
+    .ToListAsync();
+
+                //.Where(x => x.UserId.Equals(comerciante.UserId))
+
+                /* var produtos = await _context.Produto
                     .Join(_context.ProdutoLoja,
                         produto => produto.Id,
                         produtoLoja => produtoLoja.Id,
                         (produto, produtoLoja) => new { Produto = produto, ProdutoLoja = produtoLoja })
                     .Where(p => p.ProdutoLoja.Loja.UserId == comerciante.UserId)
                     .Select(p => new Tuple<Produto, ProdutoLoja>(p.Produto, p.ProdutoLoja))
-                    .ToListAsync();
+                    .ToListAsync() ;*/
 
-                return View(produtos);
+                return View(products);
             }
             else
             {

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using PechinchaMarket.Services;
 
 namespace PechinchaMarket.Controllers
 {
@@ -125,14 +126,17 @@ namespace PechinchaMarket.Controllers
         public async Task<IActionResult> AproveConfirmed(Guid? id)
         {
             var comerciante = await _context.Comerciante.FindAsync(id);
-            var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
             if (comerciante != null)
             {
+                var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
+           
                 comerciante.isApproved = true;
-                utilizador.EmailConfirmed = true;
                 if(utilizador != null) {
-                    await SendEmailAsync(utilizador.Email, "Seu cadastro foi aceito",
-              "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito");
+                    utilizador.EmailConfirmed = true;
+                    EmailSender emailSender = new EmailSender();
+                    await emailSender.SendEmail("Seu cadastro foi aceito",utilizador.Email,comerciante.Name, "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito");
+                   
+            
                 }
             }
             await _context.SaveChangesAsync();
@@ -178,15 +182,22 @@ namespace PechinchaMarket.Controllers
         public async Task<IActionResult> ReproveConfirmed(Guid? id)
         {
             var comerciante = await _context.Comerciante.FindAsync(id);
-            var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
-            var utilizadorId = await _context.Users.FindAsync(utilizador.Id);
+          
 
             if (comerciante != null)
             {
-                await SendEmailAsync(utilizador.Email, "Seu cadastro foi negado",
-              "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito");
-                _context.Comerciante.Remove(comerciante);
-                _context.Users.Remove(utilizadorId);
+                var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
+        
+             
+                if (utilizador != null)
+                {
+                    EmailSender emailSender = new EmailSender();
+                    await emailSender.SendEmail("Seu cadastro foi recusado", utilizador.Email, comerciante.Name, "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito");
+                    _context.Comerciante.Remove(comerciante);
+                    _context.Users.Remove(utilizador);
+                }
+            
+                
 
             }
             await _context.SaveChangesAsync();
@@ -267,35 +278,5 @@ namespace PechinchaMarket.Controllers
             return File(comerciante.document, "application/pdf");
         }
        
-        private async Task<bool> SendEmailAsync(string email, string subject, string body)
-        {
-
- 
-            try
-            {
-                MailMessage message = new MailMessage();
-                SmtpClient smtpClient = new SmtpClient();
-                message.From = new MailAddress("pechinchamarket@outlook.com");
-                message.To.Add(email);
-                message.Subject = subject;
-                message.IsBodyHtml = true;
-                message.Body = body;
-
-                smtpClient.Port = 587;
-                smtpClient.Host = "smtp-mail.outlook.com";
-
-
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos"); 
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.Send(message);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
     }
 }

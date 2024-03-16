@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Areas.Identity.Data;
 
 namespace PechinchaMarket.Areas.Identity.Pages.Account
@@ -20,10 +21,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         private readonly UserManager<PechinchaMarketUser> _userManager;
 
         public string ReturnUrl { get; set; }
+        private DBPechinchaMarketContext _context;
 
-        public ConfirmEmailModel(UserManager<PechinchaMarketUser> userManager)
+        public ConfirmEmailModel(UserManager<PechinchaMarketUser> userManager, DBPechinchaMarketContext context)
         {
             _userManager = userManager;
+            _context = context;
         }
 
         /// <summary>
@@ -34,10 +37,11 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
         public string StatusMessage { get; set; }
         public async Task<IActionResult> OnGetAsync(string userId, string code)
         {
-            if (userId == null || code == null)
+           /* if (userId == null || code == null)
             {
                 return RedirectToPage("/Index");
-            }
+            }*/
+           if(userId == null) { return RedirectToPage("/Index"); }
 
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
@@ -45,9 +49,11 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                 return NotFound($"Unable to load user with ID '{userId}'.");
             }
 
-            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-            StatusMessage = result.Succeeded ? "Thank you for confirming your email." : "Error confirming your email.";
+            // code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
+            // var result = await _userManager.ConfirmEmailAsync(user, code);
+            user.EmailConfirmed = true;
+            _context.SaveChanges();
+            StatusMessage = user.EmailConfirmed ? "Thank you for confirming your email." : "Error confirming your email.";
             return Page();
         }
     }
