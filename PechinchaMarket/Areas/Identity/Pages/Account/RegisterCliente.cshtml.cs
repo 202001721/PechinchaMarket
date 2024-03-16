@@ -172,13 +172,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl, context = _context },
                         protocol: Request.Scheme);
 
-                    EmailSender emailSenderService = new EmailSender(_context);
+                    EmailSender emailSenderService = new EmailSender();
 
                     emailSenderService.SendEmail("Confirme seu email",Input.Email,Input.UserName,
                         $"Por favor confirme o seu registo no PechinchaMarket {HtmlEncoder.Default.Encode(callbackUrl)}").Wait();
 
-                    /* await SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
+             
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -203,46 +202,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
             return Page();
         }
 
-        /// <summary>
-        /// Enviar email ao utilizador que se registou
-        /// </summary>
-        /// <param name="email"></param> email do utilizador
-        /// <param name="subject"></param> assunto do email
-        /// <param name="confirmLink"></param> mensagem com o link de confirmação
-        
-
-        /*
-        private async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
-        {
-            try
-            {
-                MailMessage message = new MailMessage();
-                SmtpClient smtpClient = new SmtpClient();
-                message.From = new MailAddress("pechinchamarket@outlook.com");
-                message.To.Add(email);
-                message.Subject = subject;
-                message.IsBodyHtml = true;
-                message.Body = confirmLink;
-
-                smtpClient.Port = 587;
-                smtpClient.Host = "smtp-mail.outlook.com";
-
-
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos");
-                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                //smtpClient.Send(message);
-                await smtpClient.SendMailAsync(message);
-              
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }*/
-
+  
         private PechinchaMarketUser CreateUser()
         {
             try

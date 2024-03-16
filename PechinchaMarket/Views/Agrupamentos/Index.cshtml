@@ -27,6 +27,15 @@
             </div>
 
             <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
+                <form asp-action="Delete" method="post" asp-route-id=@item.Agrupamento.Id>
+
+                    <div class="delete-div  small-padding-right2">
+
+                        <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Agrupamento</button>
+                    </div>
+                </form>
+          
+
                 <div class="background-constrast-color small-padding rounded-border">
                     <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post" class="row-container edges-flex">
                         <input type="hidden" asp-for="@item.Agrupamento.Id" />
@@ -35,10 +44,10 @@
                             <label asp-for="@item.Agrupamento.Nome"></label>
                             <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
                         </div>
-
                         <div class="row-container center-y-flex smaller-gap-x">
                             <input type="submit" value="Save" class="pechincha-button main-button-color off-screen" />
-                            <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Editar</div>
+                            
+                            <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Renomear</div>
                         </div>
                     </form>
                 </div>
