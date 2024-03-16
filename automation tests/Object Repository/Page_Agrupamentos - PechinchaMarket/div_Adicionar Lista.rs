@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div_Adicionar Lista</name>
+   <tag></tag>
+   <elementGuidId>54516831-823c-43a7-a2b4-4874fedc9520</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>div.pechincha-button.default-button-color.medium-button</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@onclick='chooseListToAdd(0);']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:text=&quot;Adicionar Lista&quot;i</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>a550bce3-aedf-49dc-bca0-de1299721530</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>pechincha-button default-button-color medium-button</value>
+      <webElementGuid>eef54456-a00a-4d88-80b9-3d0af591d861</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>chooseListToAdd(0);</value>
+      <webElementGuid>eb7390af-7a4e-473a-a8b6-602a059fa7b9</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Adicionar Lista</value>
+      <webElementGuid>cef29ecb-cd05-4c02-b879-27cedaaf474d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;small-margin-right small-margin-left small-margin-bottom small-margin-top smaller-gap-y column-container&quot;]/div[@class=&quot;background-constrast-color small-padding rounded-border&quot;]/div[@class=&quot;row-container edges-flex max-width&quot;]/div[@class=&quot;pechincha-button default-button-color medium-button&quot;]</value>
+      <webElementGuid>500e4db6-deb3-49be-ad4a-124fe2e20bab</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='chooseListToAdd(0);']</value>
+      <webElementGuid>ecfcb5e8-dd52-4c2f-a034-9ae7afc345e7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div/div/div[2]/div[2]/div/div</value>
+      <webElementGuid>a3a0a5bf-559f-4743-b209-0bce68679df0</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Listas'])[1]/following::div[1]</value>
+      <webElementGuid>3c6fe8be-24a4-4936-aaa4-02acb77f351f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[1]/following::div[3]</value>
+      <webElementGuid>444667d7-7107-42a1-aa46-498d7fcb1984</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar uma Lista'])[1]/preceding::div[4]</value>
+      <webElementGuid>bc5211b7-8da2-4775-b7cc-b17219f3e4fa</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista de Produtos'])[1]/preceding::div[7]</value>
+      <webElementGuid>26ea37fe-1d56-4c3c-b6b0-070cca287a22</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Adicionar Lista']/parent::*</value>
+      <webElementGuid>7ade77aa-d22c-4daa-ad6d-df97684315e7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div[2]/div/div</value>
+      <webElementGuid>a9f6b067-9e69-47e9-abc8-a7422ebc9e03</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = 'Adicionar Lista' or . = 'Adicionar Lista')]</value>
+      <webElementGuid>08bf4ab5-51cf-4afd-873f-a9300ebb3bc9</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

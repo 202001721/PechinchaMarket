@@ -6,12 +6,12 @@
    <elementGuidId>ef66d9b5-de7f-4952-892a-75216202837a</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//button[@type = 'button']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//button[@type = 'button']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>85d32ad7-2a95-4268-a57f-5b8ff8fa4b5d</webElementGuid>
+      <webElementGuid>cf00ba85-0704-4402-b87d-31ff1835e771</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>type</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>1b5c3a1a-dab3-4eed-95fd-f33d477b2ebf</webElementGuid>
+      <webElementGuid>55079c57-9249-448f-ab89-c34f90ad9c81</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>btn-close</value>
-      <webElementGuid>f21b6f28-27ba-4bc1-9750-4ddd684310bf</webElementGuid>
+      <webElementGuid>b94bd156-f74d-4481-b4fe-f04855626b01</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>data-bs-dismiss</name>
       <type>Main</type>
       <value>alert</value>
-      <webElementGuid>42095d39-5449-4712-8b2b-e70b9b3ee176</webElementGuid>
+      <webElementGuid>10a77650-a47e-4e89-a435-81f9c280a211</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>aria-label</name>
       <type>Main</type>
       <value>Close</value>
-      <webElementGuid>13f2c0a0-f77e-46be-883f-897c00c67fd3</webElementGuid>
+      <webElementGuid>af38c9d0-e486-4aae-b995-4429316ec4df</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>/div[@class=&quot;alert alert-success alert-dismissible&quot;]/button[@class=&quot;btn-close&quot;]</value>
-      <webElementGuid>a59ca641-e02f-4544-9056-d6d1f03284d6</webElementGuid>
+      <webElementGuid>f5639d65-8a5c-462c-82aa-cb5a4410b259</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -77,6 +77,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@type = 'button']</value>
-      <webElementGuid>483d5420-164a-4dd6-bc5e-7368e565878c</webElementGuid>
+      <webElementGuid>84a720f2-1fdb-4270-8d2c-a59c63701b07</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

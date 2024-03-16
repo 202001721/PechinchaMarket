@@ -6,12 +6,12 @@
    <elementGuidId>d5aabfa1-6df9-4a96-b560-5394020551f7</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//input[@id='phone-input']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#phone-input</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//input[@id='phone-input']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>86e8d113-c6b3-4a2b-973d-5598221fc5bb</webElementGuid>
+      <webElementGuid>0c2e845b-617e-4e67-bad6-839ad24679cd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>phone-input</value>
-      <webElementGuid>53d243bc-949e-448e-a9ff-c1d2915a81b5</webElementGuid>
+      <webElementGuid>b007c35f-a377-451a-af21-4fb836d8ca4b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>placeholder</name>
       <type>Main</type>
       <value>Por favor escolha o seu nome.</value>
-      <webElementGuid>60807110-89e7-40f4-a9ae-ca6c45a0c870</webElementGuid>
+      <webElementGuid>7b4dade4-054e-48dd-91e5-0f5ac266fdb9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>type</name>
       <type>Main</type>
       <value>number</value>
-      <webElementGuid>420671ed-ad76-4c7c-808e-656db8ab8456</webElementGuid>
+      <webElementGuid>8f85e4f8-00d9-4e37-ab8a-71da4632cfed</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>04658934-7ff1-4913-921b-9aed14f2bbe6</webElementGuid>
+      <webElementGuid>6f85f3ae-08ee-404f-9f82-7e7bdfc842d3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>data-val-required</name>
       <type>Main</type>
       <value>The Contacto field is required.</value>
-      <webElementGuid>9bf77cbb-3deb-4b3e-b847-ba6aab3264a4</webElementGuid>
+      <webElementGuid>d009467e-cfc8-43b6-a34e-b3e87784e78c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -77,15 +77,15 @@
       <name>name</name>
       <type>Main</type>
       <value>Input.UserPhone</value>
-      <webElementGuid>7a4b8b0d-1ca7-4c1c-b200-2bddaeeff184</webElementGuid>
+      <webElementGuid>2c10a9a5-7125-4b9f-9d40-f836b66445ae</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>932465871</value>
-      <webElementGuid>9fe55f1a-f117-4719-b20b-8c97ad9725f7</webElementGuid>
+      <value>123456787</value>
+      <webElementGuid>19baa399-f20a-4695-a47c-9f6a5b483510</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;phone-input&quot;)</value>
-      <webElementGuid>078ad29f-ae3c-4ae9-bb01-1bd72b61087d</webElementGuid>
+      <webElementGuid>9d92de79-32a0-4860-ac3d-c74773329317</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='phone-input']</value>
-      <webElementGuid>bfec23b8-a61d-41b8-b231-b4ad720e4ff4</webElementGuid>
+      <webElementGuid>a06c59b1-c41f-40fe-81fd-03274d8f19f6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='change-phone-form']/div/input</value>
-      <webElementGuid>7befecef-5811-4953-be2d-55b6324521c1</webElementGuid>
+      <webElementGuid>c8722595-dff1-40ad-8384-66735567effb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,7 +117,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[4]/form/div/input</value>
-      <webElementGuid>ccf8d9f3-fa5f-4572-ad3b-0bf2e7c2dde6</webElementGuid>
+      <webElementGuid>8f6f58b7-e69c-4275-8f2d-83b182be11c3</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -125,6 +125,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@id = 'phone-input' and @placeholder = 'Por favor escolha o seu nome.' and @type = 'number' and @name = 'Input.UserPhone']</value>
-      <webElementGuid>e48baba2-6891-4d64-b7e9-d992f78d3497</webElementGuid>
+      <webElementGuid>df608215-4ce4-4d0d-bcd9-be544a4abe00</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
