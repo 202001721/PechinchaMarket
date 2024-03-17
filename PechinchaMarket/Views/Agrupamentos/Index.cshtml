@@ -6,107 +6,18 @@
     ViewData["Title"] = "Agrupamentos";
 
     var lists = ViewData["Lists"] as List<ListaProdutos>;
+    var members = ViewData["Members"] as List<AgrupamentoMembro>;
+    var clients = ViewData["Clients"] as List<Cliente>;
+
     var counter = 0;
+    var mAdminCounter = 0;
+    var mEditorCounter = 0;
+    var mLeitorCounter = 0;
 }
 
-<h1>Agrupamentos</h1>
-
-<p>
-    <form asp-action="Create">
-        <button class="pechincha-button default-button-color bigger-button" type="submit">Criar Agrupamento</button>
-    </form>
-</p>
-
-<div class="column-container smaller-gap-y">
-    @foreach (var item in Model) {
-
-        <div class="background-constrast-color-2 rounded-border">
-            <div class="colapsable-div smaller-padding" onclick="colapse(this)">
-                <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
-                <button class="colapsable-button"></button>
-            </div>
-
-            <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
-                <form asp-action="Delete" method="post" asp-route-id=@item.Agrupamento.Id>
-
-                    <div class="delete-div  small-padding-right2">
-
-                        <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Agrupamento</button>
-                    </div>
-                </form>
-          
-
-                <div class="background-constrast-color small-padding rounded-border">
-                    <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post" class="row-container edges-flex">
-                        <input type="hidden" asp-for="@item.Agrupamento.Id" />
-                        <div class="authentication-input-text-div edit-perfil-input">
-                            <input asp-for="@item.Agrupamento.Nome" name="nome" id="name-input" disabled />
-                            <label asp-for="@item.Agrupamento.Nome"></label>
-                            <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
-                        </div>
-                        <div class="row-container center-y-flex smaller-gap-x">
-                            <input type="submit" value="Save" class="pechincha-button main-button-color off-screen" />
-                            
-                            <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Renomear</div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="background-constrast-color small-padding rounded-border">
-                    <div class="row-container edges-flex max-width">
-                        <span class="small-heading">Listas</span>
-                        <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
-                    </div>
-                    <div class="break-line"></div>
-                    <div class="row-container edges-flex max-width">
-                        <div class="column-container">
-                            @if (item.Agrupamento.ListaProdutos != null)
-                            {
-                                @foreach (var list in item.Agrupamento.ListaProdutos)
-                                {
-                                    <div>@list.name</div>
-                                }
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="new-page display-none" id="add-list-@counter">
-                    <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
-                        <div class="edges-flex max-width">
-                            <div class="title unselectable-text">Adicionar uma Lista</div>
-                            <div class="cross-button" onclick="chooseListToAdd(@counter);"></div>
-                        </div>
-                        <form asp-action="AddList" method="post" class="column-container edges-flex max-width max-height">
-                            <input type="hidden" name="id" value="@item.Agrupamento.Id" />
-                            <div>Lista de Produtos</div>
-                            <div class="column-container wrap-flex small-gap center-x-flex small-padding-right small-padding-left list-chooser">
-                                @if (lists != null)
-                                {
-                                    @foreach (var list in lists)
-                                    {
-                                        <div>
-                                            <input name="listaId" id="@list.Id+'Ola'" type="radio" value="@list.Id">
-                                            <label for="@list.Id+'Ola'">@list.name</label>
-                                        </div>
-                                    }
-                                }
-                            </div>
-                            <div class="row-container right-flex max-width">
-                                <button type="submit" value="Save" class="pechincha-button main-button-color row-container">Salvar</button>
-                            </div>
-                        </form>
-                            
-                    </div>
-                </div>
-            </div>
-        </div>
-        counter++;
-    }
-</div>
-
-
 <script>
-    function colapse(div) { 
+
+    function colapse(div) {
         div.children[0].classList.toggle("text-indent");
         div.children[1].classList.toggle("active");
         var hiddenContent = div.nextElementSibling;
@@ -143,13 +54,236 @@
         }
     }
 
-    function chooseListToAdd(text){ 
+    function chooseListToAdd(text) {
         document.body.classList.toggle('no-overflow');
-        chooseimage = document.getElementById("add-list-"+text);
-        console.log(text);
-        console.log("add-list-" + text);
-        console.log(chooseimage);
-
+        chooseimage = document.getElementById("add-list-" + text);
         chooseimage.classList.toggle('display-none');
     }
+
+    function chooseMemberToAdd(text) {
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("add-member-" + text);
+        chooseimage.classList.toggle('display-none');
+    }
+
+    function searchPerson(text, agrupamentoId) { 
+        var agrupamento = document.getElementById('add-member-to-' + agrupamentoId);
+
+        function searchInElements(element) {
+            if (element.textContent.toLowerCase() === text.toLowerCase() && text !== '') {
+                return true;
+            }
+
+            for (var i = 0; i < element.children.length; i++) {
+                var result = searchInElements(element.children[i]);
+                if (result) {
+                    return result;
+                }
+            }
+            return false;
+        }
+
+        var card = null;
+        for (var i = 0; i < agrupamento.children.length; i++){
+            if (!agrupamento.children[i].classList.contains('display-none')) { 
+                agrupamento.children[i].classList.add('display-none');
+            }
+            var found = searchInElements(agrupamento.children[i]);
+            if (found) { 
+                card = agrupamento.children[i];
+                break;
+            }
+        }
+
+        if (card) { 
+            card.classList.remove('display-none');
+        }
+    }
 </script>
+
+<h1>Agrupamentos</h1>
+
+<p>
+    <form asp-action="Create">
+        <button class="pechincha-button default-button-color bigger-button" type="submit">Criar Agrupamento</button>
+    </form>
+</p>
+
+<div class="column-container smaller-gap-y">
+    @foreach (var item in Model) {
+        <div class="background-constrast-color-2 rounded-border">
+            <div class="colapsable-div smaller-padding" onclick="colapse(this)">
+                <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
+                <button class="colapsable-button"></button>
+            </div>
+
+            <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
+                <form asp-action="Delete" method="post" asp-route-id=@item.Agrupamento.Id>
+
+                    <div class="delete-div  small-padding-right2">
+                        <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Agrupamento</button>
+                    </div>
+                </form>
+          
+
+                <div class="background-constrast-color small-padding rounded-border">
+                    <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post" class="row-container edges-flex">
+                        <input type="hidden" asp-for="@item.Agrupamento.Id" />
+                        <div class="authentication-input-text-div edit-perfil-input">
+                            <input asp-for="@item.Agrupamento.Nome" name="nome" id="name-input" disabled />
+                            <label asp-for="@item.Agrupamento.Nome"></label>
+                            <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
+                        </div>
+                        <div class="row-container center-y-flex smaller-gap-x">
+                            <input type="submit" value="Save" class="pechincha-button main-button-color off-screen" />
+                            
+                            <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Renomear</div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Listas -->
+                <div class="background-constrast-color small-padding tiny-gap-y column-container rounded-border">
+                    <div class="row-container edges-flex max-width">
+                        <span class="small-heading">Listas</span>
+                        <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                    </div>
+                    <div class="break-line"></div>
+                    <div class="row-container edges-flex max-width">
+                        <div class="column-container">
+                            @if (item.Agrupamento.ListaProdutos != null)
+                            {
+                                @foreach (var list in item.Agrupamento.ListaProdutos)
+                                {
+                                    <div>@list.name</div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <div class="new-page display-none" id="add-list-@counter">
+                        <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                            <div class="edges-flex max-width">
+                                <div class="title unselectable-text">Adicionar uma Lista</div>
+                                <div class="cross-button" onclick="chooseListToAdd(@counter);"></div>
+                            </div>
+                            <form asp-action="AddList" method="post" class="column-container edges-flex max-width max-height">
+                                <input type="hidden" name="id" value="@item.Agrupamento.Id" />
+                                <div>Lista de Produtos</div>
+                                <div class="column-container wrap-flex small-gap center-x-flex small-padding-right small-padding-left list-chooser">
+                                    @if (lists != null)
+                                    {
+                                        @foreach (var list in lists.Where(x => !item.Agrupamento.ListaProdutos.Select(l => l.Id).ToList().Contains(x.Id)))
+                                        {
+                                            <div>
+                                                <input name="listaId" id="@list.Id" type="radio" value="@list.Id">
+                                                <label for="@list.Id">@list.name</label>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                <div class="row-container right-flex max-width">
+                                    <button type="submit" value="Save" class="pechincha-button main-button-color row-container">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membros -->
+                <div class="background-constrast-color small-padding tiny-gap-y column-container rounded-border">
+                    <div class="row-container edges-flex max-width">
+                        <span class="small-heading">Membros</span>
+                        <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                    </div>
+                    <div class="break-line"></div>
+                    <div class="row-container edges-flex max-width">
+                        <div class="column-container">
+                            @if (members != null)
+                            {
+                                @foreach (var member in members.Where(x => x.Agrupamento.Id == item.Agrupamento.Id).OrderBy(x => x.Privilegio).ToList())
+                                {
+                                    @if (member.Privilegio.Equals(NivelPrivilegio.Admin))
+                                    {
+                                        @if (mAdminCounter == 0)
+                                        {
+                                            <span>Administradores</span>
+                                            mAdminCounter++;
+                                        }
+                                        <div class="small-padding-left">@member.Cliente.Name</div>
+                                    }
+                                    else if (member.Privilegio.Equals(NivelPrivilegio.Editor))
+                                    {
+                                        @if (mEditorCounter == 0)
+                                        {
+                                            <span>Editores</span>
+                                            mEditorCounter++;
+                                        }
+                                        <div class="small-padding-left">@member.Cliente.Name</div>
+                                    }
+                                    else if (member.Privilegio.Equals(NivelPrivilegio.Leitor))
+                                    {
+                                        @if (mLeitorCounter == 0)
+                                        {
+                                            <span>Leitores</span>
+                                            mLeitorCounter++;
+                                        }
+                                        <div class="small-padding-left">@member.Cliente.Name</div>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <div class="new-page display-none" id="add-member-@counter">
+                        <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                            <div class="edges-flex max-width">
+                                <div class="title unselectable-text">Adicionar uma Lista</div>
+                                <div class="cross-button" onclick="chooseMemberToAdd(@counter);"></div>
+                            </div>
+                            <div class="column-container edges-flex max-width max-height">
+                                <div>Pesquise um membro</div>
+                                <div>
+                                    <div class="small-padding-right small-padding-left">
+                                        <div class="nav-search-div">
+                                            <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="searchPerson(this.value, '@item.Agrupamento.Id.ToString()')" />
+                                            <button type="submit"></button>
+                                        </div>
+                                    </div>
+                                    <div class="column-container small-gap small-padding-right small-padding-left list-chooser">
+                                        <div class="column-container" id="add-member-to-@item.Agrupamento.Id">
+                                            @if (clients != null)
+                                            {
+                                                @foreach (var client in clients.Where(x => !members.Where(l => l.Agrupamento.Id == item.Agrupamento.Id).Select(x => x.Cliente.Id).ToList().Contains(x.Id)))
+                                                {
+                                                    <div class="hoverable-div row-container edges-flex small-padding display-none">
+                                                        <div class="row-container center-y-flex left-flex smaller-gap-x fit-content-width">
+                                                            <span class="perfil-image-border medium-perfil-image no-padding" style="background-image:url('@Url.Action("GetPerfilImage", "Agrupamentos", new{ id = client.Id})')"></span>
+                                                            <span class="unselectable-text">@client.Name</span>
+                                                        </div>
+                                                        <form asp-action="AddMemberLeitor" method="post" class="fit-content-width center-y-flex">
+                                                            <input type="hidden" name="id" value="@item.Agrupamento.Id"/>
+                                                            <input type="hidden" name="clienteId" value="@client.Id"></input>
+                                                            <button type="submit" value="Save" class="pechincha-button default-button-color medium-button">Adicionar Membro</button>
+                                                        </form>
+                                                    </div>
+                                               
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-container right-flex max-width">
+                                    <button class="pechincha-button main-button-color row-container" onclick="chooseMemberToAdd(@counter);">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        counter++;
+    }
+</div>
+
+
