@@ -85,6 +85,11 @@ h2{
     border: 1px solid;
 }
 
+.shopsTable {
+    width: 50%;
+    border: 1px solid;
+}
+
 .bottom {
     display: flex;
     flex-direction: column;

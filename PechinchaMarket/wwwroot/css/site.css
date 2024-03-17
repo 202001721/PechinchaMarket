@@ -1102,6 +1102,10 @@ a.cancel-button:hover::before {
     padding-left: 2em;
 }
 
+.small-padding-top {
+    padding-top: 2em;
+}
+
 .medium-padding-top {
     padding-top: 4em;
 }

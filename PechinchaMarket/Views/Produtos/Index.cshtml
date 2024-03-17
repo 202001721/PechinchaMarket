@@ -48,34 +48,31 @@
                         <p><a class="img-trash" onclick="deletePopup(@counter);"></a></p>
                     </div>
 
-                    <div class="new-page display-none" id="delete-popup-@counter">
-                        <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
-                            <div class="edges-flex max-width">
-                                <div class="title unselectable-text">Eliminar Produto</div>
-                                <div class="cross-button" onclick="deletePopup(@counter);"></div>
-                            </div>
-
-                            <div class="column-container max-height  edges-flex max-width">
-                                <span class=" small-margin-top">Tem certeza que deseja eliminar este produto?</span>
-                                <div class="center-x-flex">
-                                    <div class="center-y-flex small-gap-y column-container wrap-flex small-page-product">
-                                        <img class="huge-image" src='@Url.Action( "ShowImage", "Manager", new { id = item.Id})' />
-                                        <span>@Html.DisplayFor(modelItem => item.Name) - @Html.DisplayFor(modelItem => item.Brand)</span>
-
-                                    </div>
+                        <div class="new-page display-none" id="delete-popup-@counter">
+                            <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                                <div class="edges-flex max-width">
+                                    <div class="title unselectable-text">Eliminar Produto</div>
+                                    <div class="cross-button" onclick="deletePopup(@counter);"></div>
                                 </div>
-                               
-                                <div class="row-container right-flex max-width ">
-                                    <form asp-action="Delete" asp-route-id=@item.Id >
-                                        <button class="pechincha-button  delete-button-color row-container bigger-button" type="submit">Eliminar</button>
-                                    </form>
-                                  
+
+                                <div class="column-container max-height edges-flex max-width">
+                                    <span class="small-margin-top">Tem certeza que deseja eliminar este produto?</span>
+                                    <div class="center-x-flex">
+                                        <div class="center-y-flex small-gap-y column-container wrap-flex small-page-product">
+                                            <img class="huge-image" src='@Url.Action( "ShowImage", "Manager", new { id = item.Id})' />
+                                            <span>@Html.DisplayFor(modelItem => item.Name) - @Html.DisplayFor(modelItem => item.Brand)</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row-container right-flex max-width">
+                                        <form asp-action="Delete" asp-route-id="@item.Id">
+                                            <button class="pechincha-button delete-button-color row-container bigger-button" type="submit">Eliminar</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
                 <div>
 
                 </div>
@@ -97,7 +94,34 @@
                         <p>@Html.DisplayFor(modelItem => item.ProdutoLojas.FirstOrDefault().Price)€/@item.Unidade</p>
                    </a>
                     <div class="options">
-                        <p><a class="img-trash" asp-action="Delete" asp-route-id=@item.Id></a></p>
+                        <p><a class="img-trash" onclick="deletePopup(@counter);"></a></p>
+                    </div>
+
+                    <div class="new-page display-none" id="delete-popup-@counter">
+                        <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                            <div class="edges-flex max-width">
+                                <div class="title unselectable-text">Eliminar Produto</div>
+                                <div class="cross-button" onclick="deletePopup(@counter);"></div>
+                            </div>
+
+                            <div class="column-container max-height  edges-flex max-width">
+                                <span class=" small-margin-top">Tem certeza que deseja eliminar este produto?</span>
+                                <div class="center-x-flex">
+                                    <div class="center-y-flex small-gap-y column-container wrap-flex small-page-product">
+                                        <img class="huge-image" src='@Url.Action( "ShowImage", "Manager", new { id = item.Id})' />
+                                        <span>@Html.DisplayFor(modelItem => item.Name) - @Html.DisplayFor(modelItem => item.Brand)</span>
+
+                                    </div>
+                                </div>
+
+                                <div class="row-container right-flex max-width ">
+                                    <form asp-action="Delete" asp-route-id=@item.Id>
+                                        <button class="pechincha-button  delete-button-color row-container bigger-button" type="submit">Eliminar</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }

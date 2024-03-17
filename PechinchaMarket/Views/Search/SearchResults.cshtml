@@ -125,18 +125,19 @@
                                     <span id="categoria" hidden>@produto.ProdCategoria</span>
                                     <span id="brand">@produto.Brand</span>
                                     <span id="price">
-                                            @if (ViewBag.PrecoExibicao != null)
-                                            {
-                                                <text>
-                                                    @ViewBag.PrecoExibicao.ToString("C")/@produto.Unidade
-                                                </text>
-                                            }
-                                            else
-                                            {
-                                                <text>
-                                                    @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade
-                                                </text>
-                                            }
+                                        @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
+                                        {
+                                            var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
+                                            var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
+                                            var precoComDesconto = precoOriginal * (desconto);
+                                            <span>@precoComDesconto€/@produto.Unidade</span>
+                                        }
+                                        else
+                                        {
+                                            <span>
+                                                @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade
+                                            </span>
+                                        }
                                     </span>
                                 </a>
                             }
