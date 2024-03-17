@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,12 +15,15 @@ namespace PechinchaMarket.Controllers
     {
         private readonly DBPechinchaMarketContext _context;
         private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public AgrupamentosController(DBPechinchaMarketContext context,
-                                      Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager)
+                                      Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
+                                       IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Agrupamentos
@@ -28,14 +32,19 @@ namespace PechinchaMarket.Controllers
             var userId = _userManager.GetUserId(User);
             Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
 
-            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+            var model = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
                                         .Include(x => x.Agrupamento)
                                              .ThenInclude(x => x.ListaProdutos).ToListAsync();
             
             var lists = _context.ListaProdutos.Where(x => x.ClienteId == cliente.Id.ToString()).ToList();
             ViewData["Lists"] = lists;
+            var agrupamentos = _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente)).Select(x => x.Agrupamento).ToList(); //Agrupamentos que o cliente pretence
+            var members = _context.AgrupamentosMembro.Where(x => agrupamentos.Contains(x.Agrupamento)).ToList(); //Membros dos Agrupamentos que o cliente pretence
+            ViewData["members"] = members;
 
-            return View(agrupamentos);
+            ViewData["Clients"] = _context.Cliente.Where(x => !x.UserId.Equals(cliente.UserId)).ToList(); //Todos os Clientes menos eu (O cliente logado)
+
+            return View(model);
         }
 
         // GET: Agrupamentos/Details/5
@@ -98,6 +107,7 @@ namespace PechinchaMarket.Controllers
                     AgrupamentoMembro agrupamentoMembro = new AgrupamentoMembro();
                     agrupamentoMembro.Agrupamento = agrupamento;
                     agrupamentoMembro.Cliente = cliente;
+                    agrupamentoMembro.Privilegio = NivelPrivilegio.Admin;
 
                     _context.Add(agrupamento);
                     _context.Add(agrupamentoMembro);
@@ -261,6 +271,59 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction("Index", new { model = agrupamentos });
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddMemberLeitor(Guid id, Guid clienteId)
+        {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+                                        .Include(x => x.Agrupamento)
+                                             .ThenInclude(x => x.ListaProdutos).ToListAsync();
+
+            var errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            ViewBag.ErrorMessages = errorMessages;
+
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("Name");
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
+                    var main = _context.ListaProdutos.ToList();
+                    var cliente_context = _context.Cliente.Single(x => x.Id == clienteId);
+                    
+                    _context.AgrupamentosMembro.Add(
+                        new AgrupamentoMembro
+                        {
+                            Agrupamento = agrupamento_context,
+                            Cliente = cliente_context,
+                            Privilegio = NivelPrivilegio.Leitor
+                        });
+
+                    //_context.Update(agrupamento);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!AgrupamentoMembroExists(clienteId, id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+
+                return RedirectToAction("Index", new { model = agrupamentos });
+            }
+            return RedirectToAction("Index", new { model = agrupamentos });
+        }
+
         // GET: Agrupamentos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
@@ -304,6 +367,10 @@ namespace PechinchaMarket.Controllers
             return _context.ListaProdutos.Any(e => e.Id.ToString() == id);
         }
 
+        private bool AgrupamentoMembroExists(Guid clienteId, Guid agrupamentoId) {
+            return _context.AgrupamentosMembro.Any(e => e.Cliente.Id == clienteId && e.Agrupamento.Id == agrupamentoId);
+        }
+
         private long GenerateRandomNumber() {
             Random random = new Random();
 
@@ -320,6 +387,23 @@ namespace PechinchaMarket.Controllers
             }
 
             return result;
+        }
+
+
+        public async Task<IActionResult> GetPerfilImage(Guid id) {
+            var image = _context.Cliente.Where(x => x.Id == id).Select(x => x.Image).FirstOrDefault();
+
+            if (image == null)
+            {
+                var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "userphoto_0.png");
+                if (!System.IO.File.Exists(imagePath))
+                    return NotFound();
+
+                return File(System.IO.File.ReadAllBytes(imagePath), "image/jpg");
+            }
+
+            return File(image, "image/jpg");
+            
         }
     }
 }

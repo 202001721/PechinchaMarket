@@ -6,19 +6,19 @@
    <elementGuidId>87531541-2fe1-439b-ac54-7202cacc3b23</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@onclick='preferencesEditableField(this)']</value>
+         <key>CSS</key>
+         <value>#location-form > div.row-container.smaller-gap-x > div.pechincha-button.default-button-color</value>
       </entry>
       <entry>
-         <key>CSS</key>
-         <value>#preferences-form > div.row-container.smaller-gap-x > div.pechincha-button.default-button-color</value>
+         <key>XPATH</key>
+         <value>//div[@onclick='locationEditableField(this)']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>#preferences-form >> internal:text=&quot;Editar&quot;i</value>
+         <value>#location-form >> internal:text=&quot;Editar&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>71d4619e-2076-4e5f-ac01-e4abe2d6e3a2</webElementGuid>
+      <webElementGuid>b8cce190-15a9-415f-8f8f-d486f0553979</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,15 +37,15 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-button default-button-color</value>
-      <webElementGuid>92ee9477-bc84-4c21-a7d8-ee52662de520</webElementGuid>
+      <webElementGuid>71d545e2-1da1-45ac-bd9f-bb2ac0842a83</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>onclick</name>
       <type>Main</type>
-      <value>preferencesEditableField(this)</value>
-      <webElementGuid>e22a5d95-40f8-4909-9a69-18bd7dc8110c</webElementGuid>
+      <value>locationEditableField(this)</value>
+      <webElementGuid>4656f09b-ecbd-4676-aa40-cc72dda916a3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,79 +53,31 @@
       <name>text</name>
       <type>Main</type>
       <value>Editar</value>
-      <webElementGuid>048d2675-cb56-437c-93ef-861e624749d1</webElementGuid>
+      <webElementGuid>34c81b81-82d3-40d8-a265-dd5564051c6c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;preferences-form&quot;)/div[@class=&quot;row-container smaller-gap-x&quot;]/div[@class=&quot;pechincha-button default-button-color&quot;]</value>
-      <webElementGuid>c51671b3-0f68-4c27-bc96-8b599241f318</webElementGuid>
+      <value>id(&quot;location-form&quot;)/div[@class=&quot;row-container smaller-gap-x&quot;]/div[@class=&quot;pechincha-button default-button-color&quot;]</value>
+      <webElementGuid>97943b4e-00d1-4bcc-ac18-f97b4958c656</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//div[@onclick='preferencesEditableField(this)']</value>
-      <webElementGuid>eace31e3-022e-4c5c-974b-e61b7c0e702a</webElementGuid>
+      <value>//div[@onclick='locationEditableField(this)']</value>
+      <webElementGuid>66a58f0e-5520-4d6a-bbcd-3ccc0be100c0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='preferences-form']/div[2]/div</value>
-      <webElementGuid>22edd98b-85cb-41ad-b819-aae8b48096f5</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[5]/following::div[1]</value>
-      <webElementGuid>3715ed2b-17df-4445-a159-49ab5fad11d3</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/following::div[2]</value>
-      <webElementGuid>568843d8-9731-46ca-a7a5-5bd08b73de67</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[5]/form/div[2]/div</value>
-      <webElementGuid>461a6ee4-19d5-4c5d-bebc-b83ea0bcdefc</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//div[(text() = 'Editar' or . = 'Editar')]</value>
-      <webElementGuid>bfd1dabe-319c-4217-b949-84ccd87fdd84</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
-      <type>Main</type>
-      <value>//div[@onclick='phoneEditableField(this)']</value>
-      <webElementGuid>03bf9f0a-c35a-4848-acdf-7737718d3135</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//form[@id='change-phone-form']/div[2]/div</value>
-      <webElementGuid>6744e6ae-1ba6-47d6-bc00-32615364ff73</webElementGuid>
+      <value>//form[@id='location-form']/div[2]/div</value>
+      <webElementGuid>88cde99f-0bf8-4b7c-bb8d-bb8d4f966178</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -133,15 +85,31 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[4]/following::div[1]</value>
-      <webElementGuid>a5e8e2aa-c0b8-4637-950c-74ae7f636e72</webElementGuid>
+      <webElementGuid>8053302d-df59-472c-8cd4-e88d235f8d5e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Contacto'])[1]/following::div[2]</value>
-      <webElementGuid>cc8ff885-0a56-47ad-bbb4-747c0b205416</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Localização'])[1]/following::div[2]</value>
+      <webElementGuid>edb478bf-7748-4e7f-84ba-e911af04f5ac</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Preferências'])[1]/preceding::div[1]</value>
+      <webElementGuid>f0765f31-9fb7-4b0c-ae31-b497b11502a0</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/preceding::div[1]</value>
+      <webElementGuid>8e903330-c7e6-438b-afd0-3e2b3512acc1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -149,6 +117,78 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[4]/form/div[2]/div</value>
-      <webElementGuid>7ca051dd-2517-425a-83dc-01937017a702</webElementGuid>
+      <webElementGuid>9dc971fe-353c-4bd5-bb49-4d574fedcac0</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = 'Editar' or . = 'Editar')]</value>
+      <webElementGuid>ccbe5a60-cdbd-4a1b-a32c-1183f23faac5</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='phoneEditableField(this)']</value>
+      <webElementGuid>91614d16-4870-4b9b-baf6-92c5d6525341</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='change-phone-form']/div[2]/div</value>
+      <webElementGuid>ebbcc923-7bf6-449f-b816-8a3600844614</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Contacto'])[1]/following::div[2]</value>
+      <webElementGuid>50251859-189c-44f1-958b-58d94cf31923</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='preferencesEditableField(this)']</value>
+      <webElementGuid>91789026-7983-4ddd-aa21-8a273c44e632</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='preferences-form']/div[2]/div</value>
+      <webElementGuid>0f4d3663-a9ca-41b8-b9a5-7d986532a0ed</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[5]/following::div[1]</value>
+      <webElementGuid>bc7d635e-2046-425a-b14d-8c987ec3e25f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/following::div[2]</value>
+      <webElementGuid>aa69b6d8-3327-4746-9312-2f0e3893a99c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[5]/form/div[2]/div</value>
+      <webElementGuid>6d0ed3c3-69a4-4517-a512-7c88cb410ee6</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

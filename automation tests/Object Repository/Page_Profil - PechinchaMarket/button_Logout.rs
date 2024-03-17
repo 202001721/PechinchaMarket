@@ -6,12 +6,12 @@
    <elementGuidId>5ee27f8f-c378-4192-b902-2baeff37e1db</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//button[@id='logout']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#logout</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//button[@id='logout']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>1384d020-6238-48d5-895f-8952919899fa</webElementGuid>
+      <webElementGuid>c24bee0f-e6f6-4b1a-81d0-0171be2d807a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>logout</value>
-      <webElementGuid>4aceade3-1191-4580-8486-429ce0ed363d</webElementGuid>
+      <webElementGuid>4b05fd7f-18d3-4257-97ab-8e30b478632b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>9446973a-c6ad-48f3-ab1b-ac0cbd777d56</webElementGuid>
+      <webElementGuid>135b4a08-5c5f-4d65-af20-b6ec22b3ae7a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>class</name>
       <type>Main</type>
       <value>remove-hover clickable-div nav-link btn btn-link text-dark border-0</value>
-      <webElementGuid>525d5ec6-9dd2-43c3-9626-4d6f75c00c0f</webElementGuid>
+      <webElementGuid>48d9d043-a138-4753-bba5-d9d95bd91891</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Logout</value>
-      <webElementGuid>cb128e3f-7911-4565-9fd1-d50b34dfa6e1</webElementGuid>
+      <webElementGuid>60d22ced-7da3-4947-b777-80e1a11481d9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;logout&quot;)</value>
-      <webElementGuid>c3808ebb-b932-4f82-9192-fcc3eff50c64</webElementGuid>
+      <webElementGuid>3252202b-f087-4200-8562-c246c9243969</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//button[@id='logout']</value>
-      <webElementGuid>df9740b8-e46d-4827-bc12-7e13cb52eb97</webElementGuid>
+      <webElementGuid>84397687-ccc1-43e8-ae33-11208252a011</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='logoutForm']/button</value>
-      <webElementGuid>9c121395-e660-412f-8787-9ef63b40d4ec</webElementGuid>
+      <webElementGuid>1f2f9229-efca-4555-a4d8-ca881dde8a1e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,47 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Perfil'])[1]/following::button[1]</value>
-      <webElementGuid>c7ca05bb-aab8-4c36-8f1d-f4d94881181a</webElementGuid>
+      <webElementGuid>45ec335b-0d63-4382-b39f-50f8f420f9ff</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[1]/preceding::button[1]</value>
+      <webElementGuid>383988b3-5ea1-4b2f-b630-ab500914b054</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/preceding::button[1]</value>
+      <webElementGuid>c9fb9bb2-d2fc-4819-a698-aebed7723653</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Logout']/parent::*</value>
+      <webElementGuid>abfd51b8-ecd4-403c-b766-70c59e48b595</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//form/button</value>
+      <webElementGuid>91da668e-3472-472c-82eb-de5d7385fee3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@id = 'logout' and @type = 'submit' and (text() = 'Logout' or . = 'Logout')]</value>
+      <webElementGuid>1b4e8062-805a-4d8f-8e1d-0e542fa3f255</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -110,45 +150,5 @@
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='External logins'])[1]/preceding::button[1]</value>
       <webElementGuid>82898ce6-309d-42ac-a105-6651978b1deb</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Logout']/parent::*</value>
-      <webElementGuid>2a5b2d0a-91d5-4e0b-89e8-dd8121f44fca</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//form/button</value>
-      <webElementGuid>3fefe792-94ea-4a93-98a9-ef71742d7e63</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//button[@id = 'logout' and @type = 'submit' and (text() = 'Logout' or . = 'Logout')]</value>
-      <webElementGuid>fa53aa79-a0b3-49dc-badf-468ccd40e8e5</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[1]/preceding::button[1]</value>
-      <webElementGuid>6f58fbc0-a386-4ec9-8917-e62a4157fa18</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/preceding::button[1]</value>
-      <webElementGuid>be68a08f-fd96-4733-9860-53ccfbf90e2a</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

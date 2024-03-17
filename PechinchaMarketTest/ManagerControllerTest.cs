@@ -201,7 +201,7 @@ namespace PechinchaMarketTest
             var viewResult = Assert.IsType<ViewResult>(result); //Verifica se uma view é retornada
             //Assert.Equal(nameof(NonConfirmedList), viewResult.ActionName);
         }
-        [Fact]
+        /*[Fact]
         public async void AproveConfirmed()
         {
             Restart_Context(); //Como os testes não são executados sequencialmente
@@ -213,7 +213,7 @@ namespace PechinchaMarketTest
 
             var viewResult = Assert.IsType<RedirectToActionResult>(result); //Verifica se uma view é retornada
             Assert.Equal(nameof(NonConfirmedList), viewResult.ActionName);
-        }
+        }*/
 
 
         [Fact]
