@@ -28,9 +28,19 @@
             <div>
                 Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().Item3.Address)
             </div>
-
             <div>
-                @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                @if (ViewBag.PrecoExibicao != null)
+                {
+                    <text>
+                        @ViewBag.PrecoExibicao.ToString("C") / @Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                    </text>
+                }
+                else
+                {
+                    <text>
+                        @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                    </text>
+                }
             </div>
        </div>
                 
