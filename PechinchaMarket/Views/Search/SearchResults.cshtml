@@ -128,13 +128,13 @@
                                             @if (ViewBag.PrecoExibicao != null)
                                             {
                                                 <text>
-                                                    @ViewBag.PrecoExibicao.ToString("C") /@produto.Unidade
+                                                    @ViewBag.PrecoExibicao.ToString("C")/@produto.Unidade
                                                 </text>
                                             }
                                             else
                                             {
                                                 <text>
-                                                    @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade
+                                                    @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade
                                                 </text>
                                             }
                                     </span>
@@ -147,20 +147,7 @@
                                     <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
                                     <span id="categoria" hidden>@produto.ProdCategoria</span>
                                     <span id="brand">@produto.Brand</span>
-                                    <span id="price">
-                                        @if (ViewBag.PrecoExibicao != null)
-                                        {
-                                            <text>
-                                                @ViewBag.PrecoExibicao.ToString("C") /@produto.Unidade
-                                            </text>
-                                        }
-                                        else
-                                        {
-                                            <text>
-                                                @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade
-                                            </text>
-                                        }
-                                    </span>
+                                    <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade</span>
                                 </a>
                             }
                     }

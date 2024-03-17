@@ -4,16 +4,13 @@
 }
 
 h2 {
-    padding-top: 2.5em;
-}
-
-h1 {
-    padding-top: 2em;
-    padding-bottom: 1em;
+    margin-top: -4em;
+    margin-left: 3em;
 }
 
 .content {
-    padding: 2em;
+    padding: 1em;
+    padding-left: 2em;
 }
 
 .button {

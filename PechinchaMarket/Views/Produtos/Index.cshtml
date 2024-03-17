@@ -34,15 +34,15 @@
             @foreach (var item in Model.Where(p => p.ProdEstado == Estado.Approved).GroupBy(p => p.Id)
             .Select(g => g.First()))
             {
-                <div class="card">
-
-                    <div class="card-image">
-                        <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Id})' />
-                    </div>
-                    <p>@Html.DisplayFor(modelItem => item.Name)</p>
-                    <p>@Html.DisplayFor(modelItem => item.Brand)</p>
-                    <p>@Html.DisplayFor(modelItem => item.ProdutoLojas.FirstOrDefault().Price)€/@item.Unidade</p>
-
+                <div class="card" asp-action="Details" asp-route-id=@item.Id>
+                    <a asp-action="Details" asp-route-id=@item.Id>
+                        <div class="card-image">
+                            <img src='@Url.Action( "ShowImage", "Manager", new { id = item.Id})' />
+                        </div>
+                        <p>@Html.DisplayFor(modelItem => item.Name)</p>
+                        <p>@Html.DisplayFor(modelItem => item.Brand)</p>
+                        <p>@Html.DisplayFor(modelItem => item.ProdutoLojas.FirstOrDefault().Price)€/@item.Unidade</p>
+                    </a>
                     <div class="options">
                         <p><a class="img-edit" asp-action="Edit" asp-route-id="@item.Id"></a> </p>
                         <p><a class="img-trash" onclick="deletePopup(@counter);"></a></p>
@@ -88,13 +88,14 @@
             .Select(g => g.First()))
             {
                 <div class="card">
-                    <div class="card-image">
-                        <img src='@Url.Action("ShowImage", "Manager", new { id = item.Id})' />
-                    </div>
-                    <p>@Html.DisplayFor(modelItem => item.Name)</p>
-                    <p>@Html.DisplayFor(modelItem => item.Brand)</p>
-                    <p>@Html.DisplayFor(modelItem => item.ProdutoLojas.FirstOrDefault().Price)€/@item.Unidade</p>
-
+                    <a asp-action="Details" asp-route-id=@item.Id>
+                        <div class="card-image">
+                            <img src='@Url.Action("ShowImage", "Manager", new { id = item.Id})' />
+                        </div>
+                        <p>@Html.DisplayFor(modelItem => item.Name)</p>
+                        <p>@Html.DisplayFor(modelItem => item.Brand)</p>
+                        <p>@Html.DisplayFor(modelItem => item.ProdutoLojas.FirstOrDefault().Price)€/@item.Unidade</p>
+                   </a>
                     <div class="options">
                         <p><a class="img-trash" asp-action="Delete" asp-route-id=@item.Id></a></p>
                     </div>

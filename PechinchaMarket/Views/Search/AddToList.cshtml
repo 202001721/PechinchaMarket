@@ -13,12 +13,12 @@
 <div style="display:none" id="produtoId">
     @Html.DisplayFor(model => model.FirstOrDefault().Item5.Id)
 </div>
-
+<a class="back" onclick="goBack()"></a>
 <div class="row-container center-x-flex center-y-flex screen-height">
 
     <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.Select(x => x.Item5.Id).FirstOrDefault()})');">  </span>
     
-    <div class="fit-content-width">
+    <div class="fit-content-width medium-padding-left">
        <div class="info">
             <div>
                <h3> @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
@@ -28,18 +28,24 @@
             <div>
                 Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().Item3.Address)
             </div>
-            <div>
+            <div class="discounts">
                 @if (ViewBag.PrecoExibicao != null)
                 {
-                    <text>
-                        @ViewBag.PrecoExibicao.ToString("C") / @Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
-                    </text>
+                    <span class="discounted-price-text">
+                        @ViewBag.PrecoExibicao.ToString("C")/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                    </span>
+                    <span class="price-text">
+                        <s>@Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)</s> <!-- Riscar o preço sem desconto -->
+                    </span>
+                    <span class="discount-text">
+                        Desconto de @Html.DisplayFor(model => model.FirstOrDefault().Item4.Discount)%
+                    </span>
                 }
                 else
                 {
-                    <text>
+                    <span class="price-text default">
                         @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
-                    </text>
+                    </span>
                 }
             </div>
        </div>
@@ -52,7 +58,7 @@
 
             <div>
                 <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off" placeholder="Nome da Lista"/>
-                <div id="listas">
+                <div id="listas" style="display: none">
                     <table class="lista-item" id="item">
                         @foreach (ListaProdutos l in listas)
                         {
@@ -78,7 +84,7 @@
             </div>
              
             <div class="lojas" id="lojas">
-                <a class="img-back" onclick="showLojas()"></a>
+                <a class="img-close" onclick="showLojas()"></a>
                 <h2>Lojas</h2>
                 @foreach (Loja l in lojas)
                 {

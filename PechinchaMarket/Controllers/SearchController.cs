@@ -76,7 +76,15 @@ namespace PechinchaMarket.Controllers
             else {
                 result = searchAlgorithm(produtos, search);
             }
-            
+
+            foreach (var produto in result)
+            {
+                var prod = produto.ProdutoLojas.OrderBy(x => x.Price);
+                foreach (var pl in prod)
+                {
+                    ShowDiscount(pl.Id); 
+                }
+            }
             return View(result);
         }
 
@@ -286,6 +294,7 @@ namespace PechinchaMarket.Controllers
 
             var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
 
+            //Alterar para ir buscar tambem as listas aos agrupamentos que pertence
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());
 
