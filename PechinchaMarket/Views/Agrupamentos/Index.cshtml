@@ -64,18 +64,40 @@
         document.body.classList.toggle('no-overflow');
         chooseimage = document.getElementById("add-member-" + text);
         chooseimage.classList.toggle('display-none');
+    }
 
-        if (arguments.length >= 2) {
-            setSearchablePersons(arguments[1]);
+    function searchPerson(text, agrupamentoId) { 
+        var agrupamento = document.getElementById('add-member-to-' + agrupamentoId);
+
+        function searchInElements(element) {
+            if (element.textContent.toLowerCase() === text.toLowerCase() && text !== '') {
+                return true;
+            }
+
+            for (var i = 0; i < element.children.length; i++) {
+                var result = searchInElements(element.children[i]);
+                if (result) {
+                    return result;
+                }
+            }
+            return false;
         }
-    }
 
-    let persons;
-    function setSearchablePersons(list) { 
-        console.dir(list);
-    }
-    function searchPerson(text) { 
-        
+        var card = null;
+        for (var i = 0; i < agrupamento.children.length; i++){
+            if (!agrupamento.children[i].classList.contains('display-none')) { 
+                agrupamento.children[i].classList.add('display-none');
+            }
+            var found = searchInElements(agrupamento.children[i]);
+            if (found) { 
+                card = agrupamento.children[i];
+                break;
+            }
+        }
+
+        if (card) { 
+            card.classList.remove('display-none');
+        }
     }
 </script>
 
@@ -89,7 +111,6 @@
 
 <div class="column-container smaller-gap-y">
     @foreach (var item in Model) {
-
         <div class="background-constrast-color-2 rounded-border">
             <div class="colapsable-div smaller-padding" onclick="colapse(this)">
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
@@ -173,7 +194,7 @@
                 <div class="background-constrast-color small-padding tiny-gap-y column-container rounded-border">
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Membros</span>
-                        <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter, true);">Adicionar Membro</div>
+                        <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
                     </div>
                     <div class="break-line"></div>
                     <div class="row-container edges-flex max-width">
@@ -225,17 +246,17 @@
                                 <div>
                                     <div class="small-padding-right small-padding-left">
                                         <div class="nav-search-div">
-                                            <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="sugest(this.value, this)" />
+                                            <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="searchPerson(this.value, '@item.Agrupamento.Id.ToString()')" />
                                             <button type="submit"></button>
                                         </div>
                                     </div>
                                     <div class="column-container small-gap small-padding-right small-padding-left list-chooser">
-                                        <div class="column-container">
+                                        <div class="column-container" id="add-member-to-@item.Agrupamento.Id">
                                             @if (clients != null)
                                             {
                                                 @foreach (var client in clients.Where(x => !members.Where(l => l.Agrupamento.Id == item.Agrupamento.Id).Select(x => x.Cliente.Id).ToList().Contains(x.Id)))
                                                 {
-                                                    <div class="hoverable-div row-container edges-flex small-padding">
+                                                    <div class="hoverable-div row-container edges-flex small-padding display-none">
                                                         <div class="row-container center-y-flex left-flex smaller-gap-x fit-content-width">
                                                             <span class="perfil-image-border medium-perfil-image no-padding" style="background-image:url('@Url.Action("GetPerfilImage", "Agrupamentos", new{ id = client.Id})')"></span>
                                                             <span class="unselectable-text">@client.Name</span>
