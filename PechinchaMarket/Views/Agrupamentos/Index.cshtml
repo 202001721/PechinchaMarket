@@ -10,9 +10,11 @@
     var clients = ViewData["Clients"] as List<Cliente>;
 
     var counter = 0;
+
     var mAdminCounter = 0;
     var mEditorCounter = 0;
     var mLeitorCounter = 0;
+
 }
 
 <script>
@@ -116,14 +118,48 @@
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
                 <button class="colapsable-button"></button>
             </div>
+       
 
             <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
-                <form asp-action="Delete" method="post" asp-route-id=@item.Agrupamento.Id>
-
-                    <div class="delete-div  small-padding-right2">
-                        <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Agrupamento</button>
+                @if (item.Privilegio == NivelPrivilegio.Admin)
+                {
+                    <div class="right-flex small-padding-right2 ">
+                        <div class="delete-button-color bigger-button pechincha-button" onclick="deletePopup(@counter);">
+                            Eliminar Agrupamento
+                        </div>
                     </div>
-                </form>
+                    <div class="new-page display-none" id="delete-popup-@counter">
+                        <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                            <div class="edges-flex max-width">
+                                <div class="title unselectable-text">Eliminar Agrupamento</div>
+                                <div class="cross-button" onclick="deletePopup(@counter);"></div>
+                            </div>
+
+                            <div class="column-container max-height  edges-flex max-width">
+                                <span class=" small-margin-top">Tem certeza que deseja eliminar este agrupamento?</span>
+                                <div class="center-x-flex">
+                                    <h3>@Html.DisplayFor(modelItem => item.Agrupamento.Nome)  </h3>
+                                </div>
+
+                                <div class="row-container right-flex max-width ">
+                                    <form asp-action="Delete" method="post" asp-route-id=@item.Agrupamento.Id>
+
+                                        <div class="delete-div  small-padding-right2">
+
+                                            <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Agrupamento</button>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+               
+
+               
           
 
                 <div class="background-constrast-color small-padding rounded-border">
@@ -286,4 +322,59 @@
     }
 </div>
 
+
+
+<script>
+    function colapse(div) { 
+        div.children[0].classList.toggle("text-indent");
+        div.children[1].classList.toggle("active");
+        var hiddenContent = div.nextElementSibling;
+        hiddenContent.classList.toggle("off-screen");
+    }
+
+    function changeNameEditableField(button) {
+        var form = button.parentNode.parentNode;
+        var elemtToHide = button.parentNode.children[0];
+
+        var inputs = form.querySelectorAll('input');
+        inputs.forEach(function (input) {
+            if (input.id === 'name-input') {
+                input.disabled = !input.disabled;
+            }
+        });
+
+        var elements = document.querySelectorAll('.authentication-input-text-div');
+        elements.forEach(function (element) {
+
+            if (element.querySelector('span.text-danger')) {
+                if (element.querySelector('span.text-danger').textContent === '') {
+                    element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+                }
+            }
+        });
+
+        elemtToHide.classList.toggle('off-screen');
+
+        if (elemtToHide.classList.contains('off-screen')) {
+            button.textContent = "Editar";
+        } else {
+            button.textContent = "Cancelar";
+        }
+    }
+
+    function chooseListToAdd(text){ 
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("add-list-"+text);
+        console.log(text);
+        console.log("add-list-" + text);
+        console.log(chooseimage);
+
+        chooseimage.classList.toggle('display-none');
+    }
+    function deletePopup(text) {
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("delete-popup-" + text);
+        chooseimage.classList.toggle('display-none');
+    }
+</script>
 
