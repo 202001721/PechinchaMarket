@@ -172,8 +172,11 @@
                         </div>
                         <div class="row-container center-y-flex smaller-gap-x">
                             <input type="submit" value="Save" class="pechincha-button main-button-color off-screen" />
-                            
-                            <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Renomear</div>
+                            @if(item.Privilegio == NivelPrivilegio.Admin)
+                            {
+                                <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Renomear</div>
+                            }
+                           
                         </div>
                     </form>
                 </div>
@@ -182,7 +185,10 @@
                 <div class="background-constrast-color small-padding tiny-gap-y column-container rounded-border">
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Listas</span>
-                        <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                        @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor){
+                            <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                        }
+                       
                     </div>
                     <div class="break-line"></div>
                     <div class="row-container edges-flex max-width">
@@ -230,7 +236,11 @@
                 <div class="background-constrast-color small-padding tiny-gap-y column-container rounded-border">
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Membros</span>
-                        <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                        @if(item.Privilegio == NivelPrivilegio.Admin)
+                        {
+                            <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                        }
+                 
                     </div>
                     <div class="break-line"></div>
                     <div class="row-container edges-flex max-width">
@@ -264,7 +274,17 @@
                                             <span>Leitores</span>
                                             mLeitorCounter++;
                                         }
-                                        <div class="small-padding-left">@member.Cliente.Name</div>
+                                        <div class="max-width">
+
+                                            <div class="small-padding-left">@member.Cliente.Name</div>
+                                            <div class="right-flex small-padding-right2 ">
+                                                <div class="delete-button-color medium-button pechincha-button" onclick="deletePopup(@counter);">
+                                                    Remover
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+
                                     }
                                 }
                             }
