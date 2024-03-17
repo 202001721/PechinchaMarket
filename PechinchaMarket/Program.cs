@@ -5,6 +5,10 @@ using PechinchaMarket.Models;
 
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Hosting;
+using Quartz;
+using Quartz.Impl;
+using PechinchaMarket;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +37,26 @@ options.SignIn.RequireConfirmedAccount = true)
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+
+//
+builder.Services.AddQuartz(q =>
+{
+    // Just use the name of your job that you created in the Jobs folder.
+    var jobKey = new JobKey("ScheduledJobs");
+    q.AddJob<ScheduledJobs>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("ScheduledJobs-trigger")
+        //This Cron interval can be described as "run at midnight"
+        .WithCronSchedule("0 0 * * * ?")
+    ); 
+});
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+//
+
 
 var app = builder.Build();
 
@@ -68,4 +92,8 @@ using (var scope = app.Services.CreateScope())
     scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     await DataSeeder.SeedData(userManager, roleManager);
 }
+
+
+
 app.Run();
+
