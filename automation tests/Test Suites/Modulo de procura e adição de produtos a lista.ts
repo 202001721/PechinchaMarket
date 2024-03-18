@@ -15,21 +15,28 @@
       <guid>7009628f-3968-45a0-b81c-527c9d16a94e</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Pesquisa</testCaseId>
+      <testCaseId>Test Cases/Pesquisa e Lista de produtos/Pesquisa</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>0238637f-c95d-4bd6-95ab-2018de6fd608</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Adicionar Produto na Lista</testCaseId>
+      <testCaseId>Test Cases/Pesquisa e Lista de produtos/Adicionar Produto na Lista</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>7c9533a9-5f52-419c-b5a6-592dd03f98aa</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Gerar Lista de produtos</testCaseId>
+      <testCaseId>Test Cases/Pesquisa e Lista de produtos/Gerar Lista de produtos</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>c16c959d-50dc-475e-8ce5-9fe3649d843f</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Pesquisa e Lista de produtos/Filtrar e Ordenar resultados</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

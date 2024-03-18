@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_Salvar_blue-button</name>
+   <tag></tag>
+   <elementGuidId>078215c0-0b09-475f-9ec6-d0327d616cf2</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>input.blue-button</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//input[@value='Guardar Alterações']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=button[name=&quot;Guardar Alterações&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+      <webElementGuid>945d639d-146c-49a2-80f5-0b43888d2916</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>submit</value>
+      <webElementGuid>cb877694-a37c-453b-bc83-04554957e4d0</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>value</name>
+      <type>Main</type>
+      <value>Guardar Alterações</value>
+      <webElementGuid>c51fb963-05b2-4d32-b54d-8a5686b3ac48</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>blue-button</value>
+      <webElementGuid>a0b30cf4-790c-4e66-a9bd-ee745b6cc1be</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[1]/body[@class=&quot;gradiante2-secondary-color background-height&quot;]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[1]/form[@class=&quot;form&quot;]/div[@class=&quot;bottom&quot;]/div[@class=&quot;form-group&quot;]/input[@class=&quot;blue-button&quot;]</value>
+      <webElementGuid>4a2a351c-d363-496f-a874-c9286c1825c0</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@value='Guardar Alterações']</value>
+      <webElementGuid>cb88a1c3-d460-4dc8-8644-6d5bd6bf78ef</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[3]/input[2]</value>
+      <webElementGuid>f34ec0e4-bbc5-407c-853b-f5bdb2deb1f6</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'submit']</value>
+      <webElementGuid>79cb8ab2-d844-4150-9e85-354672b54da2</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

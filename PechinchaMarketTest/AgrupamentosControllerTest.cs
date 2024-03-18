@@ -97,7 +97,7 @@ namespace PechinchaMarketTest
 
         }
 
-        /*[Fact]
+        [Fact]
         public async void EditName_ReturnsView()
         {
             Restart_Context();
@@ -105,7 +105,7 @@ namespace PechinchaMarketTest
 
             var newAgrupamento = new Agrupamento
             {
-                Id = Guid.NewGuid(),
+                Id = agrupamento.Id,
                 Nome = "Agrupamento da familia",
                 Codigo = GenerateRandomNumber(),
             };
@@ -113,10 +113,22 @@ namespace PechinchaMarketTest
             var result = await controller.EditName(agrupamento.Id, newAgrupamento);
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
-            var model = Assert.IsAssignableFrom<Agrupamento>(viewResult);
-            Assert.NotNull(model);
-        }*/
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
 
+        /*[Fact]
+        public async void AddList_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager);
+
+            
+
+            var result = await controller.AddList(agrupamento.Id, "lista");
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }*/
 
         private long GenerateRandomNumber()
         {
