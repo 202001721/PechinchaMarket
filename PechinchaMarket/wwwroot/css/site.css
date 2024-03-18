@@ -853,7 +853,6 @@ a.cancel-button:hover::before {
 
 .search-input-size {
     width: 500px;
-    flex-shrink: 1;
 }
 
 .nav-search-div {

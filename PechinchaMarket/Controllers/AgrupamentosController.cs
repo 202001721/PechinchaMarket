@@ -29,6 +29,12 @@ namespace PechinchaMarket.Controllers
         // GET: Agrupamentos
         public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+
             var userId = _userManager.GetUserId(User);
             Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
 
