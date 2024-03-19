@@ -1083,6 +1083,10 @@ a.cancel-button:hover::before {
     gap: 1em 0px;
 }
 
+.tiny-gap {
+    gap: 0.4em 0.4em;
+}
+
 .tiny-gap-x {
     gap: 0px 0.4em;
 }

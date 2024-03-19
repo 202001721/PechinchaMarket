@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -18,8 +19,10 @@ namespace PechinchaMarketTest
     {
         private DBPechinchaMarketContext _context;
         private UserManager<PechinchaMarketUser> _userManager;
+        private IWebHostEnvironment _hostingEnvironment;
         private Cliente cliente;
         private Agrupamento agrupamento;
+
 
         public AgrupamentosControllerTest(ApplicationDbContextFixture context)
         {
@@ -42,6 +45,13 @@ namespace PechinchaMarketTest
             userMgr.Setup(x => x.FindByNameAsync(It.IsAny<string>())).ReturnsAsync(user);
             userMgr.Setup(s => s.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("1");
             _userManager = userMgr.Object;
+
+            //criar mock de IWebHostEnvironment
+            var mockEnvironment = new Mock<IWebHostEnvironment>();
+            mockEnvironment
+                .Setup(m => m.WebRootPath)
+                .Returns("wwwroot");
+            _hostingEnvironment = mockEnvironment.Object;
 
             //Criar um novo cliente e um novo agrupamento
             var guid_cliente = Guid.NewGuid();
@@ -70,7 +80,7 @@ namespace PechinchaMarketTest
         public async void Index_ReturnsView()
         {
             Restart_Context();
-            var controller = new AgrupamentosController(_context, _userManager);
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
             var result = await controller.Index();
 
             var viewResult =  Assert.IsType<ViewResult>(result);
@@ -83,7 +93,7 @@ namespace PechinchaMarketTest
         public async void Create_ReturnsView_newAgrupamento()
         {
             Restart_Context();
-            var controler = new AgrupamentosController(_context, _userManager);
+            var controler = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
 
             var newAgrupamento = new Agrupamento
             {
@@ -101,7 +111,7 @@ namespace PechinchaMarketTest
         public async void EditName_ReturnsView()
         {
             Restart_Context();
-            var controller = new AgrupamentosController(_context, _userManager);
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
 
             var newAgrupamento = new Agrupamento
             {
