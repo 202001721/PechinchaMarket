@@ -157,8 +157,13 @@
             <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
                 @if (item.Privilegio == NivelPrivilegio.Admin)
                 {
-                    <div class="right-flex small-padding-right2 ">
-                        <div class="delete-button-color bigger-button pechincha-button" onclick="deletePopup(@counter);">
+
+                    <div class="row-container small-padding display-flex edges-flex">
+                       <div class="left-flex">
+                            <input id="codigo" value="@item.Agrupamento.Codigo" readonly></input>
+                            <button onclick="copyText()">Copiar Código</button>
+                        </div>
+                        <div class="delete-button-color bigger-button pechincha-button right-flex" onclick="deletePopup(@counter);">
                             Eliminar Agrupamento
                         </div>
                     </div>
