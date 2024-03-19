@@ -189,9 +189,9 @@
                             <div class="buttons-end">
 
                                 <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
-                                <form id="formRemoveList" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post">
+                                <form id="formRemoveLists" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
 
-                                    <input name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
+                                    <input class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
 
                                 </form>
                             </div>
@@ -209,7 +209,7 @@
                                     @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor)
                                     {
                                         <div class="center-y-flex smaller-gap-x">
-                                            <input form="formRemoveList" type="checkbox" name="listas" value=@list.Id>
+                                            <input form="formRemoveLists" type="checkbox" name="listasId" value=@list.Id>
                                             <div>@list.name</div>
                                         </div>
                                       
@@ -259,7 +259,7 @@
                         {
                             <div class="buttons-end">
                                 <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
-                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post">
+                                <form id="formRemove" asp-action="RemoveList" asp-route-id="@item.Agrupamento.Id" method="post">
              
                                   
                                     <input  name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Membros" />
