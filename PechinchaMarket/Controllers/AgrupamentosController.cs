@@ -323,6 +323,48 @@ namespace PechinchaMarket.Controllers
             }
             return RedirectToAction("Index", new { model = agrupamentos });
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveMember(Guid id, Guid clienteId)
+        {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.FirstOrDefault(x => x.UserId == userId);
+
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            var agrupamentoMembro = await _context.AgrupamentosMembro
+                .Include(am => am.Agrupamento)
+                .FirstOrDefaultAsync(am => am.Agrupamento.Id == id && am.Cliente.Id == clienteId);
+
+            if (agrupamentoMembro == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                _context.AgrupamentosMembro.Remove(agrupamentoMembro);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AgrupamentoMembroExists(clienteId, id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction("Index"); 
+        }
+
+    
 
         // GET: Agrupamentos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)

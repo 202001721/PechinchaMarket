@@ -1674,7 +1674,7 @@ a.default-button-color:hover::before {
 
 
 .dropdown-content {
-    display: none;
+    display: none;  
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
@@ -1786,3 +1786,7 @@ a.default-button-color:hover::before {
     word-wrap:break-word;
 }
 
+.buttons-end{
+    display:flex;
+    justify-self:flex-end;
+}

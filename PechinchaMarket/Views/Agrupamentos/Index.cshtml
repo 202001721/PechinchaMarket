@@ -238,7 +238,17 @@
                         <span class="small-heading">Membros</span>
                         @if(item.Privilegio == NivelPrivilegio.Admin)
                         {
-                            <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                            <div class="buttons-end">
+                                <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                                <form id="formRemove" asp-action="RemoveMember" asp-route-id="@item.Agrupamento.Id" method="post">
+             
+                                    <input id="hideremove" class="pechincha-button delete-button-color medium-button"  value="Remover Membros" onclick="removerMembro()"/>
+                                    <input id="showremove" style="display:none" name="membro" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover" />
+                                    <!-- <div name="membro" class="pechincha-button delete-button-color medium-button">       Remover Membro</div>-->
+                                </form>
+
+                            </div>
+                          
                         }
                  
                     </div>
@@ -274,17 +284,11 @@
                                             <span>Leitores</span>
                                             mLeitorCounter++;
                                         }
-                                        <div class="max-width">
-
-                                            <div class="small-padding-left">@member.Cliente.Name</div>
-                                            <div class="right-flex small-padding-right2 ">
-                                                <div class="delete-button-color medium-button pechincha-button" onclick="deletePopup(@counter);">
-                                                    Remover
-                                                </div>
-                                            </div>
+                                        
+                                        <div class="center-y-flex smaller-gap-x">
+                                            <input style="display:none" id="showboxes" form="formRemove" type="checkbox" name="clienteId" value=@member.Cliente.Id>
+                                            <span>@member.Cliente.Name</span>
                                         </div>
-                                      
-
                                     }
                                 }
                             }
@@ -350,6 +354,13 @@
         div.children[1].classList.toggle("active");
         var hiddenContent = div.nextElementSibling;
         hiddenContent.classList.toggle("off-screen");
+    }
+    function removerMembro(){
+        document.getElementById("hideremove").style.display = "none";
+        document.getElementById("showremove").style.display = "inherit";
+        document.getElementById("showboxes").style.display = "inherit";
+
+
     }
 
     function changeNameEditableField(button) {
