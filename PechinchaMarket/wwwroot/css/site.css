@@ -1083,6 +1083,14 @@ a.cancel-button:hover::before {
     gap: 1em 0px;
 }
 
+.tiny-gap-x {
+    gap: 0px 0.4em;
+}
+
+.tiny-gap-y {
+    gap: 0.4em 0px;
+}
+
 .small-padding {
     padding: 1em;
 }
@@ -1102,8 +1110,16 @@ a.cancel-button:hover::before {
     padding-left: 2em;
 }
 
+.small-padding-top {
+    padding-top: 2em;
+}
+
 .medium-padding-top {
     padding-top: 4em;
+}
+
+.medium-padding-left {
+    padding-left: 4em;
 }
 
 .small-margin-bottom {
@@ -1429,6 +1445,22 @@ a.default-button-color:hover::before {
     @media not all and (hover: hover) {
         .clickable-div:active {
             filter: brightness(0.92);
+        }
+    }
+
+    .hoverable-div{
+        background-color: var(--root-background-content-color);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .hoverable-div:hover {
+            filter: brightness(0.98);
+        }
+    }
+
+    @media not all and (hover: hover) {
+        .hoverable-div:active {
+            filter: brightness(0.98);
         }
     }
 
@@ -1760,4 +1792,16 @@ a.default-button-color:hover::before {
 .small-page-product{
     width:calc(var(--root-gigantic-icon-size) + 4em);
     word-wrap:break-word;
+}
+.back {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../images/down-arrow.png);
+    background-size: cover;
+    transform: rotate(90deg);
+    margin-top: 1.5em;
+    margin-left: 1.5em;
+    margin-bottom: 0em;
+    cursor: pointer;
 }

@@ -6,19 +6,19 @@
    <elementGuidId>1d511aa1-a2a9-4495-8b76-d17ced2ddc7e</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>(//button[@type='submit'])[8]</value>
+         <key>CSS</key>
+         <value>#location-form > div.row-container.smaller-gap-x > button.pechincha-button.main-button-color</value>
       </entry>
       <entry>
-         <key>CSS</key>
-         <value>#preferences-form > div.row-container.smaller-gap-x > button.pechincha-button.main-button-color</value>
+         <key>XPATH</key>
+         <value>(//button[@type='submit'])[7]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>#preferences-form >> internal:role=button[name=&quot;Salvar&quot;i]</value>
+         <value>#location-form >> internal:role=button[name=&quot;Salvar&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>b0ee78a0-42ee-4f4d-9b8c-0141b60cc804</webElementGuid>
+      <webElementGuid>26f2281c-1c48-4d1a-8499-72a7dba81a9b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>f1f11509-e9f1-41b9-b2b0-7e30617f6c36</webElementGuid>
+      <webElementGuid>ce4552ec-24c5-4a38-b736-0f0d89454ab4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>id</name>
       <type>Main</type>
       <value>ChangeName-button</value>
-      <webElementGuid>385977f0-0f87-47b5-8811-269de04d213c</webElementGuid>
+      <webElementGuid>da9b2afa-bec6-4a8b-95ed-926ab1ec5d7a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-button main-button-color</value>
-      <webElementGuid>0eda990e-e498-437e-af62-fceefdd38f86</webElementGuid>
+      <webElementGuid>d4e46b51-bc21-428a-9434-61ec31c65025</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,95 +61,39 @@
       <name>text</name>
       <type>Main</type>
       <value>Salvar</value>
-      <webElementGuid>a50db994-54e4-468f-a04b-9072670fe8cf</webElementGuid>
+      <webElementGuid>686637ba-afcd-4081-ae13-c15b997c88a9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;preferences-form&quot;)/div[@class=&quot;row-container smaller-gap-x&quot;]/button[@class=&quot;pechincha-button main-button-color&quot;]</value>
-      <webElementGuid>77f71d3b-786d-4460-bc0c-b5674ca97223</webElementGuid>
+      <value>id(&quot;location-form&quot;)/div[@class=&quot;row-container smaller-gap-x&quot;]/button[@class=&quot;pechincha-button main-button-color&quot;]</value>
+      <webElementGuid>ac886df6-4127-44e0-84ab-c771da2ba2c5</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>(//button[@type='submit'])[8]</value>
-      <webElementGuid>7a75f854-d098-4dd8-9476-b95822a40094</webElementGuid>
+      <value>(//button[@type='submit'])[7]</value>
+      <webElementGuid>db812eb0-1c6c-4f92-8b79-24fc3ccfdc06</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='preferences-form']/div[2]/button</value>
-      <webElementGuid>1934162e-baaf-40b4-a9fb-115bb26393c0</webElementGuid>
+      <value>//form[@id='location-form']/div[2]/button</value>
+      <webElementGuid>d291dddf-00b2-4774-a0ad-a65087b12477</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/following::button[1]</value>
-      <webElementGuid>ffa009c9-144d-4c86-a066-979c27f19e91</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Snacks'])[1]/following::button[1]</value>
-      <webElementGuid>6b6821bd-b15a-453e-ad36-9f96ae631adc</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Cancelar'])[1]/preceding::button[1]</value>
-      <webElementGuid>ff2339a2-9477-45e0-89c7-1e82baf4b669</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[5]/form/div[2]/button</value>
-      <webElementGuid>4dec0974-bea2-4778-bbd1-b5e9bd0a234f</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//button[@type = 'submit' and (text() = 'Salvar' or . = 'Salvar')]</value>
-      <webElementGuid>ef3f083f-e909-43a2-8082-1e25418ca3cd</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
-      <type>Main</type>
-      <value>(//button[@id='ChangeName-button'])[2]</value>
-      <webElementGuid>d1710a85-99a8-4a51-a233-2366a16ce81e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//form[@id='change-phone-form']/div[2]/button</value>
-      <webElementGuid>fc80a0c2-de80-412c-bedc-769505ee9de0</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Contacto'])[1]/following::button[1]</value>
-      <webElementGuid>1d44a6d7-d44c-4d02-a213-465180208f7d</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Localização'])[1]/following::button[1]</value>
+      <webElementGuid>c19b635d-474a-411a-bb2c-4a21f59bad4a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -157,7 +101,23 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Editar'])[3]/following::button[1]</value>
-      <webElementGuid>d3f4ad4f-c739-492a-bc6c-c04e6406511d</webElementGuid>
+      <webElementGuid>a92f6744-0e3a-4d1f-97ce-6fb47f487997</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Cancelar'])[1]/preceding::button[1]</value>
+      <webElementGuid>4156f379-c95a-4b04-8d17-c576937e34e7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Preferências'])[1]/preceding::button[1]</value>
+      <webElementGuid>186743df-2a22-4416-a987-8fedd8c29375</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -165,7 +125,39 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[4]/form/div[2]/button</value>
-      <webElementGuid>1181ad35-53b2-4827-a2bd-6969b238cc88</webElementGuid>
+      <webElementGuid>9762581e-a518-4571-8715-54f3c75bca7e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@type = 'submit' and (text() = 'Salvar' or . = 'Salvar')]</value>
+      <webElementGuid>c67ee2ca-a963-4ca8-aca8-b3cb02771b5c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//button[@id='ChangeName-button'])[2]</value>
+      <webElementGuid>a279f35e-b5a3-4caa-a358-293150813708</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='change-phone-form']/div[2]/button</value>
+      <webElementGuid>1824de87-1a3c-422d-85d2-fe9e8f4dc947</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Contacto'])[1]/following::button[1]</value>
+      <webElementGuid>7537aff4-8d0d-4b22-8198-30f5fb40dd28</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -173,6 +165,46 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@type = 'submit' and @id = 'ChangeName-button' and (text() = 'Salvar' or . = 'Salvar')]</value>
-      <webElementGuid>45f86674-d099-4e54-b116-2630bf1760f4</webElementGuid>
+      <webElementGuid>41c39d9a-7cfb-4e3b-98f2-c192e7e5fa92</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//button[@type='submit'])[8]</value>
+      <webElementGuid>ea9bc43b-2fa3-42f1-91c5-4052ab5f6e9e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='preferences-form']/div[2]/button</value>
+      <webElementGuid>e272e3a3-ccf8-4739-8c11-86b7a49addee</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/following::button[1]</value>
+      <webElementGuid>cae2dd1e-1b73-4e1d-a652-e9e04962bbf8</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Snacks'])[1]/following::button[1]</value>
+      <webElementGuid>1122ff76-8d28-49a3-aecc-881cc5444144</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[5]/form/div[2]/button</value>
+      <webElementGuid>60b6dba3-6364-4606-b191-2e7d75580b3e</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

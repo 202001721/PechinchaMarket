@@ -77,6 +77,14 @@ namespace PechinchaMarket.Controllers
                 result = searchAlgorithm(produtos, search);
             }
 
+            foreach (var produto in result)
+            {
+                var prod = produto.ProdutoLojas.OrderBy(x => x.Price);
+                foreach (var pl in prod)
+                {
+                    ShowDiscount(pl.Id); 
+                }
+            }
             return View(result);
         }
 
@@ -286,6 +294,7 @@ namespace PechinchaMarket.Controllers
 
             var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
 
+            //Alterar para ir buscar tambem as listas aos agrupamentos que pertence
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());
 
@@ -297,6 +306,15 @@ namespace PechinchaMarket.Controllers
 
             ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
 
+            var pl = model.Select(x => x.Item4).FirstOrDefault();
+            if (pl != null)
+            {
+                ShowDiscount(pl.Id);
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Nenhum produto encontrado";
+            }
             return View(model);
         }
 
@@ -406,8 +424,6 @@ namespace PechinchaMarket.Controllers
             similarProducts = similarProducts.Distinct().ToList();
 
             return similarProducts;
-
-            //return Json(similarProducts);
         }
 
         public string ShowImage(byte[]? image)
@@ -424,6 +440,34 @@ namespace PechinchaMarket.Controllers
             return Convert.ToBase64String(image);
         }
 
+        public IActionResult ShowDiscount(int id)
+        {
+            var produtoLoja = _context.ProdutoLoja.Select(p => p).FirstOrDefault(p => p.Id == id);
+            if (produtoLoja != null && ProdutoHasDiscount(id))
+            {
+                var precoOriginal = produtoLoja.Price;
+                var desconto = produtoLoja.Discount / 100;
+                decimal precoExibicao;
+
+                if (desconto > 0)
+                {
+                    var precoComDesconto = precoOriginal * (1 - desconto);
+                    precoExibicao = (decimal)precoComDesconto;
+                }
+                else
+                {
+                    precoExibicao = (decimal)precoOriginal;
+                }
+
+                ViewBag.PrecoExibicao = precoExibicao;
+            }
+            return View();
+        }
+
+        private bool ProdutoHasDiscount(int id)
+        {
+            return _context.ProdutoLoja.Any(pl => pl.Id == id && pl.Discount > 0);
+        }
     }
 }
 

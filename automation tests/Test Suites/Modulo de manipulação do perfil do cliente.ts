@@ -12,10 +12,10 @@
    <rerunImmediately>true</rerunImmediately>
    <testSuiteGuid>b3363ef2-2e7c-46a5-b456-a86214720e94</testSuiteGuid>
    <testCaseLink>
-      <guid>fe4f6757-1ea9-4ebe-baa2-7c2732306eab</guid>
+      <guid>a744fd1a-d270-4c1a-a91f-a34bf386392a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Editar informações do cliente</testCaseId>
+      <testCaseId>Test Cases/Perfis dos utilizadores/Editar informações do cliente</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

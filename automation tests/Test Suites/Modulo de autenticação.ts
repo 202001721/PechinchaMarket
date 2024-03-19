@@ -15,28 +15,34 @@
       <guid>72417d8a-e447-42ee-bffc-7ebed742a529</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Login Cliente</testCaseId>
+      <testCaseId>Test Cases/Login e Registo/Login Cliente</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>c81b518d-6dd8-4b45-939b-dd0c1965fe9b</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Login Comerciante</testCaseId>
+      <testCaseId>Test Cases/Login e Registo/Login Comerciante</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>2f96a3ea-f98d-4028-836a-0c6df46f336c</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Registo Cliente</testCaseId>
+      <testCaseId>Test Cases/Login e Registo/Registo Cliente</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>b0c58154-85cf-4e99-8b45-12771895b03b</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Registo Comerciante</testCaseId>
+      <testCaseId>Test Cases/Login e Registo/Registo Comerciante</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>6337a8d6-e72c-439e-a284-59b82d3cfa41</variableId>
+      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

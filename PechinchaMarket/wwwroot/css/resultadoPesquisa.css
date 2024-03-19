@@ -79,6 +79,27 @@
     width: 7em;
 }
 
+.discount-text {
+    color: #669AFF;
+    font-size: 18px;
+    font-weight:500;
+    margin-inline-start: -1em;
+    margin-top: -9em;
+}
+
+.price-text {
+    color: black;
+    margin-inline-end: 1em;
+}
+
+.discounted-price-text {
+    color: rgba(255, 170, 40);
+    font-size: 18px;
+    font-weight: bold;
+    margin-inline-end: 1em;
+}
+
+
 .lojas {
     background-image: linear-gradient(to top, rgba(255,0,0,0), rgba(250, 181, 70));
     height: 100%;
@@ -105,7 +126,7 @@
         border-color: black;
     }
 
-.img-back {
+.img-close {
     display: inline-block;
     position: absolute;
     width: 20px;

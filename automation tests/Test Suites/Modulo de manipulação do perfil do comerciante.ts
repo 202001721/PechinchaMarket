@@ -15,14 +15,14 @@
       <guid>a578d95f-8ca3-4152-ba5d-28dd84f53b35</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Adicionar uma Loja</testCaseId>
+      <testCaseId>Test Cases/Gerir Catalogo de produtos/Adicionar uma Loja</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>f26d635b-d162-4ad9-be5a-2ade06e7fd77</guid>
+      <guid>af1da0ce-25cc-497c-88d6-d0199998d4e3</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Editar informações do comerciante</testCaseId>
+      <testCaseId>Test Cases/Perfis dos utilizadores/Editar informações do comerciante</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>
