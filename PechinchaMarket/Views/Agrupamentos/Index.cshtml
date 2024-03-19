@@ -240,10 +240,10 @@
                         {
                             <div class="buttons-end">
                                 <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
-                                <form id="formRemove" asp-action="RemoveMember" asp-route-id="@item.Agrupamento.Id" method="post">
+                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post">
              
-                                    <input id="hideremove" class="pechincha-button delete-button-color medium-button"  value="Remover Membros" onclick="removerMembro()"/>
-                                    <input id="showremove" style="display:none" name="membro" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover" />
+                                  
+                                    <input  name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Membros" />
                                     <!-- <div name="membro" class="pechincha-button delete-button-color medium-button">       Remover Membro</div>-->
                                 </form>
 
@@ -284,12 +284,20 @@
                                             <span>Leitores</span>
                                             mLeitorCounter++;
                                         }
-                                        
-                                        <div class="center-y-flex smaller-gap-x">
-                                            <input style="display:none" id="showboxes" form="formRemove" type="checkbox" name="clienteId" value=@member.Cliente.Id>
+                                      
+                                        @if (item.Privilegio.Equals(NivelPrivilegio.Admin))
+                                        {
+                                            <div class="center-y-flex smaller-gap-x">
+                                                <input  form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id>
+                                                <span>@member.Cliente.Name</span>
+                                            </div>
+                                        }
+                                        else
+                                        {
                                             <span>@member.Cliente.Name</span>
-                                        </div>
-                                    }
+                                        }
+
+                        }
                                 }
                             }
                         </div>

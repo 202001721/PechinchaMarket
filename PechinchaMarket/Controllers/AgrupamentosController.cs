@@ -332,7 +332,7 @@ namespace PechinchaMarket.Controllers
 
             if (cliente == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
 
             var agrupamentoMembro = await _context.AgrupamentosMembro
@@ -341,7 +341,7 @@ namespace PechinchaMarket.Controllers
 
             if (agrupamentoMembro == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
 
             try
@@ -353,7 +353,7 @@ namespace PechinchaMarket.Controllers
             {
                 if (!AgrupamentoMembroExists(clienteId, id))
                 {
-                    return NotFound();
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -364,7 +364,17 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction("Index"); 
         }
 
-    
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveMembers(Guid id, List<Guid> members)
+        {
+            foreach (var member in members)
+            {
+               await RemoveMember(id, member);
+            }
+            return   RedirectToAction("Index");
+        }
+
 
         // GET: Agrupamentos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
