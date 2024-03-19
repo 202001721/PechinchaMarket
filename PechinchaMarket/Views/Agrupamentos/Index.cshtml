@@ -186,7 +186,16 @@
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Listas</span>
                         @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor){
-                            <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                            <div class="buttons-end">
+
+                                <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                                <form id="formRemoveList" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post">
+
+                                    <input name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
+
+                                </form>
+                            </div>
+                   
                         }
                        
                     </div>
@@ -197,7 +206,15 @@
                             {
                                 @foreach (var list in item.Agrupamento.ListaProdutos)
                                 {
-                                    <div>@list.name</div>
+                                    @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor)
+                                    {
+                                        <div class="center-y-flex smaller-gap-x">
+                                            <input form="formRemoveList" type="checkbox" name="listas" value=@list.Id>
+                                            <div>@list.name</div>
+                                        </div>
+                                      
+                                    }
+                                   
                                 }
                             }
                         </div>
@@ -208,7 +225,9 @@
                             <div class="edges-flex max-width">
                                 <div class="title unselectable-text">Adicionar uma Lista</div>
                                 <div class="cross-button" onclick="chooseListToAdd(@counter);"></div>
+                             
                             </div>
+                           
                             <form asp-action="AddList" method="post" class="column-container edges-flex max-width max-height">
                                 <input type="hidden" name="id" value="@item.Agrupamento.Id" />
                                 <div>Lista de Produtos</div>
@@ -244,7 +263,7 @@
              
                                   
                                     <input  name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Membros" />
-                                    <!-- <div name="membro" class="pechincha-button delete-button-color medium-button">       Remover Membro</div>-->
+                     
                                 </form>
 
                             </div>

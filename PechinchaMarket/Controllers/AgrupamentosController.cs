@@ -323,6 +323,12 @@ namespace PechinchaMarket.Controllers
             }
             return RedirectToAction("Index", new { model = agrupamentos });
         }
+        /// <summary>
+        /// Método que recebe o id do agrupamento e do membro a ser eliminado deste mesmo agrupamento
+        /// </summary>
+        /// <param name="id">Id do agrupamento a ser gerido</param>
+        /// <param name="clienteId">membro do agrupamento a ser removidos</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveMember(Guid id, Guid clienteId)
@@ -363,7 +369,12 @@ namespace PechinchaMarket.Controllers
 
             return RedirectToAction("Index"); 
         }
-
+        /// <summary>
+        /// Método que utiliza do método de remover membros para remover uma lista de membros do agrupamento
+        /// </summary>
+        /// <param name="id"> Id do agrupamento a ser gerido</param>
+        /// <param name="members"> lista de membros do agrupamento a serem removidos</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveMembers(Guid id, List<Guid> members)
