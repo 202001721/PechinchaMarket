@@ -331,6 +331,135 @@ namespace PechinchaMarket.Controllers
             }
             return RedirectToAction("Index", new { model = agrupamentos });
         }
+        /// <summary>
+        /// Método que recebe o id do agrupamento e do membro a ser eliminado deste mesmo agrupamento
+        /// </summary>
+        /// <param name="id">Id do agrupamento a ser gerido</param>
+        /// <param name="clienteId">membro do agrupamento a ser removidos</param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveMember(Guid id, Guid clienteId)
+        {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.FirstOrDefault(x => x.UserId == userId);
+
+            if (cliente == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var agrupamentoMembro = await _context.AgrupamentosMembro
+                .Include(am => am.Agrupamento)
+                .FirstOrDefaultAsync(am => am.Agrupamento.Id == id && am.Cliente.Id == clienteId);
+
+            if (agrupamentoMembro == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            try
+            {
+                _context.AgrupamentosMembro.Remove(agrupamentoMembro);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AgrupamentoMembroExists(clienteId, id))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction("Index"); 
+        }
+        /// <summary>
+        /// Método que utiliza do método de remover membros para remover uma lista de membros do agrupamento
+        /// </summary>
+        /// <param name="id"> Id do agrupamento a ser gerido</param>
+        /// <param name="members"> lista de membros do agrupamento a serem removidos</param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveMembers(Guid id, List<Guid> members)
+        {
+            foreach (var member in members)
+            {
+               await RemoveMember(id, member);
+            }
+            return   RedirectToAction("Index");
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="listaId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveList(Guid id, Guid listaId)
+        {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.FirstOrDefault(x => x.UserId.Equals(userId));
+
+            if (cliente == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var agrupamentos = await _context.AgrupamentosMembro
+                .Where(x => x.Cliente.Equals(cliente))
+                .Include(x => x.Agrupamento)
+                .ThenInclude(x => x.ListaProdutos)
+                .ToListAsync();
+
+            var errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            ViewBag.ErrorMessages = errorMessages;
+
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("Name");
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var agrupamentoContext = _context.Agrupamentos.Single(a => a.Id == id);
+                    var listaprodutosContext = _context.ListaProdutos.Single(x => x.Id == listaId);
+
+                    agrupamentoContext.ListaProdutos.Remove(listaprodutosContext);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ListaProdutosExists(listaId.ToString()))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return RedirectToAction("Index", new { model = agrupamentos });
+            }
+
+            return RedirectToAction("Index", new { model = agrupamentos });
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveLists(Guid id, List<Guid> listasId)
+        {
+            foreach (var lista in listasId)
+            {
+                await RemoveList(id, lista);
+            }
+            return RedirectToAction("Index");
+        }
 
         // GET: Agrupamentos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)

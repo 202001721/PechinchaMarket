@@ -168,7 +168,7 @@
                         </div>
                     </div>
                     <div class="new-page display-none" id="delete-popup-@counter">
-                        <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                        <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
                             <div class="edges-flex max-width">
                                 <div class="title unselectable-text">Eliminar Agrupamento</div>
                                 <div class="cross-button" onclick="deletePopup(@counter);"></div>
@@ -225,7 +225,16 @@
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Listas</span>
                         @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor){
-                            <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                            <div class="buttons-end">
+
+                                <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                                <form id="formRemoveLists" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
+
+                                    <input class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
+
+                                </form>
+                            </div>
+                   
                         }
                        
                     </div>
@@ -236,7 +245,15 @@
                             {
                                 @foreach (var list in item.Agrupamento.ListaProdutos)
                                 {
-                                    <div>@list.name</div>
+                                    @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor)
+                                    {
+                                        <div class="center-y-flex smaller-gap-x">
+                                            <input form="formRemoveLists" type="checkbox" name="listasId" value=@list.Id>
+                                            <div>@list.name</div>
+                                        </div>
+                                      
+                                    }
+                                   
                                 }
                             }
                         </div>
@@ -247,7 +264,9 @@
                             <div class="edges-flex max-width">
                                 <div class="title unselectable-text">Adicionar uma Lista</div>
                                 <div class="cross-button" onclick="chooseListToAdd(@counter);"></div>
+                             
                             </div>
+                           
                             <form asp-action="AddList" method="post" class="column-container edges-flex max-width max-height">
                                 <input type="hidden" name="id" value="@item.Agrupamento.Id" />
                                 <div>Lista de Produtos</div>
@@ -277,7 +296,17 @@
                         <span class="small-heading">Membros</span>
                         @if(item.Privilegio == NivelPrivilegio.Admin)
                         {
-                            <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                            <div class="buttons-end">
+                                <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post">
+             
+                                  
+                                    <input  name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Membros" />
+                     
+                                </form>
+
+                            </div>
+                          
                         }
                  
                     </div>
@@ -313,18 +342,20 @@
                                             <span>Leitores</span>
                                             mLeitorCounter++;
                                         }
-                                        <div class="max-width">
-
-                                            <div class="small-padding-left">@member.Cliente.Name</div>
-                                            <div class="right-flex small-padding-right2 ">
-                                                <div class="delete-button-color medium-button pechincha-button" onclick="deletePopup(@counter);">
-                                                    Remover
-                                                </div>
-                                            </div>
-                                        </div>
                                       
+                                        @if (item.Privilegio.Equals(NivelPrivilegio.Admin))
+                                        {
+                                            <div class="center-y-flex smaller-gap-x">
+                                                <input  form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id>
+                                                <span>@member.Cliente.Name</span>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <span>@member.Cliente.Name</span>
+                                        }
 
-                                    }
+                        }
                                 }
                             }
                         </div>
@@ -393,6 +424,13 @@
         div.children[1].classList.toggle("active");
         var hiddenContent = div.nextElementSibling;
         hiddenContent.classList.toggle("off-screen");
+    }
+    function removerMembro(){
+        document.getElementById("hideremove").style.display = "none";
+        document.getElementById("showremove").style.display = "inherit";
+        document.getElementById("showboxes").style.display = "inherit";
+
+
     }
 
     function changeNameEditableField(button) {
