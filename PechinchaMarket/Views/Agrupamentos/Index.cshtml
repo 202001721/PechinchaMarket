@@ -115,7 +115,7 @@
 
     function openEditPermissions(permissionBtn){
 
-        var section = permissionBtn.parentNode.parentNode;
+        var section = permissionBtn.parentNode.parentNode.parentNode
 
         var permissionHTML = Array.from(section.querySelectorAll(".editPermisions"));
         var permissionUpdateBtn = section.querySelector("#permissionUpdateBtn");
@@ -127,6 +127,7 @@
         permissionBtn.style.display = "none";
         permissionUpdateBtn.style.display = "block";
     }
+
 </script>
 
 <h1>Agrupamentos</h1>
