@@ -373,7 +373,10 @@
                                             mEditorCounter++;
                                         }
                                         <div class="row-container edges-flex max-width">
-                                            <div class="small-padding-left">@member.Cliente.Name</div>
+                                            <div class="center-y-flex smaller-gap-x">
+                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id>
+                                                <span>@member.Cliente.Name</span>
+                                            </div>
                                             <div style="display:none" class="editPermisions">
                                                 <label for="editPermissions">Selecionar Permissão:</label>
                                                 <select name="editPermissions" form="permissions-@counter">
@@ -394,19 +397,11 @@
                                       
                                         @if (item.Privilegio.Equals(NivelPrivilegio.Admin))
                                         {
+                                             <div class="row-container edges-flex max-width">
                                             <div class="center-y-flex smaller-gap-x">
-                                                <input  form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id>
+                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id>
                                                 <span>@member.Cliente.Name</span>
                                             </div>
-                                        }
-                                        else
-                                        {
-                                            <span>@member.Cliente.Name</span>
-                                        }
-
-
-                                        <div class="row-container edges-flex max-width">
-                                            <div class="small-padding-left">@member.Cliente.Name</div>
                                             <div style="display:none" class="editPermisions">
                                                 <label for="editPermissions">Selecionar Permissão:</label>
                                                 <select name="editPermissions" form="permissions-@counter">
@@ -416,6 +411,12 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        }
+                                        else
+                                        {
+                                            <span>@member.Cliente.Name</span>
+                                        }
+     
                                             
                                     }
                                 }
