@@ -11,9 +11,7 @@
 
     var counter = 0;
 
-    var mAdminCounter = 0;
-    var mEditorCounter = 0;
-    var mLeitorCounter = 0;
+    
 
 }
 
@@ -101,6 +99,21 @@
             card.classList.remove('display-none');
         }
     }
+
+    function openEditPermissions(permissionBtn){
+
+        var section = permissionBtn.parentNode.parentNode;
+
+        var permissionHTML = Array.from(section.querySelectorAll(".editPermisions"));
+        var permissionUpdateBtn = section.querySelector("#permissionUpdateBtn");
+
+        for(permission of permissionHTML){
+            permission.style.display = "block";
+        }
+
+        permissionBtn.style.display = "none";
+        permissionUpdateBtn.style.display = "block";
+    }
 </script>
 
 <h1>Agrupamentos</h1>
@@ -113,6 +126,11 @@
 
 <div class="column-container smaller-gap-y">
     @foreach (var item in Model) {
+
+        var mAdminCounter = 0;
+        var mEditorCounter = 0;
+        var mLeitorCounter = 0;
+
         <div class="background-constrast-color-2 rounded-border">
             <div class="colapsable-div smaller-padding" onclick="colapse(this)">
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
@@ -233,22 +251,37 @@
                 </div>
 
                 <!-- Membros -->
+                <form asp-action="ChangePermissions" asp-route-id=@item.Agrupamento.Id method="post" id="permissions-@counter">
+                    <input type="hidden" name="id" value="@item.Agrupamento.Id" />
+                </form>
+
+
                 <div class="background-constrast-color small-padding tiny-gap-y column-container rounded-border">
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Membros</span>
+
                         @if(item.Privilegio == NivelPrivilegio.Admin)
                         {
+                            <div class="default-button-color medium-button pechincha-button" id="permissionBtn" onclick="openEditPermissions(this)">Gerir Permissões</div>
+                            <input type="submit" class="pechincha-button default-button-color medium-button" id="permissionUpdateBtn" style="display:none" form="permissions-@counter" value="Atualizar Permissões">
+                            
                             <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
                         }
                  
                     </div>
                     <div class="break-line"></div>
                     <div class="row-container edges-flex max-width">
-                        <div class="column-container">
+                        <div class="column-container max-width">
                             @if (members != null)
                             {
                                 @foreach (var member in members.Where(x => x.Agrupamento.Id == item.Agrupamento.Id).OrderBy(x => x.Privilegio).ToList())
                                 {
+                                    
+                                    var current = member.Privilegio.ToString() + "_" + item.Agrupamento.Id;
+                                    var editor = "Editor_" + item.Agrupamento.Id;
+                                    var leitor = "Leitor_" + item.Agrupamento.Id;
+                                    
+
                                     @if (member.Privilegio.Equals(NivelPrivilegio.Admin))
                                     {
                                         @if (mAdminCounter == 0)
@@ -257,6 +290,7 @@
                                             mAdminCounter++;
                                         }
                                         <div class="small-padding-left">@member.Cliente.Name</div>
+
                                     }
                                     else if (member.Privilegio.Equals(NivelPrivilegio.Editor))
                                     {
@@ -265,7 +299,17 @@
                                             <span>Editores</span>
                                             mEditorCounter++;
                                         }
-                                        <div class="small-padding-left">@member.Cliente.Name</div>
+                                        <div class="row-container edges-flex max-width">
+                                            <div class="small-padding-left">@member.Cliente.Name</div>
+                                            <div style="display:none" class="editPermisions">
+                                                <label for="editPermissions">Selecionar Permissão:</label>
+                                                <select name="editPermissions" form="permissions-@counter">
+                                                    <option value=@current selected hidden>@member.Privilegio</option>
+                                                    <option value=@editor>Editor</option>
+                                                    <option value=@leitor>Leitor</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     }
                                     else if (member.Privilegio.Equals(NivelPrivilegio.Leitor))
                                     {
@@ -274,17 +318,19 @@
                                             <span>Leitores</span>
                                             mLeitorCounter++;
                                         }
-                                        <div class="max-width">
 
+                                        <div class="row-container edges-flex max-width">
                                             <div class="small-padding-left">@member.Cliente.Name</div>
-                                            <div class="right-flex small-padding-right2 ">
-                                                <div class="delete-button-color medium-button pechincha-button" onclick="deletePopup(@counter);">
-                                                    Remover
-                                                </div>
+                                            <div style="display:none" class="editPermisions">
+                                                <label for="editPermissions">Selecionar Permissão:</label>
+                                                <select name="editPermissions" form="permissions-@counter">
+                                                    <option value=@current selected hidden>@member.Privilegio</option>
+                                                    <option value=@editor>Editor</option>
+                                                    <option value=@leitor>Leitor</option>
+                                                </select>
                                             </div>
                                         </div>
-                                      
-
+                                            
                                     }
                                 }
                             }
@@ -396,5 +442,6 @@
         chooseimage = document.getElementById("delete-popup-" + text);
         chooseimage.classList.toggle('display-none');
     }
+
 </script>
 
