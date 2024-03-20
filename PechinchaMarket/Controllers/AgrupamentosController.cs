@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aspose.Pdf;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -459,6 +460,58 @@ namespace PechinchaMarket.Controllers
                 await RemoveList(id, lista);
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePermissions(Guid id, string[] editPermissions)
+        {
+
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+                            .Include(x => x.Agrupamento)
+                                 .ThenInclude(x => x.ListaProdutos).ToListAsync();
+
+
+            var errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            ViewBag.ErrorMessages = errorMessages;
+
+
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("Name");
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var membros = _context.AgrupamentosMembro.Where(x => x.Agrupamento.Id == id).ToArray();
+
+                    for(int i = 1 ; i < membros.Length; i++)
+                    {
+
+                        int iForPermission = i -1 ;
+
+                        string[] privAndId = editPermissions[iForPermission].Split("_");
+
+                        if (privAndId[1] == id.ToString())
+                        {
+                            NivelPrivilegio nivelPrivilegio;
+                            Enum.TryParse(privAndId[0], out nivelPrivilegio);
+                            membros[i].Privilegio = nivelPrivilegio;
+                        }
+                    }
+
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
+                }
+
+
+                return RedirectToAction("Index", new { model = agrupamentos });
+            }
+            return RedirectToAction("Index", new { model = agrupamentos });
         }
 
         // GET: Agrupamentos/Delete/5
