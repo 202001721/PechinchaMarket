@@ -29,13 +29,19 @@ namespace PechinchaMarket.Controllers
         // GET: Agrupamentos
         public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+
             var userId = _userManager.GetUserId(User);
             Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
 
             var model = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
                                         .Include(x => x.Agrupamento)
                                              .ThenInclude(x => x.ListaProdutos).ToListAsync();
-            
+
             var lists = _context.ListaProdutos.Where(x => x.ClienteId == cliente.Id.ToString()).ToList();
             ViewData["Lists"] = lists;
             var agrupamentos = _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente)).Select(x => x.Agrupamento).ToList(); //Agrupamentos que o cliente pretence
@@ -91,18 +97,19 @@ namespace PechinchaMarket.Controllers
             ModelState.Remove("Nome");
             if (ModelState.IsValid)
             {
-                if (cliente != null) {
+                if (cliente != null)
+                {
                     agrupamento.Id = Guid.NewGuid();
                     agrupamento.Nome = "Agrupamento " + (_context.AgrupamentosMembro.Where(x => x.Cliente.UserId.Equals(userId)).Select(x => x.Agrupamento).ToList().Count() + 1);
-                    
+
                     var Codigos = _context.AgrupamentosMembro.Where(x => x.Cliente.UserId.Equals(userId)).Select(x => x.Agrupamento.Codigo).ToList();
                     long codigo = 0;
                     do
                     {
                         codigo = GenerateRandomNumber();
-                    } while (Codigos.Contains(codigo)); 
-                    
-                    
+                    } while (Codigos.Contains(codigo));
+
+
                     agrupamento.Codigo = codigo;
                     AgrupamentoMembro agrupamentoMembro = new AgrupamentoMembro();
                     agrupamentoMembro.Agrupamento = agrupamento;
@@ -182,7 +189,8 @@ namespace PechinchaMarket.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditName(Guid id, [Bind("Id","Nome")] Agrupamento agrupamento) {
+        public async Task<IActionResult> EditName(Guid id, [Bind("Id", "Nome")] Agrupamento agrupamento)
+        {
             var userId = _userManager.GetUserId(User);
             Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
             var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
@@ -243,7 +251,7 @@ namespace PechinchaMarket.Controllers
             ModelState.Remove("ClienteId");
             ModelState.Remove("Name");
             if (ModelState.IsValid)
-            { 
+            {
                 try
                 {
                     var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
@@ -294,7 +302,7 @@ namespace PechinchaMarket.Controllers
                     var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
                     var main = _context.ListaProdutos.ToList();
                     var cliente_context = _context.Cliente.Single(x => x.Id == clienteId);
-                    
+
                     _context.AgrupamentosMembro.Add(
                         new AgrupamentoMembro
                         {
@@ -496,11 +504,13 @@ namespace PechinchaMarket.Controllers
             return _context.ListaProdutos.Any(e => e.Id.ToString() == id);
         }
 
-        private bool AgrupamentoMembroExists(Guid clienteId, Guid agrupamentoId) {
+        private bool AgrupamentoMembroExists(Guid clienteId, Guid agrupamentoId)
+        {
             return _context.AgrupamentosMembro.Any(e => e.Cliente.Id == clienteId && e.Agrupamento.Id == agrupamentoId);
         }
 
-        private long GenerateRandomNumber() {
+        private long GenerateRandomNumber()
+        {
             Random random = new Random();
 
             // List to store the generated random numbers
@@ -512,14 +522,15 @@ namespace PechinchaMarket.Controllers
                 int randomNumber = random.Next(0, 10);
 
                 result += randomNumber;
-                result *= 10; 
+                result *= 10;
             }
 
             return result;
         }
 
 
-        public async Task<IActionResult> GetPerfilImage(Guid id) {
+        public async Task<IActionResult> GetPerfilImage(Guid id)
+        {
             var image = _context.Cliente.Where(x => x.Id == id).Select(x => x.Image).FirstOrDefault();
 
             if (image == null)
@@ -532,7 +543,43 @@ namespace PechinchaMarket.Controllers
             }
 
             return File(image, "image/jpg");
-            
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EnterWithCode(long codigo)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            if (await _context.AgrupamentosMembro.AnyAsync(x => x.Agrupamento.Codigo == codigo && x.Cliente.UserId == userId))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                //procura o agrupamento e coloca o membro como leitor desse grupo
+                var agrupamento = await _context.Agrupamentos.FirstOrDefaultAsync(x => x.Codigo == codigo);
+                var cliente = _context.Cliente.Where(x => x.UserId == userId).FirstOrDefault();
+                if (agrupamento != null)
+                {
+                    var novoMembro = new AgrupamentoMembro
+                    {
+                        Agrupamento = agrupamento,
+                        Cliente = cliente,
+                        Privilegio = NivelPrivilegio.Leitor
+                    };
+                    _context.AgrupamentosMembro.Add(novoMembro);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            return View();
         }
     }
 }

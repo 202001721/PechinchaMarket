@@ -124,7 +124,21 @@
                                     <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
                                     <span id="categoria" hidden>@produto.ProdCategoria</span>
                                     <span id="brand">@produto.Brand</span>
-                                    <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
+                                    <span id="price">
+                                        @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
+                                        {
+                                            var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
+                                            var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
+                                            var precoComDesconto = precoOriginal * (desconto);
+                                            <span>@precoComDesconto€/@produto.Unidade</span>
+                                        }
+                                        else
+                                        {
+                                            <span>
+                                                @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade
+                                            </span>
+                                        }
+                                    </span>
                                 </a>
                             }
                             else
@@ -134,7 +148,7 @@
                                     <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
                                     <span id="categoria" hidden>@produto.ProdCategoria</span>
                                     <span id="brand">@produto.Brand</span>
-                                    <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price €/@produto.Unidade</span>
+                                    <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade</span>
                                 </a>
                             }
                     }
@@ -326,8 +340,8 @@
 
     
         function sortByPrice(a, b) {
-            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
-            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceA = parseFloat(a.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
             return priceB - priceA;
         }
         results.sort(sortByPrice);
@@ -345,8 +359,8 @@
 
 
         function sortByPrice(a, b) {
-            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
-            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceA = parseFloat(a.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
             return priceA - priceB;
         }
         results.sort(sortByPrice);
@@ -364,8 +378,8 @@
   
 
         function sortByBrand(a, b) {
-            var brandA = a.getElementById("brand").textContent;
-            var brandB = b.getElementById("brand").textContent;
+            var brandA = a.querySelector("#brand").textContent;
+            var brandB = b.querySelector("#brand").textContent;
 
             return brandA.localeCompare(brandB);
         }
@@ -384,8 +398,8 @@
       
 
         function sortByBrand(a, b) {
-            var brandA = a.getElementById("brand").textContent;
-            var brandB = b.getElementById("brand").textContent;
+            var brandA = a.querySelector("#brand").textContent;
+            var brandB = b.querySelector("#brand").textContent;
 
             return brandB.localeCompare(brandA);
         }
