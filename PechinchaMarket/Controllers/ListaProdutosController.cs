@@ -39,6 +39,12 @@ namespace PechinchaMarket.Controllers
         // GET: ListaProdutos
         public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+
             var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault().Id.ToString();
 
             var lista = from l in _context.ListaProdutos where l.ClienteId == clienteId select l;
@@ -51,6 +57,12 @@ namespace PechinchaMarket.Controllers
         // GET: ListaProdutos/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+
             if (id == null)
             {
                 return NotFound();
@@ -110,6 +122,12 @@ namespace PechinchaMarket.Controllers
         // GET: ListaProdutos/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+
             if (id == null)
             {
                 return NotFound();
