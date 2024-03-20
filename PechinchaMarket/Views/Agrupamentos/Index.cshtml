@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div class="new-page display-none" id="delete-popup-@counter">
-                        <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                        <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
                             <div class="edges-flex max-width">
                                 <div class="title unselectable-text">Eliminar Agrupamento</div>
                                 <div class="cross-button" onclick="deletePopup(@counter);"></div>
@@ -259,7 +259,7 @@
                         {
                             <div class="buttons-end">
                                 <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
-                                <form id="formRemove" asp-action="RemoveList" asp-route-id="@item.Agrupamento.Id" method="post">
+                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post">
              
                                   
                                     <input  name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Membros" />

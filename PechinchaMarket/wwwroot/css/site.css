@@ -1345,6 +1345,12 @@ a.default-button-color:hover::before {
         top: calc(50vh - (400px / 2));
     }
 
+    .new-page > div.smaller-page {
+        width: 400px;
+        height: 240px;
+        top: calc(50vh - (400px / 2));
+    }
+
     .new-page > div.big-page {
         width: 800px;
         height: 600px;
@@ -1352,7 +1358,8 @@ a.default-button-color:hover::before {
     }
 
     .new-page > div.small-page,
-    .new-page > div.big-page {
+    .new-page > div.big-page,
+    .new-page > div.smaller-page{
         background-color: var(--root-background-content-color);
         position: absolute;
         padding: 10px;
@@ -1373,6 +1380,13 @@ a.default-button-color:hover::before {
             top: 0 !important;
         }
     }
+@media screen and (max-height: 200px) {
+
+    .new-page > div.smaller-page {
+        position: relative !important;
+        top: 0 !important;
+    }
+}
 
     .new-page .title {
         font-size: 20px;
