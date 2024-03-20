@@ -1983,6 +1983,7 @@ a.default-button-color:hover::before {
 
 .pechincha-navbar-option.opened {
     display: inline-block !important;
+}
 
 .back {
     display: inline-block;
