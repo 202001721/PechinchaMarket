@@ -32,7 +32,7 @@
                 @if (ViewBag.PrecoExibicao != null)
                 {
                     <span class="discounted-price-text">
-                        @ViewBag.PrecoExibicao.ToString("C")/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                        @ViewBag.PrecoExibicao.ToString()€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
                     </span>
                     <span class="price-text">
                         <s>@Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)</s> <!-- Riscar o preço sem desconto -->
