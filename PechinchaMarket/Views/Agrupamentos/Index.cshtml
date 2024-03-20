@@ -18,6 +18,13 @@
 }
 
 <script>
+    function copyText() {
+        var copyText = document.getElementById("codigo");
+        console.log(copyText);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+    }
 
     function colapse(div) {
         div.children[0].classList.toggle("text-indent");
@@ -59,6 +66,12 @@
     function chooseListToAdd(text) {
         document.body.classList.toggle('no-overflow');
         chooseimage = document.getElementById("add-list-" + text);
+        chooseimage.classList.toggle('display-none');
+    }
+
+    function enterCode() {
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("enter-agrupamento");
         chooseimage.classList.toggle('display-none');
     }
 
@@ -105,11 +118,32 @@
 
 <h1>Agrupamentos</h1>
 
-<p>
-    <form asp-action="Create">
+<div class="display-flex">
+    <form asp-action="Create" class="small-padding">
         <button class="pechincha-button default-button-color bigger-button" type="submit">Criar Agrupamento</button>
     </form>
-</p>
+    <div class="small-padding">
+        <button class="pechincha-button default-button-color bigger-button" onclick="enterCode();" type="submit">Entrar Agrupamento</button>
+    </div>
+</div>
+
+<div class="new-page display-none" id="enter-agrupamento">
+    <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+        <div class="edges-flex max-width">
+            <div class="title unselectable-text">Entrar num Agrupamento</div>
+            <div class="cross-button" onclick="enterCode();"></div>
+        </div>
+        <form asp-action="EnterWithCode" method="post" class="column-container edges-flex max-width">
+            <div class="center-y-flex column-container display-flex wrap-flex tiny-gap center-x-flex small-padding-right small-padding-left list-chooser">
+                <label for="code">Código</label>
+                <input name="codigo" />
+            </div>
+            <div class="row-container right-flex max-width">
+                <button type="submit" value="Save" class="pechincha-button main-button-color row-container">Entrar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <div class="column-container smaller-gap-y">
     @foreach (var item in Model) {
@@ -123,8 +157,13 @@
             <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
                 @if (item.Privilegio == NivelPrivilegio.Admin)
                 {
-                    <div class="right-flex small-padding-right2 ">
-                        <div class="delete-button-color bigger-button pechincha-button" onclick="deletePopup(@counter);">
+
+                    <div class="row-container small-padding display-flex edges-flex">
+                       <div class="left-flex">
+                            <input id="codigo" value="@item.Agrupamento.Codigo" readonly></input>
+                            <button onclick="copyText()">Copiar Código</button>
+                        </div>
+                        <div class="delete-button-color bigger-button pechincha-button right-flex" onclick="deletePopup(@counter);">
                             Eliminar Agrupamento
                         </div>
                     </div>
@@ -294,11 +333,15 @@
                     <div class="new-page display-none" id="add-member-@counter">
                         <div class="big-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
                             <div class="edges-flex max-width">
-                                <div class="title unselectable-text">Adicionar uma Lista</div>
+                                <div class="title unselectable-text">Adicionar um Membro</div>
                                 <div class="cross-button" onclick="chooseMemberToAdd(@counter);"></div>
                             </div>
                             <div class="column-container edges-flex max-width max-height">
                                 <div>Pesquise um membro</div>
+                                <div class="center-x-flex small-padding">
+                                    <input id="codigo" value="@item.Agrupamento.Codigo" readonly></input>
+                                    <button onclick="copyText()">Copiar Código</button>
+                                </div>
                                 <div>
                                     <div class="small-padding-right small-padding-left">
                                         <div class="nav-search-div">
@@ -391,6 +434,7 @@
 
         chooseimage.classList.toggle('display-none');
     }
+
     function deletePopup(text) {
         document.body.classList.toggle('no-overflow');
         chooseimage = document.getElementById("delete-popup-" + text);

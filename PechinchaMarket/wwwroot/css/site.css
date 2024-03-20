@@ -1088,6 +1088,10 @@ a.cancel-button:hover::before {
     gap: 1em 0px;
 }
 
+.tiny-gap {
+    gap: 0.4em 0.4em;
+}
+
 .tiny-gap-x {
     gap: 0px 0.4em;
 }
@@ -1115,8 +1119,16 @@ a.cancel-button:hover::before {
     padding-left: 2em;
 }
 
+.small-padding-top {
+    padding-top: 2em;
+}
+
 .medium-padding-top {
     padding-top: 4em;
+}
+
+.medium-padding-left {
+    padding-left: 4em;
 }
 
 .small-margin-bottom {
@@ -1862,7 +1874,6 @@ a.default-button-color:hover::before {
     word-wrap:break-word;
 }
 
-
 @media screen and (max-width: 670px) {
     .pechincha-navbar {      
     }
@@ -1953,4 +1964,16 @@ a.default-button-color:hover::before {
 
 .pechincha-navbar-option.opened {
     display: inline-block !important;
+
+.back {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../images/down-arrow.png);
+    background-size: cover;
+    transform: rotate(90deg);
+    margin-top: 1.5em;
+    margin-left: 1.5em;
+    margin-bottom: 0em;
+    cursor: pointer;
 }

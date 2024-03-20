@@ -36,10 +36,10 @@ namespace PechinchaMarket.Controllers
             if (comerciante != null)
             {
                 var products = await _context.Produto
-    .Where(x => x.ProdutoLojas.Any(pl => pl.Loja.UserId.Equals(comerciante.UserId)))
-    .Include(x => x.ProdutoLojas)
-        .ThenInclude(x => x.Loja)
-    .ToListAsync();
+                .Where(x => x.ProdutoLojas.Any(pl => pl.Loja.UserId.Equals(comerciante.UserId)))
+                .Include(x => x.ProdutoLojas)
+                    .ThenInclude(x => x.Loja)
+                .ToListAsync();
 
                 //.Where(x => x.UserId.Equals(comerciante.UserId))
 
@@ -70,7 +70,8 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            var produto = await _context.Produto
+            var produto = await _context.Produto.Include(x => x.ProdutoLojas)
+                    .ThenInclude(x => x.Loja)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (produto == null)
             {
