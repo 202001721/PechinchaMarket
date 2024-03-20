@@ -8,67 +8,52 @@
     var user = await UserManager.GetUserAsync(User);
 }
 
-    <div class="push-left push-right display-flex search-input-size">
-        <form id="searchForm" method="post" asp-controller="Search" asp-action="search" class="shrink-flex">
-            <div class="nav-search-div">
-                <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="sugest(this.value, this)" />
-                <button type="submit"></button>
+<form id="searchForm" method="post" asp-controller="Search" asp-action="search" class="pechincha-navbar-option push-left push-right grow-flex display-flex search-input-size">
+    <div class="nav-search-div">
+        <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="sugest(this.value, this)" />
+        <button type="submit"></button>
+    </div>
+    <div class="sugestions" id="search-sugestions"></div>
+</form>
+<div class="display-flex small-gap-x">
+    @if (SignInManager.IsSignedIn(User) && user != null)
+    {
+        @if (User.IsInRole("Comerciante"))
+        {
+            <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Lojas" asp-action="Index">Lojas</a>
+        }
+        else if (User.IsInRole("Manager"))
+        {
+            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonConfirmedList">Comerciantes</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonAprovedProducts">Produtos</a>
+        }
+        else if (User.IsInRole("Cliente"))
+        {
+            <a class="pechincha-navbar-option cursor-pointer small-image nav-link text-dark" asp-area="" asp-controller="ListaProdutos" asp-action="Index" style="background-image: url('/images/lists.png');"></a>
+        }
+
+        <span id="manage" class="pechincha-navbar-option-hide cursor-pointer perfil-image-border nav-link small-perfil-image no-padding" asp-area="Identity" asp-page="/Account/Manage/Index" onclick="displayperfilmenu()">
+            <div class="display-none perfil-nav-menu" id="perfil-menu">
+                <div>
+                    <a class="pechincha-navbar-option pechincha-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><span class="move-text">Perfil</span></a>
+                    <form id="logoutForm" class="pechincha-navbar-option form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="pechincha-link"><span class="move-text">Terminar Sessão</span></button>
+                    </form>
+                </div>
             </div>
-            <div class="sugestions" id="search-sugestions"></div>
-        </form>
-    </div>
-    <div>
-        <ul class="navbar-nav small-gap-x center-y-flex">
-            @if (SignInManager.IsSignedIn(User) && user!=null)
-            {
-                @if (User.IsInRole("Comerciante"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Lojas" asp-action="Index">Lojas</a>
-                    </li>
-                }
-                else if (User.IsInRole("Manager"))
-                {
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonConfirmedList">Comerciantes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="NonAprovedProducts">Produtos</a>
-                    </li>
-                }
-                else if (User.IsInRole("Cliente"))
-                {
-                    <li class="nav-item">
-                        <a class="cursor-pointer small-image nav-link text-dark" asp-area="" asp-controller="ListaProdutos" asp-action="Index" style="background-image: url('/images/lists.png');"></a>
-                    </li>
-                }
-
-                <li class="nav-item no-padding height-fit-content center-x-flex center-y-flex">
-                    <span id="manage" class="cursor-pointer perfil-image-border nav-link small-perfil-image no-padding" asp-area="Identity" asp-page="/Account/Manage/Index" onclick="displayperfilmenu()">
-                        <div class="display-none perfil-nav-menu" id="perfil-menu">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Perfil</a>
-
-                            <form class="clickable-div" id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <button id="logout" type="submit" class="remove-hover clickable-div nav-link btn btn-link text-dark border-0">Logout</button>
-                            </form>
-                        </div>
-                    </span>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                </li>
-            }
-        </ul>
-    </div>
+        </span>
+    }
+    else
+    {
+        <span class="pechincha-navbar-option">
+            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </span>
+        <span class="pechincha-navbar-option">
+            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </span>
+    }
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

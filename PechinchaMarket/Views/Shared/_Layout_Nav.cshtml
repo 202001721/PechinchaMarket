@@ -19,19 +19,18 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="edges-flex max-width">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 small-padding-left small-padding-right">
+            <div class="edges-flex max-width small-gap-x">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
 
                     <span class="small-icon-logo"></span> PechinchaMarket
 
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex center-y-flex">
+                <div class="max-width display-flex center-y-flex small-gap-x pechincha-navbar">
                     <partial name="_LoginPartial" />
+                </div>
+                <div class="pechincha-navbar-button">
+                    <input type="checkbox" id="phone-menu-toggleCheckbox">
                 </div>
             </div>
         </nav>

@@ -326,8 +326,8 @@
 
     
         function sortByPrice(a, b) {
-            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
-            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceA = parseFloat(a.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
             return priceB - priceA;
         }
         results.sort(sortByPrice);
@@ -345,8 +345,8 @@
 
 
         function sortByPrice(a, b) {
-            var priceA = parseFloat(a.getElementById("price").textContent.replace(/[^\d.]/g, ''));
-            var priceB = parseFloat(b.getElementById("price").textContent.replace(/[^\d.]/g, ''));
+            var priceA = parseFloat(a.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
+            var priceB = parseFloat(b.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
             return priceA - priceB;
         }
         results.sort(sortByPrice);
@@ -364,8 +364,8 @@
   
 
         function sortByBrand(a, b) {
-            var brandA = a.getElementById("brand").textContent;
-            var brandB = b.getElementById("brand").textContent;
+            var brandA = a.querySelector("#brand").textContent;
+            var brandB = b.querySelector("#brand").textContent;
 
             return brandA.localeCompare(brandB);
         }
@@ -384,8 +384,8 @@
       
 
         function sortByBrand(a, b) {
-            var brandA = a.getElementById("brand").textContent;
-            var brandB = b.getElementById("brand").textContent;
+            var brandA = a.querySelector("#brand").textContent;
+            var brandB = b.querySelector("#brand").textContent;
 
             return brandB.localeCompare(brandA);
         }
