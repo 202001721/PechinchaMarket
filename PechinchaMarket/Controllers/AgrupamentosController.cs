@@ -27,6 +27,10 @@ namespace PechinchaMarket.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        /// <summary>
+        /// Função Index - é utilizada quando o cliente pretende visualizar os seus agrupamentos no seu perfil
+        /// </summary>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador</returns>
         // GET: Agrupamentos
         public async Task<IActionResult> Index()
         {
@@ -72,6 +76,10 @@ namespace PechinchaMarket.Controllers
             return View(agrupamento);
         }
 
+        /// <summary>
+        /// Função Create - utilizada quando o cliente prentende criar um novo agrupamento
+        /// </summary>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizado</returns>
         // GET: Agrupamentos/Create
         public IActionResult Create()
         {
@@ -188,6 +196,12 @@ namespace PechinchaMarket.Controllers
             return View(agrupamento);
         }
 
+        /// <summary>
+        /// Função EditName - utilizada quando o utilizador pretende mudar o nome de um agrupamento
+        /// </summary>
+        /// <param name="id">id do agrupamento respetivo</param>
+        /// <param name="agrupamento">novo agrupamento que vai atualizar a base de dados</param>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizada</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditName(Guid id, [Bind("Id", "Nome")] Agrupamento agrupamento)
@@ -234,7 +248,12 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction("Index", new { model = agrupamentos });
         }
 
-
+        /// <summary>
+        /// Função AddList - utilizada quando o utilizador pretende adicionar uma lista ao agrupamento
+        /// </summary>
+        /// <param name="id">id do agrupamento em questão</param>
+        /// <param name="listaId">id da lista a ser adicionada</param>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizada</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddList(Guid id, String listaId)
@@ -280,6 +299,12 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction("Index", new { model = agrupamentos });
         }
 
+        /// <summary>
+        /// Função AddMemberLeitor - usada quando o cliente administrador do agrupamento quer adicionar um membro novo ao agrupamento
+        /// </summary>
+        /// <param name="id">id do agrupamento em questão</param>
+        /// <param name="clienteId">id do cliente a ser adicionado ao agrupamento</param>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizado</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddMemberLeitor(Guid id, Guid clienteId)
@@ -333,11 +358,11 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction("Index", new { model = agrupamentos });
         }
         /// <summary>
-        /// Método que recebe o id do agrupamento e do membro a ser eliminado deste mesmo agrupamento
+        /// Função RemoveMember - Método que recebe o id do agrupamento e do membro a ser eliminado deste mesmo agrupamento
         /// </summary>
         /// <param name="id">Id do agrupamento a ser gerido</param>
         /// <param name="clienteId">membro do agrupamento a ser removidos</param>
-        /// <returns></returns>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizada</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveMember(Guid id, Guid clienteId)
@@ -379,11 +404,11 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction("Index"); 
         }
         /// <summary>
-        /// Método que utiliza do método de remover membros para remover uma lista de membros do agrupamento
+        /// Função RemoveMembers - Método que utiliza do método de remover membros para remover uma lista de membros do agrupamento
         /// </summary>
         /// <param name="id"> Id do agrupamento a ser gerido</param>
         /// <param name="members"> lista de membros do agrupamento a serem removidos</param>
-        /// <returns></returns>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizada</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveMembers(Guid id, List<Guid> members)
@@ -394,12 +419,13 @@ namespace PechinchaMarket.Controllers
             }
             return   RedirectToAction("Index");
         }
+
         /// <summary>
-        /// 
+        /// Função RemoveList - utilizada para remover uma lista do agrupamento
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="listaId"></param>
-        /// <returns></returns>
+        /// <param name="id">id do agrupamento em questão</param>
+        /// <param name="listaId">id da lista a ser removida</param>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizada</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveList(Guid id, Guid listaId)
@@ -451,6 +477,13 @@ namespace PechinchaMarket.Controllers
 
             return RedirectToAction("Index", new { model = agrupamentos });
         }
+
+        /// <summary>
+        /// Função RemoveLists - utilizada para todas as listas do agrupamento
+        /// </summary>
+        /// <param name="id">id do agrupamento em questão</param>
+        /// <param name="listasId">lista de ids das listas a serem eleminadas</param>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizada</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveLists(Guid id, List<Guid> listasId)
@@ -462,6 +495,12 @@ namespace PechinchaMarket.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Função ChangePermissions - utilizada quando o utilizador pretende mudar os privilégios de um membro do agrupamento
+        /// </summary>
+        /// <param name="id">id do agrupamento em questão</param>
+        /// <param name="editPermissions">lista de permissões repetivas a cada membro</param>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizado</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePermissions(Guid id, string[] editPermissions)
@@ -562,6 +601,10 @@ namespace PechinchaMarket.Controllers
             return _context.AgrupamentosMembro.Any(e => e.Cliente.Id == clienteId && e.Agrupamento.Id == agrupamentoId);
         }
 
+        /// <summary>
+        /// Função GenerateRandomNumber - cria um numero aleatório a ser usado para o código 
+        /// </summary>
+        /// <returns>numero aleatório de 16 digitos</returns>
         private long GenerateRandomNumber()
         {
             Random random = new Random();
@@ -581,7 +624,11 @@ namespace PechinchaMarket.Controllers
             return result;
         }
 
-
+        /// <summary>
+        /// Função GetPerfilImage - usada para mostrar a imagem do perfil
+        /// </summary>
+        /// <param name="id">id do cliente que está logged in</param>
+        /// <returns>ficheiro com a imagem pretendida</returns>
         public async Task<IActionResult> GetPerfilImage(Guid id)
         {
             var image = _context.Cliente.Where(x => x.Id == id).Select(x => x.Image).FirstOrDefault();
@@ -599,6 +646,11 @@ namespace PechinchaMarket.Controllers
 
         }
 
+        /// <summary>
+        /// Função EnterWithCode - utilizada quando o cliente insere um codigo de um agrupamento para se juntar
+        /// </summary>
+        /// <param name="codigo">codigo do agrupamento inserido</param>
+        /// <returns>View com as opções e informações dos agrupamentos do utilizador atualizada</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EnterWithCode(long codigo)

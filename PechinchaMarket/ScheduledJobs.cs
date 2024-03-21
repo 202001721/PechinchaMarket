@@ -15,7 +15,11 @@ namespace PechinchaMarket
             _context = context;
         }
 
-
+        /// <summary>
+        /// Função Execute - Corre especificamente á meia noite todos os dias para apagar descontos da DB se estes tiverem acabado 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         [HttpPost]
         public Task Execute(IJobExecutionContext context)
         {

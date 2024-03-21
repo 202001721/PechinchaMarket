@@ -440,6 +440,11 @@ namespace PechinchaMarket.Controllers
             return Convert.ToBase64String(image);
         }
 
+        /// <summary>
+        /// Função ShowDiscount - mostra o desconto caso ele exista
+        /// </summary>
+        /// <param name="id">id do produtoLoja pretendido</param>
+        /// <returns>View com os descontos aplicados</returns>
         public IActionResult ShowDiscount(int id)
         {
             var produtoLoja = _context.ProdutoLoja.Select(p => p).FirstOrDefault(p => p.Id == id);
