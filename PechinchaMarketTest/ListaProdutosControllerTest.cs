@@ -50,8 +50,8 @@ namespace PechinchaMarketTest
             var user = new PechinchaMarketUser() { UserName = "JohnDoe", Id = "1" };
 
             Mock<UserManager<PechinchaMarketUser>> userMgr = GetMockUserManager();
+            userMgr.Setup(x => x.GetUserAsync(It.IsAny<ClaimsPrincipal>())).ReturnsAsync(user);
             userMgr.Setup(x => x.FindByNameAsync(It.IsAny<string>())).ReturnsAsync(user);
-
             userMgr.Setup(s => s.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("1");
 
             _userManager = userMgr.Object;
