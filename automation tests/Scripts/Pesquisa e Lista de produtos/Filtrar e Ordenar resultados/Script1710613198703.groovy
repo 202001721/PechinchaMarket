@@ -21,8 +21,6 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'))
-
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/button_submit'))
 
 WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/button_Categoria'))
@@ -33,15 +31,13 @@ WebUI.delay(1)
 
 WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Categoria_categorias'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/button_Categoria'))
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/label_Doces'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/button_Comerciante'))
-
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Comerciante_comerciantes'))
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Categoria_categorias'))
 
 WebUI.delay(1)
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Comerciante_comerciantes'))
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Categoria_categorias'))
 
 WebUI.closeBrowser()
 

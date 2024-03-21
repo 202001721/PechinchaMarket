@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>button_Login</name>
+   <name>input_Lista de Produtos_listaId</name>
    <tag></tag>
-   <elementGuidId>f310c489-b09c-40f6-89a1-b7f30d8de8ed</elementGuidId>
+   <elementGuidId>b703e2dc-415d-4312-9ae8-d29e5ea10589</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>#login-submit</value>
+         <key>XPATH</key>
+         <value>//input[@id='2f2d4795-4173-43c1-822d-3c308d17d1c5']</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//button[@id='login-submit']</value>
+         <key>CSS</key>
+         <value>#2f2d4795-4173-43c1-822d-3c308d17d1c5</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Login&quot;i]</value>
+         <value>internal:label=&quot;Lista para remover&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,111 +28,111 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>button</value>
-      <webElementGuid>d83388c3-3aeb-4c72-ab48-4365584d0cdd</webElementGuid>
+      <value>input</value>
+      <webElementGuid>55454bb2-a977-4cb7-bc32-354ed86634de</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>listaId</value>
+      <webElementGuid>644a3540-a1dc-4fd8-af74-d22768808b54</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>login-submit</value>
-      <webElementGuid>a633f70c-d2ab-4cb3-b0cc-26cac1b849c8</webElementGuid>
+      <value>2f2d4795-4173-43c1-822d-3c308d17d1c5</value>
+      <webElementGuid>543caee0-9fc8-484f-83b1-000d727ab889</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>type</name>
       <type>Main</type>
-      <value>submit</value>
-      <webElementGuid>73912110-d516-42ab-afcf-1b53e6a461e3</webElementGuid>
+      <value>radio</value>
+      <webElementGuid>dc46f443-be33-4958-86d6-b16348987412</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>value</name>
       <type>Main</type>
-      <value>confirm-button</value>
-      <webElementGuid>79fc647d-ad1f-464e-a07a-0cf0de3aa897</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>text</name>
-      <type>Main</type>
-      <value>Login</value>
-      <webElementGuid>2ea0a890-deaa-4631-92e4-474aa2237c6c</webElementGuid>
+      <value>2f2d4795-4173-43c1-822d-3c308d17d1c5</value>
+      <webElementGuid>196c1f33-34cc-4809-a02d-fc025d3d5f48</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;login-submit&quot;)</value>
-      <webElementGuid>1da0698c-5194-4263-b68a-261a4d721814</webElementGuid>
+      <value>id(&quot;2f2d4795-4173-43c1-822d-3c308d17d1c5&quot;)</value>
+      <webElementGuid>47bd93d7-9e82-41ae-b794-f45a995c72e4</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//button[@id='login-submit']</value>
-      <webElementGuid>51c837cb-0e69-4028-b865-7be4734d79c1</webElementGuid>
+      <value>//input[@id='2f2d4795-4173-43c1-822d-3c308d17d1c5']</value>
+      <webElementGuid>a866b289-18f1-4ece-b2d6-f44cdc5a4058</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div[3]/button[2]</value>
-      <webElementGuid>ff401d72-a5c9-4d31-a539-08f9e6ab6a70</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Back'])[1]/following::button[1]</value>
-      <webElementGuid>2eb6d9a5-1492-4833-ac6f-07d2db1c1d48</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/following::button[2]</value>
-      <webElementGuid>caade873-aa68-4073-9718-50e0275d6cbc</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar com o Google'])[1]/preceding::button[1]</value>
-      <webElementGuid>803c4e50-8d08-41db-9e31-ae692eba0e34</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Sign in with Google'])[1]/preceding::button[1]</value>
-      <webElementGuid>c83a5655-c08a-4ca8-b597-f05bc2742e87</webElementGuid>
+      <value>//div[@id='add-list-0']/div/form/div[2]/div/input</value>
+      <webElementGuid>52f4b1b2-54d5-4b92-99a1-ebecbd7d856e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//button[2]</value>
-      <webElementGuid>0e2e3fc9-7808-47f5-8d5b-032e006ec52b</webElementGuid>
+      <value>//div[2]/div/input</value>
+      <webElementGuid>ee90e5a9-a8a6-48f3-8678-70b1d14c7b92</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//button[@id = 'login-submit' and @type = 'submit' and (text() = 'Login' or . = 'Login')]</value>
-      <webElementGuid>f01a6080-3028-4713-aad1-e9ed86ea31fb</webElementGuid>
+      <value>//input[@name = 'listaId' and @id = '2f2d4795-4173-43c1-822d-3c308d17d1c5' and @type = 'radio']</value>
+      <webElementGuid>18a09b7d-517e-458c-98d0-95e9d738e197</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@id='c6f1a3eb-b7ef-4cc9-922f-e4a7316e55f6']</value>
+      <webElementGuid>809e35a6-1ea2-4b06-962d-bcafb8fe28eb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@name = 'listaId' and @id = 'c6f1a3eb-b7ef-4cc9-922f-e4a7316e55f6' and @type = 'radio']</value>
+      <webElementGuid>a398df1c-a079-4b92-8530-33a2d06e2539</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@id='8b0710be-58b6-4380-bf96-d100dc1cbb10']</value>
+      <webElementGuid>b3f5480f-6f30-47e5-87c9-c59f3fb7f475</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@name = 'listaId' and @id = '8b0710be-58b6-4380-bf96-d100dc1cbb10' and @type = 'radio']</value>
+      <webElementGuid>c994b7ec-444c-4e12-afac-30beef9a827e</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

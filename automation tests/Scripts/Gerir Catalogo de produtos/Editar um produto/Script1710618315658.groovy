@@ -37,7 +37,7 @@ WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/label_
 
 WebUI.setText(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input__price_1'), '2.5')
 
-WebUI.click(findTestObject('Page_Edit - PechinchaMarket/input_Salvar_blue-button'))
+WebUI.click(findTestObject('Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
 
 WebUI.closeBrowser()
 

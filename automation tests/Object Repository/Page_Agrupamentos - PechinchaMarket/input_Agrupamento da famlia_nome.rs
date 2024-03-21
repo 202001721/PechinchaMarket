@@ -18,7 +18,7 @@
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>#name-input</value>
+         <value>form >> internal:has-text=&quot;Nome Save Cancelar&quot;i >> #name-input</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>290a7204-e790-4912-8df2-1831ed001fb9</webElementGuid>
+      <webElementGuid>8db63098-63cc-4956-b55d-97f148406744</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>name</name>
       <type>Main</type>
       <value>nome</value>
-      <webElementGuid>f8c382d9-4e26-4656-81dc-16a9251c7fb5</webElementGuid>
+      <webElementGuid>faf4f71f-50fb-4d10-bb2b-adc36b75e938</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>id</name>
       <type>Main</type>
       <value>name-input</value>
-      <webElementGuid>06b9b3ac-4d68-4dd8-a7a8-348404c161b4</webElementGuid>
+      <webElementGuid>8af3ec1b-fa42-4480-8ea4-7f308b58db1f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>52ee50ca-48e8-429d-ab74-b12ac46124c3</webElementGuid>
+      <webElementGuid>e3d13aea-a4df-4fb7-9da9-ebad0304a27c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>d9f6c487-2f71-413e-a7c4-18955a003d6d</webElementGuid>
+      <webElementGuid>8374b8ec-6973-4a04-8ad8-862382e1ddb7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,23 +69,23 @@
       <name>data-val-required</name>
       <type>Main</type>
       <value>The Nome field is required.</value>
-      <webElementGuid>ce22ecd2-9056-4693-b67c-7d5f212a75e6</webElementGuid>
+      <webElementGuid>14b94e1e-89a9-4b47-aab4-0013065473b9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>Agrupamento da família</value>
-      <webElementGuid>d5b8f4be-fa89-4cdb-96dc-f20ac240a96b</webElementGuid>
+      <value>Agrupamento 1</value>
+      <webElementGuid>5048db92-4a7d-4a20-9bd2-3eec94b87891</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;name-input&quot;)</value>
-      <webElementGuid>d6388710-179f-48c9-85b0-dd1cfa5e878a</webElementGuid>
+      <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;small-margin-right small-margin-left small-margin-bottom small-margin-top smaller-gap-y column-container&quot;]/div[@class=&quot;background-constrast-color small-padding rounded-border&quot;]/form[@class=&quot;row-container edges-flex&quot;]/div[@class=&quot;authentication-input-text-div edit-perfil-input&quot;]/input[@id=&quot;name-input&quot;]</value>
+      <webElementGuid>775c1f6c-e9f2-4381-8b94-ee9a99c2d85f</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -93,7 +93,31 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='name-input']</value>
-      <webElementGuid>b531a182-fca6-4e81-869d-2f3840b24fb7</webElementGuid>
+      <webElementGuid>1a64af8a-cfbc-4751-b66d-70246a4bd369</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div[3]/div/div[2]/div[3]/form/div/input</value>
+      <webElementGuid>1a53e389-5ccb-4595-9767-793779c16607</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[3]/form/div/input</value>
+      <webElementGuid>7c4509e2-b47a-45de-9f9d-eea50182fcc4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@name = 'nome' and @id = 'name-input' and @type = 'text']</value>
+      <webElementGuid>96e2df1e-bf8f-4761-be23-ff3ca5471bec</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -110,13 +134,5 @@
       <type>Main</type>
       <value>//div[2]/div/form/div/input</value>
       <webElementGuid>efca233e-cc20-4906-861f-dd76c161ea4b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//input[@name = 'nome' and @id = 'name-input' and @type = 'text']</value>
-      <webElementGuid>f5f693f7-dca9-41f8-9228-f4be7a22c58f</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

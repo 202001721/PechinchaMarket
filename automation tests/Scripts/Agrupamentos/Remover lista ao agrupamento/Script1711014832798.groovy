@@ -27,6 +27,8 @@ WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/inp
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
 
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/div_Email                                  _7b63fd'))
+
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                                _4f1926'))
@@ -35,7 +37,13 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/s
 
 WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/a_Agrupamentos'))
 
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/button_Criar Agrupamento'))
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 1'))
+
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Nome_pechincha-button main-button-color'))
+
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Nome_pechincha-button main-button-color'))
+
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 1'))
 
 WebUI.closeBrowser()
 

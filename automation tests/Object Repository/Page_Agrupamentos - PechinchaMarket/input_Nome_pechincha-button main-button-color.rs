@@ -18,7 +18,7 @@
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Save&quot;i]</value>
+         <value>form >> internal:has-text=&quot;Nome Save Cancelar&quot;i >> internal:role=button</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>b0a9ff39-c9b1-4e9d-a0d8-e34a7a60f578</webElementGuid>
+      <webElementGuid>fc7f2218-33e9-4bbd-a086-e109d647c948</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>ab0c5728-b890-4fff-aa43-a3499b0f90ca</webElementGuid>
+      <webElementGuid>1e92ade8-9b23-47e2-adae-12dcab648cab</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>value</name>
       <type>Main</type>
       <value>Save</value>
-      <webElementGuid>9e2f4c1c-8fc9-461b-b39f-d3abe6f1a94a</webElementGuid>
+      <webElementGuid>ba25bbd0-4fa5-4ca7-85ed-2a6628666d66</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-button main-button-color</value>
-      <webElementGuid>a858a0a3-c997-4fcb-ab9c-b7ac37424cd6</webElementGuid>
+      <webElementGuid>48db826a-61ef-456a-a66b-98b0906da56e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,23 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;small-margin-right small-margin-left small-margin-bottom small-margin-top smaller-gap-y column-container&quot;]/div[@class=&quot;background-constrast-color small-padding rounded-border&quot;]/form[@class=&quot;row-container edges-flex&quot;]/div[@class=&quot;row-container center-y-flex smaller-gap-x&quot;]/input[@class=&quot;pechincha-button main-button-color&quot;]</value>
-      <webElementGuid>b8d12380-ad22-4539-ba79-97750c99e323</webElementGuid>
+      <webElementGuid>882db4f6-4fcb-4739-b73f-3ce0393bd312</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>form</name>
+      <type>Main</type>
+      <value>formRemoveLists</value>
+      <webElementGuid>c3b1a0f4-7611-41a0-914f-c224e3de7c0d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>listasId</value>
+      <webElementGuid>99f5a1b6-0f4f-40df-bc8f-7c9239e28d3a</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -69,7 +85,87 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@value='Save']</value>
-      <webElementGuid>9c353e95-eee4-43bb-919a-85858205f837</webElementGuid>
+      <webElementGuid>ed3c2075-ce5d-4f1b-a9ed-f0a40b23f65f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div[3]/div/div[2]/div[3]/form/div[2]/input</value>
+      <webElementGuid>2c64e72b-8765-47c9-8f93-8a5a6f28e86f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//form/div[2]/input</value>
+      <webElementGuid>14bb913b-80f1-42e1-986e-2ffb0bdd259d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'submit']</value>
+      <webElementGuid>51869db8-8d6a-45c6-915d-1b36a3a3f689</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@value='Remover Listas']</value>
+      <webElementGuid>1beea4cb-a19b-46a4-aef6-b2b9f29343d1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='formRemoveLists']/input</value>
+      <webElementGuid>65ef1f16-494d-4236-844b-388de73415e7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[4]/div/div/form/input</value>
+      <webElementGuid>8f6a8b8e-3513-4d01-bc7b-5713e82de574</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@name='listasId']</value>
+      <webElementGuid>84ec0288-b204-49d6-88e0-b59cdb9a8fb4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div[3]/div/div[2]/div[4]/div[3]/div/div/input</value>
+      <webElementGuid>7faf589c-40e1-4dcd-861f-7fa17f7a7941</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[3]/div/div/input</value>
+      <webElementGuid>15749df1-8695-43b4-a75a-f3cca7d11693</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@form = 'formRemoveLists' and @type = 'checkbox' and @name = 'listasId']</value>
+      <webElementGuid>4cb33da3-f383-4bda-8792-b57d5552267e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -86,13 +182,5 @@
       <type>Main</type>
       <value>//div[2]/input</value>
       <webElementGuid>eb9d4480-7c24-4439-9819-5f9596fc13d4</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//input[@type = 'submit']</value>
-      <webElementGuid>b4ed7009-ddce-43dd-9a84-dc42c01eee94</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
