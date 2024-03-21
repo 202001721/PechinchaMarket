@@ -25,44 +25,24 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a
 
 WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'clientepecmk@gmail.com')
 
-WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/main_Precisa de ajuda                      _508d9a'))
-
-WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'clientepecmk@gmail.com')
-
-WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/label_Password'))
-
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                                _6a042e'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                                _4f1926'))
 
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Perfil'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil'))
 
 WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/a_Agrupamentos'))
 
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento da famlia'))
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/div_Agrupamento 1'))
 
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/div_Editar'))
-
-WebUI.doubleClick(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Agrupamento da famlia_nome'))
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/div_Renomear'))
 
 WebUI.setText(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Agrupamento da famlia_nome'), 
-    'Agrupamento da família')
+    'Agrupamento familiar')
 
 WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Nome_pechincha-button main-button-color'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento da famlia'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/div_Adicionar Lista'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/label_Lista de compras'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/button_Salvar'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento da famlia'))
-
-WebUI.delay(1)
 
 WebUI.closeBrowser()
 

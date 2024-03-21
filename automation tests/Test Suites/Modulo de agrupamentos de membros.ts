@@ -25,4 +25,11 @@
       <testCaseId>Test Cases/Agrupamentos/Editar agrupamento</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
+   <testCaseLink>
+      <guid>f7fe62b2-0efd-496d-9906-bf54a4b1f927</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Agrupamentos/Adicionar lista ao agrupamento</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+   </testCaseLink>
 </TestSuiteEntity>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span_Agrupamento 1</name>
+   <name>span_Agrupamento 2</name>
    <tag></tag>
-   <elementGuidId>0875055c-e6a9-47ad-89ef-a36f9ad56548</elementGuidId>
+   <elementGuidId>8573af0b-c53b-4ef2-a6c2-d913d4e09d44</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>span.colapsable-content.title</value>
+         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='content-container']/div[3]/div/div/span</value>
+         <value>//div[@id='content-container']/div[3]/div[2]/div/span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>span >> internal:has-text=&quot;Agrupamento 1&quot;i</value>
+         <value>span >> internal:has-text=&quot;Agrupamento 2&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>ee3d32d0-c40c-46dc-b855-58ee8e73e7e1</webElementGuid>
+      <webElementGuid>dab89a97-c5b0-407e-92fb-3f1674b2ce7a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,15 +37,15 @@
       <name>class</name>
       <type>Main</type>
       <value>colapsable-content title</value>
-      <webElementGuid>461511d3-6c09-4a9b-b8ba-cb235c024737</webElementGuid>
+      <webElementGuid>c5d2e7e6-3b70-493a-aacc-6cea7e333ad7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Agrupamento 1</value>
-      <webElementGuid>23e49676-fc91-4c15-83d7-335cc5af4434</webElementGuid>
+      <value>Agrupamento 2</value>
+      <webElementGuid>86f006d8-1a49-4c07-8046-474452daf4ca</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,70 +53,70 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;colapsable-div smaller-padding&quot;]/span[@class=&quot;colapsable-content title&quot;]</value>
-      <webElementGuid>df9f4164-aa22-46db-a037-c605b813edc7</webElementGuid>
+      <webElementGuid>be7e1b2d-09e7-4fad-93a2-30bc69fea418</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='content-container']/div[3]/div/div/span</value>
-      <webElementGuid>cf691549-ae96-4593-96ad-4c3ffa225b07</webElementGuid>
+      <value>//div[@id='content-container']/div[3]/div[2]/div/span</value>
+      <webElementGuid>df0963bc-d2b7-4faa-9cdd-32028bba549e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Entrar'])[1]/following::span[1]</value>
-      <webElementGuid>eab6e285-afa7-4858-87e2-53dcca98fb30</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Ok'])[1]/following::span[1]</value>
+      <webElementGuid>9452bdc6-adc7-427d-8dbd-04b9f25a34ad</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Código'])[1]/following::span[1]</value>
-      <webElementGuid>357f3bf0-26f2-4edc-96d1-c79306e1c011</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar Membro'])[2]/following::span[1]</value>
+      <webElementGuid>fa11410b-4fcc-462d-b83d-cf4f421344ba</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Copiar Código'])[1]/preceding::span[1]</value>
-      <webElementGuid>c4a7de32-9386-4cdc-9319-a1f42dc94c2e</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Copiar Código'])[3]/preceding::span[1]</value>
+      <webElementGuid>bdb8c84c-1cba-4efe-be97-66680b3c2e73</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Eliminar Agrupamento'])[1]/preceding::span[1]</value>
-      <webElementGuid>4bd5d849-0fd9-4eb4-ac9a-76ff6b291b50</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Eliminar Agrupamento'])[4]/preceding::span[1]</value>
+      <webElementGuid>5fc5ca64-1fa0-409c-92a1-d84b4d49dd3f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Agrupamento 1']/parent::*</value>
-      <webElementGuid>0eac7ca4-f651-485a-acd8-6ad3de2a6b8d</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Agrupamento 2']/parent::*</value>
+      <webElementGuid>ef35ce04-cbc9-4e1c-946c-2b57a47c7094</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[3]/div/div/span</value>
-      <webElementGuid>4735ba16-6423-4a30-808e-a3eb65478bee</webElementGuid>
+      <value>//div[2]/div/span</value>
+      <webElementGuid>8f997aaa-a49f-4f60-bdac-9944eb95bbc4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//span[(text() = 'Agrupamento 1' or . = 'Agrupamento 1')]</value>
-      <webElementGuid>c95908ca-15f1-47d6-9e35-8f429c2206c0</webElementGuid>
+      <value>//span[(text() = 'Agrupamento 2' or . = 'Agrupamento 2')]</value>
+      <webElementGuid>42901309-e001-4601-9d1e-a2d0055dcca5</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

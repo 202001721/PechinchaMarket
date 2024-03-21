@@ -6,12 +6,12 @@
    <elementGuidId>839f3e5b-23c2-4a26-a494-3f365493514b</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//a[contains(text(),'Agrupamentos')]</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//a[contains(text(),'Agrupamentos')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>57fb57c6-3108-4912-a66d-2c7f41ca9e27</webElementGuid>
+      <webElementGuid>da1a0817-c38a-4c82-b01e-db2cdaa6eb62</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>unselectable-text nav-link</value>
-      <webElementGuid>8fc373cf-6142-4623-bc03-ebff116214e1</webElementGuid>
+      <webElementGuid>f035be72-09de-4d0e-ae53-78f2b33c035a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>href</name>
       <type>Main</type>
       <value>/Agrupamentos</value>
-      <webElementGuid>40cb8e93-7b1d-4cb3-8443-8d1b55cfe16e</webElementGuid>
+      <webElementGuid>48bd534e-5547-4031-9c3d-b82a4186472e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Agrupamentos</value>
-      <webElementGuid>7eec6c23-78f4-464b-9301-901406b7fb3f</webElementGuid>
+      <webElementGuid>46d19c58-9108-4cd1-a173-a95a91171486</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;row&quot;]/div[@class=&quot;col-md-3&quot;]/ul[@class=&quot;nav nav-pills flex-column&quot;]/li[@class=&quot;nav-item&quot;]/a[@class=&quot;unselectable-text nav-link&quot;]</value>
-      <webElementGuid>12af80e0-275f-4bc1-afc3-ae4fc9d857ed</webElementGuid>
+      <webElementGuid>6e12e0e5-e185-4934-b2df-960f5f9c4f63</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:link</name>
       <type>Main</type>
       <value>//a[contains(text(),'Agrupamentos')]</value>
-      <webElementGuid>813d2d4e-4cdb-4cbf-8536-ef0e7b312e46</webElementGuid>
+      <webElementGuid>11249160-b296-42e6-82f9-e1bfc2b70bf4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='External logins'])[1]/following::a[1]</value>
-      <webElementGuid>ee6c5ab7-45a2-42f5-b838-d1a31436a15b</webElementGuid>
+      <webElementGuid>03f96245-a9d8-46c4-97f4-d8e4448e0185</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Profile'])[1]/following::a[2]</value>
-      <webElementGuid>3182d08c-53c9-46e5-9b1e-31af96dc5685</webElementGuid>
+      <webElementGuid>4c89b228-3faf-4c23-a5f2-2c6dec10a1d8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Personal data'])[1]/preceding::a[1]</value>
-      <webElementGuid>216cd2e0-af15-4add-89c8-836d308f0630</webElementGuid>
+      <webElementGuid>c485f508-abed-4426-a643-9efa7cb9ac2a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Zoom'])[1]/preceding::a[2]</value>
-      <webElementGuid>ddb988e2-e6b0-4ddc-a3db-99ac58557afd</webElementGuid>
+      <webElementGuid>761d9c23-0ec0-46f8-b7b2-f7896035594e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Agrupamentos']/parent::*</value>
-      <webElementGuid>8e84416e-4143-4308-9d1b-53b40bec9da1</webElementGuid>
+      <webElementGuid>33da21c7-4a1d-4bc5-9e7f-24f3354e83dd</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,7 +117,7 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>//a[contains(@href, '/Agrupamentos')]</value>
-      <webElementGuid>8a788021-769d-4b16-9bc3-294160f6f685</webElementGuid>
+      <webElementGuid>3d527b39-1dc4-4082-8c24-ebb35ab71bc7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -125,7 +125,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//li[3]/a</value>
-      <webElementGuid>403d93fc-3efc-4e5b-9941-caad5dc18188</webElementGuid>
+      <webElementGuid>b5833461-c7df-43a0-bbe8-0d85234cc00c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -133,6 +133,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@href = '/Agrupamentos' and (text() = 'Agrupamentos' or . = 'Agrupamentos')]</value>
-      <webElementGuid>b14e6331-f1bf-4b9a-8e91-f99f183ce76b</webElementGuid>
+      <webElementGuid>0a1a5ed7-9134-40f8-8537-f61d4f302f79</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
