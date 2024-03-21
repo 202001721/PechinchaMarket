@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>label_Frescos</name>
+   <tag></tag>
+   <elementGuidId>17f2f0af-e90f-4ca8-a6f4-5388b061b9c7</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>li:nth-of-type(2) > label</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/following::label[1]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>label >> internal:has-text=&quot;Frescos&quot;i</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>label</value>
+      <webElementGuid>ad9af687-9188-476c-836a-4d324be2d301</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>for</name>
+      <type>Main</type>
+      <value>Frescos</value>
+      <webElementGuid>2bfe7c03-a224-41d0-9830-8a217851c37e</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Frescos</value>
+      <webElementGuid>8f4cd118-f31e-449e-a054-69bf090d2375</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top&quot;]/div[@class=&quot;max-width&quot;]/ul[@class=&quot;max-width open&quot;]/li[2]/label[1]</value>
+      <webElementGuid>7c73c438-234d-4f3f-9967-177c8524586a</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/following::label[1]</value>
+      <webElementGuid>9072ac27-ea0b-4a72-a775-67ade32d5e84</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoria:'])[1]/following::label[2]</value>
+      <webElementGuid>8d91d75c-75da-4ced-89cb-c9272698036c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Biologicos'])[1]/preceding::label[1]</value>
+      <webElementGuid>e15b3b36-b343-4eee-9db8-9002fe1dc688</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Congelados'])[1]/preceding::label[2]</value>
+      <webElementGuid>bc6caa27-f19d-44c5-b2bb-ecc300a585dd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Frescos']/parent::*</value>
+      <webElementGuid>1371a971-d886-4d78-bc53-7450140345df</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[2]/label</value>
+      <webElementGuid>c7b72f51-820f-4c97-a9b1-18204dc47ebd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//label[(text() = 'Frescos' or . = 'Frescos')]</value>
+      <webElementGuid>03e2ad7e-84fb-4425-a72c-28ee3e0add36</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

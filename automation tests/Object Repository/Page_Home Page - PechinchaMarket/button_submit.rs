@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>d525131a-f5f0-41e3-a953-54f804b9f777</webElementGuid>
+      <webElementGuid>51d50cb8-aafc-480d-a5b1-cdfc586be61f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,15 +37,15 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>674ea96c-431e-4a5f-a384-c96bf49c624e</webElementGuid>
+      <webElementGuid>a30ec6ff-8448-410b-a27a-156141be5bc5</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/header[1]/nav[@class=&quot;navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3&quot;]/div[@class=&quot;edges-flex max-width&quot;]/div[@class=&quot;navbar-collapse collapse d-sm-inline-flex center-y-flex&quot;]/div[@class=&quot;push-left push-right&quot;]/form[@id=&quot;searchForm&quot;]/div[@class=&quot;nav-search-div&quot;]/button[1]</value>
-      <webElementGuid>06d9ef2f-4a5f-4ebc-8f70-bbdf7d850ea8</webElementGuid>
+      <value>/html[1]/body[1]/header[1]/nav[@class=&quot;navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 small-padding-left small-padding-right&quot;]/div[@class=&quot;edges-flex max-width small-gap-x center-y-flex&quot;]/div[@class=&quot;max-width display-flex center-y-flex small-gap-x pechincha-navbar&quot;]/form[@id=&quot;searchForm&quot;]/div[@class=&quot;nav-search-div&quot;]/button[1]</value>
+      <webElementGuid>72c86fac-b4d8-4ef6-b0d8-55a8820ac363</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//button[@type='submit']</value>
-      <webElementGuid>ce72dd74-1d28-4077-9d5b-5cc05a4a9552</webElementGuid>
+      <webElementGuid>4abe0617-aca4-40e5-8b1d-d9cc9af1aa7c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -61,7 +61,23 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='searchForm']/div/button</value>
-      <webElementGuid>7c7dc020-277c-4a28-b945-180eef0a877c</webElementGuid>
+      <webElementGuid>849d9982-69f8-4888-bd64-a0bd44ca4713</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//button</value>
+      <webElementGuid>da17d730-473b-4925-ac23-5d5d44dabf4b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@type = 'submit']</value>
+      <webElementGuid>d4c3be87-4adb-41ac-a5d6-78756cceec5b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -70,13 +86,5 @@
       <type>Main</type>
       <value>//form/div/button</value>
       <webElementGuid>15ad4eee-6966-4802-9734-fa87b26b559b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//button[@type = 'submit']</value>
-      <webElementGuid>b1efe7fb-c79b-484c-8ade-9acbe6f1a162</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

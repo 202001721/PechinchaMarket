@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>input_Salvar_blue-button</name>
+   <name>input_Ilustrativo_btngerar</name>
    <tag></tag>
    <elementGuidId>078215c0-0b09-475f-9ec6-d0327d616cf2</elementGuidId>
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>input.blue-button</value>
+         <value>input.btngerar</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@value='Guardar Alterações']</value>
+         <value>//input[@value='Gerar Lista']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Guardar Alterações&quot;i]</value>
+         <value>internal:role=button[name=&quot;Gerar Lista&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>945d639d-146c-49a2-80f5-0b43888d2916</webElementGuid>
+      <webElementGuid>f2700a37-a5bd-45a6-b418-31fe6b4fe90b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,47 +37,47 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>cb877694-a37c-453b-bc83-04554957e4d0</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>value</name>
-      <type>Main</type>
-      <value>Guardar Alterações</value>
-      <webElementGuid>c51fb963-05b2-4d32-b54d-8a5686b3ac48</webElementGuid>
+      <webElementGuid>e80a3bf8-b1d4-4b27-84f5-e321396408c4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>blue-button</value>
-      <webElementGuid>a0b30cf4-790c-4e66-a9bd-ee745b6cc1be</webElementGuid>
+      <value>btngerar</value>
+      <webElementGuid>c9421d03-2121-4d93-847d-8aa6da3c4fb7</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>value</name>
+      <type>Main</type>
+      <value>Gerar Lista</value>
+      <webElementGuid>46157b87-13ee-4612-adb7-5373e76af1b8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[@class=&quot;gradiante2-secondary-color background-height&quot;]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[1]/form[@class=&quot;form&quot;]/div[@class=&quot;bottom&quot;]/div[@class=&quot;form-group&quot;]/input[@class=&quot;blue-button&quot;]</value>
-      <webElementGuid>4a2a351c-d363-496f-a874-c9286c1825c0</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;listformatar&quot;]/div[@class=&quot;formatar&quot;]/form[1]/input[@class=&quot;btngerar&quot;]</value>
+      <webElementGuid>3cf6a1b5-744c-4899-808f-3026bf110d0a</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@value='Guardar Alterações']</value>
-      <webElementGuid>cb88a1c3-d460-4dc8-8644-6d5bd6bf78ef</webElementGuid>
+      <value>//input[@value='Gerar Lista']</value>
+      <webElementGuid>77215712-735b-415e-a98e-de9092d3afec</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[3]/input[2]</value>
-      <webElementGuid>f34ec0e4-bbc5-407c-853b-f5bdb2deb1f6</webElementGuid>
+      <value>//div[2]/form/input[2]</value>
+      <webElementGuid>1f26be17-6540-49f5-9d2c-5c5fcb52f342</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +85,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'submit']</value>
-      <webElementGuid>79cb8ab2-d844-4150-9e85-354672b54da2</webElementGuid>
+      <webElementGuid>e7bc7acf-4c76-4eb2-bf70-dd7eb7d05cd8</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
