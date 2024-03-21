@@ -29,15 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>label</value>
-      <webElementGuid>a91ed642-ad70-457b-98a1-525f1a485011</webElementGuid>
+      <webElementGuid>1833ab7c-cc6e-43d3-9568-54bc661bf561</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>for</name>
       <type>Main</type>
-      <value>879859a4-c610-424b-93c5-08dc4431158f+'Ola'</value>
-      <webElementGuid>d7a0422c-55f5-45e9-be3c-64dd4995fd33</webElementGuid>
+      <value>2580b2ed-c851-4c68-dd90-08dc498e2da8</value>
+      <webElementGuid>2a69f9df-1114-41c1-866a-7d9d8215c237</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Lista de compras</value>
-      <webElementGuid>6526aa4d-2890-4a86-85c2-f4491a94e0fe</webElementGuid>
+      <webElementGuid>9312f082-9363-4b98-a52a-9fbdb8238ced</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;add-list-0&quot;)/div[@class=&quot;big-page column-container center-x-flex center-y-flex shrink-flex edges-flex&quot;]/form[@class=&quot;column-container edges-flex max-width max-height&quot;]/div[@class=&quot;column-container wrap-flex small-gap center-x-flex small-padding-right small-padding-left list-chooser&quot;]/div[1]/label[1]</value>
-      <webElementGuid>3e4fbc39-972a-4292-ad5e-eeeac6202be7</webElementGuid>
+      <webElementGuid>21285684-3edf-4c61-a018-f88a51cbc3ae</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='add-list-0']/div/form/div[2]/div/label</value>
-      <webElementGuid>7b9154b8-61f7-42b1-a9cc-c8247b1dc49b</webElementGuid>
+      <webElementGuid>913baa7b-91b7-43a5-96dc-1194535412b0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista de Produtos'])[1]/following::label[1]</value>
-      <webElementGuid>9f0a6a50-5183-44c6-9b0c-abd6693902c2</webElementGuid>
+      <webElementGuid>60d9dc36-b321-4acd-b5d1-cbe4dafebda6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,47 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar uma Lista'])[1]/following::label[1]</value>
-      <webElementGuid>42c5615e-fcb1-40d2-b6ff-65ef52224b27</webElementGuid>
+      <webElementGuid>cbbe2b4c-ecd5-4d76-9016-5fd4428fddf1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista para remover'])[2]/preceding::label[1]</value>
+      <webElementGuid>ce3f4fe9-edaa-4f15-94c4-15f6ebace5d2</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[1]/preceding::label[2]</value>
+      <webElementGuid>901fa44f-8f28-4145-a455-962de2bdfbcb</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Lista de compras']/parent::*</value>
+      <webElementGuid>0abca875-09c1-419e-9dae-f4663262b56f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div/label</value>
+      <webElementGuid>edaee71a-1f97-4a16-9d94-e1b3543f1d1c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//label[(text() = 'Lista de compras' or . = 'Lista de compras')]</value>
+      <webElementGuid>d81781b3-caf4-4978-8ebc-9ab244c5dcfa</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -86,29 +126,5 @@
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[1]/preceding::label[1]</value>
       <webElementGuid>dcb45920-5ca7-4ad1-ba97-9a3e9b996498</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Lista de compras']/parent::*</value>
-      <webElementGuid>e1da9552-18df-4f9e-8ce6-3077ba69772e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[2]/div/label</value>
-      <webElementGuid>74589c37-ed8a-41a3-bc28-1b66dc6a8c3e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//label[(text() = 'Lista de compras' or . = 'Lista de compras')]</value>
-      <webElementGuid>b63e7c94-e9aa-48f5-8fb3-2a829ba99797</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

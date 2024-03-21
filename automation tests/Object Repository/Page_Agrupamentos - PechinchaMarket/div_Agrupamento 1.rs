@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Login</name>
+   <name>div_Agrupamento 1</name>
    <tag></tag>
-   <elementGuidId>8c21056b-3e93-443a-9a54-c7ae8e88c77a</elementGuidId>
+   <elementGuidId>b286e486-238a-44ea-bf34-200cd1edd33d</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//a[@id='login']</value>
+         <key>CSS</key>
+         <value>div.colapsable-div.smaller-padding</value>
       </entry>
       <entry>
-         <key>CSS</key>
-         <value>#login</value>
+         <key>XPATH</key>
+         <value>//div[@onclick='colapse(this)']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Login&quot;i]</value>
+         <value>.colapsable-div >> nth=0</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,111 +28,104 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>9808f2b3-0bbe-4936-8089-7954e68d777c</webElementGuid>
+      <value>div</value>
+      <webElementGuid>1f0abb59-bb93-4b17-ad86-5a31472f8793</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>86cede6d-fa50-49b1-952c-9578ebed4c95</webElementGuid>
+      <value>colapsable-div smaller-padding</value>
+      <webElementGuid>da5a24e4-3391-48cc-b6e5-1e20ff1df3ed</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>id</name>
+      <name>onclick</name>
       <type>Main</type>
-      <value>login</value>
-      <webElementGuid>17278345-9b69-47c0-8528-05f3d2fb541c</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>href</name>
-      <type>Main</type>
-      <value>/Identity/Account/Login</value>
-      <webElementGuid>256e3ab7-b3f4-439d-bedb-528033cbe3b3</webElementGuid>
+      <value>colapse(this)</value>
+      <webElementGuid>1456d9ea-2fa7-40dd-95c1-4ad14e3121eb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Login</value>
-      <webElementGuid>6c9b267d-1978-4157-b047-e14e0dda8829</webElementGuid>
+      <value>
+                Agrupamento 1
+                
+            </value>
+      <webElementGuid>e809fbbc-485c-48a6-9a3f-f573885c7cb6</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;login&quot;)</value>
-      <webElementGuid>c8d14445-a5d3-4339-b0fb-ac6b6f1442a2</webElementGuid>
+      <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;colapsable-div smaller-padding&quot;]</value>
+      <webElementGuid>87d807b2-79f7-432a-8ae5-1d2b46a797bb</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//a[@id='login']</value>
-      <webElementGuid>8717f8f8-6b60-4e2f-98d0-a29be480617a</webElementGuid>
+      <value>//div[@onclick='colapse(this)']</value>
+      <webElementGuid>c75a663b-3d05-467a-99f9-2552b7cbcc2b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
+      <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Login')]</value>
-      <webElementGuid>62b81ea7-04d8-4230-adf6-a5af1e692813</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Register'])[1]/following::a[1]</value>
-      <webElementGuid>a01d10fe-91aa-45e7-a228-72a72f7cee2e</webElementGuid>
+      <value>//div[@id='content-container']/div[3]/div/div</value>
+      <webElementGuid>f058985b-e3c5-4f0c-877a-6a3bca10ee71</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Login']/parent::*</value>
-      <webElementGuid>c93a304c-52af-4238-9019-d93b3849d19f</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Entrar'])[1]/following::div[3]</value>
+      <webElementGuid>f13e7588-4b86-444f-a369-122fc309a236</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Login')]</value>
-      <webElementGuid>5e17758f-c9e2-473f-9d3b-a92f84fbc9d4</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Código'])[1]/following::div[4]</value>
+      <webElementGuid>6a655394-2d3d-4662-a182-6c0f9b109646</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Copiar Código'])[1]/preceding::div[1]</value>
+      <webElementGuid>41ef0a07-8cec-4d5a-a72d-e41df25e0466</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//span[2]/a</value>
-      <webElementGuid>a38789cb-01f7-4dc4-b3fb-59e9858c2f4b</webElementGuid>
+      <value>//div[3]/div/div</value>
+      <webElementGuid>35776466-1736-4087-9724-0faf87a348b5</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@id = 'login' and @href = '/Identity/Account/Login' and (text() = 'Login' or . = 'Login')]</value>
-      <webElementGuid>d0f23a0c-155b-44f3-849a-1368444e222b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//li[2]/a</value>
-      <webElementGuid>79517b83-5cf7-4f69-a49c-862c13ee5e84</webElementGuid>
+      <value>//div[(text() = '
+                Agrupamento 1
+                
+            ' or . = '
+                Agrupamento 1
+                
+            ')]</value>
+      <webElementGuid>1b6284a6-9ff8-43eb-b8f6-50f2386464d8</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

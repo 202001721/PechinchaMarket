@@ -7,18 +7,18 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='2f2d4795-4173-43c1-822d-3c308d17d1c5']</value>
+         <value>//input[@id='50fe415d-40d2-41f3-99cd-1325eda32593']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#2f2d4795-4173-43c1-822d-3c308d17d1c5</value>
+         <value>#50fe415d-40d2-41f3-99cd-1325eda32593</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:label=&quot;Lista para remover&quot;i</value>
+         <value>internal:label=&quot;Lista de Janeiro&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>55454bb2-a977-4cb7-bc32-354ed86634de</webElementGuid>
+      <webElementGuid>15cc3f6b-3137-44fc-9dd7-b18122a10271</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,15 +37,15 @@
       <name>name</name>
       <type>Main</type>
       <value>listaId</value>
-      <webElementGuid>644a3540-a1dc-4fd8-af74-d22768808b54</webElementGuid>
+      <webElementGuid>0dbc326a-d21a-456a-b91b-22d4a7934f87</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>2f2d4795-4173-43c1-822d-3c308d17d1c5</value>
-      <webElementGuid>543caee0-9fc8-484f-83b1-000d727ab889</webElementGuid>
+      <value>50fe415d-40d2-41f3-99cd-1325eda32593</value>
+      <webElementGuid>15a9de08-0af5-4c84-956e-14e55ae49e4d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,31 +53,31 @@
       <name>type</name>
       <type>Main</type>
       <value>radio</value>
-      <webElementGuid>dc46f443-be33-4958-86d6-b16348987412</webElementGuid>
+      <webElementGuid>c3fa3c90-2853-47e8-a0ea-050952aa7273</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>2f2d4795-4173-43c1-822d-3c308d17d1c5</value>
-      <webElementGuid>196c1f33-34cc-4809-a02d-fc025d3d5f48</webElementGuid>
+      <value>50fe415d-40d2-41f3-99cd-1325eda32593</value>
+      <webElementGuid>e9a6a9b0-e853-4f27-a0f7-510128440104</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;2f2d4795-4173-43c1-822d-3c308d17d1c5&quot;)</value>
-      <webElementGuid>47bd93d7-9e82-41ae-b794-f45a995c72e4</webElementGuid>
+      <value>id(&quot;add-list-0&quot;)/div[@class=&quot;big-page column-container center-x-flex center-y-flex shrink-flex edges-flex&quot;]/form[@class=&quot;column-container edges-flex max-width max-height&quot;]/div[@class=&quot;column-container wrap-flex small-gap center-x-flex small-padding-right small-padding-left list-chooser&quot;]/div[1]/input[@id=&quot;50fe415d-40d2-41f3-99cd-1325eda32593&quot;]</value>
+      <webElementGuid>84833dd4-8d77-46e2-a451-9d412cbb35a0</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='2f2d4795-4173-43c1-822d-3c308d17d1c5']</value>
-      <webElementGuid>a866b289-18f1-4ece-b2d6-f44cdc5a4058</webElementGuid>
+      <value>//input[@id='50fe415d-40d2-41f3-99cd-1325eda32593']</value>
+      <webElementGuid>2f2c20da-bd7f-400b-bcce-3fad070d9781</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='add-list-0']/div/form/div[2]/div/input</value>
-      <webElementGuid>52f4b1b2-54d5-4b92-99a1-ebecbd7d856e</webElementGuid>
+      <webElementGuid>87c5aa60-c309-4b35-aa5a-8665c76769dd</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,55 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/div/input</value>
-      <webElementGuid>ee90e5a9-a8a6-48f3-8678-70b1d14c7b92</webElementGuid>
+      <webElementGuid>1766e831-7294-4dfa-a208-2f34cf2e1060</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@name = 'listaId' and @id = '50fe415d-40d2-41f3-99cd-1325eda32593' and @type = 'radio']</value>
+      <webElementGuid>4b3f8754-d7a1-4e15-8f34-230f89807e94</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@id='2580b2ed-c851-4c68-dd90-08dc498e2da8']</value>
+      <webElementGuid>6d125002-900c-4b39-98e6-77713fe77fb9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='add-list-1']/div/form/div[2]/div/input</value>
+      <webElementGuid>0e533b56-866b-489f-9b31-21647d0d0bbd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//form/div[2]/div/input</value>
+      <webElementGuid>ad4be2e2-8319-4c08-a915-5cd89b0de2cf</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@name = 'listaId' and @id = '2580b2ed-c851-4c68-dd90-08dc498e2da8' and @type = 'radio']</value>
+      <webElementGuid>502c186c-bce9-4011-8902-8dd1dcea0be5</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@id='2f2d4795-4173-43c1-822d-3c308d17d1c5']</value>
+      <webElementGuid>a866b289-18f1-4ece-b2d6-f44cdc5a4058</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

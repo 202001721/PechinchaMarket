@@ -6,12 +6,12 @@
    <elementGuidId>0875055c-e6a9-47ad-89ef-a36f9ad56548</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@id='content-container']/div[3]/div/div/span</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>span.colapsable-content.title</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='content-container']/div[3]/div/div/span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>7db8b71d-b5f6-41cf-8209-fe4c40a295d4</webElementGuid>
+      <webElementGuid>ee3d32d0-c40c-46dc-b855-58ee8e73e7e1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>colapsable-content title</value>
-      <webElementGuid>cf450aa4-983a-4851-98e9-7aa962b081f3</webElementGuid>
+      <webElementGuid>461511d3-6c09-4a9b-b8ba-cb235c024737</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Agrupamento 1</value>
-      <webElementGuid>c20f78cc-4a29-49bf-99bd-ef868217df7c</webElementGuid>
+      <webElementGuid>23e49676-fc91-4c15-83d7-335cc5af4434</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;colapsable-div smaller-padding&quot;]/span[@class=&quot;colapsable-content title&quot;]</value>
-      <webElementGuid>c43d54f5-efa8-4ffd-be7c-797289802ebe</webElementGuid>
+      <webElementGuid>df9f4164-aa22-46db-a037-c605b813edc7</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='content-container']/div[3]/div/div/span</value>
-      <webElementGuid>2856c05a-d445-41a2-98dc-3349725f0655</webElementGuid>
+      <webElementGuid>cf691549-ae96-4593-96ad-4c3ffa225b07</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Entrar'])[1]/following::span[1]</value>
-      <webElementGuid>4cbf862a-17de-4705-b3ac-cfb394c4c88b</webElementGuid>
+      <webElementGuid>eab6e285-afa7-4858-87e2-53dcca98fb30</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Código'])[1]/following::span[1]</value>
-      <webElementGuid>507f219c-8f62-4e03-9989-8071c1d9b594</webElementGuid>
+      <webElementGuid>357f3bf0-26f2-4edc-96d1-c79306e1c011</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Copiar Código'])[1]/preceding::span[1]</value>
-      <webElementGuid>14fdfc47-9f44-40e8-b949-9870311ae8bd</webElementGuid>
+      <webElementGuid>c4a7de32-9386-4cdc-9319-a1f42dc94c2e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Eliminar Agrupamento'])[1]/preceding::span[1]</value>
-      <webElementGuid>b00c66d5-41c8-4ca0-9f40-d05e6c583231</webElementGuid>
+      <webElementGuid>4bd5d849-0fd9-4eb4-ac9a-76ff6b291b50</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Agrupamento 1']/parent::*</value>
-      <webElementGuid>5656449f-a858-4890-baff-3d30ce7a69cf</webElementGuid>
+      <webElementGuid>0eac7ca4-f651-485a-acd8-6ad3de2a6b8d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[3]/div/div/span</value>
-      <webElementGuid>5bacde91-84f6-4509-aeb4-b47010583b36</webElementGuid>
+      <webElementGuid>4735ba16-6423-4a30-808e-a3eb65478bee</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,6 +117,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//span[(text() = 'Agrupamento 1' or . = 'Agrupamento 1')]</value>
-      <webElementGuid>56ab2e59-0bbd-4037-aa6d-ded39cedf424</webElementGuid>
+      <webElementGuid>c95908ca-15f1-47d6-9e35-8f429c2206c0</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

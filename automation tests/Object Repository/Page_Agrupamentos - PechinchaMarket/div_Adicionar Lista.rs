@@ -18,7 +18,7 @@
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Adicionar Lista&quot;i</value>
+         <value>internal:text=&quot;Adicionar Lista&quot;i >> nth=0</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>9aafb5a4-eb04-489a-ad86-1f801618b1b5</webElementGuid>
+      <webElementGuid>7143a32c-d7e8-4cee-a4ab-0da2219b165f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-button default-button-color medium-button</value>
-      <webElementGuid>aa59c080-ffed-47ca-9adc-1fc124150f89</webElementGuid>
+      <webElementGuid>bdd346b8-c848-4a19-8f7b-1f8a5f96ba6f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>chooseListToAdd(0);</value>
-      <webElementGuid>673544cb-958b-4937-934b-6d486fe56dda</webElementGuid>
+      <webElementGuid>e729a1c3-e15c-4d85-ad1a-c9c2bd333db9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Adicionar Lista</value>
-      <webElementGuid>e19e90cf-af8e-4979-b469-4925fb3ffb64</webElementGuid>
+      <webElementGuid>c9be3378-21cd-442d-80d1-eef148a21217</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;small-margin-right small-margin-left small-margin-bottom small-margin-top smaller-gap-y column-container&quot;]/div[@class=&quot;background-constrast-color small-padding tiny-gap-y column-container rounded-border&quot;]/div[@class=&quot;row-container edges-flex max-width&quot;]/div[@class=&quot;buttons-end&quot;]/div[@class=&quot;pechincha-button default-button-color medium-button&quot;]</value>
-      <webElementGuid>c0a74036-6e78-4302-b5d7-4c9183420746</webElementGuid>
+      <webElementGuid>946fc447-10e4-4f79-b71c-077d7fc232e8</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//div[@onclick='chooseListToAdd(0);']</value>
-      <webElementGuid>70aa766e-981c-4dba-8cd2-4d83679f3ca9</webElementGuid>
+      <webElementGuid>8675468e-f178-4605-9ac2-60bae4799012</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='content-container']/div[3]/div/div[2]/div[4]/div/div/div</value>
-      <webElementGuid>a4ad160a-3f35-49e8-b219-ba20ae4f6509</webElementGuid>
+      <webElementGuid>fcc2a635-ca1b-42cc-8773-85835c5dbf03</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Listas'])[1]/following::div[2]</value>
-      <webElementGuid>d3b4de8a-b0c3-4668-946a-888c13273351</webElementGuid>
+      <webElementGuid>9e9abca8-ad13-4b23-9902-b19005350044</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,103 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Renomear'])[1]/following::div[4]</value>
-      <webElementGuid>27cddc78-5f53-4ddb-9695-dab15f6114a5</webElementGuid>
+      <webElementGuid>7c029bdb-c419-4d64-b86d-9a515376f48b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista de compras'])[1]/preceding::div[2]</value>
+      <webElementGuid>cda8e533-f957-432c-9e4d-1e70f259214e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar uma Lista'])[1]/preceding::div[6]</value>
+      <webElementGuid>32ca6d87-b3a1-46fb-9b9f-891459e24183</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Adicionar Lista']/parent::*</value>
+      <webElementGuid>498d3964-8f62-42e2-9184-81e6b5167306</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[4]/div/div/div</value>
+      <webElementGuid>59e3b34c-8040-4871-b6fe-115cf935ee66</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = 'Adicionar Lista' or . = 'Adicionar Lista')]</value>
+      <webElementGuid>b42ce74a-41ca-4811-80c0-2f184f38be35</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='chooseListToAdd(1);']</value>
+      <webElementGuid>51a4b705-204e-4364-a972-f828153a004f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div[3]/div[2]/div[2]/div[4]/div/div/div</value>
+      <webElementGuid>021c37f2-cdf5-4793-9678-72e09d0d63bc</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Listas'])[2]/following::div[2]</value>
+      <webElementGuid>9518d231-9814-434f-ac37-6b15be8f972b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Renomear'])[2]/following::div[4]</value>
+      <webElementGuid>de9e9d3b-a70e-4143-8c44-07b10cb1309f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar uma Lista'])[2]/preceding::div[4]</value>
+      <webElementGuid>6bb6f999-c6f3-467e-a0f5-e07491c95dc3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista de Produtos'])[2]/preceding::div[7]</value>
+      <webElementGuid>f44c3ff1-f787-40df-b407-e389dc8455a6</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div[2]/div[4]/div/div/div</value>
+      <webElementGuid>e083da36-ec99-49e6-8b31-326a8f0075f1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +197,15 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista de Janeiro'])[1]/preceding::div[2]</value>
-      <webElementGuid>00276b2a-40a4-4c8c-a8b8-7b7659468473</webElementGuid>
+      <webElementGuid>d63455f0-c3d6-42af-91c1-0900bc67bbb1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista para remover'])[1]/preceding::div[4]</value>
+      <webElementGuid>1dff0d8f-bcb4-4804-b620-c1f7ef18d574</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -110,30 +214,6 @@
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Lista de Sexta-feira'])[1]/preceding::div[4]</value>
       <webElementGuid>4bec778b-361c-4e98-abb0-7c20f2fdd9aa</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Adicionar Lista']/parent::*</value>
-      <webElementGuid>1636d240-7da1-427b-bf0c-d6dffa852fd8</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[4]/div/div/div</value>
-      <webElementGuid>9ee15dff-3a5c-4e75-9769-0e661af231c4</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//div[(text() = 'Adicionar Lista' or . = 'Adicionar Lista')]</value>
-      <webElementGuid>ee64059b-71cd-4ed6-8c4d-94ade5c68acb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

@@ -25,29 +25,17 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a
 
 WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'clientepecmk@gmail.com')
 
-WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/label_Password'))
-
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
+
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                                _4f1926'))
 
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Logout_cursor-pointer small-image nav-lin_58ce0e'))
-
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_As minhas listas_create'))
-
-WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Nome_Name'), 'Lista de Sexta-eira')
-
-WebUI.sendKeys(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Nome_Name'), Keys.chord(Keys.ENTER))
-
-WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Nome_Name'), 'Lista de Sexta-feira')
-
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/span_Perfil                                _4f1926'))
-
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/span_Perfil'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil'))
 
 WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/a_Agrupamentos'))
 
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 1'))
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 4'))
 
 WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/div_Adicionar Lista'))
 
