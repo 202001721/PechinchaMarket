@@ -7,11 +7,11 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='Name']</value>
+         <value>//input[@id='name']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#Name</value>
+         <value>#name</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>1d6f3d58-8bec-4359-8ece-afac628d1ea2</webElementGuid>
+      <webElementGuid>87081a6d-bf31-43cb-b66c-c826be41ad96</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>form-control</value>
-      <webElementGuid>b014833e-bb1c-4882-abc0-14afffbe3af5</webElementGuid>
+      <webElementGuid>a43b5ebd-a571-45c1-87f2-b9f8fb537662</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>82da3df6-2c89-4ec6-abc2-a4b551d85db4</webElementGuid>
+      <webElementGuid>f0c6e8b4-d27b-4a08-8097-534b4e453b39</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>ea2c32ff-975e-4e1e-8c57-005e4a4d1908</webElementGuid>
+      <webElementGuid>c5980e32-ec57-4a15-b1b6-6783c67b05c9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,34 +61,58 @@
       <name>data-val-required</name>
       <type>Main</type>
       <value>The Nome field is required.</value>
-      <webElementGuid>de6fadd2-34b3-4055-9c8d-b3a5421b5712</webElementGuid>
+      <webElementGuid>ad31d2eb-7f30-4fba-8b67-241bb59cdacd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>Name</value>
-      <webElementGuid>6d1f2c00-9812-49c0-b7eb-31441318da87</webElementGuid>
+      <value>name</value>
+      <webElementGuid>49c79c23-7e20-40f7-8c2d-4c0a57e59c2f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>name</name>
       <type>Main</type>
-      <value>Name</value>
-      <webElementGuid>e33c482a-46c9-4ac8-b9a9-9b4862b0a4f0</webElementGuid>
+      <value>name</value>
+      <webElementGuid>05211c42-c40e-47a3-bba5-7eede892a366</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;Name&quot;)</value>
-      <webElementGuid>4dbd0df1-85b7-4e42-8bbf-6c50ce031460</webElementGuid>
+      <value>id(&quot;name&quot;)</value>
+      <webElementGuid>649b16a0-7f68-44a5-b507-6b2352d4b27e</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@id='name']</value>
+      <webElementGuid>ab77b22a-f98e-4c37-8853-3382dd98d08f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//main/div/div/form/div/input</value>
+      <webElementGuid>8664d97b-30bc-435e-b06e-325eb18f7d4d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'text' and @id = 'name' and @name = 'name']</value>
+      <webElementGuid>0c1d4aa8-6e9c-4732-b1d9-f3f68ae78bd9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>

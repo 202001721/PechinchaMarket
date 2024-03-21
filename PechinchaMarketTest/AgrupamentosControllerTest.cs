@@ -9,6 +9,7 @@ using PechinchaMarket.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,13 @@ namespace PechinchaMarketTest
 
         private Cliente cliente;
         private Agrupamento agrupamento;
+        private AgrupamentoMembro agrupamentoMembro;
+        private ListaProdutos listaProdutos;
+        private DetalheListaProd detalheListaProd;
+        private ProdutoLoja produtoLoja;
+        private Produto produto;
+        private Loja loja;
+        private Comerciante comerciante;
 
 
         public AgrupamentosControllerTest(ApplicationDbContextFixture context)
@@ -38,14 +46,23 @@ namespace PechinchaMarketTest
         {
             _context.Cliente.RemoveRange(_context.Cliente);
             _context.Agrupamentos.RemoveRange(_context.Agrupamentos);
+            _context.Produto.RemoveRange(_context.Produto);
+            _context.ProdutoLoja.RemoveRange(_context.ProdutoLoja);
+            _context.DetalheListaProd.RemoveRange(_context.DetalheListaProd);
+            _context.ListaProdutos.RemoveRange(_context.ListaProdutos);
+            _context.Loja.RemoveRange(_context.Loja);
+            _context.Comerciante.RemoveRange(_context.Comerciante);
+
             _context.SaveChanges();
             
             //definir _userManager com Mock
             var user = new PechinchaMarketUser() { UserName = "JohnDoe", Id = "1" };
 
             Mock<UserManager<PechinchaMarketUser>> userMgr = GetMockUserManager();
+            userMgr.Setup(x => x.GetUserAsync(It.IsAny<ClaimsPrincipal>())).ReturnsAsync(user);
             userMgr.Setup(x => x.FindByNameAsync(It.IsAny<string>())).ReturnsAsync(user);
             userMgr.Setup(s => s.GetUserId(It.IsAny<ClaimsPrincipal>())).Returns("1");
+            
             _userManager = userMgr.Object;
 
             //criar mock de IWebHostEnvironment
@@ -64,12 +81,91 @@ namespace PechinchaMarketTest
             {
                 Id = Guid.NewGuid(),
                 Nome = "Agrupamento",
-                Codigo = 12345,
+                Codigo = GenerateRandomNumber(),
+                ListaProdutos = new List<ListaProdutos>()
             };
+
+            agrupamentoMembro = new AgrupamentoMembro
+            {
+                Id = Guid.NewGuid(),
+                Cliente = cliente,
+                Agrupamento = agrupamento,
+                Privilegio = NivelPrivilegio.Admin
+            };
+
+            comerciante = new Comerciante
+            {
+                Id = Guid.NewGuid(),
+                UserId = "1",
+                Name = "Comerciante",
+                contact = 123456789,
+                logo = GenerateRandomBytes(100),
+                document = GenerateRandomBytes(100),
+                isApproved = true,
+                Lojas = new List<Loja>()
+
+            };
+
+            loja = new Loja
+            {
+                Id = Guid.NewGuid(),
+                Address = "morada",
+                OpeningTime = DateTime.Now,
+                ClosingTime = DateTime.Now,
+                UserId = "1",
+            };
+            comerciante.Lojas.Add(loja);
+
+
+            produto = new Produto
+            {
+                Id = 1,
+                Name = "product",
+                Brand = "brand",
+                Image = GenerateRandomBytes(100),
+                Unidade = UnidadeMedida.Kg,
+                ProdCategoria = Categoria.Enlatados,
+                ProdEstado = Estado.Approved
+
+            };
+
+            produtoLoja = new ProdutoLoja
+            {
+                Id = 1,
+                Price = 1,
+                Produto = produto,
+                Loja = loja
+
+            };
+
+            listaProdutos = new ListaProdutos
+            {
+                Id = Guid.NewGuid(),
+                name = "Lista",
+                ClienteId = guid_cliente.ToString(),
+                state = EstadoProdutoCompra.PorComprar,
+                detalheListaProds = new List<DetalheListaProd>()
+
+            };
+
+            detalheListaProd = new DetalheListaProd
+            {
+                Id = Guid.NewGuid(),
+                quantity = 1,
+                ListaProdutos = listaProdutos,
+                ProdutoLoja = produtoLoja
+            };
+            listaProdutos.detalheListaProds.Add(detalheListaProd);
 
             // Adicionar o cliente e o agrupamento ao contexto e salvar as alterações
             _context.Cliente.Add(cliente);
             _context.Agrupamentos.Add(agrupamento);
+            _context.Produto.Add(produto);
+            _context.ProdutoLoja.Add(produtoLoja);
+            _context.DetalheListaProd.Add(detalheListaProd);
+            _context.ListaProdutos.Add(listaProdutos);
+            _context.Loja.Add(loja);
+            _context.Comerciante.Add(comerciante);
             _context.SaveChanges();
         }
 
@@ -93,7 +189,6 @@ namespace PechinchaMarketTest
             var viewResult =  Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<List<AgrupamentoMembro>>(viewResult.Model);
             Assert.NotNull(model);
-
         }
 
         [Fact]
@@ -102,8 +197,6 @@ namespace PechinchaMarketTest
             Restart_Context();
 
             var controler = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
-
-
 
             var newAgrupamento = new Agrupamento
             {
@@ -124,8 +217,6 @@ namespace PechinchaMarketTest
 
             var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
 
-
-
             var newAgrupamento = new Agrupamento
             {
                 Id = agrupamento.Id,
@@ -139,19 +230,244 @@ namespace PechinchaMarketTest
             Assert.Equal(nameof(Index), viewResult.ActionName);
         }
 
-        /*[Fact]
+        [Fact]
         public async void AddList_ReturnsView()
         {
             Restart_Context();
-            var controller = new AgrupamentosController(_context, _userManager);
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
 
-            
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
 
-            var result = await controller.AddList(agrupamento.Id, "lista");
+            var newList = new ListaProdutos
+            {
+                Id = listaProdutos.Id,
+                name = listaProdutos.name,
+                ClienteId = listaProdutos.ClienteId,
+                state = listaProdutos.state,
+                detalheListaProds = listaProdutos.detalheListaProds
+            };
+
+            var result = await controller.AddList(agrupamento.Id, newList.Id.ToString());
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
             Assert.Equal(nameof(Index), viewResult.ActionName);
-        }*/
+        }
+
+        [Fact]
+        public async void AddMemberLeitor_ReturnsView() {  
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+            var newCliente = new Cliente
+            {
+                Id = cliente.Id,
+                Name = cliente.Name,
+                UserId = cliente.UserId,
+                Localizacao = cliente.Localizacao
+            };
+
+
+            var result = await controller.AddMemberLeitor(agrupamento.Id, newCliente.Id);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void RemoveMember_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+            var newCliente = new Cliente
+            {
+                Id = cliente.Id,
+                Name = cliente.Name,
+                UserId = cliente.UserId,
+                Localizacao = cliente.Localizacao
+            };
+
+
+            var result = await controller.RemoveMember(agrupamento.Id, newCliente.Id);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void RemoveMembers_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+
+            var result = await controller.RemoveMembers(agrupamento.Id, new List<Guid>());
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void RemoveList_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+            var newListaProdutos = new ListaProdutos
+            {
+                Id = listaProdutos.Id,
+                name = listaProdutos.name,
+                ClienteId = listaProdutos.ClienteId,
+                state = listaProdutos.state,
+                detalheListaProds = listaProdutos.detalheListaProds
+            };
+
+
+            var result = await controller.RemoveList(agrupamento.Id, newListaProdutos.Id);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+
+        [Fact]
+        public async void RemoveLists_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+
+            var result = await controller.RemoveLists(agrupamento.Id, new List<Guid>());
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void ChangePermissions_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+            var newAgrupamentoMembro = new AgrupamentoMembro
+            {
+                Id = agrupamentoMembro.Id,
+                Cliente = agrupamentoMembro.Cliente,
+                Agrupamento = agrupamentoMembro.Agrupamento,
+                Privilegio = agrupamentoMembro.Privilegio
+            };
+
+            var result = await controller.ChangePermissions(agrupamento.Id, ["Editor_"+newAgrupamentoMembro.Agrupamento.Id]);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void Delete_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+            var result = await controller.Delete(newAgrupamento.Id);
+            var viewResult = Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public async void DeleteConfirmed_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+            var result = await controller.DeleteConfirmed(newAgrupamento.Id);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void EnterWithCode_ReturnsView()
+        {
+            Restart_Context();
+            var controller = new AgrupamentosController(_context, _userManager, _hostingEnvironment);
+            
+            var newAgrupamento = new Agrupamento
+            {
+                Id = agrupamento.Id,
+                Nome = agrupamento.Nome,
+                Codigo = agrupamento.Codigo,
+                ListaProdutos = agrupamento.ListaProdutos
+            };
+
+            var result = await controller.EnterWithCode(newAgrupamento.Codigo);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal(nameof(Index), viewResult.ActionName);
+        }
+
+
 
         private long GenerateRandomNumber()
         {
@@ -170,6 +486,14 @@ namespace PechinchaMarketTest
             }
 
             return result;
+        }
+
+        public static byte[] GenerateRandomBytes(int length)
+        {
+            Random rand = new Random();
+            byte[] buffer = new byte[length];
+            rand.NextBytes(buffer);
+            return buffer;
         }
     }
 }

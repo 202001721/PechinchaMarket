@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>label_Password</name>
+   <name>span_Perfil</name>
    <tag></tag>
-   <elementGuidId>543b38d6-0478-4c88-abda-87adc8f1e675</elementGuidId>
+   <elementGuidId>047c6581-aa64-453f-a1f1-2714b41adaef</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//form[@id='account']/div/div[2]/div/label</value>
+         <value>//div[@id='perfil-menu']/div/a/span</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div:nth-of-type(2) > div.authentication-input-text-div > label</value>
+         <value>span.move-text</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Password&quot;i</value>
+         <value>internal:role=link[name=&quot;Perfil&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,87 +28,79 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>label</value>
-      <webElementGuid>d7622006-87a9-4a83-b5b5-c9d192505a16</webElementGuid>
+      <value>span</value>
+      <webElementGuid>888878d9-a610-4739-9aca-89226059b0f4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>for</name>
+      <name>class</name>
       <type>Main</type>
-      <value>Input_Password</value>
-      <webElementGuid>11c7d4ac-30ca-4c21-827c-b6680eb594bb</webElementGuid>
+      <value>move-text</value>
+      <webElementGuid>db10abf3-5275-4b66-9a74-167da0d6ad39</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Password</value>
-      <webElementGuid>90b9c262-3a67-4ca3-9cf9-21fa0bb69a87</webElementGuid>
+      <value>Perfil</value>
+      <webElementGuid>42a17ebb-475c-44b5-80ca-27edc39c6387</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[2]/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
-      <webElementGuid>31c61dab-7a99-43c6-873e-024032aca1b8</webElementGuid>
+      <value>id(&quot;perfil-menu&quot;)/div[1]/a[@class=&quot;pechincha-navbar-option pechincha-link&quot;]/span[@class=&quot;move-text&quot;]</value>
+      <webElementGuid>4faaf2ad-d35b-4775-8700-62d84d1479a5</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div[2]/div/label</value>
-      <webElementGuid>b7fba315-c85a-4b23-88af-027af624bcd3</webElementGuid>
+      <value>//div[@id='perfil-menu']/div/a/span</value>
+      <webElementGuid>06a1a49d-29f2-40cc-81c9-9daea96d0660</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::label[1]</value>
-      <webElementGuid>5914233e-dbab-4e4e-8a4e-d6712a2a35b9</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Terminar Sessão'])[1]/preceding::span[1]</value>
+      <webElementGuid>d62c7249-e2f6-469f-84c4-3de349ae0af4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/following::label[2]</value>
-      <webElementGuid>31b8f956-c11a-4b65-b2d7-5cf03613fe4b</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='As minhas listas'])[1]/preceding::span[3]</value>
+      <webElementGuid>b1af7244-9f04-4d69-ad64-24677c38fbfe</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/preceding::label[1]</value>
-      <webElementGuid>d27194ff-fbba-4b83-84dc-de35b45b50d3</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Password']/parent::*</value>
-      <webElementGuid>feaa0d37-befd-4ad2-ba6b-870dcf8482bb</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
+      <webElementGuid>eb37c125-dc22-417b-ae4e-fa04cab5264f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[2]/div/label</value>
-      <webElementGuid>cfcb1751-2156-422b-9271-1deaff38d689</webElementGuid>
+      <value>//div/div/a/span</value>
+      <webElementGuid>bb683f90-cbc5-43e6-bd6d-2cd0e19e7490</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//label[(text() = 'Password' or . = 'Password')]</value>
-      <webElementGuid>c89c76a2-46fe-4d62-a8d8-01724ae11a1d</webElementGuid>
+      <value>//span[(text() = 'Perfil' or . = 'Perfil')]</value>
+      <webElementGuid>1a646e1e-9b9f-4ac5-b9d5-00d9d9f54caf</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
