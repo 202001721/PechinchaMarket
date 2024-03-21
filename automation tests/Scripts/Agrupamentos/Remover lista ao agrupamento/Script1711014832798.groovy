@@ -23,11 +23,13 @@ WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
 
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/label_Email'))
+
 WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'clientepecmk@gmail.com')
 
-WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/label_Password'))
 
-WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/div_Email                                  _7b63fd'))
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
@@ -37,13 +39,9 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/s
 
 WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/a_Agrupamentos'))
 
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 1'))
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento familiar'))
 
 WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Nome_pechincha-button main-button-color'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Nome_pechincha-button main-button-color'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 1'))
 
 WebUI.closeBrowser()
 

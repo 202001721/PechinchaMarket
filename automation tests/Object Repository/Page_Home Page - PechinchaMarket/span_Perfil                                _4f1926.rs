@@ -6,12 +6,12 @@
    <elementGuidId>403a0d72-9814-464e-abc4-abac0fefccd0</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>#manage</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//span[@id='manage']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#manage</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>1b2304d9-5257-4c7b-b422-426fef5d25f0</webElementGuid>
+      <webElementGuid>20e77155-dee8-4ab2-9b2b-99270bd63934</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>manage</value>
-      <webElementGuid>1c605c52-58e8-4fd5-a918-06ff0e6f7da4</webElementGuid>
+      <webElementGuid>ed38e931-c757-4da6-9ea2-5006cfee18fe</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-navbar-option-hide cursor-pointer perfil-image-border nav-link small-perfil-image no-padding</value>
-      <webElementGuid>73b56c6e-692a-4f7f-8b34-0a60b631ff09</webElementGuid>
+      <webElementGuid>59daf112-ce36-44c4-979f-a2a196651842</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>asp-area</name>
       <type>Main</type>
       <value>Identity</value>
-      <webElementGuid>a368bf05-6f07-422e-9906-b5b83524341e</webElementGuid>
+      <webElementGuid>1faf3eb0-d096-4965-8db2-30d9fa79bc9b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>asp-page</name>
       <type>Main</type>
       <value>/Account/Manage/Index</value>
-      <webElementGuid>19e9de7f-abc6-4fd3-9200-a64426b24282</webElementGuid>
+      <webElementGuid>0434f1c3-cfec-42ef-bd37-25496d4ba0a7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>displayperfilmenu()</value>
-      <webElementGuid>006f0383-cfeb-4dce-930c-dc6c1d683d72</webElementGuid>
+      <webElementGuid>3f8cfd07-4d40-4f97-a3e1-bbac583fa059</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -86,7 +86,7 @@
                 
             
         </value>
-      <webElementGuid>dce406c8-bdbf-4ae1-b6f0-1d60e06f64b3</webElementGuid>
+      <webElementGuid>0760fb0b-b886-44fd-8f6b-27da66b1cd8d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -94,7 +94,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;manage&quot;)</value>
-      <webElementGuid>afad6114-6d94-4694-9afb-3429272400c5</webElementGuid>
+      <webElementGuid>20771ebc-ac1e-41b9-a3a8-f63a0f3142b1</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -102,7 +102,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='manage']</value>
-      <webElementGuid>6b9c9332-eb54-41e0-9408-20d5e771f826</webElementGuid>
+      <webElementGuid>b49bfc8e-f4b3-4517-b5f3-326e6f91985d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -110,7 +110,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/span</value>
-      <webElementGuid>20af48ea-c4a8-4c41-a487-a80f3cb2c307</webElementGuid>
+      <webElementGuid>77d45312-8d6f-45a9-9ece-3aa928c1187b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -136,6 +136,6 @@
                 
             
         ')]</value>
-      <webElementGuid>4cdc54af-546a-4812-94f2-e10fc033362b</webElementGuid>
+      <webElementGuid>50957c5d-5c98-4101-b481-5da090526937</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
