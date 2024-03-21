@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>button_Login</name>
+   <name>span_Agrupamento 1</name>
    <tag></tag>
-   <elementGuidId>f310c489-b09c-40f6-89a1-b7f30d8de8ed</elementGuidId>
+   <elementGuidId>0875055c-e6a9-47ad-89ef-a36f9ad56548</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//button[@id='login-submit']</value>
+         <value>//div[@id='content-container']/div[3]/div/div/span</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#login-submit</value>
+         <value>span.colapsable-content.title</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Login&quot;i]</value>
+         <value>span >> internal:has-text=&quot;Agrupamento 1&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,111 +28,95 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>button</value>
-      <webElementGuid>4cc7b6fb-6938-4625-bd32-90bfd1478f46</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>id</name>
-      <type>Main</type>
-      <value>login-submit</value>
-      <webElementGuid>6f4eac7d-b00e-434a-9ef7-9cedad2d36ee</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>type</name>
-      <type>Main</type>
-      <value>submit</value>
-      <webElementGuid>59bdc044-8670-4eed-9e89-cbc09a1a7e97</webElementGuid>
+      <value>span</value>
+      <webElementGuid>7db8b71d-b5f6-41cf-8209-fe4c40a295d4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>confirm-button</value>
-      <webElementGuid>bd8ae195-76e4-4e47-a089-27f6525ec1af</webElementGuid>
+      <value>colapsable-content title</value>
+      <webElementGuid>cf450aa4-983a-4851-98e9-7aa962b081f3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Login</value>
-      <webElementGuid>f07bbacf-df37-43ed-8364-ba4bdf34e6d1</webElementGuid>
+      <value>Agrupamento 1</value>
+      <webElementGuid>c20f78cc-4a29-49bf-99bd-ef868217df7c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;login-submit&quot;)</value>
-      <webElementGuid>65d95d03-2145-4dc8-8ca2-0c2e78065b3a</webElementGuid>
+      <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;colapsable-div smaller-padding&quot;]/span[@class=&quot;colapsable-content title&quot;]</value>
+      <webElementGuid>c43d54f5-efa8-4ffd-be7c-797289802ebe</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
-      <type>Main</type>
-      <value>//button[@id='login-submit']</value>
-      <webElementGuid>d006c9c6-5ba6-49a1-b038-191151cef13e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div[3]/button[2]</value>
-      <webElementGuid>fedcbb11-38c1-48f5-aa8d-ce916cc8e7bb</webElementGuid>
+      <value>//div[@id='content-container']/div[3]/div/div/span</value>
+      <webElementGuid>2856c05a-d445-41a2-98dc-3349725f0655</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Back'])[1]/following::button[1]</value>
-      <webElementGuid>978015a6-7924-463c-bd72-088337d7be0a</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Entrar'])[1]/following::span[1]</value>
+      <webElementGuid>4cbf862a-17de-4705-b3ac-cfb394c4c88b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/following::button[2]</value>
-      <webElementGuid>32b940e1-6e72-46e5-a826-b57217bb82b6</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Código'])[1]/following::span[1]</value>
+      <webElementGuid>507f219c-8f62-4e03-9989-8071c1d9b594</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar com o Google'])[1]/preceding::button[1]</value>
-      <webElementGuid>f60a155b-7d20-4dbb-9572-94b176edf0d9</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Copiar Código'])[1]/preceding::span[1]</value>
+      <webElementGuid>14fdfc47-9f44-40e8-b949-9870311ae8bd</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Sign in with Google'])[1]/preceding::button[1]</value>
-      <webElementGuid>7e91d303-7723-48fb-905f-8a668a7eba43</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Eliminar Agrupamento'])[1]/preceding::span[1]</value>
+      <webElementGuid>b00c66d5-41c8-4ca0-9f40-d05e6c583231</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Agrupamento 1']/parent::*</value>
+      <webElementGuid>5656449f-a858-4890-baff-3d30ce7a69cf</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//button[2]</value>
-      <webElementGuid>fbe0d31c-9166-4728-acbe-92097c84e004</webElementGuid>
+      <value>//div[3]/div/div/span</value>
+      <webElementGuid>5bacde91-84f6-4509-aeb4-b47010583b36</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//button[@id = 'login-submit' and @type = 'submit' and (text() = 'Login' or . = 'Login')]</value>
-      <webElementGuid>47a963b1-bd94-447f-8963-946393126aa6</webElementGuid>
+      <value>//span[(text() = 'Agrupamento 1' or . = 'Agrupamento 1')]</value>
+      <webElementGuid>56ab2e59-0bbd-4037-aa6d-ded39cedf424</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
