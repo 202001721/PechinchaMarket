@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>label_Doces</name>
+   <tag></tag>
+   <elementGuidId>d5836b84-3c78-42e7-a3d1-9937a420fed6</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>li:nth-of-type(11) > label</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='Vegan'])[1]/following::label[1]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:text=&quot;Doces&quot;i</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>label</value>
+      <webElementGuid>f42bf0f7-1734-4a17-afcd-250774dedbd4</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>for</name>
+      <type>Main</type>
+      <value>Doces</value>
+      <webElementGuid>d42d00b6-9760-4f80-9bc4-5c0ac8ebba2b</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Doces</value>
+      <webElementGuid>e5375d89-5d64-4a40-ad87-776d6541f5c3</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top&quot;]/div[@class=&quot;max-width&quot;]/ul[@class=&quot;max-width open&quot;]/li[11]/label[1]</value>
+      <webElementGuid>b7a921a1-9249-4001-9f54-5def2459ac40</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Vegan'])[1]/following::label[1]</value>
+      <webElementGuid>915f9bca-798e-445e-b85f-c88570addeab</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Bebidas'])[1]/following::label[2]</value>
+      <webElementGuid>ecd4cdc8-356d-4c04-96e9-e2984433fbbc</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Snacks'])[1]/preceding::label[1]</value>
+      <webElementGuid>5f3610f8-fd9c-43a3-819c-8f02e4de486f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/preceding::label[2]</value>
+      <webElementGuid>4d142d71-f9c3-4242-b2d6-c0305a7ec5fc</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Doces']/parent::*</value>
+      <webElementGuid>031edbf3-638a-429f-bfa8-bdfaded583bf</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[11]/label</value>
+      <webElementGuid>f8f58649-896b-4934-9520-4ae9491ca0d5</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//label[(text() = 'Doces' or . = 'Doces')]</value>
+      <webElementGuid>23fee165-f34b-458d-91c2-c2b007779c6b</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>
