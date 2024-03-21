@@ -16,6 +16,7 @@
 
 }
 
+
 <script>
     function copyText() {
         var copyText = document.getElementById("codigo");
@@ -141,9 +142,11 @@
 
         var permissionUpdateBtn = section.querySelector("#permissionBtn");
         var removeBtn = section.querySelector("#formRemove");
+        var addBtn = section.querySelector("#addBtn");
 
         permissionUpdateBtn.style.display = "none";
         removeBtn.style.display = "none";
+        addBtn.style.display = "block";
 
         for (checkbox of checkboxes) {
             if (checkbox.checked) {
@@ -153,11 +156,15 @@
 
                 permissionUpdateBtn.style.display = "block";
                 removeBtn.style.display = "block";
+                addBtn.style.display = "none";
             }
         }
     }
 
 </script>
+
+
+<link type="text/css" rel="stylesheet" href="~/css/agrupamentos.css" />
 
 <h1>Agrupamentos</h1>
 
@@ -351,19 +358,14 @@
                         @if(item.Privilegio == NivelPrivilegio.Admin)
                         {
                             <div class="buttons-end">
-                                                            
 
-                                <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
 
-                                <div class="default-button-color medium-button pechincha-button" id="permissionBtn" onclick="selectEdit(this)" style="display:none">Gerir Permissões</div>
-                                <input type="submit" class="pechincha-button default-button-color medium-button" id="permissionUpdateBtn" style="display:none" form="permissions-@counter" value="Atualizar Permissões">
+                                <div class="fit-content-width fit-content-height" id="addBtn" onclick="chooseMemberToAdd(@counter);"><img src="~/images/add.png" class="img-button"></img></div>
+                                <div class="fit-content-width fit-content-height" id="permissionBtn" onclick="selectEdit(this)" style="display:none"><img src="~/images/edit-text.png" class="img-button"></div>
+                                <input type="submit" class="pechincha-button default-button-color medium-button" id="permissionUpdateBtn" style="display:none" form="permissions-@counter" value="Guardar">
 
-                                
                                 <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post" style="display:none">
-             
-                                  
-                                    <input  name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Membros"  />
-                     
+                                    <input name="membros" class="img-button fit-content-width fit-content-height" type="image" value="Remover Membros" src="~/images/recycle-bin.png" />
                                 </form>
 
                             </div>
