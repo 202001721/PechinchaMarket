@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Logout_cursor-pointer small-image nav-lin_58ce0e</name>
+   <name>a_PechinchaMarket_pechincha-navbar-option c_ab4045</name>
    <tag></tag>
-   <elementGuidId>d1d5a230-c962-42a6-81ff-a457d4fd0f58</elementGuidId>
+   <elementGuidId>4820559a-eaab-4742-a6c5-6ad3c46f8ac4</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
@@ -18,7 +18,7 @@
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link >> nth=1</value>
+         <value>internal:role=navigation >> internal:role=link >> nth=1</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>b04bf4ed-5aca-456e-91db-14c4af964813</webElementGuid>
+      <webElementGuid>c5f16888-f6a1-429e-be07-9b821e104781</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-navbar-option cursor-pointer small-image nav-link text-dark</value>
-      <webElementGuid>c8acb1e3-bc64-45fe-8c52-3afa036b1ffc</webElementGuid>
+      <webElementGuid>afcde61c-a3bd-43d5-a6db-bb44c7e7eaf6</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,15 +45,15 @@
       <name>href</name>
       <type>Main</type>
       <value>/ListaProdutos</value>
-      <webElementGuid>2fad7f30-1df0-489a-838d-4b1203981526</webElementGuid>
+      <webElementGuid>612829f4-f25b-42f1-b8e4-566a78bb5853</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/header[1]/nav[@class=&quot;navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 small-padding-left small-padding-right&quot;]/div[@class=&quot;edges-flex max-width small-gap-x center-y-flex&quot;]/div[@class=&quot;max-width display-flex center-y-flex small-gap-x pechincha-navbar&quot;]/div[@class=&quot;display-flex small-gap-x&quot;]/a[@class=&quot;pechincha-navbar-option cursor-pointer small-image nav-link text-dark&quot;]</value>
-      <webElementGuid>b04cf618-ad0d-4504-8fff-59679af2d493</webElementGuid>
+      <value>/html[1]/body[1]/header[1]/nav[@class=&quot;navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 small-padding-left small-padding-right&quot;]/div[@class=&quot;edges-flex max-width small-gap-x&quot;]/div[@class=&quot;max-width display-flex center-y-flex small-gap-x pechincha-navbar&quot;]/div[@class=&quot;display-flex small-gap-x&quot;]/a[@class=&quot;pechincha-navbar-option cursor-pointer small-image nav-link text-dark&quot;]</value>
+      <webElementGuid>c4400d91-9b9e-4da4-b97f-b08fc0b0ce7f</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>//a[contains(@href, '/ListaProdutos')]</value>
-      <webElementGuid>274bde38-b436-40b3-96ae-dcdc64e1986d</webElementGuid>
+      <webElementGuid>29f3447d-6a64-4e98-a404-9fb4d5289521</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/div/a</value>
-      <webElementGuid>fa7e10f8-ec07-4c5a-a91d-5da28273cf8a</webElementGuid>
+      <webElementGuid>91845c64-45b2-49d4-a7eb-f068e1dc8133</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,14 +77,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@href = '/ListaProdutos']</value>
-      <webElementGuid>094cca83-042b-4b07-ae66-e3b7a0dc914e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//li[2]/a</value>
-      <webElementGuid>013d80cc-c747-4b9f-b30a-ee4872f88fb7</webElementGuid>
+      <webElementGuid>55ba9115-fdb0-4f45-8637-790044545581</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

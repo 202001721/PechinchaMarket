@@ -255,9 +255,9 @@ namespace PechinchaMarket.Controllers
             {
                 try
                 {
-                    var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
+                    var agrupamento_context = _context.Agrupamentos.Where(a => a.Id == id).FirstOrDefault();
                     var main = _context.ListaProdutos.ToList();
-                    var listaprodutos_context = _context.ListaProdutos.Single(x => x.Id.ToString() == listaId);
+                    var listaprodutos_context = main.Where(x => x.Id.ToString().Equals(listaId)).FirstOrDefault();
                     agrupamento_context.ListaProdutos.Add(listaprodutos_context);
                     //_context.Update(agrupamento);
                     await _context.SaveChangesAsync();
@@ -300,9 +300,9 @@ namespace PechinchaMarket.Controllers
             {
                 try
                 {
-                    var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
+                    var agrupamento_context = _context.Agrupamentos.Where(a => a.Id == id).FirstOrDefault();
                     var main = _context.ListaProdutos.ToList();
-                    var cliente_context = _context.Cliente.Single(x => x.Id == clienteId);
+                    var cliente_context = _context.Cliente.Where(x => x.Id == clienteId).FirstOrDefault();
 
                     _context.AgrupamentosMembro.Add(
                         new AgrupamentoMembro
@@ -632,7 +632,6 @@ namespace PechinchaMarket.Controllers
                     return NotFound();
                 }
             }
-            return View();
         }
     }
 }

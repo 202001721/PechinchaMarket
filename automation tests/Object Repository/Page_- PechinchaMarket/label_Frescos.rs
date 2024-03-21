@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>label_Password</name>
+   <name>label_Frescos</name>
    <tag></tag>
-   <elementGuidId>543b38d6-0478-4c88-abda-87adc8f1e675</elementGuidId>
+   <elementGuidId>17f2f0af-e90f-4ca8-a6f4-5388b061b9c7</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//form[@id='account']/div/div[2]/div/label</value>
+         <key>CSS</key>
+         <value>li:nth-of-type(2) > label</value>
       </entry>
       <entry>
-         <key>CSS</key>
-         <value>div:nth-of-type(2) > div.authentication-input-text-div > label</value>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/following::label[1]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Password&quot;i</value>
+         <value>label >> internal:has-text=&quot;Frescos&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,86 +29,86 @@
       <name>tag</name>
       <type>Main</type>
       <value>label</value>
-      <webElementGuid>d7622006-87a9-4a83-b5b5-c9d192505a16</webElementGuid>
+      <webElementGuid>ad9af687-9188-476c-836a-4d324be2d301</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>for</name>
       <type>Main</type>
-      <value>Input_Password</value>
-      <webElementGuid>11c7d4ac-30ca-4c21-827c-b6680eb594bb</webElementGuid>
+      <value>Frescos</value>
+      <webElementGuid>2bfe7c03-a224-41d0-9830-8a217851c37e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Password</value>
-      <webElementGuid>90b9c262-3a67-4ca3-9cf9-21fa0bb69a87</webElementGuid>
+      <value>Frescos</value>
+      <webElementGuid>8f4cd118-f31e-449e-a054-69bf090d2375</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[2]/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
-      <webElementGuid>31c61dab-7a99-43c6-873e-024032aca1b8</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top&quot;]/div[@class=&quot;max-width&quot;]/ul[@class=&quot;max-width open&quot;]/li[2]/label[1]</value>
+      <webElementGuid>7c73c438-234d-4f3f-9967-177c8524586a</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div[2]/div/label</value>
-      <webElementGuid>b7fba315-c85a-4b23-88af-027af624bcd3</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/following::label[1]</value>
+      <webElementGuid>9072ac27-ea0b-4a72-a775-67ade32d5e84</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::label[1]</value>
-      <webElementGuid>5914233e-dbab-4e4e-8a4e-d6712a2a35b9</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoria:'])[1]/following::label[2]</value>
+      <webElementGuid>8d91d75c-75da-4ced-89cb-c9272698036c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/following::label[2]</value>
-      <webElementGuid>31b8f956-c11a-4b65-b2d7-5cf03613fe4b</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Biologicos'])[1]/preceding::label[1]</value>
+      <webElementGuid>e15b3b36-b343-4eee-9db8-9002fe1dc688</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/preceding::label[1]</value>
-      <webElementGuid>d27194ff-fbba-4b83-84dc-de35b45b50d3</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Congelados'])[1]/preceding::label[2]</value>
+      <webElementGuid>bc6caa27-f19d-44c5-b2bb-ecc300a585dd</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Password']/parent::*</value>
-      <webElementGuid>feaa0d37-befd-4ad2-ba6b-870dcf8482bb</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Frescos']/parent::*</value>
+      <webElementGuid>1371a971-d886-4d78-bc53-7450140345df</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[2]/div/label</value>
-      <webElementGuid>cfcb1751-2156-422b-9271-1deaff38d689</webElementGuid>
+      <value>//li[2]/label</value>
+      <webElementGuid>c7b72f51-820f-4c97-a9b1-18204dc47ebd</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//label[(text() = 'Password' or . = 'Password')]</value>
-      <webElementGuid>c89c76a2-46fe-4d62-a8d8-01724ae11a1d</webElementGuid>
+      <value>//label[(text() = 'Frescos' or . = 'Frescos')]</value>
+      <webElementGuid>03e2ad7e-84fb-4425-a72c-28ee3e0add36</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -11,9 +11,11 @@
 
     var counter = 0;
 
+
     
 
 }
+
 
 <script>
     function copyText() {
@@ -113,22 +115,56 @@
         }
     }
 
-    function openEditPermissions(permissionBtn){
+    function selectEdit(permissionBtn){
 
         var section = permissionBtn.parentNode.parentNode.parentNode
 
-        var permissionHTML = Array.from(section.querySelectorAll(".editPermisions"));
+        var checkboxes = Array.from(section.querySelectorAll(".checkbox"));
         var permissionUpdateBtn = section.querySelector("#permissionUpdateBtn");
 
-        for(permission of permissionHTML){
-            permission.style.display = "block";
+
+        for(checkbox of checkboxes){
+            if (checkbox.checked) {
+                checkbox.parentNode.parentNode.querySelector(".editPermisions").style.display = "block";
+            }
         }
 
         permissionBtn.style.display = "none";
         permissionUpdateBtn.style.display = "block";
     }
 
+    function checkTheBox(checkbox){
+        
+        var section = checkbox.parentNode.parentNode.parentNode.parentNode.parentNode
+
+        
+        var checkboxes = Array.from(section.querySelectorAll(".checkbox"));
+
+        var permissionUpdateBtn = section.querySelector("#permissionBtn");
+        var removeBtn = section.querySelector("#formRemove");
+        var addBtn = section.querySelector("#addBtn");
+
+        permissionUpdateBtn.style.display = "none";
+        removeBtn.style.display = "none";
+        addBtn.style.display = "block";
+
+        for (checkbox of checkboxes) {
+            if (checkbox.checked) {
+
+                var permissionUpdateBtn = section.querySelector("#permissionBtn");
+                var removeBtn = section.querySelector("#formRemove");
+
+                permissionUpdateBtn.style.display = "block";
+                removeBtn.style.display = "block";
+                addBtn.style.display = "none";
+            }
+        }
+    }
+
 </script>
+
+
+<link type="text/css" rel="stylesheet" href="~/css/agrupamentos.css" />
 
 <h1>Agrupamentos</h1>
 
@@ -322,19 +358,14 @@
                         @if(item.Privilegio == NivelPrivilegio.Admin)
                         {
                             <div class="buttons-end">
-                                                            
 
-                                <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
 
-                                <div class="default-button-color medium-button pechincha-button" id="permissionBtn" onclick="openEditPermissions(this)">Gerir Permissões</div>
-                                <input type="submit" class="pechincha-button default-button-color medium-button" id="permissionUpdateBtn" style="display:none" form="permissions-@counter" value="Atualizar Permissões">
+                                <div class="fit-content-width fit-content-height" id="addBtn" onclick="chooseMemberToAdd(@counter);"><img src="~/images/add.png" class="img-button"></img></div>
+                                <div class="fit-content-width fit-content-height" id="permissionBtn" onclick="selectEdit(this)" style="display:none"><img src="~/images/edit-text.png" class="img-button"></div>
+                                <input type="submit" class="pechincha-button default-button-color medium-button" id="permissionUpdateBtn" style="display:none" form="permissions-@counter" value="Guardar">
 
-                                
-                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post">
-             
-                                  
-                                    <input  name="membros" class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Membros" />
-                     
+                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post" style="display:none">
+                                    <input name="membros" class="img-button fit-content-width fit-content-height" type="image" value="Remover Membros" src="~/images/recycle-bin.png" />
                                 </form>
 
                             </div>
@@ -374,7 +405,7 @@
                                         }
                                         <div class="row-container edges-flex max-width">
                                             <div class="center-y-flex smaller-gap-x">
-                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id>
+                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this)">
                                                 <span>@member.Cliente.Name</span>
                                             </div>
                                             <div style="display:none" class="editPermisions">
@@ -397,9 +428,9 @@
                                       
                                         @if (item.Privilegio.Equals(NivelPrivilegio.Admin))
                                         {
-                                             <div class="row-container edges-flex max-width">
+                                            <div class="row-container edges-flex max-width">
                                             <div class="center-y-flex smaller-gap-x">
-                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id>
+                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this)">
                                                 <span>@member.Cliente.Name</span>
                                             </div>
                                             <div style="display:none" class="editPermisions">

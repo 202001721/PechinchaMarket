@@ -129,13 +129,13 @@
                                         {
                                             var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
                                             var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
-                                            var precoComDesconto = precoOriginal * (desconto);
+                                            var precoComDesconto = precoOriginal * (1 - desconto);
                                             <span>@precoComDesconto€/@produto.Unidade</span>
                                         }
                                         else
                                         {
                                             <span>
-                                                @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade
+                                                @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()€/@produto.Unidade
                                             </span>
                                         }
                                     </span>
