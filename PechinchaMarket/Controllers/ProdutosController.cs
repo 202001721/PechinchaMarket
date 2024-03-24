@@ -250,8 +250,8 @@ namespace PechinchaMarket.Controllers
                                 if (durationParts.Length >= 2 && DateTime.TryParse(durationParts[0].Trim(), out DateTime inicioPromocao) && DateTime.TryParse(durationParts[1].Trim(), out DateTime fimPromocao))
                                 {
                                     // Atualizar os campos StartDiscount e EndDiscount
-                                    currentProdutoLoja.StartDiscount = inicioPromocao;
-                                    currentProdutoLoja.EndDiscount = fimPromocao;
+                                    currentProdutoLoja.StartDiscount = Convert.ToDateTime(inicioPromocao.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"));
+                                    currentProdutoLoja.EndDiscount = Convert.ToDateTime(fimPromocao.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"));
                                     _context.Update(currentProdutoLoja);
                                 }
                                 else
