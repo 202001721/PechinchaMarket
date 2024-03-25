@@ -283,7 +283,7 @@
                             <div class="buttons-end">
 
                                 <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
-                                <form id="formRemoveLists" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
+                                <form id="formRemoveLists_@item.Agrupamento.Id" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
 
                                     <input class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
 
@@ -303,7 +303,7 @@
                                     @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor)
                                     {
                                         <div class="center-y-flex smaller-gap-x">
-                                            <input form="formRemoveLists" type="checkbox" name="listasId" value=@list.Id>
+                                            <input form="formRemoveLists_@item.Agrupamento.Id" type="checkbox" name="listasId" value=@list.Id>
                                             <div>@list.name</div>
                                         </div>
                                       
