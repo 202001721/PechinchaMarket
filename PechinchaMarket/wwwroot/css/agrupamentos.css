@@ -11,3 +11,14 @@
 .img-button:hover{
     cursor:pointer;
 }
+.status-message {
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    background-color: rgba(250, 171, 60);
+    opacity: 0.75;
+    border-color: white;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}

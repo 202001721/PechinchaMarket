@@ -27,6 +27,10 @@ namespace PechinchaMarket.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
+
         // GET: Agrupamentos
         public async Task<IActionResult> Index()
         {
@@ -120,9 +124,11 @@ namespace PechinchaMarket.Controllers
                     _context.Add(agrupamento);
                     _context.Add(agrupamentoMembro);
                     await _context.SaveChangesAsync();
+                    TempData["StatusMessage"] = "Agrupamento criado com sucesso!";
                     return RedirectToAction(nameof(Index));
                 }
             }
+            TempData["StatusMessage"] = "Ocorreu um erro inesperado ao tentar criar um agrupamento.";
             return View(agrupamento);
         }
 
@@ -183,6 +189,7 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
+                TempData["StatusMessage"] = "Alterações realizadas com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             return View(agrupamento);
@@ -228,9 +235,10 @@ namespace PechinchaMarket.Controllers
                     }
                 }
 
-
+                TempData["StatusMessage"] = "Nome atualizado com sucesso!";
                 return RedirectToAction("Index", new { model = agrupamentos });
             }
+            TempData["StatusMessage"] = "Ocorreu um erro inesperado ao tentar editar o nome do agrupamento.";
             return RedirectToAction("Index", new { model = agrupamentos });
         }
 
@@ -274,9 +282,10 @@ namespace PechinchaMarket.Controllers
                     }
                 }
 
-
+                TempData["StatusMessage"] = "Lista adicionada ao agrupamento com sucesso!";
                 return RedirectToAction("Index", new { model = agrupamentos });
             }
+            TempData["StatusMessage"] = "Ocorreu um erro inesperado ao tentar adicionar uma lista.";
             return RedirectToAction("Index", new { model = agrupamentos });
         }
 
@@ -326,10 +335,10 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
-
-
+                TempData["StatusMessage"] = "Membro adicionado ao agrupamento com sucesso!";
                 return RedirectToAction("Index", new { model = agrupamentos });
             }
+            TempData["StatusMessage"] = "Ocorreu um erro inesperado ao tentar adicionar um membro ao agrupamento.";
             return RedirectToAction("Index", new { model = agrupamentos });
         }
         /// <summary>
@@ -375,8 +384,8 @@ namespace PechinchaMarket.Controllers
                     throw;
                 }
             }
-
-            return RedirectToAction("Index"); 
+            TempData["StatusMessage"] = "Membro removido com sucesso!";
+            return RedirectToAction("Index");
         }
         /// <summary>
         /// Método que utiliza do método de remover membros para remover uma lista de membros do agrupamento
@@ -392,7 +401,8 @@ namespace PechinchaMarket.Controllers
             {
                await RemoveMember(id, member);
             }
-            return   RedirectToAction("Index");
+            TempData["StatusMessage"] = "Membro[s] removido[s] com sucesso!";
+            return RedirectToAction("Index");
         }
         /// <summary>
         /// 
@@ -445,10 +455,10 @@ namespace PechinchaMarket.Controllers
                         throw;
                     }
                 }
-
+                TempData["StatusMessage"] = "Lista removida com sucesso!";
                 return RedirectToAction("Index", new { model = agrupamentos });
             }
-
+            TempData["StatusMessage"] = "Ocorreu um erro inesperado ao tentar remover a lista.";
             return RedirectToAction("Index", new { model = agrupamentos });
         }
         [HttpPost]
@@ -507,10 +517,10 @@ namespace PechinchaMarket.Controllers
                 {
                     throw;
                 }
-
-
+                TempData["StatusMessage"] = "Permissoes alteradas com sucesso!";
                 return RedirectToAction("Index", new { model = agrupamentos });
             }
+            TempData["StatusMessage"] = "Ocorreu um erro inesperado ao tentar alterar as permissoes do membro";
             return RedirectToAction("Index", new { model = agrupamentos });
         }
 
@@ -603,10 +613,11 @@ namespace PechinchaMarket.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EnterWithCode(long codigo)
         {
-            var userId = _userManager.GetUserId(User);
+           var userId = _userManager.GetUserId(User);
 
             if (await _context.AgrupamentosMembro.AnyAsync(x => x.Agrupamento.Codigo == codigo && x.Cliente.UserId == userId))
             {
+                TempData["StatusMessage"] = "Já faz parte do agrupamento";
                 return RedirectToAction("Index");
             }
             else
@@ -624,12 +635,13 @@ namespace PechinchaMarket.Controllers
                     };
                     _context.AgrupamentosMembro.Add(novoMembro);
                     await _context.SaveChangesAsync();
-
+                    TempData["StatusMessage"] = "Entrou no agrupamento com sucesso!";
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    return NotFound();
+                    TempData["StatusMessage"] = "Ocorreu um erro inesperado ao tentar entrar no agrupamento.";
+                    return RedirectToAction("Index");
                 }
             }
         }

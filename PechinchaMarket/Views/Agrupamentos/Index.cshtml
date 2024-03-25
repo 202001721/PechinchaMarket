@@ -11,9 +11,6 @@
 
     var counter = 0;
 
-
-    
-
 }
 
 
@@ -161,13 +158,38 @@
         }
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const specificDiv = document.getElementById('mensagem');
+
+        function displayMessage(statusMessage) {
+            const statusElement = document.createElement('div');
+            statusElement.classList.add('alert', 'alert-success', 'status-message');
+            statusElement.textContent = statusMessage;
+
+            specificDiv.innerHTML = ''; 
+            specificDiv.appendChild(statusElement);
+
+            const displayTime = 3000;
+            setTimeout(() => {
+                statusElement.style.display = 'none';
+            }, displayTime);
+        }
+
+        const statusMessage = '@TempData["StatusMessage"]';
+
+        if (statusMessage) {
+            displayMessage(statusMessage);
+        }
+    });
+    
 </script>
 
 
 <link type="text/css" rel="stylesheet" href="~/css/agrupamentos.css" />
 
 <h1>Agrupamentos</h1>
-
+<div  id="mensagem">
+</div>
 <div class="display-flex">
     <form asp-action="Create" class="small-padding">
         <button class="pechincha-button default-button-color bigger-button" type="submit">Criar Agrupamento</button>
