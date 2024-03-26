@@ -7,7 +7,7 @@
 }
 
 <script type="text/javascript" src="~/js/AuthenticationBasedOnPhases.js"></script>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WfRY526MlBgsOxALrNXdf0qNl9m-Zk4&loading=async&libraries=places&callback=initAutocomplete" async defer></script>
 
 <body class="gradiante-main-color background-height">
     <div class="content-background authentication-box center-div-x-axis">
@@ -35,7 +35,7 @@
                         <span asp-validation-for="Input.UserName" class="text-danger"></span>
                     </div>
                     <div class="authentication-input-text-div">
-                        <input asp-for="Input.Localizacao" autocomplete="localizacao" aria-required="true" placeholder="Localização" />
+                        <input asp-for="Input.Localizacao" id="localizacao" type="text" aria-required="true" placeholder="Localização" />
                         <label asp-for="Input.Localizacao">Localização</label>
                         <span asp-validation-for="Input.Localizacao" class="text-danger"></span>
                     </div>
@@ -75,6 +75,19 @@
         </div>
     </div>
 </body>
+
+
+<script>
+    function initAutocomplete() {
+        var input = document.getElementById('localizacao');
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+            types: ['geocode'], // Optional: restricts the search to addresses
+            componentRestrictions: { country: 'PT' }, // Restricts the results to Portugal
+            language: 'pt' // Set language to Portuguese
+        });
+        autocomplete.setFields(['address_components', 'formatted_address']);
+    }
+</script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
