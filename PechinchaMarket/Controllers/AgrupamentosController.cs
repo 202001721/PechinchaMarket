@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aspose.Pdf;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -254,9 +255,9 @@ namespace PechinchaMarket.Controllers
             {
                 try
                 {
-                    var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
+                    var agrupamento_context = _context.Agrupamentos.Where(a => a.Id == id).FirstOrDefault();
                     var main = _context.ListaProdutos.ToList();
-                    var listaprodutos_context = _context.ListaProdutos.Single(x => x.Id.ToString() == listaId);
+                    var listaprodutos_context = main.Where(x => x.Id.ToString().Equals(listaId)).FirstOrDefault();
                     agrupamento_context.ListaProdutos.Add(listaprodutos_context);
                     //_context.Update(agrupamento);
                     await _context.SaveChangesAsync();
@@ -299,9 +300,9 @@ namespace PechinchaMarket.Controllers
             {
                 try
                 {
-                    var agrupamento_context = _context.Agrupamentos.Single(a => a.Id == id);
+                    var agrupamento_context = _context.Agrupamentos.Where(a => a.Id == id).FirstOrDefault();
                     var main = _context.ListaProdutos.ToList();
-                    var cliente_context = _context.Cliente.Single(x => x.Id == clienteId);
+                    var cliente_context = _context.Cliente.Where(x => x.Id == clienteId).FirstOrDefault();
 
                     _context.AgrupamentosMembro.Add(
                         new AgrupamentoMembro
@@ -324,6 +325,187 @@ namespace PechinchaMarket.Controllers
                     {
                         throw;
                     }
+                }
+
+
+                return RedirectToAction("Index", new { model = agrupamentos });
+            }
+            return RedirectToAction("Index", new { model = agrupamentos });
+        }
+        /// <summary>
+        /// Método que recebe o id do agrupamento e do membro a ser eliminado deste mesmo agrupamento
+        /// </summary>
+        /// <param name="id">Id do agrupamento a ser gerido</param>
+        /// <param name="clienteId">membro do agrupamento a ser removidos</param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveMember(Guid id, Guid clienteId)
+        {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.FirstOrDefault(x => x.UserId == userId);
+
+            if (cliente == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var agrupamentoMembro = await _context.AgrupamentosMembro
+                .Include(am => am.Agrupamento)
+                .FirstOrDefaultAsync(am => am.Agrupamento.Id == id && am.Cliente.Id == clienteId);
+
+            if (agrupamentoMembro == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            try
+            {
+                _context.AgrupamentosMembro.Remove(agrupamentoMembro);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AgrupamentoMembroExists(clienteId, id))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction("Index"); 
+        }
+        /// <summary>
+        /// Método que utiliza do método de remover membros para remover uma lista de membros do agrupamento
+        /// </summary>
+        /// <param name="id"> Id do agrupamento a ser gerido</param>
+        /// <param name="members"> lista de membros do agrupamento a serem removidos</param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveMembers(Guid id, List<Guid> members)
+        {
+            foreach (var member in members)
+            {
+               await RemoveMember(id, member);
+            }
+            return   RedirectToAction("Index");
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="listaId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveList(Guid id, Guid listaId)
+        {
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.FirstOrDefault(x => x.UserId.Equals(userId));
+
+            if (cliente == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var agrupamentos = await _context.AgrupamentosMembro
+                .Where(x => x.Cliente.Equals(cliente))
+                .Include(x => x.Agrupamento)
+                .ThenInclude(x => x.ListaProdutos)
+                .ToListAsync();
+
+            var errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            ViewBag.ErrorMessages = errorMessages;
+
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("Name");
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var agrupamentoContext = _context.Agrupamentos.Single(a => a.Id == id);
+                    var listaprodutosContext = _context.ListaProdutos.Single(x => x.Id == listaId);
+
+                    agrupamentoContext.ListaProdutos.Remove(listaprodutosContext);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ListaProdutosExists(listaId.ToString()))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return RedirectToAction("Index", new { model = agrupamentos });
+            }
+
+            return RedirectToAction("Index", new { model = agrupamentos });
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveLists(Guid id, List<Guid> listasId)
+        {
+            foreach (var lista in listasId)
+            {
+                await RemoveList(id, lista);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePermissions(Guid id, string[] editPermissions)
+        {
+
+            var userId = _userManager.GetUserId(User);
+            Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+            var agrupamentos = await _context.AgrupamentosMembro.Where(x => x.Cliente.Equals(cliente))
+                            .Include(x => x.Agrupamento)
+                                 .ThenInclude(x => x.ListaProdutos).ToListAsync();
+
+
+            var errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+            ViewBag.ErrorMessages = errorMessages;
+
+
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("Name");
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var membros = _context.AgrupamentosMembro.Where(x => x.Agrupamento.Id == id).ToArray();
+
+                    for(int i = 1 ; i < membros.Length; i++)
+                    {
+
+                        int iForPermission = i -1 ;
+
+                        string[] privAndId = editPermissions[iForPermission].Split("_");
+
+                        if (privAndId[1] == id.ToString())
+                        {
+                            NivelPrivilegio nivelPrivilegio;
+                            Enum.TryParse(privAndId[0], out nivelPrivilegio);
+                            membros[i].Privilegio = nivelPrivilegio;
+                        }
+                    }
+
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
                 }
 
 
@@ -450,7 +632,6 @@ namespace PechinchaMarket.Controllers
                     return NotFound();
                 }
             }
-            return View();
         }
     }
 }

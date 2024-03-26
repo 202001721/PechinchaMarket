@@ -11,11 +11,11 @@
 
     var counter = 0;
 
-    var mAdminCounter = 0;
-    var mEditorCounter = 0;
-    var mLeitorCounter = 0;
+
+    
 
 }
+
 
 <script>
     function copyText() {
@@ -114,7 +114,57 @@
             card.classList.remove('display-none');
         }
     }
+
+    function selectEdit(permissionBtn){
+
+        var section = permissionBtn.parentNode.parentNode.parentNode
+
+        var checkboxes = Array.from(section.querySelectorAll(".checkbox"));
+        var permissionUpdateBtn = section.querySelector("#permissionUpdateBtn");
+
+
+        for(checkbox of checkboxes){
+            if (checkbox.checked) {
+                checkbox.parentNode.parentNode.querySelector(".editPermisions").style.display = "block";
+            }
+        }
+
+        permissionBtn.style.display = "none";
+        permissionUpdateBtn.style.display = "block";
+    }
+
+    function checkTheBox(checkbox){
+        
+        var section = checkbox.parentNode.parentNode.parentNode.parentNode.parentNode
+
+        
+        var checkboxes = Array.from(section.querySelectorAll(".checkbox"));
+
+        var permissionUpdateBtn = section.querySelector("#permissionBtn");
+        var removeBtn = section.querySelector("#formRemove");
+        var addBtn = section.querySelector("#addBtn");
+
+        permissionUpdateBtn.style.display = "none";
+        removeBtn.style.display = "none";
+        addBtn.style.display = "block";
+
+        for (checkbox of checkboxes) {
+            if (checkbox.checked) {
+
+                var permissionUpdateBtn = section.querySelector("#permissionBtn");
+                var removeBtn = section.querySelector("#formRemove");
+
+                permissionUpdateBtn.style.display = "block";
+                removeBtn.style.display = "block";
+                addBtn.style.display = "none";
+            }
+        }
+    }
+
 </script>
+
+
+<link type="text/css" rel="stylesheet" href="~/css/agrupamentos.css" />
 
 <h1>Agrupamentos</h1>
 
@@ -147,6 +197,11 @@
 
 <div class="column-container smaller-gap-y">
     @foreach (var item in Model) {
+
+        var mAdminCounter = 0;
+        var mEditorCounter = 0;
+        var mLeitorCounter = 0;
+
         <div class="background-constrast-color-2 rounded-border">
             <div class="colapsable-div smaller-padding" onclick="colapse(this)">
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
@@ -168,7 +223,7 @@
                         </div>
                     </div>
                     <div class="new-page display-none" id="delete-popup-@counter">
-                        <div class="small-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                        <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
                             <div class="edges-flex max-width">
                                 <div class="title unselectable-text">Eliminar Agrupamento</div>
                                 <div class="cross-button" onclick="deletePopup(@counter);"></div>
@@ -225,7 +280,16 @@
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Listas</span>
                         @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor){
-                            <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                            <div class="buttons-end">
+
+                                <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
+                                <form id="formRemoveLists" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
+
+                                    <input class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
+
+                                </form>
+                            </div>
+                   
                         }
                        
                     </div>
@@ -236,7 +300,15 @@
                             {
                                 @foreach (var list in item.Agrupamento.ListaProdutos)
                                 {
-                                    <div>@list.name</div>
+                                    @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor)
+                                    {
+                                        <div class="center-y-flex smaller-gap-x">
+                                            <input form="formRemoveLists" type="checkbox" name="listasId" value=@list.Id>
+                                            <div>@list.name</div>
+                                        </div>
+                                      
+                                    }
+                                   
                                 }
                             }
                         </div>
@@ -247,7 +319,9 @@
                             <div class="edges-flex max-width">
                                 <div class="title unselectable-text">Adicionar uma Lista</div>
                                 <div class="cross-button" onclick="chooseListToAdd(@counter);"></div>
+                             
                             </div>
+                           
                             <form asp-action="AddList" method="post" class="column-container edges-flex max-width max-height">
                                 <input type="hidden" name="id" value="@item.Agrupamento.Id" />
                                 <div>Lista de Produtos</div>
@@ -272,22 +346,46 @@
                 </div>
 
                 <!-- Membros -->
+                <form asp-action="ChangePermissions" asp-route-id=@item.Agrupamento.Id method="post" id="permissions-@counter">
+                    <input type="hidden" name="id" value="@item.Agrupamento.Id" />
+                </form>
+
+
                 <div class="background-constrast-color small-padding tiny-gap-y column-container rounded-border">
                     <div class="row-container edges-flex max-width">
                         <span class="small-heading">Membros</span>
+
                         @if(item.Privilegio == NivelPrivilegio.Admin)
                         {
-                            <div class="pechincha-button default-button-color medium-button" onclick="chooseMemberToAdd(@counter);">Adicionar Membro</div>
+                            <div class="buttons-end">
+
+
+                                <div class="fit-content-width fit-content-height" id="addBtn" onclick="chooseMemberToAdd(@counter);"><img src="~/images/add.png" class="img-button"></img></div>
+                                <div class="fit-content-width fit-content-height" id="permissionBtn" onclick="selectEdit(this)" style="display:none"><img src="~/images/edit-text.png" class="img-button"></div>
+                                <input type="submit" class="pechincha-button default-button-color medium-button" id="permissionUpdateBtn" style="display:none" form="permissions-@counter" value="Guardar">
+
+                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post" style="display:none">
+                                    <input name="membros" class="img-button fit-content-width fit-content-height" type="image" value="Remover Membros" src="~/images/recycle-bin.png" />
+                                </form>
+
+                            </div>
+                          
                         }
                  
                     </div>
                     <div class="break-line"></div>
                     <div class="row-container edges-flex max-width">
-                        <div class="column-container">
+                        <div class="column-container max-width">
                             @if (members != null)
                             {
                                 @foreach (var member in members.Where(x => x.Agrupamento.Id == item.Agrupamento.Id).OrderBy(x => x.Privilegio).ToList())
                                 {
+                                    
+                                    var current = member.Privilegio.ToString() + "_" + item.Agrupamento.Id;
+                                    var editor = "Editor_" + item.Agrupamento.Id;
+                                    var leitor = "Leitor_" + item.Agrupamento.Id;
+                                    
+
                                     @if (member.Privilegio.Equals(NivelPrivilegio.Admin))
                                     {
                                         @if (mAdminCounter == 0)
@@ -296,6 +394,7 @@
                                             mAdminCounter++;
                                         }
                                         <div class="small-padding-left">@member.Cliente.Name</div>
+
                                     }
                                     else if (member.Privilegio.Equals(NivelPrivilegio.Editor))
                                     {
@@ -304,7 +403,20 @@
                                             <span>Editores</span>
                                             mEditorCounter++;
                                         }
-                                        <div class="small-padding-left">@member.Cliente.Name</div>
+                                        <div class="row-container edges-flex max-width">
+                                            <div class="center-y-flex smaller-gap-x">
+                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this)">
+                                                <span>@member.Cliente.Name</span>
+                                            </div>
+                                            <div style="display:none" class="editPermisions">
+                                                <label for="editPermissions">Selecionar Permissão:</label>
+                                                <select name="editPermissions" form="permissions-@counter">
+                                                    <option value=@current selected hidden>@member.Privilegio</option>
+                                                    <option value=@editor>Editor</option>
+                                                    <option value=@leitor>Leitor</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     }
                                     else if (member.Privilegio.Equals(NivelPrivilegio.Leitor))
                                     {
@@ -313,17 +425,30 @@
                                             <span>Leitores</span>
                                             mLeitorCounter++;
                                         }
-                                        <div class="max-width">
-
-                                            <div class="small-padding-left">@member.Cliente.Name</div>
-                                            <div class="right-flex small-padding-right2 ">
-                                                <div class="delete-button-color medium-button pechincha-button" onclick="deletePopup(@counter);">
-                                                    Remover
-                                                </div>
+                                      
+                                        @if (item.Privilegio.Equals(NivelPrivilegio.Admin))
+                                        {
+                                            <div class="row-container edges-flex max-width">
+                                            <div class="center-y-flex smaller-gap-x">
+                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this)">
+                                                <span>@member.Cliente.Name</span>
+                                            </div>
+                                            <div style="display:none" class="editPermisions">
+                                                <label for="editPermissions">Selecionar Permissão:</label>
+                                                <select name="editPermissions" form="permissions-@counter">
+                                                    <option value=@current selected hidden>@member.Privilegio</option>
+                                                    <option value=@editor>Editor</option>
+                                                    <option value=@leitor>Leitor</option>
+                                                </select>
                                             </div>
                                         </div>
-                                      
-
+                                        }
+                                        else
+                                        {
+                                            <span>@member.Cliente.Name</span>
+                                        }
+     
+                                            
                                     }
                                 }
                             }
@@ -394,6 +519,13 @@
         var hiddenContent = div.nextElementSibling;
         hiddenContent.classList.toggle("off-screen");
     }
+    function removerMembro(){
+        document.getElementById("hideremove").style.display = "none";
+        document.getElementById("showremove").style.display = "inherit";
+        document.getElementById("showboxes").style.display = "inherit";
+
+
+    }
 
     function changeNameEditableField(button) {
         var form = button.parentNode.parentNode;
@@ -440,5 +572,6 @@
         chooseimage = document.getElementById("delete-popup-" + text);
         chooseimage.classList.toggle('display-none');
     }
+
 </script>
 

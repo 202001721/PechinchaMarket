@@ -33,7 +33,7 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a
 
 WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/p_Lista de compras'))
 
-WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Salvar_blue-button'))
+WebUI.click(findTestObject('Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
 
 WebUI.delay(5)
 

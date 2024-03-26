@@ -6,12 +6,12 @@
    <elementGuidId>543b38d6-0478-4c88-abda-87adc8f1e675</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>div:nth-of-type(2) > div.authentication-input-text-div > label</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//form[@id='account']/div/div[2]/div/label</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>div:nth-of-type(2) > div.authentication-input-text-div > label</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>label</value>
-      <webElementGuid>584031f5-9460-453d-864c-ff838ed54631</webElementGuid>
+      <webElementGuid>db5e19cc-086d-4d93-a9fc-1f9ca4cd6c7a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>for</name>
       <type>Main</type>
       <value>Input_Password</value>
-      <webElementGuid>8a275224-03e8-4299-a32d-e0c21efb2062</webElementGuid>
+      <webElementGuid>914fad75-3a95-411d-a281-4a6d66da7b9c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Password</value>
-      <webElementGuid>2fc86317-1fda-453d-b4a9-2b0b6ee03c3a</webElementGuid>
+      <webElementGuid>62263aa5-59e1-465c-8389-af93702b77c8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[2]/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
-      <webElementGuid>3ab26583-749f-48ca-81d9-abf717ca0fde</webElementGuid>
+      <webElementGuid>76c4aa28-62b2-4b01-813f-0184818b1fef</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='account']/div/div[2]/div/label</value>
-      <webElementGuid>16e93376-e777-4464-86cb-061004a73894</webElementGuid>
+      <webElementGuid>d75ef427-e9eb-4af9-9de0-1dc7962192ba</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::label[1]</value>
-      <webElementGuid>8fcf33ba-c66e-4ed4-a334-2984a4209284</webElementGuid>
+      <webElementGuid>b9f549df-6ce1-42fe-b47b-157660f26b9c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/following::label[2]</value>
-      <webElementGuid>271bb1e8-16c1-4679-ad7d-924c97db73f9</webElementGuid>
+      <webElementGuid>94a8f041-c7ee-499f-9390-09234e57350a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/preceding::label[1]</value>
-      <webElementGuid>c2099e9b-6e3c-45b5-9043-6e3fe0ef975b</webElementGuid>
+      <webElementGuid>63ce176b-0c93-4492-820f-78f1e91c1962</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Password']/parent::*</value>
-      <webElementGuid>3928508b-91cb-43cb-b201-5a2c04666844</webElementGuid>
+      <webElementGuid>41f66a85-8f05-4d73-a0d1-b10774afd77d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/div/label</value>
-      <webElementGuid>a421f1e4-68b7-4bee-8709-2df3939374b2</webElementGuid>
+      <webElementGuid>7090c158-8f0b-4bf6-a700-98f55bd98581</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,6 +109,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//label[(text() = 'Password' or . = 'Password')]</value>
-      <webElementGuid>68122d74-66fe-49bd-a01f-d0786431ef9b</webElementGuid>
+      <webElementGuid>ef691046-4ec0-449b-917b-2f8db5890491</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

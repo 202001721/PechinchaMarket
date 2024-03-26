@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>(//button[@type='button'])[2]</value>
+         <value>//button[@type='button']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>2e7b449d-3b97-4888-a322-43333d38ea05</webElementGuid>
+      <webElementGuid>c924f8da-aeff-4083-a2c6-2946cc231ddb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>type</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>64420f0e-e546-4f51-bc41-bcc9ef73c489</webElementGuid>
+      <webElementGuid>b9582d4a-ed06-4083-b0b8-0f459fec372b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>collapsible</value>
-      <webElementGuid>6798f530-8fa1-43c7-8126-4e967cc22ee9</webElementGuid>
+      <webElementGuid>74274ecd-adba-4198-b50b-7e4e8387d8dd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Comerciante:</value>
-      <webElementGuid>9248f1eb-c11a-405a-8f7b-fd631bf524cf</webElementGuid>
+      <webElementGuid>52cce28a-65b8-486f-b4ec-742f64ba7f5a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,10 +61,74 @@
       <name>xpath</name>
       <type>Main</type>
       <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top&quot;]/div[@class=&quot;max-width&quot;]/button[@class=&quot;collapsible&quot;]</value>
-      <webElementGuid>09558b59-f925-4201-b07a-6aab355efe32</webElementGuid>
+      <webElementGuid>e053350f-d26e-4486-a9c8-687414013a33</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//button[@type='button']</value>
+      <webElementGuid>279dbb73-7205-4cd2-9854-2263cd460033</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='em progresso'])[2]/following::button[1]</value>
+      <webElementGuid>7b53ec07-9efd-421b-ae73-faaf2a8ce84a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='em progresso'])[1]/following::button[1]</value>
+      <webElementGuid>4f9d1d36-2fdf-4c49-a9f7-f6395a7dab13</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Comerciante'])[1]/preceding::button[1]</value>
+      <webElementGuid>4469554d-b5f1-4eae-ab9d-2a5249cb9215</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoria:'])[1]/preceding::button[1]</value>
+      <webElementGuid>825525a9-c772-41ed-834b-f3fee41137a4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Comerciante:']/parent::*</value>
+      <webElementGuid>4e44fd7d-aa9d-49c0-b470-5ba839c6c5d9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/button</value>
+      <webElementGuid>8be091df-883d-489a-9732-8cca525bc02f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@type = 'button' and (text() = 'Comerciante:' or . = 'Comerciante:')]</value>
+      <webElementGuid>4bff70d0-c03e-4722-a2c5-5748c0d4a59c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
@@ -76,55 +140,7 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='em progresso'])[2]/following::button[1]</value>
-      <webElementGuid>035281ba-6db0-42a0-bf9d-6d3048273ecc</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='em progresso'])[1]/following::button[1]</value>
-      <webElementGuid>59caeb82-cbb3-443e-bfcb-9873196f618e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='ComerciantePMK'])[1]/preceding::button[1]</value>
       <webElementGuid>66c9c66f-c4ab-45fc-b897-750d3e9bf5a4</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoria:'])[1]/preceding::button[1]</value>
-      <webElementGuid>5a8562a0-e90e-449d-9862-d773dfa0fb6a</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Comerciante:']/parent::*</value>
-      <webElementGuid>5b69b85a-d93e-465b-8e30-5bba863a9d6e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[2]/button</value>
-      <webElementGuid>7ae2c02a-87a1-47ca-810f-5519f95344c1</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//button[@type = 'button' and (text() = 'Comerciante:' or . = 'Comerciante:')]</value>
-      <webElementGuid>0b8764f0-3176-4cd0-90b2-486dc6c70c0c</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

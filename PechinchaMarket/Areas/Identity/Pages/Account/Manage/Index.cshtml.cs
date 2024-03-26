@@ -315,17 +315,34 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
 
             var userId = _userManager.GetUserId(User);
             Cliente cliente = _context.Cliente.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
-            if (Input.UserName != cliente.Name)
+            if (cliente != null)
             {
-                cliente.Name = Input.UserName;
-                var changes = _context.SaveChanges();
-
-                if (changes == 0)
+                if (Input.UserName != cliente.Name)
                 {
-                    StatusMessage = "Ocorreu um erro inesperado ao tentar definir o nome do utilizador.";
-                    return RedirectToPage();
+                    cliente.Name = Input.UserName;
+                    var changes = _context.SaveChanges();
+
+                    if (changes == 0)
+                    {
+                        StatusMessage = "Ocorreu um erro inesperado ao tentar definir o nome do utilizador.";
+                        return RedirectToPage();
+                    }
+                }
+            }else {
+                Comerciante comerciante = _context.Comerciante.Where(x => x.UserId.Equals(userId)).FirstOrDefault();
+                if (Input.UserName != comerciante.Name)
+                {
+                    comerciante.Name = Input.UserName;
+                    var changes = _context.SaveChanges();
+
+                    if (changes == 0)
+                    {
+                        StatusMessage = "Ocorreu um erro inesperado ao tentar definir o nome do utilizador.";
+                        return RedirectToPage();
+                    }
                 }
             }
+           
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "O seu perfil foi atualizado.";

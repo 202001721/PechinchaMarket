@@ -7,18 +7,18 @@
    <selectorCollection>
       <entry>
          <key>CSS</key>
-         <value>#categorias</value>
+         <value>li:nth-of-type(2) > #categorias</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='categorias']</value>
+         <value>(//input[@id='categorias'])[2]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>li >> internal:has-text=&quot;Enlatados&quot;i >> #categorias</value>
+         <value>li >> internal:has-text=&quot;Frescos&quot;i >> #categorias</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>f185ef55-bf23-41e9-919f-a158052b3187</webElementGuid>
+      <webElementGuid>ac3c568d-5bf4-43f4-ae8f-1e7d8f4e51ed</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,15 +37,15 @@
       <name>type</name>
       <type>Main</type>
       <value>checkbox</value>
-      <webElementGuid>b5a96e73-a9ab-4798-8639-a6a7ea00735c</webElementGuid>
+      <webElementGuid>8f1e6130-9374-408d-8905-ee6eda2a63bf</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>Enlatados</value>
-      <webElementGuid>30ef069f-b3ed-4b89-a3a1-f8ff65394027</webElementGuid>
+      <value>Frescos</value>
+      <webElementGuid>bb51b358-a676-49d8-8c9b-e3b1f8671bfd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>id</name>
       <type>Main</type>
       <value>categorias</value>
-      <webElementGuid>f3d43303-6d1e-4b07-a7ee-decf69c9844e</webElementGuid>
+      <webElementGuid>262c8f8f-c9b3-42e0-a5e0-44d3b99fe30e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>class</name>
       <type>Main</type>
       <value>categorias</value>
-      <webElementGuid>d47890bb-51ee-4b1e-85d9-ca572ea8714f</webElementGuid>
+      <webElementGuid>96830d53-721f-45cf-a1c8-54cbae6d559a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,18 +69,42 @@
       <name>onchange</name>
       <type>Main</type>
       <value>filtrar();</value>
-      <webElementGuid>966328cb-1cfc-4ed9-995e-86c2ecb5351b</webElementGuid>
+      <webElementGuid>5b0f27e3-47a4-4220-9a3c-79ddf1314870</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top&quot;]/div[@class=&quot;max-width&quot;]/ul[@class=&quot;max-width open&quot;]/li[1]/input[@id=&quot;categorias&quot;]</value>
-      <webElementGuid>47d105f8-c785-41d9-9dcc-3531c05dd104</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top&quot;]/div[@class=&quot;max-width&quot;]/ul[@class=&quot;max-width open&quot;]/li[2]/input[@id=&quot;categorias&quot;]</value>
+      <webElementGuid>f09dd2a5-ca53-4fba-9e13-0c6048092150</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//input[@id='categorias'])[2]</value>
+      <webElementGuid>98d72f75-19c8-40d1-955e-f2403c08faf4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[2]/input</value>
+      <webElementGuid>c3847e9c-caaf-45bf-9aca-fb695788caaa</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'checkbox' and @id = 'categorias']</value>
+      <webElementGuid>cd5bffc3-a153-41c0-8f9b-82e78aa5ab73</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
@@ -94,13 +118,5 @@
       <type>Main</type>
       <value>//div[3]/ul/li/input</value>
       <webElementGuid>b772e5fb-9138-4103-b540-4fed92cf8438</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//input[@type = 'checkbox' and @id = 'categorias']</value>
-      <webElementGuid>c9328b50-e717-48d0-98fd-ee8f6b1a0537</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
