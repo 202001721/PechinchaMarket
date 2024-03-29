@@ -4,6 +4,7 @@
     -*-------------------------------*/
     /*Cor "Web Standard" para todos links, campos selecionados etc...*/
     --blue-color: rgba(12, 138, 255, 1);
+    --blue-color2: rgba(102,209,255);
     /*cor principal do website (tema)*/
     --root-main-color: rgb(255,181,70, 1);
     /*cor do texto que esta sobre um background main color no website todo*/
@@ -47,7 +48,7 @@
     --root-small-icon-size: 2em;
     --root-medium-icon-size: 3em;
     --root-huge-icon-size: 5em;
-    --root-gigantic-icon-size:8em;
+    --root-gigantic-icon-size: 8em;
     --root-comerciante-logo: 10rem;
     --root-produto-image: 15rem;
     --root-account-type-logo-size: 3em;
@@ -197,6 +198,18 @@ body {
 
     .account-type-button:hover {
         border-color: var(--root-main-color);
+    }
+
+.create-product-type-button {
+    background-color: var(--root-account-type-button-color);
+    border: var(--root-account-type-button-border-width) solid var(--root-account-type-button-border-color);
+    border-radius: var(--root-account-type-button-border-radius);
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+
+    .create-product-type-button:hover {
+        border-color: var(--blue-color2);
     }
 
 .a-div-button {

@@ -23,8 +23,7 @@
 </div>
 
     <section class="containers">
-
-        <a href="@Url.Action("Create", "Produtos")" class="floating-button"></a>
+        <a onclick="addPopup()" class="floating-button"></a>
     
         <div id="publicados-products" style="display:flex;">
             @foreach (var item in Model.Where(p => p.ProdEstado == Estado.Approved).GroupBy(p => p.Id)
@@ -118,7 +117,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 <div>
 
@@ -126,6 +125,25 @@
                 counter++;
             }
         </div>   
+
+        <div class="new-page display-none" id="add-popup">
+            <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                <div class="edges-flex max-width">
+                    <div class="title unselectable-text">Adicionar Produto[s]</div>
+                    <div class="cross-button" onclick="addPopup();"></div>
+                </div>
+
+                <div class="column-container max-height  edges-flex max-width">
+                    <span class=" small-margin-top">Deseja adicionar um produtos ou vários?</span>
+                    <div class="center-x-flex">
+                        <div class="center-y-flex small-gap-y column-container wrap-flex small-page-product">
+                            <a href="@Url.Action("Create", "Produtos")" class="create-product-type-button">Criar um produto</a>
+                            <a href="@Url.Action("Create", "Produtos")" class="create-product-type-button">Criar vários produtos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </section>
   
@@ -152,6 +170,12 @@
         function deletePopup(text) {
             document.body.classList.toggle('no-overflow');
             chooseimage = document.getElementById("delete-popup-" + text);
+            chooseimage.classList.toggle('display-none');
+        }
+
+        function addPopup() {
+            document.body.classList.toggle('no-overflow');
+            chooseimage = document.getElementById("add-popup");
             chooseimage.classList.toggle('display-none');
         }
     </script>
