@@ -9,7 +9,7 @@
 <a class="back" onclick="goBack()"></a>
 <h2>Adicionar Loja</h2>
 <div class="content">
-     <div class="col-md-4">
+    <div class="col-md-4 small-padding-left">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -27,9 +27,8 @@
                 <input asp-for="ClosingTime" class="form-control" />
                 <span asp-validation-for="ClosingTime" class="text-danger"></span>
             </div>
-            <div class="margin-button-criar-submit">
-                <input type="submit" value="Criar" class="button" />
-                <a class="button-a" asp-action="Index">Cancelar</a>
+            <div class="small-padding-right small-padding-top">
+                <input type="submit" value="Criar Loja" class="blue-button" />
             </div>
                
         </form>

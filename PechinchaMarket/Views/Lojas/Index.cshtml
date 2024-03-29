@@ -8,44 +8,49 @@
 }
 <link href="~/css/loja.css" rel="stylesheet" />
 
-<h1>Lojas</h1>
+<h1 class="small-padding smaller-padding-left">Lojas</h1>
 
-<p>
-    <a class="button-a" asp-action="Create">Adicionar Loja</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OpeningTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClosingTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-            @if (item.UserId == UserManager.GetUserId(User))
-            {
+<body>
+<a href="@Url.Action("Create", "Lojas")" class="floating-button"></a>
+
+<div class="small-padding small-padding-top">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OpeningTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClosingTime)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OpeningTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClosingTime)
+                </th>
+                <th></th>
             </tr>
-    }           }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.UserId == UserManager.GetUserId(User))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpeningTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClosingTime)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                        </td>
+                    </tr>
+                }           }
+        </tbody>
+    </table>
+
+</div>
+</body>

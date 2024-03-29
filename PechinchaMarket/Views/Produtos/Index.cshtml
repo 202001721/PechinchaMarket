@@ -6,21 +6,17 @@
 
 }
 <link href="~/css/listaProduto.css" rel="stylesheet" />
-<h1>Produtos</h1>
+<h1 class="smaller-padding smaller-padding-left">Produtos</h1>
 
 <body>
 
 <div class="container-box"> 
-   
-        <span class="coluna">
-            <h2><a asp-action="Create" id="criar"> Criar Produtos</a></h2>
-        </span>
 
-        <span class="coluna">
+        <span class="coluna" id="publicados-tab">
             <h2><a id ="publicados"> Produtos Publicados</a></h2>
         </span>
 
-        <span class="coluna">
+        <span class="coluna" id="pendentes-tab">
             <h2><a id="pendentes"> Produtos Pendentes</a></h2>
         </span>
             
@@ -28,8 +24,8 @@
 
     <section class="containers">
 
+        <a href="@Url.Action("Create", "Produtos")" class="floating-button"></a>
     
-
         <div id="publicados-products" style="display:flex;">
             @foreach (var item in Model.Where(p => p.ProdEstado == Estado.Approved).GroupBy(p => p.Id)
             .Select(g => g.First()))
@@ -139,12 +135,16 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
     <script>
-        document.getElementById('publicados').addEventListener('click', function () {
+        document.getElementById('publicados-tab').addEventListener('click', function () {
+            document.getElementById("publicados-tab").classList.add("active-tab");
+            document.getElementById("pendentes-tab").classList.remove("active-tab");
             document.getElementById('publicados-products').style.display = 'flex';
             document.getElementById('pendentes-products').style.display = 'none';
         });
 
-        document.getElementById('pendentes').addEventListener('click', function () {
+        document.getElementById('pendentes-tab').addEventListener('click', function () {
+            document.getElementById("publicados-tab").classList.remove("active-tab");
+            document.getElementById("pendentes-tab").classList.add("active-tab");
             document.getElementById('publicados-products').style.display = 'none';
             document.getElementById('pendentes-products').style.display = 'flex';
         });

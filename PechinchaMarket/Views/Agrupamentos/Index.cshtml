@@ -188,7 +188,7 @@
 <link type="text/css" rel="stylesheet" href="~/css/agrupamentos.css" />
 
 <h1>Agrupamentos</h1>
-<div  id="mensagem">
+<div id="mensagem">
 </div>
 <div class="display-flex">
     <form asp-action="Create" class="small-padding">
@@ -272,11 +272,7 @@
                         </div>
 
                     </div>
-                }
-               
-
-               
-          
+                }     
 
                 <div class="background-constrast-color small-padding rounded-border">
                     <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post" class="row-container edges-flex">
@@ -287,7 +283,7 @@
                             <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
                         </div>
                         <div class="row-container center-y-flex smaller-gap-x">
-                            <input type="submit" value="Save" class="pechincha-button main-button-color off-screen" />
+                            <input type="submit" value="Salvar" class="pechincha-button main-button-color off-screen" />
                             @if(item.Privilegio == NivelPrivilegio.Admin)
                             {
                                 <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Renomear</div>
