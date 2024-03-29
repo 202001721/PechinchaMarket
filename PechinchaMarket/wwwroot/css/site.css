@@ -1080,6 +1080,10 @@ a.cancel-button:hover::before {
     gap: 2em 2em;
 }
 
+.smaller-gap {
+    gap: 1em 1em;
+}
+
 .smaller-gap-x {
     gap: 0px 1em;
 }
@@ -1180,12 +1184,13 @@ a.cancel-button:hover::before {
 }
 
 .search-result {
-    height: 12em;
+    height: 20em;
     aspect-ratio: 1 / 1;
     text-decoration: none;
     color: var(--root-text-color);
     background-color: var(--root-background-content-color);
     padding: 1em;
+    outline: 0.1em solid black;
 }
 
 .search-result:hover {
@@ -1195,10 +1200,44 @@ a.cancel-button:hover::before {
 
 .search-image {
     display: inline-block;
-    width: var(--root-medium-icon-size);
-    height: var(--root-medium-icon-size);
+    width: calc(0.75 * 20em);
+    height: calc(0.75 * 20em);
     background-size: 100% 100%;
 }
+
+.search-name {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.ordenar-search-button {
+    background: var(--root-background-contrast-color-2);
+    border: none;
+    outline: none;
+    padding: 0.2em;
+    margin: 0.6em;
+    width: 270px;
+    border-radius: 10px;
+}
+
+.ordenar-search-button > span{
+    font-weight: 500;
+}
+
+.ordenar-search-button > span > span{
+    font-weight: normal !important;
+}
+
+.ordenar-search-button button,
+.ordenar-search-button button.active{
+    background: var(--root-background-contrast-color-2) !important;
+}
+
+.ordenar-search-button:hover,
+.ordenar-search-button:hover button {
+    background:  var(--root-background-contrast-color) !important;
+}
+
 
 .small-image {
     display: inline-block;
@@ -1774,14 +1813,13 @@ a.default-button-color:hover::before {
 }
 
 
-.dropdown-content {
-    display: none;  
+.dropdown-content { 
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    right:20%;
+    right: calc((270px / 2) - (160px / 2));
 }
 
     .dropdown-content a {
@@ -1790,6 +1828,7 @@ a.default-button-color:hover::before {
         font-size: 15px;
         text-decoration: none;
         display: block;
+        cursor: pointer;
     }
 
        
@@ -1849,7 +1888,7 @@ a.default-button-color:hover::before {
     }
 
     .colapsable-button::after {
-        content: "";
+        content: "" !important;
         position: absolute;
         top: 50%;
         left: 0;
@@ -1861,7 +1900,7 @@ a.default-button-color:hover::before {
     }
 
     .colapsable-button::before {
-        content: "";
+        content: "" !important;
         position: absolute;
         top: 50%;
         right: 0;

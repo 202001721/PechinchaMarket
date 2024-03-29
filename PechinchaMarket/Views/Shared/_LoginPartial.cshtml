@@ -56,6 +56,14 @@
 </div>
 
 <script>
+    document.addEventListener('click', function (event) {
+        var targetDiv = document.getElementById("manage");
+
+        if (!targetDiv.children[0].classList.contains("display-none") && !targetDiv.contains(event.target)) {
+            displayperfilmenu();
+        }
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
         fetchPerfilImage();
     });
