@@ -7,9 +7,15 @@
 
 <body>
     <form asp-action="AddMultiplesProducts">
-        <input form="Images" type="file" id="fileInputControl" webkitdirectory="true" multiple />
+        
     </form>
-  
+
+    <form method="post" asp-action="ProcessarCSV" enctype="multipart/form-data">
+        <input type="file" name="arquivoCSV" />
+        <input type="file" id="fileInputControl" name="files" webkitdirectory="true" multiple />
+        <button type="submit">Enviar CSV</button>
+    </form>
+
 
 </body>
 

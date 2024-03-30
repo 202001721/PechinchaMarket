@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
+using EllipticCurve.Utils;
 
 namespace PechinchaMarket.Controllers
 {
@@ -316,14 +316,87 @@ namespace PechinchaMarket.Controllers
             return _context.Produto.Any(e => e.Id == id);
         }
 
-     
-        public  async Task<IActionResult> AddMultiplesProducts(IFormFile[] files)
+        
+        public  async Task<IActionResult> AddMultiplesProducts()
         {
-
 
             return View();
         }
+  
+
+        [HttpPost]
+        public async Task<IActionResult> ProcessarCSV(IFormFile arquivoCSV, List<IFormFile> files)
+        {
+
+            if (arquivoCSV != null && arquivoCSV.Length > 0)
+            {
+               
+
+                var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    Delimiter =";"
+                };
+                using (var reader = new StreamReader(arquivoCSV.OpenReadStream()))
+            
+                using (var csv = new CsvHelper.CsvReader(reader, csvConfig))
+                {
+                    var memoryStreamImg = new MemoryStream();
+
+                    var records = csv.GetRecords<CSVProduct>().ToList();
+                    foreach (var record in records)
+                    {
+                        Produto produto = new Produto();
+                       
+                       IFormFile file = files.Where(f => f.FileName.Contains(record.Image.ToString())).FirstOrDefault(); // REALIZAR VERIFICACOES MAIORES EM CIMA DISSO, e tem que ter o nome do folder no inicio, ta como contains mas tem que ir pra equals
+                       await file.CopyToAsync(memoryStreamImg);
+                        
+                        produto.Brand= record.Brand.ToString();
+                        produto.ProdEstado = Estado.InAnalysis;
+                        produto.Name = record.Name;
+                        produto.ProdCategoria = (Categoria)Enum.Parse(typeof(Categoria),record.ProdCategoria.ToString());
+                        produto.Weight = record.Weight;
+                        produto.Unidade = (UnidadeMedida)Enum.Parse(typeof(UnidadeMedida), record.Unidade.ToString());
+                        produto.Image = memoryStreamImg.ToArray();
+
+                        _context.Add(produto);
+                    }
+                   _context.SaveChanges();
+                }
+
+               
+                return RedirectToAction("Index");
+            }
+
+         
+            return RedirectToAction("Index");
+        }
+
+        public class CSVProduct
+        {
+  
+
+            [Name("Name")]
+            public string Name { get; set; }
+            [Name("Brand")]
+            public string Brand { get; set; }
+            [Name("ProdEstado")]
+            public string ProdEstado { get; set; }
+            [Name("ProdCategoria")]
+            public string ProdCategoria { get; set; }
+            [Name("Weight")]
+            public float Weight { get; set; }
+            [Name("Unidade")]
+            public string Unidade { get; set; }
+
+            [Name("Image")]
+            public string Image { get; set; }
+        }
 
 
+
+
+     }
+
+       
     }
-}
+
