@@ -6,6 +6,7 @@
     --blue-color: rgba(12, 138, 255, 1);
     /*cor principal do website (tema)*/
     --root-main-color: rgb(255,181,70, 1);
+    --root-main-color-low-opacity: rgb(255,181,70, 0.1);
     /*cor do texto que esta sobre um background main color no website todo*/
     --root-text-color-on-main-color: white;
     /*cor de background tudo que contem texto ou qualquer tipo de conteudo*/
@@ -47,7 +48,7 @@
     --root-small-icon-size: 2em;
     --root-medium-icon-size: 3em;
     --root-huge-icon-size: 5em;
-    --root-gigantic-icon-size:8em;
+    --root-gigantic-icon-size: 8em;
     --root-comerciante-logo: 10rem;
     --root-produto-image: 15rem;
     --root-account-type-logo-size: 3em;
@@ -133,6 +134,10 @@ body {
 
 .center-text {
     text-align: center;
+}
+
+.medium-text {
+    font-size: 20px;
 }
 
 /*Gradiante-main-color*/
@@ -221,6 +226,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding-bottom: 3em;
+    padding-top: 3em;
     border-radius: 30px;
 }            
 
@@ -231,10 +237,11 @@ body {
         gap: var(--root-all-authentication-content-min-space);
     }
 
-    .authentication-box div .authentication-header {
+    .authentication-box .authentication-header {
         display: flex;
         flex-direction: column;
         text-align: center;
+        align-items: center;
         gap: 0em;
     }
 
@@ -279,6 +286,10 @@ body {
     background-size: cover;
 }
 
+.account-type-selected .account-type-cliente-logo {
+    background-image: url('../images/Cliente_logo_selected.png');
+}
+
 .a-div-button button .account-type-cliente-logo {
     margin-top: var(--root-account-type-logo-in-button-margin-top);
 }
@@ -289,6 +300,10 @@ body {
     height: var(--root-account-type-logo-size);
     background-image: url('../images/Comerciante_logo.png');
     background-size: cover;
+}
+
+.account-type-selected .account-type-comerciante-logo {
+    background-image: url('../images/Comerciante_logo_selected.png');
 }
 
 .a-div-button button .account-type-comerciante-logo {
@@ -334,12 +349,21 @@ body {
 .support-link {
     width: 10em;
     margin-left: calc(var(--root-authentication-box-width) - 10em);
-    padding: 1em;
+    padding-right: 1em;
+}
+
+.bold-text {
+    font-weight: 500 !important;
 }
 
 .rigth-text {
-    text-align: right;
+    text-align: right !important;
 }
+
+.left-text {
+    text-align: left !important;
+}
+
 .authentication-ou-line {
     position: relative;
     display: inline-block;
@@ -376,7 +400,7 @@ body {
 }
 
 .authentication-basedon-row {
-    width: min-content;
+    width: 400px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -416,6 +440,7 @@ body {
 
             .authentication-input-text-div input:focus:placeholder-shown ~ label,
             .authentication-input-text-div input:focus::placeholder {
+                visibility: visible;
                 opacity: 1;
                 color: transparent;
                 bottom: calc(calc(var(--root-input-text-height) / 2) + calc(var(--root-input-text-height) - 0.5em));
@@ -423,23 +448,27 @@ body {
 
             .authentication-input-text-div input:focus:not(:placeholder-shown) ~ label,
             .authentication-input-text-div input:not(:placeholder-shown) ~ label {
+                visibility: visible;
                 color: grey !important;
                 opacity: 1 !important;
                 bottom: calc(calc(var(--root-input-text-height) / 2) + calc(var(--root-input-text-height) - 0.5em)) !important;
             }
 
             .authentication-input-text-div input:focus:not(:placeholder-shown) ~ label {
+                visibility: visible;
                 color: var(--blue-color) !important;
             }
 
         .authentication-input-text-div.edit-perfil-input input:disabled,
         .authentication-input-text-div.edit-perfil-input label::after {
+            visibility: visible;
             border: 1px solid var(--root-background-contrast-color) !important;
             background-color: var(--root-background-contrast-color) !important;
         }
 
     .authentication-input-text-div label {
         z-index: 90;
+        visibility: hidden;
         position: relative;
         bottom: calc(var(--root-input-text-height) - 0.5em);
         left: calc(0.15em + var(--root-input-text-padding-sides) - 0.5em);
@@ -447,8 +476,7 @@ body {
         padding-left: 0.5em;
         padding-right: 0.5em;
         opacity: 0;
-        transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
-
+        transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out, visibility 0.3s ease-in-out;
         /*unselectable text*/
         -webkit-user-select: none; /* Safari 3.1+ */
         -moz-user-select: none; /* Firefox 2+ */
@@ -1068,43 +1096,43 @@ a.cancel-button:hover::before {
 .wrap-flex, 
 .center-y-flex,
 .bottom-y-flex{
-    display: flex;
+    display: flex !important;
 }
 
 .column-container {
-    flex-direction: column;
+    flex-direction: column !important;
 }
 
 .row-container {
-    flex-direction: row;
+    flex-direction: row !important;
 }
 
 .right-flex {
-    justify-content: right;
+    justify-content: right !important;
 }
 
 .left-flex {
-    justify-content: left;
+    justify-content: left !important;
 }
 
 .space-around-flex {
-    justify-content: space-around;
+    justify-content: space-around !important;
 }
 
 .center-x-flex {
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .center-y-flex {
-    align-items: center;
+    align-items: center !important;
 }
 
 .bottom-y-flex {
-    align-items: flex-end;
+    align-items: flex-end !important;
 }
 
 .edges-flex {
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 
 .wrap-flex {
@@ -1440,6 +1468,40 @@ a.default-button-color:hover::before {
     opacity: 0.5;
 }
 
+
+.unselectable-button {
+    filter: brightness(0.85);
+    cursor: unset;
+}
+
+    .unselectable-button:hover {
+        filter: brightness(0.85);
+    }
+
+.xxl-button {
+    width: calc(var(--root-input-text-width) - 2em);
+    height: 80px !important;
+    background-color: var(--root-background-content-color);
+    border: none;
+    color: var(--root-text-color);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 15px;
+}
+
+    .xxl-button.account-type-selected {
+        border: none;
+        outline: 3px solid var(--root-main-color);
+        background-color: var(--root-main-color-low-opacity) !important;
+        box-shadow: none;
+    }
+
+    .xxl-button.account-type-selected:hover{
+        filter: none;
+    }
+
+
 .bigger-button {
     width: calc((var(--root-form-button-padding-sides) * 2) + 7em) !important;
     height: 30px !important;
@@ -1449,7 +1511,6 @@ a.default-button-color:hover::before {
     width: calc((var(--root-form-button-padding-sides) * 2) + 5em) !important;
     height: 30px !important;
 }
-
 
 .pechincha-link {
     display: inline-block !important;

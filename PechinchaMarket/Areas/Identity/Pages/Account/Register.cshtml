@@ -1,7 +1,7 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registar";
     Layout = null;
 }
 <title>@ViewData["Title"] - PechinchaMarket</title>
@@ -12,22 +12,91 @@
 <link rel="stylesheet" href="~/PechinchaMarket.styles.css" asp-append-version="true" />
 
 
-<body class="gradiante-main-color background-height">
-    <div class="content-background authentication-box center-div-x-axis">
-        <div class="centered-content">
-            <div class="authentication-header">
-                <span class="huge-icon-logo center-div-x-axis"></span>
-                <h3 class="center-text">Escolha o tipo de conta</h3>
-            </div>
+<body class="gradiante-main-color background-height center-x-flex center-y-flex column-container">
+    <div class="authentication-options">
+        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl"><span class="unselectable-text">Login</span></a>
+        <a class="opened-page"><span class="unselectable-text">Registar</span></a>
+    </div>
+    <div class="content-background authentication-box small-gap-y">
+        <div class="authentication-header">
+            <span class="huge-icon-logo center-div-x-axis"></span>
+            <h3 class="center-text unselectable-text">@ViewData["Title"]</h3>
+            <span class="center-text medium-text">Selecione o tipo de conta</span>
+        </div>
 
 
-            <div class="inline-div">
-                <a asp-page="./RegisterCliente" asp-route-returnUrl="@Model.ReturnUrl" class="a-div-button">  <button id="login-submit" type="" class="account-type-button"> <span class="account-type-cliente-logo"></span> Cliente</button> </a>
-                <a asp-page="./RegisterComerciante" asp-route-returnUrl="@Model.ReturnUrl" class="a-div-button"> <button id="login-submit" type="" class="account-type-button"> <span class="account-type-comerciante-logo"></span> Comerciante</button> </a>
+        <div class="column-container small-gap-y">
+            <div id="register-cliente" class="pechincha-button xxl-button row-container small-gap-x left-flex" onclick="switchAccountType(this)">
+                <span class="account-type-cliente-logo"></span>
+                <span>
+                    <div class="left-text bold-text">Cliente</div>
+                    <div class="left-text">Encontre produtos</div>
+                </span>
             </div>
+            <div id="register-comerciante" class="pechincha-button xxl-button row-container small-gap-x left-flex" onclick="switchAccountType(this)">
+                <span class="account-type-comerciante-logo"></span> 
+                <span class="">
+                    <div class="left-text bold-text">Comerciante</div>
+                    <div class="left-text">Publique produtos</div>
+                </span>
+            </div>
+        </div>
+
+        <div class="authentication-buttons">
+            <a id="back" asp-area="" asp-controller="Home" asp-action="Index" class="pechincha-button default-button-color">Cancelar</a>
+            <div id="placeholder-submit" class="pechincha-button main-button-color unselectable-button">Continuar</div>
+            <a id="register-cliente-submit" asp-page="./RegisterCliente" asp-route-returnUrl="@Model.ReturnUrl" type="submit" class="display-none pechincha-button main-button-color">Continuar</a>
+            <a id="register-comerciante-submit" asp-page="./RegisterComerciante" asp-route-returnUrl="@Model.ReturnUrl" type="submit" class="display-none pechincha-button main-button-color">Continuar</a>
         </div>
     </div>
 </body>
+<script>
+    function switchAccountType(pressed) {
+        var placeholderSubmit = document.getElementById("placeholder-submit");
+        var cliente = document.getElementById("register-cliente");
+        var clienteSubmit = document.getElementById("register-cliente-submit");
+        var comerciante = document.getElementById("register-comerciante");
+        var comercianteSubmit = document.getElementById("register-comerciante-submit");
+
+        pressed.classList.toggle("account-type-selected");
+
+        if (pressed === cliente) {
+            if (comerciante.classList.contains("account-type-selected")) {
+                comerciante.classList.remove("account-type-selected");
+                comercianteSubmit.classList.add("display-none");
+                if (!placeholderSubmit.classList.contains("display-none")) { 
+                    placeholderSubmit.classList.add("display-none");
+                }
+                clienteSubmit.classList.remove("display-none");
+            } else { 
+                if (placeholderSubmit.classList.contains("display-none")) {
+                    clienteSubmit.classList.add("display-none");
+                    placeholderSubmit.classList.remove("display-none");
+                } else { 
+                    clienteSubmit.classList.remove("display-none");
+                    placeholderSubmit.classList.add("display-none");
+                }
+            }
+        } else {
+            if (cliente.classList.contains("account-type-selected")) {
+                cliente.classList.remove("account-type-selected");
+                clienteSubmit.classList.add("display-none");
+                if (!placeholderSubmit.classList.contains("display-none")) {
+                    placeholderSubmit.classList.add("display-none");
+                }
+                comercianteSubmit.classList.remove("display-none");
+            } else {
+                if (placeholderSubmit.classList.contains("display-none")) {
+                    comercianteSubmit.classList.add("display-none");
+                    placeholderSubmit.classList.remove("display-none");
+                } else {
+                    comercianteSubmit.classList.remove("display-none");
+                    placeholderSubmit.classList.add("display-none");
+                }
+            }
+        }
+    }
+</script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial"/>
