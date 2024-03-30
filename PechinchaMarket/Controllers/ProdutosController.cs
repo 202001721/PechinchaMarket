@@ -25,6 +25,8 @@ namespace PechinchaMarket.Controllers
 
         }
 
+
+
         // GET: Produtos
         public async Task<IActionResult> Index()
         {
@@ -40,17 +42,6 @@ namespace PechinchaMarket.Controllers
                 .Include(x => x.ProdutoLojas)
                     .ThenInclude(x => x.Loja)
                 .ToListAsync();
-
-                //.Where(x => x.UserId.Equals(comerciante.UserId))
-
-                /* var produtos = await _context.Produto
-                    .Join(_context.ProdutoLoja,
-                        produto => produto.Id,
-                        produtoLoja => produtoLoja.Id,
-                        (produto, produtoLoja) => new { Produto = produto, ProdutoLoja = produtoLoja })
-                    .Where(p => p.ProdutoLoja.Loja.UserId == comerciante.UserId)
-                    .Select(p => new Tuple<Produto, ProdutoLoja>(p.Produto, p.ProdutoLoja))
-                    .ToListAsync() ;*/
 
                 return View(products);
             }
@@ -324,6 +315,15 @@ namespace PechinchaMarket.Controllers
         {
             return _context.Produto.Any(e => e.Id == id);
         }
-        
+
+     
+        public  async Task<IActionResult> AddMultiplesProducts(IFormFile[] files)
+        {
+
+
+            return View();
+        }
+
+
     }
 }
