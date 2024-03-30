@@ -7,79 +7,82 @@
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id" content="497321449047-b76lruov3kqga29lq8u00pes9l7733v9.apps.googleusercontent.com">
-
+<title>@ViewData["Title"] - PechinchaMarket</title>
+<script src="~/js/site.js" asp-append-version="true"></script>
 <link rel="icon" type="image/x-icon" href="./PechinchaMarket.png" />
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/PechinchaMarket.styles.css" asp-append-version="true" />
 
 
-<body class="gradiante-main-color background-height">
-    <div class="content-background authentication-box center-div-x-axis">
+<body class="gradiante-main-color background-height center-x-flex center-y-flex column-container">
+    <div class="authentication-options">
+        <a class="opened-page" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl"><span>Login</span></a>
+        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"><span>Registar</span></a>
+    </div>
+    <div class="content-background authentication-box small-gap-y">
         <div class="rigth-text support-link">
             <a asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="0">Precisa de ajuda?</a>
         </div>
-        <div class="centered-content">
-            <div class="authentication-header">
-                <span class="huge-icon-logo center-div-x-axis"></span>
-                <h3 class="center-text">@ViewData["Title"]</h3>
-            </div>
-            <form id="account" method="post">
-                <div class="authentication-phase authentication-basedon-column">
-                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                    
+        <div class="authentication-header">
+            <span class="huge-icon-logo center-div-x-axis"></span>
+            <h3 class="center-text unselectable-text">@ViewData["Title"]</h3>
+        </div>
+        <form id="account" method="post" class="no-margin">
+            <div class="authentication-phase authentication-basedon-column">
+                <div asp-validation-summary="ModelOnly" class="text-danger max-width center-text" role="alert"></div>
+
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" />
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div>
                     <div class="authentication-input-text-div">
-                        <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" />
-                        <label asp-for="Input.Email">Email</label>
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-                    </div>
-                    <div>
-                        <div class="authentication-input-text-div">
-                            <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" placeholder="Password" />
-                            <label asp-for="Input.Password">Password</label>
-                            <span asp-validation-for="Input.Password" class="text-danger"></span>
-                            <button type="button" class="password-hidden" onclick="togglePassword(this)"></button>
-                        </div>
-
-                        <div class="center-text">
-                            Ainda não tem conta?<a class="orange" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Crie conta aqui</a>
-                        </div>
+                        <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" placeholder="Password" />
+                        <label asp-for="Input.Password">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        <button type="button" class="password-hidden" onclick="togglePassword(this)"></button>
                     </div>
 
-                    <div class="authentication-buttons">
-                        <button id="back" type="" onclick="goBack()" class="cancel-button">Back</button>
-                        <button id="login-submit" type="submit" class="confirm-button">Login</button>
+                    <div class="center-text">
+                        Ainda não tem conta?<a class="orange" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Crie conta aqui</a>
                     </div>
                 </div>
-            </form>
-        </div>
+
+                <div class="authentication-buttons">
+                    <a id="back" asp-area="" asp-controller="Home" asp-action="Index" class="pechincha-button default-button-color">Cancelar</a>
+                    <button id="login-submit" type="submit" class="pechincha-button main-button-color">Login</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="authentication-ou-line">ou</div>
         @{
             if ((Model.ExternalLogins?.Count ?? 0) == 0)
             { }
             else
             {
-                <div class="gsignin-div">
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-gsignin">
-                        @foreach (var provider in Model.ExternalLogins!)
-                        {
-                            <button type="submit" class="gsi-material-button" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
-                                <div class="gsi-material-button-content-wrapper">
-                                    <div class="gsi-material-button-icon">
-                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
-                                            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-                                            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-                                            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-                                            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
-                                            <path fill="none" d="M0 0h48v48H0z"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="gsi-material-text">Continuar com o Google</div>
-                                    <span style="display: none;">Sign in with Google</span>
+                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-gsignin">
+                    @foreach (var provider in Model.ExternalLogins!)
+                    {
+                        <button type="submit" class="gsi-material-button" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
+                            <div class="gsi-material-button-content-wrapper">
+                                <div class="gsi-material-button-icon">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
+                                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                                        <path fill="none" d="M0 0h48v48H0z"></path>
+                                    </svg>
                                 </div>
-                            </button>
-                        }
-                    </form>
-                </div>
+                                <div class="gsi-material-text">Continuar com o Google</div>
+                                <span style="display: none;">Sign in with Google</span>
+                            </div>
+                        </button>
+                    }
+                </form>
             }
         }
     </div>

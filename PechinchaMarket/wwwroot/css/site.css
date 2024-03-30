@@ -156,14 +156,73 @@ body {
     background-color: white;
 }
 
+.authentication-options {
+    width: var(--root-authentication-box-width);
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+    .authentication-options a {
+        padding: 1em 2em;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+        .authentication-options a.opened-page {
+            background-color: var(--root-background-content-color);
+            color: var(--root-text-color);
+        }
+            .authentication-options a span {
+                position: relative;
+                width: fit-content;
+            }
+
+            .authentication-options a.opened-page span::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -5px; /* Adjust the value to control the distance of the line from the text */
+                width: 0%;
+                height: 3px; /* Adjust the height of the line */
+                background-color: var(--root-main-color); /* Adjust the color of the line */
+                transition: width 0.3s;
+            }
+                .authentication-options a.opened-page:hover span::after {
+                    width: 100%;
+                }
+
+            .authentication-options a span::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -5px; /* Adjust the value to control the distance of the line from the text */
+                width: 0%;
+                height: 3px; /* Adjust the height of the line */
+                background-color: var(--root-background-content-color); /* Adjust the color of the line */
+                transition: width 0.3s;
+            }
+
+                .authentication-options a:hover span::after {
+                    width: 100%;
+                }
+                
+
 .authentication-box {
-    min-height: var(--root-authentication-box-height);
+    height: fit-content;
     width: var(--root-authentication-box-width);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-}
+    padding-bottom: 3em;
+    border-radius: 30px;
+}            
 
     .authentication-box div.centered-content {
         display: flex;
@@ -175,7 +234,6 @@ body {
     .authentication-box div .authentication-header {
         display: flex;
         flex-direction: column;
-        margin-top: var(--root-authentication-content-margin-top);
         text-align: center;
         gap: 0em;
     }
@@ -274,7 +332,6 @@ body {
 }
 
 .support-link {
-    position: absolute;
     width: 10em;
     margin-left: calc(var(--root-authentication-box-width) - 10em);
     padding: 1em;
@@ -283,10 +340,34 @@ body {
 .rigth-text {
     text-align: right;
 }
+.authentication-ou-line {
+    position: relative;
+    display: inline-block;
+}
+
+    .authentication-ou-line::after {
+        content: "";
+        position: absolute;
+        right: -8.5em; /* Adjust as needed */
+        bottom: 9px;
+        width: 8em;
+        height: 1px; /* Adjust line height as needed */
+        border-top: 1px solid black;
+    }
+
+    .authentication-ou-line::before {
+        content: "";
+        position: absolute;
+        left: -8.5em; /* Adjust as needed */
+        bottom: 9px;
+        width: 8em;
+        height: 1px; /* Adjust line height as needed */
+        border-top: 1px solid black;
+    }
 
 .authentication-phase {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .authentication-basedon-column {
@@ -407,12 +488,9 @@ body {
 }
 
 .authentication-buttons {
-    margin-top: var(--root-all-authentication-content-min-space);
-    margin-bottom: var(--root-authentication-content-margin-bottom);
     display: flex;
     justify-content: flex-end;
     gap: 0em var(--root-authentication-button-min-space);
-    width: var(--root-authentication-box-content-width);
 }
 
 @media (max-width: 30rem) {
@@ -630,9 +708,8 @@ a.cancel-button:hover::before {
 }
 
 
-.gsignin-div {
-    margin: auto;
-    width: fit-content;
+.form-gsignin {
+    margin: 0;
 }
 
 .gsi-material-button {
@@ -655,8 +732,6 @@ a.cancel-button:hover::before {
     letter-spacing: 0.25px;
     outline: none;
     overflow: hidden;
-    padding: 0;
-    position: relative;
     text-align: center;
     -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
     transition: background-color .218s, border-color .218s, box-shadow .218s;
@@ -1149,6 +1224,10 @@ a.cancel-button:hover::before {
 
 .small-margin-right {
     margin-right: 1em;
+}
+
+.no-margin {
+    margin: 0 !important;
 }
 
 .filter-area-width {
