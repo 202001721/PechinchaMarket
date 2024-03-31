@@ -61,6 +61,51 @@
                     </div>
                 </div>
 
+                <div class="row-container left-flex small-gap-x">
+                    <div>
+                        <div class="thin-outline rounded-border small-padding filter-area-width small-margin-top">
+                            <h4 class="fit-content-width">Filtrar Por:</h4>
+                            <div class="fit-content-width">
+                                Zona:
+                                <ul class="fit-content-width">
+                                    <li class="fit-content-width" style="list-style-type:none">
+                                        <input type="radio" value="myLocation" name="location" />
+                                        <label for="myLocation">Minha Localização</label>
+                                    </li>
+                                    <li class="fit-content-width" style="list-style-type:none">
+                                        <input type="radio" value="city" name="location" />
+                                        <label for="city">Escolher Região</label>
+                                    </li>
+                                    <li style="display:none">
+                                        <input type=""/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="max-width">
+                                <button type="button" class="collapsible">Comerciante:</button>
+                                <ul class="max-width open">
+                                    @foreach(var c in comerciante)
+                                    {
+                                        <li style="list-style-type:none">
+                                            <input type="checkbox" value=@c.Name id=comerciantes class="comerciantes" onchange="filtrar();" unchecked />
+                                            <label for=@c.Name>@c.Name</label>
+                                        </li>
+                                    }
+                                    
+                                        
+                                </ul>
+                            </div>
+                            <div class="max-width">
+                                <button type="button" class="collapsible">Categoria:</button>
+                                <ul class="max-width open">
+                                    @foreach (var c in categorias)
+                                    {
+                                        <li style="list-style-type:none">
+                                            <input type="checkbox" value=@c id=categorias class="categorias" onchange="filtrar();" unchecked />
+                                            <label for=@c>@c</label>
+                                        </li>
+                                    }
+
 
             </div>
             <div class="row-container left-flex small-gap-x">
