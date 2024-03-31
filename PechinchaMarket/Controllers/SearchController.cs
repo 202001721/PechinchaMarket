@@ -290,7 +290,7 @@ namespace PechinchaMarket.Controllers
         .ToList();*/
 
                 var model2 = await _context.Produto
-          .Where(produto => produto.ProdutoLojas
+          .Where(produto => produto.Id == id && produto.ProdutoLojas
               .Any(produtoLoja => _context.Loja
                   .Any(loja => loja.UserId == _context.Comerciante
                       .Where(comerciante => comerciante.UserId == produtoLoja.Loja.UserId)
@@ -316,6 +316,8 @@ namespace PechinchaMarket.Controllers
         .ToList();
 
             ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
+
+            ViewData["Comerciante"] = _context.Comerciante;
 
             var pl = model2.SelectMany(x => x.ProdutoLojas).FirstOrDefault();
             if (pl != null)

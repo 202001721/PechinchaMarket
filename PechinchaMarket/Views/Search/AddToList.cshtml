@@ -6,6 +6,7 @@
     IEnumerable<ListaProdutos> listas = ViewData["Listas"] as IEnumerable<ListaProdutos>;
     IEnumerable<Loja> lojas = ViewData["Lojas"] as IEnumerable<Loja>;
     IEnumerable<Produto> produtos = ViewData["ProdutosSemelhantes"] as IEnumerable<Produto>;
+    IEnumerable<Comerciante> comerciantes = ViewData["Comerciante"] as IEnumerable<Comerciante>;
 
 }
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
@@ -23,8 +24,14 @@
        <div class="info">
             <div>
                <h3> @Html.DisplayFor(model => model.FirstOrDefault().Name)
-                @Html.DisplayFor(model => model.FirstOrDefault().Brand)
-               </h3>
+                    @Html.DisplayFor(model => model.FirstOrDefault().Brand) -
+                    @if (Model.Any())
+                    {
+                        var userId = Model.Select(x => x.ProdutoLojas.FirstOrDefault().Loja.UserId).FirstOrDefault();
+                        var name = comerciantes.Where(c => c.UserId == userId).First().Name;
+                        @name
+                    }
+                </h3>
             </div>
 
             <div>
