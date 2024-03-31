@@ -7,6 +7,7 @@
     --blue-color2: rgba(102,209,255);
     /*cor principal do website (tema)*/
     --root-main-color: rgb(255,181,70, 1);
+    --root-main-color-low-opacity: rgb(255,181,70, 0.1);
     /*cor do texto que esta sobre um background main color no website todo*/
     --root-text-color-on-main-color: white;
     /*cor de background tudo que contem texto ou qualquer tipo de conteudo*/
@@ -136,6 +137,10 @@ body {
     text-align: center;
 }
 
+.medium-text {
+    font-size: 20px;
+}
+
 /*Gradiante-main-color*/
 .gradiante-main-color {
     background: linear-gradient(-110deg, var(--root-main-color) 35%, rgba(255,255,255,1) 100%);
@@ -157,14 +162,79 @@ body {
     background-color: white;
 }
 
+.authentication-box-move {
+    padding-top: calc((100vh - 660px)/2);
+    height: calc(100% + ((100vh - 660px)/2));
+}
+
+.authentication-options {
+    width: var(--root-authentication-box-width);
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+    .authentication-options a {
+        padding: 1em 2em;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+        .authentication-options a.opened-page {
+            background-color: var(--root-background-content-color);
+            color: var(--root-text-color);
+        }
+            .authentication-options a span {
+                position: relative;
+                width: fit-content;
+            }
+
+            .authentication-options a.opened-page span::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -5px; /* Adjust the value to control the distance of the line from the text */
+                width: 0%;
+                height: 3px; /* Adjust the height of the line */
+                background-color: var(--root-main-color); /* Adjust the color of the line */
+                transition: width 0.3s;
+            }
+                .authentication-options a.opened-page:hover span::after {
+                    width: 100%;
+                }
+
+            .authentication-options a span::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -5px; /* Adjust the value to control the distance of the line from the text */
+                width: 0%;
+                height: 3px; /* Adjust the height of the line */
+                background-color: var(--root-background-content-color); /* Adjust the color of the line */
+                transition: width 0.3s;
+            }
+
+                .authentication-options a:hover span::after {
+                    width: 100%;
+                }
+                
+
 .authentication-box {
-    min-height: var(--root-authentication-box-height);
+    height: fit-content;
     width: var(--root-authentication-box-width);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-}
+    padding-bottom: 3em;
+    padding-top: 3em;
+    border-radius: 30px;
+}            
 
     .authentication-box div.centered-content {
         display: flex;
@@ -173,11 +243,11 @@ body {
         gap: var(--root-all-authentication-content-min-space);
     }
 
-    .authentication-box div .authentication-header {
+    .authentication-box .authentication-header {
         display: flex;
         flex-direction: column;
-        margin-top: var(--root-authentication-content-margin-top);
         text-align: center;
+        align-items: center;
         gap: 0em;
     }
 
@@ -234,6 +304,10 @@ body {
     background-size: cover;
 }
 
+.account-type-selected .account-type-cliente-logo {
+    background-image: url('../images/Cliente_logo_selected.png');
+}
+
 .a-div-button button .account-type-cliente-logo {
     margin-top: var(--root-account-type-logo-in-button-margin-top);
 }
@@ -244,6 +318,10 @@ body {
     height: var(--root-account-type-logo-size);
     background-image: url('../images/Comerciante_logo.png');
     background-size: cover;
+}
+
+.account-type-selected .account-type-comerciante-logo {
+    background-image: url('../images/Comerciante_logo_selected.png');
 }
 
 .a-div-button button .account-type-comerciante-logo {
@@ -287,19 +365,51 @@ body {
 }
 
 .support-link {
-    position: absolute;
     width: 10em;
     margin-left: calc(var(--root-authentication-box-width) - 10em);
-    padding: 1em;
+    padding-right: 1em;
+}
+
+.bold-text {
+    font-weight: 500 !important;
 }
 
 .rigth-text {
-    text-align: right;
+    text-align: right !important;
 }
+
+.left-text {
+    text-align: left !important;
+}
+
+.authentication-ou-line {
+    position: relative;
+    display: inline-block;
+}
+
+    .authentication-ou-line::after {
+        content: "";
+        position: absolute;
+        right: -8.5em; /* Adjust as needed */
+        bottom: 9px;
+        width: 8em;
+        height: 1px; /* Adjust line height as needed */
+        border-top: 1px solid black;
+    }
+
+    .authentication-ou-line::before {
+        content: "";
+        position: absolute;
+        left: -8.5em; /* Adjust as needed */
+        bottom: 9px;
+        width: 8em;
+        height: 1px; /* Adjust line height as needed */
+        border-top: 1px solid black;
+    }
 
 .authentication-phase {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .authentication-basedon-column {
@@ -308,7 +418,7 @@ body {
 }
 
 .authentication-basedon-row {
-    width: min-content;
+    width: 400px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -332,6 +442,9 @@ body {
         outline: none;
     }
 
+    .authentication-input-text-div input[type="password"]::-webkit-password-suffix {
+        display: none;
+    }
 
     .authentication-input-text-div.success::after {
         content: '✓';
@@ -348,6 +461,7 @@ body {
 
             .authentication-input-text-div input:focus:placeholder-shown ~ label,
             .authentication-input-text-div input:focus::placeholder {
+                visibility: visible;
                 opacity: 1;
                 color: transparent;
                 bottom: calc(calc(var(--root-input-text-height) / 2) + calc(var(--root-input-text-height) - 0.5em));
@@ -355,23 +469,27 @@ body {
 
             .authentication-input-text-div input:focus:not(:placeholder-shown) ~ label,
             .authentication-input-text-div input:not(:placeholder-shown) ~ label {
+                visibility: visible;
                 color: grey !important;
                 opacity: 1 !important;
                 bottom: calc(calc(var(--root-input-text-height) / 2) + calc(var(--root-input-text-height) - 0.5em)) !important;
             }
 
             .authentication-input-text-div input:focus:not(:placeholder-shown) ~ label {
+                visibility: visible;
                 color: var(--blue-color) !important;
             }
 
         .authentication-input-text-div.edit-perfil-input input:disabled,
         .authentication-input-text-div.edit-perfil-input label::after {
+            visibility: visible;
             border: 1px solid var(--root-background-contrast-color) !important;
             background-color: var(--root-background-contrast-color) !important;
         }
 
     .authentication-input-text-div label {
         z-index: 90;
+        visibility: hidden;
         position: relative;
         bottom: calc(var(--root-input-text-height) - 0.5em);
         left: calc(0.15em + var(--root-input-text-padding-sides) - 0.5em);
@@ -379,8 +497,7 @@ body {
         padding-left: 0.5em;
         padding-right: 0.5em;
         opacity: 0;
-        transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
-
+        transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out, visibility 0.3s ease-in-out;
         /*unselectable text*/
         -webkit-user-select: none; /* Safari 3.1+ */
         -moz-user-select: none; /* Firefox 2+ */
@@ -415,17 +532,14 @@ body {
 
         .authentication-input-text-div button.password-hidden,
         .authentication-input-text-div button.password-visible {
-            left: calc(var(--root-authentication-box-width-media) - 25px - 1px) !important;
+            left: calc(var(--root-authentication-box-width-media) - 25px - 1px - 5px) !important;
         }
 }
 
 .authentication-buttons {
-    margin-top: var(--root-all-authentication-content-min-space);
-    margin-bottom: var(--root-authentication-content-margin-bottom);
     display: flex;
     justify-content: flex-end;
     gap: 0em var(--root-authentication-button-min-space);
-    width: var(--root-authentication-box-content-width);
 }
 
 @media (max-width: 30rem) {
@@ -498,7 +612,7 @@ a.cancel-button:hover::before {
     padding-bottom: var(--root-form-button-padding-up-and-down);
     padding-top: var(--root-form-button-padding-up-and-down);
     background-color: var(--root-background-content-color);
-    outline: 1px solid var(--root-border-color-to-default-background-container);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
     border-radius: var(--root-checkbox-border-radius);
     outline-offset: -1px;
     color: var(--root-text-color);
@@ -506,11 +620,13 @@ a.cancel-button:hover::before {
 
 .authentication-checkbox input[type="checkbox"] {
     display: none;
+    cursor: pointer;
 }
 
     .authentication-checkbox input[type="checkbox"]:checked ~ label {
-        outline-color: var(--root-main-color);
-        outline-width: var(--root-checkbox-border-thickness-when-selected);
+        background-color: var(--root-main-color);
+        box-shadow: none;
+        color: white;
     }
 
     .authentication-checkbox input[type="checkbox"]:hover ~ label {
@@ -619,12 +735,15 @@ a.cancel-button:hover::before {
 
 .authentication-input-text-div button.password-hidden,
 .authentication-input-text-div button.password-visible {
-    position: relative;
-    bottom: calc(1em + var(--root-input-text-height));
-    left: calc(var(--root-input-text-width) - 25px - 1px);
+    position: absolute;
+    top: calc((var(--root-input-text-height) - 25px)/2);
+    left: calc(var(--root-input-text-width) - 25px - 1px - 5px);
     background-color: var(--root-background-content-color);
     border: none;
 }
+    .authentication-input-text-div input.with-show-button{
+        padding-right: 40px;
+    }
 
 .password-visible {
     display: inline-block;
@@ -643,9 +762,8 @@ a.cancel-button:hover::before {
 }
 
 
-.gsignin-div {
-    margin: auto;
-    width: fit-content;
+.form-gsignin {
+    margin: 0;
 }
 
 .gsi-material-button {
@@ -668,8 +786,6 @@ a.cancel-button:hover::before {
     letter-spacing: 0.25px;
     outline: none;
     overflow: hidden;
-    padding: 0;
-    position: relative;
     text-align: center;
     -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
     transition: background-color .218s, border-color .218s, box-shadow .218s;
@@ -1010,39 +1126,39 @@ a.cancel-button:hover::before {
 }
 
 .column-container {
-    flex-direction: column;
+    flex-direction: column !important;
 }
 
 .row-container {
-    flex-direction: row;
+    flex-direction: row !important;
 }
 
 .right-flex {
-    justify-content: right;
+    justify-content: right !important;
 }
 
 .left-flex {
-    justify-content: left;
+    justify-content: left !important;
 }
 
 .space-around-flex {
-    justify-content: space-around;
+    justify-content: space-around !important;
 }
 
 .center-x-flex {
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .center-y-flex {
-    align-items: center;
+    align-items: center !important;
 }
 
 .bottom-y-flex {
-    align-items: flex-end;
+    align-items: flex-end !important;
 }
 
 .edges-flex {
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 
 .wrap-flex {
@@ -1166,6 +1282,10 @@ a.cancel-button:hover::before {
 
 .small-margin-right {
     margin-right: 1em;
+}
+
+.no-margin {
+    margin: 0 !important;
 }
 
 .filter-area-width {
@@ -1378,6 +1498,40 @@ a.default-button-color:hover::before {
     opacity: 0.5;
 }
 
+
+.unselectable-button {
+    filter: brightness(0.85);
+    cursor: not-allowed;
+}
+
+    .unselectable-button:hover {
+        filter: brightness(0.85);
+    }
+
+.xxl-button {
+    width: calc(var(--root-input-text-width) - 2em);
+    height: 80px !important;
+    background-color: var(--root-background-content-color);
+    border: none;
+    color: var(--root-text-color);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 15px;
+}
+
+    .xxl-button.account-type-selected {
+        border: none;
+        outline: 3px solid var(--root-main-color);
+        background-color: var(--root-main-color-low-opacity) !important;
+        box-shadow: none;
+    }
+
+    .xxl-button.account-type-selected:hover{
+        filter: none;
+    }
+
+
 .bigger-button {
     width: calc((var(--root-form-button-padding-sides) * 2) + 7em) !important;
     height: 30px !important;
@@ -1387,7 +1541,6 @@ a.default-button-color:hover::before {
     width: calc((var(--root-form-button-padding-sides) * 2) + 5em) !important;
     height: 30px !important;
 }
-
 
 .pechincha-link {
     display: inline-block !important;
@@ -1436,6 +1589,10 @@ a.default-button-color:hover::before {
             left: -15px;
         }
 
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+}
 
 .off-screen {
     position: absolute;
@@ -2052,4 +2209,8 @@ a.default-button-color:hover::before {
     margin-left: 1.5em;
     margin-bottom: 0em;
     cursor: pointer;
+}
+
+.relative-position {
+    position: relative;
 }

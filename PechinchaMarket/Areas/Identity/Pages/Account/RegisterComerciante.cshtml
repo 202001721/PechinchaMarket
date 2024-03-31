@@ -6,7 +6,8 @@
     ViewData["Title"] = "Registar Comerciante";
     Layout = null;
 }
-
+<title>@ViewData["Title"] - PechinchaMarket</title>
+<script src="~/js/site.js" asp-append-version="true"></script>
 <link rel="icon" type="image/x-icon" href="./PechinchaMarket.png" />
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -15,78 +16,82 @@
 <script type="text/javascript" src="~/js/AuthenticationBasedOnPhases.js"></script>
 <script type="text/javascript" src="~/js/ComercianteStylePages.js"></script>
 
-<body class="gradiante-main-color background-height">
-    <div class="content-background authentication-box center-div-x-axis">
+<body class="gradiante-main-color background-height center-y-flex column-container authentication-box-move">
+    <div class="authentication-options">
+        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl"><span class="unselectable-text">Login</span></a>
+        <a class="opened-page"><span class="unselectable-text">Registar</span></a>
+    </div>
+    <div class="content-background authentication-box small-gap-y">
         <div class="rigth-text support-link">
             <a asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="2">Precisa de ajuda?</a>
         </div>
-        <div class="centered-content">
-            <div class="authentication-header">
-                <span class="huge-icon-logo center-div-x-axis"></span>
-                <h3 class="center-text">Criar conta como Comerciante</h3>
-            </div>
-            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
-                <div class="authentication-phase authentication-basedon-column" id="phase0">
-                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" />
-                        <label asp-for="Input.Email">Email</label>
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.UserName" autocomplete="username" aria-required="true" placeholder="Nome" />
-                        <label asp-for="Input.UserName">Nome</label>
-                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Password" />
-                        <label asp-for="Input.Password">Password</label>
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirme a password" />
-                        <label asp-for="Input.ConfirmPassword">Confirme a password</label>
-                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.Contact" autocomplete="contacto" aria-required="true"/>
-                        <label asp-for="Input.Contact">Contacto</label>
-                        <span asp-validation-for="Input.Contact" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-buttons">
-                        <a class="cancel-button" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cancelar</a>
-                        <div class="confirm-button" onclick="toogleSignUpFase(1, 2)">Continuar</div>
-                    </div>
-                </div>
-                <div class="authentication-phase authentication-basedon-column" id="phase1">
-                    <div class="insert-file file-type-image">
-                        <div class="title">Logotipo</div>
-                        <div class ="insert-file-input">
-                            <div>
-                                <label asp-for="Input.Image">Carregar</label>
-                                <input type="file" onchange="updateFileName(this)" asp-for="Input.Image" accept="image/*" />
-                            </div>
-                            <div class="file-name">Nenhum ficheiro escolhido</div>
-                        </div>
-                    </div>
-                    <div class="insert-file file-type-pdf">
-                        <div class="title">Documento de autenticação</div>
-                        <div class="insert-file-input">
-                            <div>
-                                <label asp-for="Input.Document">Carregar PDF</label>
-                                <input type="file" onchange="updateFileName(this)" asp-for="Input.Document" accept="application/pdf" />
-                            </div>
-                            <div class="file-name">Nenhum ficheiro escolhido</div>
-                        </div>
-                    </div>
-
-                    <div class="authentication-buttons">
-                        <a class="cancel-button" onclick="toogleSignUpFase(0, 2)">Voltar Atrás</a>
-                        <button class="confirm-button" id="registerSubmit" type="submit">Registar</button>
-                    </div>
-                </div>
-            </form>
+        <div class="authentication-header">
+            <span class="huge-icon-logo center-div-x-axis"></span>
+            <h3 class="center-text">Registar como Comerciante</h3>
+            <span id="text-phase0" class="center-text medium-text">Complete o formulário</span>
+            <span id="text-phase1" class="center-text medium-text display-none">Descarrega os seus documentos</span>
         </div>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
+            <div class="authentication-phase authentication-basedon-column" id="phase0">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" />
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.UserName" autocomplete="username" aria-required="true" placeholder="Nome" />
+                    <label asp-for="Input.UserName">Nome</label>
+                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Contact" autocomplete="contacto" aria-required="true" />
+                    <label asp-for="Input.Contact">Contacto</label>
+                    <span asp-validation-for="Input.Contact" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Password" />
+                    <label asp-for="Input.Password">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirme a password" />
+                    <label asp-for="Input.ConfirmPassword">Confirme a password</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="authentication-buttons">
+                    <a class="pechincha-button default-button-color" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Voltar</a>
+                    <div class="pechincha-button main-button-color" onclick="toogleSignUpFase(1, 2)">Continuar</div>
+                </div>
+            </div>
+            <div class="authentication-phase authentication-basedon-column" id="phase1">
+                <div class="insert-file file-type-image">
+                    <div class="title">Logotipo</div>
+                    <div class="insert-file-input">
+                        <div>
+                            <label asp-for="Input.Image">Carregar</label>
+                            <input type="file" onchange="updateFileName(this)" asp-for="Input.Image" accept="image/*" />
+                        </div>
+                        <div class="file-name">Nenhum ficheiro escolhido</div>
+                    </div>
+                </div>
+                <div class="insert-file file-type-pdf">
+                    <div class="title">Documento de autenticação</div>
+                    <div class="insert-file-input">
+                        <div>
+                            <label asp-for="Input.Document">Carregar PDF</label>
+                            <input type="file" onchange="updateFileName(this)" asp-for="Input.Document" accept="application/pdf" />
+                        </div>
+                        <div class="file-name">Nenhum ficheiro escolhido</div>
+                    </div>
+                </div>
+
+                <div class="authentication-buttons">
+                    <a class="pechincha-button default-button-color" onclick="toogleSignUpFase(0, 2)">Voltar</a>
+                    <button class="pechincha-button main-button-color" id="registerSubmit" type="submit">Registar</button>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 
