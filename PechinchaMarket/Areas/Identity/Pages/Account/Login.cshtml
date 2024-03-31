@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="~/PechinchaMarket.styles.css" asp-append-version="true" />
 
 
-<body class="gradiante-main-color background-height center-x-flex center-y-flex column-container">
+<body class="gradiante-main-color background-height center-y-flex column-container authentication-box-move">
     <div class="authentication-options">
         <a class="opened-page"><span class="unselectable-text">Login</span></a>
         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"><span class="unselectable-text">Registar</span></a>
@@ -28,36 +28,7 @@
             <span class="huge-icon-logo center-div-x-axis"></span>
             <h3 class="center-text unselectable-text">@ViewData["Title"]</h3>
         </div>
-        <form id="account" method="post" class="no-margin">
-            <div class="authentication-phase authentication-basedon-column">
-                <div asp-validation-summary="ModelOnly" class="text-danger max-width center-text" role="alert"></div>
 
-                <div class="authentication-input-text-div">
-                    <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" />
-                    <label asp-for="Input.Email">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" placeholder="Password" />
-                        <label asp-for="Input.Password">Password</label>
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-                        <button type="button" class="password-hidden" onclick="togglePassword(this)"></button>
-                    </div>
-
-                    <div class="center-text">
-                        Ainda não tem conta?<a class="orange" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Crie conta aqui</a>
-                    </div>
-                </div>
-
-                <div class="authentication-buttons">
-                    <a id="back" asp-area="" asp-controller="Home" asp-action="Index" class="pechincha-button default-button-color">Cancelar</a>
-                    <button id="login-submit" type="submit" class="pechincha-button main-button-color">Login</button>
-                </div>
-            </div>
-        </form>
-
-        <div class="authentication-ou-line">ou</div>
         @{
             if ((Model.ExternalLogins?.Count ?? 0) == 0)
             { }
@@ -85,6 +56,37 @@
                 </form>
             }
         }
+
+        <div class="authentication-ou-line">ou</div>
+
+        <form id="account" method="post" class="no-margin">
+            <div class="authentication-phase authentication-basedon-column">
+                <div asp-validation-summary="ModelOnly" class="text-danger max-width center-text" role="alert"></div>
+
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email" />
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div>
+                    <div class="authentication-input-text-div">
+                        <input asp-for="Input.Password" class="with-show-button" autocomplete="current-password" aria-required="true" placeholder="Password" />
+                        <label asp-for="Input.Password">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        <button type="button" class="password-hidden" onclick="togglePassword(this)"></button>
+                    </div>
+
+                    <div class="center-text relative-position">
+                        Ainda não tem conta?<a class="orange" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Crie conta aqui</a>
+                    </div>
+                </div>
+
+                <div class="authentication-buttons">
+                    <a id="back" asp-area="" asp-controller="Home" asp-action="Index" class="pechincha-button default-button-color">Cancelar</a>
+                    <button id="login-submit" type="submit" class="pechincha-button main-button-color">Login</button>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 @section Scripts {

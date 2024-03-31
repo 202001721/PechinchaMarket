@@ -161,6 +161,11 @@ body {
     background-color: white;
 }
 
+.authentication-box-move {
+    padding-top: calc((100vh - 660px)/2);
+    height: calc(100% + ((100vh - 660px)/2));
+}
+
 .authentication-options {
     width: var(--root-authentication-box-width);
     height: fit-content;
@@ -424,6 +429,9 @@ body {
         outline: none;
     }
 
+    .authentication-input-text-div input[type="password"]::-webkit-password-suffix {
+        display: none;
+    }
 
     .authentication-input-text-div.success::after {
         content: '✓';
@@ -511,7 +519,7 @@ body {
 
         .authentication-input-text-div button.password-hidden,
         .authentication-input-text-div button.password-visible {
-            left: calc(var(--root-authentication-box-width-media) - 25px - 1px) !important;
+            left: calc(var(--root-authentication-box-width-media) - 25px - 1px - 5px) !important;
         }
 }
 
@@ -591,7 +599,7 @@ a.cancel-button:hover::before {
     padding-bottom: var(--root-form-button-padding-up-and-down);
     padding-top: var(--root-form-button-padding-up-and-down);
     background-color: var(--root-background-content-color);
-    outline: 1px solid var(--root-border-color-to-default-background-container);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
     border-radius: var(--root-checkbox-border-radius);
     outline-offset: -1px;
     color: var(--root-text-color);
@@ -599,11 +607,13 @@ a.cancel-button:hover::before {
 
 .authentication-checkbox input[type="checkbox"] {
     display: none;
+    cursor: pointer;
 }
 
     .authentication-checkbox input[type="checkbox"]:checked ~ label {
-        outline-color: var(--root-main-color);
-        outline-width: var(--root-checkbox-border-thickness-when-selected);
+        background-color: var(--root-main-color);
+        box-shadow: none;
+        color: white;
     }
 
     .authentication-checkbox input[type="checkbox"]:hover ~ label {
@@ -712,12 +722,15 @@ a.cancel-button:hover::before {
 
 .authentication-input-text-div button.password-hidden,
 .authentication-input-text-div button.password-visible {
-    position: relative;
-    bottom: calc(1em + var(--root-input-text-height));
-    left: calc(var(--root-input-text-width) - 25px - 1px);
+    position: absolute;
+    top: calc((var(--root-input-text-height) - 25px)/2);
+    left: calc(var(--root-input-text-width) - 25px - 1px - 5px);
     background-color: var(--root-background-content-color);
     border: none;
 }
+    .authentication-input-text-div input.with-show-button{
+        padding-right: 40px;
+    }
 
 .password-visible {
     display: inline-block;
@@ -1096,7 +1109,7 @@ a.cancel-button:hover::before {
 .wrap-flex, 
 .center-y-flex,
 .bottom-y-flex{
-    display: flex !important;
+    display: flex;
 }
 
 .column-container {
@@ -1471,7 +1484,7 @@ a.default-button-color:hover::before {
 
 .unselectable-button {
     filter: brightness(0.85);
-    cursor: unset;
+    cursor: not-allowed;
 }
 
     .unselectable-button:hover {
@@ -1559,6 +1572,10 @@ a.default-button-color:hover::before {
             left: -15px;
         }
 
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+}
 
 .off-screen {
     position: absolute;
@@ -2175,4 +2192,8 @@ a.default-button-color:hover::before {
     margin-left: 1.5em;
     margin-bottom: 0em;
     cursor: pointer;
+}
+
+.relative-position {
+    position: relative;
 }

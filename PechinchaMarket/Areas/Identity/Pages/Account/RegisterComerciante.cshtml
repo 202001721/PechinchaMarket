@@ -16,7 +16,7 @@
 <script type="text/javascript" src="~/js/AuthenticationBasedOnPhases.js"></script>
 <script type="text/javascript" src="~/js/ComercianteStylePages.js"></script>
 
-<body class="gradiante-main-color background-height center-x-flex center-y-flex column-container">
+<body class="gradiante-main-color background-height center-y-flex column-container authentication-box-move">
     <div class="authentication-options">
         <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl"><span class="unselectable-text">Login</span></a>
         <a class="opened-page"><span class="unselectable-text">Registar</span></a>
@@ -45,6 +45,11 @@
                     <span asp-validation-for="Input.UserName" class="text-danger"></span>
                 </div>
                 <div class="authentication-input-text-div">
+                    <input asp-for="Input.Contact" autocomplete="contacto" aria-required="true" />
+                    <label asp-for="Input.Contact">Contacto</label>
+                    <span asp-validation-for="Input.Contact" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
                     <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Password" />
                     <label asp-for="Input.Password">Password</label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -53,11 +58,6 @@
                     <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirme a password" />
                     <label asp-for="Input.ConfirmPassword">Confirme a password</label>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                </div>
-                <div class="authentication-input-text-div">
-                    <input asp-for="Input.Contact" autocomplete="contacto" aria-required="true" />
-                    <label asp-for="Input.Contact">Contacto</label>
-                    <span asp-validation-for="Input.Contact" class="text-danger"></span>
                 </div>
                 <div class="authentication-buttons">
                     <a class="pechincha-button default-button-color" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Voltar</a>
