@@ -270,7 +270,7 @@ namespace PechinchaMarket.Controllers
         /// <returns>View com os detalhes do produto em questão</returns>
         public async Task<ActionResult> AddToList(int id)
         {
-                var model = _context.Users
+                /*var model = _context.Users
         .Join(_context.Comerciante,
             user => user.Id,
             comerciante => comerciante.UserId,
@@ -287,12 +287,23 @@ namespace PechinchaMarket.Controllers
             temp => temp.ProdutoLoja.Produto.Id,
             produto => produto.Id,
             (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja,produto ))
-        .ToList();
+        .ToList();*/
+
+                var model2 = await _context.Produto
+          .Where(produto => produto.ProdutoLojas
+              .Any(produtoLoja => _context.Loja
+                  .Any(loja => loja.UserId == _context.Comerciante
+                      .Where(comerciante => comerciante.UserId == produtoLoja.Loja.UserId)
+                      .Select(comerciante => comerciante.UserId)
+                      .FirstOrDefault())))
+          .Include(produto => produto.ProdutoLojas)
+              .ThenInclude(produtoLoja => produtoLoja.Loja)
+          .ToListAsync();
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
 
-            var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
+            var produto = model2.Select(x => x.Id).FirstOrDefault();
 
             //Alterar para ir buscar tambem as listas aos agrupamentos que pertence
             ViewData["Listas"] = _context.ListaProdutos
@@ -306,7 +317,7 @@ namespace PechinchaMarket.Controllers
 
             ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
 
-            var pl = model.Select(x => x.Item4).FirstOrDefault();
+            var pl = model2.SelectMany(x => x.ProdutoLojas).FirstOrDefault();
             if (pl != null)
             {
                 ShowDiscount(pl.Id);
@@ -315,7 +326,7 @@ namespace PechinchaMarket.Controllers
             {
                 ViewBag.ErrorMessage = "Nenhum produto encontrado";
             }
-            return View(model);
+            return View(model2);
         }
 
         /// <summary>

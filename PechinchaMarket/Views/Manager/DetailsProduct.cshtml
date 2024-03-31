@@ -7,11 +7,11 @@
 <link href="~/css/produto.css" rel="stylesheet" />
 <link href="~/css/produtoDetalhe.css" rel="stylesheet" />
 
-<a class="img-back" asp-action="NonAprovedProducts"></a>
-<div class="content">
-    <h2>Novo Produto Por Aceitar</h2>
+<a class="back" onclick="goBack()"></a>
+<h2>Detalhes do Produto</h2>
+
+<div class="content small-padding-top">
     <dl class="row">
-        
         <div class="addProductLeft">
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Item1.Name):

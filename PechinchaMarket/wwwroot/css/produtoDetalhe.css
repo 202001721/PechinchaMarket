@@ -3,11 +3,6 @@
     background: linear-gradient(to bottom, rgba(255, 102, 102) 0%, rgba(255, 255, 255, 1) 15%);
 }
 
-h2 {
-    padding-top: 0.5em;
-    padding-bottom: 1em;
-}
-
 .numberstyle-qty {
     position: relative;
     border-radius: 6px;
@@ -17,6 +12,7 @@ h2 {
 
 .content {
     padding-left: 5em;
+    padding-top: em;
     font-size: 18px;
 }
 
@@ -40,18 +36,6 @@ h2 {
     color: #fff;
     padding: 5px 5px;
     cursor: pointer;
-}
-
-.img-back {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-image: url(../images/down-arrow.png);
-    background-size: cover;
-    transform: rotate(90deg);
-    margin-top: 1.5em;
-    margin-left: 1.5em;
-    margin-bottom: 0em;
 }
 
 .voltar-button {
@@ -83,5 +67,12 @@ h2 {
     display: inline-block;
     width: var(--root-produto-image);
     height: var(--root-produto-image);
+    background-size: cover;
+}
+
+.comerciante-logo {
+    display: inline-block;
+    width: var(--root-comerciante-logo);
+    height: var(--root-comerciante-logo);
     background-size: cover;
 }
