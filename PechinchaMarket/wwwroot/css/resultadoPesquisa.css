@@ -1,12 +1,12 @@
 ﻿body {
     background: rgb(250, 181, 70);
     background: linear-gradient(to bottom, rgba(250, 181, 70) 10%, rgba(255, 255, 255, 1) 25%);
-    margin: 0; 
+    margin: 0;
+    font-size: 20px;
 }
 
 .content {
     padding: 12em 5em;
-    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +45,7 @@
 
 .info div {
     display: flex;
+    margin-block: 1.5em;
     margin-bottom: 1em;
 }
 
@@ -53,6 +54,13 @@
     flex-direction: row;
     padding-top: 2em;
     gap: 2em;
+}
+
+@media (max-width: 768px) {
+    .acoes {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .button-add {
@@ -83,8 +91,8 @@
     color: #669AFF;
     font-size: 18px;
     font-weight:500;
-    margin-inline-start: -1em;
-    margin-top: -9em;
+    margin-inline-start: 1em;
+    margin-top: -10em;
 }
 
 .price-text {

@@ -35,15 +35,13 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/s
 
 WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/a_Agrupamentos'))
 
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 2'))
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/span_Agrupamento 4'))
 
 WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/div_Adicionar Lista'))
 
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/label_Lista de compras'))
+WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/input_Lista de Produtos_listaId'))
 
 WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/button_Salvar'))
-
-WebUI.click(findTestObject('Object Repository/Page_Agrupamentos - PechinchaMarket/button_Agrupamento 1_colapsable-button'))
 
 WebUI.closeBrowser()
 

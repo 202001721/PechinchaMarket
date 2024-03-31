@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span_Agrupamento 2</name>
+   <name>label_Email</name>
    <tag></tag>
-   <elementGuidId>8573af0b-c53b-4ef2-a6c2-d913d4e09d44</elementGuidId>
+   <elementGuidId>4f10bf71-3b0b-482c-8c19-7cb9c8fcddbe</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='content-container']/div[3]/div[2]/div/span</value>
+         <value>//form[@id='account']/div/div/label</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value></value>
+         <value>label</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>span >> internal:has-text=&quot;Agrupamento 2&quot;i</value>
+         <value>internal:text=&quot;Email&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,95 +28,87 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>span</value>
-      <webElementGuid>296dbd6e-98d7-4ba9-868c-43e0c9968c93</webElementGuid>
+      <value>label</value>
+      <webElementGuid>c2cc4f7f-6880-4924-ab5f-53ac935b8fda</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>for</name>
       <type>Main</type>
-      <value>colapsable-content title</value>
-      <webElementGuid>23472d34-c227-44a7-9d93-e19e515136fc</webElementGuid>
+      <value>Input_Email</value>
+      <webElementGuid>d4a82c9b-72ae-4af9-ab3f-d55e1fd02f0d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Agrupamento 2</value>
-      <webElementGuid>24aa4b40-a76d-4352-981f-a7c3e7bf79b6</webElementGuid>
+      <value>Email</value>
+      <webElementGuid>17c47dcc-d074-4160-b293-fe7e5abcab82</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border&quot;]/div[@class=&quot;colapsable-div smaller-padding&quot;]/span[@class=&quot;colapsable-content title&quot;]</value>
-      <webElementGuid>6c2353dc-6436-4b8d-a9c6-33a2de778e2e</webElementGuid>
+      <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
+      <webElementGuid>ca8d4f4b-3b72-46bf-bd31-98a4f93e53f7</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='content-container']/div[3]/div[2]/div/span</value>
-      <webElementGuid>1cb85486-aae3-4c93-ba99-c6c89ce1800f</webElementGuid>
+      <value>//form[@id='account']/div/div/label</value>
+      <webElementGuid>c7b84b85-6af8-47df-882e-16ab6ed5ed6a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Ok'])[1]/following::span[1]</value>
-      <webElementGuid>6f7f750e-dc13-48a2-b9de-bf332db4e19e</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/following::label[1]</value>
+      <webElementGuid>fcbd5b11-f79e-4a66-bd86-7a7cee147143</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar Membro'])[2]/following::span[1]</value>
-      <webElementGuid>ab95f734-dd04-4a3c-85e5-a942cb6588b2</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Precisa de ajuda?'])[1]/following::label[1]</value>
+      <webElementGuid>2243934a-3b95-4bbc-a4c6-ddf2384d1b9f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Copiar Código'])[3]/preceding::span[1]</value>
-      <webElementGuid>88651cd6-386b-4ea0-962c-13461e3625dd</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::label[1]</value>
+      <webElementGuid>557f5351-a6be-462e-8c55-ac06bca7caae</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Eliminar Agrupamento'])[4]/preceding::span[1]</value>
-      <webElementGuid>f3ee38a7-505b-4719-b9c9-554605a95e71</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Agrupamento 2']/parent::*</value>
-      <webElementGuid>838d37ac-f3c8-4229-8f07-fd63879b727a</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Email']/parent::*</value>
+      <webElementGuid>f6d487b4-d2ce-4b13-a3e9-6ce0bb19d32b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[2]/div/span</value>
-      <webElementGuid>5e80eae0-1ae7-4d60-b0e2-0fd2f9565d1b</webElementGuid>
+      <value>//label</value>
+      <webElementGuid>b62e9c57-216d-4fbd-9a25-5a10189fd0a4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//span[(text() = 'Agrupamento 2' or . = 'Agrupamento 2')]</value>
-      <webElementGuid>a6f54de5-0e04-4aa6-a6f0-7c413c47c9a9</webElementGuid>
+      <value>//label[(text() = 'Email' or . = 'Email')]</value>
+      <webElementGuid>7aff9a89-5942-4849-b3f5-42858355e5cc</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -4,75 +4,101 @@
 @model RegisterClienteModel
 @{
     ViewData["Title"] = "Registar";
+    Layout = null;
+    var counter = 0;
 }
+<title>@ViewData["Title"] - PechinchaMarket</title>
+<script src="~/js/site.js"></script>
+<link rel="icon" type="image/x-icon" href="./PechinchaMarket.png" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/PechinchaMarket.styles.css" asp-append-version="true" />
 
 <script type="text/javascript" src="~/js/AuthenticationBasedOnPhases.js"></script>
 
+<body class="gradiante-main-color background-height center-y-flex column-container authentication-box-move">
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WfRY526MlBgsOxALrNXdf0qNl9m-Zk4&loading=async&libraries=places&callback=initAutocomplete" async defer></script>
+    <script>
+        function initAutocomplete() {
+            var input = document.getElementById('localizacao');
+            var autocomplete = new google.maps.places.Autocomplete(input, {
+                types: ['geocode'], // Optional: restricts the search to addresses
+                componentRestrictions: { country: 'PT' }, // Restricts the results to Portugal
+                language: 'pt' // Set language to Portuguese
+            });
+            autocomplete.setFields(['address_components', 'formatted_address']);
+        }
+    </script>
 
-<body class="gradiante-main-color background-height">
-    <div class="content-background authentication-box center-div-x-axis">
+    <div class="authentication-options">
+        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl"><span class="unselectable-text">Login</span></a>
+        <a class="opened-page"><span class="unselectable-text">Registar</span></a>
+    </div>
+    <div class="content-background authentication-box center-div-x-axis small-gap-y">
         <div class="rigth-text support-link">
             <a asp-area="" asp-controller="Authentication" asp-action="AuthenticationSupport" asp-route-section="1">Precisa de ajuda?</a>
         </div>
-        <div class="centered-content">
-            <div class="authentication-header">
-                <span class="huge-icon-logo center-div-x-axis"></span>
-                <h3 class="center-text">Criar conta como Cliente</h3>
-            </div>
-            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-              <div class="authentication-phase authentication-basedon-column" id="phase0">
-                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email"/>
-                        <label asp-for="Input.Email">Email</label>
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
-                    </div>
-
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.UserName" autocomplete="username" aria-required="true" placeholder="Nome" />
-                        <label asp-for="Input.UserName">Nome</label>
-                        <span asp-validation-for="Input.UserName" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.Localizacao" autocomplete="localizacao" aria-required="true" placeholder="Localização" />
-                        <label asp-for="Input.Localizacao">Localização</label>
-                        <span asp-validation-for="Input.Localizacao" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Password" />
-                        <label asp-for="Input.Password">Password</label>
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
-                    </div>
-                    <div class="authentication-input-text-div">
-                        <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirme a password" />
-                        <label asp-for="Input.ConfirmPassword">Confirme a password</label>
-                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                    </div>
-
-                    <div class="authentication-buttons">
-                        <a class="cancel-button" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Cancelar</a>
-                        <div class="confirm-button" onclick="toogleSignUpFase(1, 2)">Continuar</div>
-                    </div>
-                </div>
-
-                <div class="authentication-phase authentication-basedon-row" id="phase1">
-                    @foreach (Categoria categoria in Enum.GetValues(typeof(Categoria)))
-                    {
-                        <div class="authentication-checkbox">
-                            <input type="checkbox" name="categorias" value="@categoria" id="@($"chk_{categoria}")" />
-                            <label for="@($"chk_{categoria}")">@categoria.ToString()</label>
-                            <input type="hidden" asp-for="SelectedCategories" value="@categoria"/>
-                        </div>
-                    }
-
-                    <div class="authentication-buttons">
-                        <a class="cancel-button" onclick="toogleSignUpFase(0, 2)">Voltar Atrás</a>
-                        <button class="confirm-button" id="registerSubmit" type="submit">Registar</button>
-                    </div>
-                </div>
-            </form>
+        <div class="authentication-header">
+            <span class="huge-icon-logo center-div-x-axis"></span>
+            <h3 class="center-text">Registar como Cliente</h3>
+            <span id="text-phase0" class="center-text medium-text">Complete o formulário</span>
+            <span id="text-phase1" class="center-text medium-text display-none">Escolha as suas preferências</span>
         </div>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div class="authentication-phase authentication-basedon-column" id="phase0">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Email" id="email" autocomplete="username" aria-required="true" placeholder="Email" />
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.UserName" id="username" autocomplete="username" aria-required="true" placeholder="Nome" />
+                    <label asp-for="Input.UserName">Nome</label>
+                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Localizacao" id="localizacao" type="text" aria-required="true" placeholder="Localização" />
+                    <label asp-for="Input.Localizacao">Localização</label>
+                    <span asp-validation-for="Input.Localizacao" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.Password" id="password" autocomplete="new-password" aria-required="true" placeholder="Password" />
+                    <label asp-for="Input.Password">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="authentication-input-text-div">
+                    <input asp-for="Input.ConfirmPassword" id="confirmpassword" autocomplete="new-password" aria-required="true" placeholder="Confirme a password" />
+                    <label asp-for="Input.ConfirmPassword">Confirme a password</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="authentication-buttons">
+                    <a class="pechincha-button default-button-color" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Voltar</a>
+                    <div class="pechincha-button main-button-color" onclick="toogleSignUpFase(1, 2)">Continuar</div>
+                </div>
+            </div>
+
+            <div class="authentication-phase authentication-basedon-row small-gap-y" id="phase1">
+                @foreach (Categoria categoria in Enum.GetValues(typeof(Categoria)))
+                {
+                    <div class="authentication-checkbox">
+                        <input type="checkbox" name="categorias" value="@categoria" id="@($"chk_{categoria}")" />
+                        <label for="@($"chk_{categoria}")">@categoria.ToString()</label>
+                        <input type="hidden" asp-for="SelectedCategories" value="@categoria"/>
+                    </div>
+                    counter++;
+                }
+
+                <div class="authentication-buttons">
+                    <a class="pechincha-button default-button-color" onclick="toogleSignUpFase(0, 2)">Voltar</a>
+                    <button class="pechincha-button main-button-color" id="registerSubmit" type="submit">Registar</button>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 

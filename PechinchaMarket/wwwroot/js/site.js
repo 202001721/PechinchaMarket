@@ -3,9 +3,16 @@
  */
 document.addEventListener('DOMContentLoaded', function () {
     var elements = document.querySelectorAll('.authentication-input-text-div');
+
     elements.forEach(function (element) {
-        var height = element.getBoundingClientRect().height;
-        element.style.height = (height - 24) + 'px';
+
+        if (element.querySelector('span.text-danger')) {
+            if (element.querySelector('span.text-danger').textContent === '') {
+                element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+            } else {
+                element.style.height = element.children[0].getBoundingClientRect().height + element.querySelector('span.text-danger').getBoundingClientRect().height + 'px';
+            }
+        }
     });
 });
 

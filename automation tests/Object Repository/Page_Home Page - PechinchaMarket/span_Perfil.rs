@@ -6,12 +6,12 @@
    <elementGuidId>3f3f3b62-bb01-4fbd-acbf-34eec1abcc23</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>span.move-text</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//div[@id='perfil-menu']/div/a/span</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>span.move-text</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>3642e2c2-8596-444b-9a16-0913b63e97d4</webElementGuid>
+      <webElementGuid>b3fecf96-1c6d-470e-94df-825f2acde45a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>move-text</value>
-      <webElementGuid>98d0e9e0-176d-4f43-bf05-56ab76055d30</webElementGuid>
+      <webElementGuid>2346c50f-5125-456a-b763-fbb768a3ca60</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Perfil</value>
-      <webElementGuid>cfaeda35-305a-4489-8c9d-787950972299</webElementGuid>
+      <webElementGuid>d9759467-eaa1-4fa8-a4a3-c8e96c386339</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;perfil-menu&quot;)/div[1]/a[@class=&quot;pechincha-navbar-option pechincha-link&quot;]/span[@class=&quot;move-text&quot;]</value>
-      <webElementGuid>140bd62d-4e01-4854-a523-64a18487d0e6</webElementGuid>
+      <webElementGuid>19b914cd-9949-4d1d-b5d1-fbbf6ce2e70c</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='perfil-menu']/div/a/span</value>
-      <webElementGuid>43e502c9-f189-4ef3-91f1-467146e8cbd4</webElementGuid>
+      <webElementGuid>204a1deb-7a72-4af3-b07c-363a0daf5596</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Terminar Sessão'])[1]/preceding::span[1]</value>
-      <webElementGuid>e6f6c2ac-7492-4f86-8f3e-a5c042af1f10</webElementGuid>
+      <webElementGuid>7068a129-d1cf-4f0f-a8f9-31a264b6d364</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
-      <webElementGuid>eaa421bf-0f7b-4310-8a63-77e9883932d5</webElementGuid>
+      <webElementGuid>5ff0be72-fee9-43ab-90d9-34f7ede93e4c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/div/a/span</value>
-      <webElementGuid>e58daab6-4daa-4373-804e-700552dd08a5</webElementGuid>
+      <webElementGuid>0c770a81-499f-4b47-912d-cd28b6afd2b1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,6 +93,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//span[(text() = 'Perfil' or . = 'Perfil')]</value>
-      <webElementGuid>fdd4d855-2b7f-45e6-b052-958fe89c442d</webElementGuid>
+      <webElementGuid>9a03e3b3-b363-4f26-9bbd-65473518d527</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

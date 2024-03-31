@@ -7,7 +7,7 @@
 <link href="~/css/produto.css" rel="stylesheet" />
 
 <a class="back" onclick="goBack()"></a>
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Brand)</h2>
 
 <body class="gradiante2-secondary-color background-height">
     <div class="medium-padding-left medium-padding-top medium-padding">
@@ -67,7 +67,7 @@
                                     @Html.DisplayFor(modelItem => pl.Price)€
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => pl.Discount)
+                                    @Html.DisplayFor(modelItem => pl.Discount)%
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => pl.StartDiscount) - @Html.DisplayFor(modelItem => pl.EndDiscount)
