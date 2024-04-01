@@ -67,6 +67,16 @@ namespace PechinchaMarket.Controllers
             ViewData["Comerciante"] = _context.Comerciante;
             ViewData["Categoria"] = Enum.GetValues(typeof(Categoria));
 
+            var userId = _userManager.GetUserId(User);
+            if(userId == null)
+            {
+                ViewData["CurrentLocation"] = null;
+            }
+            else
+            {
+                ViewData["CurrentLocation"] = _context.Cliente.FirstOrDefault(c => c.UserId == userId).Localizacao;
+            }
+
 
 
             var result = new List<Produto>();
