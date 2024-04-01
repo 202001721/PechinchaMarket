@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Profil";
+    ViewData["Title"] = "Perfil";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
@@ -352,6 +352,16 @@
 }
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var tooltipall = document.getElementById("tooltip-message-all");
+        var tooltipcliente = document.getElementById("tooltip-message-cliente");
+        var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
+
+        tooltipall.innerHTML = "Nesta pagina poderá alterar todas as suas informações/campos da sua conta";
+        tooltipcliente.innerHTML = "";
+        tooltipcomerciante.innerHTML = "";
+    });
+
     function choosePerfilImage() {
         document.body.classList.toggle('no-overflow');
         chooseimage = document.getElementById("choose-perfil-image");

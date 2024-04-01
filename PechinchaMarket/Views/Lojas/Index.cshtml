@@ -25,7 +25,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.ClosingTime)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -34,7 +33,7 @@
             {
             <tr>
                 <td>
-                        @Html.DisplayFor(modelItem => item.Address)
+                    @Html.DisplayFor(modelItem => item.Address)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.OpeningTime)
@@ -49,3 +48,15 @@
     }           }
     </tbody>
 </table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var tooltipall = document.getElementById("tooltip-message-all");
+        var tooltipcliente = document.getElementById("tooltip-message-cliente");
+        var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
+
+        tooltipall.innerHTML = "Nesta pagina poderá analisar, editar, criar e eleminar todas as suas lojas";
+        tooltipcliente.innerHTML = "";
+        tooltipcomerciante.innerHTML = "";
+    });
+</script>

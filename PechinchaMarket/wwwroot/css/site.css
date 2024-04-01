@@ -45,6 +45,7 @@
     --root-form-button-padding-up-and-down: 0.25em;
     /*Size do conteudo*/
     --root-text-size: 1em;
+    --root-mini-icon-size: 25px;
     --root-small-icon-size: 2em;
     --root-medium-icon-size: 3em;
     --root-huge-icon-size: 5em;
@@ -1358,6 +1359,12 @@ a.cancel-button:hover::before {
     background:  var(--root-background-contrast-color) !important;
 }
 
+.mini-image {
+    display: inline-block;
+    background-size: 100% 100%;
+    width: var(--root-mini-icon-size);
+    height: var(--root-mini-icon-size);
+}
 
 .small-image {
     display: inline-block;
@@ -1522,6 +1529,11 @@ a.default-button-color:hover::before {
 
 .medium-button {
     width: calc((var(--root-form-button-padding-sides) * 2) + 5em) !important;
+    height: 30px !important;
+}
+
+.small-button {
+    width: calc((var(--root-form-button-padding-sides) * 2) + 1em) !important;
     height: 30px !important;
 }
 
@@ -2194,6 +2206,61 @@ a.default-button-color:hover::before {
     cursor: pointer;
 }
 
+.absolute-position {
+    position: absolute;
+}
+
 .relative-position {
     position: relative;
 }
+    
+.tooltip-icon {
+    width: var(--root-mini-icon-size);
+    height: var(--root-mini-icon-size);
+    outline: 2px solid black; /* Change the background color as needed */
+    border-radius: 50%; /* This makes the element round */
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+}
+
+.tooltip-message {
+    background-color: var(--root-main-color);
+    position: absolute;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    top: calc(var(--root-mini-icon-size) + 25px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    width: 20em;
+    word-wrap: break-word;
+    border-radius: 20px;
+    z-index: 999;
+}
+
+    .tooltip-message::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 16px solid var(--root-main-color);
+        position: absolute;
+        top: -16px;
+        right: calc((20em / 2) - (16px / 2));
+        z-index: 999;
+    }
+
+
+    .tooltip-message span {
+        display: inline-block;
+    }
+
+    .tooltip-message span.bold-text {
+        margin-bottom: 10px;
+    }

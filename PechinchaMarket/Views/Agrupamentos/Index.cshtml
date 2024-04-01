@@ -513,6 +513,16 @@
 
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var tooltipall = document.getElementById("tooltip-message-all");
+        var tooltipcliente = document.getElementById("tooltip-message-cliente");
+        var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
+
+        tooltipall.innerHTML = "Nesta pagina poderá gerir, criar e entrar em agrupametos onde poderá partilhar as suas listas com os membros do agrupamento";
+        tooltipcliente.innerHTML = "";
+        tooltipcomerciante.innerHTML = "";
+    });
+
     function colapse(div) { 
         div.children[0].classList.toggle("text-indent");
         div.children[1].classList.toggle("active");
