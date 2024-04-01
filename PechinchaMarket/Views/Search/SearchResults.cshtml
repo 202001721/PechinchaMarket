@@ -176,7 +176,7 @@
                                 <span id="categoria" hidden>@produto.ProdCategoria</span>
                                 @foreach (var prodLoja in produto.ProdutoLojas)
                                 {
-                                    <span class="localizacao">@prodLoja.Loja.Address</span>
+                                    <span class="localizacao" hidden>@prodLoja.Loja.Address</span>
                                 }
                                 <span id="brand">@produto.Brand</span>
                                 <span>
