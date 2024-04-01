@@ -17,7 +17,6 @@ namespace PechinchaMarketTest
         private DBPechinchaMarketContext _context;
         private Comerciante comerciante;
         private Produto produto;
-        private PechinchaMarketUser utilizador;
 
         public ManagerControllerTest(ApplicationDbContextFixture context)
         {
@@ -30,37 +29,28 @@ namespace PechinchaMarketTest
         {
             _context.Comerciante.RemoveRange(_context.Comerciante);
             _context.Produto.RemoveRange(_context.Produto);
-            _context.Users.RemoveRange(_context.Users);
-
-
 
             var guid_Comerciante = Guid.NewGuid();
-
-            utilizador = new PechinchaMarketUser
+            comerciante = new Comerciante
             {
-                Email = "email@gmail.com",
-                UserName = "utilizador",
-                EmailConfirmed = true,
-                Id = Guid.NewGuid().ToString(),
-
+                Id = guid_Comerciante,
+                Name = "Continente",
+                UserId = guid_Comerciante.ToString(),
+                contact = 987654321,
+                logo = GenerateRandomBytes(100),
+                document = GenerateRandomBytes(100),
+                isApproved = false,
+                Lojas = new List<Loja>()
             };
-            comerciante = new Comerciante { Id = guid_Comerciante, 
-                                            Name = "Continente", 
-                                            UserId =utilizador.Id, 
-                                            contact = 987654321, 
-                                            logo = GenerateRandomBytes(100),
-                                            document = GenerateRandomBytes(100),
-                                            isApproved = false,
-                                            Lojas = new List<Loja>()};
             produto = new Produto
             {
-                Id=100,
-                Name= "Bruno",
-                Image= GenerateRandomBytes(100),
-                Brand="Human",
+                Id = 100,
+                Name = "Salmão",
+                Image = GenerateRandomBytes(100),
+                Brand = "Pescanova",
                 ProdCategoria = Categoria.Peixaria,
-                Unidade= UnidadeMedida.Kg,
-                Weight = 2.0f,
+                Unidade = UnidadeMedida.Kg,
+                Weight = 2,
             };
 
             _context.Comerciante.Add(comerciante);
@@ -89,7 +79,7 @@ namespace PechinchaMarketTest
             var viewResult = Assert.IsType<ViewResult>(result); //Verifica se uma view é retornada
 
             var model = Assert.IsAssignableFrom<List<Tuple<Comerciante, PechinchaMarketUser>>>(viewResult.ViewData.Model); //Verifica se o Model é do tipo Lista Tupple <Comerciante, PechinchaMarketUser>
-             
+
         }
 
         [Fact]
@@ -99,7 +89,7 @@ namespace PechinchaMarketTest
 
             var controller = new ManagerController(_context);
 
-            var result = await controller.NonAprovedProducts(produto.Id);
+            var result = await controller.NonAprovedProducts();
 
             var viewResult = Assert.IsType<ViewResult>(result); //Verifica se uma view é retornada
             var model = Assert.IsAssignableFrom<List<Produto>>(viewResult.ViewData.Model); //Verifica se o Model é do tipo Lista de produtos
@@ -111,7 +101,7 @@ namespace PechinchaMarketTest
 
             var controller = new ManagerController(_context);
 
-            var result = await controller.NonAprovedProducts(000000);
+            var result = await controller.NonAprovedProducts();
 
             var viewResult = Assert.IsType<ViewResult>(result); //Verifica se uma view é retornada
             var model = Assert.IsAssignableFrom<List<Produto>>(viewResult.ViewData.Model); //Verifica se o Model é do tipo Lista de produtos
@@ -168,9 +158,6 @@ namespace PechinchaMarketTest
             var viewResult = Assert.IsType<ViewResult>(result); //Verifica se uma view é retornada
 
             var model = Assert.IsAssignableFrom<List<Tuple<Produto, ProdutoLoja>>>(viewResult.ViewData.Model);
-
-
-
         }
 
         [Fact]
@@ -182,26 +169,10 @@ namespace PechinchaMarketTest
 
             var result = await controller.DetailsProduct(null);
 
-           Assert.IsType<NotFoundResult>(result); //Verifica se uma view é retornada
-
-
-
+            Assert.IsType<NotFoundResult>(result); //Verifica se uma view é retornada
         }
-        // 
+
         [Fact]
-        public async void Aprove()
-        {
-            Restart_Context(); //Como os testes não são executados sequencialmente
-
-            var controller = new ManagerController(_context);
-
-            var result = await controller.Aprove(comerciante.Id);
-
-
-            var viewResult = Assert.IsType<ViewResult>(result); //Verifica se uma view é retornada
-            //Assert.Equal(nameof(NonConfirmedList), viewResult.ActionName);
-        }
-        /*[Fact]
         public async void AproveConfirmed()
         {
             Restart_Context(); //Como os testes não são executados sequencialmente
@@ -212,9 +183,46 @@ namespace PechinchaMarketTest
 
 
             var viewResult = Assert.IsType<RedirectToActionResult>(result); //Verifica se uma view é retornada
+
+            Assert.Equal(nameof(NonConfirmedList), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void AproveConfirmedProduct()
+        {
+            Restart_Context(); //Como os testes não são executados sequencialmente
+
+            var controller = new ManagerController(_context);
+
+            var result = await controller.AproveConfirmedProduct(produto.Id);
+
+            var viewResult = Assert.IsType<RedirectToActionResult>(result); //Verifica se uma view é retornada
+
+            Assert.Equal(nameof(NonAprovedProducts), viewResult.ActionName);
+        }
+
+
+
+        /*[Fact]
+        public void ReproveConfirmedProduct()
+        {
+            Restart_Context(); //Como os testes não são executados sequencialmente
+            var controller = new ManagerController(_context);
+            var result = controller.ReproveConfirmedProduct(produto.Id);
+            var actionResult = Assert.IsType<IActionResult>(result);
+            var viewResult = Assert.IsType<RedirectToActionResult>(actionResult);
+            Assert.Equal(nameof(NonConfirmedList), viewResult.ActionName);
+        }
+
+        [Fact]
+        public async void ReproveConfirmed()
+        {
+            Restart_Context(); //Como os testes não são executados sequencialmente
+            var controller = new ManagerController(_context);
+            var result = await controller.ReproveConfirmed(comerciante.Id);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result); //Verifica se uma view é retornada
             Assert.Equal(nameof(NonConfirmedList), viewResult.ActionName);
         }*/
-
 
         [Fact]
         public async void ShowLogo()
@@ -237,9 +245,6 @@ namespace PechinchaMarketTest
             var viewResult = Assert.IsType<NotFoundResult>(result);
 
         }
-
-
-
 
     }
 }
