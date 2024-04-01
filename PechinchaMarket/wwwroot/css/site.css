@@ -150,6 +150,11 @@ body {
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80%, var(--root-main-color) 100%);
 }
 
+.gradiante3-main-color {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 92%, var(--root-main-color) 100%);
+}
+
+
 .gradiante2-secondary-color {
     background: linear-gradient(180deg, rgba(102,209,255,1) 10%, rgba(255,255,255,1) 15%);
 }
@@ -1104,7 +1109,7 @@ a.cancel-button:hover::before {
 .pechincha-container {
     display: flex;
     justify-content: center;
-    margin-top: var(--root-pechincha-container-margin-top);
+    padding-top: var(--root-pechincha-container-margin-top);
 }
 
     .pechincha-container section {
@@ -2042,47 +2047,28 @@ a.default-button-color:hover::before {
     position: relative;
     display: flex;
     cursor: pointer;
+    align-items:center;
 }
 
 .colapsable-content {
     width:100%;
 }
 
+
 .colapsable-button {
+    border: solid var(--root-main-color);
+    border-width: 0 3px 3px 0;
     position: relative;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    border-color: transparent;
+    padding: 4px;
+    margin:inherit;
     transition: transform 0.3s ease;
+    transform: rotate(45deg);
 }
 
+
     .colapsable-button.active {
-        transform: rotate(180deg);
-    }
-
-    .colapsable-button::after {
-        content: "" !important;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 10px;
-        height: 2px;
-        background-color: var(--root-main-color);
-        transform-origin: center;
-        transform: rotate(45deg);
-    }
-
-    .colapsable-button::before {
-        content: "" !important;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 10px;
-        height: 2px;
-        background-color: var(--root-main-color);
-        transform-origin: center;
-        transform: rotate(-45deg);
+        background-color: inherit;
+        transform: rotate(-135deg);
     }
 
 .small-heading {
@@ -2213,4 +2199,8 @@ a.default-button-color:hover::before {
 
 .relative-position {
     position: relative;
+}
+
+.background-white{
+    background:white;
 }

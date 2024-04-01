@@ -60,10 +60,10 @@
 
 <div hidden id="currentLocation">@currentLocation</div>
 
-<div class="pechincha-container">
+<div class="pechincha-container gradiante3-main-color">
     <section>
         <div class="column-container fit-content-height">
-            <div class="thin-outline rounded-border right-flex">
+            <div class="thin-outline rounded-border right-flex background-white">
                 <div>
                     <div class="ordenar-search-button unselectable-text colapsable-div" id="colapsable-div-ordenar" onclick="colapse(this);">
                         <span class="colapsable-content small-margin-left unselectable-text">Ordenar por: <span class="unselectable-text" id="type-of-order-indicator">Preço mais alto</span></span>
@@ -82,7 +82,10 @@
                 <div class="thin-outline rounded-border small-padding filter-area-width small-margin-top">
                     <h4 class="fit-content-width">Filtrar Por:</h4>
                     <div class="max-width">
-                        <button type="button" class="collapsible">Zona:</button>
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Zona</span>
+                                <div class="colapsable-button"></div>
+                            </button>
                         <ul class="max-width open" id="zona">
                             <li class="fit-content-width" style="list-style-type:none">
                                 <input type="radio" class="location" value="none" name="location" onchange="showLocations(this); filtrar();" checked />
@@ -107,8 +110,11 @@
                         </ul>
                     </div>
                             
-                    <div class="max-width">
-                        <button type="button" class="collapsible">Comerciante:</button>
+                    <div class="max-width ">
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Comerciante</span>
+                                <div class="colapsable-button"></div>
+                            </button>
                         <ul class="max-width open">
                             @foreach (var c in comerciante)
                             {
@@ -120,8 +126,10 @@
                         </ul>
                     </div>
                     <div class="max-width">
-                        <button type="button" class="collapsible">Categoria:</button>
-                        <ul class="max-width open">
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Categoria</span>
+                                <div class="colapsable-button"></div>
+                            </button>                        <ul class="max-width open">
                             @foreach (var c in categorias)
                             {
                                 <li style="list-style-type:none">
@@ -134,7 +142,10 @@
                         </ul>
                     </div>
                     <div class="max-width">
-                        <button type="button" class="collapsible">Preço:</button>
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Preço</span>
+                                <div class="colapsable-button"></div>
+                            </button>
                         <div class="max-width open">
                             <div class="range_container">
                                 <div class="sliders_control">
@@ -170,18 +181,18 @@
                                     <span class="localizacao">@prodLoja.Loja.Address</span>
                                 }
                                 <span id="brand">@produto.Brand</span>
-                                <span id="price">
+                                <span>
                                     @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
                                     {
                                         var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
                                         var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
                                         var precoComDesconto = precoOriginal * (1 - desconto);
-                                        <span>@precoComDesconto€/@produto.Unidade</span>
+                                        <span><span id="price">@precoComDesconto</span>€/@produto.Unidade</span>
                                     }
                                     else
                                     {
                                         <span>
-                                            @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()€/@produto.Unidade
+                                            <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()</span>€/@produto.Unidade
                                         </span>
                                     }
                                 </span>
@@ -195,16 +206,16 @@
                                 <span id="categoria" hidden>@produto.ProdCategoria</span>
                                 @foreach(var prodLoja in produto.ProdutoLojas)
                                 {
-                                    <span class="localizacao">@prodLoja.Loja.Address</span>
+                                    <span class="localizacao" hidden>@prodLoja.Loja.Address</span>
                                 }
                                 <span id="brand">@produto.Brand</span>
-                                <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString("C")/@produto.Unidade</span>
+                                <span><span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()</span>€/@produto.Unidade</span>
                             </a>
                         }
                     }
                     <div class="column-container center-y-flex center-x-flex" style="display:none;" id="no-products-indicator">
                         <span class="sad-face"></span>
-                        <h4>Ops</h4>
+                        <h4>Oops</h4>
                         <div>Não foi possivel encontrar esse produto.</div>
                         <div>Por favor tente de novo mais tarde.</div>
                     </div>
@@ -314,8 +325,10 @@
         }
 
         for(item of produtos){
+            console.log(item.querySelector("#price").textContent);
             if (parseFloat(item.querySelector("#price").textContent) > precoMax) {
                 item.style.display = 'none';
+                console.log("this works");
             }
             else if (parseFloat(item.querySelector("#price").textContent) < precoMin) {
                 item.style.display = 'none';
@@ -412,7 +425,7 @@
     //slider
     function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
         const [from, to] = getParsed(fromInput, toInput);
-        fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#ffb546', controlSlider);
         if (from > to) {
             fromSlider.value = to;
             fromInput.value = to;
@@ -423,7 +436,7 @@
 
     function controlToInput(toSlider, fromInput, toInput, controlSlider) {
         const [from, to] = getParsed(fromInput, toInput);
-        fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#ffb546', controlSlider);
         setToggleAccessible(toInput);
         if (from <= to) {
             toSlider.value = to;
@@ -435,7 +448,7 @@
 
     function controlFromSlider(fromSlider, toSlider, fromInput) {
         const [from, to] = getParsed(fromSlider, toSlider);
-        fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#ffb546', toSlider);
         if (from > to) {
             fromSlider.value = to;
             fromInput.value = to;
@@ -446,7 +459,7 @@
 
     function controlToSlider(fromSlider, toSlider, toInput) {
         const [from, to] = getParsed(fromSlider, toSlider);
-        fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#ffb546', toSlider);
         setToggleAccessible(toSlider);
         if (from <= to) {
             toSlider.value = to;
@@ -490,7 +503,7 @@
     const toSlider = document.querySelector('#toSlider');
     const fromInput = document.querySelector('#fromInput');
     const toInput = document.querySelector('#toInput');
-    fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+    fillSlider(fromSlider, toSlider, '#C6C6C6', '#ffb546', toSlider);
     setToggleAccessible(toSlider);
 
     fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
@@ -500,19 +513,14 @@
 
     //collapsibles
 
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
+    function collapse(coll){
+        coll.querySelector(".colapsable-button").classList.toggle("active");
+        var content = coll.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
     }
     /////////////
 
