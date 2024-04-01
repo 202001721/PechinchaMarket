@@ -4,6 +4,7 @@
 @{
     IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
     IEnumerable<Categoria> categorias = ViewData["Categoria"] as IEnumerable<Categoria>;
+    string currentLocation = ViewData["CurrentLocation"] as string;
   
 }
 
@@ -18,141 +19,264 @@
             prodLojasPrices.Add(prodLoja.Price);
         }
     }
+
+    float MaxProdLojasPrices = (float)0;
+    if (prodLojasPrices.Count() > 0)
+    {
+        MaxProdLojasPrices = prodLojasPrices.Max();
+    }
 }
 
 <link type="text/css" rel="stylesheet" href="~/css/slider.css" />
 
+<script>
+    document.addEventListener('click', function (event) {
+        var targetDiv = document.getElementById("colapsable-div-ordenar");
 
-<div class="pechincha-container">
-    <section>
-        @if (Model.Count == 0)
-        {
-            <div class="column-container center-y-flex center-x-flex">
-                <span class="sad-face"></span>
-                <h4>Ops</h4>
-                <div>Não foi possivel encontrar esse produto.</div>
-                <div>Por favor tente de novo mais tarde.</div>
-            </div>
+        if (targetDiv.children[1].classList.contains("active") && !targetDiv.contains(event.target)){
+            colapse(targetDiv);
         }
-        else
-        {
-            <div class="column-container fit-content-height">
-                <div class="thin-outline rounded-border right-flex">
-                   
-                    <div class="dropdown">
-                        <button class="dropbtn">Ordenar ↓ </button>
-                        <div class="dropdown-content">
-                            <a onclick="sortResultsByPriceDesc()">Preço Descendente</a>
-                            <a onclick="sortResultsByPriceAsc()">Preço Ascendente</a>
-                            <a onclick="sortResultsByBrandAsc()">Marca Ascendente</a>
-                            <a onclick="sortResultsByBrandDesc()">Marca Descendente</a>
-                        </div>
+    });
+
+    function colapse(div) {
+        div.children[1].classList.toggle("active");
+        var hiddenContent = div.nextElementSibling;
+        hiddenContent.classList.toggle("display-none");
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WfRY526MlBgsOxALrNXdf0qNl9m-Zk4&loading=async&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+    function initAutocomplete() {
+        var input = document.getElementById('cityText');
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+            types: ['geocode'], // Optional: restricts the search to addresses
+            componentRestrictions: { country: 'PT' }, // Restricts the results to Portugal
+            language: 'pt' // Set language to Portuguese
+        });
+        autocomplete.setFields(['address_components', 'formatted_address']);
+    }
+</script>
+
+<div hidden id="currentLocation">@currentLocation</div>
+
+<div class="pechincha-container gradiante3-main-color">
+    <section>
+        <div class="column-container fit-content-height">
+            <div class="thin-outline rounded-border right-flex background-white">
+                <div>
+                    <div class="ordenar-search-button unselectable-text colapsable-div" id="colapsable-div-ordenar" onclick="colapse(this);">
+                        <span class="colapsable-content small-margin-left unselectable-text">Ordenar por: <span class="unselectable-text" id="type-of-order-indicator">Preço mais alto</span></span>
+                        <button class="colapsable-button"></button>
                     </div>
-                     
-
-                   
+                    <div class="dropdown-content display-none">
+                        <a class="unselectable-text" onclick="sortResultsByPriceDesc(this); colapse(this.parentNode.parentNode.children[0]);">Preço mais alto</a>
+                        <a class="unselectable-text" onclick="sortResultsByPriceAsc(this); colapse(this.parentNode.parentNode.children[0]);">Preço mais baixo</a>
+                        <a class="unselectable-text" onclick="sortResultsByBrandAsc(this); colapse(this.parentNode.parentNode.children[0]);">Marcas de A a Z</a>
+                        <a class="unselectable-text" onclick="sortResultsByBrandDesc(this); colapse(this.parentNode.parentNode.children[0]);">Marcas de Z a A</a>
+                    </div>
                 </div>
-                <div class="row-container left-flex small-gap-x">
-                    <div>
-                        <div class="thin-outline rounded-border small-padding filter-area-width small-margin-top">
-                            <h4 class="fit-content-width">Filtrar Por:</h4>
-                            <div class="fit-content-width">
-                                Zona:
-                                <ul class="fit-content-width">
-                                    <li class="fit-content-width">em progresso</li>
-                                    <li class="fit-content-width">em progresso</li>
-                                </ul>
-                            </div>
-                            <div class="max-width">
-                                <button type="button" class="collapsible">Comerciante:</button>
-                                <ul class="max-width open">
-                                    @foreach(var c in comerciante)
-                                    {
-                                        <li style="list-style-type:none">
-                                            <input type="checkbox" value=@c.Name id=comerciantes class="comerciantes" onchange="filtrar();" unchecked />
-                                            <label for=@c.Name>@c.Name</label>
-                                        </li>
-                                    }
-                                    
-                                        
-                                </ul>
-                            </div>
-                            <div class="max-width">
-                                <button type="button" class="collapsible">Categoria:</button>
-                                <ul class="max-width open">
-                                    @foreach (var c in categorias)
-                                    {
-                                        <li style="list-style-type:none">
-                                            <input type="checkbox" value=@c id=categorias class="categorias" onchange="filtrar();" unchecked />
-                                            <label for=@c>@c</label>
-                                        </li>
-                                    }
+            </div>
+            <div class="row-container left-flex small-gap-x">
+                <div>
+                <div class="thin-outline rounded-border small-padding filter-area-width small-margin-top">
+                    <h4 class="fit-content-width">Filtrar Por:</h4>
+                    <div class="max-width">
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Zona</span>
+                                <div class="colapsable-button"></div>
+                            </button>
+                        <ul class="max-width open" id="zona">
+                            <li class="fit-content-width" style="list-style-type:none">
+                                <input type="radio" class="location" value="none" name="location" onchange="showLocations(this); filtrar();" checked />
+                                <label for="none">Nenhuma</label>
+                            </li>
+
+                            @if (User.IsInRole("Cliente"))
+                            {
+                                <li class="fit-content-width" style="list-style-type:none">
+                                    <input type="radio" class="location" value="myLocation" name="location" onchange="showLocations(this); filtrar();" />
+                                    <label for="myLocation">Minha Localização</label>
+                                </li>
+                            }
+                           
+                            <li class="fit-content-width" style="list-style-type:none">
+                                <input type="radio" class="location" value="city" name="location" onchange="showLocations(this); filtrar();" />
+                                <label for="city">Escolher Região</label>
+                            </li>
+                            <li id="citySearch" style="display:none" >
+                                    <input type="text" id="cityText" placeholder="Cidade" onchange="filtrar();" />
+                            </li>
+                        </ul>
+                    </div>
+                            
+                    <div class="max-width ">
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Comerciante</span>
+                                <div class="colapsable-button"></div>
+                            </button>
+                        <ul class="max-width open">
+                            @foreach (var c in comerciante)
+                            {
+                                <li style="list-style-type:none">
+                                    <input type="checkbox" value=@c.Name id=comerciantes class="comerciantes" onchange="filtrar();" unchecked />
+                                    <label for=@c.Name>@c.Name</label>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="max-width">
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Categoria</span>
+                                <div class="colapsable-button"></div>
+                            </button>                        <ul class="max-width open">
+                            @foreach (var c in categorias)
+                            {
+                                <li style="list-style-type:none">
+                                    <input type="checkbox" value=@c id=categorias class="categorias" onchange="filtrar();" unchecked />
+                                    <label for=@c>@c</label>
+                                </li>
+                            }
 
 
-                                </ul>
-                            </div>
-                            <div class="max-width">
-                                <button type="button" class="collapsible">Preço:</button>
-                                <div class="max-width open">
-                                    <div class="range_container">
-                                        <div class="sliders_control">
-                                            <input id="fromSlider" type="range" step="0.01" value="0" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
-                                            <input id="toSlider" type="range" step="0.01" value="@prodLojasPrices.Max()" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
-                                        </div>
-                                        <div class="form_control">
-                                            <div class="form_control_container">
-                                                <div class="form_control_container__time">Min</div>
-                                                <input class="form_control_container__time__input" type="number" step="0.01" id="fromInput" value="0" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
-                                            </div>
-                                            <div class="form_control_container">
-                                                <div class="form_control_container__time">Max</div>
-                                                <input class="form_control_container__time__input" type="number" step="0.01" id="toInput" value="@prodLojasPrices.Max()" min="0" max=@prodLojasPrices.Max() onchange="filtrar();" />
-                                            </div>
-                                        </div>
+                        </ul>
+                    </div>
+                    <div class="max-width">
+                            <button type="button" class="collapsible unselectable-text colapsable-div" onclick="collapse(this);">
+                                <span class="colapsable-content unselectable-text">Preço</span>
+                                <div class="colapsable-button"></div>
+                            </button>
+                        <div class="max-width open">
+                            <div class="range_container">
+                                <div class="sliders_control">
+                                    <input id="fromSlider" type="range" step="0.01" value="0" min="0" max=@MaxProdLojasPrices onchange="filtrar();" />
+                                    <input id="toSlider" type="range" step="0.01" value="@MaxProdLojasPrices" min="0" max=@MaxProdLojasPrices onchange="filtrar();" />
+                                </div>
+                                <div class="form_control">
+                                    <div class="form_control_container">
+                                        <div class="form_control_container__time">Min</div>
+                                        <input class="form_control_container__time__input" type="number" step="0.01" id="fromInput" value="0" min="0" max=@MaxProdLojasPrices onchange="filtrar();" />
+                                    </div>
+                                    <div class="form_control_container">
+                                        <div class="form_control_container__time">Max</div>
+                                        <input class="form_control_container__time__input" type="number" step="0.01" id="toInput" value="@MaxProdLojasPrices" min="0" max=@MaxProdLojasPrices onchange="filtrar();" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="wrap-flex row-container center-x-flex small-margin-top min-content-height max-width" id="search-results">
+                </div>
+                </div>
+                <div class="wrap-flex row-container smaller-gap right-flex small-margin-top min-content-height max-width" id="search-results">
                         @foreach (var produto in Model)
                         {
-                            
-                                <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
-                                    <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
-                                    <span>@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
-                                    <span id="categoria" hidden>@produto.ProdCategoria</span>
-                                    <span id="brand">@produto.Brand</span>
-                                    <span id="price">
-                                        @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
-                                        {
-                                            var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
-                                            var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
-                                            var precoComDesconto = precoOriginal * (1 - desconto);
-                                            <span>@precoComDesconto€/@produto.Unidade</span>
-                                        }
-                                        else
-                                        {
-                                            <span>
-                                                @produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()€/@produto.Unidade
-                                            </span>
-                                        }
-                                    </span>
-                                </a>
-                            
-                    }
+                            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
+                                <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
+                                <span class="search-name">@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                                <span id="categoria" hidden>@produto.ProdCategoria</span>
+                                @foreach (var prodLoja in produto.ProdutoLojas)
+                                {
+                                    <span class="localizacao">@prodLoja.Loja.Address</span>
+                                }
+                                <span id="brand">@produto.Brand</span>
+                                <span>
+                                    @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
+                                    {
+                                        var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
+                                        var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
+                                        var precoComDesconto = precoOriginal * (1 - desconto);
+                                        <span><span id="price">@precoComDesconto</span>€/@produto.Unidade</span>
+                                    }
+                                    else
+                                    {
+                                        <span>
+                                            <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()</span>€/@produto.Unidade
+                                        </span>
+                                    }
+                                </span>
+                            </a>
+                        }
+                    <div class="column-container center-y-flex center-x-flex" style="display:none;" id="no-products-indicator">
+                        <span class="sad-face"></span>
+                        <h4>Oops</h4>
+                        <div>Não foi possivel encontrar esse produto.</div>
+                        <div>Por favor tente de novo mais tarde.</div>
                     </div>
-                  
                 </div>
+
             </div>
-        }
+        </div>
     </section>
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var targetNode = document.getElementById('search-results');
+        var config = { childList: true, subtree: true };
+        var noProductsIndicator = targetNode.querySelector('#no-products-indicator');
+        console.log(noProductsIndicator);
+
+        var callback = function (mutationsList, observer) {
+            var anyVisible = Array.from(targetNode.children).some(function (child) {
+                return child.style.display !== 'none' && child.id !== 'no-products-indicator';
+            });
+
+            if (anyVisible) {
+                noProductsIndicator.style.display = 'none';
+                if (targetNode.classList.contains('center-x-flex')) {
+                    targetNode.classList.remove('center-x-flex');
+                    targetNode.classList.add('right-flex');
+                }
+            } else {
+                noProductsIndicator.style.display = 'flex';
+                if (targetNode.classList.contains('right-flex')) {
+                    targetNode.classList.add('center-x-flex');
+                    targetNode.classList.remove('right-flex');
+                }
+            }
+        };
+
+        var observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+
+
+
+        var anyVisible = Array.from(targetNode.children).some(function (child) {
+            return child.style.display !== 'none' && child.id !== 'no-products-indicator';
+        });
+
+        if (anyVisible) {
+            noProductsIndicator.style.display = 'none';
+            if (targetNode.classList.contains('center-x-flex')) {
+                targetNode.classList.remove('center-x-flex');
+                targetNode.classList.add('right-flex');
+            }
+        } else {
+            noProductsIndicator.style.display = 'flex';
+            if (targetNode.classList.contains('right-flex')) {
+                targetNode.classList.add('center-x-flex');
+                targetNode.classList.remove('right-flex');
+            }
+        }
+    });
+
     function filtrar() {
 
         var produtos = document.getElementById("search-results").children;
+        for (var item of produtos) {
+            if (item.id === 'no-products-indicator') {
+                var targetNode = item.parentNode;
+                var noProductsIndicator = item;
+
+                item.parentNode.removeChild(item);
+            }
+        }
+
+        var location = document.getElementsByClassName("location");
+        var locationSelected = Array.from(location);
+        
+        var currentLocation = document.getElementById("currentLocation");
+        var city = document.getElementById("cityText");
 
         var categoria = document.getElementsByClassName("categorias");
         var categoriasSelected = Array.from(categoria);
@@ -161,6 +285,13 @@
 
         var precoMin = document.getElementById("fromInput").value;
         var precoMax = document.getElementById("toInput").value;
+
+        for (item of Array.from(location)) {
+            if (item.checked == false) {
+                var i = locationSelected.indexOf(item);
+                locationSelected.splice(i, 1);
+            }
+        }
 
         for (item of Array.from(comerciantes)) {
             if (item.checked == false) {
@@ -177,6 +308,7 @@
         }
 
         for(item of produtos){
+            console.log(item.querySelector("#price").textContent);
             if (parseFloat(item.querySelector("#price").textContent) > precoMax) {
                 item.style.display = 'none';
             } 
@@ -184,6 +316,30 @@
                 item.style.display = 'none';
             } else {
                 item.style.display = "flex";
+            }
+
+            if (locationSelected.length > 0) {
+                var b = false;
+                for (loc of locationSelected) {
+                    if (currentLocation.textContent != "") {
+                        if (loc.value == "myLocation") { 
+                            if (haveWordInCommon(currentLocation.textContent, item.textContent)) {
+                                b = true;
+                            }
+                        }
+                    }
+                    if (loc.value == "city"){
+                        if(haveWordInCommon(city.value,item.textContent)){
+                            b = true;
+                        }
+                    }
+                    if (loc.value == "none"){
+                        b = true;
+                    }
+                }
+                if (!b) {
+                    item.style.display = 'none';
+                }
             }
 
             if(categoriasSelected.length > 0){
@@ -212,6 +368,38 @@
             
         }
 
+
+        if (targetNode && noProductsIndicator) {
+            targetNode.appendChild(noProductsIndicator);
+        }
+    }
+
+    function haveWordInCommon(phrase1, phrase2) {
+
+        if (phrase1 == "") {
+            return false;
+    }
+
+        phrase1words = phrase1.split(",");
+
+        for (word of phrase1words){
+            if (phrase2.includes(word)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function showLocations(radio){
+        var inputBox = document.getElementById("citySearch");
+        var zona = document.getElementById("zona");
+
+        if(radio.value == "city"){
+            inputBox.style.display = 'block';
+            zona.style.maxHeight = zona.scrollHeight + "px";
+        }else{
+            inputBox.style.display = 'none';
+        }
     }
 
 
@@ -219,7 +407,7 @@
     //slider
     function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
         const [from, to] = getParsed(fromInput, toInput);
-        fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#ffb546', controlSlider);
         if (from > to) {
             fromSlider.value = to;
             fromInput.value = to;
@@ -230,7 +418,7 @@
 
     function controlToInput(toSlider, fromInput, toInput, controlSlider) {
         const [from, to] = getParsed(fromInput, toInput);
-        fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
+        fillSlider(fromInput, toInput, '#C6C6C6', '#ffb546', controlSlider);
         setToggleAccessible(toInput);
         if (from <= to) {
             toSlider.value = to;
@@ -242,7 +430,7 @@
 
     function controlFromSlider(fromSlider, toSlider, fromInput) {
         const [from, to] = getParsed(fromSlider, toSlider);
-        fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#ffb546', toSlider);
         if (from > to) {
             fromSlider.value = to;
             fromInput.value = to;
@@ -253,7 +441,7 @@
 
     function controlToSlider(fromSlider, toSlider, toInput) {
         const [from, to] = getParsed(fromSlider, toSlider);
-        fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+        fillSlider(fromSlider, toSlider, '#C6C6C6', '#ffb546', toSlider);
         setToggleAccessible(toSlider);
         if (from <= to) {
             toSlider.value = to;
@@ -297,7 +485,7 @@
     const toSlider = document.querySelector('#toSlider');
     const fromInput = document.querySelector('#fromInput');
     const toInput = document.querySelector('#toInput');
-    fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
+    fillSlider(fromSlider, toSlider, '#C6C6C6', '#ffb546', toSlider);
     setToggleAccessible(toSlider);
 
     fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
@@ -307,27 +495,26 @@
 
     //collapsibles
 
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
+    function collapse(coll){
+        coll.querySelector(".colapsable-button").classList.toggle("active");
+        var content = coll.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
     }
+    /////////////
 
-    function sortResultsByPriceDesc(){
+    function sortResultsByPriceDesc(div){
         var resultsContainer = document.getElementById("search-results");
 
         var results = Array.from(document.getElementById("search-results").children);
-
+        results = results.filter(function (child) {
+            return child.id !== 'no-products-indicator' && child.style.display !== "none";;
+        });
     
+        if (results.length > 0) {
         function sortByPrice(a, b) {
             var priceA = parseFloat(a.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
             var priceB = parseFloat(b.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
@@ -339,14 +526,20 @@
         results.forEach(function (result) {
             resultsContainer.appendChild(result);
         }); 
+        }
        
+        document.getElementById("type-of-order-indicator").innerHTML = div.innerHTML;
     }
-    function sortResultsByPriceAsc() {
+
+    function sortResultsByPriceAsc(div) {
         var resultsContainer = document.getElementById("search-results");
 
         var results = Array.from(document.getElementById("search-results").children);
+        results = results.filter(function (child) {
+            return child.id !== 'no-products-indicator' && child.style.display !== "none";;
+        });
 
-
+        if (results.length > 0) {
         function sortByPrice(a, b) {
             var priceA = parseFloat(a.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
             var priceB = parseFloat(b.querySelector("#price").textContent.replace(/[^\d.]/g, ''));
@@ -360,12 +553,17 @@
         });
     }
 
-    function sortResultsByBrandAsc() {
+        document.getElementById("type-of-order-indicator").innerHTML = div.innerHTML;
+    }
+
+    function sortResultsByBrandAsc(div) {
         var resultsContainer = document.getElementById("search-results");
         var results = Array.from(document.getElementById("search-results").children);
+        results = results.filter(function (child) {
+            return child.id !== 'no-products-indicator' && child.style.display !== "none";;
+        });
 
-  
-
+        if (results.length > 0) {
         function sortByBrand(a, b) {
             var brandA = a.querySelector("#brand").textContent;
             var brandB = b.querySelector("#brand").textContent;
@@ -380,12 +578,18 @@
             resultsContainer.appendChild(result);
         });
     }
-    function sortResultsByBrandDesc() {
+
+        document.getElementById("type-of-order-indicator").innerHTML = div.innerHTML;
+    }
+      
+    function sortResultsByBrandDesc(div) {
         var resultsContainer = document.getElementById("search-results");
         var results = Array.from(document.getElementById("search-results").children);
+        results = results.filter(function (child) {
+            return child.id !== 'no-products-indicator' && child.style.display !== "none";
+        });
 
-      
-
+        if (results.length > 0) {
         function sortByBrand(a, b) {
             var brandA = a.querySelector("#brand").textContent;
             var brandB = b.querySelector("#brand").textContent;
@@ -399,6 +603,9 @@
         results.forEach(function (result) {
             resultsContainer.appendChild(result);
         });
+    }
+
+        document.getElementById("type-of-order-indicator").innerHTML = div.innerHTML;
     }
 
 </script>
