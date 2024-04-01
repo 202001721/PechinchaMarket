@@ -5,6 +5,19 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WfRY526MlBgsOxALrNXdf0qNl9m-Zk4&loading=async&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+    function initAutocomplete() {
+        var input = document.getElementById('location-input');
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+            types: ['geocode'], // Optional: restricts the search to addresses
+            componentRestrictions: { country: 'PT' }, // Restricts the results to Portugal
+            language: 'pt' // Set language to Portuguese
+        });
+        autocomplete.setFields(['address_components', 'formatted_address']);
+    }
+</script>
+
 <div class="row">
     <partial name="_StatusMessage" for="StatusMessage" />
     <div>
