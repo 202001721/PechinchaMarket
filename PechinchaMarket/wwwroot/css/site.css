@@ -4,6 +4,7 @@
     -*-------------------------------*/
     /*Cor "Web Standard" para todos links, campos selecionados etc...*/
     --blue-color: rgba(12, 138, 255, 1);
+    --blue-color2: rgba(102,209,255);
     /*cor principal do website (tema)*/
     --root-main-color: rgb(255,181,70, 1);
     --root-main-color-low-opacity: rgb(255,181,70, 0.1);
@@ -150,6 +151,11 @@ body {
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 80%, var(--root-main-color) 100%);
 }
 
+.gradiante3-main-color {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 92%, var(--root-main-color) 100%);
+}
+
+
 .gradiante2-secondary-color {
     background: linear-gradient(180deg, rgba(102,209,255,1) 10%, rgba(255,255,255,1) 15%);
 }
@@ -268,6 +274,18 @@ body {
 
     .account-type-button:hover {
         border-color: var(--root-main-color);
+    }
+
+.create-product-type-button {
+    background-color: var(--root-account-type-button-color);
+    border: var(--root-account-type-button-border-width) solid var(--root-account-type-button-border-color);
+    border-radius: var(--root-account-type-button-border-radius);
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+
+    .create-product-type-button:hover {
+        border-color: var(--blue-color2);
     }
 
 .a-div-button {
@@ -1092,7 +1110,7 @@ a.cancel-button:hover::before {
 .pechincha-container {
     display: flex;
     justify-content: center;
-    margin-top: var(--root-pechincha-container-margin-top);
+    padding-top: var(--root-pechincha-container-margin-top);
 }
 
     .pechincha-container section {
@@ -1230,6 +1248,10 @@ a.cancel-button:hover::before {
 
 .smaller-padding {
     padding: 0.5em;
+}
+
+.smaller-padding-left {
+    padding-left: 0.5em;
 }
 
 .small-padding-right {
@@ -2037,47 +2059,28 @@ a.default-button-color:hover::before {
     position: relative;
     display: flex;
     cursor: pointer;
+    align-items:center;
 }
 
 .colapsable-content {
     width:100%;
 }
 
+
 .colapsable-button {
+    border: solid var(--root-main-color);
+    border-width: 0 3px 3px 0;
     position: relative;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    border-color: transparent;
+    padding: 4px;
+    margin:inherit;
     transition: transform 0.3s ease;
+    transform: rotate(45deg);
 }
 
+
     .colapsable-button.active {
-        transform: rotate(180deg);
-    }
-
-    .colapsable-button::after {
-        content: "" !important;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 10px;
-        height: 2px;
-        background-color: var(--root-main-color);
-        transform-origin: center;
-        transform: rotate(45deg);
-    }
-
-    .colapsable-button::before {
-        content: "" !important;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 10px;
-        height: 2px;
-        background-color: var(--root-main-color);
-        transform-origin: center;
-        transform: rotate(-45deg);
+        background-color: inherit;
+        transform: rotate(-135deg);
     }
 
 .small-heading {
@@ -2213,7 +2216,7 @@ a.default-button-color:hover::before {
 .relative-position {
     position: relative;
 }
-    
+   
 .tooltip-icon {
     width: var(--root-mini-icon-size);
     height: var(--root-mini-icon-size);
@@ -2264,3 +2267,7 @@ a.default-button-color:hover::before {
     .tooltip-message span.bold-text {
         margin-bottom: 10px;
     }
+
+.background-white{
+    background:white;
+}

@@ -4,19 +4,19 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/css/loja.css" rel="stylesheet" />
 
-<h1>Edit</h1>
-
-<h4>Loja</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<a class="back" onclick="goBack()"></a>
+<h2>Editar Loja</h2>
+<div class="content">
+    <div class="col-md-4 small-padding-left">
         <form asp-action="Edit">
+            <input type="hidden" name="produtoId" value="@Model.Id" />
+            <input type="hidden" name="UserId" value="@Model.UserId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
+                <input asp-for="Address" class="form-control" value="@Model.Address"  />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,20 +29,12 @@
                 <input asp-for="ClosingTime" class="form-control" />
                 <span asp-validation-for="ClosingTime" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" />
-                <span asp-validation-for="UserId" class="text-danger"></span>
+            <div class="small-padding-top">
+                <input type="submit" value="Guardar Alterações" class="blue-button" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
