@@ -15,9 +15,31 @@
     </div>
     <div class="sugestions" id="search-sugestions"></div>
 </form>
-<div class="display-flex small-gap-x">
+<div class="display-flex small-gap-x center-y-flex">
     @if (SignInManager.IsSignedIn(User) && user != null)
     {
+        @if (!User.IsInRole("Manager"))
+        {
+            <div class="relative-position">
+                <span id="tooltip-icon" class="tooltip-icon center-y-flex center-x-flex unselectable-text" onclick="toggleTooltipMessage()">?</span>
+                <div id=tooltip-message class="tooltip-message display-none">
+                    <span class="bold-text">Balão Informativo</span>
+                    <span id="tooltip-message-all"></span>
+                    @if (User.IsInRole("Comerciante"))
+                    {
+                        <span id="tooltip-message-comerciante"></span>
+                    }
+                    else if (User.IsInRole("Cliente"))
+                    {
+                        <span id="tooltip-message-cliente"></span>
+                    }
+                    <div class="right-flex max-width">
+                        <button class="pechincha-button main-button-color small-button" onclick="toggleTooltipMessage()">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        }
+
         @if (User.IsInRole("Comerciante"))
         {
             <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
@@ -30,13 +52,17 @@
         }
         else if (User.IsInRole("Cliente"))
         {
-            <a class="pechincha-navbar-option cursor-pointer small-image nav-link text-dark" asp-area="" asp-controller="ListaProdutos" asp-action="Index" style="background-image: url('/images/lists.png');"></a>
+            <a class="pechincha-navbar-option cursor-pointer mini-image nav-link text-dark" asp-area="" asp-controller="ListaProdutos" asp-action="Index" style="background-image: url('/images/lists.png');"></a>
         }
 
         <span id="manage" class="pechincha-navbar-option-hide cursor-pointer perfil-image-border nav-link small-perfil-image no-padding" asp-area="Identity" asp-page="/Account/Manage/Index" onclick="displayperfilmenu()">
             <div class="display-none perfil-nav-menu" id="perfil-menu">
                 <div>
                     <a class="pechincha-navbar-option pechincha-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><span class="move-text">Perfil</span></a>
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <a class="pechincha-navbar-option pechincha-link" asp-area="" asp-controller="Agrupamentos" asp-action="Index"><span class="move-text">Agrupamentos</span></a>
+                    }
                     <form id="logoutForm" class="pechincha-navbar-option form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button id="logout" type="submit" class="pechincha-link"><span class="move-text">Terminar Sessão</span></button>
                     </form>
@@ -46,6 +72,17 @@
     }
     else
     {
+        <div class="relative-position">
+            <span id="tooltip-icon" class="tooltip-icon center-y-flex center-x-flex unselectable-text" onclick="toggleTooltipMessage()">?</span>
+            <div id=tooltip-message class="tooltip-message display-none">
+                <span class="bold-text">Balão Informativo</span>
+                <span id="tooltip-message-all"></span>
+                <div class="right-flex max-width">
+                    <button class="pechincha-button main-button-color small-button" onclick="toggleTooltipMessage()">Fechar</button>
+                </div>
+            </div>
+        </div>
+
         <span class="pechincha-navbar-option">
             <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
         </span>
@@ -57,12 +94,24 @@
 
 <script>
     document.addEventListener('click', function (event) {
-        var targetDiv = document.getElementById("manage");
+        var targetDiv1 = document.getElementById("manage");
+        var targetDiv2 = document.getElementById("tooltip-icon");
+        var enableDiv = document.getElementById("tooltip-message");
 
-        if (!targetDiv.children[0].classList.contains("display-none") && !targetDiv.contains(event.target)) {
+
+        if (!enableDiv.classList.contains("display-none") && !(targetDiv2.contains(event.target) || enableDiv.contains(event.target))){
+            toggleTooltipMessage();
+        }
+
+        if (!targetDiv1.children[0].classList.contains("display-none") && !targetDiv1.contains(event.target)) {
             displayperfilmenu();
         }
     });
+
+    function toggleTooltipMessage(){ 
+        var tooltip = document.getElementById("tooltip-message");
+        tooltip.classList.toggle("display-none");
+    }
 
     document.addEventListener('DOMContentLoaded', function () {
         fetchPerfilImage();

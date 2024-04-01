@@ -43,6 +43,16 @@
         var hiddenContent = div.nextElementSibling;
         hiddenContent.classList.toggle("display-none");
     }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var tooltipall = document.getElementById("tooltip-message-all");
+        var tooltipcliente = document.getElementById("tooltip-message-cliente");
+        var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
+
+        tooltipall.innerHTML = "Nesta pagina irá obter os resultados da sua pesquisa e poderá filtra-la e ordena-la";
+        tooltipcliente.innerHTML = "";
+        tooltipcomerciante.innerHTML = "";
+    });
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WfRY526MlBgsOxALrNXdf0qNl9m-Zk4&loading=async&libraries=places&callback=initAutocomplete" async defer></script>
