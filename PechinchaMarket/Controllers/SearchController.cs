@@ -136,7 +136,7 @@ namespace PechinchaMarket.Controllers
         }
 
         /// <summary>
-        /// Função compareToSearch - Compara duas strings para determinar se são semelhantes
+        /// Função compareToSearch - Compara duas strings para determinar se são semelhantes.
         /// </summary>
         /// <param name="str1">A primeira string a ser comparada</param>
         /// <param name="input">A segunda string a ser comparada</param>
