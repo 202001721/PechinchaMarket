@@ -65,11 +65,7 @@ namespace PechinchaMarket.Controllers
                         .ThenInclude(p => p.Loja).ToList();
 
             ViewData["Comerciante"] = _context.Comerciante;
-<<<<<<< Updated upstream
             ViewData["Categoria"] = Enum.GetValues(typeof(Categoria));
-=======
->>>>>>> Stashed changes
-
 
 
             var result = new List<Produto>();
@@ -326,28 +322,9 @@ namespace PechinchaMarket.Controllers
         /// <returns>View com os detalhes do produto em questão</returns>
         public async Task<ActionResult> AddToList(int id)
         {
-<<<<<<< Updated upstream
-                /*var model = _context.Users
-        .Join(_context.Comerciante,
-            user => user.Id,
-            comerciante => comerciante.UserId,
-            (user, comerciante) => new { User = user, Comerciante = comerciante })
-        .Join(_context.Loja,
-            temp => temp.User.Id,
-            loja => loja.UserId,
-            (temp, loja) => new { temp.User, temp.Comerciante, Loja = loja })
-        .Join(_context.ProdutoLoja,
-            temp => temp.Loja.Id,
-            produtoLoja => produtoLoja.Loja.Id,
-            (temp, produtoLoja) => new { temp.User, temp.Comerciante, temp.Loja, ProdutoLoja = produtoLoja })
-        .Join(_context.Produto.Where(produto => produto.Id == id),
-            temp => temp.ProdutoLoja.Produto.Id,
-            produto => produto.Id,
-            (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja,produto ))
-        .ToList();*/
 
                 var model2 = await _context.Produto
-          .Where(produto => produto.Id == id && produto.ProdutoLojas
+          .Where(produto => produto.Id == id && produto.ProdEstado == Estado.Approved && produto.ProdutoLojas
               .Any(produtoLoja => _context.Loja
                   .Any(loja => loja.UserId == _context.Comerciante
                       .Where(comerciante => comerciante.UserId == produtoLoja.Loja.UserId)
@@ -356,26 +333,6 @@ namespace PechinchaMarket.Controllers
           .Include(produto => produto.ProdutoLojas)
               .ThenInclude(produtoLoja => produtoLoja.Loja)
           .ToListAsync();
-=======
-            var model = _context.Users
-    .Join(_context.Comerciante,
-        user => user.Id,
-        comerciante => comerciante.UserId,
-        (user, comerciante) => new { User = user, Comerciante = comerciante })
-    .Join(_context.Loja,
-        temp => temp.User.Id,
-        loja => loja.UserId,
-        (temp, loja) => new { temp.User, temp.Comerciante, Loja = loja })
-    .Join(_context.ProdutoLoja,
-        temp => temp.Loja.Id,
-        produtoLoja => produtoLoja.Loja.Id,
-        (temp, produtoLoja) => new { temp.User, temp.Comerciante, temp.Loja, ProdutoLoja = produtoLoja })
-    .Join(_context.Produto.Where(produto => produto.Id == id),
-        temp => temp.ProdutoLoja.Produto.Id,
-        produto => produto.Id,
-        (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja, produto))
-    .ToList();
->>>>>>> Stashed changes
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
@@ -393,7 +350,6 @@ namespace PechinchaMarket.Controllers
 
             ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
 
-<<<<<<< Updated upstream
             ViewData["Comerciante"] = _context.Comerciante;
 
             var pl = model2.SelectMany(x => x.ProdutoLojas).FirstOrDefault();
@@ -406,9 +362,7 @@ namespace PechinchaMarket.Controllers
                 ViewBag.ErrorMessage = "Nenhum produto encontrado";
             }
             return View(model2);
-=======
-            return View(model);
->>>>>>> Stashed changes
+
         }
 
         /// <summary>
@@ -505,7 +459,7 @@ namespace PechinchaMarket.Controllers
             foreach (var word in searchWords)
             {
                 var productsWithWord = _context.Produto
-                    .Where(p => p.Name.Contains(word) && p.Id != id)
+                    .Where(p => p.Name.Contains(word) && p.Id != id && p.ProdEstado == Estado.Approved)
                     .ToList();
                 similarProducts.AddRange(productsWithWord);
             }
@@ -536,7 +490,6 @@ namespace PechinchaMarket.Controllers
             return Convert.ToBase64String(image);
         }
 
-<<<<<<< Updated upstream
         public IActionResult ShowDiscount(int id)
         {
             var produtoLoja = _context.ProdutoLoja.Select(p => p).FirstOrDefault(p => p.Id == id);
@@ -565,7 +518,5 @@ namespace PechinchaMarket.Controllers
         {
             return _context.ProdutoLoja.Any(pl => pl.Id == id && pl.Discount > 0);
         }
-=======
->>>>>>> Stashed changes
     }
 }
