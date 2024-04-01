@@ -224,14 +224,14 @@
         var mEditorCounter = 0;
         var mLeitorCounter = 0;
 
-        <div class="background-constrast-color-2 rounded-border">
-            <div class="colapsable-div smaller-padding" onclick="colapse(this)">
+        <div class="background-constrast-color-2 rounded-border max-width">
+            <div class="colapsable-div smaller-padding" onclick="collapse(this)">
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
                 <button class="colapsable-button"></button>
             </div>
-       
 
-            <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
+            <div class="max-width open background-constrast-color-2">
+                <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top smaller-gap-y column-container ">
                 @if (item.Privilegio == NivelPrivilegio.Admin)
                 {
 
@@ -523,6 +523,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
         counter++;
     }
@@ -541,12 +542,17 @@
         tooltipcomerciante.innerHTML = "";
     });
 
-    function colapse(div) { 
-        div.children[0].classList.toggle("text-indent");
-        div.children[1].classList.toggle("active");
-        var hiddenContent = div.nextElementSibling;
-        hiddenContent.classList.toggle("off-screen");
+    function collapse(coll) {
+        coll.querySelector(".colapsable-button").classList.toggle("active");
+        var content = coll.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            console.log(content.scrollHeight)
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
     }
+
     function removerMembro(){
         document.getElementById("hideremove").style.display = "none";
         document.getElementById("showremove").style.display = "inherit";
