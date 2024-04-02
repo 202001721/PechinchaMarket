@@ -132,15 +132,9 @@
 
 @section Scripts{
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var tooltipall = document.getElementById("tooltip-message-all");
-            var tooltipcliente = document.getElementById("tooltip-message-cliente");
-            var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
-
-            tooltipall.innerHTML = "Nesta página, poderá obter os detalhes do produto, bem como adicioná-lo a uma lista desejada.";
-            tooltipcliente.innerHTML = "";
-            tooltipcomerciante.innerHTML = "";
-        });
+        document.addEventListener("DOMContentLoaded", 
+            tooltipmsg("Nesta página, poderá obter os detalhes do produto, bem como adicioná-lo a uma lista desejada.", "", "")
+        );
 
         function updateQuantity() {
             var quantity = document.getElementById('quantityInput').value;

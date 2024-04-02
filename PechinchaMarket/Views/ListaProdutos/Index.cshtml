@@ -62,13 +62,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var tooltipall = document.getElementById("tooltip-message-all");
-        var tooltipcliente = document.getElementById("tooltip-message-cliente");
-        var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
-
-        tooltipall.innerHTML = "Nesta página, poderá analisar detalhes, eliminar e criar as suas listas.";
-        tooltipcliente.innerHTML = "";
-        tooltipcomerciante.innerHTML = "";
+        tooltipmsg("Nesta página, poderá analisar detalhes, eliminar e criar as suas listas.");
     });
 
     function deletePopup(text) {

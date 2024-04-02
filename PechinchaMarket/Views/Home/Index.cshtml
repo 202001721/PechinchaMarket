@@ -27,14 +27,8 @@
     </div>
 </body>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var tooltipall = document.getElementById("tooltip-message-all");
-        var tooltipcliente = document.getElementById("tooltip-message-cliente");
-        var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
-
-        tooltipall.innerHTML = "Bem-vindo a nossa plantaforma, esta é nossa pagina principal";
-        tooltipcliente.innerHTML = "";
-        tooltipcomerciante.innerHTML = "";
-    });
+    document.addEventListener("DOMContentLoaded",
+        tooltipmsg("Bem-vindo a nossa plantaforma, esta é nossa pagina principal", "", "")
+    );
 </script>
 
