@@ -16,8 +16,10 @@
     @Html.DisplayFor(model => model.FirstOrDefault().Id)
 </div>
 <a class="back" onclick="goBack()"></a>
+<div id="mensagem">
+</div>
 <div class="row-container center-x-flex center-y-flex screen-height">
-
+ 
     <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.Select(x => x.Id).FirstOrDefault()})');">  </span>
     
     <div class="fit-content-width medium-padding-left">
@@ -167,6 +169,30 @@
             x.value = name;
             showListas();
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const specificDiv = document.getElementById('mensagem');
+
+            function displayMessage(statusMessage) {
+                const statusElement = document.createElement('div');
+                statusElement.classList.add('alert', 'alert-success', 'status-message');
+                statusElement.textContent = statusMessage;
+
+                specificDiv.innerHTML = '';
+                specificDiv.appendChild(statusElement);
+
+                const displayTime = 5000;
+                setTimeout(() => {
+                    statusElement.style.display = 'none';
+                }, displayTime);
+            }
+
+            const statusMessage = '@TempData["StatusMessage"]';
+
+            if (statusMessage) {
+                displayMessage(statusMessage);
+            }
+        });
         
     </script>
 }

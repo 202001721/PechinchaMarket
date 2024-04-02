@@ -199,4 +199,21 @@
         border-right: 1px solid gray;
     }
 
-
+.status-message {
+    position: fixed;
+    z-index: 10000;
+    background-color: white;
+    opacity: 0.75;
+    border-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 18%;
+    left: 40%;
+    transform: translateX(-50%);
+    top: 20%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
