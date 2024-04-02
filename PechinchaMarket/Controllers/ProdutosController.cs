@@ -330,39 +330,63 @@ namespace PechinchaMarket.Controllers
 
             if (arquivoCSV != null && arquivoCSV.Length > 0)
             {
-               
+
 
                 var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
-                    Delimiter =";"
+                    Delimiter = ";"
                 };
+
+                var userId = _userManager.GetUserId(User);
+                List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
+                if (!lojas.IsNullOrEmpty())
+                {
+                 
+                
                 using (var reader = new StreamReader(arquivoCSV.OpenReadStream()))
-            
+
                 using (var csv = new CsvHelper.CsvReader(reader, csvConfig))
                 {
-                    var memoryStreamImg = new MemoryStream();
+                    
 
                     var records = csv.GetRecords<CSVProduct>().ToList();
+                     
                     foreach (var record in records)
                     {
+                        List<ProdutoLoja> ProdL = new List<ProdutoLoja>();
+                        var memoryStreamImg = new MemoryStream();
                         Produto produto = new Produto();
-                       
-                       IFormFile file = files.Where(f => f.FileName.Contains(record.Image.ToString())).FirstOrDefault(); // REALIZAR VERIFICACOES MAIORES EM CIMA DISSO, e tem que ter o nome do folder no inicio, ta como contains mas tem que ir pra equals
-                       await file.CopyToAsync(memoryStreamImg);
+                        for (int i = 0; i < lojas.Count; i++)
+                            {
+                                var p = new ProdutoLoja { Price =record.Price, Loja = lojas[i] };
+                                ProdL.Add(p);
+                            }
+
+                        IFormFile file = files.Where(f => f.FileName.Equals("Produtos/"+ record.Image.ToString()+".jpg")).FirstOrDefault();
+                            if (file != null) {
+                                await file.CopyToAsync(memoryStreamImg);
+                                produto.Brand = record.Brand.ToString();
+                                produto.ProdEstado = Estado.InAnalysis;
+                                produto.Name = record.Name;
+                                produto.ProdCategoria = (Categoria)Enum.Parse(typeof(Categoria), record.ProdCategoria.ToString());
+                                produto.Weight = record.Weight;
+                                produto.Unidade = (UnidadeMedida)Enum.Parse(typeof(UnidadeMedida), record.Unidade.ToString());
+                                produto.Image = memoryStreamImg.ToArray();
+                                produto.ProdutoLojas = ProdL;
+                            }
+                            else
+                            {
+                                ModelState.AddModelError("", "O Produto"+ record.Name +" não possui uma imagem adequeada.");
+                            }
                         
-                        produto.Brand= record.Brand.ToString();
-                        produto.ProdEstado = Estado.InAnalysis;
-                        produto.Name = record.Name;
-                        produto.ProdCategoria = (Categoria)Enum.Parse(typeof(Categoria),record.ProdCategoria.ToString());
-                        produto.Weight = record.Weight;
-                        produto.Unidade = (UnidadeMedida)Enum.Parse(typeof(UnidadeMedida), record.Unidade.ToString());
-                        produto.Image = memoryStreamImg.ToArray();
+
+                       
 
                         _context.Add(produto);
                     }
-                   _context.SaveChanges();
+                    _context.SaveChanges();
                 }
-
+            }
                
                 return RedirectToAction("Index");
             }
@@ -375,21 +399,23 @@ namespace PechinchaMarket.Controllers
         {
   
 
-            [Name("Name")]
+            [Name("Nome")]
             public string Name { get; set; }
-            [Name("Brand")]
+            [Name("Marca")]
             public string Brand { get; set; }
-            [Name("ProdEstado")]
-            public string ProdEstado { get; set; }
-            [Name("ProdCategoria")]
+           
+            [Name("Categoria")]
             public string ProdCategoria { get; set; }
-            [Name("Weight")]
+            [Name("Peso")]
             public float Weight { get; set; }
             [Name("Unidade")]
             public string Unidade { get; set; }
 
-            [Name("Image")]
+            [Name("Imagem")]
             public string Image { get; set; }
+
+            [Name("Preco")]
+            public float Price { get; set; }    
         }
 
 
