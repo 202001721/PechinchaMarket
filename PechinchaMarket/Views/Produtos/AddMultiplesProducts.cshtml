@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<body>
+    <form asp-action="AddMultiplesProducts">
+        
+    </form>
+
+    <form method="post" asp-action="ProcessarCSV" enctype="multipart/form-data">
+        <input type="file" name="arquivoCSV" />
+        <input type="file" id="fileInputControl" name="files" webkitdirectory="true" multiple />
+        <button type="submit">Enviar CSV</button>
+    </form>
+
+
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}}

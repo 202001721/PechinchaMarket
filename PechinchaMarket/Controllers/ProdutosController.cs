@@ -1,15 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
+using EllipticCurve.Utils;
+using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
+using Aspose.Pdf;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace PechinchaMarket.Controllers
 {
@@ -24,6 +28,8 @@ namespace PechinchaMarket.Controllers
             _userManager = userManager;
 
         }
+
+
 
         // GET: Produtos
         public async Task<IActionResult> Index()
@@ -40,17 +46,6 @@ namespace PechinchaMarket.Controllers
                 .Include(x => x.ProdutoLojas)
                     .ThenInclude(x => x.Loja)
                 .ToListAsync();
-
-                //.Where(x => x.UserId.Equals(comerciante.UserId))
-
-                /* var produtos = await _context.Produto
-                    .Join(_context.ProdutoLoja,
-                        produto => produto.Id,
-                        produtoLoja => produtoLoja.Id,
-                        (produto, produtoLoja) => new { Produto = produto, ProdutoLoja = produtoLoja })
-                    .Where(p => p.ProdutoLoja.Loja.UserId == comerciante.UserId)
-                    .Select(p => new Tuple<Produto, ProdutoLoja>(p.Produto, p.ProdutoLoja))
-                    .ToListAsync() ;*/
 
                 return View(products);
             }
@@ -324,6 +319,129 @@ namespace PechinchaMarket.Controllers
         {
             return _context.Produto.Any(e => e.Id == id);
         }
+
         
+        public  async Task<IActionResult> AddMultiplesProducts()
+        {
+
+            return View();
+        }
+  
+        // colocar mensagem de sucesso
+        [HttpPost]
+        public async Task<IActionResult> ProcessarCSV(IFormFile arquivoCSV, List<IFormFile> files)
+        {
+
+            if (arquivoCSV != null && arquivoCSV.Length > 0)
+            {
+                var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    Delimiter = ";"
+                };
+
+                var userId = _userManager.GetUserId(User);
+                List<Loja> lojas = (from l in _context.Loja where l.UserId == userId select l).ToList();
+                if (!lojas.IsNullOrEmpty())
+                {
+                 
+                
+                using (var reader = new StreamReader(arquivoCSV.OpenReadStream()))
+
+                using (var csv = new CsvHelper.CsvReader(reader, csvConfig))
+                {
+                    
+
+                    var records = csv.GetRecords<CSVProduct>().ToList();
+                     
+                    foreach (var record in records)
+                    {
+                        List<ProdutoLoja> ProdL = new List<ProdutoLoja>();
+                        var memoryStreamImg = new MemoryStream();
+                        Produto produto = new Produto();
+                        for (int i = 0; i < lojas.Count; i++)
+                            {
+                                var p = new ProdutoLoja { Price =record.Price, Loja = lojas[i] };
+                                ProdL.Add(p);
+                            }
+
+                            IFormFile file = getFileName(files, record.Image.ToString());
+                
+                            if (file != null) {
+                                await file.CopyToAsync(memoryStreamImg);
+                                produto.Brand = record.Brand.ToString();
+                                produto.ProdEstado = Estado.InAnalysis;
+                                produto.Name = record.Name;
+                                produto.ProdCategoria = (Categoria)Enum.Parse(typeof(Categoria), record.ProdCategoria.ToString());
+                                produto.Weight = record.Weight;
+                                produto.Unidade = (UnidadeMedida)Enum.Parse(typeof(UnidadeMedida), record.Unidade.ToString());
+                                produto.Image = memoryStreamImg.ToArray();
+                                produto.ProdutoLojas = ProdL;
+                            }
+                            else
+                            {
+                                ModelState.AddModelError("", "O Produto"+ record.Name +" não possui uma imagem adequeada.");
+                            }
+                        
+
+                       
+
+                        _context.Add(produto);
+                    }
+                    _context.SaveChanges();
+                }
+            }
+               
+                return RedirectToAction("Index");
+            }
+
+         
+            return RedirectToAction("Index");
+        }
+
+        private IFormFile getFileName(List<IFormFile> files, string name)
+        {
+            string pattern = @"([^/]+)(?=\.\w+$)";
+           
+
+            foreach (var f in files)
+            {
+                
+                Match match = Regex.Match(f.FileName, pattern);
+                 if (match.Success && match.Groups[1].Value.Equals(name)) { return f; }
+                
+                
+            }
+            return null;
+        }
+
+        public class CSVProduct
+        {
+  
+
+            [Name("Nome")]
+            public string Name { get; set; }
+            [Name("Marca")]
+            public string Brand { get; set; }
+           
+            [Name("Categoria")]
+            public string ProdCategoria { get; set; }
+            [Name("Peso")]
+            public float Weight { get; set; }
+            [Name("Unidade")]
+            public string Unidade { get; set; }
+
+            [Name("Imagem")]
+            public string Image { get; set; }
+
+            [Name("Preco")]
+            public float Price { get; set; }    
+        }
+
+
+
+
+     }
+
+       
     }
-}
+

@@ -25,6 +25,9 @@ namespace PechinchaMarket.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
         public IActionResult Index()
         {
             return View();
@@ -420,15 +423,39 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            int contadorDeListas = 1;
+            var model2 = await _context.Produto
+          .Where(produto => produto.Id == id && produto.ProdEstado == Estado.Approved && produto.ProdutoLojas
+              .Any(produtoLoja => _context.Loja
+                  .Any(loja => loja.UserId == _context.Comerciante
+                      .Where(comerciante => comerciante.UserId == produtoLoja.Loja.UserId)
+                      .Select(comerciante => comerciante.UserId)
+                      .FirstOrDefault())))
+          .Include(produto => produto.ProdutoLojas)
+              .ThenInclude(produtoLoja => produtoLoja.Loja)
+          .ToListAsync();
 
-            //User logado
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
+            var produto = model2.Select(x => x.Id).FirstOrDefault();
+
+            ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
+
+            ViewData["Comerciante"] = _context.Comerciante;
+
+            ViewData["Listas"] = _context.ListaProdutos
+                .Where(l => l.ClienteId == cliente.Id.ToString());
+
+            ViewData["Lojas"] = _context.Loja
+        .Join(_context.ProdutoLoja, loja => loja.Id, produtoLoja => produtoLoja.Loja.Id, (loja, produtoLoja) => new { Loja = loja, ProdutoLoja = produtoLoja })
+        .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
+        .Select(joined => joined.Loja)
+        .ToList();
+
+
 
             //Produto selecionado
-            var produto = await _context.ProdutoLoja.FindAsync(id);
-            var name = nome;
+            var produtoLoja = _context.ProdutoLoja
+                                .FirstOrDefault(pl => pl.Produto.Id == id);
 
             // Verificar se o cliente já possui uma lista de produtos
             var listas = (await _context.ListaProdutos
@@ -438,13 +465,28 @@ namespace PechinchaMarket.Controllers
             //Se ja tiver uma lista de produtos vai adicionar um detalhe a essa lista
             if (listas.Count > 0 && listas.Any(l => l.name == nome))
             {
-                var novoDetalhe = new DetalheListaProd
+                var listaExistente = listas.FirstOrDefault(l => l.name == nome);
+
+                var detalheExistente = await _context.DetalheListaProd
+                                    .FirstOrDefaultAsync(d => d.ProdutoLoja.Id == produtoLoja.Id && d.ListaProdutos.Id == listaExistente.Id);
+
+                if (detalheExistente != null)
                 {
-                    quantity = quantityValue,
-                    ListaProdutos = listas.FirstOrDefault(l => l.name == nome),
-                    ProdutoLoja = produto,
-                };
-                _context.Add(novoDetalhe);
+                    // Se já existir um DetalheListaProd correspondente, incrementar a quantidade
+                    detalheExistente.quantity += quantityValue;
+                    _context.Update(detalheExistente);
+                }
+                else
+                {
+                    // Se não existir, adicionar um novo DetalheListaProd
+                    var novoDetalhe = new DetalheListaProd
+                    {
+                        quantity = quantityValue,
+                        ListaProdutos = listaExistente,
+                        ProdutoLoja = produtoLoja
+                    };
+                    _context.Add(novoDetalhe);
+                }
             }
 
             //Não tem nenhuma lista
@@ -452,27 +494,27 @@ namespace PechinchaMarket.Controllers
             {
                 var novaListaProdutos = new ListaProdutos
                 {
-                    name = nome ?? "Lista de compras " + contadorDeListas,
+                    name = nome ?? "Lista de compras" ,
                     ClienteId = cliente.Id.ToString(),
                     state = EstadoProdutoCompra.PorComprar,
                 };
                 _context.Add(novaListaProdutos);
-                contadorDeListas++;
 
                 var novoDetalhe = new DetalheListaProd
                 {
                     quantity = quantityValue,
                     ListaProdutos = novaListaProdutos,
-                    ProdutoLoja = produto,
+                    ProdutoLoja = produtoLoja,
 
                 };
                 _context.Add(novoDetalhe);
             }
 
             await _context.SaveChangesAsync();
+            var lista = listas.FirstOrDefault(l => l.name == nome);
+            TempData["StatusMessage"] = "Produto adicionado na " + lista.name;
 
-
-            return RedirectToAction("Index", "ListaProdutos");
+            return View("AddToList", model2);
 
         }
 
@@ -561,5 +603,7 @@ namespace PechinchaMarket.Controllers
         {
             return _context.ProdutoLoja.Any(pl => pl.Id == id && pl.Discount > 0);
         }
+
+       
     }
 }

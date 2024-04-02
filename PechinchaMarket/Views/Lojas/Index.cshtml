@@ -5,6 +5,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var counter = 0;
 }
 <link href="~/css/loja.css" rel="stylesheet" />
 
@@ -45,11 +46,42 @@
                             @Html.DisplayFor(modelItem => item.ClosingTime)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                                <a class="img-edit" asp-action="Edit" asp-route-id="@item.Id"></a>
+                                <a class="img-trash" onclick="deletePopup(@counter);"></a>
                         </td>
                     </tr>
-                }           }
+
+                        <div class="new-page display-none" id="delete-popup-@counter">
+                            <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                                <div class="edges-flex max-width">
+                                    <div class="title unselectable-text">Eliminar Loja</div>
+                                    <div class="cross-button" onclick="deletePopup(@counter);"></div>
+                                </div>
+
+                                <div class="column-container max-height  edges-flex max-width">
+                                    <span class=" small-margin-top">Tem certeza que deseja eliminar esta Loja?</span>
+                                    <div class="center-x-flex">
+                                       <p>Na seguinte morada, @Html.DisplayFor(modelItem => item.Address) </p>
+                                    </div>
+
+                                    <div class="row-container right-flex max-width ">
+                                        <form asp-action="Delete" method="post" asp-route-id=@item.Id>
+
+                                            <div class="delete-div  small-padding-right2">
+
+                                                <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Loja</button>
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        counter++;
+                }           
+            }
         </tbody>
     </table>
 
@@ -59,4 +91,10 @@
     document.addEventListener("DOMContentLoaded", 
         tooltipmsg("Nesta pagina poderá analisar, editar, criar e eleminar todas as suas lojas.", "", "")
     );
+
+    function deletePopup(text) {
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("delete-popup-" + text);
+        chooseimage.classList.toggle('display-none');
+    }
 </script>

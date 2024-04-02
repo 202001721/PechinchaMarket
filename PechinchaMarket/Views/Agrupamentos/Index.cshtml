@@ -130,15 +130,15 @@
         permissionUpdateBtn.style.display = "block";
     }
 
-    function checkTheBox(checkbox){
+    function checkTheBox(checkbox,idAgrupamento){
         
         var section = checkbox.parentNode.parentNode.parentNode.parentNode.parentNode
-
-        
+        var variavel = "#formRemove_" + idAgrupamento;
+        console.log(variavel);
         var checkboxes = Array.from(section.querySelectorAll(".checkbox"));
 
         var permissionUpdateBtn = section.querySelector("#permissionBtn");
-        var removeBtn = section.querySelector("#formRemove");
+        var removeBtn = section.querySelector("#formRemove_"+idAgrupamento);
         var addBtn = section.querySelector("#addBtn");
 
         permissionUpdateBtn.style.display = "none";
@@ -149,7 +149,7 @@
             if (checkbox.checked) {
 
                 var permissionUpdateBtn = section.querySelector("#permissionBtn");
-                var removeBtn = section.querySelector("#formRemove");
+                var removeBtn = section.querySelector("#formRemove_"+idAgrupamento);
 
                 permissionUpdateBtn.style.display = "block";
                 removeBtn.style.display = "block";
@@ -301,7 +301,7 @@
                             <div class="buttons-end">
 
                                 <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
-                                <form id="formRemoveLists" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
+                                <form id="formRemoveLists_@item.Agrupamento.Id" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
 
                                     <input class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
 
@@ -321,7 +321,7 @@
                                     @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor)
                                     {
                                         <div class="center-y-flex smaller-gap-x">
-                                            <input form="formRemoveLists" type="checkbox" name="listasId" value=@list.Id>
+                                            <input form="formRemoveLists_@item.Agrupamento.Id" type="checkbox" name="listasId" value=@list.Id>
                                             <div>@list.name</div>
                                         </div>
                                       
@@ -382,14 +382,14 @@
                                 <div class="fit-content-width fit-content-height" id="permissionBtn" onclick="selectEdit(this)" style="display:none"><img src="~/images/edit-text.png" class="img-button"></div>
                                 <input type="submit" class="pechincha-button default-button-color medium-button" id="permissionUpdateBtn" style="display:none" form="permissions-@counter" value="Guardar">
 
-                                <form id="formRemove" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post" style="display:none">
+                                <form id="formRemove_@item.Agrupamento.Id" asp-action="RemoveMembers" asp-route-id="@item.Agrupamento.Id" method="post" style="display:none">
                                     <input name="membros" class="img-button fit-content-width fit-content-height" type="image" value="Remover Membros" src="~/images/recycle-bin.png" />
                                 </form>
 
                             </div>
                           
                         }
-                 
+                      
                     </div>
                     <div class="break-line"></div>
                     <div class="row-container edges-flex max-width">
@@ -423,7 +423,7 @@
                                         }
                                         <div class="row-container edges-flex max-width">
                                             <div class="center-y-flex smaller-gap-x">
-                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this)">
+                                                <input form="formRemove_@item.Agrupamento.Id" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this, '@item.Agrupamento.Id')">
                                                 <span>@member.Cliente.Name</span>
                                             </div>
                                             <div style="display:none" class="editPermisions">
@@ -448,7 +448,7 @@
                                         {
                                             <div class="row-container edges-flex max-width">
                                             <div class="center-y-flex smaller-gap-x">
-                                                <input form="formRemove" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this)">
+                                                    <input form="formRemove_@item.Agrupamento.Id" type="checkbox" name="members" value=@member.Cliente.Id class="checkbox" onchange="checkTheBox(this,'@item.Agrupamento.Id')">
                                                 <span>@member.Cliente.Name</span>
                                             </div>
                                             <div style="display:none" class="editPermisions">
