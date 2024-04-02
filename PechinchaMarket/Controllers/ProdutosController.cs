@@ -10,6 +10,10 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
 using EllipticCurve.Utils;
+using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
+using Aspose.Pdf;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace PechinchaMarket.Controllers
 {
@@ -323,15 +327,13 @@ namespace PechinchaMarket.Controllers
             return View();
         }
   
-
+        // colocar mensagem de sucesso
         [HttpPost]
         public async Task<IActionResult> ProcessarCSV(IFormFile arquivoCSV, List<IFormFile> files)
         {
 
             if (arquivoCSV != null && arquivoCSV.Length > 0)
             {
-
-
                 var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
                     Delimiter = ";"
@@ -362,7 +364,8 @@ namespace PechinchaMarket.Controllers
                                 ProdL.Add(p);
                             }
 
-                        IFormFile file = files.Where(f => f.FileName.Equals("Produtos/"+ record.Image.ToString()+".jpg")).FirstOrDefault();
+                            IFormFile file = getFileName(files, record.Image.ToString());
+                
                             if (file != null) {
                                 await file.CopyToAsync(memoryStreamImg);
                                 produto.Brand = record.Brand.ToString();
@@ -393,6 +396,22 @@ namespace PechinchaMarket.Controllers
 
          
             return RedirectToAction("Index");
+        }
+
+        private IFormFile getFileName(List<IFormFile> files, string name)
+        {
+            string pattern = @"([^/]+)(?=\.\w+$)";
+           
+
+            foreach (var f in files)
+            {
+                
+                Match match = Regex.Match(f.FileName, pattern);
+                 if (match.Success && match.Groups[1].Value.Equals(name)) { return f; }
+                
+                
+            }
+            return null;
         }
 
         public class CSVProduct
