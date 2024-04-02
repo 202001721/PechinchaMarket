@@ -29,7 +29,7 @@
     <section class="containers">
         <a onclick="addPopup()" class="floating-button"></a>
     
-        <div id="publicados-products" style="display:flex;">
+        <div id="publicados-products" style="display:flex; flex-wrap:wrap">
             @foreach (var item in Model.Where(p => p.ProdEstado == Estado.Approved).GroupBy(p => p.Id)
             .Select(g => g.First()))
             {
@@ -79,7 +79,7 @@
             }
         </div>
 
-        <div id="pendentes-products" style="display:none;">
+        <div id="pendentes-products" style="display:none; flex-wrap:wrap">
             @foreach (var item in Model.Where(p => p.ProdEstado == Estado.InAnalysis).GroupBy(p => p.Id)
             .Select(g => g.First()))
             {
