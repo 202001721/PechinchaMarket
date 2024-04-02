@@ -21,10 +21,7 @@
             <h2><a id="pendentes"> Produtos Pendentes</a></h2>
         </span>
 
-        <a asp-action="AddMultiplesProducts">
-            Adicionar varios
-        </a>
-            
+       
 </div>
 
     <section class="containers">
@@ -143,7 +140,9 @@
                     <div class="center-x-flex">
                         <div class="center-y-flex small-gap-y column-container wrap-flex small-page-product">
                             <a href="@Url.Action("Create", "Produtos")" class="create-product-type-button">Criar um produto</a>
-                            <a href="@Url.Action("Create", "Produtos")" class="create-product-type-button">Criar vários produtos</a>
+                            <a href="@Url.Action("AddMultiplesProducts", "Produtos")" class="create-product-type-button">Criar vários produtos</a>
+               
+
                         </div>
                     </div>
                 </div>
