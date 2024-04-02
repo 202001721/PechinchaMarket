@@ -14,6 +14,7 @@
         Talho,
         Peixaria,
         Charcutaria,
+        Mercearia,
         Bebidas,
         Vegan,
         Doces,
