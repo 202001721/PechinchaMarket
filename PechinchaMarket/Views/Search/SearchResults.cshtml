@@ -44,15 +44,9 @@
         hiddenContent.classList.toggle("display-none");
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        var tooltipall = document.getElementById("tooltip-message-all");
-        var tooltipcliente = document.getElementById("tooltip-message-cliente");
-        var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
-
-        tooltipall.innerHTML = "Nesta página, irá obter os resultados da sua pesquisa e poderá ainda filtrá-la e ordená-la.";
-        tooltipcliente.innerHTML = "";
-        tooltipcomerciante.innerHTML = "";
-    });
+    document.addEventListener("DOMContentLoaded", 
+        tooltipmsg("Nesta página, irá obter os resultados da sua pesquisa e poderá ainda filtrá-la e ordená-la.", "", "")
+    );
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WfRY526MlBgsOxALrNXdf0qNl9m-Zk4&loading=async&libraries=places&callback=initAutocomplete" async defer></script>

@@ -264,3 +264,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     } 
 });
+
+
+function tooltipmsg(all,cliente,comerciante) {
+    var tooltipall = document.getElementById("tooltip-message-all");
+    var tooltipcliente = document.getElementById("tooltip-message-cliente");
+    var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
+
+    if (tooltipall) {
+        tooltipall.innerHTML = all;
+    }
+    if (tooltipcliente) {
+        tooltipcliente.innerHTML = cliente;
+    }
+    if (tooltipcomerciante) {
+        tooltipcomerciante.innerHTML = comerciante;
+    }
+}
