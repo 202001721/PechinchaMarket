@@ -33,9 +33,6 @@
                 </h3>
             </div>
 
-            <div>
-                Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Loja.Address)
-            </div>
             <div class="discounts">
                 @if (ViewBag.PrecoExibicao != null)
                 {
@@ -43,7 +40,7 @@
                         @ViewBag.PrecoExibicao.ToString()€/@Html.DisplayFor(model => model.FirstOrDefault().Unidade)
                     </span>
                     <span class="price-text">
-                        <s>@Html.DisplayFor(model => model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Unidade)</s> <!-- Riscar o preço sem desconto -->
+                        <s>@Html.DisplayFor(model => model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Price.ToString("0.00"))€/ @Html.DisplayFor(model => model.FirstOrDefault().Unidade)</s> <!-- Riscar o preço sem desconto -->
                     </span>
                     <span class="discount-text">
                         Desconto de @Html.DisplayFor(model => model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Discount)%
