@@ -494,7 +494,7 @@ namespace PechinchaMarket.Controllers
             {
                 var novaListaProdutos = new ListaProdutos
                 {
-                    name = nome ?? "Lista de compras" ,
+                    name = nome ?? "Lista de compras",
                     ClienteId = cliente.Id.ToString(),
                     state = EstadoProdutoCompra.PorComprar,
                 };
@@ -508,6 +508,9 @@ namespace PechinchaMarket.Controllers
 
                 };
                 _context.Add(novoDetalhe);
+                await _context.SaveChangesAsync();
+                TempData["StatusMessage"] = "Produto adicionado na Lista de compras";
+                return View("AddToList", model2);
             }
 
             await _context.SaveChangesAsync();
