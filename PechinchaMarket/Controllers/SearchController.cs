@@ -148,34 +148,62 @@ namespace PechinchaMarket.Controllers
             {
                 return true;
             }
-            else
+            else if(str1.Length - str2.Length >= -1 && str1.Length - str2.Length <= 1)
             {
-                for (int j = -1; j < (str2.Length * 2) - 1; j++)
-                {
-                    if ((str1.Length == str2.Length && j % 2 == 0) || (str1.Length == str2.Length - 1 && j % 2 != 0))
-                    {
-                        int differences = 0;
-                        for (int i = 0; i < str1.Length; i++)
-                        {
-                            if (i == Math.Floor(Math.Abs((double)j / 2)))
-                            {
-                                str2 = str2.Remove(i, 1);
-                            }
+                var strtemp = "";
+                if (str1.Length < str2.Length) {
+                    strtemp = str1;
+                    str1 = str2;
+                    str2 = strtemp;
+                }
 
-                            if (!string.Equals(str1[i].ToString(), str2[i].ToString(), StringComparison.OrdinalIgnoreCase))
-                            {
-                                differences++;
-                                if (differences > 1)
-                                {
-                                    break;
-                                }
-                            }
-                        }
-                        if (differences <= 1)
+                int differences = 0;
+                bool differencesChanged = false;
+                int j = 0;
+                for (int i = 0; i < str1.Length; i++) {
+                    if (differences > 1)
+                    {
+                        break;
+                    }
+                    else if (differences > 0 && differencesChanged == true)
+                    {
+                        if (str1.Length != str2.Length)
                         {
-                            return true;
+                            j--;
+                            differencesChanged = false;
                         }
                     }
+
+                    if (str1.Length - 1 != i || str1.Length - 1 == i && i != j)
+                    {
+                        if (!string.Equals(str1[i].ToString(), str2[j].ToString(), StringComparison.OrdinalIgnoreCase))
+                        {
+                            differences++;
+                            differencesChanged = true;
+                        }
+                    }
+                    else if (str1.Length == str2.Length)
+                    {
+                        if (!string.Equals(str1[i].ToString(), str2[j].ToString(), StringComparison.OrdinalIgnoreCase))
+                        {
+                            differences++;
+                            differencesChanged = true;
+                        }
+                    }
+                    else {
+                        differences++;
+                        differencesChanged = true;
+                    }
+
+                    j++;
+                }
+
+                if (differences > 1)
+                {
+                    return false;
+                }
+                else { 
+                    return true;
                 }
             }
             return false;
