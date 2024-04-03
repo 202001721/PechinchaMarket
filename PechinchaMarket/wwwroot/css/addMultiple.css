@@ -1,0 +1,24 @@
+﻿.blue-button:hover {
+    color: inherit;
+    background-color: rgba(102, 209, 255, 0.5)
+}
+
+.title-button{
+    display:flex;
+    align-items:center;
+}
+
+.help-button {
+    height: 50%;
+    border: solid;
+    border-radius: 5px;
+    background-color: white;
+    border-color: rgba(102,209,255,1);
+    margin-left: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.35);
+}
+
+    .help-button:active {
+        background-color: #D5D5D5;
+        box-shadow: inset 2px 2px 5px rgba(0,0,0,0.35);
+    }
