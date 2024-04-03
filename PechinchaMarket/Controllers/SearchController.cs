@@ -500,7 +500,7 @@ namespace PechinchaMarket.Controllers
             }
 
             //Não tem nenhuma lista e o nome esta a null
-            else if (listas.Count() == 0 && nome == null)
+            else if (listas.Count() == 0 && nome == null || nome == null && !listas.Any(l => l.name == "Lista de compras"))
             {
                 var novaListaProdutos = new ListaProdutos
                 {

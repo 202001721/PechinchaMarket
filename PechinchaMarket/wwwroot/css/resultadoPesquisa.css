@@ -154,14 +154,20 @@
     position: absolute;
     margin-bottom: 5px;
 }
-    .lista-item td {
+    .lista-item div {
         cursor: pointer;
+        border: 1px solid black;
         padding: 10px;
     }
 
-    .lista-item td.selected {
+    .lista-item div.selected {
         background-color: #e0e0e0;
     }
+
+.black {
+    border: 1px solid #000;
+    background-color: white;
+}
 
 .produtos-semelhantes {
     display: flex;
