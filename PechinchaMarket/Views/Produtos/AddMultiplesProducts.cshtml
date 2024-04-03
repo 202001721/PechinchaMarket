@@ -4,17 +4,32 @@
 @{
 }
 
+<link href="~/css/produto.css" rel="stylesheet" />
+<link href="~/css/addMultiple.css" rel="stylesheet" />
+
 
 <body>
-    <form asp-action="AddMultiplesProducts">
-        
-    </form>
 
-    <form method="post" asp-action="ProcessarCSV" enctype="multipart/form-data">
-        <input type="file" name="arquivoCSV" />
-        <input type="file" id="fileInputControl" name="files" webkitdirectory="true" multiple />
-        <button type="submit">Enviar CSV</button>
-    </form>
+    <div class="gradiante2-secondary-color medium-padding-left medium-padding-top">
+        <div class="title-button">
+            <h1>Adicionar Vários Produtos</h1>
+            <button class="help-button active">Precisa de ajuda?</button>
+        </div>
+
+        <div>
+            <a class="blue-button" href="~/results/Adicionar_Produtos.csv" download>Download Template</a>
+        </div>
+
+        <form asp-action="AddMultiplesProducts">
+        </form>
+
+        <form method="post" asp-action="ProcessarCSV" enctype="multipart/form-data">
+            <input type="file" name="arquivoCSV" />
+            <input type="file" id="fileInputControl" name="files" webkitdirectory="true" multiple />
+            <button type="submit">Enviar CSV</button>
+        </form>
+    </div>
+    
 
 
 </body>
