@@ -495,15 +495,16 @@ namespace PechinchaMarket.Controllers
                         ProdutoLoja = produtoLoja
                     };
                     _context.Add(novoDetalhe);
+
                 }
             }
 
-            //Não tem nenhuma lista
-            else if (!listas.Any(l => l.name == "Lista de compras") && listas.Any(l => l.name != nome))
+            //Não tem nenhuma lista e o nome esta a null
+            else if (listas.Count() == 0 && nome == null)
             {
                 var novaListaProdutos = new ListaProdutos
                 {
-                    name = nome ?? "Lista de compras",
+                    name = "Lista de compras",
                     ClienteId = cliente.Id.ToString(),
                     state = EstadoProdutoCompra.PorComprar,
                 };
@@ -522,7 +523,8 @@ namespace PechinchaMarket.Controllers
                 return View("AddToList", model2);
             }
 
-            else if (listas.Any(l => l.name != nome) && listas.Any(l => l.name == "Lista de compras"))
+            // Se já tem uma lista criada e o nome está a null, vai adicionar um detalhe a lista de default
+            else if (listas.Any(l => l.name == "Lista de compras") && nome == null)
             {
                 var listaDeCompras = listas.FirstOrDefault(l => l.name == "Lista de compras");
                 var detalheExistente = await _context.DetalheListaProd
@@ -548,6 +550,30 @@ namespace PechinchaMarket.Controllers
 
                 await _context.SaveChangesAsync();
                 TempData["StatusMessage"] = "Produto adicionado automaticamente na Lista de compras";
+                return View("AddToList", model2);
+            }
+
+            // Se escrever algo no nome que ainda não exista
+            else if (nome != null && !listas.Any(l => l.name == nome))
+            {
+                var novaListaProdutos = new ListaProdutos
+                {
+                    name = nome,
+                    ClienteId = cliente.Id.ToString(),
+                    state = EstadoProdutoCompra.PorComprar,
+                };
+                _context.Add(novaListaProdutos);
+
+                var novoDetalhe = new DetalheListaProd
+                {
+                    quantity = quantityValue,
+                    ListaProdutos = novaListaProdutos,
+                    ProdutoLoja = produtoLoja,
+
+                };
+                _context.Add(novoDetalhe);
+                await _context.SaveChangesAsync();
+                TempData["StatusMessage"] = "Produto adicionado na "+nome;
                 return View("AddToList", model2);
             }
 
