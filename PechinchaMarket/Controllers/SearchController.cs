@@ -518,7 +518,7 @@ namespace PechinchaMarket.Controllers
                 };
                 _context.Add(novoDetalhe);
                 await _context.SaveChangesAsync();
-                TempData["StatusMessage"] = "Produto adicionado na Lista de compras";
+                TempData["StatusMessage"] = "Produto adicionado na Lista de compras (criada automaticamente)";
                 return View("AddToList", model2);
             }
 
@@ -547,7 +547,7 @@ namespace PechinchaMarket.Controllers
                 }
 
                 await _context.SaveChangesAsync();
-                TempData["StatusMessage"] = "Produto adicionado na Lista de compras";
+                TempData["StatusMessage"] = "Produto adicionado automaticamente na Lista de compras";
                 return View("AddToList", model2);
             }
 
