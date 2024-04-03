@@ -451,6 +451,15 @@ namespace PechinchaMarket.Controllers
         .Select(joined => joined.Loja)
         .ToList();
 
+            var pl = model2.SelectMany(x => x.ProdutoLojas).FirstOrDefault();
+            if (pl != null)
+            {
+                ShowDiscount(pl.Id);
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Nenhum produto encontrado";
+            }
 
 
             //Produto selecionado
@@ -490,7 +499,7 @@ namespace PechinchaMarket.Controllers
             }
 
             //Não tem nenhuma lista
-            else if (listas.Count == 0 || listas.Any(l => l.name != nome))
+            else if (!listas.Any(l => l.name == "Lista de compras") && listas.Any(l => l.name != nome))
             {
                 var novaListaProdutos = new ListaProdutos
                 {
@@ -512,6 +521,36 @@ namespace PechinchaMarket.Controllers
                 TempData["StatusMessage"] = "Produto adicionado na Lista de compras";
                 return View("AddToList", model2);
             }
+
+            else if (listas.Any(l => l.name != nome) && listas.Any(l => l.name == "Lista de compras"))
+            {
+                var listaDeCompras = listas.FirstOrDefault(l => l.name == "Lista de compras");
+                var detalheExistente = await _context.DetalheListaProd
+                                    .FirstOrDefaultAsync(d => d.ProdutoLoja.Id == produtoLoja.Id && d.ListaProdutos.Id == listaDeCompras.Id);
+
+                if (detalheExistente != null)
+                {
+                    // Se já existir um DetalheListaProd correspondente, incrementar a quantidade
+                    detalheExistente.quantity += quantityValue;
+                    _context.Update(detalheExistente);
+                }
+                else
+                {
+                    // Se não existir, adicionar um novo DetalheListaProd
+                    var novoDetalhe = new DetalheListaProd
+                    {
+                        quantity = quantityValue,
+                        ListaProdutos = listaDeCompras,
+                        ProdutoLoja = produtoLoja
+                    };
+                    _context.Add(novoDetalhe);
+                }
+
+                await _context.SaveChangesAsync();
+                TempData["StatusMessage"] = "Produto adicionado na Lista de compras";
+                return View("AddToList", model2);
+            }
+
 
             await _context.SaveChangesAsync();
             var lista = listas.FirstOrDefault(l => l.name == nome);
