@@ -12,7 +12,7 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240320220852_Initial")]
+    [Migration("20240403204349_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -278,6 +278,23 @@ namespace PechinchaMarket.Migrations
                     b.HasIndex("ClienteId");
 
                     b.ToTable("AgrupamentosMembro");
+                });
+
+            modelBuilder.Entity("PechinchaMarket.Models.ApiKey", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Valor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("ApiKey");
                 });
 
             modelBuilder.Entity("PechinchaMarket.Models.Cliente", b =>

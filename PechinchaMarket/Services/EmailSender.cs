@@ -12,9 +12,10 @@ namespace PechinchaMarket.Services
         {
             _config = config;
         }
-        public async Task SendEmail(string subject, string toEmail, string username,string message )
+        public async Task SendEmail(string subject, string toEmail, string username,string message,DBPechinchaMarketContext _context)
         {
-            var apiKey = "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";
+            var apiKey = _context.ApiKey.FirstOrDefault().Valor.ToString();
+               
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("pechinchamarket@outlook.com", "PechinchaMarket");
 

@@ -134,7 +134,7 @@ namespace PechinchaMarket.Controllers
                 if(utilizador != null) {
                     utilizador.EmailConfirmed = true;
                     EmailSender emailSender = new EmailSender();
-                    await emailSender.SendEmail("Seu cadastro foi aceito",utilizador.Email,comerciante.Name, "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito");
+                    await emailSender.SendEmail("Seu cadastro foi aceito",utilizador.Email,comerciante.Name, "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito",_context);
                    
             
                 }
@@ -192,7 +192,7 @@ namespace PechinchaMarket.Controllers
                 if (utilizador != null)
                 {
                     EmailSender emailSender = new EmailSender();
-                    await emailSender.SendEmail("Seu cadastro foi recusado", utilizador.Email, comerciante.Name, "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito");
+                    await emailSender.SendEmail("Seu cadastro foi recusado", utilizador.Email, comerciante.Name, "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito",_context);
                     _context.Comerciante.Remove(comerciante);
                     _context.Users.Remove(utilizador);
                 }
