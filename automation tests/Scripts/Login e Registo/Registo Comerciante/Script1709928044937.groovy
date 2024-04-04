@@ -23,7 +23,9 @@ WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Register'))
 
-WebUI.click(findTestObject('Object Repository/Page_Register - PechinchaMarket/span_Comerciante_account-type-comerciante-logo'))
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/div_Comerciante                    Publica _fffc1d'))
+
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/a_Continuar'))
 
 def nanoTimeAsString = System.nanoTime().toString()
 
@@ -33,31 +35,24 @@ WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - Pech
     email)
 
 WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Email_Input.UserName'), 
-    'Pechincha')
-
-WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/div_Password'))
-
-WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Password'))
-
-WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Nome_Input.Password'), 
-    '8MulHJ6VnguuWGcei07mUQ==')
-
-WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Password_Input.ConfirmPassword'), 
-    '8MulHJ6VnguuWGcei07mUQ==')
+    'Util')
 
 WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Confirme a password_Input.Contact'), 
-    '929333292')
+    '987654321')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Nome_Input.Password'), 
+    'VyCYYIKrGZmyN9bkhIcWmA==')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Password_Input.ConfirmPassword'), 
+    'VyCYYIKrGZmyN9bkhIcWmA==')
 
 WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/div_Continuar'))
 
-// Carregar a imagem
 WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Carregar'))
 
-//WebUI.uploadFile(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Carregar_Input.Image'), file)
-
-// Carregar o arquivo PDF
-//WebUI.uploadFile(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Carregar PDF'), 'ArquivoTeste/Documento-autenticação.pdf')
+WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Carregar PDF'))
 
 WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/button_Registar'))
 
 WebUI.closeBrowser()
+

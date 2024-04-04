@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>label_Password</name>
+   <name>label_Carregar PDF</name>
    <tag></tag>
-   <elementGuidId>543b38d6-0478-4c88-abda-87adc8f1e675</elementGuidId>
+   <elementGuidId>e469d623-030d-4251-96fd-8cdb8b3d5d8d</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//form[@id='account']/div/div[2]/div/label</value>
+         <value>//div[@id='phase1']/div[2]/div[2]/div/label</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div:nth-of-type(2) > div.authentication-input-text-div > label</value>
+         <value>div.insert-file.file-type-pdf > div.insert-file-input > div > label</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Password&quot;i</value>
+         <value>internal:text=&quot;Carregar PDF&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,94 +29,94 @@
       <name>tag</name>
       <type>Main</type>
       <value>label</value>
-      <webElementGuid>0abc4fca-a3fe-4ee0-a5ed-e3a764908cd6</webElementGuid>
+      <webElementGuid>859718f0-35fd-4feb-b7ea-785bed0bfd72</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>for</name>
       <type>Main</type>
-      <value>Input_Password</value>
-      <webElementGuid>825315e4-d35e-49ee-be55-111e462425b6</webElementGuid>
+      <value>Input_Document</value>
+      <webElementGuid>cfa91934-a036-47d4-b915-0e0a53e84052</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Password</value>
-      <webElementGuid>3be83d6a-d108-4991-ad39-c025162669ba</webElementGuid>
+      <value>Carregar PDF</value>
+      <webElementGuid>415c477d-be37-436f-b573-7e971bbf9a04</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[2]/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
-      <webElementGuid>d3af6903-53ae-40ba-b12a-fe03f8594171</webElementGuid>
+      <value>id(&quot;phase1&quot;)/div[@class=&quot;insert-file file-type-pdf&quot;]/div[@class=&quot;insert-file-input&quot;]/div[1]/label[1]</value>
+      <webElementGuid>b067a895-0abd-49ac-868b-835fbe4e54fa</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div[2]/div/label</value>
-      <webElementGuid>5804d6f5-fa95-456f-8b33-42815135073e</webElementGuid>
+      <value>//div[@id='phase1']/div[2]/div[2]/div/label</value>
+      <webElementGuid>5dc48dec-9ae1-4bc4-8ab0-0e35c309216c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::label[1]</value>
-      <webElementGuid>2a330315-2c34-44dd-b839-aef2f53a4a2e</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Documento de autenticação'])[1]/following::label[1]</value>
+      <webElementGuid>322de4fd-cc37-4f14-8a60-9ffffc3a50b7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='ou'])[1]/following::label[2]</value>
-      <webElementGuid>e6c6f886-85cb-4d7c-a316-4bd66a59e7fd</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='UC8.png'])[1]/following::label[1]</value>
+      <webElementGuid>08f3b4b7-89ed-4d83-b2f1-4be6818478e4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/preceding::label[1]</value>
-      <webElementGuid>d5ce90b1-e070-42e2-9b93-39a4e0db77d5</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Nenhum ficheiro escolhido'])[1]/preceding::label[1]</value>
+      <webElementGuid>bb59fd5d-9418-4a4e-8e79-7b1e56c968b5</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Password']/parent::*</value>
-      <webElementGuid>335545f3-d5c8-40c1-bdf5-da30420a4aa8</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar'])[2]/preceding::label[1]</value>
+      <webElementGuid>a755cea3-5704-45cb-902d-2dbfa00aecfc</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Carregar PDF']/parent::*</value>
+      <webElementGuid>7197df15-ed77-4d23-9cc7-a77bb920a96b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[2]/div/label</value>
-      <webElementGuid>85e6f946-de4f-4da1-8f7c-fd9cc32a68c4</webElementGuid>
+      <value>//div[2]/div[2]/div/label</value>
+      <webElementGuid>cf688b48-33f0-4461-bf7f-975870d1a4c9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//label[(text() = 'Password' or . = 'Password')]</value>
-      <webElementGuid>da28fec9-3365-4531-b4c0-a36e57e64c3b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/following::label[2]</value>
-      <webElementGuid>94a8f041-c7ee-499f-9390-09234e57350a</webElementGuid>
+      <value>//label[(text() = 'Carregar PDF' or . = 'Carregar PDF')]</value>
+      <webElementGuid>fe588582-c61a-4e86-be4f-b61ebc2d7aa9</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

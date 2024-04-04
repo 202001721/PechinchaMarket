@@ -23,19 +23,22 @@ WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Register'))
 
-WebUI.click(findTestObject('Object Repository/Page_Register - PechinchaMarket/button_Cliente'))
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/div_Cliente                    Encontra produtos'))
+
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/a_Continuar'))
 
 def nanoTimeAsString = System.nanoTime().toString()
-def email = 'cliente+' + nanoTimeAsString + '@gmail.com'
 
-WebUI.setText(findTestObject('Object Repository/Page_Registar - PechinchaMarket/input_Criar conta como Cliente_Input.Email'), 
+def email = ('pechincha' + nanoTimeAsString) + '@gmail.com'
+
+WebUI.setText(findTestObject('Object Repository/Page_Registar - PechinchaMarket/input_Escolha as suas preferncias_Input.Email'), 
     email)
 
-WebUI.setText(findTestObject('Object Repository/Page_Registar - PechinchaMarket/input_Email_Input.UserName'), 'Cliente')
+WebUI.setText(findTestObject('Object Repository/Page_Registar - PechinchaMarket/input_Email_Input.UserName'), 'Util')
 
-WebUI.setText(findTestObject('Object Repository/Page_Registar - PechinchaMarket/input_Nome_Input.Localizacao'), 'Setúbal')
+WebUI.setText(findTestObject('Object Repository/Page_Registar - PechinchaMarket/input_Nome_Input.Localizacao'), 'Lisboa Portugal')
 
-WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/div_Email                                  _c11387'))
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/body_function initAutocomplete()           _b8c170'))
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar - PechinchaMarket/input_Localizao_Input.Password'), 
     'VyCYYIKrGZmyN9bkhIcWmA==')
@@ -45,11 +48,9 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar - Pechinc
 
 WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/div_Continuar'))
 
-WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/label_Doces'))
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/label_Frescos'))
 
-WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/label_Snacks'))
-
-WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/label_Pastelaria'))
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/label_Biologicos'))
 
 WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/button_Registar'))
 

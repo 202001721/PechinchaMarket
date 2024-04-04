@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>20e77155-dee8-4ab2-9b2b-99270bd63934</webElementGuid>
+      <webElementGuid>fc41fde0-ec73-47fa-8ef3-1c5e8f23bb67</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>manage</value>
-      <webElementGuid>ed38e931-c757-4da6-9ea2-5006cfee18fe</webElementGuid>
+      <webElementGuid>681839cf-7049-48cc-822c-cd3fabaae8ae</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-navbar-option-hide cursor-pointer perfil-image-border nav-link small-perfil-image no-padding</value>
-      <webElementGuid>59daf112-ce36-44c4-979f-a2a196651842</webElementGuid>
+      <webElementGuid>eada3ff2-4929-4983-a898-7723b61c3988</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>asp-area</name>
       <type>Main</type>
       <value>Identity</value>
-      <webElementGuid>1faf3eb0-d096-4965-8db2-30d9fa79bc9b</webElementGuid>
+      <webElementGuid>feca668d-c3e5-443d-8b9b-6ee59bfeafb0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>asp-page</name>
       <type>Main</type>
       <value>/Account/Manage/Index</value>
-      <webElementGuid>0434f1c3-cfec-42ef-bd37-25496d4ba0a7</webElementGuid>
+      <webElementGuid>7d0d7801-22bf-4615-bd95-b92952d24a23</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>displayperfilmenu()</value>
-      <webElementGuid>3f8cfd07-4d40-4f97-a3e1-bbac583fa059</webElementGuid>
+      <webElementGuid>71e2382b-a0f3-4de9-bba0-70e58d8a15d1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -86,7 +86,7 @@
                 
             
         </value>
-      <webElementGuid>0760fb0b-b886-44fd-8f6b-27da66b1cd8d</webElementGuid>
+      <webElementGuid>b0489c31-0a43-4e03-acfc-eca9111975b4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -94,7 +94,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;manage&quot;)</value>
-      <webElementGuid>20771ebc-ac1e-41b9-a3a8-f63a0f3142b1</webElementGuid>
+      <webElementGuid>58a2fe1a-2288-4fba-bac8-125d6da27ae3</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -102,7 +102,23 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='manage']</value>
-      <webElementGuid>b49bfc8e-f4b3-4517-b5f3-326e6f91985d</webElementGuid>
+      <webElementGuid>eb7f0a3f-89c8-4c97-b5c4-33d6db728461</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/following::span[1]</value>
+      <webElementGuid>b194a375-dfef-402e-8764-36618c748284</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[1]/following::span[1]</value>
+      <webElementGuid>f0ba0f45-1588-4e4d-9f1e-e7b1b34ec6a0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -110,7 +126,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/span</value>
-      <webElementGuid>77d45312-8d6f-45a9-9ece-3aa928c1187b</webElementGuid>
+      <webElementGuid>3eec5b03-2527-4d71-9ba3-eac4336a0cb5</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -136,6 +152,6 @@
                 
             
         ')]</value>
-      <webElementGuid>50957c5d-5c98-4101-b481-5da090526937</webElementGuid>
+      <webElementGuid>2b2a155e-00d7-4d4a-8610-f40ce8a92257</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

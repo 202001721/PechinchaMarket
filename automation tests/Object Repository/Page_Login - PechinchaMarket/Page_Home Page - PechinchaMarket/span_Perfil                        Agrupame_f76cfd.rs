@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>span_Perfil                                _6a042e</name>
+   <name>span_Perfil                        Agrupame_f76cfd</name>
    <tag></tag>
-   <elementGuidId>aa6c1302-78a6-4c20-b40e-28ed7e4ee38e</elementGuidId>
+   <elementGuidId>3cd347c1-ac0c-47f2-ab15-6ce93fd0fd15</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>686a23f2-a02c-43fa-b19b-4c6dd208c3b1</webElementGuid>
+      <webElementGuid>7548cb77-fad9-46e1-8f62-911cb6cdcc4f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,15 +37,15 @@
       <name>id</name>
       <type>Main</type>
       <value>manage</value>
-      <webElementGuid>f169ca2e-fa7d-4e93-ad6b-2b6ed11d6ef3</webElementGuid>
+      <webElementGuid>3a8aadbf-2cbb-4fae-94ce-4b7ae90cb8c9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>cursor-pointer perfil-image-border nav-link small-perfil-image no-padding</value>
-      <webElementGuid>f323af72-dff2-4e2e-8071-c11723aa5b6a</webElementGuid>
+      <value>pechincha-navbar-option-hide cursor-pointer perfil-image-border nav-link small-perfil-image no-padding</value>
+      <webElementGuid>44b8fc22-9ea2-4b55-9414-2590ee2c3997</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>asp-area</name>
       <type>Main</type>
       <value>Identity</value>
-      <webElementGuid>e5fbc763-0839-44c4-a4c3-44a915e98172</webElementGuid>
+      <webElementGuid>c24dba10-720d-482d-b2c2-54d3a4595de4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>asp-page</name>
       <type>Main</type>
       <value>/Account/Manage/Index</value>
-      <webElementGuid>204d0d04-a660-46b2-9ef2-43b71bb2fb0f</webElementGuid>
+      <webElementGuid>338d644c-73d7-4322-99d4-85000895a403</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>displayperfilmenu()</value>
-      <webElementGuid>c0c2c48d-18a9-457b-a25c-5d4fdf18397a</webElementGuid>
+      <webElementGuid>2ce22dec-0bbe-47e9-9368-2fdecdc359d0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -77,15 +77,17 @@
       <name>text</name>
       <type>Main</type>
       <value>
+            
+                
+                    Perfil
+                        Agrupamentos
                     
-                        Perfil
-
-                        
-                            Logout
-                        
+                        Terminar Sessão
                     
-                </value>
-      <webElementGuid>0f5b1b51-49dc-49bd-b166-a308bfec9273</webElementGuid>
+                
+            
+        </value>
+      <webElementGuid>f56661c0-f249-4496-83e8-626e16bd0f50</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -93,7 +95,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;manage&quot;)</value>
-      <webElementGuid>e1121d58-5924-421f-a3dc-422757fe6835</webElementGuid>
+      <webElementGuid>8d844292-e6f2-408f-b0d5-acb1bed3507a</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -101,15 +103,31 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='manage']</value>
-      <webElementGuid>2f49df92-9562-40ff-bbfe-70f7c3ba2a6d</webElementGuid>
+      <webElementGuid>f4b9ab04-9a72-4824-a3c0-068517e1a69b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Fechar'])[1]/following::span[1]</value>
+      <webElementGuid>11e2faee-d310-4728-a5ad-e2f40875fd63</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Bem-vindo a nossa plantaforma, esta é nossa pagina principal'])[1]/following::span[2]</value>
+      <webElementGuid>5c990218-add6-4abe-8330-835b5887591e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li/span</value>
-      <webElementGuid>581f7ad1-0d4b-4a0f-b193-c0049e826b77</webElementGuid>
+      <value>//div/span</value>
+      <webElementGuid>ea4c81ac-3d9b-4a54-bb0f-69499e66db38</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,22 +135,26 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//span[@id = 'manage' and (text() = '
+            
+                
+                    Perfil
+                        Agrupamentos
                     
-                        Perfil
-
-                        
-                            Logout
-                        
+                        Terminar Sessão
                     
-                ' or . = '
+                
+            
+        ' or . = '
+            
+                
+                    Perfil
+                        Agrupamentos
                     
-                        Perfil
-
-                        
-                            Logout
-                        
+                        Terminar Sessão
                     
-                ')]</value>
-      <webElementGuid>45e15d5d-8505-40e4-bd36-eb6f9c39f4ae</webElementGuid>
+                
+            
+        ')]</value>
+      <webElementGuid>ea0bf29c-ef34-422a-8876-ed07e0befb9b</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

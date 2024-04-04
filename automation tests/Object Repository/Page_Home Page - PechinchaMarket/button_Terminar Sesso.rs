@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Perfil</name>
+   <name>button_Terminar Sesso</name>
    <tag></tag>
-   <elementGuidId>39d243c4-3a49-41c3-b0d4-ef5710531a0c</elementGuidId>
+   <elementGuidId>906df26c-ce4a-4225-a0de-5e286df2d442</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='perfil-menu']/a</value>
+         <value>//button[@id='logout']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>a.nav-link.text-dark</value>
+         <value>#logout</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Perfil&quot;i]</value>
+         <value>internal:role=button[name=&quot;Terminar Sessão&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,103 +28,103 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>5674e073-7868-42c4-bfae-887e2570d32a</webElementGuid>
+      <value>button</value>
+      <webElementGuid>4f556730-7d35-4a05-acc1-4ad134d7561f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>logout</value>
+      <webElementGuid>a81de6a0-ba70-42d8-a806-fd6e260b28fb</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>submit</value>
+      <webElementGuid>035e71e8-554b-4d55-85f9-4e0dac1dc35e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>7fc8ab7c-078c-48c4-adf7-0f4634453359</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
-      <type>Main</type>
-      <value>Manage</value>
-      <webElementGuid>5bd761a3-ac10-4af7-895c-ae422bec80bb</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>href</name>
-      <type>Main</type>
-      <value>/Identity/Account/Manage</value>
-      <webElementGuid>a6f74802-019c-4817-965f-bff41b7385c9</webElementGuid>
+      <value>pechincha-link</value>
+      <webElementGuid>37bde7fb-3809-452c-bd19-02e24dfdcb09</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Perfil</value>
-      <webElementGuid>7e39ca65-99ff-4df1-8cc1-fdbe41af30a1</webElementGuid>
+      <value>Terminar Sessão</value>
+      <webElementGuid>36884e0d-2c12-431e-90fa-c310abbdab62</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;perfil-menu&quot;)/a[@class=&quot;nav-link text-dark&quot;]</value>
-      <webElementGuid>307c231a-f4bd-4ee4-912b-11bf3d0e2e46</webElementGuid>
+      <value>id(&quot;logout&quot;)</value>
+      <webElementGuid>454b8a79-8142-4c5c-a8c1-2fa6eabd8a2f</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//button[@id='logout']</value>
+      <webElementGuid>7f0cd771-fe8c-4bd8-b0bb-e9706ccffb05</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='perfil-menu']/a</value>
-      <webElementGuid>48244964-6037-40b8-b9e2-d51493820cb5</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
-      <type>Main</type>
-      <value>//a[contains(text(),'Perfil')]</value>
-      <webElementGuid>7866e6db-d78e-4d76-b73c-e8972290677e</webElementGuid>
+      <value>//form[@id='logoutForm']/button</value>
+      <webElementGuid>3952d435-6eab-4f60-9135-0a50d6def407</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/preceding::a[1]</value>
-      <webElementGuid>d7d7827c-a87e-4b72-aa8f-4e81c3b9edc9</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Perfil'])[1]/following::button[1]</value>
+      <webElementGuid>26d1cf37-7ed0-4830-b4fe-bc8db49ed677</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
-      <webElementGuid>a1a2945e-cf57-4767-a063-8838db842840</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
-      <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Manage')]</value>
-      <webElementGuid>bc392b27-e7cf-4f67-9944-10530536087f</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/following::button[1]</value>
+      <webElementGuid>b013f4a9-2748-45a7-9306-f8b5f44fa520</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//span/div/a</value>
-      <webElementGuid>2ce722bc-2034-4b4b-96e0-e2446c1c2097</webElementGuid>
+      <value>//form/button</value>
+      <webElementGuid>4b783e38-5946-426b-a37b-3815fa76d00b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@title = 'Manage' and @href = '/Identity/Account/Manage' and (text() = 'Perfil' or . = 'Perfil')]</value>
-      <webElementGuid>a4c545ff-66f4-469e-87f8-41df52a147aa</webElementGuid>
+      <value>//button[@id = 'logout' and @type = 'submit' and (text() = 'Terminar Sessão' or . = 'Terminar Sessão')]</value>
+      <webElementGuid>1b72fdcb-f7e4-4fc0-82de-46a895754716</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Agrupamentos'])[1]/following::button[1]</value>
+      <webElementGuid>07f280da-3dd7-4b18-abed-7347a77f48c4</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -29,15 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>5fb9e7fe-3023-433e-a82f-831c6b318503</webElementGuid>
+      <webElementGuid>bf82f046-122a-475e-8c82-e1da6a5903a4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>confirm-button</value>
-      <webElementGuid>1ce361e8-11b4-487a-8c15-1614f028fa4b</webElementGuid>
+      <value>pechincha-button main-button-color</value>
+      <webElementGuid>71081da9-7d6d-4689-913e-962cabbc938b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>id</name>
       <type>Main</type>
       <value>registerSubmit</value>
-      <webElementGuid>d44811e5-74c2-4a60-8c52-6d07cd5d9cdc</webElementGuid>
+      <webElementGuid>f18f9afa-b20c-4c2e-9105-427c910f9c4a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>b804c304-3f63-4dd4-b482-e986eae20346</webElementGuid>
+      <webElementGuid>24e99b95-437f-4f4e-9eb3-ef16870727ff</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Registar</value>
-      <webElementGuid>710c7ecf-c98f-402a-b6e7-124051ddcb8c</webElementGuid>
+      <webElementGuid>e01a30e2-ec11-4ad9-a9fd-d45203daec9e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;registerSubmit&quot;)</value>
-      <webElementGuid>0780a350-5d5a-4f4c-a2fe-e726fb1bf33b</webElementGuid>
+      <webElementGuid>6b9418fd-7364-485e-9d15-27ccd2372c9b</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//button[@id='registerSubmit']</value>
-      <webElementGuid>021e5879-a5ca-41da-98d5-874ca1c91356</webElementGuid>
+      <webElementGuid>315367d2-4a68-4301-a4ee-a6df61bc0af8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,39 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='phase1']/div[3]/button</value>
-      <webElementGuid>5a34acda-199c-4380-9a93-135e9ac3902f</webElementGuid>
+      <webElementGuid>e7a59d49-daac-4a6e-81b1-9617336866b9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar'])[2]/following::button[1]</value>
+      <webElementGuid>dd57967a-a0c0-4093-8617-eedad0835267</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Software testing (1).pdf'])[1]/following::button[1]</value>
+      <webElementGuid>745d12bb-4535-44d9-b822-e30b6fe6f4e4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//button</value>
+      <webElementGuid>9f008ac0-d5d7-45af-8bde-3e54b7e34d56</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@id = 'registerSubmit' and @type = 'submit' and (text() = 'Registar' or . = 'Registar')]</value>
+      <webElementGuid>f1a913ed-4b21-42e7-a999-e8c5cc539095</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -118,13 +150,5 @@
       <type>Main</type>
       <value>//div[3]/button</value>
       <webElementGuid>9636eb6c-68b2-43f4-bf5e-3bd4d1053e58</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//button[@id = 'registerSubmit' and @type = 'submit' and (text() = 'Registar' or . = 'Registar')]</value>
-      <webElementGuid>29d90695-36c3-443f-86c5-281087511e7d</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

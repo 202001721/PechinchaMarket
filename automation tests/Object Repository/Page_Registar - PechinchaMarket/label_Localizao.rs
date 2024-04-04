@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>label_Password</name>
+   <name>label_Localizao</name>
    <tag></tag>
-   <elementGuidId>543b38d6-0478-4c88-abda-87adc8f1e675</elementGuidId>
+   <elementGuidId>802ca28f-f05b-4588-82b2-edf04bb38d8f</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//form[@id='account']/div/div[2]/div/label</value>
+         <value>//div[@id='phase0']/div[3]/label</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div:nth-of-type(2) > div.authentication-input-text-div > label</value>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Password&quot;i</value>
+         <value>internal:text=&quot;Localização&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,94 +29,94 @@
       <name>tag</name>
       <type>Main</type>
       <value>label</value>
-      <webElementGuid>0abc4fca-a3fe-4ee0-a5ed-e3a764908cd6</webElementGuid>
+      <webElementGuid>65d21ef5-dafc-42b0-b627-dc5c1c987892</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>for</name>
       <type>Main</type>
-      <value>Input_Password</value>
-      <webElementGuid>825315e4-d35e-49ee-be55-111e462425b6</webElementGuid>
+      <value>Input_Localizacao</value>
+      <webElementGuid>9437b945-c5f1-45a8-b2a0-3b53c45cb50c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Password</value>
-      <webElementGuid>3be83d6a-d108-4991-ad39-c025162669ba</webElementGuid>
+      <value>Localização</value>
+      <webElementGuid>4f4322a7-8184-4596-b220-0d9ac28decdc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[2]/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
-      <webElementGuid>d3af6903-53ae-40ba-b12a-fe03f8594171</webElementGuid>
+      <value>id(&quot;phase0&quot;)/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
+      <webElementGuid>04dfae05-2ba3-4192-b0be-d170444c7cbe</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div[2]/div/label</value>
-      <webElementGuid>5804d6f5-fa95-456f-8b33-42815135073e</webElementGuid>
+      <value>//div[@id='phase0']/div[3]/label</value>
+      <webElementGuid>79e29e10-7133-4f4b-8c5f-7f955ca24b2a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::label[1]</value>
-      <webElementGuid>2a330315-2c34-44dd-b839-aef2f53a4a2e</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Nome'])[1]/following::label[1]</value>
+      <webElementGuid>6fd263e8-0a87-47f6-b868-823d78589df1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='ou'])[1]/following::label[2]</value>
-      <webElementGuid>e6c6f886-85cb-4d7c-a316-4bd66a59e7fd</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::label[2]</value>
+      <webElementGuid>afb8d9aa-86c9-4709-9733-6db09dfd80bd</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/preceding::label[1]</value>
-      <webElementGuid>d5ce90b1-e070-42e2-9b93-39a4e0db77d5</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::label[1]</value>
+      <webElementGuid>e7d53e54-d00d-495f-a4ed-07a6a77c59e0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Password']/parent::*</value>
-      <webElementGuid>335545f3-d5c8-40c1-bdf5-da30420a4aa8</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Confirme a password'])[1]/preceding::label[2]</value>
+      <webElementGuid>b60f9323-abed-493e-924b-d89b0b420147</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Localização']/parent::*</value>
+      <webElementGuid>01a0d18f-085f-4161-bbe0-113d3b0538ac</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[2]/div/label</value>
-      <webElementGuid>85e6f946-de4f-4da1-8f7c-fd9cc32a68c4</webElementGuid>
+      <value>//div[3]/label</value>
+      <webElementGuid>436db4ef-767a-4981-a837-4c4f93dac41e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//label[(text() = 'Password' or . = 'Password')]</value>
-      <webElementGuid>da28fec9-3365-4531-b4c0-a36e57e64c3b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/following::label[2]</value>
-      <webElementGuid>94a8f041-c7ee-499f-9390-09234e57350a</webElementGuid>
+      <value>//label[(text() = 'Localização' or . = 'Localização')]</value>
+      <webElementGuid>a65d9598-89f4-47cd-87e7-1ebc509a59ba</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

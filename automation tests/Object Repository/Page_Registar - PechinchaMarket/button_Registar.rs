@@ -29,15 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>27d505d6-2c0c-4303-baa6-26cfc0b5f828</webElementGuid>
+      <webElementGuid>c298e386-3723-4257-ba15-e830d9e7b63d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>confirm-button</value>
-      <webElementGuid>5bd8afbb-b577-41d3-942b-77655c93007b</webElementGuid>
+      <value>pechincha-button main-button-color</value>
+      <webElementGuid>bb9022cc-7962-4fe7-8dfc-28c8e57706dc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>id</name>
       <type>Main</type>
       <value>registerSubmit</value>
-      <webElementGuid>f61a07f7-d5fc-416a-a180-2ad4965a54c6</webElementGuid>
+      <webElementGuid>f156acc0-67c1-4e6e-8aaf-b71920b16cca</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>14aa7f1a-fc49-4963-928a-040713dc5802</webElementGuid>
+      <webElementGuid>6c366c26-2602-4d93-a6b3-784d84311495</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Registar</value>
-      <webElementGuid>6a31c5c3-9742-4d48-b579-3652f22ed790</webElementGuid>
+      <webElementGuid>7a93491f-9663-4152-a19a-adc0d63189ed</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;registerSubmit&quot;)</value>
-      <webElementGuid>3f0f987a-0ce7-44b0-b967-44a5811dd5a9</webElementGuid>
+      <webElementGuid>4fee3cdc-51ab-4d80-a8d5-53f4eb65797b</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//button[@id='registerSubmit']</value>
-      <webElementGuid>93126f00-b6b7-4737-8080-c135dd6a4bbd</webElementGuid>
+      <webElementGuid>37fae25b-8791-46ee-a310-38f5788c9182</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,15 +85,15 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='phase1']/div[14]/button</value>
-      <webElementGuid>5a81fd49-df0e-410e-8299-c49400d2191f</webElementGuid>
+      <webElementGuid>5904ed12-4b48-4a1f-97a7-df7f7992276e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar Atrás'])[1]/following::button[1]</value>
-      <webElementGuid>5771b23f-d0a2-49be-a730-8588021e7f0f</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar'])[2]/following::button[1]</value>
+      <webElementGuid>83444ebd-de65-4bb2-a4b0-58ff3976eb20</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,23 +101,23 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='BebidasAlcoólicas'])[1]/following::button[1]</value>
-      <webElementGuid>c897d4a8-4e71-430c-936d-ca6f5cfd584a</webElementGuid>
+      <webElementGuid>1931d518-0d28-4ab6-889c-b172d11ac0ec</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Registar']/parent::*</value>
-      <webElementGuid>5c3d8e18-ed43-415d-b2ba-aa9875c41b8a</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lisbon'])[1]/preceding::button[1]</value>
+      <webElementGuid>6771d5d4-e62a-4047-9a9c-ac370e17d18e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[14]/button</value>
-      <webElementGuid>781c6eb7-206a-41f9-bfd2-a5d63ad42542</webElementGuid>
+      <value>//button</value>
+      <webElementGuid>b94a3f10-b23f-4fd3-a2ec-1d16db792969</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -125,6 +125,30 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@id = 'registerSubmit' and @type = 'submit' and (text() = 'Registar' or . = 'Registar')]</value>
-      <webElementGuid>a797f430-c92e-47d9-be34-a07cbf152bd8</webElementGuid>
+      <webElementGuid>935ea2de-8157-4595-bcdd-7db09da1d503</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar Atrás'])[1]/following::button[1]</value>
+      <webElementGuid>49de6f87-b285-48b3-9806-71d967dfbb99</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Registar']/parent::*</value>
+      <webElementGuid>d4f2adf5-7be9-4974-aa1b-951d7cc6f5ef</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[14]/button</value>
+      <webElementGuid>b06e3d7b-b95c-4d32-9548-feb0df60d68b</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

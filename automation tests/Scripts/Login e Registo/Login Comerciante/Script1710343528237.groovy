@@ -19,6 +19,7 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
+
 WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
@@ -29,13 +30,9 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaM
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/span_Perfil                                _6a042e'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                                _4f1926'))
 
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Perfil'))
-
-WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/span_Perfil                                _6a042e'))
-
-WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/button_Logout'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/button_Terminar Sesso'))
 
 WebUI.closeBrowser()
 

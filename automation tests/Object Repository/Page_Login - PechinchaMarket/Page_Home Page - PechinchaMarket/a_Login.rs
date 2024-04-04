@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>label_Carregar</name>
+   <name>a_Login</name>
    <tag></tag>
-   <elementGuidId>b2484d96-2cc5-4020-bf51-4af2de52e436</elementGuidId>
+   <elementGuidId>ac76d35e-cc8b-448c-8994-fe2200fa9318</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='phase1']/div/div[2]/div/label</value>
+         <value>//a[@id='login']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div.insert-file-input > div > label</value>
+         <value>#login</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Carregar&quot;s</value>
+         <value>internal:role=link[name=&quot;Login&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,95 +28,111 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>label</value>
-      <webElementGuid>f95b2417-7795-4a3e-b8d2-2726fc3fa0e4</webElementGuid>
+      <value>a</value>
+      <webElementGuid>aa0b9581-e19c-458d-a1e6-c84dbdec7f3a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>for</name>
+      <name>class</name>
       <type>Main</type>
-      <value>Input_Image</value>
-      <webElementGuid>f4a78792-98eb-4803-bfc5-21fac4db9fd7</webElementGuid>
+      <value>nav-link text-dark</value>
+      <webElementGuid>46dcdae7-4b0e-4061-af7b-ecc8823ada8f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>login</value>
+      <webElementGuid>43edf155-d44c-48d8-b1b5-154421193641</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>/Identity/Account/Login</value>
+      <webElementGuid>06556774-3ca2-46ab-9fec-b81f043c9d60</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Carregar</value>
-      <webElementGuid>77331bf0-2bfa-4549-a8d3-14817bc89dff</webElementGuid>
+      <value>Login</value>
+      <webElementGuid>cb031e42-1b12-49b2-9890-b4735ac3a860</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;phase1&quot;)/div[@class=&quot;insert-file file-type-image&quot;]/div[@class=&quot;insert-file-input&quot;]/div[1]/label[1]</value>
-      <webElementGuid>f693256f-418f-4de5-aede-1d6c7e651772</webElementGuid>
+      <value>id(&quot;login&quot;)</value>
+      <webElementGuid>fe6bfcb0-e21a-4f2b-998f-20c273ba01e9</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
+      <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//div[@id='phase1']/div/div[2]/div/label</value>
-      <webElementGuid>9f03645d-7a9d-4e8e-bc1b-e0d1ad4f2fe5</webElementGuid>
+      <value>//a[@id='login']</value>
+      <webElementGuid>1605fd83-ea05-4d91-b6e0-29079742288d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>//a[contains(text(),'Login')]</value>
+      <webElementGuid>aeafbf60-5aed-4fc0-96b4-6424f57b6ea0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logotipo'])[1]/following::label[1]</value>
-      <webElementGuid>506d1f07-a794-4134-b989-da29394cf5af</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Register'])[1]/following::a[1]</value>
+      <webElementGuid>b3a388a6-3a99-4f10-963e-f6e69853a350</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar'])[1]/following::label[1]</value>
-      <webElementGuid>c50d22dc-5e73-475f-89e8-0b05ccc983ef</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Fechar'])[1]/following::a[2]</value>
+      <webElementGuid>efeef0a2-3c3c-4be8-8677-a8c3c01716c0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Nenhum ficheiro escolhido'])[1]/preceding::label[1]</value>
-      <webElementGuid>eba36a9c-1832-432c-a9f4-6d14931bcb4b</webElementGuid>
+      <value>//*/text()[normalize-space(.)='Login']/parent::*</value>
+      <webElementGuid>facab8f0-d23b-4b32-a0a6-99d6646f7d4d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
+      <name>xpath:href</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Documento de autenticação'])[1]/preceding::label[1]</value>
-      <webElementGuid>fbeb82e9-a5b9-460b-8578-9162d625ebcb</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Carregar']/parent::*</value>
-      <webElementGuid>688b51de-27ce-402a-a5e2-eebb23eeddd1</webElementGuid>
+      <value>//a[contains(@href, '/Identity/Account/Login')]</value>
+      <webElementGuid>527ffd06-85dd-4b19-aa2e-108881a2b52e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[2]/div/label</value>
-      <webElementGuid>13cb3b5e-2fef-4b30-8a89-08d5ddc9a8ec</webElementGuid>
+      <value>//span[2]/a</value>
+      <webElementGuid>2b23e54b-b3c7-46d6-abd2-0a634a9d8635</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//label[(text() = 'Carregar' or . = 'Carregar')]</value>
-      <webElementGuid>5eb76030-91dd-411b-9797-b4530685b766</webElementGuid>
+      <value>//a[@id = 'login' and @href = '/Identity/Account/Login' and (text() = 'Login' or . = 'Login')]</value>
+      <webElementGuid>4d3a4c10-2ddc-4c35-af47-c0b826f2014c</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
