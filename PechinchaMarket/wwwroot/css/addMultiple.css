@@ -1,4 +1,14 @@
-﻿.blue-button:hover {
+﻿.medium-padding-right {
+    padding-right: 4em;
+}
+
+.blue-button {
+    position: relative;
+    z-index: 2;
+    margin: 10px 10px 10px 0px;
+}
+
+.blue-button:hover {
     color: inherit;
     background-color: rgba(102, 209, 255, 0.5)
 }
@@ -20,5 +30,62 @@
 
     .help-button:active {
         background-color: #D5D5D5;
-        box-shadow: inset 2px 2px 5px rgba(0,0,0,0.35);
+        box-shadow: inset 2px 2px 5px rgba(0,0,0,0.35) !important;
     }
+
+    .help-button:hover {
+        box-shadow:none;
+    }
+
+input[type="file" i] {
+    position: relative;
+    left: -6.3em;
+    z-index:1;
+}
+
+.flex-row{
+    display:flex;
+    align-items:center;
+}
+
+.space > *  {
+    margin-right: 20px;
+}
+
+.blue-outline-button {
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: white;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid rgba(102, 209, 255);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.35);
+    margin: 10px 10px 10px 0px;
+}
+
+.blue-outline-button:hover {
+    box-shadow:none;
+}
+
+hr{
+    width:100%;
+    height: 2px !important;
+    opacity: 1;
+}
+
+.center{
+    display:flex;
+    flex-direction:column;
+}
+
+.help {
+    display: none;
+    border: 2px solid rgba(102, 209, 255);
+    border-radius:10px;
+    padding:10px;
+}
+
+.image-tutorial{
+    height:400px;
+}
