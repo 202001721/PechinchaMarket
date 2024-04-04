@@ -7,18 +7,18 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='Address']</value>
+         <value>//input[@id='location-input']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#Address</value>
+         <value>#location-input</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:label=&quot;Morada&quot;i</value>
+         <value>internal:attr=[placeholder=&quot;Enter a location&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,15 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>a662d9c1-0c49-4cbd-ac96-34e5c13c25ed</webElementGuid>
+      <webElementGuid>35de246b-a9c9-4513-836a-e327286938d8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>form-control</value>
-      <webElementGuid>188c0095-b4e2-4be8-98e9-afc3e24c6ec9</webElementGuid>
+      <value>form-control pac-target-input</value>
+      <webElementGuid>a1bbdfbb-c5fd-4e9a-820e-289e67d7834c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>9a3cffc9-2e2f-42b2-995c-832021fa4233</webElementGuid>
+      <webElementGuid>4bdbc53f-7c62-4a4c-bdc1-91b24b26beee</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>b4884628-4f18-4a6a-841a-6490e95d3640</webElementGuid>
+      <webElementGuid>d38d2658-d51a-49e6-8c0b-b96a6316b2b4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,15 +61,15 @@
       <name>data-val-required</name>
       <type>Main</type>
       <value>The Morada field is required.</value>
-      <webElementGuid>2225b21d-b25e-4c8b-a937-e27f40ed910a</webElementGuid>
+      <webElementGuid>b8108884-ebc0-44c0-94f5-0fd702a9b493</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>Address</value>
-      <webElementGuid>a31f97e2-9a4a-47e7-a318-30c13bdb1d20</webElementGuid>
+      <value>location-input</value>
+      <webElementGuid>12989917-abd8-4a5b-85cd-c99b02fd491f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -77,23 +77,39 @@
       <name>name</name>
       <type>Main</type>
       <value>Address</value>
-      <webElementGuid>58c5facb-83d7-448d-a0f9-0ea7634018bf</webElementGuid>
+      <webElementGuid>8519f2c2-7c65-4916-8d28-0028783b51c7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;Address&quot;)</value>
-      <webElementGuid>515fa6e3-9b88-48ed-9dd9-bf7142e5b711</webElementGuid>
+      <value>id(&quot;location-input&quot;)</value>
+      <webElementGuid>ecb31813-7866-433d-90ea-4833f044d7f4</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>placeholder</name>
+      <type>Main</type>
+      <value>Enter a location</value>
+      <webElementGuid>29a57514-64a3-4002-9b26-e85059d90d3d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>autocomplete</name>
+      <type>Main</type>
+      <value>off</value>
+      <webElementGuid>296e3ff0-f4b7-4bca-a235-c5103f2592f2</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='Address']</value>
-      <webElementGuid>6307b53c-99a7-43be-b824-7f65ccc3d2e4</webElementGuid>
+      <value>//input[@id='location-input']</value>
+      <webElementGuid>179dad25-bde4-4a5b-ae47-28807827015c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +117,23 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//main/div/div/form/div/input</value>
-      <webElementGuid>5aac2d2b-ae7c-4354-a3fa-211c4556a311</webElementGuid>
+      <webElementGuid>d1277cc7-2079-4819-8eb6-86ad65ea4a11</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@id = 'location-input' and @type = 'text' and @name = 'Address' and @placeholder = 'Enter a location']</value>
+      <webElementGuid>7e868b9d-b791-4f80-a163-33bf83e742ab</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@id='Address']</value>
+      <webElementGuid>6307b53c-99a7-43be-b824-7f65ccc3d2e4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

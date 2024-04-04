@@ -15,21 +15,21 @@
       <guid>7cfe4aad-9c1a-401e-8352-29539ba03c2a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Agrupamentos/Criar agrupamento</testCaseId>
+      <testCaseId>Test Cases/Agrupamentos/Criar e Eliminar do agrupamento</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>f27147b6-ddff-48c9-8198-1b401518b115</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Agrupamentos/Editar agrupamento</testCaseId>
+      <testCaseId>Test Cases/Agrupamentos/Editar nome do agrupamento</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>f7fe62b2-0efd-496d-9906-bf54a4b1f927</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Agrupamentos/Adicionar lista ao agrupamento</testCaseId>
+      <testCaseId>Test Cases/Agrupamentos/Adicionar e Remover lista do agrupamento</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

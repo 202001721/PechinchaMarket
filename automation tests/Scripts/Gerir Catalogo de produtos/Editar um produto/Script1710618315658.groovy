@@ -19,9 +19,7 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
-
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
+WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/Identity/Account/Login')
 
 WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_ou_Input.Email'), 'comerciantepecmk@gmail.com')
 
@@ -33,11 +31,15 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a
 
 WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Produtos Pendentes_img-edit'))
 
-WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/label_Personalizar desconto por loja'))
+WebUI.setText(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input__price'), '2')
 
-WebUI.setText(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input__price_1'), '2.5')
+WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Valor_shops'))
 
-WebUI.click(findTestObject('Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
+WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Unit_discounts'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Valor_valor'), '25')
+
+WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
 
 WebUI.closeBrowser()
 

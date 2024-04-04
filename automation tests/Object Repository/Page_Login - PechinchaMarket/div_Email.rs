@@ -18,7 +18,7 @@
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>div >> internal:has-text=&quot;Email&quot;i >> nth=4</value>
+         <value>div >> internal:has-text=&quot;Email&quot;i >> nth=2</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>7c9a1a22-7dac-41f7-83d6-b9bde2a487bc</webElementGuid>
+      <webElementGuid>07fa6d95-0aa5-4f15-ab09-8811509c3bad</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>authentication-input-text-div</value>
-      <webElementGuid>9000a62b-a3d4-47fa-851a-132e165f7ddb</webElementGuid>
+      <webElementGuid>68297f06-92f3-4a00-8ac8-76d82cab1cfa</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,11 +45,11 @@
       <name>text</name>
       <type>Main</type>
       <value>
-                        
-                        Email
-                        
-                    </value>
-      <webElementGuid>2c37042c-9e2c-467e-9e96-1858f40e4425</webElementGuid>
+                    
+                    Email
+                    
+                </value>
+      <webElementGuid>b0d9d7e8-8bba-46c6-9433-5e50c2a9ebc9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -57,7 +57,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[@class=&quot;authentication-input-text-div&quot;]</value>
-      <webElementGuid>6b74010c-c899-4ad8-8e3c-5590e907396a</webElementGuid>
+      <webElementGuid>701321ac-408d-4557-8bd6-dc698b5fe24a</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -65,7 +65,55 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='account']/div/div</value>
-      <webElementGuid>33e8a7fa-1a7d-45ee-8f89-589971a4cebf</webElementGuid>
+      <webElementGuid>f2c02971-62d5-49c3-80f0-a497aeabc7e3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='ou'])[1]/following::div[2]</value>
+      <webElementGuid>635550af-91be-4f23-b3b9-e0ff02dd0486</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Sign in with Google'])[1]/following::div[3]</value>
+      <webElementGuid>e97ac3a5-0246-40f6-8314-51d2746a9a59</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::div[1]</value>
+      <webElementGuid>4255553e-9b38-415a-9dab-fab2fd206795</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//form[2]/div/div</value>
+      <webElementGuid>d0b4cc8b-cd5c-4f74-bd3d-c0b61036b9de</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = '
+                    
+                    Email
+                    
+                ' or . = '
+                    
+                    Email
+                    
+                ')]</value>
+      <webElementGuid>addeab7b-f279-4395-8e45-7b188d7ee4f4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -82,14 +130,6 @@
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Precisa de ajuda?'])[1]/following::div[4]</value>
       <webElementGuid>8794099c-8c8d-4b2e-b087-826d1c071c00</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Password'])[1]/preceding::div[1]</value>
-      <webElementGuid>21ab4291-3237-49f9-b495-55486da7ceba</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

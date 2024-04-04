@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>fafb66a5-dc2c-432b-ba07-bb6f5bd7a381</webElementGuid>
+      <webElementGuid>697aa80f-e436-462f-8ec5-76d0dcc3f9af</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>form-control</value>
-      <webElementGuid>25cc12de-f9f5-438c-a95c-889227b5bd9e</webElementGuid>
+      <webElementGuid>a0e86483-f6e4-4654-9e3a-9e889b7c301e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>5a1e3a25-c4a8-41e5-ad6e-5a369650bf26</webElementGuid>
+      <webElementGuid>6470783a-a5cf-475b-9759-3239edb35375</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>303e44bf-47ce-4afd-a373-f7112d2bd392</webElementGuid>
+      <webElementGuid>783bbe63-4f42-4fd2-8b8c-e9f41928df36</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>data-val-required</name>
       <type>Main</type>
       <value>The Marca field is required.</value>
-      <webElementGuid>aedf3bd4-9893-4169-81c7-3e4e29517ff8</webElementGuid>
+      <webElementGuid>63c73d5b-e68c-4ff7-91e6-e5dde09d575f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>id</name>
       <type>Main</type>
       <value>Brand</value>
-      <webElementGuid>072f6b8d-29eb-4ff0-a17b-58c7dd075127</webElementGuid>
+      <webElementGuid>cdd99344-f9fc-4b6e-a98f-b63419d5c8ab</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -77,7 +77,7 @@
       <name>name</name>
       <type>Main</type>
       <value>Brand</value>
-      <webElementGuid>9e1e0dc9-3804-4219-b50e-a59421418be1</webElementGuid>
+      <webElementGuid>0d33af36-db9d-4282-9776-fe2ff376b918</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;Brand&quot;)</value>
-      <webElementGuid>96fb99a0-6776-4b44-abad-c12c8343ebe5</webElementGuid>
+      <webElementGuid>898bc95f-75ce-4d98-8749-ccab8164620c</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='Brand']</value>
-      <webElementGuid>120fe9ff-9d0b-437d-b651-c60801638849</webElementGuid>
+      <webElementGuid>1eb88417-a706-473f-8033-7e548937d179</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/input</value>
-      <webElementGuid>04768d91-9e7e-495a-9801-04f266cffe6b</webElementGuid>
+      <webElementGuid>8910c9bf-e292-4a0f-a365-5c3bffae8080</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,6 +109,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'text' and @id = 'Brand' and @name = 'Brand']</value>
-      <webElementGuid>5299adb4-7ede-4cea-9414-48e0355009d5</webElementGuid>
+      <webElementGuid>36838fba-9b27-4b52-a5d3-3018d5473500</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div_Editar_Password</name>
+   <tag></tag>
+   <elementGuidId>1a630f05-58e5-4e90-9c68-a5bf88c69344</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@onclick='passswordEditableField(this)']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#change-password-form > div.row-container.center-y-flex.smaller-gap-x > div.pechincha-button.default-button-color</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>#change-password-form >> internal:text=&quot;Editar&quot;i</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>b934ecc4-a120-4f7f-8e45-9221519e8038</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>pechincha-button default-button-color</value>
+      <webElementGuid>90385e64-26d5-412f-96c3-cd675a5cf524</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>passswordEditableField(this)</value>
+      <webElementGuid>d4f9fd89-52cf-4d26-bf35-d519aea1fb28</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Editar</value>
+      <webElementGuid>87aa1e36-844f-4392-aa6f-40dc5448fd5a</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;change-password-form&quot;)/div[@class=&quot;row-container center-y-flex smaller-gap-x&quot;]/div[@class=&quot;pechincha-button default-button-color&quot;]</value>
+      <webElementGuid>ee9892a2-a906-42c8-a244-77234ca213fb</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='passswordEditableField(this)']</value>
+      <webElementGuid>27479752-75fd-4a7c-b41d-7665c563e4c3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='change-password-form']/div[2]/div</value>
+      <webElementGuid>cdda9ede-c217-4c34-ad2f-ae38afc1336f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[3]/following::div[1]</value>
+      <webElementGuid>deb02f68-1de1-40f5-9c8e-54dc6ecdd74b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Confirme nova password'])[1]/following::div[2]</value>
+      <webElementGuid>481a0270-c449-4c45-9931-534ac4cb6606</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Localização'])[1]/preceding::div[1]</value>
+      <webElementGuid>67df62a7-20a1-4982-a51a-0cf143137a64</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[4]/preceding::div[2]</value>
+      <webElementGuid>6c56d9e6-92a1-4164-9fe3-488299fc1723</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[3]/form/div[2]/div</value>
+      <webElementGuid>8a791ccc-d3d1-4c04-af75-523ceb217196</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = 'Editar' or . = 'Editar')]</value>
+      <webElementGuid>849d03b3-33bc-4842-95e0-570058367a82</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

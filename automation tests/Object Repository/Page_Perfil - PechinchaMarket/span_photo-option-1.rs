@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>span_photo-option-1</name>
+   <tag></tag>
+   <elementGuidId>87da6c8d-69d5-4e12-b5e6-86e122dd0591</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//form[@id='change-photo-form']/div[2]/span[15]/label/span</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>span:nth-child(15) > label > .big-perfil-image</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+      <webElementGuid>387168ed-8d33-4caa-abd6-56af3f61afba</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>big-perfil-image perfil-image-border</value>
+      <webElementGuid>22803a0f-5e75-4a2d-948e-c196d8a39a87</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;change-photo-form&quot;)/div[@class=&quot;wrap-flex small-gap center-x-flex small-padding-right small-padding-left photo-chooser&quot;]/span[@class=&quot;photo-option&quot;]/label[1]/span[@class=&quot;big-perfil-image perfil-image-border&quot;]</value>
+      <webElementGuid>15d79c63-a092-42ec-9e44-2ad1236dbcfc</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='change-photo-form']/div[2]/span[15]/label/span</value>
+      <webElementGuid>6b96aa50-6d73-484e-bcdd-bbd8e211b66d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//span[15]/label/span</value>
+      <webElementGuid>89342dcb-d245-4bc7-a510-6a179dba960e</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

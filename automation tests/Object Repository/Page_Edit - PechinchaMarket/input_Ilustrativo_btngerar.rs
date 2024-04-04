@@ -6,12 +6,12 @@
    <elementGuidId>078215c0-0b09-475f-9ec6-d0327d616cf2</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>input.btngerar</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//input[@value='Gerar Lista']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>input.btngerar</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>f2700a37-a5bd-45a6-b418-31fe6b4fe90b</webElementGuid>
+      <webElementGuid>994398a0-c1a6-4b46-bff0-c4acd7daafb1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>e80a3bf8-b1d4-4b27-84f5-e321396408c4</webElementGuid>
+      <webElementGuid>941ef794-d0b9-4d81-b3e0-4a3ca65b5711</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>btngerar</value>
-      <webElementGuid>c9421d03-2121-4d93-847d-8aa6da3c4fb7</webElementGuid>
+      <webElementGuid>d6c871ec-d1a1-4f40-91b5-45f6d5898976</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>value</name>
       <type>Main</type>
       <value>Gerar Lista</value>
-      <webElementGuid>46157b87-13ee-4612-adb7-5373e76af1b8</webElementGuid>
+      <webElementGuid>83da8ee9-784e-4499-a7af-a8edee160023</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;listformatar&quot;]/div[@class=&quot;formatar&quot;]/form[1]/input[@class=&quot;btngerar&quot;]</value>
-      <webElementGuid>3cf6a1b5-744c-4899-808f-3026bf110d0a</webElementGuid>
+      <webElementGuid>4fa824ef-689d-4d01-a9cd-cc503a5475f7</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@value='Gerar Lista']</value>
-      <webElementGuid>77215712-735b-415e-a98e-de9092d3afec</webElementGuid>
+      <webElementGuid>20c3ee7c-b32c-491e-b892-e53a66974a79</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/form/input[2]</value>
-      <webElementGuid>1f26be17-6540-49f5-9d2c-5c5fcb52f342</webElementGuid>
+      <webElementGuid>c1f0637f-bc77-4b3d-b02d-5ba80af1b67a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +85,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'submit']</value>
-      <webElementGuid>e7bc7acf-4c76-4eb2-bf70-dd7eb7d05cd8</webElementGuid>
+      <webElementGuid>d32923e7-1083-49de-956f-336e22a1e1d6</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

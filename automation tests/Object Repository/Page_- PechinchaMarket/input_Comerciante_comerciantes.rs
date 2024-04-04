@@ -6,19 +6,19 @@
    <elementGuidId>f54b288e-a37b-4327-b398-f0eea98ab40c</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>#comerciantes</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//input[@id='comerciantes']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#comerciantes</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>#comerciantes</value>
+         <value>li >> internal:has-text=&quot;Comerciante:P&quot;i >> #comerciantes</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>8eea877d-1f3b-462f-a2c7-dbe477912cce</webElementGuid>
+      <webElementGuid>b983ae26-e2bd-4717-9118-0106eb1f84c4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,15 +37,15 @@
       <name>type</name>
       <type>Main</type>
       <value>checkbox</value>
-      <webElementGuid>06b9b384-606b-49d9-8dc0-2cc5b82afb5d</webElementGuid>
+      <webElementGuid>31b3db78-b1dc-4519-a8b4-e550d8ce2192</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>ComerciantePMK</value>
-      <webElementGuid>99937922-dd92-4dcf-9aae-40dda6046ee6</webElementGuid>
+      <value>Comerciante:P</value>
+      <webElementGuid>f6f86195-c45e-4971-b7d5-cf58c3e33778</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>id</name>
       <type>Main</type>
       <value>comerciantes</value>
-      <webElementGuid>7b583493-0902-4cef-9fd2-5b31f10fb757</webElementGuid>
+      <webElementGuid>db7df42d-943e-4186-8b84-5d20277e15ca</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>class</name>
       <type>Main</type>
       <value>comerciantes</value>
-      <webElementGuid>c1b0ab6a-e569-4631-bc2b-8c8cf5d3c771</webElementGuid>
+      <webElementGuid>1507b15e-020b-4128-bf22-6c4279e7728e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,15 +69,15 @@
       <name>onchange</name>
       <type>Main</type>
       <value>filtrar();</value>
-      <webElementGuid>2741238a-85bd-4339-88e1-e89e8d0cd482</webElementGuid>
+      <webElementGuid>cd00beca-0c44-4744-a089-324951292fdb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;comerciantes&quot;)</value>
-      <webElementGuid>6ca03460-6d8c-4d6e-adad-497176c6c224</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container gradiante3-main-color&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top background-white&quot;]/div[@class=&quot;max-width&quot;]/ul[@class=&quot;max-width open&quot;]/li[1]/input[@id=&quot;comerciantes&quot;]</value>
+      <webElementGuid>952c93ba-c11a-47b1-9a90-9bdff60e6d84</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -85,15 +85,15 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='comerciantes']</value>
-      <webElementGuid>aab9c65e-bb69-48d3-a2b3-73fb654cfaab</webElementGuid>
+      <webElementGuid>4464af43-801e-4fc6-b08f-56a2688bed50</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//li/input</value>
-      <webElementGuid>a3eb2aaf-f9ff-4e63-aa8e-15a43b5eac47</webElementGuid>
+      <value>//div[2]/ul/li/input</value>
+      <webElementGuid>a1a094f2-6c86-4ecc-b53c-29c8ccb0860f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,6 +101,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'checkbox' and @id = 'comerciantes']</value>
-      <webElementGuid>87a4e132-d02e-48ee-a869-ef607ea0a974</webElementGuid>
+      <webElementGuid>8e9dc8c3-5cf0-434c-936d-220d8112d8ca</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

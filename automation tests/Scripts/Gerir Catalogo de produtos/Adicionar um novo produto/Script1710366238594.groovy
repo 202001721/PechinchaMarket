@@ -27,33 +27,31 @@ WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/inp
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
 
-WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Password_password-hidden'))
-
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Produtos'))
 
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Criar Produtos'))
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Produtos Pendentes_floating-button'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Nome_Name'), 'Manteiga')
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Criar um produto'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Marca_Brand'), 'Mimosa')
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Nome_Name'), 'Batatas')
+
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Marca_Brand'), 'Lays')
+
+WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Preo()_price'), '1.50')
+
+WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Create - PechinchaMarket/select_Escolha uma unidade                 _2a5e59'), 
+    '0', true)
+
+WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Create - PechinchaMarket/select_Escolha uma categoria               _8ff80a'), 
+    '11', true)
+
+WebUI.click(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Categoria_shops'))
 
 WebUI.click(findTestObject('Object Repository/Page_Create - PechinchaMarket/label_Adicionar Foto'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Preo()_price'), '2')
-
-WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Create - PechinchaMarket/select_Escolha uma unidade                 _2a5e59'), 
-    '1', true)
-
-WebUI.setText(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Peso_Weight'), '250')
-
-WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Create - PechinchaMarket/select_Escolha uma categoria               _8ff80a'), 
-    '1', true)
-
-WebUI.click(findTestObject('Object Repository/Page_Create - PechinchaMarket/label_Personalizar por loja'))
-
 WebUI.click(findTestObject('Object Repository/Page_Create - PechinchaMarket/input_Horrio de Fecho_button'))
 
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Produtos Pendentes'))
+WebUI.closeBrowser()
 

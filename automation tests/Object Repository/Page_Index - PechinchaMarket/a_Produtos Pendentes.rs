@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>7499c798-b7ab-4257-8dd2-2a03d461c512</webElementGuid>
+      <webElementGuid>e1fd43bb-460e-4bad-8f60-23a5d01138be</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>pendentes</value>
-      <webElementGuid>9c292306-d171-4a32-bc31-377ea8381c05</webElementGuid>
+      <webElementGuid>6f19809d-f34c-492e-a1f6-b3341e9a3200</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>text</name>
       <type>Main</type>
       <value> Produtos Pendentes</value>
-      <webElementGuid>f0b018bf-50a5-4d3d-b7b0-e7a58b53d48f</webElementGuid>
+      <webElementGuid>b7c88d1f-9aca-4b15-9b25-6ad14312973f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;pendentes&quot;)</value>
-      <webElementGuid>e511113a-de13-4f9c-a064-e5c78ffb16c0</webElementGuid>
+      <webElementGuid>2070ed6e-6cbe-452b-a4b2-4c54e27164d7</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//a[@id='pendentes']</value>
-      <webElementGuid>2c416579-8dd9-4720-8ec9-635335b698f9</webElementGuid>
+      <webElementGuid>575a3ac5-3766-4001-a5ff-0a83802ea46e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:link</name>
       <type>Main</type>
       <value>//a[contains(text(),'Produtos Pendentes')]</value>
-      <webElementGuid>1e8df615-67ce-43ae-83d1-90d2a78654b3</webElementGuid>
+      <webElementGuid>27d47361-ac0b-4ef0-83c2-5bfb12aac51c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos Publicados'])[1]/following::a[1]</value>
-      <webElementGuid>0f09a5c5-4f63-409f-9274-d727e5617850</webElementGuid>
+      <webElementGuid>6197d7df-cf68-4534-acea-471ee50231e9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Criar Produtos'])[1]/following::a[2]</value>
-      <webElementGuid>899dddb9-a9ad-4f66-a5fb-bfab6c9b6ec4</webElementGuid>
+      <webElementGuid>fc55d74e-a297-4627-8a91-6f979ad75275</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Produtos Pendentes']/parent::*</value>
-      <webElementGuid>80bac568-ef7d-4006-9a81-4119c53a8f97</webElementGuid>
+      <webElementGuid>efdd9280-7efd-4ed4-a170-4a628766db90</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//span[3]/h2/a</value>
-      <webElementGuid>6f0a3130-0444-4ca6-ab09-1a853b395e85</webElementGuid>
+      <webElementGuid>95de71bd-8a36-4f29-a65a-0a94e56ab268</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,6 +109,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@id = 'pendentes' and (text() = ' Produtos Pendentes' or . = ' Produtos Pendentes')]</value>
-      <webElementGuid>572f5c3c-14dd-4aa5-b750-b3754e8bdba3</webElementGuid>
+      <webElementGuid>db422121-e152-42c2-a8db-a6413f453360</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -7,11 +7,11 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value></value>
+         <value>//div[@id='perfil-menu']/div/a</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>a.nav-link.text-dark</value>
+         <value>a.pechincha-navbar-option.pechincha-link</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,15 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>308abbe6-edfe-4853-8b53-21aaf92a2f3e</webElementGuid>
+      <webElementGuid>411054d4-285a-4f2e-bb0a-fe3a40392a6b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>8d15eadb-9da6-44a2-bb3a-95ea4f7ee67e</webElementGuid>
+      <value>pechincha-navbar-option pechincha-link</value>
+      <webElementGuid>1ffbbefb-60a4-45fa-9423-aab39aa36a20</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>title</name>
       <type>Main</type>
       <value>Manage</value>
-      <webElementGuid>7cfbaaa0-876b-4738-a132-a92e9f96dfc8</webElementGuid>
+      <webElementGuid>46cca051-ec0e-4ead-84e5-a2409aed85f3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>href</name>
       <type>Main</type>
       <value>/Identity/Account/Manage</value>
-      <webElementGuid>7045fde7-0a68-424d-8f9d-8d5d428d01cb</webElementGuid>
+      <webElementGuid>00f77f82-ab28-4fe8-a3bb-c4ce2c9e51e3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,47 +61,47 @@
       <name>text</name>
       <type>Main</type>
       <value>Perfil</value>
-      <webElementGuid>00b2affa-0c35-4e5e-9f32-e9edc85df379</webElementGuid>
+      <webElementGuid>de9e4246-df44-4762-9b26-bf5ab20cd2d4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;perfil-menu&quot;)/a[@class=&quot;nav-link text-dark&quot;]</value>
-      <webElementGuid>07ccb37d-97b0-479a-a73f-0b4731d092be</webElementGuid>
+      <value>id(&quot;perfil-menu&quot;)/div[1]/a[@class=&quot;pechincha-navbar-option pechincha-link&quot;]</value>
+      <webElementGuid>973debd3-76f3-4111-a3ab-05a894e8a834</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='perfil-menu']/a</value>
-      <webElementGuid>6c47424d-852b-448d-a09b-345e48242d39</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
-      <type>Main</type>
-      <value>//a[contains(text(),'Perfil')]</value>
-      <webElementGuid>a0260e42-e8a7-4334-bead-7e2b66ba2ddf</webElementGuid>
+      <value>//div[@id='perfil-menu']/div/a</value>
+      <webElementGuid>16aec5b3-d855-445b-8d87-2eadb4d56bb6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/preceding::a[1]</value>
-      <webElementGuid>4d7ac376-94cc-468a-8efa-ade87371c3d3</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Fechar'])[1]/following::a[2]</value>
+      <webElementGuid>63cc2d46-1d8e-41a4-b13c-98a559b3f458</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
-      <webElementGuid>1eb2c743-dbfa-46cb-a818-84efc23fbc84</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Bem-vindo a nossa plantaforma, esta é nossa pagina principal'])[1]/following::a[2]</value>
+      <webElementGuid>700bc578-e377-4cff-b32d-439d27394b1e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Agrupamentos'])[1]/preceding::a[1]</value>
+      <webElementGuid>8f1c90b5-9ec3-4dee-998e-37cafd7b2a6a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,15 +109,15 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>//a[contains(@href, '/Identity/Account/Manage')]</value>
-      <webElementGuid>e332f4ad-1539-43d6-9b6f-e1bce7a58ecd</webElementGuid>
+      <webElementGuid>81b805dd-8573-4d87-8776-92289d2ff147</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//span/div/a</value>
-      <webElementGuid>e0b118ae-03b6-4655-8862-5864d887d1a5</webElementGuid>
+      <value>//span/div/div/a</value>
+      <webElementGuid>b96ae356-74bc-4d10-be40-99625ec9ffae</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -125,6 +125,30 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@title = 'Manage' and @href = '/Identity/Account/Manage' and (text() = 'Perfil' or . = 'Perfil')]</value>
-      <webElementGuid>bd3b9241-aca0-4157-96e0-833a6a547713</webElementGuid>
+      <webElementGuid>4fd46ce3-1421-4870-aa24-c13152c9a946</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/following::a[1]</value>
+      <webElementGuid>f813110e-f200-46e1-aa67-aab01e1d3de1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[1]/following::a[2]</value>
+      <webElementGuid>8f2eedbd-b2b1-48b4-8e87-6d8bb770bbcf</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Terminar Sessão'])[1]/preceding::a[1]</value>
+      <webElementGuid>313de983-e285-44d7-be30-664fc3443de5</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

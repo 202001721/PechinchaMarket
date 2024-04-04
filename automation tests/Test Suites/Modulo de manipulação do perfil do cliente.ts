@@ -15,7 +15,7 @@
       <guid>a744fd1a-d270-4c1a-a91f-a34bf386392a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Perfis dos utilizadores/Editar informações do cliente</testCaseId>
+      <testCaseId>Test Cases/Perfis dos utilizadores/Editar localização do cliente</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

@@ -29,13 +29,11 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaM
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Logout_cursor-pointer small-image nav-lin_58ce0e'))
+WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/a_Fechar_pechincha-navbar-option cursor-poi_e4e2ef'))
 
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/p_Lista de compras'))
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Lista de Sexta-feira                    P_c0af0b'))
 
-WebUI.click(findTestObject('Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
-
-WebUI.delay(5)
+WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
 
 WebUI.closeBrowser()
 

@@ -29,7 +29,7 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaM
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil                        Agrupame_f76cfd'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil'))
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Terminar Sesso'))
 
