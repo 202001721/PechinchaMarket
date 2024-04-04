@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>div_Continuar</name>
+   <name>a_Continuar_Cliente</name>
    <tag></tag>
-   <elementGuidId>e379620c-84d2-4c85-84a1-8dedc68f3659</elementGuidId>
+   <elementGuidId>649ae954-a23c-4af1-8f40-611082f8ba06</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@onclick='toogleSignUpFase(1, 2)']</value>
+         <value>//a[@id='register-cliente-submit']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div.pechincha-button.main-button-color</value>
+         <value>#register-cliente-submit</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Continuar&quot;i</value>
+         <value>internal:role=link[name=&quot;Continuar&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,8 +28,24 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>div</value>
-      <webElementGuid>f6e062b1-e8b9-49dc-9409-abeb95d1e4db</webElementGuid>
+      <value>a</value>
+      <webElementGuid>b4953cb5-afbc-4fc9-bc26-32931d891d44</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>register-cliente-submit</value>
+      <webElementGuid>19ffe657-a83a-4193-b917-5e450e3bf045</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>submit</value>
+      <webElementGuid>71f45a76-8123-4d7d-9a64-124865362f4e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,15 +53,15 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-button main-button-color</value>
-      <webElementGuid>e262806d-f4cf-4f28-8721-8f96f1693798</webElementGuid>
+      <webElementGuid>9a2ecc36-9035-49fb-affe-66196259162d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>onclick</name>
+      <name>href</name>
       <type>Main</type>
-      <value>toogleSignUpFase(1, 2)</value>
-      <webElementGuid>9d222768-0512-4050-ab6d-7bc4f15eed92</webElementGuid>
+      <value>/Identity/Account/RegisterCliente</value>
+      <webElementGuid>8cc32d92-bc8e-4643-9104-c8ef5585ccac</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,86 +69,78 @@
       <name>text</name>
       <type>Main</type>
       <value>Continuar</value>
-      <webElementGuid>fe07d63b-1b48-4e7e-96d1-6fec8e173cf1</webElementGuid>
+      <webElementGuid>af8de543-1794-42b8-9959-14db20d1d7ae</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;phase0&quot;)/div[@class=&quot;authentication-buttons&quot;]/div[@class=&quot;pechincha-button main-button-color&quot;]</value>
-      <webElementGuid>7164399c-7477-4e40-bc19-ab5977f14a7b</webElementGuid>
+      <value>id(&quot;register-cliente-submit&quot;)</value>
+      <webElementGuid>19da216e-ef35-43d9-8133-039f35f2c895</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//div[@onclick='toogleSignUpFase(1, 2)']</value>
-      <webElementGuid>da9f7305-6f46-4ef9-b06b-dab724e92eb6</webElementGuid>
+      <value>//a[@id='register-cliente-submit']</value>
+      <webElementGuid>01594a3e-927a-4e40-99e4-a159b1c1a91d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
+      <name>xpath:link</name>
       <type>Main</type>
-      <value>//div[@id='phase0']/div[6]/div</value>
-      <webElementGuid>a89a6b1d-71cf-4813-85af-1a5d6746403b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar'])[1]/following::div[1]</value>
-      <webElementGuid>0ef73a5a-81e4-4760-b452-dee7d56f5bea</webElementGuid>
+      <value>//a[contains(text(),'Continuar')]</value>
+      <webElementGuid>954b3945-4d37-44c8-9dba-6071895b30b4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Confirme a password'])[1]/following::div[2]</value>
-      <webElementGuid>538784c4-89fa-4b45-a04a-150479ba07d0</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar'])[1]/following::a[1]</value>
+      <webElementGuid>403be1b4-c310-4521-8914-8fdc8656c406</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logotipo'])[1]/preceding::div[1]</value>
-      <webElementGuid>cfbc3648-53f7-453d-9de6-e42e1a0ce067</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Cancelar'])[1]/following::a[1]</value>
+      <webElementGuid>e2cb8fa1-1577-4d4f-92fe-b3207cab777e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Carregar'])[1]/preceding::div[2]</value>
-      <webElementGuid>2ca18475-fd62-456c-a646-da81ce635f9b</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar'])[3]/preceding::a[1]</value>
+      <webElementGuid>ef289502-1ea3-45fa-8ce2-780b3966da1e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
+      <name>xpath:href</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Continuar']/parent::*</value>
-      <webElementGuid>b9d8ec30-5e63-43b4-ab0d-6e8433446d8c</webElementGuid>
+      <value>//a[contains(@href, '/Identity/Account/RegisterCliente')]</value>
+      <webElementGuid>7d8b6133-b5a4-4c23-b077-d76f944f083b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//div[6]/div</value>
-      <webElementGuid>c801716f-5b8c-4c28-b3a9-9310e5fcc228</webElementGuid>
+      <value>//div[3]/a[2]</value>
+      <webElementGuid>c68efc1f-6e3b-47b2-b3ae-b14d4ddbf25a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//div[(text() = 'Continuar' or . = 'Continuar')]</value>
-      <webElementGuid>cb7d2c4d-dd6e-40e3-8342-d88771c7e407</webElementGuid>
+      <value>//a[@id = 'register-cliente-submit' and @type = 'submit' and @href = '/Identity/Account/RegisterCliente' and (text() = 'Continuar' or . = 'Continuar')]</value>
+      <webElementGuid>170273bd-d799-4209-b556-0cb5698181c2</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Perfil</name>
+   <name>a_Continuar_Comerciante</name>
    <tag></tag>
-   <elementGuidId>39d243c4-3a49-41c3-b0d4-ef5710531a0c</elementGuidId>
+   <elementGuidId>5d521d67-36d5-4f43-b501-744708f24fcd</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>BASIC</key>
+         <value>//*[@id = 'register-comerciante-submit' and @type = 'submit' and @href = '/Identity/Account/RegisterComerciante' and (text() = 'Continuar' or . = 'Continuar')]</value>
+      </entry>
+      <entry>
          <key>XPATH</key>
-         <value></value>
+         <value>//a[@id='register-comerciante-submit']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>a.nav-link.text-dark</value>
+         <value>#register-comerciante-submit</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Perfil&quot;i]</value>
+         <value>internal:role=link[name=&quot;Continuar&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,102 +33,110 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>308abbe6-edfe-4853-8b53-21aaf92a2f3e</webElementGuid>
+      <webElementGuid>0e8a94b1-f15f-47a6-8ddc-baf73ef04938</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>register-comerciante-submit</value>
+      <webElementGuid>610d39fd-2810-4a6a-905d-5fb27e050625</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>submit</value>
+      <webElementGuid>79f35dda-ba47-46c6-801d-9e604bb8a5a1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>8d15eadb-9da6-44a2-bb3a-95ea4f7ee67e</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
-      <type>Main</type>
-      <value>Manage</value>
-      <webElementGuid>7cfbaaa0-876b-4738-a132-a92e9f96dfc8</webElementGuid>
+      <value>pechincha-button main-button-color</value>
+      <webElementGuid>d46af9d3-126b-4a90-8b0c-ff41854e3fa3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>href</name>
       <type>Main</type>
-      <value>/Identity/Account/Manage</value>
-      <webElementGuid>7045fde7-0a68-424d-8f9d-8d5d428d01cb</webElementGuid>
+      <value>/Identity/Account/RegisterComerciante</value>
+      <webElementGuid>0a3398a4-b96b-4f33-aaa3-911b70e7d30f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Perfil</value>
-      <webElementGuid>00b2affa-0c35-4e5e-9f32-e9edc85df379</webElementGuid>
+      <value>Continuar</value>
+      <webElementGuid>fb218f3b-f26a-406c-8f98-d008e5d6114e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;perfil-menu&quot;)/a[@class=&quot;nav-link text-dark&quot;]</value>
-      <webElementGuid>07ccb37d-97b0-479a-a73f-0b4731d092be</webElementGuid>
+      <value>id(&quot;register-comerciante-submit&quot;)</value>
+      <webElementGuid>52636413-ce1d-42bc-9930-ba11ae21f396</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
+      <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//div[@id='perfil-menu']/a</value>
-      <webElementGuid>6c47424d-852b-448d-a09b-345e48242d39</webElementGuid>
+      <value>//a[@id='register-comerciante-submit']</value>
+      <webElementGuid>418ec3d9-8acc-4782-9464-6ad59e9e1793</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:link</name>
       <type>Main</type>
-      <value>//a[contains(text(),'Perfil')]</value>
-      <webElementGuid>a0260e42-e8a7-4334-bead-7e2b66ba2ddf</webElementGuid>
+      <value>(//a[contains(text(),'Continuar')])[2]</value>
+      <webElementGuid>1aa5c1c8-2d2f-4620-adc7-5ee7f8aca3c1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/preceding::a[1]</value>
-      <webElementGuid>4d7ac376-94cc-468a-8efa-ade87371c3d3</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar'])[2]/following::a[1]</value>
+      <webElementGuid>ffbd086a-e47d-47e6-a15f-aa1a20184064</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
-      <webElementGuid>1eb2c743-dbfa-46cb-a818-84efc23fbc84</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar'])[1]/following::a[2]</value>
+      <webElementGuid>32675a16-dd6a-43af-8e70-5b056b91f64d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:href</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Manage')]</value>
-      <webElementGuid>e332f4ad-1539-43d6-9b6f-e1bce7a58ecd</webElementGuid>
+      <value>//a[contains(@href, '/Identity/Account/RegisterComerciante')]</value>
+      <webElementGuid>22854081-891d-48c9-a876-cd0069d87242</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//span/div/a</value>
-      <webElementGuid>e0b118ae-03b6-4655-8862-5864d887d1a5</webElementGuid>
+      <value>//a[3]</value>
+      <webElementGuid>cedb5ff2-8bfe-4504-a379-018819eaabdc</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@title = 'Manage' and @href = '/Identity/Account/Manage' and (text() = 'Perfil' or . = 'Perfil')]</value>
-      <webElementGuid>bd3b9241-aca0-4157-96e0-833a6a547713</webElementGuid>
+      <value>//a[@id = 'register-comerciante-submit' and @type = 'submit' and @href = '/Identity/Account/RegisterComerciante' and (text() = 'Continuar' or . = 'Continuar')]</value>
+      <webElementGuid>72d38924-8499-4d02-8fdc-3674c6519723</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

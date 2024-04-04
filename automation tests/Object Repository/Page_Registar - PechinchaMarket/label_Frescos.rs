@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>a_Perfil</name>
+   <name>label_Frescos</name>
    <tag></tag>
-   <elementGuidId>39d243c4-3a49-41c3-b0d4-ef5710531a0c</elementGuidId>
+   <elementGuidId>78a74a82-5b1e-436d-a0c1-b473c00762a0</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value></value>
+         <value>//div[@id='phase1']/div[2]/label</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>a.nav-link.text-dark</value>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=link[name=&quot;Perfil&quot;i]</value>
+         <value>internal:text=&quot;Frescos&quot;i</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,103 +28,95 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-      <webElementGuid>308abbe6-edfe-4853-8b53-21aaf92a2f3e</webElementGuid>
+      <value>label</value>
+      <webElementGuid>0b04c915-89a4-4323-a62b-12ecde94baf7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>class</name>
+      <name>for</name>
       <type>Main</type>
-      <value>nav-link text-dark</value>
-      <webElementGuid>8d15eadb-9da6-44a2-bb3a-95ea4f7ee67e</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
-      <type>Main</type>
-      <value>Manage</value>
-      <webElementGuid>7cfbaaa0-876b-4738-a132-a92e9f96dfc8</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>href</name>
-      <type>Main</type>
-      <value>/Identity/Account/Manage</value>
-      <webElementGuid>7045fde7-0a68-424d-8f9d-8d5d428d01cb</webElementGuid>
+      <value>chk_Frescos</value>
+      <webElementGuid>275a11c6-0a8c-4ae4-9adb-9bcf9487d80a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Perfil</value>
-      <webElementGuid>00b2affa-0c35-4e5e-9f32-e9edc85df379</webElementGuid>
+      <value>Frescos</value>
+      <webElementGuid>bceb66c0-a89e-4fef-a33e-cc1ce45da79d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;perfil-menu&quot;)/a[@class=&quot;nav-link text-dark&quot;]</value>
-      <webElementGuid>07ccb37d-97b0-479a-a73f-0b4731d092be</webElementGuid>
+      <value>id(&quot;phase1&quot;)/div[@class=&quot;authentication-checkbox&quot;]/label[1]</value>
+      <webElementGuid>8dbf9699-0b38-4141-90f3-5c907f09b02c</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='perfil-menu']/a</value>
-      <webElementGuid>6c47424d-852b-448d-a09b-345e48242d39</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:link</name>
-      <type>Main</type>
-      <value>//a[contains(text(),'Perfil')]</value>
-      <webElementGuid>a0260e42-e8a7-4334-bead-7e2b66ba2ddf</webElementGuid>
+      <value>//div[@id='phase1']/div[2]/label</value>
+      <webElementGuid>3cd2bb88-802d-4a89-9982-0598d33ab54c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Logout'])[1]/preceding::a[1]</value>
-      <webElementGuid>4d7ac376-94cc-468a-8efa-ade87371c3d3</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/following::label[1]</value>
+      <webElementGuid>38d1ba27-2910-477d-92c7-c2b83f6dff07</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Perfil']/parent::*</value>
-      <webElementGuid>1eb2c743-dbfa-46cb-a818-84efc23fbc84</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar'])[1]/following::label[2]</value>
+      <webElementGuid>a18f33ca-6457-4ff5-9ac5-57807ad61eb1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:href</name>
+      <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//a[contains(@href, '/Identity/Account/Manage')]</value>
-      <webElementGuid>e332f4ad-1539-43d6-9b6f-e1bce7a58ecd</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Biologicos'])[1]/preceding::label[1]</value>
+      <webElementGuid>9c3f647c-54ff-4cdb-830e-52008c3616b7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Congelados'])[1]/preceding::label[2]</value>
+      <webElementGuid>40b13b42-8cfa-47f4-b225-8fd5696a4d55</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Frescos']/parent::*</value>
+      <webElementGuid>dba20155-b979-41af-aeed-be8e20f7683e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//span/div/a</value>
-      <webElementGuid>e0b118ae-03b6-4655-8862-5864d887d1a5</webElementGuid>
+      <value>//div[2]/div[2]/label</value>
+      <webElementGuid>89317338-c834-4d7b-8e2f-96870cb11876</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//a[@title = 'Manage' and @href = '/Identity/Account/Manage' and (text() = 'Perfil' or . = 'Perfil')]</value>
-      <webElementGuid>bd3b9241-aca0-4157-96e0-833a6a547713</webElementGuid>
+      <value>//label[(text() = 'Frescos' or . = 'Frescos')]</value>
+      <webElementGuid>fb4b8961-ab00-40db-89c1-1c434283c8ef</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

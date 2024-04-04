@@ -25,7 +25,7 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/label_Email'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'clientepecmk@gmail.com')
+WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_ou_Input.Email'), 'clientepecmk@gmail.com')
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/label_Password'))
 

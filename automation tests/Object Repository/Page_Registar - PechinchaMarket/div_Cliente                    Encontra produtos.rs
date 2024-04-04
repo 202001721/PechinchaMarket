@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>button_Registar</name>
+   <name>div_Cliente                    Encontra produtos</name>
    <tag></tag>
-   <elementGuidId>96345ceb-9fde-41ff-aab2-c886c45e061d</elementGuidId>
+   <elementGuidId>915402ad-dddb-4355-abdd-ba16a1a2ffd1</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//button[@id='registerSubmit']</value>
+         <value>//div[@id='register-cliente']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#registerSubmit</value>
+         <value>#register-cliente</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Registar&quot;i]</value>
+         <value>#register-cliente</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -28,95 +28,105 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>button</value>
-      <webElementGuid>443dac1a-b3fd-4d4c-80c7-0a012e262a9f</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>pechincha-button main-button-color</value>
-      <webElementGuid>cd5bff07-7580-4b49-934e-0926f4e2723b</webElementGuid>
+      <value>div</value>
+      <webElementGuid>22aedcc1-4248-4d92-9e01-8b75c3bb6f6d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>registerSubmit</value>
-      <webElementGuid>ca57971b-6edd-4746-8897-614af921f8e9</webElementGuid>
+      <value>register-cliente</value>
+      <webElementGuid>6e81d06c-2071-4d3c-a2b7-7b483301a1e5</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>type</name>
+      <name>class</name>
       <type>Main</type>
-      <value>submit</value>
-      <webElementGuid>91741ba1-7b53-458b-bc89-d83f8e2b15d7</webElementGuid>
+      <value>pechincha-button xxl-button row-container small-gap-x left-flex</value>
+      <webElementGuid>d2f155b8-1a0f-46ac-bae7-61baf921c1f2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>switchAccountType(this)</value>
+      <webElementGuid>cb8b3949-bb4a-45d7-9041-1e159ac75cbf</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Registar</value>
-      <webElementGuid>b6dcf525-d188-44e6-9af4-d0325c506ee5</webElementGuid>
+      <value>
+                
+                
+                    Cliente
+                    Encontra produtos
+                
+            </value>
+      <webElementGuid>bc448a1a-edba-410f-8dfc-f55af5def337</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;registerSubmit&quot;)</value>
-      <webElementGuid>7bd95976-7b74-41ed-8c96-c309a7ae7fbf</webElementGuid>
+      <value>id(&quot;register-cliente&quot;)</value>
+      <webElementGuid>73310569-f20a-4450-8d7b-bb0992bc3b0f</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//button[@id='registerSubmit']</value>
-      <webElementGuid>a4bb9276-10e4-4bcf-96f3-12446d838be0</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//div[@id='phase1']/div[3]/button</value>
-      <webElementGuid>9724fa59-0f76-4be9-aff4-321e84b5b955</webElementGuid>
+      <value>//div[@id='register-cliente']</value>
+      <webElementGuid>933bf709-8d46-43e7-9fd6-7a822ca71f8b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar'])[2]/following::button[1]</value>
-      <webElementGuid>b1d634d6-a6b3-4e20-94ab-2973b7107684</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Selecione o tipo de conta'])[1]/following::div[2]</value>
+      <webElementGuid>bf1349ca-e171-448d-bf28-fae4e04a5366</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Software testing (1).pdf'])[1]/following::button[1]</value>
-      <webElementGuid>eda41526-3be8-4428-b4c5-91cd11bfa899</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Registar'])[2]/following::div[2]</value>
+      <webElementGuid>eab63129-c443-4d89-8d90-d13eb325c405</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//button</value>
-      <webElementGuid>b14cb200-e41a-4920-b646-17da1bd3a800</webElementGuid>
+      <value>//div[2]/div[2]/div</value>
+      <webElementGuid>cfd86eb9-fdcf-4b8b-8f67-b693df1fedfc</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//button[@id = 'registerSubmit' and @type = 'submit' and (text() = 'Registar' or . = 'Registar')]</value>
-      <webElementGuid>f5b1eee8-653b-4ad3-a415-4f77f1b306b1</webElementGuid>
+      <value>//div[@id = 'register-cliente' and (text() = '
+                
+                
+                    Cliente
+                    Encontra produtos
+                
+            ' or . = '
+                
+                
+                    Cliente
+                    Encontra produtos
+                
+            ')]</value>
+      <webElementGuid>fe2133d0-a988-4f9a-b460-4e88a041f327</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
