@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using PechinchaMarket.Services;
 
 namespace PechinchaMarket.Controllers
 {
@@ -162,8 +163,6 @@ namespace PechinchaMarket.Controllers
 
             if (comerciante != null)
             {
-
-                var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
         
              
                 if (utilizador != null)

@@ -12,7 +12,7 @@ using PechinchaMarket.Areas.Identity.Data;
 namespace PechinchaMarket.Migrations
 {
     [DbContext(typeof(DBPechinchaMarketContext))]
-    [Migration("20240403204349_Initial")]
+    [Migration("20240404094241_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
