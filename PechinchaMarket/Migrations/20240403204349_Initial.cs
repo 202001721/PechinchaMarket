@@ -25,6 +25,19 @@ namespace PechinchaMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ApiKey",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Valor = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApiKey", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -449,6 +462,9 @@ namespace PechinchaMarket.Migrations
 
             migrationBuilder.DropTable(
                 name: "AgrupamentosMembro");
+
+            migrationBuilder.DropTable(
+                name: "ApiKey");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
