@@ -35,9 +35,20 @@
                 2. Abrir a aplicação Excel, verá uma folha de cálculo vazia, se não, selecione “Livro em Branco”.
                 <img class="image-tutorial" src="~/images/excel1.png" />
             </div>
-            <p class="help">3. Na barra de opções selecionar “Dados” e depois em baixo à esquerda “De texto/CSV”.</p>
-            <p class="help">4. O explorador de ficheiros irá abrir. Aqui procure a sua pasta de “Transferencias”, e selecione o ficheiro “Adicionar_Produtos.csv”.</p>
-            <p class="help">5. Agora verá uma caixa com o título “Adicionar_Produtos.csv”. Em baixo clique em “Carregar”.</p>
+            <div class="help">
+                3. Na barra de opções selecionar “Dados” e depois em baixo à esquerda “De texto/CSV”.
+                <img class="image-tutorial" src="~/images/excel2.png"/>
+            </div>
+
+            <div class="help">
+                4. O explorador de ficheiros irá abrir. Aqui procure a sua pasta de “Transferencias”, e selecione o ficheiro “Adicionar_Produtos.csv”.
+                <img class="image-tutorial" src="~/images/files1.png"/>
+            </div>
+
+            <div class="help">
+                5. Agora verá uma caixa com o título “Adicionar_Produtos.csv”. Em baixo clique em “Carregar”.
+                <img class="image-tutorial" src="~/images/excel3.png"/>
+            </div>
             <div class="help">
                 <p >6. A tabela a preencher aparece na folha de excel, e a partir daí pode adicionar cada produto que pretende, um por linha.</p>
                 <div  class="small-margin-left">
@@ -77,7 +88,10 @@
                 </div>
             </div>
             <br class="help" />
-            <p class="help">7.Quando acabar de preencher como todos os seus produtos, agora deve guardar o ficheiro. No Excel, dirija-se a “Ficheiro > Guardar Como” e selecionar no tipo de ficheiro “CSV UTF-8 (Delimitado por vírgulas) (*.csv)” e depois guarde onde lhe for preferível.</p>
+            <div class="help">
+                7.Quando acabar de preencher como todos os seus produtos, agora deve guardar o ficheiro. No Excel, dirija-se a “Ficheiro > Guardar Como” e selecionar no tipo de ficheiro “CSV UTF-8 (Delimitado por vírgulas) (*.csv)” e depois guarde onde lhe for preferível.
+                <img class="image-tutorial" src="~/images/excel4.png"/>
+            </div>
 
             <p class="help">Nota: É recomendado abrir o ficheiro guardado com o Notepad ou outro leitor de texto simples para ter a certeza que cada valor está delimitado por virgula “,” e não ponto-e-virgula “;”. No caso do delimitador ser “;”, um simples Replace (Ctrl + H) de “;” para ”,” é solução.</p>
             
@@ -96,6 +110,7 @@
                 <div class="help">
                     <p>9. De seguida vai inserir a sua pasta de imagens para acompanhar os seus produtos.</p>
                     <span>9.1. Crie uma pasta e guarde todas as imagens dos seus produtos nesta. Imagens podem ser JPG ou PNG, e os seus nomes devem igualar os que colocou no csv. Por exemplo se o produto com nome “Bife da Vazia” tem no csv a imagem “bife_da_vazia”, nesta pasta a imagem de bife da vazia deve ser intitulada “bife_da_vazia.png” ou “bife_da_vazia.jpg”.  </span>
+                    <img class="image-tutorial" src="~/images/files2.png"/>                
                 </div>
                 
                 <div class="flex-row space">
@@ -139,6 +154,16 @@
             for (text of helpText) {
                 text.style.display = "none";
             }
+        }
+    }
+
+    function collapse(coll) {
+        coll.querySelector(".colapsable-button").classList.toggle("active");
+        var content = coll.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
         }
     }
 </script>
