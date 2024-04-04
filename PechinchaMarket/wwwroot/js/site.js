@@ -41,6 +41,18 @@ function updateFileName(input) {
 }
 
 /**
+ * This function will update a label that corresponds to the uploaded file count on the basis that its a uncle of the input type file
+ * 
+ * @param input the input type file 
+ */
+function updateFileCount(input) {
+    var fileContainer = input.parentNode.parentNode; // Get the parent node of the input (the .insert-file container)
+    var fileNameElement = fileContainer.querySelector('.file-count');
+    fileNameElement.innerText = input.files[0] ? input.files.length : 'Nenhuma pasta escolhida';
+}
+
+
+/**
  * This function toggles the input-text type between 'password' and 'text', allowing the password to be displayed to the user.
  * (This function assumes that the button to hide or to show the password is a sibling of the input-text)
  * 
