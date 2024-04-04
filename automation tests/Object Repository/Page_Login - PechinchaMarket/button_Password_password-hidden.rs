@@ -6,12 +6,12 @@
    <elementGuidId>e3e7c6da-76e7-42e1-9568-e571706758fa</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>button.password-hidden</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//button[@type='button']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>button.password-hidden</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>c17bf0e0-add7-4866-bbdd-ea33fa14ec7d</webElementGuid>
+      <webElementGuid>e636c055-83c9-4f12-8580-86528e05fbd3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>type</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>ce0c648a-9d7f-4ed3-a7fc-20d2b320baeb</webElementGuid>
+      <webElementGuid>8778e405-2c93-4c07-a5f6-fb4b88169b04</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>password-hidden</value>
-      <webElementGuid>bd203e4e-8e11-4a4e-9cab-470e857f2b71</webElementGuid>
+      <webElementGuid>47eeabcd-b9fe-4d1b-8b07-131a388868ad</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>togglePassword(this)</value>
-      <webElementGuid>027ff0c5-cf43-4521-a0da-41e4286dfc8f</webElementGuid>
+      <webElementGuid>7de8664b-57e9-4e32-bb69-9bb88742e390</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[3]/div[@class=&quot;authentication-input-text-div&quot;]/button[@class=&quot;password-hidden&quot;]</value>
-      <webElementGuid>21cfa3d4-9a53-4f98-ae5e-45eb5f6ab57a</webElementGuid>
+      <webElementGuid>73f0be3c-c2f9-46c3-9310-4449ec6957d9</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//button[@type='button']</value>
-      <webElementGuid>495bfdd5-7919-4a26-8ada-9c547da7fa75</webElementGuid>
+      <webElementGuid>0fd7daea-071f-4169-a128-54e6c0da1b84</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='account']/div/div[3]/div/button</value>
-      <webElementGuid>0490c4db-32a6-41a0-9fba-454a68486fc7</webElementGuid>
+      <webElementGuid>455a3497-a3ee-40f2-a221-47d36a603077</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[3]/div/button</value>
-      <webElementGuid>5aee4913-ad13-4625-a91b-755a0d8b7569</webElementGuid>
+      <webElementGuid>77323f4a-0723-4a68-b5e8-5b0cba649254</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@type = 'button']</value>
-      <webElementGuid>b7e8e01f-7f76-488b-8214-ae7a46a97e4a</webElementGuid>
+      <webElementGuid>d80508f5-2cd9-46f2-a265-404837302db4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>(//button[@type='button'])[2]</value>
-      <webElementGuid>b9aaaa96-1aa2-495c-a81e-23b442aee149</webElementGuid>
+      <webElementGuid>e4ab3e2a-21c9-4ab9-aca7-4db1fdb161d9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='account']/div/div[2]/div/button</value>
-      <webElementGuid>f6f158b0-bdf1-4b76-bfa4-25470a3551d4</webElementGuid>
+      <webElementGuid>ef5755cf-8696-4e34-8517-a313d4acd50a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,6 +117,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/div/button</value>
-      <webElementGuid>c51db85a-0a07-4ed6-968f-be3eac69d9aa</webElementGuid>
+      <webElementGuid>0d5c1561-1030-41c8-a108-98dce32b228d</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

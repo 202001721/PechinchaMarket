@@ -22,7 +22,7 @@
       <guid>af1da0ce-25cc-497c-88d6-d0199998d4e3</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Perfis dos utilizadores/Editar informações do comerciante</testCaseId>
+      <testCaseId>Test Cases/Perfis dos utilizadores/Editar contacto do comerciante</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

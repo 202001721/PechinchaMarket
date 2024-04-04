@@ -6,19 +6,19 @@
    <elementGuidId>e9e889cb-e7a4-4d51-8ca1-cd5166355162</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>a.img-edit</value>
+         <key>XPATH</key>
+         <value>//div[@id='publicados-products']/div/div/p/a</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@id='publicados-products']/div/div[2]/p/a</value>
+         <key>CSS</key>
+         <value>a.img-edit</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>#publicados-products div >> internal:has-text=&quot;Atum Bom Petisco 1.2€/Unit Eliminar Produto Salvar&quot;i >> internal:role=link</value>
+         <value>#publicados-products div >> internal:has-text=&quot;Massa Esparguete Continente 3€/Unit Eliminar Produto Tem certeza que deseja elim&quot;i >> internal:role=link >> nth=1</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>854cb2cb-0583-490b-8a7e-e9929bb8fc64</webElementGuid>
+      <webElementGuid>cec06609-193b-4550-b289-03e59b443d92</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>img-edit</value>
-      <webElementGuid>f021a5db-6872-4a51-8d91-447a6a79221e</webElementGuid>
+      <webElementGuid>ae9f2811-3362-4f9f-a802-18302df7ddbe</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>href</name>
       <type>Main</type>
       <value>/Produtos/Edit/1</value>
-      <webElementGuid>c3101dfb-33f2-4270-8ef7-4da8f6a5d592</webElementGuid>
+      <webElementGuid>79a3c4b8-e39a-483a-8ce1-a0f5b33994fb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,15 +53,15 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;publicados-products&quot;)/div[@class=&quot;card&quot;]/div[@class=&quot;options&quot;]/p[1]/a[@class=&quot;img-edit&quot;]</value>
-      <webElementGuid>76ec37b1-7803-488f-8133-2a65c616ea60</webElementGuid>
+      <webElementGuid>782ef841-da21-4c7d-a1fa-1c20c62d1dbf</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//div[@id='publicados-products']/div/div[2]/p/a</value>
-      <webElementGuid>707e060d-f3f5-4d88-981a-d6ee095681c6</webElementGuid>
+      <value>//div[@id='publicados-products']/div/div/p/a</value>
+      <webElementGuid>70eb5378-da8a-4d14-a101-ba172b91ce38</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>//a[contains(@href, '/Produtos/Edit/1')]</value>
-      <webElementGuid>83dac2c0-a0f1-44f7-bc65-64fc8a040b84</webElementGuid>
+      <webElementGuid>1178bdb1-decf-4157-a65e-e26a7597aea8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//p/a</value>
-      <webElementGuid>e96f663e-3d3a-48de-87c7-881db1920b3f</webElementGuid>
+      <webElementGuid>c2efcaac-e1e2-4f96-870a-46bfa2b4bbf0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +85,14 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@href = '/Produtos/Edit/1']</value>
-      <webElementGuid>b8d85bcf-ed4e-4dfd-9438-86a459b36440</webElementGuid>
+      <webElementGuid>1dac0fe8-f337-4997-a065-a3d4390de3dc</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='publicados-products']/div/div[2]/p/a</value>
+      <webElementGuid>707e060d-f3f5-4d88-981a-d6ee095681c6</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

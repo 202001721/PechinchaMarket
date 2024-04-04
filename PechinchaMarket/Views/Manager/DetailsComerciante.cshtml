@@ -3,18 +3,15 @@
 @{
     ViewData["Title"] = "DetailsComerciante";
 }
-<link href="~/css/manager.css" rel="stylesheet" />
-<h1>Detalhes do Comerciante</h1>
+<link href="~/css/produto.css" rel="stylesheet" />
+<link href="~/css/produtoDetalhe.css" rel="stylesheet" />
 
-<div>
-    <hr />
+
+<a class="back" onclick="goBack()"></a>
+<h2>Detalhes do Comerciante</h2>
+
+<div class="small-padding-top medium-padding-left">
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Item1.Id)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FirstOrDefault().Item1.Id)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Item2.Email)
         </dt>
@@ -22,46 +19,39 @@
             @Html.DisplayFor(model => model.FirstOrDefault().Item2.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Item1.Name)
+            Nome
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FirstOrDefault().Item1.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Item1.contact)
+            Contato
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FirstOrDefault().Item1.contact)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Item1.document)
+            Documento
         </dt>
         <dd class = "col-sm-10">
- 
-
             <embed src="@Url.Action("ShowDocument", "Manager", new { id = @Model.FirstOrDefault().Item1.Id })" width="fit-content" height="300px" type="application/pdf" />
-           
-
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Item1.logo)
+            Logo
         </dt>
         <dd class="col-sm-10">
-
             <span class="comerciante-logo" style="background-image: url('@Url.Action("ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id})');">  </span> <!-- <img src='@Url.Action("ShowLogo", "Manager", new { id = @Model.FirstOrDefault().Item1.Id })' width="fit-content" /> -->
         </dd>
     </dl>
 
 </div>
-<div class="buttons-form">
+<div class="buttons-form small-padding-left">
     <form asp-action="Aprove">
         <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id " />
-        <input type="submit" value="Aprove" class="approve-button" />
+        <input type="submit" value="Aceitar" class="approve-button" />
     </form>
     <form asp-action="Reprove">
         <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item1.Id" />
-        <input type="submit" value="Reprove" class="reprove-button" />
-
-        <a class="voltar-button" asp-action="NonConfirmedList">Voltar atrás</a>
+        <input type="submit" value="Recusar" class="reprove-button" />
     </form>
 </div>

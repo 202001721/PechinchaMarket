@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>5d43d1a2-81bd-489e-a902-95668b76a8fc</webElementGuid>
+      <webElementGuid>f67a0cf2-d845-447f-9b17-3db3d855c862</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>criar</value>
-      <webElementGuid>3fdd02fb-192e-4969-b632-1c189af23820</webElementGuid>
+      <webElementGuid>c839615f-5520-4cf5-b54f-1ca729fe0801</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>href</name>
       <type>Main</type>
       <value>/Produtos/Create</value>
-      <webElementGuid>cf1ad9b9-8c95-4ee7-a542-2de4d923bbe0</webElementGuid>
+      <webElementGuid>9da1df73-c2de-43e8-8a56-a84d1c525b4d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>text</name>
       <type>Main</type>
       <value> Criar Produtos</value>
-      <webElementGuid>cbc745af-9c16-4c22-830c-ddba2823c850</webElementGuid>
+      <webElementGuid>3c9ec5ff-f5b3-4dc4-99d7-6958cbd4386f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;criar&quot;)</value>
-      <webElementGuid>605dc8ca-856b-49f4-9f40-c61cf9c82fe1</webElementGuid>
+      <webElementGuid>f531cbf8-5062-4587-9492-2e683e11c55d</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//a[@id='criar']</value>
-      <webElementGuid>186073ca-300c-4204-9c24-f5a5ce8d4602</webElementGuid>
+      <webElementGuid>f780ead7-bdaf-45a0-a3eb-ae32fa703851</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:link</name>
       <type>Main</type>
       <value>//a[contains(text(),'Criar Produtos')]</value>
-      <webElementGuid>a7f9a66c-990c-4ad9-804d-57c2c64d2adb</webElementGuid>
+      <webElementGuid>b5fc9d56-800f-4c2a-b14b-a26f50bb8bdf</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos'])[2]/following::a[1]</value>
-      <webElementGuid>d011e345-f9f7-46c1-b164-e852d6cef400</webElementGuid>
+      <webElementGuid>69b909a8-57d0-423f-ab89-afcadf98b2fb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Lojas'])[1]/following::a[1]</value>
-      <webElementGuid>dd002569-4b27-4020-89b6-e1cf26ef1301</webElementGuid>
+      <webElementGuid>17380f9c-2e81-459c-af20-30fc15f85803</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos Publicados'])[1]/preceding::a[1]</value>
-      <webElementGuid>c133bc8b-eb57-43f6-82f4-24ef099591fe</webElementGuid>
+      <webElementGuid>4c40f82f-e7c8-40bb-a1c6-fd5a366b0a8c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Produtos Pendentes'])[1]/preceding::a[2]</value>
-      <webElementGuid>be256d80-078e-487e-b455-737cee5df9f8</webElementGuid>
+      <webElementGuid>7cf07c90-6390-4718-bb0b-3e79f921954e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,7 +117,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Criar Produtos']/parent::*</value>
-      <webElementGuid>5cf55dfc-3672-4a1c-92b3-4fa53418024c</webElementGuid>
+      <webElementGuid>402ab687-8bed-4ba5-8ab6-340e5393a637</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -125,7 +125,7 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>//a[contains(@href, '/Produtos/Create')]</value>
-      <webElementGuid>00fe9c82-598f-48bb-8e2b-1bad2456ad7d</webElementGuid>
+      <webElementGuid>43c195c9-7f74-4882-b2da-6e7fc42f2182</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -133,7 +133,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//h2/a</value>
-      <webElementGuid>ccbf6f14-f595-4465-8b77-13ab0a3240a1</webElementGuid>
+      <webElementGuid>36c2b7d7-68fe-410e-9452-d05b27123e6c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -141,6 +141,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//a[@id = 'criar' and @href = '/Produtos/Create' and (text() = ' Criar Produtos' or . = ' Criar Produtos')]</value>
-      <webElementGuid>bc31d03b-9b2a-4f1e-a35f-90dbc84bca23</webElementGuid>
+      <webElementGuid>4860a16f-0547-4c99-a162-31c85c9c4fea</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div_Editar_Phone</name>
+   <tag></tag>
+   <elementGuidId>38828911-8914-42ac-b4bd-73111b2f858c</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@onclick='phoneEditableField(this)']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#change-phone-form > div.row-container.center-y-flex.smaller-gap-x > div.pechincha-button.default-button-color</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>#change-phone-form >> internal:text=&quot;Editar&quot;i</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>1aae0976-78ab-4a60-8a60-624bbcadb818</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>pechincha-button default-button-color</value>
+      <webElementGuid>5c2fc7bd-5855-491c-b8b3-d2326946f2ac</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>phoneEditableField(this)</value>
+      <webElementGuid>6ee85c3b-4e8d-4247-b0ab-86eb6d927b08</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Editar</value>
+      <webElementGuid>19656114-0364-4871-aca8-a05014e4abed</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;change-phone-form&quot;)/div[@class=&quot;row-container center-y-flex smaller-gap-x&quot;]/div[@class=&quot;pechincha-button default-button-color&quot;]</value>
+      <webElementGuid>07045f13-d49c-4052-8556-aabf350b94c8</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='phoneEditableField(this)']</value>
+      <webElementGuid>647211b9-0735-47ac-b500-dac0077c815f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='change-phone-form']/div[2]/div</value>
+      <webElementGuid>32074308-0fed-4322-b304-20677c88b377</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Salvar'])[4]/following::div[1]</value>
+      <webElementGuid>6cd7460b-ddb2-437b-aa8c-e7465d9ed15c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Contacto'])[1]/following::div[2]</value>
+      <webElementGuid>d1de6abf-2b91-4b9c-8127-f416391ad4fe</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[4]/form/div[2]/div</value>
+      <webElementGuid>7b9cde73-d833-4ad5-a650-4a08a116504f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = 'Editar' or . = 'Editar')]</value>
+      <webElementGuid>1951e191-44af-4aaa-accf-421a4ca83332</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

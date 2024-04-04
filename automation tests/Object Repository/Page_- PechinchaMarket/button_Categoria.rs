@@ -6,19 +6,19 @@
    <elementGuidId>77dcf211-a0ca-4504-82c1-483d141ad184</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value></value>
+         <key>XPATH</key>
+         <value>(//button[@type='button'])[3]</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>(//button[@type='button'])[2]</value>
+         <key>CSS</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Categoria: ˄&quot;i]</value>
+         <value>internal:role=button[name=&quot;Categoria&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>8e84fdea-ac3c-4bf3-8078-fec9ca5d22d9</webElementGuid>
+      <webElementGuid>18a7e193-23b4-4eb9-94fc-743eecd42375</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,34 +37,99 @@
       <name>type</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>460176fc-22e3-40c2-afcd-48e92e749383</webElementGuid>
+      <webElementGuid>84ceab70-4b2d-4e84-816f-ea85da4cec7c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>collapsible</value>
-      <webElementGuid>bb938525-e1db-43c6-81ee-502265e07640</webElementGuid>
+      <value>collapsible unselectable-text colapsable-div</value>
+      <webElementGuid>6355b6d6-d9c3-4b05-b263-700387af13a7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Categoria:</value>
-      <webElementGuid>9acb22df-b2d4-49d4-ba70-ca5779180943</webElementGuid>
+      <value>
+                                Categoria
+                                
+                            </value>
+      <webElementGuid>b9421235-e1fc-4ddf-a689-d267f8b0765e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top&quot;]/div[@class=&quot;max-width&quot;]/button[@class=&quot;collapsible&quot;]</value>
-      <webElementGuid>330ebf53-7990-43fc-a1fe-e43e6a1efe0c</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;pechincha-container gradiante3-main-color&quot;]/section[1]/div[@class=&quot;column-container fit-content-height&quot;]/div[@class=&quot;row-container left-flex small-gap-x&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border small-padding filter-area-width small-margin-top background-white&quot;]/div[@class=&quot;max-width&quot;]/button[@class=&quot;collapsible unselectable-text colapsable-div&quot;]</value>
+      <webElementGuid>900e9f73-68cc-488c-8640-3aa08e90c229</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>collapse(this);</value>
+      <webElementGuid>624cd988-0cb3-49f4-8081-6e8ccccc5f00</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//button[@type='button'])[3]</value>
+      <webElementGuid>5057a755-84b6-4b1e-a018-ae15876f3338</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Automacao'])[1]/following::button[1]</value>
+      <webElementGuid>8996f48a-96fc-422a-9993-0e1ac4b7151c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Util'])[1]/following::button[1]</value>
+      <webElementGuid>85ac462f-93d5-4e2c-9325-20c3a43fdb9f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/preceding::button[1]</value>
+      <webElementGuid>7e9e7d5c-ffcd-4eb5-99f2-a76e78c63f05</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[3]/button</value>
+      <webElementGuid>2f5e0abf-c223-4cc9-92ed-77dcc771699b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@type = 'button' and (text() = '
+                                Categoria
+                                
+                            ' or . = '
+                                Categoria
+                                
+                            ')]</value>
+      <webElementGuid>1faf23e5-430c-4d0a-90bb-58ec4791ab03</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
@@ -92,14 +157,6 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/preceding::button[1]</value>
-      <webElementGuid>777c29c7-fa5d-4d15-b955-38740be8c100</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Frescos'])[1]/preceding::button[1]</value>
       <webElementGuid>91cc2539-fb51-4b36-ac33-ce06d655e7b9</webElementGuid>
    </webElementXpaths>
@@ -114,26 +171,10 @@
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[3]/button</value>
-      <webElementGuid>72a38057-356a-4f2c-8852-fafa7492f224</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@type = 'button' and (text() = 'Categoria:' or . = 'Categoria:')]</value>
       <webElementGuid>a99e63ab-8d09-45f4-90f5-5530c6feb4cd</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:attributes</name>
-      <type>Main</type>
-      <value>(//button[@type='button'])[3]</value>
-      <webElementGuid>bd4cceca-802c-456b-bfb2-5999b0b6f071</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

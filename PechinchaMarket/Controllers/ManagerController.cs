@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
-using PechinchaMarket.Services;
 
 namespace PechinchaMarket.Controllers
 {
@@ -22,10 +21,13 @@ namespace PechinchaMarket.Controllers
             _context = context;
         }
 
-        // GET: Comerciantes não aprovados
+        /// <summary>
+        /// Metódo para mostrar a lista de comerciantes não aprovados
+        /// </summary>
+        /// <returns>View da lista dos comerciantes que ainda não foram aprovados</returns>
         public async Task<ActionResult> NonConfirmedList()
         {
-            
+
             var model = _context.Comerciante
        .Join(_context.Users,
            comerciante => comerciante.UserId,
@@ -36,13 +38,20 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
-        // GET: Produtos não aprovados
-        public async Task<ActionResult> NonAprovedProducts(int id)
+        /// <summary>
+        /// Metódo para mostrar a lista de produtos não aprovados
+        /// </summary>
+        /// <returns>View da lista de produtos que ainda não foram aprovados</returns>
+        public async Task<ActionResult> NonAprovedProducts()
         {
             return View(await _context.Produto.ToListAsync());
         }
 
-        // GET: Comerciantes/Details/5
+        /// <summary>
+        /// Metódo para mostrar os detalhes de um comerciante
+        /// </summary>
+        /// <param name="id">id do comerciante</param>
+        /// <returns>View com as informações do comerciante</returns>
         public async Task<IActionResult> DetailsComerciante(Guid? id)
         {
             if (id == null)
@@ -51,10 +60,10 @@ namespace PechinchaMarket.Controllers
             }
 
             var model = _context.Comerciante.Where(comerciante => comerciante.Id == id)
-   .Join(_context.Users,
-       comerciante => comerciante.UserId,
-       user => user.Id,
-       (comerciante, user) => new Tuple<Comerciante, PechinchaMarketUser>(comerciante, user));
+        .Join(_context.Users,
+           comerciante => comerciante.UserId,
+           user => user.Id,
+           (comerciante, user) => new Tuple<Comerciante, PechinchaMarketUser>(comerciante, user));
 
             if (model == null)
             {
@@ -64,7 +73,11 @@ namespace PechinchaMarket.Controllers
             return View(model);
         }
 
-        // GET: Produtos/Details/5
+        /// <summary>
+        /// Metódo para mostrar os detalhes de um produto
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>View com as informações do produto</returns>
         public async Task<IActionResult> DetailsProduct(int? id)
         {
             if (id == null)
@@ -75,68 +88,35 @@ namespace PechinchaMarket.Controllers
             var model = _context.Produto.Where(produto => produto.Id == id)
        .Join(_context.ProdutoLoja,
            produto => produto.Id,
-           prodLoja=> prodLoja.Produto.Id,
+           prodLoja => prodLoja.Produto.Id,
            (produto, prodLoja) => new Tuple<Produto, ProdutoLoja>(produto, prodLoja))
        .ToList();
 
-            /*var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (produto == null)
-            {
-                return NotFound();
-            }*/
-
             return View(model);
         }
-        
-        public async Task<IActionResult> Aprove(Guid? id)
-        {
-           
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var comerciante = await _context.Comerciante
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if(comerciante == null) { return NotFound(); }
-            
 
-            return View(comerciante);
-
-        }
-        //Aprovar Porduto
-        public async Task<IActionResult> ApproveProduct(int? id)
-        {
-
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (produto == null) { return NotFound(); }
-
-
-            return View(produto);
-
-        }
-
+        /// <summary>
+        /// Metódo para aprovar um comerciante       
+        /// </summary>
+        /// <param name="id">id do comerciante</param>
+        /// <returns>Redireciona para a view de comerciantes por aprovar</returns>
         [HttpPost, ActionName("Aprove")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AproveConfirmed(Guid? id)
         {
             var comerciante = await _context.Comerciante.FindAsync(id);
+            var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
             if (comerciante != null)
             {
-                var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
-           
                 comerciante.isApproved = true;
+
                 if(utilizador != null) {
                     utilizador.EmailConfirmed = true;
                     EmailSender emailSender = new EmailSender();
                     await emailSender.SendEmail("Seu cadastro foi aceito",utilizador.Email,comerciante.Name, "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito",_context);
                    
             
+
                 }
             }
             await _context.SaveChangesAsync();
@@ -146,7 +126,11 @@ namespace PechinchaMarket.Controllers
 
         }
 
-        //Mudar o estado do produto para aprovado
+        /// <summary>
+        /// Metódo para aprovar um produto
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>Redireciona para a view de produtos por aprovar</returns>
         [HttpPost, ActionName("ApproveProduct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AproveConfirmedProduct(int? id)
@@ -163,29 +147,22 @@ namespace PechinchaMarket.Controllers
 
         }
 
-        public async Task<IActionResult> Reprove(Guid? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var comerciante = await _context.Comerciante
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (comerciante == null) { return NotFound(); }
-
-            return View(comerciante);
-
-        }
-
+        /// <summary>
+        /// Metódo para reprovar um comerciante
+        /// </summary>
+        /// <param name="id">id do comerciante</param>
+        /// <returns>Redireciona para a view de comerciantes por aprovar</returns>
         [HttpPost, ActionName("Reprove")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ReproveConfirmed(Guid? id)
         {
             var comerciante = await _context.Comerciante.FindAsync(id);
-          
+            var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
+            var utilizadorId = await _context.Users.FindAsync(utilizador.Id);
 
             if (comerciante != null)
             {
+
                 var utilizador = await _context.Users.FirstOrDefaultAsync(m => m.Id == comerciante.UserId);
         
              
@@ -199,6 +176,7 @@ namespace PechinchaMarket.Controllers
             
                 
 
+
             }
             await _context.SaveChangesAsync();
 
@@ -207,25 +185,12 @@ namespace PechinchaMarket.Controllers
 
         }
 
-        //Reprovar Produto
-        public async Task<IActionResult> ReproveProduct(int? id)
-        {
-
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (produto == null) { return NotFound(); }
-
-
-            return View(produto);
-
-        }
-
         //Mudar o estado do produto para reporvado
+        /// <summary>
+        /// Metódo para reprovar um produto
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>Redireciona para a view de produtos por aprovar</returns>
         [HttpPost, ActionName("ReproveProduct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ReproveConfirmedProduct(int? id)
@@ -242,8 +207,13 @@ namespace PechinchaMarket.Controllers
 
         }
 
-      public async Task<IActionResult> ShowLogo(Guid? id)
-      {
+        /// <summary>
+        /// Metódo para mostrar o logo do comerciante
+        /// </summary>
+        /// <param name="id">id do comerciante</param>
+        /// <returns>Imagem do logo</returns>
+        public async Task<IActionResult> ShowLogo(Guid? id)
+        {
             if (id == null)
             {
                 return NotFound();
@@ -252,19 +222,30 @@ namespace PechinchaMarket.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return File(comerciante.logo, "image/jpg");
-      }
-        //Mostrar imagem do produto
-        public async Task<IActionResult> ShowImage(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
         }
-        var produto = await _context.Produto
-            .FirstOrDefaultAsync(m => m.Id == id);
 
-        return File(produto.Image, "image/jpg");
-    }
+        /// <summary>
+        /// Metódo para mostrar a imagem do produto
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>Imagem do produto</returns>
+        public async Task<IActionResult> ShowImage(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return File(produto.Image, "image/jpg");
+        }
+
+        /// <summary>
+        /// Metódo para mostrar o documento
+        /// </summary>
+        /// <param name="id">id do comerciante</param>
+        /// <returns>Documento de vericidade do comerciante</returns>
         public async Task<IActionResult> ShowDocument(Guid? id)
         {
             if (id == null)
@@ -277,6 +258,43 @@ namespace PechinchaMarket.Controllers
 
             return File(comerciante.document, "application/pdf");
         }
-       
+
+        /// <summary>
+        /// Metódo que envia um email para o comerciante 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        private async Task<bool> SendEmailAsync(string email, string subject, string body)
+        {
+
+
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient();
+                message.From = new MailAddress("pechinchamarket@outlook.com");
+                message.To.Add(email);
+                message.Subject = subject;
+                message.IsBodyHtml = true;
+                message.Body = body;
+
+                smtpClient.Port = 587;
+                smtpClient.Host = "smtp-mail.outlook.com";
+
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("pechinchamarket@outlook.com", "Pechinchamos");
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Send(message);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

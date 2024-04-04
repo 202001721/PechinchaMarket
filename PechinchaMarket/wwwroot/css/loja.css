@@ -1,6 +1,6 @@
 ﻿body {
     background: rgb(102,209,255);
-    background: linear-gradient(180deg, rgba(102,209,255,1) 10%, rgba(255,255,255,1) 15%);
+    background: linear-gradient(180deg, rgba(102,209,255,1) 10%, rgba(255,255,255,1) 25%);
 }
 
 h2 {
@@ -55,6 +55,42 @@ label {
     margin-top: 0.3em;
 }
 
-/* 04/03/2024 alterações */
+.floating-button {
+    position: fixed;
+    width: 4em;
+    height: 4em;
+    bottom: 40px;
+    right: 70px;
+    z-index: 1000;
+    display: flex;
+    background-image: url(../images/add2.png);
+    background-size: cover;
+    margin-bottom: 10px;
+}
 
+.blue-button {
+    border-radius: 5px;
+    background-color: rgba(102, 209, 255, 1);
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid rgba(102, 209, 255);
+}
 
+.img-trash {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/recycle-bin.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.img-edit {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../images/edit-text.png);
+    background-size: cover;
+}

@@ -5,36 +5,29 @@
     var counter = 0;
 
 }
+<script src="~/js/site.js"></script>
 <link href="~/css/listaProduto.css" rel="stylesheet" />
-<h1>Produtos</h1>
+<h1 class="smaller-padding smaller-padding-left">Produtos</h1>
 
 <body>
 
 <div class="container-box"> 
-   
-        <span class="coluna">
-            <h2><a asp-action="Create" id="criar"> Criar Produtos</a></h2>
-        </span>
 
-        <span class="coluna">
+        <span class="coluna" id="publicados-tab">
             <h2><a id ="publicados"> Produtos Publicados</a></h2>
         </span>
 
-        <span class="coluna">
+        <span class="coluna" id="pendentes-tab">
             <h2><a id="pendentes"> Produtos Pendentes</a></h2>
         </span>
 
-        <a asp-action="AddMultiplesProducts">
-            Adicionar varios
-        </a>
-            
+       
 </div>
 
     <section class="containers">
-
+        <a onclick="addPopup()" class="floating-button"></a>
     
-
-        <div id="publicados-products" style="display:flex;">
+        <div id="publicados-products" style="display:flex; flex-wrap:wrap">
             @foreach (var item in Model.Where(p => p.ProdEstado == Estado.Approved).GroupBy(p => p.Id)
             .Select(g => g.First()))
             {
@@ -84,7 +77,7 @@
             }
         </div>
 
-        <div id="pendentes-products" style="display:none;">
+        <div id="pendentes-products" style="display:none; flex-wrap:wrap">
             @foreach (var item in Model.Where(p => p.ProdEstado == Estado.InAnalysis).GroupBy(p => p.Id)
             .Select(g => g.First()))
             {
@@ -126,7 +119,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 <div>
 
@@ -135,20 +128,51 @@
             }
         </div>   
 
+        <div class="new-page display-none" id="add-popup">
+            <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                <div class="edges-flex max-width">
+                    <div class="title unselectable-text">Adicionar Produto[s]</div>
+                    <div class="cross-button" onclick="addPopup();"></div>
+                </div>
+
+                <div class="column-container max-height  edges-flex max-width">
+                    <span class=" small-margin-top">Deseja adicionar um produtos ou vários?</span>
+                    <div class="center-x-flex">
+                        <div class="center-y-flex small-gap-y column-container wrap-flex small-page-product">
+                            <a href="@Url.Action("Create", "Produtos")" class="create-product-type-button">Criar um produto</a>
+                            <a href="@Url.Action("AddMultiplesProducts", "Produtos")" class="create-product-type-button">Criar vários produtos</a>
+               
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
   
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded",
+        tooltipmsg("Nesta pagina poderá analisar, editar, criar e eliminar todos os seus produtos.", "", "")
+    );
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
     <script>
-        document.getElementById('publicados').addEventListener('click', function () {
+        document.getElementById('publicados-tab').addEventListener('click', function () {
+            document.getElementById("publicados-tab").classList.add("active-tab");
+            document.getElementById("pendentes-tab").classList.remove("active-tab");
             document.getElementById('publicados-products').style.display = 'flex';
             document.getElementById('pendentes-products').style.display = 'none';
         });
 
-        document.getElementById('pendentes').addEventListener('click', function () {
+        document.getElementById('pendentes-tab').addEventListener('click', function () {
+            document.getElementById("publicados-tab").classList.remove("active-tab");
+            document.getElementById("pendentes-tab").classList.add("active-tab");
             document.getElementById('publicados-products').style.display = 'none';
             document.getElementById('pendentes-products').style.display = 'flex';
         });
@@ -156,6 +180,12 @@
         function deletePopup(text) {
             document.body.classList.toggle('no-overflow');
             chooseimage = document.getElementById("delete-popup-" + text);
+            chooseimage.classList.toggle('display-none');
+        }
+
+        function addPopup() {
+            document.body.classList.toggle('no-overflow');
+            chooseimage = document.getElementById("add-popup");
             chooseimage.classList.toggle('display-none');
         }
     </script>

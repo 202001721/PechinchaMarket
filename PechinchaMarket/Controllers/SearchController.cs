@@ -16,7 +16,7 @@ namespace PechinchaMarket.Controllers
         private readonly DBPechinchaMarketContext _context;
         private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public SearchController(DBPechinchaMarketContext context, 
+        public SearchController(DBPechinchaMarketContext context,
             Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
             IWebHostEnvironment webHostEnvironment)
         {
@@ -25,24 +25,27 @@ namespace PechinchaMarket.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
         public IActionResult Index()
         {
             return View();
         }
 
         /// <summary>
-        /// Função Search - quando o cliente pesquisa algo, a função chama a outra função SearchResults
+        /// Função Search - Quando o cliente pesquisa algo, a função chama a outra função SearchResults
         /// </summary>
         /// <param name="searchText">texto a ser pesquisado</param>
         /// <returns>redireciona para a ação SearchResults</returns>
         [HttpPost]
         public IActionResult Search(string searchText)
         {
-            return RedirectToAction("SearchResults", new { search = searchText});
+            return RedirectToAction("SearchResults", new { search = searchText });
         }
 
         /// <summary>
-        /// Função SearchResults - é realizada quando o cliente pesquisa na barra de pesquisa
+        /// Função SearchResults - É realizada quando o cliente pesquisa na barra de pesquisa
         /// </summary>
         /// <param name="search">texto inserido na barra de pesquisa</param>
         /// <returns>View com os produtos do resultado da pesquisa</returns>
@@ -67,100 +70,172 @@ namespace PechinchaMarket.Controllers
             ViewData["Comerciante"] = _context.Comerciante;
             ViewData["Categoria"] = Enum.GetValues(typeof(Categoria));
 
+            var userId = _userManager.GetUserId(User);
+            if(userId == null)
+            {
+                ViewData["CurrentLocation"] = null;
+            }
+            else
+            {
+                ViewData["CurrentLocation"] = _context.Cliente.FirstOrDefault(c => c.UserId == userId).Localizacao;
+            }
 
 
             var result = new List<Produto>();
-            if (string.IsNullOrWhiteSpace(search)) {
+            if (string.IsNullOrWhiteSpace(search))
+            {
                 result = produtos;
             }
-            else {
+            else
+            {
                 result = searchAlgorithm(produtos, search);
             }
 
-            foreach (var produto in result)
-            {
-                var prod = produto.ProdutoLojas.OrderBy(x => x.Price);
-                foreach (var pl in prod)
-                {
-                    ShowDiscount(pl.Id); 
-                }
-            }
             return View(result);
         }
 
-    
-
+        /// <summary>
+        /// Função searchAlgorithm - Executa o algoritmo de pesquisa na lista de produtos com base na string de entrada
+        /// </summary>
+        /// <param name="produtos">Lista de produtos</param>
+        /// <param name="input">String de entrada da pesquisa</param>
+        /// <returns>Lista de Produtos correspondentes à pesquisa</returns>
         public List<Produto> searchAlgorithm(List<Produto> produtos, String input)
         {
             var result = new List<Produto>();
 
             foreach (Produto produto in produtos)
             {
-                foreach (string word in splitNameBasedOnInput(produto.Name, input)){
-                    if (compareToSearch(word, input)){
+                foreach (string word in splitNameBasedOnInput(produto.Name, input))
+                {
+                    if (compareToSearch(word, input))
+                    {
                         result.Add(produto);
                         break;
                     }
-                }       
+                }
             }
 
             return result;
         }
 
-        public string[] splitNameBasedOnInput(string name, string input) {
+        /// <summary>
+        /// Função splitNameBasedOnInput - Divide o nome do produto em uma matriz de palavras com base na string de entrada
+        /// </summary>
+        /// <param name="name">nome a ser dividido</param>
+        /// <param name="input">String de entrada na qual o nome será dividido</param>
+        /// <returns>Uma matriz de palavras resultante da divisão do nome</returns>
+        public string[] splitNameBasedOnInput(string name, string input)
+        {
             int numOfWords = Regex.Matches(input, "[a-zA-Z] [a-zA-Z]", RegexOptions.IgnoreCase).Count() + 1;
 
             var based = "[a-zA-Z]*";
-            if (numOfWords >= 1){
+            if (numOfWords >= 1)
+            {
                 based = string.Concat(string.Concat(Enumerable.Repeat("[a-zA-Z]* ", numOfWords - 1)), "[a-zA-Z]*");
             }
 
             return Regex.Matches(name, based, RegexOptions.IgnoreCase).Cast<Match>().Select(m => m.Value).ToArray();
         }
 
-        public Boolean compareToSearch(string str1, string input) {
+        /// <summary>
+        /// Função compareToSearch - Compara duas strings para determinar se são semelhantes.
+        /// </summary>
+        /// <param name="str1">A primeira string a ser comparada</param>
+        /// <param name="input">A segunda string a ser comparada</param>
+        /// <returns>True se as strings forem semelhantes com no máximo 1 caractere de diferença, False caso contrário</returns>
+        public Boolean compareToSearch(string str1, string input)
+        {
             var str2 = input;
             if (str1.Equals(str2, StringComparison.OrdinalIgnoreCase))
             {
                 return true;
             }
-            else
+            else if(str1.Length - str2.Length >= -1 && str1.Length - str2.Length <= 1)
             {
-                for (int j = -1; j < (str2.Length * 2) - 1; j++)
-                {
-                    if ((str1.Length == str2.Length && j % 2 == 0) || (str1.Length == str2.Length - 1 && j % 2 != 0))
-                    {
-                        int differences = 0;
-                        for (int i = 0; i < str1.Length; i++)
-                        {
-                            if (i == Math.Floor(Math.Abs((double)j / 2)))
-                            {
-                                str2 = str2.Remove(i, 1);
-                            }
+                var strtemp = "";
+                if (str1.Length < str2.Length) {
+                    strtemp = str1;
+                    str1 = str2;
+                    str2 = strtemp;
+                }
 
-                            if (!string.Equals(str1[i].ToString(), str2[i].ToString(), StringComparison.OrdinalIgnoreCase))
-                            {
-                                differences++;
-                                if (differences > 1)
-                                {
-                                    break;
-                                }
-                            }
-                        }
-                        if (differences <= 1)
+                int differences = 0;
+                bool differencesChanged = false;
+                int j = 0;
+                for (int i = 0; i < str1.Length; i++) {
+                    if (differences > 1)
+                    {
+                        break;
+                    }
+                    else if (differences > 0 && differencesChanged == true)
+                    {
+                        if (str1.Length != str2.Length)
                         {
-                            return true;
+                            j--;
+                            differencesChanged = false;
                         }
                     }
+
+                    if (str1.Length - 1 != i || str1.Length - 1 == i && i != j)
+                    {
+                        if (!string.Equals(str1[i].ToString(), str2[j].ToString(), StringComparison.OrdinalIgnoreCase))
+                        {
+                            differences++;
+                            differencesChanged = true;
+                        }
+                    }
+                    else if (str1.Length == str2.Length)
+                    {
+                        if (!string.Equals(str1[i].ToString(), str2[j].ToString(), StringComparison.OrdinalIgnoreCase))
+                        {
+                            differences++;
+                            differencesChanged = true;
+                        }
+                    }
+                    else {
+                        differences++;
+                        differencesChanged = true;
+                    }
+
+                    j++;
+                }
+
+                if (differences > 1)
+                {
+                    return false;
+                }
+                else { 
+                    return true;
                 }
             }
             return false;
         }
 
-       
+        /// <summary>
+        /// Função ShowImage - Mostra a imagem do produto pretendido
+        /// </summary>
+        /// <param name="id">id do produto</param>
+        /// <returns>ficheiro da imagem do produto</returns>
+        public async Task<IActionResult> ShowImage(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var produto = await _context.Produto
+                .FirstOrDefaultAsync(m => m.Id == id);
 
+            return File(produto.Image, "image/jpg");
+        }
+
+        /// <summary>
+        /// Função GetImage - Obtém a imagem de perfil do utilizador atual com base no papel de utilizador.
+        /// </summary>
+        /// <returns>Um objeto IActionResult contendo a imagem de perfil do utilizador</returns>
         [HttpGet]
-        public async Task<IActionResult> GetPerfilImage() {
+        public async Task<IActionResult> GetPerfilImage()
+        {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
@@ -179,14 +254,21 @@ namespace PechinchaMarket.Controllers
                 var image = ShowImage(_context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
                 return Json(image);
             }
-            else {
+            else
+            {
                 var image = ShowImage(_context.Cliente.Where(x => x.UserId == _userManager.GetUserId(User)).Select(x => x.Image).FirstOrDefault());
                 return Json(image);
             }
         }
 
+        /// <summary>
+        /// Função GetSugestiveNames - Retorna uma lista de sugestões de nomes de produtos com base na entrada fornecida.
+        /// </summary>
+        /// <param name="input">A entrada para a qual as sugestões de nomes serão baseadas</param>
+        /// <returns>Um objeto IActionResult contendo a lista de sugestões de nomes de produtos</returns>
         [HttpGet]
-        public IActionResult GetSugestiveNames(string input) {
+        public IActionResult GetSugestiveNames(string input)
+        {
             var nameList = _context.Produto
                                       .Where(p => p.ProdEstado == Estado.Approved)
                                       .Select(m => m.Name)
@@ -196,7 +278,8 @@ namespace PechinchaMarket.Controllers
             var result = new List<string>();
             var blacklisted = new List<string> { "a", "o", "de", "com" };
 
-            foreach (var name in nameList) {
+            foreach (var name in nameList)
+            {
                 if (!Regex.IsMatch(input, "[a-zA-Z] "))
                 {
                     foreach (string word in name.Split(' '))
@@ -222,9 +305,12 @@ namespace PechinchaMarket.Controllers
                             }
                         }
                     }
-                }else{ 
+                }
+                else
+                {
                     var suggestion = GetWordAfterInput(name, input, blacklisted);
-                    if (suggestion != null) {
+                    if (suggestion != null)
+                    {
                         result.Add(suggestion);
                     }
                 }
@@ -232,6 +318,13 @@ namespace PechinchaMarket.Controllers
             return Json(result);
         }
 
+        /// <summary>
+        /// Função GetWordAfterInput - Retorna a palavra depois da entrada
+        /// </summary>
+        /// <param name="name">A string na qual procurar a palavra seguinte</param>
+        /// <param name="input">A entrada para a qual encontrar a palavra seguinte</param>
+        /// <param name="blockedWords">Uma lista de palavras bloqueadas a serem evitadas</param>
+        /// <returns>A palavra seguinte após a entrada, evitando palavras bloqueadas, ou null se não for encontrada</returns>
         private string GetWordAfterInput(string name, string input, List<string> blockedWords)
         {
             int index = name.IndexOf(input, StringComparison.OrdinalIgnoreCase);
@@ -262,7 +355,7 @@ namespace PechinchaMarket.Controllers
             string result = name.Substring(0, index);
             return result;
         }
-         
+
         /// <summary>
         /// Função AddToList - é realizada quando o cliente pretende visualizar um produto 
         /// </summary>
@@ -270,31 +363,23 @@ namespace PechinchaMarket.Controllers
         /// <returns>View com os detalhes do produto em questão</returns>
         public async Task<ActionResult> AddToList(int id)
         {
-                var model = _context.Users
-        .Join(_context.Comerciante,
-            user => user.Id,
-            comerciante => comerciante.UserId,
-            (user, comerciante) => new { User = user, Comerciante = comerciante })
-        .Join(_context.Loja,
-            temp => temp.User.Id,
-            loja => loja.UserId,
-            (temp, loja) => new { temp.User, temp.Comerciante, Loja = loja })
-        .Join(_context.ProdutoLoja,
-            temp => temp.Loja.Id,
-            produtoLoja => produtoLoja.Loja.Id,
-            (temp, produtoLoja) => new { temp.User, temp.Comerciante, temp.Loja, ProdutoLoja = produtoLoja })
-        .Join(_context.Produto.Where(produto => produto.Id == id),
-            temp => temp.ProdutoLoja.Produto.Id,
-            produto => produto.Id,
-            (temp, produto) => Tuple.Create(temp.User, temp.Comerciante, temp.Loja, temp.ProdutoLoja,produto ))
-        .ToList();
+
+                var model2 = await _context.Produto
+          .Where(produto => produto.Id == id && produto.ProdEstado == Estado.Approved && produto.ProdutoLojas
+              .Any(produtoLoja => _context.Loja
+                  .Any(loja => loja.UserId == _context.Comerciante
+                      .Where(comerciante => comerciante.UserId == produtoLoja.Loja.UserId)
+                      .Select(comerciante => comerciante.UserId)
+                      .FirstOrDefault())))
+          .Include(produto => produto.ProdutoLojas)
+              .ThenInclude(produtoLoja => produtoLoja.Loja)
+          .ToListAsync();
 
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
 
-            var produto = model.Select(x => x.Item5.Id).FirstOrDefault();
+            var produto = model2.Select(x => x.Id).FirstOrDefault();
 
-            //Alterar para ir buscar tambem as listas aos agrupamentos que pertence
             ViewData["Listas"] = _context.ListaProdutos
                 .Where(l => l.ClienteId == cliente.Id.ToString());
 
@@ -306,7 +391,9 @@ namespace PechinchaMarket.Controllers
 
             ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
 
-            var pl = model.Select(x => x.Item4).FirstOrDefault();
+            ViewData["Comerciante"] = _context.Comerciante;
+
+            var pl = model2.SelectMany(x => x.ProdutoLojas).FirstOrDefault();
             if (pl != null)
             {
                 ShowDiscount(pl.Id);
@@ -315,7 +402,8 @@ namespace PechinchaMarket.Controllers
             {
                 ViewBag.ErrorMessage = "Nenhum produto encontrado";
             }
-            return View(model);
+            return View(model2);
+
         }
 
         /// <summary>
@@ -335,15 +423,48 @@ namespace PechinchaMarket.Controllers
                 return NotFound();
             }
 
-            int contadorDeListas = 1;
+            var model2 = await _context.Produto
+          .Where(produto => produto.Id == id && produto.ProdEstado == Estado.Approved && produto.ProdutoLojas
+              .Any(produtoLoja => _context.Loja
+                  .Any(loja => loja.UserId == _context.Comerciante
+                      .Where(comerciante => comerciante.UserId == produtoLoja.Loja.UserId)
+                      .Select(comerciante => comerciante.UserId)
+                      .FirstOrDefault())))
+          .Include(produto => produto.ProdutoLojas)
+              .ThenInclude(produtoLoja => produtoLoja.Loja)
+          .ToListAsync();
 
-            //User logado
             var userId = _userManager.GetUserId(User);
             var cliente = _context.Cliente.FirstOrDefault(c => c.UserId == userId);
+            var produto = model2.Select(x => x.Id).FirstOrDefault();
+
+            ViewData["ProdutosSemelhantes"] = SimilarProducts(produto);
+
+            ViewData["Comerciante"] = _context.Comerciante;
+
+            ViewData["Listas"] = _context.ListaProdutos
+                .Where(l => l.ClienteId == cliente.Id.ToString());
+
+            ViewData["Lojas"] = _context.Loja
+        .Join(_context.ProdutoLoja, loja => loja.Id, produtoLoja => produtoLoja.Loja.Id, (loja, produtoLoja) => new { Loja = loja, ProdutoLoja = produtoLoja })
+        .Where(joined => joined.ProdutoLoja.Produto.Id == produto)
+        .Select(joined => joined.Loja)
+        .ToList();
+
+            var pl = model2.SelectMany(x => x.ProdutoLojas).FirstOrDefault();
+            if (pl != null)
+            {
+                ShowDiscount(pl.Id);
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Nenhum produto encontrado";
+            }
+
 
             //Produto selecionado
-            var produto = await _context.ProdutoLoja.FindAsync(id);
-            var name = nome;
+            var produtoLoja = _context.ProdutoLoja
+                                .FirstOrDefault(pl => pl.Produto.Id == id);
 
             // Verificar se o cliente já possui uma lista de produtos
             var listas = (await _context.ListaProdutos
@@ -353,47 +474,116 @@ namespace PechinchaMarket.Controllers
             //Se ja tiver uma lista de produtos vai adicionar um detalhe a essa lista
             if (listas.Count > 0 && listas.Any(l => l.name == nome))
             {
-                var novoDetalhe = new DetalheListaProd
+                var listaExistente = listas.FirstOrDefault(l => l.name == nome);
+
+                var detalheExistente = await _context.DetalheListaProd
+                                    .FirstOrDefaultAsync(d => d.ProdutoLoja.Id == produtoLoja.Id && d.ListaProdutos.Id == listaExistente.Id);
+
+                if (detalheExistente != null)
                 {
-                    quantity = quantityValue,
-                    ListaProdutos = listas.FirstOrDefault(l => l.name == nome),
-                    ProdutoLoja = produto,
-                };
-                _context.Add(novoDetalhe);
+                    // Se já existir um DetalheListaProd correspondente, incrementar a quantidade
+                    detalheExistente.quantity += quantityValue;
+                    _context.Update(detalheExistente);
+                }
+                else
+                {
+                    // Se não existir, adicionar um novo DetalheListaProd
+                    var novoDetalhe = new DetalheListaProd
+                    {
+                        quantity = quantityValue,
+                        ListaProdutos = listaExistente,
+                        ProdutoLoja = produtoLoja
+                    };
+                    _context.Add(novoDetalhe);
+
+                }
             }
 
-            //Não tem nenhuma lista
-            else if (listas.Count == 0 || listas.Any(l => l.name != nome))
+            //Não tem nenhuma lista e o nome esta a null
+            else if (listas.Count() == 0 && nome == null || nome == null && !listas.Any(l => l.name == "Lista de compras"))
             {
                 var novaListaProdutos = new ListaProdutos
                 {
-                    name = nome ?? "Lista de compras " + contadorDeListas,
+                    name = "Lista de compras",
                     ClienteId = cliente.Id.ToString(),
                     state = EstadoProdutoCompra.PorComprar,
                 };
                 _context.Add(novaListaProdutos);
-                contadorDeListas++;
 
                 var novoDetalhe = new DetalheListaProd
                 {
                     quantity = quantityValue,
                     ListaProdutos = novaListaProdutos,
-                    ProdutoLoja = produto,
+                    ProdutoLoja = produtoLoja,
 
                 };
                 _context.Add(novoDetalhe);
+                await _context.SaveChangesAsync();
+                TempData["StatusMessage"] = "Produto adicionado na Lista de compras (criada automaticamente)";
+                return View("AddToList", model2);
             }
-            
+
+            // Se já tem uma lista criada e o nome está a null, vai adicionar um detalhe a lista de default
+            else if (listas.Any(l => l.name == "Lista de compras") && nome == null)
+            {
+                var listaDeCompras = listas.FirstOrDefault(l => l.name == "Lista de compras");
+                var detalheExistente = await _context.DetalheListaProd
+                                    .FirstOrDefaultAsync(d => d.ProdutoLoja.Id == produtoLoja.Id && d.ListaProdutos.Id == listaDeCompras.Id);
+
+                if (detalheExistente != null)
+                {
+                    // Se já existir um DetalheListaProd correspondente, incrementar a quantidade
+                    detalheExistente.quantity += quantityValue;
+                    _context.Update(detalheExistente);
+                }
+                else
+                {
+                    // Se não existir, adicionar um novo DetalheListaProd
+                    var novoDetalhe = new DetalheListaProd
+                    {
+                        quantity = quantityValue,
+                        ListaProdutos = listaDeCompras,
+                        ProdutoLoja = produtoLoja
+                    };
+                    _context.Add(novoDetalhe);
+                }
+
+                await _context.SaveChangesAsync();
+                TempData["StatusMessage"] = "Produto adicionado automaticamente na Lista de compras";
+                return View("AddToList", model2);
+            }
+
+            // Se escrever algo no nome que ainda não exista
+            else if (nome != null && !listas.Any(l => l.name == nome))
+            {
+                var novaListaProdutos = new ListaProdutos
+                {
+                    name = nome,
+                    ClienteId = cliente.Id.ToString(),
+                    state = EstadoProdutoCompra.PorComprar,
+                };
+                _context.Add(novaListaProdutos);
+
+                var novoDetalhe = new DetalheListaProd
+                {
+                    quantity = quantityValue,
+                    ListaProdutos = novaListaProdutos,
+                    ProdutoLoja = produtoLoja,
+
+                };
+                _context.Add(novoDetalhe);
+                await _context.SaveChangesAsync();
+                TempData["StatusMessage"] = "Produto adicionado na "+nome;
+                return View("AddToList", model2);
+            }
+
+
             await _context.SaveChangesAsync();
+            var lista = listas.FirstOrDefault(l => l.name == nome);
+            TempData["StatusMessage"] = "Produto adicionado na " + lista.name;
 
+            return View("AddToList", model2);
 
-            return RedirectToAction("Index", "ListaProdutos");
-
-        }
-
-        public async Task<IActionResult> AddProductToList()
-        {
-            return View();
         }
 
         /// <summary>
@@ -406,7 +596,8 @@ namespace PechinchaMarket.Controllers
         {
             var product = _context.Produto.FirstOrDefault(p => p.Id == id);
 
-            if(product == null) {
+            if (product == null)
+            {
                 return null;
             }
 
@@ -416,7 +607,7 @@ namespace PechinchaMarket.Controllers
             foreach (var word in searchWords)
             {
                 var productsWithWord = _context.Produto
-                    .Where(p => p.Name.Contains(word) && p.Id != id)
+                    .Where(p => p.Name.Contains(word) && p.Id != id && p.ProdEstado == Estado.Approved)
                     .ToList();
                 similarProducts.AddRange(productsWithWord);
             }
@@ -424,8 +615,15 @@ namespace PechinchaMarket.Controllers
             similarProducts = similarProducts.Distinct().ToList();
 
             return similarProducts;
+
+            //return Json(similarProducts);
         }
 
+        /// <summary>
+        /// Função ShowImage - Mostra a imagem
+        /// </summary>
+        /// <param name="image">Imagem</param>
+        /// <returns>Uma imagem</returns>
         public string ShowImage(byte[]? image)
         {
             if (image == null)
@@ -440,6 +638,11 @@ namespace PechinchaMarket.Controllers
             return Convert.ToBase64String(image);
         }
 
+        /// <summary>
+        /// Função ShowDiscount - mostra o desconto caso ele exista
+        /// </summary>
+        /// <param name="id">id do produtoLoja pretendido</param>
+        /// <returns>View com os descontos aplicados</returns>
         public IActionResult ShowDiscount(int id)
         {
             var produtoLoja = _context.ProdutoLoja.Select(p => p).FirstOrDefault(p => p.Id == id);
@@ -468,7 +671,7 @@ namespace PechinchaMarket.Controllers
         {
             return _context.ProdutoLoja.Any(pl => pl.Id == id && pl.Discount > 0);
         }
+
+       
     }
 }
-
-

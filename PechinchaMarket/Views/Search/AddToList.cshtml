@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tuple<PechinchaMarket.Areas.Identity.Data.PechinchaMarketUser, PechinchaMarket.Models.Comerciante, PechinchaMarket.Models.Loja, PechinchaMarket.Models.ProdutoLoja, PechinchaMarket.Models.Produto>>
+﻿@model List<Produto>
 
 @{
     ViewData["Title"] = "Adicionar Produto na Lista";
@@ -6,79 +6,89 @@
     IEnumerable<ListaProdutos> listas = ViewData["Listas"] as IEnumerable<ListaProdutos>;
     IEnumerable<Loja> lojas = ViewData["Lojas"] as IEnumerable<Loja>;
     IEnumerable<Produto> produtos = ViewData["ProdutosSemelhantes"] as IEnumerable<Produto>;
+    IEnumerable<Comerciante> comerciantes = ViewData["Comerciante"] as IEnumerable<Comerciante>;
+
 }
+<script src="~/js/site.js"></script>
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
-
 <div style="display:none" id="produtoId">
-    @Html.DisplayFor(model => model.FirstOrDefault().Item5.Id)
+    @Html.DisplayFor(model => model.FirstOrDefault().Id)
 </div>
 <a class="back" onclick="goBack()"></a>
+<div id="mensagem">
+</div>
 <div class="row-container center-x-flex center-y-flex screen-height">
-
-    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.Select(x => x.Item5.Id).FirstOrDefault()})');">  </span>
+ 
+    <span class="imagem-produto" style="background-image: url('@Url.Action("ShowImage", "Manager", new { id = @Model.Select(x => x.Id).FirstOrDefault()})');">  </span>
     
     <div class="fit-content-width medium-padding-left">
        <div class="info">
             <div>
-               <h3> @Html.DisplayFor(model => model.FirstOrDefault().Item5.Name)
-                @Html.DisplayFor(model => model.FirstOrDefault().Item5.Brand) - @Html.DisplayFor(model => model.FirstOrDefault().Item2.Name)</h3>
+               <h3> @Html.DisplayFor(model => model.FirstOrDefault().Name)
+                    @Html.DisplayFor(model => model.FirstOrDefault().Brand) -
+                    @if (Model.Any())
+                    {
+                        var userId = Model.Select(x => x.ProdutoLojas.FirstOrDefault().Loja.UserId).FirstOrDefault();
+                        var name = comerciantes.Where(c => c.UserId == userId).First().Name;
+                        @name
+                    }
+                </h3>
             </div>
 
-            <div>
-                Morada da Loja: @Html.DisplayFor(model => model.FirstOrDefault().Item3.Address)
-            </div>
             <div class="discounts">
                 @if (ViewBag.PrecoExibicao != null)
                 {
                     <span class="discounted-price-text">
-                        @ViewBag.PrecoExibicao.ToString()€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                        @ViewBag.PrecoExibicao.ToString()€/@Html.DisplayFor(model => model.FirstOrDefault().Unidade)
                     </span>
                     <span class="price-text">
-                        <s>@Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)</s> <!-- Riscar o preço sem desconto -->
+                        <s>@Html.DisplayFor(model => model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Price)€/ @Html.DisplayFor(model => model.FirstOrDefault().Unidade)</s> <!-- Riscar o preço sem desconto -->
                     </span>
                     <span class="discount-text">
-                        Desconto de @Html.DisplayFor(model => model.FirstOrDefault().Item4.Discount)%
+                        Desconto de @Html.DisplayFor(model => model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Discount)%
                     </span>
                 }
                 else
                 {
                     <span class="price-text default">
-                        @Html.DisplayFor(model => model.FirstOrDefault().Item4.Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Item5.Unidade)
+                        @Html.DisplayFor(model => model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Price)€/@Html.DisplayFor(model => model.FirstOrDefault().Unidade)
                     </span>
                 }
             </div>
        </div>
                 
         <div class="acoes">
-            
-            <div class="quantity">
-                <input class="numberstyle" type="number" min="1" max="99" step="1" value="1" id="quantityInput" >
-            </div>
 
-            <div>
-                <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off" placeholder="Nome da Lista"/>
-                <div id="listas" style="display: none">
-                    <table class="lista-item" id="item">
-                        @foreach (ListaProdutos l in listas)
-                        {
-                            <tr>
-                                <td onclick="selectLista('@l.name','@l.Id')">
-                                    @Html.DisplayFor(modelItem => l.name)
-                                </td>
-                            </tr>
-                        }
-                    </table>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="quantity">
+                    <input class="numberstyle" type="number" min="1" max="99" step="1" value="1" id="quantityInput"> @Html.DisplayFor(model => model.FirstOrDefault().Unidade)
                 </div>
-            </div>
+                                         
+                <div>
+                    <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off" placeholder="Selecione uma Lista"/>
+                    <div id="listas" style="display: none">
+                        <table class="lista-item" id="item">
+                            @foreach (ListaProdutos l in listas)
+                            {
+                                <tr>
+                                    <td onclick="selectLista('@l.name','@l.Id')" class="black">
+                                        @Html.DisplayFor(modelItem => l.name)
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
             
-            <form asp-action="AddProduct">
-                <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().Item4.Id, quantityValue, nameValue" />
-                <input name="nome" type="hidden" id="nameValue"/>
-                <input name="quantityValue" type="hidden" dirname="quantity" id="quantityValue" />
-                <input type="submit" value="Adicionar à lista" class="button-add" onclick="updateQuantity(); updateName()" />
-            </form>
-            
+                <form asp-action="AddProduct">
+                    <input name="id" type="hidden" asp-for="@Model.FirstOrDefault().ProdutoLojas.FirstOrDefault().Id, quantityValue, nameValue" />
+                    <input name="nome" type="hidden" id="nameValue"/>
+                    <input name="quantityValue" type="hidden" dirname="quantity" id="quantityValue" />
+                    <input type="submit" value="Adicionar à lista" class="button-add" onclick="updateQuantity(); updateName()" />
+                </form>
+            }
             <div>
                 <input type="submit" value="Lojas" class="button-shops" onclick="showLojas()" />
             </div>
@@ -123,6 +133,10 @@
 
 @section Scripts{
     <script>
+        document.addEventListener("DOMContentLoaded", 
+            tooltipmsg("Nesta página, poderá obter os detalhes do produto, bem como adicioná-lo a uma lista desejada.", "", "")
+        );
+
         function updateQuantity() {
             var quantity = document.getElementById('quantityInput').value;
             document.getElementById('quantityValue').value = quantity;
@@ -156,6 +170,30 @@
             x.value = name;
             showListas();
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const specificDiv = document.getElementById('mensagem');
+
+            function displayMessage(statusMessage) {
+                const statusElement = document.createElement('div');
+                statusElement.classList.add('alert', 'alert-success', 'status-message');
+                statusElement.textContent = statusMessage;
+
+                specificDiv.innerHTML = '';
+                specificDiv.appendChild(statusElement);
+
+                const displayTime = 5000;
+                setTimeout(() => {
+                    statusElement.style.display = 'none';
+                }, displayTime);
+            }
+
+            const statusMessage = '@TempData["StatusMessage"]';
+
+            if (statusMessage) {
+                displayMessage(statusMessage);
+            }
+        });
         
     </script>
 }

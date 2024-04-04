@@ -3,9 +3,16 @@
  */
 document.addEventListener('DOMContentLoaded', function () {
     var elements = document.querySelectorAll('.authentication-input-text-div');
+
     elements.forEach(function (element) {
-        var height = element.getBoundingClientRect().height;
-        element.style.height = (height - 24) + 'px';
+
+        if (element.querySelector('span.text-danger')) {
+            if (element.querySelector('span.text-danger').textContent === '') {
+                element.style.height = element.children[0].getBoundingClientRect().height + 'px';
+            } else {
+                element.style.height = element.children[0].getBoundingClientRect().height + element.querySelector('span.text-danger').getBoundingClientRect().height + 'px';
+            }
+        }
     });
 });
 
@@ -32,6 +39,18 @@ function updateFileName(input) {
     var fileNameElement = fileContainer.querySelector('.file-name');
     fileNameElement.innerText = input.files[0] ? input.files[0].name : 'Nenhum ficheiro escolhido';
 }
+
+/**
+ * This function will update a label that corresponds to the uploaded file count on the basis that its a uncle of the input type file
+ * 
+ * @param input the input type file 
+ */
+function updateFileCount(input) {
+    var fileContainer = input.parentNode.parentNode; // Get the parent node of the input (the .insert-file container)
+    var fileNameElement = fileContainer.querySelector('.file-count');
+    fileNameElement.innerText = input.files[0] ? input.files.length : 'Nenhuma pasta escolhida';
+}
+
 
 /**
  * This function toggles the input-text type between 'password' and 'text', allowing the password to be displayed to the user.
@@ -257,3 +276,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     } 
 });
+
+
+function tooltipmsg(all,cliente,comerciante) {
+    var tooltipall = document.getElementById("tooltip-message-all");
+    var tooltipcliente = document.getElementById("tooltip-message-cliente");
+    var tooltipcomerciante = document.getElementById("tooltip-message-comerciante");
+
+    if (tooltipall) {
+        tooltipall.innerHTML = all;
+    }
+    if (tooltipcliente) {
+        tooltipcliente.innerHTML = cliente;
+    }
+    if (tooltipcomerciante) {
+        tooltipcomerciante.innerHTML = comerciante;
+    }
+}

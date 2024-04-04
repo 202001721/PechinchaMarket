@@ -4,20 +4,169 @@
 @{
 }
 
+<link href="~/css/produto.css" rel="stylesheet" />
+<link href="~/css/addMultiple.css" rel="stylesheet" />
+
 
 <body>
-    <form asp-action="AddMultiplesProducts">
-        
-    </form>
 
-    <form method="post" asp-action="ProcessarCSV" enctype="multipart/form-data">
-        <input type="file" name="arquivoCSV" />
-        <input type="file" id="fileInputControl" name="files" webkitdirectory="true" multiple />
-        <button type="submit">Enviar CSV</button>
-    </form>
+    <div class="gradiante2-secondary-color medium-padding-left medium-padding-top medium-padding-right">
+        <div class="title-button">
+            <h1>Adicionar Vários Produtos</h1>
+            <button class="help-button" onclick="help(this);">Precisa de ajuda?</button>
+        </div>
+
+        <p class="help">Para simplificar a adição de produtos, é possível adicionar vários através de um ficheiro CSV.</p>
+        <p class="help">As instruções seguintes utilizam Microsoft Excel para uma melhor experiência, mas está livre de utilizar outro tipo de software que desejar.</p>
+
+
+        <div class="center">
+            <div class="flex-row">
+                <a class="blue-button" href="~/results/Adicionar_Produtos.csv" download><img src="~/images/download.png" height="20px"/> Download Template</a>
+                <span class="help">1. Clique aqui para download o ficheiro CSV que vai preencher.</span>
+            </div>
+
+            <hr />
+
+            <form asp-action="AddMultiplesProducts">
+            </form>
+
+            <div class="help">
+                2. Abrir a aplicação Excel, verá uma folha de cálculo vazia, se não, selecione “Livro em Branco”.
+                <img class="image-tutorial" src="~/images/excel1.png" />
+            </div>
+            <div class="help">
+                3. Na barra de opções selecionar “Dados” e depois em baixo à esquerda “De texto/CSV”.
+                <img class="image-tutorial" src="~/images/excel2.png"/>
+            </div>
+
+            <div class="help">
+                4. O explorador de ficheiros irá abrir. Aqui procure a sua pasta de “Transferencias”, e selecione o ficheiro “Adicionar_Produtos.csv”.
+                <img class="image-tutorial" src="~/images/files1.png"/>
+            </div>
+
+            <div class="help">
+                5. Agora verá uma caixa com o título “Adicionar_Produtos.csv”. Em baixo clique em “Carregar”.
+                <img class="image-tutorial" src="~/images/excel3.png"/>
+            </div>
+            <div class="help">
+                <p >6. A tabela a preencher aparece na folha de excel, e a partir daí pode adicionar cada produto que pretende, um por linha.</p>
+                <div  class="small-margin-left">
+                    <p>6.1. 1ª Coluna “Marca”: Aqui preencha com o nome da marca do produto.</p>
+                    <p>6.2. 2ª Coluna “Nome”: Aqui preencha com o nome do próprio produto.</p>
+                    <p>6.3. 3ª Coluna “Categoria”: Aqui preencha com uma das seguintes categorias de produtos (ATENÇÂO: Outras categorias não são aceites):</p>
+                    <ul>
+                        <li>Enlatados</li>
+                        <li>Frescos</li>
+                        <li>Biologicos</li>
+                        <li>Congelados</li>
+                        <li>Pastelaria</li>
+                        <li>Talho</li>
+                        <li>Peixaria</li>
+                        <li>Charcutaria</li>
+                        <li>Bebidas</li>
+                        <li>Vegan</li>
+                        <li>Doces</li>
+                        <li>Snacks</li>
+                        <li>BebidasAlcoólicas</li>
+                    </ul>
+                    <p>6.4. 4ª Coluna “Peso”: Aqui preencha com o peso em kg do seu produto (ATENÇÃO: esta coluna não é obrigatória, só é necessária se colocar “Unit” na próxima coluna)</p>
+                    <p>6.5. 5ª Coluna “Unidade”: Aqui preencha com o uma das seguintes Unidades (ATENÇÃO: outras unidade não são aceites):</p>
+                    <ul>
+                        <li>
+                            Kg (para produtos vendidos ao KG)
+                        </li>
+                        <li>
+                            Unit (para produtos vendidos à unidade)
+                        </li>
+                        <li>
+                            Liter (para produtos vendidos ao litro)
+                        </li>
+                    </ul>
+                    <p>6.6. 6ª Coluna “Imagem”: Aqui preencha com o nome do ficheiro de imagem que representa o seu produto, mais abaixo estão as intruções para como formular a pasta das imagens a submeter.</p>
+                    <span>6.7. 7ª Coluna “Preco”: Aqui preencha com o preço do seu produto.</span>
+                </div>
+            </div>
+            <br class="help" />
+            <div class="help">
+                7.Quando acabar de preencher como todos os seus produtos, agora deve guardar o ficheiro. No Excel, dirija-se a “Ficheiro > Guardar Como” e selecionar no tipo de ficheiro “CSV UTF-8 (Delimitado por vírgulas) (*.csv)” e depois guarde onde lhe for preferível.
+                <img class="image-tutorial" src="~/images/excel4.png"/>
+            </div>
+
+            <p class="help">Nota: É recomendado abrir o ficheiro guardado com o Notepad ou outro leitor de texto simples para ter a certeza que cada valor está delimitado por virgula “,” e não ponto-e-virgula “;”. No caso do delimitador ser “;”, um simples Replace (Ctrl + H) de “;” para ”,” é solução.</p>
+            
+            <form method="post" asp-action="ProcessarCSV" enctype="multipart/form-data">
+                <div class="flex-row space">
+                    <div class="flex-row">
+                        <div>
+                            <label class="blue-button" for="arquivoCSV"><img src="~/images/upload.png" height="20px" /> Adicionar CSV</label>
+                            <input hidden onchange="updateFileName(this)" type="file" id="arquivoCSV" name="arquivoCSV" />
+                        </div>
+                        <div class="file-name">Nenhum ficheiro escolhido</div>
+                    </div>
+                    <span class="help">8. Agora pode inserir o seu ficheiro CSV. Apenas selecione do seu explorador de ficheiros</span> 
+                </div>
+                
+                <div class="help">
+                    <p>9. De seguida vai inserir a sua pasta de imagens para acompanhar os seus produtos.</p>
+                    <span>9.1. Crie uma pasta e guarde todas as imagens dos seus produtos nesta. Imagens podem ser JPG ou PNG, e os seus nomes devem igualar os que colocou no csv. Por exemplo se o produto com nome “Bife da Vazia” tem no csv a imagem “bife_da_vazia”, nesta pasta a imagem de bife da vazia deve ser intitulada “bife_da_vazia.png” ou “bife_da_vazia.jpg”.  </span>
+                    <img class="image-tutorial" src="~/images/files2.png"/>                
+                </div>
+                
+                <div class="flex-row space">
+                    <div class="flex-row">
+                        <div>
+                            <label class="blue-button" for="fileInputControl"><img src="~/images/upload.png" height="20px" /> Adicionar Pasta de Imagens</label>
+                            <input hidden onchange="updateFileCount(this)" type="file" id="fileInputControl" name="files" webkitdirectory="true" multiple />
+                        </div>
+                        <div class="file-count">Nenhuma pasta escolhida</div>
+                    </div>
+                    
+                    <span class="help"> 10. Agora pode inserir a sua pasta. Apenas selecione do seu explorador de ficheiros.</span>
+                </div>
+
+                <div class="flex-row space">
+                    <button class="blue-outline-button" type="submit">Enviar CSV</button>
+                    <span class="help">11. Finalmente pode submeter os seus produtos. </span>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    
 
 
 </body>
+
+<script>
+    function help(button) {
+        button.classList.toggle("active");
+        helpText = document.getElementsByClassName("help");
+
+
+        if (button.classList.contains("active")) {
+            button.textContent = "Fechar ajuda";
+            for (text of helpText) {
+                text.style.display = "block";
+            }
+        }else{
+            button.textContent = "Precisa de ajuda?";
+            for (text of helpText) {
+                text.style.display = "none";
+            }
+        }
+    }
+
+    function collapse(coll) {
+        coll.querySelector(".colapsable-button").classList.toggle("active");
+        var content = coll.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}}

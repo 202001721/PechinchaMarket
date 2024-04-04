@@ -11,28 +11,21 @@
    
     <body>
         <section class="container">
-           
-                  
-         @foreach (var item in Model)
-        {
-            @if (item.Item1.isApproved == false)
-            {  // @Model.FirstOrDefault().Item1.Id}
-                <div class="card">
-
-                    <div class="card-image"> <img src='@Url.Action( "ShowLogo", "Manager", new { id = item.Item1.Id
-
-                  })'/> </div>
-                    <h2>@Html.DisplayFor(modelItem => item.Item1.Name)</h2>
-                    <p>Email: @Html.DisplayFor(modelItem => item.Item2.Email)</p>
-                    <p>Contacto: @Html.DisplayFor(modelItem => item.Item1.contact)</p>
-                    <a asp-area="" asp-controller="Manager" asp-action="DetailsComerciante" asp-route-id="@item.Item1.Id"> Details</a>
-                </div>
-
-            }
-         
             
-        }
-        
+             @foreach (var item in Model)
+            {
+                @if (item.Item1.isApproved == false)
+                {
+                    <a asp-controller="Manager" asp-action="DetailsComerciante" asp-route-id=@item.Item1.Id>
+                        <div class="card">
+
+                            <div class="card-image"> <img src='@Url.Action( "ShowLogo", "Manager", new { id = item.Item1.Id})'/> </div>
+                            <h3>@Html.DisplayFor(modelItem => item.Item1.Name)</h3>
+                            <p>@Html.DisplayFor(modelItem => item.Item2.Email)</p>
+                        </div>
+                    </a>
+                }
+            }
         </section>
 
     </body>

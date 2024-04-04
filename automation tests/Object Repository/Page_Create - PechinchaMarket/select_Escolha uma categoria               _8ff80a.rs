@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>select</value>
-      <webElementGuid>74d3de01-3fcd-4235-a86f-9c2636698732</webElementGuid>
+      <webElementGuid>d240ea9c-4640-4081-9c05-82ebe042632b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>form-control</value>
-      <webElementGuid>f01a4bbf-a7aa-4019-83bc-2a7a3d9c790e</webElementGuid>
+      <webElementGuid>f792c55a-0e73-423e-ae87-d1171d89e220</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>data-val</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>799574e3-fc90-4823-9ac5-4fc6402da11d</webElementGuid>
+      <webElementGuid>85cb89b0-7ed2-4238-866a-841d397e035e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>data-val-required</name>
       <type>Main</type>
       <value>The Categoria field is required.</value>
-      <webElementGuid>88ce3c16-b386-4224-a86e-431d3eddb9b3</webElementGuid>
+      <webElementGuid>e3255d28-03de-425c-ab7e-4199566a4b08</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>id</name>
       <type>Main</type>
       <value>ProdCategoria</value>
-      <webElementGuid>76e3e254-c87a-43ba-a018-274318ce7c32</webElementGuid>
+      <webElementGuid>c03acaf8-1894-41b8-8a2a-738c13c7d04a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>name</name>
       <type>Main</type>
       <value>ProdCategoria</value>
-      <webElementGuid>4a9112f0-ad28-412f-8aea-7c4861d1521f</webElementGuid>
+      <webElementGuid>290329db-aac2-4127-8fb2-5ac8ee2b2b1d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -92,7 +92,7 @@ Doces
 Snacks
 BebidasAlcoólicas
 </value>
-      <webElementGuid>4c099e13-6e76-4a46-ae6e-0d6e30a73c1c</webElementGuid>
+      <webElementGuid>27480b14-92c3-4381-a81a-f294e23181ad</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -100,7 +100,7 @@ BebidasAlcoólicas
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;ProdCategoria&quot;)</value>
-      <webElementGuid>4a153b57-9850-42c1-addf-99f90c797662</webElementGuid>
+      <webElementGuid>7f201eed-d470-427e-8997-abb5e6fdc7a5</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -108,7 +108,7 @@ BebidasAlcoólicas
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//select[@id='ProdCategoria']</value>
-      <webElementGuid>ebbc4bfe-be57-4d6e-b0df-13b0d8350207</webElementGuid>
+      <webElementGuid>0e94f1f7-0bfc-408d-92ad-a15e590da2ef</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -116,7 +116,7 @@ BebidasAlcoólicas
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Categoria'])[1]/following::select[1]</value>
-      <webElementGuid>bf10fa49-40c8-4612-8749-73900d0e2ac5</webElementGuid>
+      <webElementGuid>180efc29-daa8-42d6-bbb3-67fd5d2fff8c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -124,7 +124,7 @@ BebidasAlcoólicas
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Peso'])[1]/following::select[1]</value>
-      <webElementGuid>7269d7c2-43e4-40ea-92fa-16152a30ff6c</webElementGuid>
+      <webElementGuid>765cb809-0e1d-468b-8329-63483c7a4a9f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -132,7 +132,7 @@ BebidasAlcoólicas
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Personalizar por loja'])[1]/preceding::select[1]</value>
-      <webElementGuid>5cdd28ed-22c1-465a-9a1b-34889469b3eb</webElementGuid>
+      <webElementGuid>5002162e-6222-45f8-81c5-1df501afc7cb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -140,7 +140,7 @@ BebidasAlcoólicas
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar Foto'])[1]/preceding::select[1]</value>
-      <webElementGuid>c4a77cce-a6b3-4f59-a3cd-d6d8bb72f6b2</webElementGuid>
+      <webElementGuid>54265427-341d-4c92-a028-b01a5c68f793</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -148,7 +148,7 @@ BebidasAlcoólicas
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[5]/select</value>
-      <webElementGuid>a1c00e91-244b-4e80-b9a0-0624de9252a9</webElementGuid>
+      <webElementGuid>e95928d9-9dee-42ae-b7a3-37135b2408b3</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -186,6 +186,6 @@ Doces
 Snacks
 BebidasAlcoólicas
 ')]</value>
-      <webElementGuid>7c08ac96-4da6-44bb-8ccd-385c53603fae</webElementGuid>
+      <webElementGuid>eaca7398-3522-4ce3-ba19-908c72c808f3</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

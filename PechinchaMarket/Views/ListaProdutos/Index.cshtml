@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    var counter = 0;
 }
+<script src="~/js/site.js"></script>
 <link href="~/css/listas.css" rel="stylesheet" />
 
 <body>
@@ -23,9 +24,51 @@
 
                     <p>@Html.DisplayFor(modelItem => item.state)</p>
                 </a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="bin"></a>
+                <a onclick="deletePopup(@counter)" class="bin cursor-pointer"></a>
             </div>
+
+            <div class="new-page display-none" id="delete-popup-@counter">
+                <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                    <div class="edges-flex max-width">
+                        <div class="title unselectable-text">Eliminar Lista</div>
+                        <div class="cross-button" onclick="deletePopup(@counter);"></div>
+                    </div>
+
+                    <div class="column-container max-height  edges-flex max-width">
+                        <span class=" small-margin-top">Tem certeza que deseja eliminar esta Lista?</span>
+                        <div class="center-x-flex">
+                            <h3>@Html.DisplayFor(modelItem => item.name)  </h3>
+                        </div>
+
+                        <div class="row-container right-flex max-width ">
+                            <form asp-action="Delete" method="post" asp-route-id=@item.Id>
+
+                                <div class="delete-div  small-padding-right2">
+
+                                    <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Lista</button>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            counter++;
         }
     </div>
+   
 </body>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        tooltipmsg("Nesta página, poderá analisar detalhes, eliminar e criar as suas listas.");
+    });
+
+    function deletePopup(text) {
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("delete-popup-" + text);
+        chooseimage.classList.toggle('display-none');
+    }
+</script>

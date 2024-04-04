@@ -9,7 +9,7 @@
     float totalprice = 0;
 }
 
-
+<script src="~/js/site.js"></script>
 <script>
     function editName(){
         var title = document.getElementById("title");
@@ -21,6 +21,10 @@
         title.style.display = "none";
         changeName.style.display = "none";
     }
+
+    document.addEventListener("DOMContentLoaded",
+        tooltipmsg("Nesta página, você poderá analisar e alterar os detalhes da sua lista. Além disso, você terá a opção de transferir a lista em formato PDF ou PNG.", "", "");
+    });
 </script>
 
 

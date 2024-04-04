@@ -11,12 +11,9 @@
 
     var counter = 0;
 
-
-    
-
 }
 
-
+<script src="~/js/site.js"></script>
 <script>
     function copyText() {
         var copyText = document.getElementById("codigo");
@@ -161,13 +158,38 @@
         }
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const specificDiv = document.getElementById('mensagem');
+
+        function displayMessage(statusMessage) {
+            const statusElement = document.createElement('div');
+            statusElement.classList.add('alert', 'alert-success', 'status-message');
+            statusElement.textContent = statusMessage;
+
+            specificDiv.innerHTML = ''; 
+            specificDiv.appendChild(statusElement);
+
+            const displayTime = 3000;
+            setTimeout(() => {
+                statusElement.style.display = 'none';
+            }, displayTime);
+        }
+
+        const statusMessage = '@TempData["StatusMessage"]';
+
+        if (statusMessage) {
+            displayMessage(statusMessage);
+        }
+    });
+    
 </script>
 
 
 <link type="text/css" rel="stylesheet" href="~/css/agrupamentos.css" />
 
 <h1>Agrupamentos</h1>
-
+<div id="mensagem">
+</div>
 <div class="display-flex">
     <form asp-action="Create" class="small-padding">
         <button class="pechincha-button default-button-color bigger-button" type="submit">Criar Agrupamento</button>
@@ -202,14 +224,14 @@
         var mEditorCounter = 0;
         var mLeitorCounter = 0;
 
-        <div class="background-constrast-color-2 rounded-border">
-            <div class="colapsable-div smaller-padding" onclick="colapse(this)">
+        <div class="background-constrast-color-2 rounded-border max-width">
+            <div class="colapsable-div smaller-padding" onclick="collapse(this)">
                 <span class="colapsable-content title">@Html.DisplayFor(modelItem => item.Agrupamento.Nome)</span>
                 <button class="colapsable-button"></button>
             </div>
-       
 
-            <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top off-screen smaller-gap-y column-container">
+            <div class="max-width open background-constrast-color-2">
+                <div class="small-margin-right small-margin-left small-margin-bottom small-margin-top smaller-gap-y column-container ">
                 @if (item.Privilegio == NivelPrivilegio.Admin)
                 {
 
@@ -250,11 +272,7 @@
                         </div>
 
                     </div>
-                }
-               
-
-               
-          
+                }     
 
                 <div class="background-constrast-color small-padding rounded-border">
                     <form asp-action="EditName" asp-route-id=@item.Agrupamento.Id method="post" class="row-container edges-flex">
@@ -265,7 +283,7 @@
                             <span asp-validation-for="@item.Agrupamento.Nome" class="text-danger"></span>
                         </div>
                         <div class="row-container center-y-flex smaller-gap-x">
-                            <input type="submit" value="Save" class="pechincha-button main-button-color off-screen" />
+                            <input type="submit" value="Salvar" class="pechincha-button main-button-color off-screen" />
                             @if(item.Privilegio == NivelPrivilegio.Admin)
                             {
                                 <div class="pechincha-button default-button-color" onclick="changeNameEditableField(this)">Renomear</div>
@@ -505,6 +523,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
         counter++;
     }
@@ -513,12 +532,21 @@
 
 
 <script>
-    function colapse(div) { 
-        div.children[0].classList.toggle("text-indent");
-        div.children[1].classList.toggle("active");
-        var hiddenContent = div.nextElementSibling;
-        hiddenContent.classList.toggle("off-screen");
+    document.addEventListener("DOMContentLoaded",
+        tooltipmsg("Nesta página, poderá gerir, criar e participar em grupos onde poderá partilhar as suas listas com os membros do grupo.","","")
+    );
+
+    function collapse(coll) {
+        coll.querySelector(".colapsable-button").classList.toggle("active");
+        var content = coll.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            console.log(content.scrollHeight)
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
     }
+
     function removerMembro(){
         document.getElementById("hideremove").style.display = "none";
         document.getElementById("showremove").style.display = "inherit";

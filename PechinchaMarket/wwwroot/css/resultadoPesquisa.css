@@ -1,12 +1,11 @@
 ﻿body {
     background: rgb(250, 181, 70);
     background: linear-gradient(to bottom, rgba(250, 181, 70) 10%, rgba(255, 255, 255, 1) 25%);
-    margin: 0; 
+    margin: 0;
 }
 
 .content {
     padding: 12em 5em;
-    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +44,7 @@
 
 .info div {
     display: flex;
+    margin-block: 1.5em;
     margin-bottom: 1em;
 }
 
@@ -53,6 +53,13 @@
     flex-direction: row;
     padding-top: 2em;
     gap: 2em;
+}
+
+@media (max-width: 768px) {
+    .acoes {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .button-add {
@@ -83,8 +90,8 @@
     color: #669AFF;
     font-size: 18px;
     font-weight:500;
-    margin-inline-start: -1em;
-    margin-top: -9em;
+    margin-inline-start: 1em;
+    margin-top: -10em;
 }
 
 .price-text {
@@ -147,14 +154,20 @@
     position: absolute;
     margin-bottom: 5px;
 }
-    .lista-item td {
+    .lista-item div {
         cursor: pointer;
+        border: 1px solid black;
         padding: 10px;
     }
 
-    .lista-item td.selected {
+    .lista-item div.selected {
         background-color: #e0e0e0;
     }
+
+.black {
+    border: 1px solid #000;
+    background-color: white;
+}
 
 .produtos-semelhantes {
     display: flex;
@@ -191,4 +204,21 @@
         border-right: 1px solid gray;
     }
 
-
+.status-message {
+    position: fixed;
+    z-index: 10000;
+    background-color: white;
+    opacity: 0.75;
+    border-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    width: 30%;
+    left: 35%;
+    transform: translateX(-50%);
+    top: 20%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

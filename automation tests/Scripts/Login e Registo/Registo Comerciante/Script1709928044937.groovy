@@ -21,43 +21,38 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
-WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Register'))
+WebUI.click(findTestObject('Page_Home Page - PechinchaMarket/a_Register'))
 
-WebUI.click(findTestObject('Object Repository/Page_Register - PechinchaMarket/span_Comerciante_account-type-comerciante-logo'))
+WebUI.click(findTestObject('Object Repository/Page_Registar - PechinchaMarket/div_Comerciante                    Publica _fffc1d'))
+
+WebUI.click(findTestObject('Page_Registar - PechinchaMarket/a_Continuar_Comerciante'))
 
 def nanoTimeAsString = System.nanoTime().toString()
 
 def email = ('pechincha' + nanoTimeAsString) + '@gmail.com'
 
-WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Criar conta como Comerciante_Input.Email'), 
+WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Descarrega os seus documentos_Input.Email'), 
     email)
 
 WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Email_Input.UserName'), 
-    'Pechincha')
+    'Automacao')
 
-WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/div_Password'))
+WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Nome_Input.Contact'), 
+    '987654321')
 
-WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Password'))
-
-WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Nome_Input.Password'), 
-    '8MulHJ6VnguuWGcei07mUQ==')
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Contacto_Input.Password'), 
+    'VyCYYIKrGZmyN9bkhIcWmA==')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Password_Input.ConfirmPassword'), 
-    '8MulHJ6VnguuWGcei07mUQ==')
-
-WebUI.setText(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Confirme a password_Input.Contact'), 
-    '929333292')
+    'VyCYYIKrGZmyN9bkhIcWmA==')
 
 WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/div_Continuar'))
 
-// Carregar a imagem
 WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Carregar'))
 
-//WebUI.uploadFile(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/input_Carregar_Input.Image'), file)
-
-// Carregar o arquivo PDF
-//WebUI.uploadFile(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Carregar PDF'), 'ArquivoTeste/Documento-autenticação.pdf')
+WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/label_Carregar PDF'))
 
 WebUI.click(findTestObject('Object Repository/Page_Registar Comerciante - PechinchaMarket/button_Registar'))
 
 WebUI.closeBrowser()
+

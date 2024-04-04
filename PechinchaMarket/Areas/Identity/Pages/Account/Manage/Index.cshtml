@@ -1,9 +1,24 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Profil";
+    ViewData["Title"] = "Perfil";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
+
+
+<script src="~/js/site.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_WfRY526MlBgsOxALrNXdf0qNl9m-Zk4&loading=async&libraries=places&callback=initAutocomplete" async defer></script>
+<script>
+    function initAutocomplete() {
+        var input = document.getElementById('location-input');
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+            types: ['geocode'], // Optional: restricts the search to addresses
+            componentRestrictions: { country: 'PT' }, // Restricts the results to Portugal
+            language: 'pt' // Set language to Portuguese
+        });
+        autocomplete.setFields(['address_components', 'formatted_address']);
+    }
+</script>
 
 <div class="row">
     <partial name="_StatusMessage" for="StatusMessage" />
@@ -339,10 +354,27 @@
 }
 
 <script>
+    document.addEventListener("DOMContentLoaded", 
+        tooltipmsg("Nesta pagina poderá alterar todas as informações/campos da sua conta", "", "")
+    );
+
+    var userphoto = document.getElementById("change-photo-form");
+    if (userphoto) {
+        userphoto = userphoto.querySelector('input[type="radio"]:checked').value;
+    }
     function choosePerfilImage() {
         document.body.classList.toggle('no-overflow');
         chooseimage = document.getElementById("choose-perfil-image");
         chooseimage.classList.toggle('display-none');
+
+        form = document.getElementById("change-photo-form");
+        var inputs = form.querySelectorAll('input[type="radio"]');
+        inputs.forEach(function (input) {
+            if (input.value === userphoto) {
+                input.checked = true;
+            }
+        });
+
     }
 
     function zoomPerfilImage(){ 
@@ -351,6 +383,10 @@
         zoomimage.classList.toggle('display-none');
     }
 
+    var username = document.getElementById('name-input');
+    if (username) { 
+        username = username.value;
+    }
     function toogleEditableField(button) {
 
         var form = button.parentNode.parentNode;
@@ -359,7 +395,12 @@
         var inputs = form.querySelectorAll('input');
         inputs.forEach(function (input) {
             if (input.id === 'name-input') {
+                input.value = username;
                 input.disabled = !input.disabled;
+                var textdanger = input.parentNode.querySelector("span.text-danger");
+                if(textdanger){
+                    textdanger.innerHTML = "";
+                }
             }
         });
         
@@ -382,6 +423,10 @@
         }
     }
 
+    var phonenumber = document.getElementById('phone-input');
+    if (phonenumber){
+        phonenumber = phonenumber.value;
+    }
     function phoneEditableField(button) { 
         var form = button.parentNode.parentNode;
         var elemtToHide = button.parentNode.children[0];
@@ -389,7 +434,12 @@
         var inputs = form.querySelectorAll('input');
         inputs.forEach(function (input) {
             if (input.id === 'phone-input') {
+                input.value = phonenumber;
                 input.disabled = !input.disabled;
+                var textdanger = input.parentNode.querySelector("span.text-danger");
+                if (textdanger) {
+                    textdanger.innerHTML = "";
+                }
             }
         });
 
@@ -412,6 +462,10 @@
         }
     }
 
+    var userlocation = document.getElementById('location-input');
+    if (userlocation) { 
+        userlocation = userlocation.value;
+    }
     function locationEditableField(button){ 
         var form = button.parentNode.parentNode;
         var elemtToHide = button.parentNode.children[0];
@@ -419,7 +473,12 @@
         var inputs = form.querySelectorAll('input');
         inputs.forEach(function (input) {
             if (input.id === 'location-input') {
+                input.value = userlocation;
                 input.disabled = !input.disabled;
+                var textdanger = input.parentNode.querySelector("span.text-danger");
+                if (textdanger) {
+                    textdanger.innerHTML = "";
+                }
             }
         });
 
@@ -442,13 +501,26 @@
         }   
     }
 
+    var preferences = document.getElementById("preferences-form");
+    if (preferences) { 
+        preferences = preferences.querySelectorAll('input[type="checkbox"]:checked');
+        preferences.contains = function (input) { 
+            var isContained = false;
+            this.forEach(function (checkbox) { 
+                if (checkbox === input) { 
+                    isContained = true;
+                }
+            });
+            return isContained;
+        }
+    }
     function preferencesEditableField(button) { 
     var form = button.parentNode.parentNode;
         var elemtToHide = button.parentNode.children[0];
 
         var inputs = form.querySelectorAll('input[type="checkbox"]');
         inputs.forEach(function (input) {
-            if (!input.checked) {
+            if (!preferences.contains(input)) {
                 input.parentNode.classList.toggle('display-none');
             }
 
@@ -464,6 +536,7 @@
         }   
     }
 
+    
     function displayEditableField(button) {
 
         var form = button.parentNode.parentNode;

@@ -5,47 +5,97 @@
 
 @{
     ViewData["Title"] = "Index";
+    var counter = 0;
 }
+<script src="~/js/site.js"></script>
 <link href="~/css/loja.css" rel="stylesheet" />
 
-<h1>Lojas</h1>
+<h1 class="small-padding smaller-padding-left">Lojas</h1>
 
-<p>
-    <a class="button-a" asp-action="Create">Adicionar Loja</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OpeningTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClosingTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-            @if (item.UserId == UserManager.GetUserId(User))
-            {
+<body>
+<a href="@Url.Action("Create", "Lojas")" class="floating-button"></a>
+
+<div class="small-padding small-padding-top">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OpeningTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClosingTime)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OpeningTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClosingTime)
+                </th>
+                <th></th>
             </tr>
-    }           }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.UserId == UserManager.GetUserId(User))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpeningTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClosingTime)
+                        </td>
+                        <td>
+                                <a class="img-edit" asp-action="Edit" asp-route-id="@item.Id"></a>
+                                <a class="img-trash" onclick="deletePopup(@counter);"></a>
+                        </td>
+                    </tr>
+
+                        <div class="new-page display-none" id="delete-popup-@counter">
+                            <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                                <div class="edges-flex max-width">
+                                    <div class="title unselectable-text">Eliminar Loja</div>
+                                    <div class="cross-button" onclick="deletePopup(@counter);"></div>
+                                </div>
+
+                                <div class="column-container max-height  edges-flex max-width">
+                                    <span class=" small-margin-top">Tem certeza que deseja eliminar esta Loja?</span>
+                                    <div class="center-x-flex">
+                                       <p>Na seguinte morada, @Html.DisplayFor(modelItem => item.Address) </p>
+                                    </div>
+
+                                    <div class="row-container right-flex max-width ">
+                                        <form asp-action="Delete" method="post" asp-route-id=@item.Id>
+
+                                            <div class="delete-div  small-padding-right2">
+
+                                                <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Loja</button>
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        counter++;
+                }           
+            }
+        </tbody>
+    </table>
+
+</div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", 
+        tooltipmsg("Nesta pagina poderá analisar, editar, criar e eleminar todas as suas lojas.", "", "")
+    );
+
+    function deletePopup(text) {
+        document.body.classList.toggle('no-overflow');
+        chooseimage = document.getElementById("delete-popup-" + text);
+        chooseimage.classList.toggle('display-none');
+    }
+</script>
