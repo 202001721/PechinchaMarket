@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>bbf766ac-ff6f-44ac-bde4-005c9c93dbb6</webElementGuid>
+      <webElementGuid>89e9a428-f175-492c-9332-9b25e0bfef94</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,15 +37,15 @@
       <name>class</name>
       <type>Main</type>
       <value>itembox</value>
-      <webElementGuid>9cd98035-feb9-4da5-aee4-04862d3a6ef7</webElementGuid>
+      <webElementGuid>3983ea94-be0d-4851-bab2-ef9b82c9df34</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>href</name>
       <type>Main</type>
-      <value>/ListaProdutos/Edit/5664aea6-d0d9-48cd-b4fe-08dc43989c50</value>
-      <webElementGuid>10d1a59c-ffe6-4f35-ae9f-b347504f0a6e</webElementGuid>
+      <value>/ListaProdutos/Edit/df3a436e-66fa-4d06-d586-08dc548c837d</value>
+      <webElementGuid>171b9ccc-5be2-4c43-8d66-93a670d763a0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -57,7 +57,7 @@
 
                     PorComprar
                 </value>
-      <webElementGuid>cf7bd51d-f9d1-414b-ac98-6beb4cefbe3a</webElementGuid>
+      <webElementGuid>5dc78e65-66e6-42ef-99c1-b86fbab167da</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -65,7 +65,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;item&quot;]/a[@class=&quot;itembox&quot;]</value>
-      <webElementGuid>0e73dd7a-10fc-4405-b7db-f9c663862cda</webElementGuid>
+      <webElementGuid>537d2ea6-0fe5-4bf8-a863-24ca75f524f8</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -73,7 +73,63 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='As minhas listas'])[1]/following::a[2]</value>
-      <webElementGuid>d84062d5-0840-4349-9516-b9a0979e7f55</webElementGuid>
+      <webElementGuid>bfaad6ed-d0e5-49f1-a4a6-27498db650f0</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Terminar Sessão'])[1]/following::a[2]</value>
+      <webElementGuid>02456011-c493-4414-ba32-3a76f6a1d7f3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Eliminar Lista'])[1]/preceding::a[2]</value>
+      <webElementGuid>8175ab9d-864f-4784-ad69-0bd9580d609c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Tem certeza que deseja eliminar esta Lista?'])[1]/preceding::a[2]</value>
+      <webElementGuid>84b125f7-d503-45f5-a597-7cc8d8262373</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, '/ListaProdutos/Edit/df3a436e-66fa-4d06-d586-08dc548c837d')]</value>
+      <webElementGuid>f99fd128-2ed3-42c6-b05e-a11217120896</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//main/div/div/a</value>
+      <webElementGuid>f07504a8-318d-4d4e-9db4-bf2d28907919</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = '/ListaProdutos/Edit/df3a436e-66fa-4d06-d586-08dc548c837d' and (text() = '
+                    Lista de compras
+
+                    PorComprar
+                ' or . = '
+                    Lista de compras
+
+                    PorComprar
+                ')]</value>
+      <webElementGuid>154fecad-a13c-4212-9345-80a312b374bf</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

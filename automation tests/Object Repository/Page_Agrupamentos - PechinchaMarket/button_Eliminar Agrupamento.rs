@@ -3,11 +3,11 @@
    <description></description>
    <name>button_Eliminar Agrupamento</name>
    <tag></tag>
-   <elementGuidId>1177b41c-f44d-44c5-bc32-219750af1f07</elementGuidId>
+   <elementGuidId>7fd89d3d-30b3-49fd-a8c6-b46684f70ba7</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>(//button[@type='submit'])[81]</value>
+         <value>(//button[@type='submit'])[91]</value>
       </entry>
       <entry>
          <key>CSS</key>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>4d87fc99-2c44-41e3-9c65-a1b2caf98629</webElementGuid>
+      <webElementGuid>0eb4406e-3f8c-448f-87de-1642fdf4dd9a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>pechincha-button delete-button-color bigger-button</value>
-      <webElementGuid>79fb32f6-bccc-4ba0-8bab-5288d218d281</webElementGuid>
+      <webElementGuid>a59d0abe-286a-4cb7-a408-96915d730c57</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>0868944f-5654-4438-94aa-629897fb4dbc</webElementGuid>
+      <webElementGuid>a02776ee-8afa-4a58-b26a-44115fd74d4a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>text</name>
       <type>Main</type>
       <value> Eliminar Agrupamento</value>
-      <webElementGuid>2ebed861-aa43-4a9d-933e-fdc7ed033cc1</webElementGuid>
+      <webElementGuid>c2afcbbf-f3e2-4606-8a58-f7a692376ad3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,15 +61,15 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;delete-popup-2&quot;)/div[@class=&quot;smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex&quot;]/div[@class=&quot;column-container max-height  edges-flex max-width&quot;]/div[@class=&quot;row-container right-flex max-width&quot;]/form[1]/div[@class=&quot;delete-div  small-padding-right2&quot;]/button[@class=&quot;pechincha-button delete-button-color bigger-button&quot;]</value>
-      <webElementGuid>98b4acc0-6bc9-4012-a27c-e85964d8c10a</webElementGuid>
+      <webElementGuid>e6012a73-a88f-4f21-a39b-b13d6f32d26f</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>(//button[@type='submit'])[81]</value>
-      <webElementGuid>35eb85a3-6dd1-4935-bb30-b2daffeac909</webElementGuid>
+      <value>(//button[@type='submit'])[91]</value>
+      <webElementGuid>a2218e16-3eef-49fc-9294-d4d0dd1f6b25</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='delete-popup-2']/div/div[2]/div[2]/form/div/button</value>
-      <webElementGuid>3e38aab7-4380-4dce-9ef4-7895c2a9a8fd</webElementGuid>
+      <webElementGuid>c8d878cb-4cf3-422a-808f-06fdd17c2322</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Agrupamento 3'])[2]/following::button[1]</value>
-      <webElementGuid>9a8b8b02-b1e4-44d0-b4e0-a60dc9e57c3d</webElementGuid>
+      <webElementGuid>2ec5abd3-6dfb-48c9-8004-98db57d20c72</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Tem certeza que deseja eliminar este agrupamento?'])[2]/following::button[1]</value>
-      <webElementGuid>fede09ee-7585-444e-8dfc-01f4aed05190</webElementGuid>
+      <webElementGuid>bb73cbe1-1859-486a-896d-ecd32aaac88a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Nome'])[3]/preceding::button[1]</value>
-      <webElementGuid>b7ce0c26-3b4f-47e8-963b-45f725b4cd61</webElementGuid>
+      <webElementGuid>7558fb65-0a12-4adf-8752-97a22816e84b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Renomear'])[2]/preceding::button[1]</value>
-      <webElementGuid>84e364ed-06aa-47b6-bcf1-e1873f4bba8c</webElementGuid>
+      <webElementGuid>cb160bb3-c682-4207-98c1-af32eb2cfb4a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,7 +117,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[3]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/button</value>
-      <webElementGuid>f48cf204-2425-4fb6-ac0e-36a57a1eb909</webElementGuid>
+      <webElementGuid>ae89fb85-a565-4be5-acbd-eb5a0c0bf806</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -125,6 +125,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@type = 'submit' and (text() = ' Eliminar Agrupamento' or . = ' Eliminar Agrupamento')]</value>
-      <webElementGuid>f123a3cf-0150-4adb-97d4-5380b39d6e1f</webElementGuid>
+      <webElementGuid>fbf45b2e-5d17-419d-99cc-a6562bfaaa3e</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

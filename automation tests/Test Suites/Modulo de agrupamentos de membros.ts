@@ -32,4 +32,11 @@
       <testCaseId>Test Cases/Agrupamentos/Adicionar e Remover lista do agrupamento</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
+   <testCaseLink>
+      <guid>3d483bd9-2bcb-46fd-9e33-d15de371f3bb</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Agrupamentos/Adicionar e Remover membro do agrupamento</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+   </testCaseLink>
 </TestSuiteEntity>

@@ -33,11 +33,11 @@ WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/s
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Perfil'))
 
-WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/div_Editar_Phone'))
+WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/div_Editar_Preferencias'))
 
 WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/label_Enlatados'))
 
-WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/button_Salvar_photo-comerciante'))
+WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/button_Salvar_Preferencias'))
 
 WebUI.closeBrowser()
 

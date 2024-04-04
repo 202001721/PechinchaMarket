@@ -37,7 +37,7 @@ WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/div_
 
 WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/label_Carregar'))
 
-WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/button_Salvar_Password'))
+WebUI.click(findTestObject('Object Repository/Page_Perfil - PechinchaMarket/button_Salvar_photo-comerciante'))
 
 WebUI.closeBrowser()
 
