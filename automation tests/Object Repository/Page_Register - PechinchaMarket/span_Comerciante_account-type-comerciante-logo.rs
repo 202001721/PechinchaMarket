@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>32989880-b33e-451e-b0c2-cb6eb1e54346</webElementGuid>
+      <webElementGuid>6a190ca0-49fa-413d-9b48-58975e9d41d9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>account-type-comerciante-logo</value>
-      <webElementGuid>90dda96f-e5db-419c-94b1-d2806a47eff6</webElementGuid>
+      <webElementGuid>147668a7-91d9-417a-b44f-f322c7d72f5a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>/html[1]/body[@class=&quot;gradiante-main-color background-height&quot;]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;content-background authentication-box center-div-x-axis&quot;]/div[@class=&quot;centered-content&quot;]/div[@class=&quot;inline-div&quot;]/a[@class=&quot;a-div-button&quot;]/button[@id=&quot;login-submit&quot;]/span[@class=&quot;account-type-comerciante-logo&quot;]</value>
-      <webElementGuid>3c127edb-163c-483a-9e0f-ca06859244c8</webElementGuid>
+      <webElementGuid>851a7b0d-45bf-40ce-be33-436e1c7679d4</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>(//button[@id='login-submit']/span)[2]</value>
-      <webElementGuid>6f4b0893-7fae-4edb-84fe-a71b763e9b1a</webElementGuid>
+      <webElementGuid>77b45ba9-8482-4886-920c-1452de5991ea</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -61,6 +61,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//a[2]/button/span</value>
-      <webElementGuid>db23c1a7-01f4-48cf-ad50-bcaf9d34946a</webElementGuid>
+      <webElementGuid>df9dfc7f-ed56-4e13-9911-afaf697502ea</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

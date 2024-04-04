@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>label</value>
-      <webElementGuid>0abc4fca-a3fe-4ee0-a5ed-e3a764908cd6</webElementGuid>
+      <webElementGuid>db5e19cc-086d-4d93-a9fc-1f9ca4cd6c7a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>for</name>
       <type>Main</type>
       <value>Input_Password</value>
-      <webElementGuid>825315e4-d35e-49ee-be55-111e462425b6</webElementGuid>
+      <webElementGuid>914fad75-3a95-411d-a281-4a6d66da7b9c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Password</value>
-      <webElementGuid>3be83d6a-d108-4991-ad39-c025162669ba</webElementGuid>
+      <webElementGuid>62263aa5-59e1-465c-8389-af93702b77c8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;account&quot;)/div[@class=&quot;authentication-phase authentication-basedon-column&quot;]/div[2]/div[@class=&quot;authentication-input-text-div&quot;]/label[1]</value>
-      <webElementGuid>d3af6903-53ae-40ba-b12a-fe03f8594171</webElementGuid>
+      <webElementGuid>76c4aa28-62b2-4b01-813f-0184818b1fef</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//form[@id='account']/div/div[2]/div/label</value>
-      <webElementGuid>5804d6f5-fa95-456f-8b33-42815135073e</webElementGuid>
+      <webElementGuid>d75ef427-e9eb-4af9-9de0-1dc7962192ba</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,47 +69,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Email'])[1]/following::label[1]</value>
-      <webElementGuid>2a330315-2c34-44dd-b839-aef2f53a4a2e</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='ou'])[1]/following::label[2]</value>
-      <webElementGuid>e6c6f886-85cb-4d7c-a316-4bd66a59e7fd</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/preceding::label[1]</value>
-      <webElementGuid>d5ce90b1-e070-42e2-9b93-39a4e0db77d5</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Password']/parent::*</value>
-      <webElementGuid>335545f3-d5c8-40c1-bdf5-da30420a4aa8</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[2]/div/label</value>
-      <webElementGuid>85e6f946-de4f-4da1-8f7c-fd9cc32a68c4</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//label[(text() = 'Password' or . = 'Password')]</value>
-      <webElementGuid>da28fec9-3365-4531-b4c0-a36e57e64c3b</webElementGuid>
+      <webElementGuid>b9f549df-6ce1-42fe-b47b-157660f26b9c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -118,5 +78,37 @@
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/following::label[2]</value>
       <webElementGuid>94a8f041-c7ee-499f-9390-09234e57350a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/preceding::label[1]</value>
+      <webElementGuid>63ce176b-0c93-4492-820f-78f1e91c1962</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Password']/parent::*</value>
+      <webElementGuid>41f66a85-8f05-4d73-a0d1-b10774afd77d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div/label</value>
+      <webElementGuid>7090c158-8f0b-4bf6-a700-98f55bd98581</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//label[(text() = 'Password' or . = 'Password')]</value>
+      <webElementGuid>ef691046-4ec0-449b-917b-2f8db5890491</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>a</value>
-      <webElementGuid>d5bad452-e166-428f-ba88-ce916093a489</webElementGuid>
+      <webElementGuid>7b6d0ee6-622d-4f32-a1ac-2d086455b143</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>class</name>
       <type>Main</type>
       <value>nav-link text-dark</value>
-      <webElementGuid>2f31262f-cec6-4e25-896b-6470e6fcb6c8</webElementGuid>
+      <webElementGuid>ce72b4be-71a7-427c-826e-127c8c2de3e8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>id</name>
       <type>Main</type>
       <value>register</value>
-      <webElementGuid>dec9aec0-c463-4c23-a669-99d841fb9324</webElementGuid>
+      <webElementGuid>c75ae243-eeb2-4447-acfd-a8adc9a161fd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>href</name>
       <type>Main</type>
       <value>/Identity/Account/Register</value>
-      <webElementGuid>55b14123-83b7-45eb-8abc-14e59e4d693b</webElementGuid>
+      <webElementGuid>4391d894-b824-44ae-9f86-4898dc7c617f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Register</value>
-      <webElementGuid>6b5e31a6-9cb6-4381-b9c9-0fbb4d67f7e5</webElementGuid>
+      <webElementGuid>e8116598-fdb8-4cdb-94c2-d2bfacfeb308</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;register&quot;)</value>
-      <webElementGuid>98d1e91d-2ace-4818-8c1d-55203d1eccfe</webElementGuid>
+      <webElementGuid>ea5989f4-c90c-4abc-b5fe-83752d1e240f</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//a[@id='register']</value>
-      <webElementGuid>a8192e38-f605-42a2-a035-618555ca4a66</webElementGuid>
+      <webElementGuid>1203c3f2-5b82-448a-8e17-9f706f0d05e5</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,23 +85,7 @@
       <name>xpath:link</name>
       <type>Main</type>
       <value>//a[contains(text(),'Register')]</value>
-      <webElementGuid>54332541-f94f-409c-bbc9-96cb11cec1c4</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Fechar'])[1]/following::a[1]</value>
-      <webElementGuid>7ec07f02-c929-4e2b-8e85-005d7a0fbb1a</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Bem-vindo a nossa plantaforma, esta é nossa pagina principal'])[1]/following::a[1]</value>
-      <webElementGuid>46b288a6-c6f0-4edf-ab5f-4a45de554f9f</webElementGuid>
+      <webElementGuid>f2598cb8-b696-4393-8a52-f2c119421d16</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[1]/preceding::a[1]</value>
-      <webElementGuid>62c1af6e-4967-409a-8890-841a83573f2e</webElementGuid>
+      <webElementGuid>9f29aabf-6618-4c52-9547-8eddabb0d64e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,7 +101,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Register']/parent::*</value>
-      <webElementGuid>8e2fa17c-cab5-4599-b286-f24c5966e04f</webElementGuid>
+      <webElementGuid>06afb90d-1907-40ac-8981-dae89dbcb5b8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -125,23 +109,7 @@
       <name>xpath:href</name>
       <type>Main</type>
       <value>//a[contains(@href, '/Identity/Account/Register')]</value>
-      <webElementGuid>d0c680e6-351f-4d99-86f1-338bf8713ff0</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//span/a</value>
-      <webElementGuid>c9edd7b6-259c-4134-b239-a1e93dfa716f</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//a[@id = 'register' and @href = '/Identity/Account/Register' and (text() = 'Register' or . = 'Register')]</value>
-      <webElementGuid>27588070-e78e-4399-8469-701b78d40836</webElementGuid>
+      <webElementGuid>f58b6bf4-8627-45e8-94e0-80a01568bd70</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -149,6 +117,14 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//li/a</value>
-      <webElementGuid>c75592eb-18e9-486a-a677-b67c6fdc9aef</webElementGuid>
+      <webElementGuid>97c95e27-97c7-433e-9260-db97dc06c52a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@id = 'register' and @href = '/Identity/Account/Register' and (text() = 'Register' or . = 'Register')]</value>
+      <webElementGuid>51d864f5-e72e-4cef-8d9c-0ecb4f4cbf6b</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

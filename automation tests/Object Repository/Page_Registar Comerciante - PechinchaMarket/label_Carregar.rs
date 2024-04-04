@@ -18,7 +18,7 @@
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:text=&quot;Carregar&quot;s</value>
+         <value>#phase1 div >> internal:has-text=&quot;Logotipo Carregar Nenhum ficheiro escolhido&quot;i >> label</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>label</value>
-      <webElementGuid>f95b2417-7795-4a3e-b8d2-2726fc3fa0e4</webElementGuid>
+      <webElementGuid>229e717d-336c-4091-99af-750c4c1b20ff</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -37,7 +37,7 @@
       <name>for</name>
       <type>Main</type>
       <value>Input_Image</value>
-      <webElementGuid>f4a78792-98eb-4803-bfc5-21fac4db9fd7</webElementGuid>
+      <webElementGuid>f568e398-daab-415a-a8f0-f7fd962667e0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,7 +45,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Carregar</value>
-      <webElementGuid>77331bf0-2bfa-4549-a8d3-14817bc89dff</webElementGuid>
+      <webElementGuid>490d9fbb-22a6-43ca-bf5d-12b3f43ea08f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;phase1&quot;)/div[@class=&quot;insert-file file-type-image&quot;]/div[@class=&quot;insert-file-input&quot;]/div[1]/label[1]</value>
-      <webElementGuid>f693256f-418f-4de5-aede-1d6c7e651772</webElementGuid>
+      <webElementGuid>7fb445ea-7472-4889-a368-e32bbdb59923</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='phase1']/div/div[2]/div/label</value>
-      <webElementGuid>9f03645d-7a9d-4e8e-bc1b-e0d1ad4f2fe5</webElementGuid>
+      <webElementGuid>a8d712d9-a43d-4e97-9612-648131b56797</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Logotipo'])[1]/following::label[1]</value>
-      <webElementGuid>506d1f07-a794-4134-b989-da29394cf5af</webElementGuid>
+      <webElementGuid>9144c5c6-a546-4c5a-a76c-8a8b17269c93</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar'])[1]/following::label[1]</value>
-      <webElementGuid>c50d22dc-5e73-475f-89e8-0b05ccc983ef</webElementGuid>
+      <webElementGuid>d1907748-e360-4e4f-8fb1-cf9cdca727a0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Nenhum ficheiro escolhido'])[1]/preceding::label[1]</value>
-      <webElementGuid>eba36a9c-1832-432c-a9f4-6d14931bcb4b</webElementGuid>
+      <webElementGuid>feecde65-dbd7-4faf-80ae-bb4812e5d9a4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Documento de autenticação'])[1]/preceding::label[1]</value>
-      <webElementGuid>fbeb82e9-a5b9-460b-8578-9162d625ebcb</webElementGuid>
+      <webElementGuid>42835606-dd1e-40c2-a758-ee1508f5d283</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Carregar']/parent::*</value>
-      <webElementGuid>688b51de-27ce-402a-a5e2-eebb23eeddd1</webElementGuid>
+      <webElementGuid>351e5f20-d322-4fc5-a6df-5d3153f057bb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,7 +109,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/div/label</value>
-      <webElementGuid>13cb3b5e-2fef-4b30-8a89-08d5ddc9a8ec</webElementGuid>
+      <webElementGuid>e4eb84a3-740d-421b-90c3-fffb40b6dcd7</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -117,6 +117,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//label[(text() = 'Carregar' or . = 'Carregar')]</value>
-      <webElementGuid>5eb76030-91dd-411b-9797-b4530685b766</webElementGuid>
+      <webElementGuid>f49ed3c8-9420-42ac-a17e-44d43ddf91d8</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

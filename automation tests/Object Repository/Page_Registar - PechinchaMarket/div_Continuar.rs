@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div.pechincha-button.main-button-color</value>
+         <value>div.confirm-button</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,15 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>e3dadf44-1e91-422a-a620-44db5ea9b00c</webElementGuid>
+      <webElementGuid>da69e51a-98e1-46f8-8285-9b83ac254ab3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>pechincha-button main-button-color</value>
-      <webElementGuid>ad71f8c6-bec0-4e3d-aee9-58cba212e3ca</webElementGuid>
+      <value>confirm-button</value>
+      <webElementGuid>459c47dc-f0c4-4067-8568-a4f467778bf5</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>toogleSignUpFase(1, 2)</value>
-      <webElementGuid>91ed8224-b902-4979-86b7-5a47e9b72eed</webElementGuid>
+      <webElementGuid>9c1e4676-ae79-4099-bc55-30b4eef2eca1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,15 +53,15 @@
       <name>text</name>
       <type>Main</type>
       <value>Continuar</value>
-      <webElementGuid>abab4eb5-cd19-4fa4-b673-a1d1bcf27f89</webElementGuid>
+      <webElementGuid>0e9be14e-273d-431e-872e-543a1e494f7b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;phase0&quot;)/div[@class=&quot;authentication-buttons&quot;]/div[@class=&quot;pechincha-button main-button-color&quot;]</value>
-      <webElementGuid>13115450-098f-428f-aab0-547f1a7466b7</webElementGuid>
+      <value>id(&quot;phase0&quot;)/div[@class=&quot;authentication-buttons&quot;]/div[@class=&quot;confirm-button&quot;]</value>
+      <webElementGuid>21ec3f59-cdfd-4c82-a0ea-b4bc090c2ad0</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//div[@onclick='toogleSignUpFase(1, 2)']</value>
-      <webElementGuid>086c3ae3-c236-4e1f-9387-eeb444414248</webElementGuid>
+      <webElementGuid>3b52c1cc-1e08-4c22-a987-80d63c0c05f8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,63 +77,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='phase0']/div[6]/div</value>
-      <webElementGuid>d3ab1561-1ed6-40cb-ab71-6b8576f6e275</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Voltar'])[1]/following::div[1]</value>
-      <webElementGuid>71c5d5bf-37cc-46fd-bcd4-ba16aaa5eb26</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Confirme a password'])[1]/following::div[2]</value>
-      <webElementGuid>a3e06e83-b2f1-4127-913e-e2db14331d66</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/preceding::div[1]</value>
-      <webElementGuid>bce888e7-34e4-4b08-95ad-c7b0a846f8d1</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Frescos'])[1]/preceding::div[2]</value>
-      <webElementGuid>e4626e28-d0f5-49b4-91b4-50d4c4879402</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>//*/text()[normalize-space(.)='Continuar']/parent::*</value>
-      <webElementGuid>8147a098-f1fa-4b43-8329-d814ff44c18b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[6]/div</value>
-      <webElementGuid>4e562b03-f240-4d95-b34d-ffb1ee561ad3</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//div[(text() = 'Continuar' or . = 'Continuar')]</value>
-      <webElementGuid>3a74f63b-bc5d-4a30-922f-9cac4839a5a1</webElementGuid>
+      <webElementGuid>a2842fb2-3908-40f9-88c7-a751404990ab</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -141,6 +85,54 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Cancelar'])[1]/following::div[1]</value>
-      <webElementGuid>fb3cd350-7870-4a8b-a4ef-9ef7d0daf080</webElementGuid>
+      <webElementGuid>60b5ae80-0208-492a-963b-a5dd3bbaa94d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Confirme a password'])[1]/following::div[2]</value>
+      <webElementGuid>fe0e7d1c-3699-4bf7-90ed-1b24fb0c44e4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Enlatados'])[1]/preceding::div[1]</value>
+      <webElementGuid>31ca67a2-b4cd-4d18-8199-e58326f2d7d1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Frescos'])[1]/preceding::div[2]</value>
+      <webElementGuid>59dffb12-d696-4e0c-9ab3-8666368768a1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Continuar']/parent::*</value>
+      <webElementGuid>0752935d-1622-494e-a764-5995179826dc</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[6]/div</value>
+      <webElementGuid>c1b08c97-6e68-4c8a-b139-13f51c8b18dd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = 'Continuar' or . = 'Continuar')]</value>
+      <webElementGuid>b199d0d3-f5b7-45c5-b8df-a15b1e421bf9</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>
