@@ -146,6 +146,37 @@ namespace PechinchaMarketTest
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
         }
+
+        [Fact]
+        public async void ProcessarCSV_Returns()
+        {
+            var controller = new ProdutosController(_context, _userManager);
+
+            var content = "Marca,Nome,Categoria,Peso,Unidade,Imagem,Preco\r\nMarca Exemplo,Carne,Talho,0.2,Unit,imagem_exemplo,2.35";
+            var fileName = "test.csv";
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(content);
+            writer.Flush();
+            stream.Position = 0;
+            IFormFile arquivoCSV = new FormFile(stream, 0, stream.Length, "id_from_form", fileName);
+
+
+            var content1 = "Hello World from Fake File 1";
+            var fileName1 = "imagem_exemplo.jpg";
+            var stream1 = new MemoryStream();
+            var writer1 = new StreamWriter(stream1);
+            writer1.Write(content1);
+            writer1.Flush();
+            stream1.Position = 0;
+            IFormFile file1 = new FormFile(stream1, 0, stream1.Length, "id_from_form", fileName1);
+
+
+            List<IFormFile> files = new List<IFormFile> {file1};
+
+            var result = await controller.ProcessarCSV(arquivoCSV,files);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+        }
       
 
     }
