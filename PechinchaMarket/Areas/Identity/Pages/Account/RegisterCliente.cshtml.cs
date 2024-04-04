@@ -175,7 +175,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     EmailSender emailSenderService = new EmailSender();
 
                     emailSenderService.SendEmail("Confirme seu email",Input.Email,Input.UserName,
-                        $"Por favor confirme o seu registo no PechinchaMarket {HtmlEncoder.Default.Encode(callbackUrl)}").Wait();
+                        $"Por favor confirme o seu registo no PechinchaMarket {HtmlEncoder.Default.Encode(callbackUrl)}",_context).Wait();
 
              
 

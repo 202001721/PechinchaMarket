@@ -185,7 +185,7 @@ namespace PechinchaMarketTest
             var result = await controller.AddToList(produto.Id);
 
             var viewResult = Assert.IsType<ViewResult>( result );
-            Assert.IsAssignableFrom<List<Tuple<PechinchaMarketUser,Comerciante,Loja,ProdutoLoja,Produto>>>(viewResult.Model);
+            Assert.IsAssignableFrom<List<Produto>>(viewResult.Model);
         }
 
         //este teste não funciona por falta de login

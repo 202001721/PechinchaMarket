@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using PechinchaMarket.Areas.Identity.Data;
@@ -205,6 +207,7 @@ namespace PechinchaMarketTest
                 Codigo = GenerateRandomNumber(),
             };
 
+            controler.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controler.Create(newAgrupamento);
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
@@ -224,6 +227,7 @@ namespace PechinchaMarketTest
                 Codigo = GenerateRandomNumber(),
             };
 
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controller.EditName(agrupamento.Id, newAgrupamento);
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
@@ -253,7 +257,9 @@ namespace PechinchaMarketTest
                 detalheListaProds = listaProdutos.detalheListaProds
             };
 
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controller.AddList(agrupamento.Id, newList.Id.ToString());
+            
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
             Assert.Equal(nameof(Index), viewResult.ActionName);
@@ -280,6 +286,7 @@ namespace PechinchaMarketTest
             };
 
 
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controller.AddMemberLeitor(agrupamento.Id, newCliente.Id);
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
@@ -327,7 +334,7 @@ namespace PechinchaMarketTest
                 ListaProdutos = agrupamento.ListaProdutos
             };
 
-
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controller.RemoveMembers(agrupamento.Id, new List<Guid>());
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
@@ -356,7 +363,7 @@ namespace PechinchaMarketTest
                 detalheListaProds = listaProdutos.detalheListaProds
             };
 
-
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controller.RemoveList(agrupamento.Id, newListaProdutos.Id);
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
@@ -405,6 +412,7 @@ namespace PechinchaMarketTest
                 Privilegio = agrupamentoMembro.Privilegio
             };
 
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controller.ChangePermissions(agrupamento.Id, ["Editor_"+newAgrupamentoMembro.Agrupamento.Id]);
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 
@@ -461,6 +469,7 @@ namespace PechinchaMarketTest
                 ListaProdutos = agrupamento.ListaProdutos
             };
 
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             var result = await controller.EnterWithCode(newAgrupamento.Codigo);
             var viewResult = Assert.IsType<RedirectToActionResult>(result);
 

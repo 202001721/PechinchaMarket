@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PechinchaMarket.Areas.Identity.Data;
 using PechinchaMarket.Models;
+using PechinchaMarket.Services;
 
 namespace PechinchaMarket.Controllers
 {
@@ -109,10 +110,14 @@ namespace PechinchaMarket.Controllers
             if (comerciante != null)
             {
                 comerciante.isApproved = true;
-                if (utilizador != null)
-                {
-                    await SendEmailAsync(utilizador.Email, "Seu registo foi aceite",
-              "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceite");
+
+                if(utilizador != null) {
+                    utilizador.EmailConfirmed = true;
+                    EmailSender emailSender = new EmailSender();
+                    await emailSender.SendEmail("Seu cadastro foi aceito",utilizador.Email,comerciante.Name, "Estamos felizes em informar que seu registo como comerciante na plataforma PechinchaMarket foi aceito",_context);
+                   
+            
+
                 }
             }
             await _context.SaveChangesAsync();
@@ -158,10 +163,18 @@ namespace PechinchaMarket.Controllers
 
             if (comerciante != null)
             {
-                await SendEmailAsync(utilizador.Email, "Seu registo foi negado",
-              "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceite");
-                _context.Comerciante.Remove(comerciante);
-                _context.Users.Remove(utilizadorId);
+        
+             
+                if (utilizador != null)
+                {
+                    EmailSender emailSender = new EmailSender();
+                    await emailSender.SendEmail("Seu cadastro foi recusado", utilizador.Email, comerciante.Name, "Lamentamos informar que seu registo como comerciante na plataforma PechinchaMarket não foi aceito",_context);
+                    _context.Comerciante.Remove(comerciante);
+                    _context.Users.Remove(utilizador);
+                }
+            
+                
+
 
             }
             await _context.SaveChangesAsync();

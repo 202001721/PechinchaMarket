@@ -277,6 +277,23 @@ namespace PechinchaMarket.Migrations
                     b.ToTable("AgrupamentosMembro");
                 });
 
+            modelBuilder.Entity("PechinchaMarket.Models.ApiKey", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Valor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("ApiKey");
+                });
+
             modelBuilder.Entity("PechinchaMarket.Models.Cliente", b =>
                 {
                     b.Property<Guid>("Id")

@@ -336,7 +336,7 @@ namespace PechinchaMarket.Controllers
             {
                 var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {
-                    Delimiter = ";"
+                    Delimiter = ","
                 };
 
                 var userId = _userManager.GetUserId(User);
