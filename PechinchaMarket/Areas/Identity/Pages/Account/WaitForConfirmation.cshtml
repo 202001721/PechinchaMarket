@@ -1,12 +1,20 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "WaitForConfirmation";
+    ViewData["Title"] = "Esperar Confirmação";
+    Layout = null;
 }
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/PechinchaMarket.styles.css" asp-append-version="true" />
+<link rel="stylesheet" type="text/css" href="~/css/Authentication.css"></link>
 
+<body class="gradiante2-main-color background-height center-y-flex column-container authentication-box-move">
+    <h4> O seu pedido está a ser analisado, por favor espere pela aprovação do administrador.</h4 
+    <p>
+            Será enviado um email, não se esqueça de verificar no Spam.
+    </p>
 
-<body>
-    <h2> Seu pedido está sendo análisado, por favor espere pela aprovação de administrador. Assim que possível será enviado um email com o resultado.</p>
 </body>
 
 @section Scripts {
