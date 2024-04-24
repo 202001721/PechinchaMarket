@@ -21,6 +21,9 @@
             <h2><a id="pendentes"> Produtos Pendentes</a></h2>
         </span>
 
+        <span class="coluna" id="rejeitados-tab">
+            <h2><a id="rejeitados"> Produtos Rejeitados</a></h2>
+        </span>
        
 </div>
 
@@ -126,7 +129,13 @@
                 </div>
                 counter++;
             }
-        </div>   
+        </div>
+        
+        <div id="rejeitados-products" style="display:none; flex-wrap:wrap ">
+            <div class="medium-padding-top center-x-flex center-y-flex">
+                <span class="coming-soon"></span>
+            </div>
+        </div>
 
         <div class="new-page display-none" id="add-popup">
             <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
@@ -168,6 +177,7 @@
             document.getElementById("pendentes-tab").classList.remove("active-tab");
             document.getElementById('publicados-products').style.display = 'flex';
             document.getElementById('pendentes-products').style.display = 'none';
+            document.getElementById('rejeitados-products').style.display = 'none';
         });
 
         document.getElementById('pendentes-tab').addEventListener('click', function () {
@@ -175,6 +185,16 @@
             document.getElementById("pendentes-tab").classList.add("active-tab");
             document.getElementById('publicados-products').style.display = 'none';
             document.getElementById('pendentes-products').style.display = 'flex';
+            document.getElementById('rejeitados-products').style.display = 'none';
+        });
+
+        document.getElementById('rejeitados-tab').addEventListener('click', function () {
+            document.getElementById("publicados-tab").classList.remove("active-tab");
+            document.getElementById("pendentes-tab").classList.remove("active-tab");
+            document.getElementById("rejeitados-tab").classList.add("active-tab");
+            document.getElementById('publicados-products').style.display = 'none';
+            document.getElementById('pendentes-products').style.display = 'none';
+            document.getElementById('rejeitados-products').style.display = 'flex';
         });
 
         function deletePopup(text) {
