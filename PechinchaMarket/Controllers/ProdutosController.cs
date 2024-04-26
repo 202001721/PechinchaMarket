@@ -247,6 +247,7 @@ namespace PechinchaMarket.Controllers
                                     // Atualizar os campos StartDiscount e EndDiscount
                                     currentProdutoLoja.StartDiscount = Convert.ToDateTime(inicioPromocao.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"));
                                     currentProdutoLoja.EndDiscount = Convert.ToDateTime(fimPromocao.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"));
+
                                     _context.Update(currentProdutoLoja);
                                 }
                                 else

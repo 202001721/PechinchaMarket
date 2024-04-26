@@ -2,9 +2,29 @@
 
 @{
     ViewData["Title"] = "Index";
+    
+    IEnumerable<Agrupamento> agrupamentos = ViewData["Agrupamentos"] as IEnumerable<Agrupamento>;
+
     Layout = "~/Views/Shared/_Layout.cshtml";
     var counter = 0;
+
+    var listsOfAgrupamentos = new List<ListaProdutos>();
+
+    foreach (var ag in agrupamentos)
+    {
+        if (ag.ListaProdutos != null)
+        {
+            foreach (var list in ag.ListaProdutos)
+            {
+                listsOfAgrupamentos.Add(list);
+            }
+        }
+    }
+        
+
+
 }
+
 <script src="~/js/site.js"></script>
 <link href="~/css/listas.css" rel="stylesheet" />
 
@@ -26,6 +46,7 @@
                 </a>
                 <a onclick="deletePopup(@counter)" class="bin cursor-pointer"></a>
             </div>
+            
 
             <div class="new-page display-none" id="delete-popup-@counter">
                 <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
@@ -57,6 +78,57 @@
             </div>
             counter++;
         }
+
+        @if(listsOfAgrupamentos.Count != 0)
+        {
+            <h2>Listas de Agrupamentos</h2>
+
+        }    
+        
+        @foreach (var item in listsOfAgrupamentos)
+        {
+            if(item.agrupamentos != null && item.agrupamentos.Count != 0)
+            {
+                <div class="item">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="itembox">
+                        <p>@Html.DisplayFor(modelItem => item.name)</p>
+
+                        <p>@Html.DisplayFor(modelItem => item.state)</p>
+                    </a>
+                    <a onclick="deletePopup(@counter)" class="bin cursor-pointer"></a>
+                </div>
+            }
+            <div class="new-page display-none" id="delete-popup-@counter">
+                <div class="smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex">
+                    <div class="edges-flex max-width">
+                        <div class="title unselectable-text">Eliminar Lista</div>
+                        <div class="cross-button" onclick="deletePopup(@counter);"></div>
+                    </div>
+
+                    <div class="column-container max-height  edges-flex max-width">
+                        <span class=" small-margin-top">Tem certeza que deseja eliminar esta Lista?</span>
+                        <div class="center-x-flex">
+                            <h3>@Html.DisplayFor(modelItem => item.name)  </h3>
+                        </div>
+
+                        <div class="row-container right-flex max-width ">
+                            <form asp-action="Delete" method="post" asp-route-id=@item.Id>
+
+                                <div class="delete-div  small-padding-right2">
+
+                                    <button class="pechincha-button delete-button-color bigger-button" type="submit"> Eliminar Lista</button>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        }
+
     </div>
    
 </body>

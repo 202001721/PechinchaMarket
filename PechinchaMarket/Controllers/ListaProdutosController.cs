@@ -45,13 +45,19 @@ namespace PechinchaMarket.Controllers
                 return Redirect("/Identity/Account/Login");
             }
 
-            var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault().Id.ToString();
+            var clienteId = (from q in _context.Cliente where q.UserId == _userManager.GetUserId(User) select q).FirstOrDefault().Id;
 
-            var lista = from l in _context.ListaProdutos where l.ClienteId == clienteId select l;
-           
+            var lista = from l in _context.ListaProdutos where l.ClienteId == clienteId.ToString() select l;
+
+            var model = lista.Include(x => x.agrupamentos);
 
 
-            return View(lista);
+            var agMembro = (from am in _context.AgrupamentosMembro where am.Cliente.Id == clienteId select am).Include(x => x.Agrupamento).ThenInclude(x => x.ListaProdutos).First();
+            var agrupamentos = from ag in _context.Agrupamentos where ag == agMembro.Agrupamento select ag;
+
+
+            ViewData["Agrupamentos"] = agrupamentos;
+            return View(model);
         }
 
         // GET: ListaProdutos/Details/5
