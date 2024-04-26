@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>4954a56b-0381-4417-a1d0-53465cea8b96</webElementGuid>
+      <webElementGuid>6a014c06-2a61-4b7d-904a-92b1db40c355</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>name</name>
       <type>Main</type>
       <value>price</value>
-      <webElementGuid>5ae9b91a-193f-4467-8d60-298ed6168647</webElementGuid>
+      <webElementGuid>551804f6-8a73-4ab4-8340-d4a415e30f48</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>form-control</value>
-      <webElementGuid>cb1b158e-cd54-4953-af8b-fcac46ee3eb0</webElementGuid>
+      <webElementGuid>1f925c94-0eba-47f2-b611-6fde5c1104ef</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -53,7 +53,7 @@
       <name>id</name>
       <type>Main</type>
       <value>price</value>
-      <webElementGuid>900cff8f-ea67-4914-83fd-6ebf8953aaed</webElementGuid>
+      <webElementGuid>46c9d808-d0dc-49f1-ab78-66e445d879e9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>onchange</name>
       <type>Main</type>
       <value> changePrice(); </value>
-      <webElementGuid>ac9429ce-ab78-4d01-813b-9a33bea5724d</webElementGuid>
+      <webElementGuid>859e5a9a-e2ce-4353-afe1-ee6a4bdc3776</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>placeholder</name>
       <type>Main</type>
       <value>€</value>
-      <webElementGuid>6c541ff7-e4f1-4339-aa0a-e40d8eb843fd</webElementGuid>
+      <webElementGuid>0447be3d-835b-44aa-b618-e7bfe843bc65</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;price&quot;)</value>
-      <webElementGuid>925c4219-6239-41ef-8c48-c9866f61d5ed</webElementGuid>
+      <webElementGuid>e4bd8d91-d721-4da5-88fd-c2d06e20b2a3</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -85,7 +85,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='price']</value>
-      <webElementGuid>77698d1a-5634-462a-9cde-e0e94683ffef</webElementGuid>
+      <webElementGuid>7abf026e-91c9-4506-9964-b35de43bf61b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[3]/div/input</value>
-      <webElementGuid>0fcc9d07-3f90-459b-a776-5610edf6812f</webElementGuid>
+      <webElementGuid>159e79f2-b4ce-4bdd-aaf9-df992a6e4d7f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,6 +101,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@name = 'price' and @id = 'price' and @placeholder = '€']</value>
-      <webElementGuid>d2dee7ed-ab70-4885-9b2a-497c2b06a57d</webElementGuid>
+      <webElementGuid>a9040dfd-a87f-4c52-aff8-200e916ec784</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

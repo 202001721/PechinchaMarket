@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Salvar_Password</name>
+   <tag></tag>
+   <elementGuidId>e767f71e-e37c-48a5-8fa2-ab569cbba10c</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>(//button[@type='submit'])[6]</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>#change-password-form > div.row-container.center-y-flex.smaller-gap-x > button.pechincha-button.main-button-color</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>#change-password-form >> internal:role=button[name=&quot;Salvar&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+      <webElementGuid>1d8af736-1dfa-4524-b0e8-2df565437621</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>submit</value>
+      <webElementGuid>62298559-a59a-4917-8b51-325576d64b84</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>pechincha-button main-button-color</value>
+      <webElementGuid>89798186-4aec-4772-8bcf-7594804e9cae</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Salvar</value>
+      <webElementGuid>54f48957-ed74-4128-8113-eaf239405d1f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;change-password-form&quot;)/div[@class=&quot;row-container center-y-flex smaller-gap-x&quot;]/button[@class=&quot;pechincha-button main-button-color&quot;]</value>
+      <webElementGuid>76d7fa18-8e6f-4a36-8780-dbb01f6dae55</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//button[@type='submit'])[6]</value>
+      <webElementGuid>74edebb7-4704-4b33-852f-04660e7dbeda</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//form[@id='change-password-form']/div[2]/button</value>
+      <webElementGuid>6d4b4c9d-4439-451a-9d68-b52e4feaa7d1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Confirme nova password'])[1]/following::button[1]</value>
+      <webElementGuid>a025242e-3847-44ab-b208-9e269b93fc27</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Nova password'])[1]/following::button[1]</value>
+      <webElementGuid>a4043ba5-79cb-4312-8d81-1ba9e65f1f1a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Cancelar'])[1]/preceding::button[1]</value>
+      <webElementGuid>fbf95530-76ab-4e5d-a21c-042b680bfe40</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Localização'])[1]/preceding::button[1]</value>
+      <webElementGuid>675dc095-2825-4b3d-8880-86ee0f902ff6</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[3]/form/div[2]/button</value>
+      <webElementGuid>21830cd2-a825-4b5f-b8d0-def83837be93</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@type = 'submit' and (text() = 'Salvar' or . = 'Salvar')]</value>
+      <webElementGuid>a2638e15-39a3-4e17-bb27-c3a5a54f7456</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

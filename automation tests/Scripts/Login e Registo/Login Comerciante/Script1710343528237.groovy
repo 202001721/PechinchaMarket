@@ -23,19 +23,15 @@ WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
 
-WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Login_Input.Email'), 'comerciantepecmk@gmail.com')
+WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_ou_Input.Email'), 'comerciantepecmk@gmail.com')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
 
 WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
 
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/span_Perfil                                _6a042e'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Perfil'))
 
-WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Perfil'))
-
-WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/span_Perfil                                _6a042e'))
-
-WebUI.click(findTestObject('Object Repository/Page_Profil - PechinchaMarket/button_Logout'))
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/span_Terminar Sesso'))
 
 WebUI.closeBrowser()
 

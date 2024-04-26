@@ -17,3 +17,25 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
+
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_ou_Input.Email'), 'clientepecmk@gmail.com')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
+
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
+
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Logout_cursor-pointer small-image nav-lin_58ce0e'))
+
+WebUI.click(findTestObject('Object Repository/Page_Index - PechinchaMarket/a_Lista de compras                    PorComprar'))
+
+WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Ilustrativo_btngerar'))
+
+WebUI.click(findTestObject('Object Repository/Page_Edit - PechinchaMarket/input_Total2_bin'))
+
+WebUI.closeBrowser()
+

@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>23cedf91-5a83-4e3d-a434-9273c56f4c2a</webElementGuid>
+      <webElementGuid>4e8d868c-2e07-4e68-99d6-feeb02427540</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>id</name>
       <type>Main</type>
       <value>login-submit</value>
-      <webElementGuid>3f82c9e5-643f-4a2b-ac27-0646cbe12211</webElementGuid>
+      <webElementGuid>515987b3-2dca-485b-9b50-0f3e6cb81c14</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -45,15 +45,15 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>ce725747-05e7-4834-b743-878b6ed8324e</webElementGuid>
+      <webElementGuid>7e1160f5-be9c-42f7-a4e3-8fe1bf6ac3ad</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>confirm-button</value>
-      <webElementGuid>245deba7-2e53-4410-8e7e-0a5bebb95e0e</webElementGuid>
+      <value>pechincha-button main-button-color</value>
+      <webElementGuid>12b56e5d-2e72-4104-ae34-567bb233940c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,7 +61,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Login</value>
-      <webElementGuid>e32672d9-2429-4e4f-af53-a302755afa15</webElementGuid>
+      <webElementGuid>7cecfb8e-8f0e-4ecd-a8ea-3a1e8145858e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;login-submit&quot;)</value>
-      <webElementGuid>b451689b-17ac-432e-8324-8f16f944ef97</webElementGuid>
+      <webElementGuid>4d02fa44-2d49-4269-bc35-d8c8979a3233</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -77,55 +77,39 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//button[@id='login-submit']</value>
-      <webElementGuid>9734b5a7-04fb-4691-a165-376b44915d8e</webElementGuid>
+      <webElementGuid>4c04a6f8-fa0b-4fe8-a47f-7a24fc6558fc</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:idRelative</name>
       <type>Main</type>
-      <value>//form[@id='account']/div/div[3]/button[2]</value>
-      <webElementGuid>5054c693-aa35-4a99-bded-13c0f2daa0fa</webElementGuid>
+      <value>//form[@id='account']/div/div[3]/button</value>
+      <webElementGuid>c7fb43d8-ce0c-4f3f-ac02-546e31e27688</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Back'])[1]/following::button[1]</value>
-      <webElementGuid>b267b99a-4395-4b7a-bd59-2eca1d7b6232</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Cancelar'])[1]/following::button[1]</value>
+      <webElementGuid>f135e7a1-c5f9-4fe7-b59f-6b77ef982af4</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/following::button[2]</value>
-      <webElementGuid>9710a41d-249f-43c9-9641-1749809f914b</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Continuar com o Google'])[1]/preceding::button[1]</value>
-      <webElementGuid>c525cac7-a703-47ff-8b37-cc0ccaf11e93</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Sign in with Google'])[1]/preceding::button[1]</value>
-      <webElementGuid>35688702-1b3b-4081-93f9-c51b88fca5a4</webElementGuid>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Crie conta aqui'])[1]/following::button[1]</value>
+      <webElementGuid>8626ac4b-98ba-4a9a-823a-ec747673bc3f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:position</name>
       <type>Main</type>
-      <value>//button[2]</value>
-      <webElementGuid>6c7976e2-c99b-4fab-a1c5-06d2d9979e57</webElementGuid>
+      <value>//div[3]/button</value>
+      <webElementGuid>b3af461d-6979-498a-8709-e295ec25d9bf</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -133,6 +117,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//button[@id = 'login-submit' and @type = 'submit' and (text() = 'Login' or . = 'Login')]</value>
-      <webElementGuid>54c70362-88f9-4edb-912a-d88036d505f2</webElementGuid>
+      <webElementGuid>bc2e2f9c-2c72-4219-b63e-1ddc9f59a87a</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

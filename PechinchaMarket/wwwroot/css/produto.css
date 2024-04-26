@@ -127,6 +127,7 @@ h2{
 }
 
 .blue-button {
+    text-decoration: none;
     border-radius: 5px;
     background-color: rgba(102, 209, 255, 1);
     color: white;

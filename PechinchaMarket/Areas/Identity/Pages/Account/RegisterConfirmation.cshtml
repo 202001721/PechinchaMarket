@@ -1,26 +1,20 @@
 ﻿@page
 @model RegisterConfirmationModel
 @{
-    ViewData["Title"] = "Register confirmation";
+    ViewData["Title"] = "Confirmação do Registo";
+    Layout = null;
 }
 
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/PechinchaMarket.styles.css" asp-append-version="true" />
 <link rel="stylesheet" type="text/css" href="~/css/Authentication.css"></link>
 
+<body class="gradiante-main-color background-height center-y-flex column-container authentication-box-move">
+    <h4> Registado com sucesso, verifique o seu email</h4 
+    <p>
+            Não se esqueça de verificar no Spam.
+    </p>
 
-<h1>@ViewData["Title"]</h1>
-@{
-    if (@Model.DisplayConfirmAccountLink)
-    {
-<p>
-    This batata does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
-</p>
-    }
-    else
-    {
-<p>
-        Please check your email to confirm your account.
-</p>
-    }
-}
+</body>
 

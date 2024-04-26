@@ -6,19 +6,19 @@
    <elementGuidId>078215c0-0b09-475f-9ec6-d0327d616cf2</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>input.btngerar</value>
+         <key>XPATH</key>
+         <value>//input[@name='deletes']</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//input[@value='Gerar Lista']</value>
+         <key>CSS</key>
+         <value>input[name=&quot;deletes&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Gerar Lista&quot;i]</value>
+         <value>internal:role=checkbox</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,15 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>f2700a37-a5bd-45a6-b418-31fe6b4fe90b</webElementGuid>
+      <webElementGuid>3d3d95d3-cece-4c80-a844-1e0f0a477274</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>type</name>
       <type>Main</type>
-      <value>submit</value>
-      <webElementGuid>e80a3bf8-b1d4-4b27-84f5-e321396408c4</webElementGuid>
+      <value>checkbox</value>
+      <webElementGuid>dac0df78-c7e2-48b4-8b0b-a5b28086b45f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,31 +45,71 @@
       <name>class</name>
       <type>Main</type>
       <value>btngerar</value>
-      <webElementGuid>c9421d03-2121-4d93-847d-8aa6da3c4fb7</webElementGuid>
+      <webElementGuid>d6c871ec-d1a1-4f40-91b5-45f6d5898976</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>Gerar Lista</value>
-      <webElementGuid>46157b87-13ee-4612-adb7-5373e76af1b8</webElementGuid>
+      <value>6c3e510b-9535-4895-711f-08dc548c837f</value>
+      <webElementGuid>c18d1d14-977f-4f07-9f84-65ffd78673e6</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;listformatar&quot;]/div[@class=&quot;formatar&quot;]/form[1]/input[@class=&quot;btngerar&quot;]</value>
-      <webElementGuid>3cf6a1b5-744c-4899-808f-3026bf110d0a</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;listformatar&quot;]/div[@class=&quot;list&quot;]/table[1]/tbody[1]/tr[1]/td[7]/input[1]</value>
+      <webElementGuid>ecdc1a5b-592c-45a6-b578-758ec09c3259</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>deletes</value>
+      <webElementGuid>9c0961c1-53de-4c0b-a88f-399b5d98f29f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>form</name>
+      <type>Main</type>
+      <value>formDelete</value>
+      <webElementGuid>a99ac3c2-7ef7-46e0-9e13-de0846e11ae8</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
+      <value>//input[@name='deletes']</value>
+      <webElementGuid>9928e767-9849-4f5d-8179-2552521039fd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//td[7]/input</value>
+      <webElementGuid>6a1efab8-5e83-4de3-b27f-363f5311957c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'checkbox' and @name = 'deletes' and @form = 'formDelete']</value>
+      <webElementGuid>6e7799bf-0870-4a23-b4bb-6767d9d77b0c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
       <value>//input[@value='Gerar Lista']</value>
-      <webElementGuid>77215712-735b-415e-a98e-de9092d3afec</webElementGuid>
+      <webElementGuid>20c3ee7c-b32c-491e-b892-e53a66974a79</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -77,7 +117,7 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/form/input[2]</value>
-      <webElementGuid>1f26be17-6540-49f5-9d2c-5c5fcb52f342</webElementGuid>
+      <webElementGuid>c1f0637f-bc77-4b3d-b02d-5ba80af1b67a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +125,6 @@
       <name>xpath:customAttributes</name>
       <type>Main</type>
       <value>//input[@type = 'submit']</value>
-      <webElementGuid>e7bc7acf-4c76-4eb2-bf70-dd7eb7d05cd8</webElementGuid>
+      <webElementGuid>d32923e7-1083-49de-956f-336e22a1e1d6</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

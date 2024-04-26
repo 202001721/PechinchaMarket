@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div_AgrupamentoP</name>
+   <tag></tag>
+   <elementGuidId>befa0910-535f-487a-8557-1bd853d8a244</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@onclick='collapse(this)']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>div.colapsable-div.smaller-padding</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>.colapsable-div >> nth=0</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>26190ac3-75ff-4ee5-8a10-01f800839c5c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>colapsable-div smaller-padding</value>
+      <webElementGuid>cca2cb29-21bf-42ec-a9e4-b00b24a23fbf</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>collapse(this)</value>
+      <webElementGuid>3af9ec0b-35d2-483e-9a66-fabb417b0fb0</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                Agrupamento:P 
+                
+            </value>
+      <webElementGuid>37aaa904-796f-43c0-9c52-f2ea8a77ba45</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;content-container&quot;)/div[@class=&quot;column-container smaller-gap-y&quot;]/div[@class=&quot;background-constrast-color-2 rounded-border max-width&quot;]/div[@class=&quot;colapsable-div smaller-padding&quot;]</value>
+      <webElementGuid>1529e275-96b7-4b1a-b180-bca4b81097ba</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='collapse(this)']</value>
+      <webElementGuid>839035f4-1d9e-4a2d-b6a4-6db1d572098c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div[4]/div/div</value>
+      <webElementGuid>4573506c-0301-47f1-90d8-584f5abcd62e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Entrar'])[1]/following::div[3]</value>
+      <webElementGuid>1cd4096f-490e-425d-847f-5bd6aed53af7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Código'])[1]/following::div[4]</value>
+      <webElementGuid>8a963eaa-9f22-479f-95bf-0f3624c9138a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Copiar Código'])[1]/preceding::div[1]</value>
+      <webElementGuid>2ee7d1d9-7bda-4eae-8abd-e160b6b6554f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[4]/div/div</value>
+      <webElementGuid>ed094030-c86f-4c77-ba33-417ac0e9fca3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = '
+                Agrupamento:P 
+                
+            ' or . = '
+                Agrupamento:P 
+                
+            ')]</value>
+      <webElementGuid>1650237d-4cc0-4cfb-82ce-75ffc0d53680</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

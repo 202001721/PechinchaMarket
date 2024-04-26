@@ -167,7 +167,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
+                        "/Account/RegisterConfirmation",
                         pageHandler: null,
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl, context = _context },
                         protocol: Request.Scheme);
@@ -175,7 +175,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     EmailSender emailSenderService = new EmailSender();
 
                     emailSenderService.SendEmail("Confirme seu email",Input.Email,Input.UserName,
-                        $"Por favor confirme o seu registo no PechinchaMarket {HtmlEncoder.Default.Encode(callbackUrl)}").Wait();
+                        $"Por favor confirme o seu registo no PechinchaMarket {HtmlEncoder.Default.Encode(callbackUrl)}",_context).Wait();
 
              
 

@@ -7,18 +7,18 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@value='Create']</value>
+         <value>//input[@value='Criar Loja']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>input.btn.btn-primary</value>
+         <value>input.blue-button</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
-         <value>internal:role=button[name=&quot;Create&quot;i]</value>
+         <value>internal:role=button[name=&quot;Criar Loja&quot;i]</value>
       </entry>
    </smartLocatorCollection>
    <smartLocatorEnabled>false</smartLocatorEnabled>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>f198a9e2-851a-443d-8c97-78c2bd287844</webElementGuid>
+      <webElementGuid>b69d2f90-4cb3-4674-afa3-4139f36d3854</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,31 +37,31 @@
       <name>type</name>
       <type>Main</type>
       <value>submit</value>
-      <webElementGuid>b899977e-9026-494d-af15-fabc7b63be24</webElementGuid>
+      <webElementGuid>096ca535-f5f1-4da8-86cb-78adf5707360</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>value</name>
       <type>Main</type>
-      <value>Create</value>
-      <webElementGuid>f710ee1c-c0de-4c98-b5b9-979ea3a6c1ed</webElementGuid>
+      <value>Criar Loja</value>
+      <webElementGuid>a3b0f9a4-d495-448f-830e-906008231e38</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>btn btn-primary</value>
-      <webElementGuid>619f07ce-9797-4129-9d07-3e1a1118c314</webElementGuid>
+      <value>blue-button</value>
+      <webElementGuid>37deef11-c16a-47f9-81a1-aef54f131fb5</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;row&quot;]/div[@class=&quot;col-md-4&quot;]/form[1]/div[@class=&quot;form-group&quot;]/input[@class=&quot;btn btn-primary&quot;]</value>
-      <webElementGuid>e449e4a8-225a-4f9b-9312-4e2693ef56fa</webElementGuid>
+      <value>/html[1]/body[1]/div[@class=&quot;container&quot;]/main[@class=&quot;pb-3&quot;]/div[@class=&quot;content&quot;]/div[@class=&quot;col-md-4 small-padding-left&quot;]/form[1]/div[@class=&quot;small-padding-right small-padding-top&quot;]/input[@class=&quot;blue-button&quot;]</value>
+      <webElementGuid>28f77f24-db29-4411-86af-2f02591659f7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -69,7 +69,7 @@
       <name>onclick</name>
       <type>Main</type>
       <value>validationPrice(); validationImage();</value>
-      <webElementGuid>07cd4bfe-f251-463d-b4bf-afa272275892</webElementGuid>
+      <webElementGuid>a844dc5c-d839-42ec-9fde-08be6e8c5cc9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -92,6 +92,46 @@
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
+      <value>//input[@value='Criar Loja']</value>
+      <webElementGuid>d9489345-8f70-449f-987e-a20f887e8767</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[4]/input</value>
+      <webElementGuid>880c6a03-0f6c-46ef-a098-5e955a873de5</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//input[@type = 'submit']</value>
+      <webElementGuid>2d9b6e7a-8831-4f7c-9bc8-b20f141b8932</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//input[@value='Criar Produto']</value>
+      <webElementGuid>3da3df8a-b25c-4fd5-89d5-0b551b9f581d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div[2]/input</value>
+      <webElementGuid>a35aabfd-2295-4e32-9564-d2aad43e53f9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
       <value>//input[@value='Create']</value>
       <webElementGuid>774052a4-0cc0-4bc6-88fe-fb4420cca82a</webElementGuid>
    </webElementXpaths>
@@ -102,14 +142,6 @@
       <type>Main</type>
       <value>//div[2]/input</value>
       <webElementGuid>2451c851-101e-49b5-ba1c-c15bc37d157d</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:customAttributes</name>
-      <type>Main</type>
-      <value>//input[@type = 'submit']</value>
-      <webElementGuid>f1d7fa6d-9671-4441-8687-d23d70961b4e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -182,22 +214,6 @@
       <type>Main</type>
       <value>//div[@id='content-container']/div[3]/div/div[2]/div[4]/div[3]/div/div[4]/input</value>
       <webElementGuid>8862f998-dab5-4770-8d45-d6ca4b3e26d3</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[4]/input</value>
-      <webElementGuid>c4f4774f-ce09-4ae8-a211-1eb9617a4cc7</webElementGuid>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[2]/div[2]/input</value>
-      <webElementGuid>e8138136-d70b-43d6-8544-76f6dce107e0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>

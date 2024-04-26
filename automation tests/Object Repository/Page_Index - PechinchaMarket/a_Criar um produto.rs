@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Criar um produto</name>
+   <tag></tag>
+   <elementGuidId>e4ffd818-ee54-4159-bf98-8a573a2aeca9</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='add-popup']/div/div[2]/div/div/a</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>a.create-product-type-button</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=link[name=&quot;Criar um produto&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>e69b8aa8-332d-4265-89c9-89f73ad0b004</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>/Produtos/Create</value>
+      <webElementGuid>58710dcf-0fbf-4502-bef6-d5716736a522</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>create-product-type-button</value>
+      <webElementGuid>b0acbbea-c8f8-43ad-b31f-80a251b03f2c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Criar um produto</value>
+      <webElementGuid>15526f7d-884b-4b37-8d90-4febe6edf453</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;add-popup&quot;)/div[@class=&quot;smaller-page column-container center-x-flex center-y-flex shrink-flex edges-flex&quot;]/div[@class=&quot;column-container max-height  edges-flex max-width&quot;]/div[@class=&quot;center-x-flex&quot;]/div[@class=&quot;center-y-flex small-gap-y column-container wrap-flex small-page-product&quot;]/a[@class=&quot;create-product-type-button&quot;]</value>
+      <webElementGuid>252df2cb-660a-42d6-93ab-6d70f26bbe91</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='add-popup']/div/div[2]/div/div/a</value>
+      <webElementGuid>d0791654-6d4e-476d-b458-977185a59271</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>//a[contains(text(),'Criar um produto')]</value>
+      <webElementGuid>9b26b8d2-c473-4434-ba7c-02ef7a6178e4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Deseja adicionar um produtos ou vários?'])[1]/following::a[1]</value>
+      <webElementGuid>7c1feecd-34a2-43b1-9249-454fe1e8c75f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adicionar Produto[s]'])[1]/following::a[1]</value>
+      <webElementGuid>062127bc-3c6f-4098-b044-ff1d4c56a258</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Criar vários produtos'])[1]/preceding::a[1]</value>
+      <webElementGuid>50d433a0-5c38-43f7-9162-7ff32ecbc794</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Criar um produto']/parent::*</value>
+      <webElementGuid>dfb9dfc7-375f-4ad0-b101-34d941b79a62</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, '/Produtos/Create')]</value>
+      <webElementGuid>d02b98e4-da3f-4750-ba9f-efaa8f400df4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div/div/a</value>
+      <webElementGuid>df6fbaf7-821d-423d-9f06-c226dcf72ce6</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = '/Produtos/Create' and (text() = 'Criar um produto' or . = 'Criar um produto')]</value>
+      <webElementGuid>4d94492b-bb56-4c85-9c2c-e159afdc802f</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

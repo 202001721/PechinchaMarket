@@ -44,5 +44,5 @@ public DbSet<PechinchaMarket.Models.Agrupamento> Agrupamentos { get; set; } = de
 
 public DbSet<PechinchaMarket.Models.AgrupamentoMembro> AgrupamentosMembro { get; set; } = default!;
 
-
+public DbSet<PechinchaMarket.Models.ApiKey> ApiKey { get; set; } = default!;
 }

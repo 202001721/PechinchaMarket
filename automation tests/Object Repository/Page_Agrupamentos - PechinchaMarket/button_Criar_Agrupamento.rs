@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Criar_Agrupamento</name>
+   <tag></tag>
+   <elementGuidId>6fcfe2aa-9f81-45cb-960d-9cd325b1390b</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>(//button[@type='submit'])[3]</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>button.pechincha-button.default-button-color.bigger-button</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=button[name=&quot;Criar Agrupamento&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+      <webElementGuid>ddd84884-21d1-4357-a722-4098938e037c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>pechincha-button default-button-color bigger-button</value>
+      <webElementGuid>0479b89c-8b3a-462f-bbe5-b20b15861620</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>submit</value>
+      <webElementGuid>e4cff6af-cde7-46ca-8369-706ce4cf448b</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Criar Agrupamento</value>
+      <webElementGuid>29e074bc-bfa5-4fe5-a8f9-a72ef83a7282</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;content-container&quot;)/div[@class=&quot;display-flex&quot;]/form[@class=&quot;small-padding&quot;]/button[@class=&quot;pechincha-button default-button-color bigger-button&quot;]</value>
+      <webElementGuid>5e6b5ec0-0afd-4228-98de-581b00cb3e6e</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>(//button[@type='submit'])[3]</value>
+      <webElementGuid>247e48d9-ce45-4b5b-b38d-c293d7b1cfe8</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div[2]/form/button</value>
+      <webElementGuid>6f41e019-7a18-4627-825a-37296d39b7f7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Agrupamentos'])[3]/following::button[1]</value>
+      <webElementGuid>60885cbe-3f06-4cd3-bbf7-3212e7a4da68</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Agrupamentos'])[2]/following::button[1]</value>
+      <webElementGuid>704918a1-dea4-4a84-8b84-89baa7b6f7a3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Entrar Agrupamento'])[1]/preceding::button[1]</value>
+      <webElementGuid>53270ebe-fd29-4cde-960d-a92e72cf3fb2</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Entrar num Agrupamento'])[1]/preceding::button[2]</value>
+      <webElementGuid>1cdb14bc-3b6f-42f9-8a05-2942513a7270</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Criar Agrupamento']/parent::*</value>
+      <webElementGuid>d96da851-ee80-4efe-9169-115765dfb0d3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/form/button</value>
+      <webElementGuid>347cc629-e557-4803-adee-c96fb269ab7b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[@type = 'submit' and (text() = 'Criar Agrupamento' or . = 'Criar Agrupamento')]</value>
+      <webElementGuid>956db13f-7f9a-48cf-a940-2a0bc316df7a</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

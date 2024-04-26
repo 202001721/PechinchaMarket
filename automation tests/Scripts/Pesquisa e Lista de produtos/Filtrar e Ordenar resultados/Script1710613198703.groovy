@@ -21,23 +21,31 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://pechinchamarket.azurewebsites.net/')
 
+WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/a_Login'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_ou_Input.Email'), 'clientepecmk@gmail.com')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Login - PechinchaMarket/input_Email_Input.Password'), 'VyCYYIKrGZmyN9bkhIcWmA==')
+
+WebUI.click(findTestObject('Object Repository/Page_Login - PechinchaMarket/button_Login'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/input_PechinchaMarket_searchText'), 'manteiga')
+
 WebUI.click(findTestObject('Object Repository/Page_Home Page - PechinchaMarket/button_submit'))
+
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/button_Comerciante'))
+
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Comerciante_comerciantes'))
 
 WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/button_Categoria'))
 
 WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Categoria_categorias'))
 
-WebUI.delay(1)
-
 WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Categoria_categorias'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/label_Doces'))
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/div_Ordenar por Preo mais alto'))
 
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Categoria_categorias'))
-
-WebUI.delay(1)
-
-WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/input_Categoria_categorias'))
+WebUI.click(findTestObject('Object Repository/Page_- PechinchaMarket/a_Preo mais baixo'))
 
 WebUI.closeBrowser()
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['up_0',['Up',['../class_pechincha_market_1_1_migrations_1_1_init.html#ae4ba02fca43a0a9142d3a1ceaf8f6c08',1,'PechinchaMarket::Migrations::Init']]]
+  ['nonaprovedproducts_0',['NonAprovedProducts',['../class_pechincha_market_1_1_controllers_1_1_manager_controller.html#abef1528213451ce516d421e68dd9e38f',1,'PechinchaMarket::Controllers::ManagerController']]],
+  ['nonconfirmedlist_1',['NonConfirmedList',['../class_pechincha_market_1_1_controllers_1_1_manager_controller.html#ad4954d4d70f5dc9554187758f7f5d37b',1,'PechinchaMarket::Controllers::ManagerController']]]
 ];

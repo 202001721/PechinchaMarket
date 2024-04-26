@@ -9,6 +9,7 @@
     IEnumerable<Comerciante> comerciantes = ViewData["Comerciante"] as IEnumerable<Comerciante>;
 
 }
+<script src="~/js/site.js"></script>
 <link href="~/css/resultadoPesquisa.css" rel="stylesheet" />
 
 <div style="display:none" id="produtoId">
@@ -66,13 +67,13 @@
                 </div>
                                          
                 <div>
-                    <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off" placeholder="Nome da Lista"/>
+                    <input name="nome" type="text" id="name" onclick="showListas()" autocomplete="off" placeholder="Selecione uma Lista"/>
                     <div id="listas" style="display: none">
                         <table class="lista-item" id="item">
                             @foreach (ListaProdutos l in listas)
                             {
                                 <tr>
-                                    <td onclick="selectLista('@l.name','@l.Id')">
+                                    <td onclick="selectLista('@l.name','@l.Id')" class="black">
                                         @Html.DisplayFor(modelItem => l.name)
                                     </td>
                                 </tr>

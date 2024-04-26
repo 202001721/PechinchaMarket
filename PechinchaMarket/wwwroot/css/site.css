@@ -415,7 +415,7 @@ body {
 
 .authentication-phase {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .authentication-basedon-column {
@@ -1471,6 +1471,7 @@ a.cancel-button:hover::before {
     padding: 0px;
     margin: 0px;
     border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 
     /*unselectable text*/
     -webkit-user-select: none; /* Safari 3.1+ */
@@ -1481,6 +1482,7 @@ a.cancel-button:hover::before {
 
     .pechincha-button:hover {
         filter: brightness(0.92);
+        box-shadow: none;
     }
 
 .main-button-color {
@@ -2285,4 +2287,21 @@ a.default-button-color:hover::before {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50% 50%;
+}
+
+.coming-soon {
+    width: var(--root-comerciante-logo);
+    height: var(--root-comerciante-logo);
+    background-image: url('../images/coming-soon.png');
+    background-size: contain;
+    background-position: center;
+    display: block;
+    margin: auto;
 }

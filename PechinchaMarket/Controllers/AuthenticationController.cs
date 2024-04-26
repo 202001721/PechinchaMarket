@@ -17,5 +17,10 @@ namespace PechinchaMarket.Controllers
             ViewData["Section"] = section ?? 0;
             return View();
         }
+
+        public IActionResult ComingSoon()
+        {
+            return View();
+        }
     }
 }

@@ -7,11 +7,11 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//input[@id='Input_Localizacao']</value>
+         <value>//input[@id='localizacao']</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#Input_Localizacao</value>
+         <value>#localizacao</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -29,31 +29,15 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>a6c9061f-2f5b-4741-ba49-1fc76566292e</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>autocomplete</name>
-      <type>Main</type>
-      <value>localizacao</value>
-      <webElementGuid>4012969e-46a3-43d9-9fce-49fc84f7e58d</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>aria-required</name>
-      <type>Main</type>
-      <value>true</value>
-      <webElementGuid>5e41011f-343f-49b2-8274-b60a69e55608</webElementGuid>
+      <webElementGuid>de667197-db2a-4272-880a-786673592fe2</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>placeholder</name>
+      <name>id</name>
       <type>Main</type>
-      <value>Localização</value>
-      <webElementGuid>565cefc9-f4ec-476c-be47-d6d33db03d96</webElementGuid>
+      <value>localizacao</value>
+      <webElementGuid>b82e0299-0c8a-4fa2-a5df-56eec85916e3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -61,15 +45,23 @@
       <name>type</name>
       <type>Main</type>
       <value>text</value>
-      <webElementGuid>b0c290ac-d4c2-4209-88c4-f429b6ee7adf</webElementGuid>
+      <webElementGuid>3f56cf6f-cec3-46f1-ada7-dc27cea6ab19</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>aria-required</name>
+      <type>Main</type>
+      <value>true</value>
+      <webElementGuid>c6f377ad-d562-4b34-8122-3ede4e42f621</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>id</name>
+      <name>placeholder</name>
       <type>Main</type>
-      <value>Input_Localizacao</value>
-      <webElementGuid>09f29702-bcd2-4637-9e6b-93614b5bec5d</webElementGuid>
+      <value>Localização</value>
+      <webElementGuid>b22f899f-cdb9-407f-9135-62190e235e3b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -77,23 +69,39 @@
       <name>name</name>
       <type>Main</type>
       <value>Input.Localizacao</value>
-      <webElementGuid>4110cc65-12ea-493b-994d-719c847d3edb</webElementGuid>
+      <webElementGuid>d2ab3ded-72b4-44e6-9f7e-41b93cc989b5</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>pac-target-input</value>
+      <webElementGuid>cf1ce397-81a5-46ef-9f16-e46cacc6d409</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>autocomplete</name>
+      <type>Main</type>
+      <value>off</value>
+      <webElementGuid>19472510-e034-4281-a904-774d3e8af26a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;Input_Localizacao&quot;)</value>
-      <webElementGuid>9135f562-429e-42dd-841d-ff34ee836e86</webElementGuid>
+      <value>id(&quot;localizacao&quot;)</value>
+      <webElementGuid>7f069a49-7075-460d-98b3-a2e1f6b1eb00</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:attributes</name>
       <type>Main</type>
-      <value>//input[@id='Input_Localizacao']</value>
-      <webElementGuid>7eb6e628-bb58-4bce-a0e5-3c0839d81f11</webElementGuid>
+      <value>//input[@id='localizacao']</value>
+      <webElementGuid>3028b73c-b186-4373-9788-04103d0f4b50</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -101,7 +109,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='phase0']/div[3]/input</value>
-      <webElementGuid>0b17fa92-dfed-48b2-a6c5-cefdf8dc9f19</webElementGuid>
+      <webElementGuid>afbf7b71-5398-4238-89f1-4697b3df45d8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -109,14 +117,14 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[3]/input</value>
-      <webElementGuid>ed89940d-5ea4-4907-94f9-1beb780e4feb</webElementGuid>
+      <webElementGuid>6f0b757f-99de-4139-b3f1-88bcfa55ad1d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//input[@placeholder = 'Localização' and @type = 'text' and @id = 'Input_Localizacao' and @name = 'Input.Localizacao']</value>
-      <webElementGuid>24ef7d6d-c34f-4eee-a7e5-0ac6af88abd9</webElementGuid>
+      <value>//input[@id = 'localizacao' and @type = 'text' and @placeholder = 'Localização' and @name = 'Input.Localizacao']</value>
+      <webElementGuid>9268a7ef-7786-4577-ba16-1d9db7646b63</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

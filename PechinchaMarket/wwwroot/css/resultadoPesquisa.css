@@ -2,7 +2,6 @@
     background: rgb(250, 181, 70);
     background: linear-gradient(to bottom, rgba(250, 181, 70) 10%, rgba(255, 255, 255, 1) 25%);
     margin: 0;
-    font-size: 20px;
 }
 
 .content {
@@ -155,14 +154,20 @@
     position: absolute;
     margin-bottom: 5px;
 }
-    .lista-item td {
+    .lista-item div {
         cursor: pointer;
+        border: 1px solid black;
         padding: 10px;
     }
 
-    .lista-item td.selected {
+    .lista-item div.selected {
         background-color: #e0e0e0;
     }
+
+.black {
+    border: 1px solid #000;
+    background-color: white;
+}
 
 .produtos-semelhantes {
     display: flex;
@@ -208,8 +213,8 @@
     color: black;
     border-radius: 10px;
     padding: 10px;
-    width: 18%;
-    left: 40%;
+    width: 30%;
+    left: 35%;
     transform: translateX(-50%);
     top: 20%;
     transform: translateY(-50%);

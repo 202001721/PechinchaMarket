@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div_Editar_Foto</name>
+   <tag></tag>
+   <elementGuidId>9e006504-fd7b-42a4-a82c-c21cf1790540</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@onclick='choosePerfilImage()']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>div.pechincha-button.default-button-color.row-container.perfil-button-image-edit</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:text=&quot;Editar Foto&quot;i >> nth=0</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>82ada9a6-70ad-40bd-a448-5927c047fce9</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>pechincha-button default-button-color row-container perfil-button-image-edit</value>
+      <webElementGuid>2282a411-072c-4d6b-9d01-b73d1b5e0278</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>onclick</name>
+      <type>Main</type>
+      <value>choosePerfilImage()</value>
+      <webElementGuid>50b03924-f463-4820-a453-b576220618ea</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Editar Foto</value>
+      <webElementGuid>f3673575-9673-44b5-a5af-6e868fabf067</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;content-container&quot;)/div[@class=&quot;row&quot;]/div[1]/div[@class=&quot;thin-outline rounded-border column-container&quot;]/div[@class=&quot;perfil-image-div-position row-container small-gap-x bottom-y-flex&quot;]/div[@class=&quot;pechincha-button default-button-color row-container perfil-button-image-edit&quot;]</value>
+      <webElementGuid>2f2de04d-a8b4-4935-8b09-c797bb73254c</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:attributes</name>
+      <type>Main</type>
+      <value>//div[@onclick='choosePerfilImage()']</value>
+      <webElementGuid>bca279a4-66f3-4962-a8a8-2e1269889e97</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content-container']/div/div/div/div/div</value>
+      <webElementGuid>4ca07daf-3460-4b01-9d95-522ea9853e97</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Zoom'])[1]/following::div[1]</value>
+      <webElementGuid>d13f0e4d-20ea-4061-8545-a992eacd483c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Perfil'])[2]/following::div[6]</value>
+      <webElementGuid>0e453ecd-788b-4d39-8e93-6b3782b9eede</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Alterar foto'])[1]/preceding::div[1]</value>
+      <webElementGuid>107f4376-4483-423d-acce-35bb56d72d6a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Editar Foto'])[2]/preceding::div[4]</value>
+      <webElementGuid>1ab8c0a0-38c8-4068-af27-9cc717f6d6ff</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Editar Foto']/parent::*</value>
+      <webElementGuid>6b8af978-cfb3-4732-bc5b-ff954035afc3</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div/div/div/div/div</value>
+      <webElementGuid>351c255a-4fb1-4c0a-bc71-0f9d2d4e6d7d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//div[(text() = 'Editar Foto' or . = 'Editar Foto')]</value>
+      <webElementGuid>43191f76-6c45-46a6-b357-4a60a747ef6a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Agrupamentos'])[2]/following::div[6]</value>
+      <webElementGuid>906a486b-a50c-499c-a4af-1eda5d9b3844</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>
