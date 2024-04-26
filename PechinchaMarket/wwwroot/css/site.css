@@ -2290,15 +2290,26 @@ a.default-button-color:hover::before {
 }
 
 
-.back_list{
-     position: relative;
-     left: -200px;
+.back_list {
+    position: relative;
+    left: -200px;
+}
 
 .center-image {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50% 50%;
+}
+
+.empty {
+    width: var(--root-comerciante-logo);
+    height: var(--root-comerciante-logo);
+    background-image: url('../images/empty-box.png');
+    background-size: contain;
+    background-position: center;
+    display: block;
+    margin: auto;
 }
 
 .coming-soon {
