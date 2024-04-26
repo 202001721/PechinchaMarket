@@ -25,42 +25,124 @@
             </ul>
         </div>
     </div>
-    @if (User.IsInRole("Cliente"))
-    {
-        @foreach (var produto in Model)
+    <div class="small-padding-top column-container small-gap-y"><!--gradiante2-main-color-->
+        @if (User.IsInRole("Cliente"))
         {
-            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
-                <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
-                <span class="search-name">@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
-                <span id="categoria" hidden>@produto.ProdCategoria</span>
-                @foreach (var prodLoja in produto.ProdutoLojas)
-                {
-                    <span class="localizacao" hidden>@prodLoja.Loja.Address</span>
-                }
-                <span id="brand">@produto.Brand</span>
-                <span>
-                    @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
+            <div class="column-container column-container smaller-gap-y">
+                <h4 class="no-margin">Produtos em desconto</h4>
+                <div class="medium-padding-left medium-padding-right row-container small-gap-x carousel" id="discounted-products">
+                    <div class="carousel-nav prev" id="discounted-products-prev">
+                        <button><div class="carousel-arrow"></div></button>
+                    </div>
+                    @foreach (var produto in Model)
                     {
-                        var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
-                        var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
-                        var precoComDesconto = precoOriginal * (1 - desconto);
-                        <span><span id="price">@precoComDesconto</span>€/@produto.Unidade</span>
+                        <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
+                            <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
+                            <span class="search-name">@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                            <span id="categoria" hidden>@produto.ProdCategoria</span>
+                            @foreach (var prodLoja in produto.ProdutoLojas)
+                            {
+                                <span class="localizacao" hidden>@prodLoja.Loja.Address</span>
+                            }
+                            <span id="brand">@produto.Brand</span>
+                            <span>
+                                @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
+                                {
+                                    var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
+                                    var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
+                                    var precoComDesconto = precoOriginal * (1 - desconto);
+                                    <span><span id="price">@precoComDesconto</span>€/@produto.Unidade</span>
+                                }
+                                else
+                                {
+                                    <span>
+                                        <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()</span>€/@produto.Unidade
+                                    </span>
+                                }
+                            </span>
+                        </a>
                     }
-                    else
-                    {
-                        <span>
-                            <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()</span>€/@produto.Unidade
-                        </span>
-                    }
-                </span>
-            </a>
+                    <div class="column-container center-y-flex center-x-flex" style="display:none;" id="no-discounted-products-indicator">
+                        <span class="sad-face"></span>
+                        <h4>Oops</h4>
+                        <div>Não esta disponivel nenhum produto em desconto de momento.</div>
+                        <div>Por favor tente de novo mais tarde.</div>
+                    </div>
+
+                    <div class="carousel-nav next" id="discounted-products-next">
+                        <button><div class="carousel-arrow"></div></button>
+                    </div>
+                </div>
+            </div>
+           
+
         }
-    }
-    <div class="gradiante2-main-color">
-        
     </div>
 </body>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const carousel = document.querySelector(".carousel");
+        const prevButton = document.querySelector(".carousel-nav.prev button");
+        const nextButton = document.querySelector(".carousel-nav.next button");
+
+        // Add event listener for previous button
+        prevButton.addEventListener("click", function () {
+            carousel.scrollLeft -= 200; // Adjust the scroll distance as needed
+        });
+
+        // Add event listener for next button
+        nextButton.addEventListener("click", function () {
+            carousel.scrollLeft += 200; // Adjust the scroll distance as needed
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        var targetNode = document.getElementById('discounted-products');
+        var config = { childList: true, subtree: true };
+        var noProductsIndicator = targetNode.querySelector('#no-discounted-products-indicator');
+
+        var callback = function (mutationsList, observer) {
+            var anyVisible = Array.from(targetNode.children).some(function (child) {
+                return child.style.display !== 'none' && child.id !== 'no-discounted-products-indicator' && child.id !== 'discounted-products-prev' && child.id !== 'discounted-products-next';
+            });
+
+            if (anyVisible) {
+                noProductsIndicator.style.display = 'none';
+                if (targetNode.classList.contains('center-x-flex')) {
+                    targetNode.classList.remove('center-x-flex');
+                    targetNode.classList.add('right-flex');
+                }
+            } else {
+                noProductsIndicator.style.display = 'flex';
+                if (targetNode.classList.contains('right-flex')) {
+                    targetNode.classList.add('center-x-flex');
+                    targetNode.classList.remove('right-flex');
+                }
+            }
+        };
+
+        var observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+
+
+        var anyVisible = Array.from(targetNode.children).some(function (child) {
+            return child.style.display !== 'none' && child.id !== 'no-discounted-products-indicator' && child.id !== 'discounted-products-prev' && child.id !== 'discounted-products-next';
+        });
+
+        if (anyVisible) {
+            noProductsIndicator.style.display = 'none';
+            if (targetNode.classList.contains('center-x-flex')) {
+                targetNode.classList.remove('center-x-flex');
+                targetNode.classList.add('right-flex');
+            }
+        } else {
+            noProductsIndicator.style.display = 'flex';
+            if (targetNode.classList.contains('right-flex')) {
+                targetNode.classList.add('center-x-flex');
+                targetNode.classList.remove('right-flex');
+            }
+        }
+    });
+
     document.addEventListener("DOMContentLoaded",
         tooltipmsg("Bem-vindo a nossa plantaforma, esta é nossa pagina principal", "", "")
     );
