@@ -1,7 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
+    IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
 }
 
+@model List<Produto>;
 
 <script src="~/js/site.js"></script>
 <link type="text/css" rel="stylesheet" href="~/css/home.css" />
@@ -22,8 +25,39 @@
             </ul>
         </div>
     </div>
+    @if (User.IsInRole("Cliente"))
+    {
+        @foreach (var produto in Model)
+        {
+            <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
+                <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
+                <span class="search-name">@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                <span id="categoria" hidden>@produto.ProdCategoria</span>
+                @foreach (var prodLoja in produto.ProdutoLojas)
+                {
+                    <span class="localizacao" hidden>@prodLoja.Loja.Address</span>
+                }
+                <span id="brand">@produto.Brand</span>
+                <span>
+                    @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
+                    {
+                        var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
+                        var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
+                        var precoComDesconto = precoOriginal * (1 - desconto);
+                        <span><span id="price">@precoComDesconto</span>€/@produto.Unidade</span>
+                    }
+                    else
+                    {
+                        <span>
+                            <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()</span>€/@produto.Unidade
+                        </span>
+                    }
+                </span>
+            </a>
+        }
+    }
     <div class="gradiante2-main-color">
-
+        
     </div>
 </body>
 <script>
