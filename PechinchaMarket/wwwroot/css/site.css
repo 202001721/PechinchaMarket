@@ -2289,7 +2289,24 @@ a.default-button-color:hover::before {
     transition: max-height 0.2s ease-out;
 }
 
+
 .back_list{
      position: relative;
      left: -200px;
+
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50% 50%;
+}
+
+.coming-soon {
+    width: var(--root-comerciante-logo);
+    height: var(--root-comerciante-logo);
+    background-image: url('../images/coming-soon.png');
+    background-size: contain;
+    background-position: center;
+    display: block;
+    margin: auto;
 }

@@ -319,13 +319,6 @@ namespace PechinchaMarket.Controllers
         {
             return _context.Produto.Any(e => e.Id == id);
         }
-
-        
-        public  async Task<IActionResult> AddMultiplesProducts()
-        {
-
-            return View();
-        }
   
         // colocar mensagem de sucesso
         [HttpPost]
@@ -437,11 +430,6 @@ namespace PechinchaMarket.Controllers
             public float Price { get; set; }    
         }
 
-
-
-
      }
-
-       
-    }
+}
 
