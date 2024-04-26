@@ -2289,6 +2289,11 @@ a.default-button-color:hover::before {
     transition: max-height 0.2s ease-out;
 }
 
+
+.back_list{
+     position: relative;
+     left: -200px;
+
 .center-image {
     display: flex;
     justify-content: center;

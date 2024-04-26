@@ -6,7 +6,7 @@
 
     IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
 
-    float totalprice = 0;
+    float? totalprice = 0;
 }
 
 <script src="~/js/site.js"></script>
@@ -31,6 +31,11 @@
 <link type="text/css" rel="stylesheet" href="~/css/listedit.css" />
 
 <div class="content">
+    
+        <a class="back back_list" onclick="goBack()"></a>
+    
+   
+
     <div class="title">
         <form class="title2" asp-action="ChangeName">
             <input type="hidden" asp-for="Id" />
@@ -75,6 +80,7 @@
                     {
                         foreach (var dl in Model.detalheListaProds)
                         {
+                        
                             <tr>
                                 <td>
                                     <!--<input type="number" value="@dl.quantity" class="numberselect">-->
@@ -90,9 +96,23 @@
                                 <td>
                                     <img class="logo" src='@Url.Action( "show", "listaProdutos", new { id = comerciante.Where(c => c.UserId == dl.ProdutoLoja.Loja.UserId).First().Id })' />
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => dl.ProdutoLoja.Price)€
-                                </td>
+                                @if(dl.ProdutoLoja.Discount != null || dl.ProdutoLoja.Discount <= 0.0)
+                                {
+                                    var preco = dl.ProdutoLoja.Price - (dl.ProdutoLoja.Discount / 100) * dl.ProdutoLoja.Price;
+                                    totalprice += preco;
+                                    <td>
+                                       @preco
+                                    </td>
+                                }
+                                else
+                                {
+                                    var preco = dl.ProdutoLoja.Price;
+                                    totalprice += preco;
+                                    <td>
+                                       @preco
+                                    </td>
+                                }
+                               
                                 
                                 <td>
                                     @Html.DisplayFor(modelItem => dl.ProdutoLoja.Loja.Address)
@@ -117,10 +137,8 @@
                             Total:
                             @if (Model.detalheListaProds != null)
                             {
-                                @foreach (var dl in Model.detalheListaProds)
-                                {
-                                    totalprice = totalprice + (dl.quantity * dl.ProdutoLoja.Price);
-                                }
+                               
+
                                 @totalprice
                                 
                             }
@@ -166,9 +184,7 @@
             
         </div>
     </div>
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+ 
 </div>
 
 @section Scripts {

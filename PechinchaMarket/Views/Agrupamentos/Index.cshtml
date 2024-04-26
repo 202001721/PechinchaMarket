@@ -157,6 +157,21 @@
             }
         }
     }
+    function checkBoxList(checkbox,agrupamento) {
+
+        var btnRemove = document.getElementById("formRemoveLists_" + agrupamento);
+        var btnAdd = document.getElementById("addBtnList");
+            if (checkbox.checked) {
+            btnRemove.style.display = "block";
+                btnAdd.style.display = "none";
+        } else {
+            btnRemove.style.display = "none";
+            btnAdd.style.display = "block";
+
+        }
+       
+       
+    }
 
     document.addEventListener('DOMContentLoaded', function () {
         const specificDiv = document.getElementById('mensagem');
@@ -300,13 +315,13 @@
                         @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor){
                             <div class="buttons-end">
 
-                                <div class="pechincha-button default-button-color medium-button" onclick="chooseListToAdd(@counter);">Adicionar Lista</div>
-                                <form id="formRemoveLists_@item.Agrupamento.Id" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post">
-
-                                    <input class="pechincha-button delete-button-color medium-button" type="submit" value="Remover Listas" />
-
+                                 <div class="fit-content-width fit-content-height" id="addBtnList" onclick="chooseListToAdd(@counter);"><img src="~/images/add.png" class="img-button"></img></div>
+                               
+                                <form id="formRemoveLists_@item.Agrupamento.Id" asp-action="RemoveLists" asp-route-id="@item.Agrupamento.Id" method="post" style="display:none">
+                                        <input  class="img-button fit-content-width fit-content-height" type="image" value="Remover Listas" src="~/images/recycle-bin.png" />
                                 </form>
                             </div>
+                             
                    
                         }
                        
@@ -321,7 +336,7 @@
                                     @if(item.Privilegio == NivelPrivilegio.Admin || item.Privilegio == NivelPrivilegio.Editor)
                                     {
                                         <div class="center-y-flex smaller-gap-x">
-                                            <input form="formRemoveLists_@item.Agrupamento.Id" type="checkbox" name="listasId" value=@list.Id>
+                                            <input form="formRemoveLists_@item.Agrupamento.Id" type="checkbox" name="listasId" value=@list.Id onclick="checkBoxList(this,'@item.Agrupamento.Id')">
                                             <div>@list.name</div>
                                         </div>
                                       
