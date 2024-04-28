@@ -8,13 +8,17 @@
     var user = await UserManager.GetUserAsync(User);
 }
 
-<form id="searchForm" method="post" asp-controller="Search" asp-action="search" class="pechincha-navbar-option push-left push-right grow-flex display-flex search-input-size">
-    <div class="nav-search-div">
-        <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="sugest(this.value, this)" />
-        <button type="submit"></button>
-    </div>
-    <div class="sugestions" id="search-sugestions"></div>
-</form>
+@if (!User.IsInRole("Comerciante") && !User.IsInRole("Manager"))
+{
+    <form id="searchForm" method="post" asp-controller="Search" asp-action="search" class="pechincha-navbar-option push-left push-right grow-flex display-flex search-input-size">
+        <div class="nav-search-div">
+            <input type="text" id="searchInput" name="searchText" autocomplete="off" placeholder="Pesquisar" oninput="sugest(this.value, this)" />
+            <button type="submit"></button>
+        </div>
+        <div class="sugestions" id="search-sugestions"></div>
+    </form>
+}
+
 <div class="display-flex small-gap-x center-y-flex">
     @if (SignInManager.IsSignedIn(User) && user != null)
     {

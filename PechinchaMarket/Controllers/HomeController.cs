@@ -23,8 +23,7 @@ namespace PechinchaMarket.Controllers
 
         public IActionResult Index()
         {
-            if (User.IsInRole("Cliente"))
-            {
+           
                 var produtos = _context.Produto
                 .Where(p => p.ProdEstado == Estado.Approved)
                     .Include(p => p.ProdutoLojas)
@@ -46,10 +45,9 @@ namespace PechinchaMarket.Controllers
                 .Where(c => c.Id.Equals(_userManager.GetUserId)).Select(c => c.Preferencias).FirstOrDefault();
 
                 return View(produtos);
-            }
-            else {
-                return View();
-            }
+            
+            
+            
         }
 
         public IActionResult Privacy()

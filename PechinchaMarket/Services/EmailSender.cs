@@ -19,9 +19,6 @@ namespace PechinchaMarket.Services
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("pechinchamarket@outlook.com", "PechinchaMarket");
 
-           
-           
-
             var to = new EmailAddress(toEmail,username);
             var plainTextContent = message;
             var htmlContent = "";

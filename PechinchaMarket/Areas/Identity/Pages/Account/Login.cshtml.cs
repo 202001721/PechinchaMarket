@@ -124,6 +124,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
               
 
                 var ComercialEmails = from c in _context.Comerciante join u in _context.Users on c.UserId equals u.Id select u.Email;
+                var ClientsEmails =  from c in _context.Cliente join u in _context.Users on c.UserId equals u.Id select u.Email;
                 if (ComercialEmails.Contains(Input.Email)) //if who is logging in is a Comercial Account
                 {
                     var isApproved = from c in _context.Comerciante 
@@ -136,8 +137,8 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     {
                         if (result.Succeeded)
                         {
-                            _logger.LogInformation("User logged in.");
-                            return LocalRedirect(returnUrl);
+                            _logger.LogInformation("Utilizador logado");
+                            return LocalRedirect(Url.Content("~/Produtos"));
                         }
                         if (result.RequiresTwoFactor)
                         {
@@ -145,28 +146,50 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                         }
                         if (result.IsLockedOut)
                         {
-                            _logger.LogWarning("User account locked out.");
+                            _logger.LogWarning("A sua conta está bloqueada.");
                             return RedirectToPage("./Lockout");
                         }
                         else
                         {
-                            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                            ModelState.AddModelError(string.Empty, "Tentativa de login inválida");
                             return Page();
                         }
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "User isn't approved");
+                        ModelState.AddModelError(string.Empty, "O utilizador ainda não foi aprovado");
                         return Page();
                     }
 
+                } else if (Input.Email.Equals("admin@gmail.com"))
+                {
+                    if (result.Succeeded)
+                    {
+
+                        _logger.LogInformation("Utilizador logado.");
+                        return LocalRedirect("~/Manager/NonAprovedProducts");
+                    }
+                    if (result.RequiresTwoFactor)
+                    {
+                        return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    }
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning("Conta bloqueada");
+                        return RedirectToPage("./Lockout");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Email ou senha incorretos");
+                        return Page();
+                    }
                 }
                 else
                 {
                     if (result.Succeeded)
                     {
 
-                        _logger.LogInformation("User logged in.");
+                        _logger.LogInformation("Utilizador logado.");
                         return LocalRedirect(returnUrl);
                     }
                     if (result.RequiresTwoFactor)
@@ -175,12 +198,12 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
                     }
                     if (result.IsLockedOut)
                     {
-                        _logger.LogWarning("User account locked out.");
+                        _logger.LogWarning("Conta bloqueada");
                         return RedirectToPage("./Lockout");
                     }
                     else
                     {
-                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        ModelState.AddModelError(string.Empty, "Email ou senha incorretos");
                         return Page();
                     }
                 }

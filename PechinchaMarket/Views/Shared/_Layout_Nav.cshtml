@@ -21,11 +21,28 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 small-padding-left small-padding-right">
             <div class="edges-flex max-width small-gap-x">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                @if (User.IsInRole("Comerciante"))
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Produtos" asp-action="Index">
 
-                    <span class="small-icon-logo"></span> PechinchaMarket
+                        <span class="small-icon-logo"></span> PechinchaMarket
 
-                </a>
+                    </a>
+                }else if(User.IsInRole("Manager")){
+                    <a class="navbar-brand" asp-area="" asp-controller="Manager" asp-action="NonAprovedProducts">
+                        <span class="small-icon-logo"></span> PechinchaMarket
+
+                    </a>
+                }
+                else
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+
+                        <span class="small-icon-logo"></span> PechinchaMarket
+
+                    </a>
+                }
+
                 <div class="max-width display-flex center-y-flex small-gap-x pechincha-navbar">
                     <partial name="_LoginPartial" />
                 </div>

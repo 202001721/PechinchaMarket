@@ -7,6 +7,7 @@
 
 @model List<Produto>;
 
+
 <script src="~/js/site.js"></script>
 <link type="text/css" rel="stylesheet" href="~/css/home.css" />
 
@@ -14,14 +15,10 @@
     <div class="background">
         <div class="searchbox">
             <p class="title">Encontre os produtos que procura por mais barato!</p>
-            <p>Nós somos uma comunidade com mais de 3000 empresas e milhões de produtos que o ajudam a encontrar o que deseja</p>
+            <p>Poupe tempo e dinheiro concentrando as suas buscas em um único lugar, em vez de perder tempo a procurar por produtos em vários sites.
+                Além disso, terá uma visão clara de onde encontrar as melhores ofertas.</p>
             
-            <form id="searchForm" method="post" asp-controller="Search" asp-action="search">
-                <div class="nav-search-div">
-                    <input type="text" id="searchInput" name="searchText" autocomplete="off" />
-                    <button type="submit"></button>
-                </div>
-            </form>
+       
             <ul class="navbar-nav flex-grow-1">
             </ul>
         </div>
@@ -64,10 +61,9 @@
                         </a>
                     }
                     <div class="column-container center-y-flex center-x-flex" style="display:none;" id="no-discounted-products-indicator">
-                        <span class="sad-face"></span>
-                        <h4>Oops</h4>
-                        <div>Não esta disponivel nenhum produto em desconto de momento.</div>
-                        <div>Por favor tente de novo mais tarde.</div>
+               
+                        <div>Selecione preferências para receber recomendações.</div>
+                     
                     </div>
 
                     <div class="carousel-nav next" id="discounted-products-next">
@@ -77,15 +73,16 @@
             </div>
         }
 
-        @if (User.IsInRole("Cliente"))
+        @if (!User.IsInRole("Cliente") || User == null)
         {
             <div class="column-container column-container smaller-gap-y">
-                <h4 class="no-margin">Produtos em desconto</h4>
+                <h4 class="no-margin">Produtos em recomendados</h4>
                 <div class="medium-padding-left medium-padding-right row-container small-gap-x carousel" id="discounted-products">
                     <div class="carousel-nav prev" id="discounted-products-prev">
                         <button><div class="carousel-arrow"></div></button>
                     </div>
-                    @foreach (var produto in Model.Where(p => p.ProdutoLojas.Any(p1 => p1.Discount > 0)).ToList())
+                    @foreach (var produto in Model.ToList())
+                    // Where(p => p.ProdutoLojas.Any(p1 => p1.Discount > 0)).ToList())
                     {
                         <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                             <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
@@ -113,12 +110,7 @@
                             </span>
                         </a>
                     }
-                    <div class="column-container center-y-flex center-x-flex" style="display:none;" id="no-discounted-products-indicator">
-                        <span class="sad-face"></span>
-                        <h4>Oops</h4>
-                        <div>Não esta disponivel nenhum produto em desconto de momento.</div>
-                        <div>Por favor tente de novo mais tarde.</div>
-                    </div>
+                  
 
                     <div class="carousel-nav next" id="discounted-products-next">
                         <button><div class="carousel-arrow"></div></button>
