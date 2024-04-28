@@ -9,12 +9,15 @@ namespace PechinchaMarket.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> _userManager;
         private readonly DBPechinchaMarketContext _context;
 
         public HomeController(DBPechinchaMarketContext context,
+            Microsoft.AspNetCore.Identity.UserManager<PechinchaMarketUser> userManager,
                              ILogger<HomeController> logger)
         {
             _context = context;
+            _userManager = userManager;
             _logger = logger;
         }
 
@@ -25,10 +28,22 @@ namespace PechinchaMarket.Controllers
                 var produtos = _context.Produto
                 .Where(p => p.ProdEstado == Estado.Approved)
                     .Include(p => p.ProdutoLojas)
-                        .ThenInclude(p => p.Loja)
-                .Where(p => p.ProdutoLojas.Any(p1 => p1.Discount > 0)).ToList();
+                        .ThenInclude(p => p.Loja).ToList();
 
                 ViewData["Comerciante"] = _context.Comerciante;
+
+                var userId = _userManager.GetUserId(User);
+                if (userId == null)
+                {
+                    ViewData["Categorias"] = new List<Categoria>();
+                }
+                else
+                {
+                    ViewData["Categorias"] = _context.Cliente.Where(c => c.UserId == userId).Select(c => c.Preferencias).FirstOrDefault();
+                }
+
+                    var categorias = _context.Cliente
+                .Where(c => c.Id.Equals(_userManager.GetUserId)).Select(c => c.Preferencias).FirstOrDefault();
 
                 return View(produtos);
             }
