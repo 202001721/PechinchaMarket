@@ -220,7 +220,6 @@
         var targetNode = document.getElementById('search-results');
         var config = { childList: true, subtree: true };
         var noProductsIndicator = targetNode.querySelector('#no-products-indicator');
-        console.log(noProductsIndicator);
 
         var callback = function (mutationsList, observer) {
             var anyVisible = Array.from(targetNode.children).some(function (child) {

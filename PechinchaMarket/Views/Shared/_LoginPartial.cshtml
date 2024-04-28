@@ -94,19 +94,15 @@
 </div>
 
 <script>
-    document.addEventListener('click', function (event) {
-        var targetDiv1 = document.getElementById("manage");
-        var targetDiv2 = document.getElementById("tooltip-icon");
-        var enableDiv = document.getElementById("tooltip-message");
+    document.addEventListener("DOMContentLoaded", function () {
+        const carousel = document.querySelector(".carousel");
+        const carouselChildren = carousel.children;
 
-
-        if (!enableDiv.classList.contains("display-none") && !(targetDiv2.contains(event.target) || enableDiv.contains(event.target))){
-            toggleTooltipMessage();
-        }
-
-        if (!targetDiv1.children[0].classList.contains("display-none") && !targetDiv1.contains(event.target)) {
-            displayperfilmenu();
-        }
+        Array.from(carouselChildren).forEach(child => {
+            if (child.clientWidth < child.scrollWidth) {
+                child.classList.add("wrap-highlight");
+            }
+        });
     });
 
     function toggleTooltipMessage(){ 
