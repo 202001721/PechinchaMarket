@@ -2323,7 +2323,7 @@ a.default-button-color:hover::before {
 }
 
 .carousel {
-    display: flex;
+    display: relative;
     flex-wrap: nowrap;
     overflow-x: auto;
 }
@@ -2333,7 +2333,7 @@ a.default-button-color:hover::before {
     }
 
 .carousel-nav {
-    position: fixed;
+    position: absolute;
     background-color: white;
     height: 320px;
     width: calc(4em - 20px);
@@ -2346,8 +2346,8 @@ a.default-button-color:hover::before {
     left: 50%;
     transform: translateY(-50%);
     transform: translateX(-50%);
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 15px;
     border: none;
     background-color: white;
     font-size: 20px;
@@ -2361,7 +2361,6 @@ a.default-button-color:hover::before {
 .carousel-arrow {
     position: absolute;
     top: 50%;
-    left: 10px; /* Adjust position of the arrow */
     width: 0;
     height: 0;
     border-style: solid;
@@ -2379,8 +2378,6 @@ a.default-button-color:hover::before {
     transform: translateY(-50%) rotate(180deg);
 }
 
-
-
     .carousel-nav.prev {
         left: 0px;
     }
@@ -2388,3 +2385,7 @@ a.default-button-color:hover::before {
     .carousel-nav.next {
         right: 0px;
     }
+
+.parent-recomendation {
+    position: relative;
+}

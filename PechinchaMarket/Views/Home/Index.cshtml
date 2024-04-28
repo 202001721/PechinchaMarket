@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 
     IEnumerable<Comerciante> comerciante = ViewData["Comerciante"] as IEnumerable<Comerciante>;
+    IEnumerable<Categoria> categorias = ViewData["Categorias"] as IEnumerable<Categoria>;
 }
 
 @model List<Produto>;
@@ -28,13 +29,13 @@
     <div class="small-padding-top column-container small-gap-y"><!--gradiante2-main-color-->
         @if (User.IsInRole("Cliente"))
         {
-            <div class="column-container column-container smaller-gap-y">
-                <h4 class="no-margin">Produtos em desconto</h4>
+            <div class="parent-recomendation column-container column-container smaller-gap-y">
+                <h4 class="no-margin">Produtos Recomendados</h4>
                 <div class="medium-padding-left medium-padding-right row-container small-gap-x carousel" id="discounted-products">
                     <div class="carousel-nav prev" id="discounted-products-prev">
                         <button><div class="carousel-arrow"></div></button>
                     </div>
-                    @foreach (var produto in Model)
+                    @foreach (var produto in Model.Where(p => categorias.Contains(p.ProdCategoria)))
                     {
                         <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
                             <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
@@ -74,8 +75,56 @@
                     </div>
                 </div>
             </div>
-           
+        }
 
+        @if (User.IsInRole("Cliente"))
+        {
+            <div class="column-container column-container smaller-gap-y">
+                <h4 class="no-margin">Produtos em desconto</h4>
+                <div class="medium-padding-left medium-padding-right row-container small-gap-x carousel" id="discounted-products">
+                    <div class="carousel-nav prev" id="discounted-products-prev">
+                        <button><div class="carousel-arrow"></div></button>
+                    </div>
+                    @foreach (var produto in Model.Where(p => p.ProdutoLojas.Any(p1 => p1.Discount > 0)).ToList())
+                    {
+                        <a class="search-result column-container center-y-flex edges-flex" asp-area="" asp-controller="Search" asp-action="AddToList" asp-route-argumentName="@produto.Id" asp-route-id="@produto.Id">
+                            <span class="search-image" style="background-image: url('@Url.Action( "ShowImage", "Manager", new { id = produto.Id})')"></span>
+                            <span class="search-name">@produto.Name - @comerciante.Where(c => c.UserId == produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Loja.UserId).FirstOrDefault().Name</span>
+                            <span id="categoria" hidden>@produto.ProdCategoria</span>
+                            @foreach (var prodLoja in produto.ProdutoLojas)
+                            {
+                                <span class="localizacao" hidden>@prodLoja.Loja.Address</span>
+                            }
+                            <span id="brand">@produto.Brand</span>
+                            <span>
+                                @if (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount > 0)
+                                {
+                                    var precoOriginal = @produto.ProdutoLojas.FirstOrDefault().Price;
+                                    var desconto = (@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Discount) / 100;
+                                    var precoComDesconto = precoOriginal * (1 - desconto);
+                                    <span><span id="price">@precoComDesconto</span>€/@produto.Unidade</span>
+                                }
+                                else
+                                {
+                                    <span>
+                                        <span id="price">@produto.ProdutoLojas.OrderBy(x => x.Price).FirstOrDefault().Price.ToString()</span>€/@produto.Unidade
+                                    </span>
+                                }
+                            </span>
+                        </a>
+                    }
+                    <div class="column-container center-y-flex center-x-flex" style="display:none;" id="no-discounted-products-indicator">
+                        <span class="sad-face"></span>
+                        <h4>Oops</h4>
+                        <div>Não esta disponivel nenhum produto em desconto de momento.</div>
+                        <div>Por favor tente de novo mais tarde.</div>
+                    </div>
+
+                    <div class="carousel-nav next" id="discounted-products-next">
+                        <button><div class="carousel-arrow"></div></button>
+                    </div>
+                </div>
+            </div>
         }
     </div>
 </body>
