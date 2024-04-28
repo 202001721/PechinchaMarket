@@ -287,6 +287,13 @@ namespace PechinchaMarket.Controllers
                     var main = _context.ListaProdutos.ToList();
                     var listaprodutos_context = main.Where(x => x.Id.ToString().Equals(listaId)).FirstOrDefault();
                     agrupamento_context.ListaProdutos.Add(listaprodutos_context);
+
+                    if(listaprodutos_context.agrupamentos == null)
+                    {
+                        listaprodutos_context.agrupamentos = new List<Agrupamento>();
+                    }
+
+                    listaprodutos_context.agrupamentos.Add(agrupamento_context);
                     //_context.Update(agrupamento);
                     await _context.SaveChangesAsync();
                 }
