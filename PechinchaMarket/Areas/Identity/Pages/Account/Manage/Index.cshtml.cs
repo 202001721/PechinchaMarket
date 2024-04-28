@@ -99,7 +99,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             ///  Image that represents the user of type Comerciante
             /// </summary>
 
-            [Required]
+            [Required(ErrorMessage = "O logo é obrigatório")]
             [Display(Name ="Logo")]
             public IFormFile Logo { get; set; }
 
@@ -109,7 +109,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage ="O nome de utilizador está incorreto")]
             [DataType(DataType.Text)]
             [Display(Name = "Nome")]
             public string UserName { get; set; }
@@ -118,11 +118,11 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             /// <summary>
             ///     
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "O contacto é obrigatório")]
             [Display(Name = "Contacto")]
             public int UserPhone { get; set;}
 
-            [Required]
+            [Required(ErrorMessage = "O localização é obrigatória")]
             [Display(Name = "Localização")]
             public string Location { get; set; }
 
@@ -139,7 +139,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "A senha do utilizador está incorreta")]
             [DataType(DataType.Password)]
             [Display(Name = "Password atual")]
             public string OldPassword { get; set; }
@@ -148,7 +148,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "As senhas não correspondem")]
             [StringLength(100, ErrorMessage = "A {0} deve ser pelo menos {2} e no maximo {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Nova password")]
@@ -163,7 +163,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account.Manage
             [Compare("NewPassword", ErrorMessage = "A nova password e a password de confirmação não são iguais.")]
             public string ConfirmPassword { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "A foto é obrigatória")]
             [Display(Name ="Selecione uma foto")]
             public string NewPhoto { get; set; }
 
