@@ -320,7 +320,11 @@ namespace PechinchaMarket.Controllers
         {
             return _context.Produto.Any(e => e.Id == id);
         }
-  
+        public async Task<ActionResult> AddMultiplesProducts()
+        {
+            return View();
+        }
+
         // colocar mensagem de sucesso
         [HttpPost]
         public async Task<IActionResult> ProcessarCSV(IFormFile arquivoCSV, List<IFormFile> files)
