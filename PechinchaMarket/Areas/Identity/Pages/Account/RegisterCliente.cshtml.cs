@@ -166,6 +166,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    user.EmailConfirmed = true;
                     var callbackUrl = Url.Page(
                         "/Account/RegisterConfirmation",
                         pageHandler: null,
@@ -181,6 +182,7 @@ namespace PechinchaMarket.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
+    
                         _context.Add(cliente);
                         await _context.SaveChangesAsync();
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
