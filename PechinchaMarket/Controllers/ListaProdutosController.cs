@@ -52,8 +52,13 @@ namespace PechinchaMarket.Controllers
             var model = lista.Include(x => x.agrupamentos);
 
 
-            var agMembro = (from am in _context.AgrupamentosMembro where am.Cliente.Id == clienteId select am).Include(x => x.Agrupamento).ThenInclude(x => x.ListaProdutos).First();
-            var agrupamentos = from ag in _context.Agrupamentos where ag == agMembro.Agrupamento select ag;
+            var agMembro = (from am in _context.AgrupamentosMembro where am.Cliente.Id == clienteId select am).Include(x => x.Agrupamento).ThenInclude(x => x.ListaProdutos);
+
+            var agrupamentos = new List<Agrupamento>();
+            foreach (AgrupamentoMembro am in agMembro)
+            {
+                agrupamentos.Add(am.Agrupamento);
+            }
 
 
             ViewData["Agrupamentos"] = agrupamentos;
