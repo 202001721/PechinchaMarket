@@ -2323,7 +2323,7 @@ a.default-button-color:hover::before {
 }
 
 .carousel {
-    display: relative;
+    display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
 }
@@ -2333,7 +2333,7 @@ a.default-button-color:hover::before {
     }
 
 .carousel-nav {
-    position: absolute;
+    position: fixed;
     background-color: white;
     height: 320px;
     width: calc(4em - 20px);
