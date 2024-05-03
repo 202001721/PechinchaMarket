@@ -45,9 +45,6 @@ namespace PechinchaMarket.Controllers
                 .Where(c => c.Id.Equals(_userManager.GetUserId)).Select(c => c.Preferencias).FirstOrDefault();
 
                 return View(produtos);
-            
-            
-            
         }
 
         public IActionResult Privacy()
