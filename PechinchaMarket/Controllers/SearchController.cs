@@ -595,6 +595,7 @@ namespace PechinchaMarket.Controllers
         public List<Produto> SimilarProducts(int? id)
         {
             var product = _context.Produto.FirstOrDefault(p => p.Id == id);
+            var blacklisted = new List<string> { "a", "o", "de", "com" };
 
             if (product == null)
             {
